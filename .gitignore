@@ -1,0 +1,23 @@
+# environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# documentation build (Sphinx HTML and the Pagefind index inside it)
+docs/_build/
+node_modules/
+
+# macOS and editors
+.DS_Store
+.idea/
+.vscode/
+*.sublime-workspace
+
+# generated capture data (workbooks, probe output); the TSVs under tests/captures are committed
+capture/build/

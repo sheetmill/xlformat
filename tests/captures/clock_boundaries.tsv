@@ -1,0 +1,198 @@
+# suite: clock_boundaries
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-10-24
+# generator: capture.cases.clock_boundaries
+# method: width none=clipboard
+# numbers: repr
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+clock_boundaries	00:00:00.5-total	float	5.787037037037037e-06	'ss'			0	01		fast
+clock_boundaries	00:00:00.5-sum	float	5.787037037037037e-06	'ss'			0	01		full
+clock_boundaries	00:00:00.5-nested	float	5.787037037037037e-06	'ss'			0	01		full
+clock_boundaries	00:00:00.5-day44927	float	44927.000005787035	'ss'			0	00		full
+clock_boundaries	00:00:29.5-total	float	0.0003414351851851852	'ss'			0	30		full
+clock_boundaries	00:00:29.5-sum	float	0.0003414351851851852	'ss'			0	30		full
+clock_boundaries	00:00:29.5-nested	float	0.0003414351851851852	'ss'			0	30		full
+clock_boundaries	00:00:29.5-day44927	float	44927.00034143519	'ss'			0	30		full
+clock_boundaries	00:00:59.5-total	float	0.0006886574074074074	'ss'			0	59		full
+clock_boundaries	00:00:59.5-sum	float	0.0006886574074074074	'ss'			0	59		full
+clock_boundaries	00:00:59.5-nested	float	0.0006886574074074074	'ss'			0	59		full
+clock_boundaries	00:00:59.5-day44927	float	44927.000688657405	'ss'			0	59		full
+clock_boundaries	00:59:59.5-total	float	0.04166087962962963	'ss'			0	00		full
+clock_boundaries	00:59:59.5-sum	float	0.04166087962962963	'ss'			0	00		full
+clock_boundaries	00:59:59.5-nested	float	0.04166087962962963	'ss'			0	00		full
+clock_boundaries	00:59:59.5-day44927	float	44927.04166087963	'ss'			0	59		full
+clock_boundaries	01:00:00.5-total	float	0.041672453703703705	'ss'			0	01		full
+clock_boundaries	01:00:00.5-sum	float	0.041672453703703705	'ss'			0	01		full
+clock_boundaries	01:00:00.5-nested	float	0.041672453703703705	'ss'			0	01		full
+clock_boundaries	01:00:00.5-day44927	float	44927.041672453706	'ss'			0	01		full
+clock_boundaries	06:30:30.5-total	float	0.2711863425925926	'ss'			0	31		full
+clock_boundaries	06:30:30.5-sum	float	0.27118634259259256	'ss'			0	30		full
+clock_boundaries	06:30:30.5-nested	float	0.2711863425925926	'ss'			0	31		full
+clock_boundaries	06:30:30.5-day44927	float	44927.271186342594	'ss'			0	30		full
+clock_boundaries	11:59:59.5-total	float	0.499994212962963	'ss'			0	00		full
+clock_boundaries	11:59:59.5-sum	float	0.499994212962963	'ss'			0	00		full
+clock_boundaries	11:59:59.5-nested	float	0.499994212962963	'ss'			0	00		full
+clock_boundaries	11:59:59.5-day44927	float	44927.499994212965	'ss'			0	00		full
+clock_boundaries	12:00:00.5-total	float	0.500005787037037	'ss'			0	00		full
+clock_boundaries	12:00:00.5-sum	float	0.500005787037037	'ss'			0	00		full
+clock_boundaries	12:00:00.5-nested	float	0.500005787037037	'ss'			0	00		full
+clock_boundaries	12:00:00.5-day44927	float	44927.500005787035	'ss'			0	00		full
+clock_boundaries	23:59:59.5-total	float	0.999994212962963	'ss'			0	00		full
+clock_boundaries	23:59:59.5-sum	float	0.999994212962963	'ss'			0	00		full
+clock_boundaries	23:59:59.5-nested	float	0.999994212962963	'ss'			0	00		full
+clock_boundaries	23:59:59.5-day44927	float	44927.999994212965	'ss'			0	00		full
+clock_boundaries	23:59:29.5-total	float	0.9996469907407407	'ss'			0	30		full
+clock_boundaries	23:59:29.5-sum	float	0.9996469907407407	'ss'			0	30		full
+clock_boundaries	23:59:29.5-nested	float	0.9996469907407407	'ss'			0	30		full
+clock_boundaries	23:59:29.5-day44927	float	44927.99964699074	'ss'			0	29		full
+clock_boundaries	00:00:00.5-total	float	5.787037037037037e-06	'[mm]:ss'			0	00:01		fast
+clock_boundaries	00:00:00.5-sum	float	5.787037037037037e-06	'[mm]:ss'			0	00:01		full
+clock_boundaries	00:00:00.5-nested	float	5.787037037037037e-06	'[mm]:ss'			0	00:01		full
+clock_boundaries	00:00:00.5-day44927	float	44927.000005787035	'[mm]:ss'			0	64694880:00		fast
+clock_boundaries	00:00:29.5-total	float	0.0003414351851851852	'[mm]:ss'			0	00:30		full
+clock_boundaries	00:00:29.5-sum	float	0.0003414351851851852	'[mm]:ss'			0	00:30		full
+clock_boundaries	00:00:29.5-nested	float	0.0003414351851851852	'[mm]:ss'			0	00:30		full
+clock_boundaries	00:00:29.5-day44927	float	44927.00034143519	'[mm]:ss'			0	64694880:30		full
+clock_boundaries	00:00:59.5-total	float	0.0006886574074074074	'[mm]:ss'			0	01:59		full
+clock_boundaries	00:00:59.5-sum	float	0.0006886574074074074	'[mm]:ss'			0	01:59		full
+clock_boundaries	00:00:59.5-nested	float	0.0006886574074074074	'[mm]:ss'			0	01:59		full
+clock_boundaries	00:00:59.5-day44927	float	44927.000688657405	'[mm]:ss'			0	64694881:59		full
+clock_boundaries	00:59:59.5-total	float	0.04166087962962963	'[mm]:ss'			0	60:00		full
+clock_boundaries	00:59:59.5-sum	float	0.04166087962962963	'[mm]:ss'			0	60:00		full
+clock_boundaries	00:59:59.5-nested	float	0.04166087962962963	'[mm]:ss'			0	60:00		full
+clock_boundaries	00:59:59.5-day44927	float	44927.04166087963	'[mm]:ss'			0	64694940:59		full
+clock_boundaries	01:00:00.5-total	float	0.041672453703703705	'[mm]:ss'			0	60:01		full
+clock_boundaries	01:00:00.5-sum	float	0.041672453703703705	'[mm]:ss'			0	60:01		full
+clock_boundaries	01:00:00.5-nested	float	0.041672453703703705	'[mm]:ss'			0	60:01		full
+clock_boundaries	01:00:00.5-day44927	float	44927.041672453706	'[mm]:ss'			0	64694940:01		full
+clock_boundaries	06:30:30.5-total	float	0.2711863425925926	'[mm]:ss'			0	390:31		fast
+clock_boundaries	06:30:30.5-sum	float	0.27118634259259256	'[mm]:ss'			0	390:30		full
+clock_boundaries	06:30:30.5-nested	float	0.2711863425925926	'[mm]:ss'			0	390:31		full
+clock_boundaries	06:30:30.5-day44927	float	44927.271186342594	'[mm]:ss'			0	64695270:30		full
+clock_boundaries	11:59:59.5-total	float	0.499994212962963	'[mm]:ss'			0	720:00		full
+clock_boundaries	11:59:59.5-sum	float	0.499994212962963	'[mm]:ss'			0	720:00		full
+clock_boundaries	11:59:59.5-nested	float	0.499994212962963	'[mm]:ss'			0	720:00		full
+clock_boundaries	11:59:59.5-day44927	float	44927.499994212965	'[mm]:ss'			0	64695600:00		full
+clock_boundaries	12:00:00.5-total	float	0.500005787037037	'[mm]:ss'			0	720:00		full
+clock_boundaries	12:00:00.5-sum	float	0.500005787037037	'[mm]:ss'			0	720:00		full
+clock_boundaries	12:00:00.5-nested	float	0.500005787037037	'[mm]:ss'			0	720:00		full
+clock_boundaries	12:00:00.5-day44927	float	44927.500005787035	'[mm]:ss'			0	64695600:00		full
+clock_boundaries	23:59:59.5-total	float	0.999994212962963	'[mm]:ss'			0	1440:00		fast
+clock_boundaries	23:59:59.5-sum	float	0.999994212962963	'[mm]:ss'			0	1440:00		full
+clock_boundaries	23:59:59.5-nested	float	0.999994212962963	'[mm]:ss'			0	1440:00		full
+clock_boundaries	23:59:59.5-day44927	float	44927.999994212965	'[mm]:ss'			0	64696320:00		full
+clock_boundaries	23:59:29.5-total	float	0.9996469907407407	'[mm]:ss'			0	1439:30		full
+clock_boundaries	23:59:29.5-sum	float	0.9996469907407407	'[mm]:ss'			0	1439:30		full
+clock_boundaries	23:59:29.5-nested	float	0.9996469907407407	'[mm]:ss'			0	1439:30		full
+clock_boundaries	23:59:29.5-day44927	float	44927.99964699074	'[mm]:ss'			0	64696319:29		full
+clock_boundaries	00:00:00.5-total	float	5.787037037037037e-06	'h:mm:ss'			0	0:00:01		fast
+clock_boundaries	00:00:00.5-sum	float	5.787037037037037e-06	'h:mm:ss'			0	0:00:01		full
+clock_boundaries	00:00:00.5-nested	float	5.787037037037037e-06	'h:mm:ss'			0	0:00:01		full
+clock_boundaries	00:00:00.5-day44927	float	44927.000005787035	'h:mm:ss'			0	0:00:00		full
+clock_boundaries	00:00:29.5-total	float	0.0003414351851851852	'h:mm:ss'			0	0:00:30		full
+clock_boundaries	00:00:29.5-sum	float	0.0003414351851851852	'h:mm:ss'			0	0:00:30		full
+clock_boundaries	00:00:29.5-nested	float	0.0003414351851851852	'h:mm:ss'			0	0:00:30		full
+clock_boundaries	00:00:29.5-day44927	float	44927.00034143519	'h:mm:ss'			0	0:00:30		full
+clock_boundaries	00:00:59.5-total	float	0.0006886574074074074	'h:mm:ss'			0	0:00:59		full
+clock_boundaries	00:00:59.5-sum	float	0.0006886574074074074	'h:mm:ss'			0	0:00:59		full
+clock_boundaries	00:00:59.5-nested	float	0.0006886574074074074	'h:mm:ss'			0	0:00:59		full
+clock_boundaries	00:00:59.5-day44927	float	44927.000688657405	'h:mm:ss'			0	0:00:59		full
+clock_boundaries	00:59:59.5-total	float	0.04166087962962963	'h:mm:ss'			0	1:00:00		full
+clock_boundaries	00:59:59.5-sum	float	0.04166087962962963	'h:mm:ss'			0	1:00:00		full
+clock_boundaries	00:59:59.5-nested	float	0.04166087962962963	'h:mm:ss'			0	1:00:00		full
+clock_boundaries	00:59:59.5-day44927	float	44927.04166087963	'h:mm:ss'			0	0:59:59		full
+clock_boundaries	01:00:00.5-total	float	0.041672453703703705	'h:mm:ss'			0	1:00:01		full
+clock_boundaries	01:00:00.5-sum	float	0.041672453703703705	'h:mm:ss'			0	1:00:01		full
+clock_boundaries	01:00:00.5-nested	float	0.041672453703703705	'h:mm:ss'			0	1:00:01		full
+clock_boundaries	01:00:00.5-day44927	float	44927.041672453706	'h:mm:ss'			0	1:00:01		full
+clock_boundaries	06:30:30.5-total	float	0.2711863425925926	'h:mm:ss'			0	6:30:31		full
+clock_boundaries	06:30:30.5-sum	float	0.27118634259259256	'h:mm:ss'			0	6:30:30		full
+clock_boundaries	06:30:30.5-nested	float	0.2711863425925926	'h:mm:ss'			0	6:30:31		full
+clock_boundaries	06:30:30.5-day44927	float	44927.271186342594	'h:mm:ss'			0	6:30:30		full
+clock_boundaries	11:59:59.5-total	float	0.499994212962963	'h:mm:ss'			0	12:00:00		fast
+clock_boundaries	11:59:59.5-sum	float	0.499994212962963	'h:mm:ss'			0	12:00:00		full
+clock_boundaries	11:59:59.5-nested	float	0.499994212962963	'h:mm:ss'			0	12:00:00		full
+clock_boundaries	11:59:59.5-day44927	float	44927.499994212965	'h:mm:ss'			0	12:00:00		full
+clock_boundaries	12:00:00.5-total	float	0.500005787037037	'h:mm:ss'			0	12:00:00		full
+clock_boundaries	12:00:00.5-sum	float	0.500005787037037	'h:mm:ss'			0	12:00:00		full
+clock_boundaries	12:00:00.5-nested	float	0.500005787037037	'h:mm:ss'			0	12:00:00		full
+clock_boundaries	12:00:00.5-day44927	float	44927.500005787035	'h:mm:ss'			0	12:00:00		full
+clock_boundaries	23:59:59.5-total	float	0.999994212962963	'h:mm:ss'			0	0:00:00		full
+clock_boundaries	23:59:59.5-sum	float	0.999994212962963	'h:mm:ss'			0	0:00:00		full
+clock_boundaries	23:59:59.5-nested	float	0.999994212962963	'h:mm:ss'			0	0:00:00		full
+clock_boundaries	23:59:59.5-day44927	float	44927.999994212965	'h:mm:ss'			0	0:00:00		full
+clock_boundaries	23:59:29.5-total	float	0.9996469907407407	'h:mm:ss'			0	23:59:30		full
+clock_boundaries	23:59:29.5-sum	float	0.9996469907407407	'h:mm:ss'			0	23:59:30		full
+clock_boundaries	23:59:29.5-nested	float	0.9996469907407407	'h:mm:ss'			0	23:59:30		full
+clock_boundaries	23:59:29.5-day44927	float	44927.99964699074	'h:mm:ss'			0	23:59:29		full
+clock_boundaries	leak-0	int	0	'm/d/yy General'			0	1/0/00 0.5		fast
+clock_boundaries	leak-0.5	float	0.5	'm/d/yy General'			0	1/0/00 0.5		full
+clock_boundaries	leak-1	int	1	'm/d/yy General'			0	1/1/00 0.5		full
+clock_boundaries	leak-1.5	float	1.5	'm/d/yy General'			0	1/1/00 0.5		full
+clock_boundaries	leak-2	int	2	'm/d/yy General'			0	1/2/00 0.5		full
+clock_boundaries	leak-2.5	float	2.5	'm/d/yy General'			0	1/2/00 0.5		full
+clock_boundaries	leak-10	int	10	'm/d/yy General'			0	1/10/00 0.5		fast
+clock_boundaries	leak-10.5	float	10.5	'm/d/yy General'			0	1/10/00 0.5		full
+clock_boundaries	leak-50	int	50	'm/d/yy General'			0	2/19/00 0.5		full
+clock_boundaries	leak-50.5	float	50.5	'm/d/yy General'			0	2/19/00 0.5		full
+clock_boundaries	leak-100	int	100	'm/d/yy General'			0	4/9/00 0.5		full
+clock_boundaries	leak-100.5	float	100.5	'm/d/yy General'			0	4/9/00 0.5		full
+clock_boundaries	leak-200	int	200	'm/d/yy General'			0	7/18/00 0.499999999		fast
+clock_boundaries	leak-200.5	float	200.5	'm/d/yy General'			0	7/18/00 0.499999999		full
+clock_boundaries	leak-365	int	365	'm/d/yy General'			0	12/30/00 0.499999999		fast
+clock_boundaries	leak-365.5	float	365.5	'm/d/yy General'			0	12/30/00 0.499999999		full
+clock_boundaries	leak-366	int	366	'm/d/yy General'			0	12/31/00 0.499999999		full
+clock_boundaries	leak-366.5	float	366.5	'm/d/yy General'			0	12/31/00 0.499999999		full
+clock_boundaries	leak-500	int	500	'm/d/yy General'			0	5/14/01 0.499999999		full
+clock_boundaries	leak-500.5	float	500.5	'm/d/yy General'			0	5/14/01 0.499999999		full
+clock_boundaries	leak-1000	int	1000	'm/d/yy General'			0	9/26/02 0.499999999		full
+clock_boundaries	leak-1000.5	float	1000.5	'm/d/yy General'			0	9/26/02 0.499999999		full
+clock_boundaries	leak-2000	int	2000	'm/d/yy General'			0	6/22/05 0.499999999		full
+clock_boundaries	leak-2000.5	float	2000.5	'm/d/yy General'			0	6/22/05 0.499999999		full
+clock_boundaries	leak-3000	int	3000	'm/d/yy General'			0	3/18/08 0.499999999		full
+clock_boundaries	leak-3000.5	float	3000.5	'm/d/yy General'			0	3/18/08 0.499999999		full
+clock_boundaries	leak-5000	int	5000	'm/d/yy General'			0	9/8/13 0.500000038		fast
+clock_boundaries	leak-5000.5	float	5000.5	'm/d/yy General'			0	9/8/13 0.500000038		full
+clock_boundaries	leak-7000	int	7000	'm/d/yy General'			0	3/1/19 0.500000038		full
+clock_boundaries	leak-7000.5	float	7000.5	'm/d/yy General'			0	3/1/19 0.500000038		full
+clock_boundaries	leak-10000	int	10000	'm/d/yy General'			0	5/18/27 0.49999996		fast
+clock_boundaries	leak-10000.5	float	10000.5	'm/d/yy General'			0	5/18/27 0.49999996		full
+clock_boundaries	leak-15000	int	15000	'm/d/yy General'			0	1/24/41 0.49999996		full
+clock_boundaries	leak-15000.5	float	15000.5	'm/d/yy General'			0	1/24/41 0.49999996		full
+clock_boundaries	leak-20000	int	20000	'm/d/yy General'			0	10/3/54 0.500000117		fast
+clock_boundaries	leak-20000.5	float	20000.5	'm/d/yy General'			0	10/3/54 0.500000117		full
+clock_boundaries	leak-25000	int	25000	'm/d/yy General'			0	6/11/68 0.500000117		full
+clock_boundaries	leak-25000.5	float	25000.5	'm/d/yy General'			0	6/11/68 0.500000117		full
+clock_boundaries	leak-30000	int	30000	'm/d/yy General'			0	2/18/82 0.500000117		full
+clock_boundaries	leak-30000.5	float	30000.5	'm/d/yy General'			0	2/18/82 0.500000117		full
+clock_boundaries	leak-36526	int	36526	'm/d/yy General'			0	1/1/00 0.499999803		full
+clock_boundaries	leak-36526.5	float	36526.5	'm/d/yy General'			0	1/1/00 0.499999803		full
+clock_boundaries	leak-40000	int	40000	'm/d/yy General'			0	7/6/09 0.499999803		full
+clock_boundaries	leak-40000.5	float	40000.5	'm/d/yy General'			0	7/6/09 0.499999803		full
+clock_boundaries	leak-44927	int	44927	'm/d/yy General'			0	1/1/23 0.499999803		full
+clock_boundaries	leak-44927.5	float	44927.5	'm/d/yy General'			0	1/1/23 0.499999803		full
+clock_boundaries	leak-45000	int	45000	'm/d/yy General'			0	3/15/23 0.499999803		full
+clock_boundaries	leak-45000.5	float	45000.5	'm/d/yy General'			0	3/15/23 0.499999803		full
+clock_boundaries	leak-50000	int	50000	'm/d/yy General'			0	11/21/36 0.499999803		full
+clock_boundaries	leak-50000.5	float	50000.5	'm/d/yy General'			0	11/21/36 0.499999803		full
+clock_boundaries	leak-60000	int	60000	'm/d/yy General'			0	4/8/64 0.499999803		full
+clock_boundaries	leak-60000.5	float	60000.5	'm/d/yy General'			0	4/8/64 0.499999803		full
+clock_boundaries	leak-80000	int	80000	'm/d/yy General'			0	1/11/19 0.499999803		full
+clock_boundaries	leak-80000.5	float	80000.5	'm/d/yy General'			0	1/11/19 0.499999803		full
+clock_boundaries	leak-100000	int	100000	'm/d/yy General'			0	10/14/73 0.499999803		full
+clock_boundaries	leak-100000.5	float	100000.5	'm/d/yy General'			0	10/14/73 0.499999803		full
+clock_boundaries	leak-200000	int	200000	'm/d/yy General'			0	7/30/47 0.499999803		full
+clock_boundaries	leak-200000.5	float	200000.5	'm/d/yy General'			0	7/30/47 0.499999803		full
+clock_boundaries	leak-500000	int	500000	'm/d/yy General'			0	12/12/68 0.500002317		full
+clock_boundaries	leak-500000.5	float	500000.5	'm/d/yy General'			0	12/12/68 0.500002317		full
+clock_boundaries	leak-1000000	int	1000000	'm/d/yy General'			0	11/26/37 0.499997288		full
+clock_boundaries	leak-1000000.5	float	1000000.5	'm/d/yy General'			0	11/26/37 0.499997288		full
+clock_boundaries	leak-2000000	int	2000000	'm/d/yy General'			0	10/23/75 0.499997288		full
+clock_boundaries	leak-2000000.5	float	2000000.5	'm/d/yy General'			0	10/23/75 0.499997288		full
+clock_boundaries	leak-2958465	int	2958465	'm/d/yy General'			0	12/31/99 0.500017405		full
+clock_boundaries	leak-2958465.5	float	2958465.5	'm/d/yy General'			0	12/31/99 0.500017405		full

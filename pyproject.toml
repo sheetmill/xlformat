@@ -1,0 +1,111 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "xlformat"
+dynamic = ["version"]
+description = "Apply Excel number, date/time and General format strings to values and get the text Excel displays."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Ethan Post" }]
+requires-python = ">=3.11"
+dependencies = []
+keywords = ["excel", "xlsx", "number format", "openpyxl", "spreadsheet", "formatting"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Office/Business :: Financial :: Spreadsheet",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/sheetmill/xlformat"
+Documentation = "https://xlformat.readthedocs.io"
+Source = "https://github.com/sheetmill/xlformat"
+Changelog = "https://github.com/sheetmill/xlformat/blob/main/CHANGELOG.md"
+Issues = "https://github.com/sheetmill/xlformat/issues"
+
+[dependency-groups]
+dev = [
+  "pytest>=8",
+  "ruff>=0.8",
+  "mypy>=1.13",
+  "openpyxl>=3.1",
+]
+docs = [
+    "furo>=2025.12.19",
+    "myst-parser>=5.1.0",
+    "sphinx>=9.0.4",
+    "sphinx-autodoc-typehints>=3.6.1",
+]
+
+[tool.hatch.version]
+path = "src/xlformat/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/xlformat"]
+
+[tool.hatch.build.targets.sdist]
+# Source, tests with the captured TSVs, the capture tooling, the documentation sources and the
+# project documents. Never workbooks or build output.
+include = [
+  "src/xlformat",
+  "tests",
+  "capture",
+  "docs",
+  "README.md",
+  "CHANGELOG.md",
+  "QUIRKS.md",
+  "ARCHITECTURE.md",
+  "CAPTURING.md",
+  "CONTRIBUTING.md",
+  "LICENSE",
+  "pagefind.yml",
+]
+exclude = ["capture/build", "docs/_build", "**/*.xlsx", "**/__pycache__"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests", "capture"]
+extend-exclude = ["*.md"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM", "RUF", "D", "ANN", "PT", "N", "PERF"]
+ignore = ["D105", "D107", "D203", "D213", "ANN401"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D", "ANN", "S101"]
+"capture/**" = ["D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+packages = ["xlformat"]
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["openpyxl", "openpyxl.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra --strict-markers"
+markers = ["excel: rows captured from Excel"]

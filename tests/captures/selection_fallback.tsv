@@ -1,0 +1,52 @@
+# suite: selection_fallback
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-10-24
+# generator: capture.cases.selection_fallback
+# method: width none=clipboard
+# numbers: repr
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+selection_fallback	neg-0.3	float	-0.3	'[<=0]0;[>1]0;0.0'			0	0.3		fast
+selection_fallback	neg-0.5	float	-0.5	'[<=0]0;[>1]0;0.0'			0	-1		fast
+selection_fallback	neg-2	int	-2	'[<=0]0;[>1]0;0.0'			0	-2		full
+selection_fallback	zero	int	0	'[<=0]0;[>1]0;0.0'			0	0		fast
+selection_fallback	pos-0.3	float	0.3	'[<=0]0;[>1]0;0.0'			0	0.3		full
+selection_fallback	pos-0.5	float	0.5	'[<=0]0;[>1]0;0.0'			0	0.5		full
+selection_fallback	pos-1.5	float	1.5	'[<=0]0;[>1]0;0.0'			0	2		full
+selection_fallback	pos-2	int	2	'[<=0]0;[>1]0;0.0'			0	2		full
+selection_fallback	neg-0.3	float	-0.3	'0;[>1]0'			0	###############################################################################################################################################################################################################################################################		fast
+selection_fallback	neg-0.5	float	-0.5	'0;[>1]0'			0	###############################################################################################################################################################################################################################################################		full
+selection_fallback	neg-2	int	-2	'0;[>1]0'			0	###############################################################################################################################################################################################################################################################		full
+selection_fallback	zero	int	0	'0;[>1]0'			0	###############################################################################################################################################################################################################################################################		full
+selection_fallback	pos-0.3	float	0.3	'0;[>1]0'			0	0		fast
+selection_fallback	pos-0.5	float	0.5	'0;[>1]0'			0	1		full
+selection_fallback	pos-1.5	float	1.5	'0;[>1]0'			0	2		full
+selection_fallback	pos-2	int	2	'0;[>1]0'			0	2		full
+selection_fallback	neg-0.3	float	-0.3	'[>1]0;0;0.0'			0	0		fast
+selection_fallback	neg-0.5	float	-0.5	'[>1]0;0;0.0'			0	1		full
+selection_fallback	neg-2	int	-2	'[>1]0;0;0.0'			0	2		full
+selection_fallback	zero	int	0	'[>1]0;0;0.0'			0	0.0		fast
+selection_fallback	pos-0.3	float	0.3	'[>1]0;0;0.0'			0	0.3		full
+selection_fallback	pos-0.5	float	0.5	'[>1]0;0;0.0'			0	0.5		full
+selection_fallback	pos-1.5	float	1.5	'[>1]0;0;0.0'			0	2		full
+selection_fallback	pos-2	int	2	'[>1]0;0;0.0'			0	2		full
+selection_fallback	neg-0.3	float	-0.3	'0;[>1]0;0.0'			0	-0.3		fast
+selection_fallback	neg-0.5	float	-0.5	'0;[>1]0;0.0'			0	-0.5		full
+selection_fallback	neg-2	int	-2	'0;[>1]0;0.0'			0	-2.0		full
+selection_fallback	zero	int	0	'0;[>1]0;0.0'			0	0.0		fast
+selection_fallback	pos-0.3	float	0.3	'0;[>1]0;0.0'			0	0		fast
+selection_fallback	pos-0.5	float	0.5	'0;[>1]0;0.0'			0	1		full
+selection_fallback	pos-1.5	float	1.5	'0;[>1]0;0.0'			0	2		full
+selection_fallback	pos-2	int	2	'0;[>1]0;0.0'			0	2		full
+selection_fallback	neg-0.3	float	-0.3	"'[<=0]0;[>1]0;""else""'"			0	else		fast
+selection_fallback	neg-0.5	float	-0.5	"'[<=0]0;[>1]0;""else""'"			0	-1		fast
+selection_fallback	neg-2	int	-2	"'[<=0]0;[>1]0;""else""'"			0	-2		full
+selection_fallback	zero	int	0	"'[<=0]0;[>1]0;""else""'"			0	0		fast
+selection_fallback	pos-0.3	float	0.3	"'[<=0]0;[>1]0;""else""'"			0	else		full
+selection_fallback	pos-0.5	float	0.5	"'[<=0]0;[>1]0;""else""'"			0	else		full
+selection_fallback	pos-1.5	float	1.5	"'[<=0]0;[>1]0;""else""'"			0	2		full
+selection_fallback	pos-2	int	2	"'[<=0]0;[>1]0;""else""'"			0	2		full

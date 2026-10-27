@@ -1,0 +1,85 @@
+# Release: push a tag vX.Y.Z on main. The workflow runs CI, checks that the tag matches the
+# package version, builds once, publishes to TestPyPI, installs that release from TestPyPI
+# and imports it, then publishes the same files to PyPI.
+#
+# Publishing uses trusted publishing (OpenID Connect), so no token is stored. Configure on
+# test.pypi.org and pypi.org a trusted publisher for owner `sheetmill`, repository
+# `xlformat`, workflow `release.yml`, environments `testpypi` and `pypi`. Give the GitHub
+# environment `pypi` a required reviewer, so the PyPI step waits for a person to approve it.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  build:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: The tag matches the package version
+        run: |
+          version=$(uv run --no-project python -c "import re; print(re.search(r'__version__ = \"(.+)\"', open('src/xlformat/__init__.py').read())[1])")
+          test "v${version}" = "${GITHUB_REF_NAME}" || { echo "tag ${GITHUB_REF_NAME} != v${version}"; exit 1; }
+      - run: uv build
+      - run: uvx twine check --strict dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  testpypi:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/project/xlformat/
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+
+  verify-testpypi:
+    needs: testpypi
+    runs-on: ubuntu-latest
+    steps:
+      - uses: astral-sh/setup-uv@v5
+      - name: Install the release from TestPyPI and import it
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          uv venv /tmp/env
+          # TestPyPI's index can lag the upload by a minute.
+          for attempt in 1 2 3 4 5 6; do
+            uv pip install -p /tmp/env --no-cache --index-url https://test.pypi.org/simple/ "xlformat==${version}" && break
+            sleep 20
+          done
+          /tmp/env/bin/python -I -c "import xlformat; assert xlformat.__version__ == '${version}'; print(xlformat.format_value(1234.5, '#,##0.00'))"
+
+  pypi:
+    needs: verify-testpypi
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/xlformat/
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1

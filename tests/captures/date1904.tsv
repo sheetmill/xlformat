@@ -1,0 +1,348 @@
+# suite: date1904
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-10-24
+# generator: capture.cases.date1904
+# method: width none=clipboard
+# numbers: repr
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+date1904	serial-0	int	0	'm/d/yyyy'			1	1/1/1904		fast
+date1904	serial-1	int	1	'm/d/yyyy'			1	1/2/1904		full
+date1904	serial-59	int	59	'm/d/yyyy'			1	2/29/1904		fast
+date1904	serial-60	int	60	'm/d/yyyy'			1	3/1/1904		full
+date1904	serial-61	int	61	'm/d/yyyy'			1	3/2/1904		full
+date1904	serial-365	int	365	'm/d/yyyy'			1	12/31/1904		fast
+date1904	serial-366	int	366	'm/d/yyyy'			1	1/1/1905		full
+date1904	serial-1461	int	1461	'm/d/yyyy'			1	1/1/1908		full
+date1904	serial-1462	int	1462	'm/d/yyyy'			1	1/2/1908		full
+date1904	neg-1	int	-1	'm/d/yyyy'			1	-1/2/1904		fast
+date1904	neg-2	int	-2	'm/d/yyyy'			1	-1/3/1904		full
+date1904	neg-365	int	-365	'm/d/yyyy'			1	-12/31/1904		fast
+date1904	neg-1462	int	-1462	'm/d/yyyy'			1	-1/2/1908		full
+date1904	neg-1463	int	-1463	'm/d/yyyy'			1	-1/3/1908		full
+date1904	neg-half	float	-0.5	'm/d/yyyy'			1	-1/1/1904		full
+date1904	neg-1.5	float	-1.5	'm/d/yyyy'			1	-1/2/1904		full
+date1904	neg-quarter	float	-0.25	'm/d/yyyy'			1	-1/1/1904		full
+date1904	neg-tiny	float	-0.0001	'm/d/yyyy'			1	-1/1/1904		full
+date1904	y2023	int	43465	'm/d/yyyy'			1	1/1/2023		full
+date1904	max	int	2957003	'm/d/yyyy'			1	12/31/9999		full
+date1904	max+1	int	2957004	'm/d/yyyy'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'm/d/yyyy'			1	1/1/1904		full
+date1904	36h	float	1.5	'm/d/yyyy'			1	1/2/1904		full
+date1904	leap-period-1900	int	-1403	'm/d/yyyy'			1	-11/4/1907		fast
+date1904	serial-0	int	0	'dddd, mmmm d, yyyy'			1	Friday, January 1, 1904		fast
+date1904	serial-1	int	1	'dddd, mmmm d, yyyy'			1	Saturday, January 2, 1904		fast
+date1904	serial-59	int	59	'dddd, mmmm d, yyyy'			1	Monday, February 29, 1904		fast
+date1904	serial-60	int	60	'dddd, mmmm d, yyyy'			1	Tuesday, March 1, 1904		fast
+date1904	serial-61	int	61	'dddd, mmmm d, yyyy'			1	Wednesday, March 2, 1904		fast
+date1904	serial-365	int	365	'dddd, mmmm d, yyyy'			1	Saturday, December 31, 1904		fast
+date1904	serial-366	int	366	'dddd, mmmm d, yyyy'			1	Sunday, January 1, 1905		full
+date1904	serial-1461	int	1461	'dddd, mmmm d, yyyy'			1	Wednesday, January 1, 1908		fast
+date1904	serial-1462	int	1462	'dddd, mmmm d, yyyy'			1	Thursday, January 2, 1908		full
+date1904	neg-1	int	-1	'dddd, mmmm d, yyyy'			1	-Saturday, January 2, 1904		fast
+date1904	neg-2	int	-2	'dddd, mmmm d, yyyy'			1	-Sunday, January 3, 1904		fast
+date1904	neg-365	int	-365	'dddd, mmmm d, yyyy'			1	-Saturday, December 31, 1904		fast
+date1904	neg-1462	int	-1462	'dddd, mmmm d, yyyy'			1	-Thursday, January 2, 1908		full
+date1904	neg-1463	int	-1463	'dddd, mmmm d, yyyy'			1	-Friday, January 3, 1908		full
+date1904	neg-half	float	-0.5	'dddd, mmmm d, yyyy'			1	-Friday, January 1, 1904		full
+date1904	neg-1.5	float	-1.5	'dddd, mmmm d, yyyy'			1	-Saturday, January 2, 1904		full
+date1904	neg-quarter	float	-0.25	'dddd, mmmm d, yyyy'			1	-Friday, January 1, 1904		full
+date1904	neg-tiny	float	-0.0001	'dddd, mmmm d, yyyy'			1	-Friday, January 1, 1904		full
+date1904	y2023	int	43465	'dddd, mmmm d, yyyy'			1	Sunday, January 1, 2023		full
+date1904	max	int	2957003	'dddd, mmmm d, yyyy'			1	Friday, December 31, 9999		full
+date1904	max+1	int	2957004	'dddd, mmmm d, yyyy'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'dddd, mmmm d, yyyy'			1	Friday, January 1, 1904		full
+date1904	36h	float	1.5	'dddd, mmmm d, yyyy'			1	Saturday, January 2, 1904		full
+date1904	leap-period-1900	int	-1403	'dddd, mmmm d, yyyy'			1	-Monday, November 4, 1907		fast
+date1904	serial-0	int	0	'yyyy-mm-dd'			1	1904-01-01		fast
+date1904	serial-1	int	1	'yyyy-mm-dd'			1	1904-01-02		full
+date1904	serial-59	int	59	'yyyy-mm-dd'			1	1904-02-29		full
+date1904	serial-60	int	60	'yyyy-mm-dd'			1	1904-03-01		full
+date1904	serial-61	int	61	'yyyy-mm-dd'			1	1904-03-02		full
+date1904	serial-365	int	365	'yyyy-mm-dd'			1	1904-12-31		full
+date1904	serial-366	int	366	'yyyy-mm-dd'			1	1905-01-01		full
+date1904	serial-1461	int	1461	'yyyy-mm-dd'			1	1908-01-01		full
+date1904	serial-1462	int	1462	'yyyy-mm-dd'			1	1908-01-02		full
+date1904	neg-1	int	-1	'yyyy-mm-dd'			1	-1904-01-02		fast
+date1904	neg-2	int	-2	'yyyy-mm-dd'			1	-1904-01-03		full
+date1904	neg-365	int	-365	'yyyy-mm-dd'			1	-1904-12-31		full
+date1904	neg-1462	int	-1462	'yyyy-mm-dd'			1	-1908-01-02		full
+date1904	neg-1463	int	-1463	'yyyy-mm-dd'			1	-1908-01-03		full
+date1904	neg-half	float	-0.5	'yyyy-mm-dd'			1	-1904-01-01		full
+date1904	neg-1.5	float	-1.5	'yyyy-mm-dd'			1	-1904-01-02		full
+date1904	neg-quarter	float	-0.25	'yyyy-mm-dd'			1	-1904-01-01		full
+date1904	neg-tiny	float	-0.0001	'yyyy-mm-dd'			1	-1904-01-01		full
+date1904	y2023	int	43465	'yyyy-mm-dd'			1	2023-01-01		full
+date1904	max	int	2957003	'yyyy-mm-dd'			1	9999-12-31		full
+date1904	max+1	int	2957004	'yyyy-mm-dd'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'yyyy-mm-dd'			1	1904-01-01		full
+date1904	36h	float	1.5	'yyyy-mm-dd'			1	1904-01-02		full
+date1904	leap-period-1900	int	-1403	'yyyy-mm-dd'			1	-1907-11-04		full
+date1904	serial-0	int	0	'h:mm'			1	0:00		fast
+date1904	serial-1	int	1	'h:mm'			1	0:00		full
+date1904	serial-59	int	59	'h:mm'			1	0:00		full
+date1904	serial-60	int	60	'h:mm'			1	0:00		full
+date1904	serial-61	int	61	'h:mm'			1	0:00		full
+date1904	serial-365	int	365	'h:mm'			1	0:00		full
+date1904	serial-366	int	366	'h:mm'			1	0:00		full
+date1904	serial-1461	int	1461	'h:mm'			1	0:00		full
+date1904	serial-1462	int	1462	'h:mm'			1	0:00		full
+date1904	neg-1	int	-1	'h:mm'			1	-0:00		fast
+date1904	neg-2	int	-2	'h:mm'			1	-0:00		full
+date1904	neg-365	int	-365	'h:mm'			1	-0:00		full
+date1904	neg-1462	int	-1462	'h:mm'			1	-0:00		full
+date1904	neg-1463	int	-1463	'h:mm'			1	-0:00		full
+date1904	neg-half	float	-0.5	'h:mm'			1	-12:00		fast
+date1904	neg-1.5	float	-1.5	'h:mm'			1	-12:00		full
+date1904	neg-quarter	float	-0.25	'h:mm'			1	-6:00		full
+date1904	neg-tiny	float	-0.0001	'h:mm'			1	-0:00		full
+date1904	y2023	int	43465	'h:mm'			1	0:00		full
+date1904	max	int	2957003	'h:mm'			1	0:00		full
+date1904	max+1	int	2957004	'h:mm'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'h:mm'			1	12:00		fast
+date1904	36h	float	1.5	'h:mm'			1	12:00		full
+date1904	leap-period-1900	int	-1403	'h:mm'			1	-0:00		full
+date1904	serial-0	int	0	'h:mm:ss'			1	0:00:00		fast
+date1904	serial-1	int	1	'h:mm:ss'			1	0:00:00		full
+date1904	serial-59	int	59	'h:mm:ss'			1	0:00:00		full
+date1904	serial-60	int	60	'h:mm:ss'			1	0:00:00		full
+date1904	serial-61	int	61	'h:mm:ss'			1	0:00:00		full
+date1904	serial-365	int	365	'h:mm:ss'			1	0:00:00		full
+date1904	serial-366	int	366	'h:mm:ss'			1	0:00:00		full
+date1904	serial-1461	int	1461	'h:mm:ss'			1	0:00:00		full
+date1904	serial-1462	int	1462	'h:mm:ss'			1	0:00:00		full
+date1904	neg-1	int	-1	'h:mm:ss'			1	-0:00:00		fast
+date1904	neg-2	int	-2	'h:mm:ss'			1	-0:00:00		full
+date1904	neg-365	int	-365	'h:mm:ss'			1	-0:00:00		full
+date1904	neg-1462	int	-1462	'h:mm:ss'			1	-0:00:00		full
+date1904	neg-1463	int	-1463	'h:mm:ss'			1	-0:00:00		full
+date1904	neg-half	float	-0.5	'h:mm:ss'			1	-12:00:00		fast
+date1904	neg-1.5	float	-1.5	'h:mm:ss'			1	-12:00:00		full
+date1904	neg-quarter	float	-0.25	'h:mm:ss'			1	-6:00:00		full
+date1904	neg-tiny	float	-0.0001	'h:mm:ss'			1	-0:00:09		full
+date1904	y2023	int	43465	'h:mm:ss'			1	0:00:00		full
+date1904	max	int	2957003	'h:mm:ss'			1	0:00:00		full
+date1904	max+1	int	2957004	'h:mm:ss'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'h:mm:ss'			1	12:00:00		fast
+date1904	36h	float	1.5	'h:mm:ss'			1	12:00:00		full
+date1904	leap-period-1900	int	-1403	'h:mm:ss'			1	-0:00:00		full
+date1904	serial-0	int	0	'[h]:mm:ss'			1	0:00:00		fast
+date1904	serial-1	int	1	'[h]:mm:ss'			1	24:00:00		fast
+date1904	serial-59	int	59	'[h]:mm:ss'			1	1416:00:00		fast
+date1904	serial-60	int	60	'[h]:mm:ss'			1	1440:00:00		full
+date1904	serial-61	int	61	'[h]:mm:ss'			1	1464:00:00		full
+date1904	serial-365	int	365	'[h]:mm:ss'			1	8760:00:00		full
+date1904	serial-366	int	366	'[h]:mm:ss'			1	8784:00:00		full
+date1904	serial-1461	int	1461	'[h]:mm:ss'			1	35064:00:00		fast
+date1904	serial-1462	int	1462	'[h]:mm:ss'			1	35088:00:00		full
+date1904	neg-1	int	-1	'[h]:mm:ss'			1	-24:00:00		fast
+date1904	neg-2	int	-2	'[h]:mm:ss'			1	-48:00:00		full
+date1904	neg-365	int	-365	'[h]:mm:ss'			1	-8760:00:00		fast
+date1904	neg-1462	int	-1462	'[h]:mm:ss'			1	-35088:00:00		fast
+date1904	neg-1463	int	-1463	'[h]:mm:ss'			1	-35112:00:00		full
+date1904	neg-half	float	-0.5	'[h]:mm:ss'			1	-12:00:00		full
+date1904	neg-1.5	float	-1.5	'[h]:mm:ss'			1	-36:00:00		full
+date1904	neg-quarter	float	-0.25	'[h]:mm:ss'			1	-6:00:00		fast
+date1904	neg-tiny	float	-0.0001	'[h]:mm:ss'			1	-0:00:09		full
+date1904	y2023	int	43465	'[h]:mm:ss'			1	1043160:00:00		fast
+date1904	max	int	2957003	'[h]:mm:ss'			1	70968072:00:00		fast
+date1904	max+1	int	2957004	'[h]:mm:ss'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'[h]:mm:ss'			1	12:00:00		full
+date1904	36h	float	1.5	'[h]:mm:ss'			1	36:00:00		full
+date1904	leap-period-1900	int	-1403	'[h]:mm:ss'			1	-33672:00:00		full
+date1904	serial-0	int	0	'hh:mm'			1	00:00		fast
+date1904	serial-1	int	1	'hh:mm'			1	00:00		full
+date1904	serial-59	int	59	'hh:mm'			1	00:00		full
+date1904	serial-60	int	60	'hh:mm'			1	00:00		full
+date1904	serial-61	int	61	'hh:mm'			1	00:00		full
+date1904	serial-365	int	365	'hh:mm'			1	00:00		full
+date1904	serial-366	int	366	'hh:mm'			1	00:00		full
+date1904	serial-1461	int	1461	'hh:mm'			1	00:00		full
+date1904	serial-1462	int	1462	'hh:mm'			1	00:00		full
+date1904	neg-1	int	-1	'hh:mm'			1	-00:00		fast
+date1904	neg-2	int	-2	'hh:mm'			1	-00:00		full
+date1904	neg-365	int	-365	'hh:mm'			1	-00:00		full
+date1904	neg-1462	int	-1462	'hh:mm'			1	-00:00		full
+date1904	neg-1463	int	-1463	'hh:mm'			1	-00:00		full
+date1904	neg-half	float	-0.5	'hh:mm'			1	-12:00		full
+date1904	neg-1.5	float	-1.5	'hh:mm'			1	-12:00		full
+date1904	neg-quarter	float	-0.25	'hh:mm'			1	-06:00		full
+date1904	neg-tiny	float	-0.0001	'hh:mm'			1	-00:00		full
+date1904	y2023	int	43465	'hh:mm'			1	00:00		full
+date1904	max	int	2957003	'hh:mm'			1	00:00		full
+date1904	max+1	int	2957004	'hh:mm'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'hh:mm'			1	12:00		full
+date1904	36h	float	1.5	'hh:mm'			1	12:00		full
+date1904	leap-period-1900	int	-1403	'hh:mm'			1	-00:00		full
+date1904	serial-0	int	0	'mm:ss'			1	00:00		fast
+date1904	serial-1	int	1	'mm:ss'			1	00:00		full
+date1904	serial-59	int	59	'mm:ss'			1	00:00		full
+date1904	serial-60	int	60	'mm:ss'			1	00:00		full
+date1904	serial-61	int	61	'mm:ss'			1	00:00		full
+date1904	serial-365	int	365	'mm:ss'			1	00:00		full
+date1904	serial-366	int	366	'mm:ss'			1	00:00		full
+date1904	serial-1461	int	1461	'mm:ss'			1	00:00		full
+date1904	serial-1462	int	1462	'mm:ss'			1	00:00		full
+date1904	neg-1	int	-1	'mm:ss'			1	-00:00		fast
+date1904	neg-2	int	-2	'mm:ss'			1	-00:00		full
+date1904	neg-365	int	-365	'mm:ss'			1	-00:00		full
+date1904	neg-1462	int	-1462	'mm:ss'			1	-00:00		full
+date1904	neg-1463	int	-1463	'mm:ss'			1	-00:00		full
+date1904	neg-half	float	-0.5	'mm:ss'			1	-00:00		full
+date1904	neg-1.5	float	-1.5	'mm:ss'			1	-00:00		full
+date1904	neg-quarter	float	-0.25	'mm:ss'			1	-00:00		full
+date1904	neg-tiny	float	-0.0001	'mm:ss'			1	-00:09		full
+date1904	y2023	int	43465	'mm:ss'			1	00:00		full
+date1904	max	int	2957003	'mm:ss'			1	00:00		full
+date1904	max+1	int	2957004	'mm:ss'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'mm:ss'			1	00:00		full
+date1904	36h	float	1.5	'mm:ss'			1	00:00		full
+date1904	leap-period-1900	int	-1403	'mm:ss'			1	-00:00		full
+date1904	serial-0	int	0	'[m]'			1	0		fast
+date1904	serial-1	int	1	'[m]'			1	1440		fast
+date1904	serial-59	int	59	'[m]'			1	84960		fast
+date1904	serial-60	int	60	'[m]'			1	86400		full
+date1904	serial-61	int	61	'[m]'			1	87840		full
+date1904	serial-365	int	365	'[m]'			1	525600		fast
+date1904	serial-366	int	366	'[m]'			1	527040		full
+date1904	serial-1461	int	1461	'[m]'			1	2103840		fast
+date1904	serial-1462	int	1462	'[m]'			1	2105280		full
+date1904	neg-1	int	-1	'[m]'			1	-1440		fast
+date1904	neg-2	int	-2	'[m]'			1	-2880		full
+date1904	neg-365	int	-365	'[m]'			1	-525600		fast
+date1904	neg-1462	int	-1462	'[m]'			1	-2105280		fast
+date1904	neg-1463	int	-1463	'[m]'			1	-2106720		full
+date1904	neg-half	float	-0.5	'[m]'			1	-720		fast
+date1904	neg-1.5	float	-1.5	'[m]'			1	-2160		full
+date1904	neg-quarter	float	-0.25	'[m]'			1	-360		full
+date1904	neg-tiny	float	-0.0001	'[m]'			1	-0		fast
+date1904	y2023	int	43465	'[m]'			1	62589600		fast
+date1904	max	int	2957003	'[m]'			1	4258084320		fast
+date1904	max+1	int	2957004	'[m]'			1	4258085760		full
+date1904	noon	float	0.5	'[m]'			1	720		fast
+date1904	36h	float	1.5	'[m]'			1	2160		full
+date1904	leap-period-1900	int	-1403	'[m]'			1	-2020320		full
+date1904	serial-0	int	0	'General'			1	0		fast
+date1904	serial-1	int	1	'General'			1	1		full
+date1904	serial-59	int	59	'General'			1	59		fast
+date1904	serial-60	int	60	'General'			1	60		full
+date1904	serial-61	int	61	'General'			1	61		full
+date1904	serial-365	int	365	'General'			1	365		fast
+date1904	serial-366	int	366	'General'			1	366		full
+date1904	serial-1461	int	1461	'General'			1	1461		fast
+date1904	serial-1462	int	1462	'General'			1	1462		full
+date1904	neg-1	int	-1	'General'			1	-1		fast
+date1904	neg-2	int	-2	'General'			1	-2		full
+date1904	neg-365	int	-365	'General'			1	-365		fast
+date1904	neg-1462	int	-1462	'General'			1	-1462		fast
+date1904	neg-1463	int	-1463	'General'			1	-1463		full
+date1904	neg-half	float	-0.5	'General'			1	-0.5		fast
+date1904	neg-1.5	float	-1.5	'General'			1	-1.5		full
+date1904	neg-quarter	float	-0.25	'General'			1	-0.25		fast
+date1904	neg-tiny	float	-0.0001	'General'			1	-0.0001		fast
+date1904	y2023	int	43465	'General'			1	43465		fast
+date1904	max	int	2957003	'General'			1	2957003		fast
+date1904	max+1	int	2957004	'General'			1	2957004		full
+date1904	noon	float	0.5	'General'			1	0.5		fast
+date1904	36h	float	1.5	'General'			1	1.5		full
+date1904	leap-period-1900	int	-1403	'General'			1	-1403		full
+date1904	serial-0	int	0	'0.00'			1	0.00		fast
+date1904	serial-1	int	1	'0.00'			1	1.00		full
+date1904	serial-59	int	59	'0.00'			1	59.00		fast
+date1904	serial-60	int	60	'0.00'			1	60.00		full
+date1904	serial-61	int	61	'0.00'			1	61.00		full
+date1904	serial-365	int	365	'0.00'			1	365.00		fast
+date1904	serial-366	int	366	'0.00'			1	366.00		full
+date1904	serial-1461	int	1461	'0.00'			1	1461.00		fast
+date1904	serial-1462	int	1462	'0.00'			1	1462.00		full
+date1904	neg-1	int	-1	'0.00'			1	-1.00		fast
+date1904	neg-2	int	-2	'0.00'			1	-2.00		full
+date1904	neg-365	int	-365	'0.00'			1	-365.00		fast
+date1904	neg-1462	int	-1462	'0.00'			1	-1462.00		fast
+date1904	neg-1463	int	-1463	'0.00'			1	-1463.00		full
+date1904	neg-half	float	-0.5	'0.00'			1	-0.50		full
+date1904	neg-1.5	float	-1.5	'0.00'			1	-1.50		full
+date1904	neg-quarter	float	-0.25	'0.00'			1	-0.25		full
+date1904	neg-tiny	float	-0.0001	'0.00'			1	0.00		full
+date1904	y2023	int	43465	'0.00'			1	43465.00		fast
+date1904	max	int	2957003	'0.00'			1	2957003.00		fast
+date1904	max+1	int	2957004	'0.00'			1	2957004.00		full
+date1904	noon	float	0.5	'0.00'			1	0.50		full
+date1904	36h	float	1.5	'0.00'			1	1.50		full
+date1904	leap-period-1900	int	-1403	'0.00'			1	-1403.00		full
+date1904	serial-0	int	0	'yyyy-mm-dd hh:mm:ss'			1	1904-01-01 00:00:00		fast
+date1904	serial-1	int	1	'yyyy-mm-dd hh:mm:ss'			1	1904-01-02 00:00:00		full
+date1904	serial-59	int	59	'yyyy-mm-dd hh:mm:ss'			1	1904-02-29 00:00:00		full
+date1904	serial-60	int	60	'yyyy-mm-dd hh:mm:ss'			1	1904-03-01 00:00:00		full
+date1904	serial-61	int	61	'yyyy-mm-dd hh:mm:ss'			1	1904-03-02 00:00:00		full
+date1904	serial-365	int	365	'yyyy-mm-dd hh:mm:ss'			1	1904-12-31 00:00:00		full
+date1904	serial-366	int	366	'yyyy-mm-dd hh:mm:ss'			1	1905-01-01 00:00:00		full
+date1904	serial-1461	int	1461	'yyyy-mm-dd hh:mm:ss'			1	1908-01-01 00:00:00		full
+date1904	serial-1462	int	1462	'yyyy-mm-dd hh:mm:ss'			1	1908-01-02 00:00:00		full
+date1904	neg-1	int	-1	'yyyy-mm-dd hh:mm:ss'			1	-1904-01-02 00:00:00		fast
+date1904	neg-2	int	-2	'yyyy-mm-dd hh:mm:ss'			1	-1904-01-03 00:00:00		full
+date1904	neg-365	int	-365	'yyyy-mm-dd hh:mm:ss'			1	-1904-12-31 00:00:00		full
+date1904	neg-1462	int	-1462	'yyyy-mm-dd hh:mm:ss'			1	-1908-01-02 00:00:00		full
+date1904	neg-1463	int	-1463	'yyyy-mm-dd hh:mm:ss'			1	-1908-01-03 00:00:00		full
+date1904	neg-half	float	-0.5	'yyyy-mm-dd hh:mm:ss'			1	-1904-01-01 12:00:00		full
+date1904	neg-1.5	float	-1.5	'yyyy-mm-dd hh:mm:ss'			1	-1904-01-02 12:00:00		full
+date1904	neg-quarter	float	-0.25	'yyyy-mm-dd hh:mm:ss'			1	-1904-01-01 06:00:00		full
+date1904	neg-tiny	float	-0.0001	'yyyy-mm-dd hh:mm:ss'			1	-1904-01-01 00:00:09		full
+date1904	y2023	int	43465	'yyyy-mm-dd hh:mm:ss'			1	2023-01-01 00:00:00		full
+date1904	max	int	2957003	'yyyy-mm-dd hh:mm:ss'			1	9999-12-31 00:00:00		full
+date1904	max+1	int	2957004	'yyyy-mm-dd hh:mm:ss'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'yyyy-mm-dd hh:mm:ss'			1	1904-01-01 12:00:00		full
+date1904	36h	float	1.5	'yyyy-mm-dd hh:mm:ss'			1	1904-01-02 12:00:00		full
+date1904	leap-period-1900	int	-1403	'yyyy-mm-dd hh:mm:ss'			1	-1907-11-04 00:00:00		full
+date1904	serial-0	int	0	'h:mm AM/PM'			1	12:00 AM		fast
+date1904	serial-1	int	1	'h:mm AM/PM'			1	12:00 AM		full
+date1904	serial-59	int	59	'h:mm AM/PM'			1	12:00 AM		full
+date1904	serial-60	int	60	'h:mm AM/PM'			1	12:00 AM		full
+date1904	serial-61	int	61	'h:mm AM/PM'			1	12:00 AM		full
+date1904	serial-365	int	365	'h:mm AM/PM'			1	12:00 AM		full
+date1904	serial-366	int	366	'h:mm AM/PM'			1	12:00 AM		full
+date1904	serial-1461	int	1461	'h:mm AM/PM'			1	12:00 AM		full
+date1904	serial-1462	int	1462	'h:mm AM/PM'			1	12:00 AM		full
+date1904	neg-1	int	-1	'h:mm AM/PM'			1	-12:00 AM		fast
+date1904	neg-2	int	-2	'h:mm AM/PM'			1	-12:00 AM		full
+date1904	neg-365	int	-365	'h:mm AM/PM'			1	-12:00 AM		full
+date1904	neg-1462	int	-1462	'h:mm AM/PM'			1	-12:00 AM		full
+date1904	neg-1463	int	-1463	'h:mm AM/PM'			1	-12:00 AM		full
+date1904	neg-half	float	-0.5	'h:mm AM/PM'			1	-12:00 PM		full
+date1904	neg-1.5	float	-1.5	'h:mm AM/PM'			1	-12:00 PM		full
+date1904	neg-quarter	float	-0.25	'h:mm AM/PM'			1	-6:00 AM		fast
+date1904	neg-tiny	float	-0.0001	'h:mm AM/PM'			1	-12:00 AM		full
+date1904	y2023	int	43465	'h:mm AM/PM'			1	12:00 AM		full
+date1904	max	int	2957003	'h:mm AM/PM'			1	12:00 AM		full
+date1904	max+1	int	2957004	'h:mm AM/PM'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'h:mm AM/PM'			1	12:00 PM		full
+date1904	36h	float	1.5	'h:mm AM/PM'			1	12:00 PM		full
+date1904	leap-period-1900	int	-1403	'h:mm AM/PM'			1	-12:00 AM		full
+date1904	serial-0	int	0	'-h:mm'			1	-0:00		fast
+date1904	serial-1	int	1	'-h:mm'			1	-0:00		full
+date1904	serial-59	int	59	'-h:mm'			1	-0:00		full
+date1904	serial-60	int	60	'-h:mm'			1	-0:00		full
+date1904	serial-61	int	61	'-h:mm'			1	-0:00		full
+date1904	serial-365	int	365	'-h:mm'			1	-0:00		full
+date1904	serial-366	int	366	'-h:mm'			1	-0:00		full
+date1904	serial-1461	int	1461	'-h:mm'			1	-0:00		full
+date1904	serial-1462	int	1462	'-h:mm'			1	-0:00		full
+date1904	neg-1	int	-1	'-h:mm'			1	--0:00		fast
+date1904	neg-2	int	-2	'-h:mm'			1	--0:00		full
+date1904	neg-365	int	-365	'-h:mm'			1	--0:00		full
+date1904	neg-1462	int	-1462	'-h:mm'			1	--0:00		full
+date1904	neg-1463	int	-1463	'-h:mm'			1	--0:00		full
+date1904	neg-half	float	-0.5	'-h:mm'			1	--12:00		fast
+date1904	neg-1.5	float	-1.5	'-h:mm'			1	--12:00		full
+date1904	neg-quarter	float	-0.25	'-h:mm'			1	--6:00		full
+date1904	neg-tiny	float	-0.0001	'-h:mm'			1	--0:00		full
+date1904	y2023	int	43465	'-h:mm'			1	-0:00		full
+date1904	max	int	2957003	'-h:mm'			1	-0:00		full
+date1904	max+1	int	2957004	'-h:mm'			1	###############################################################################################################################################################################################################################################################		fast
+date1904	noon	float	0.5	'-h:mm'			1	-12:00		fast
+date1904	36h	float	1.5	'-h:mm'			1	-12:00		full
+date1904	leap-period-1900	int	-1403	'-h:mm'			1	--0:00		full

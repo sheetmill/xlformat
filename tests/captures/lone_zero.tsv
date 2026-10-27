@@ -1,0 +1,108 @@
+# suite: lone_zero
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-10-24
+# generator: capture.cases.lone_zero
+# method: width none=clipboard
+# numbers: repr
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+lone_zero	neg-0.3	float	-0.3	'[<=0]0'			0	0.3		fast
+lone_zero	neg-0.04	float	-0.04	'[<=0]0'			0	0.04		fast
+lone_zero	neg-0.001	float	-0.001	'[<=0]0'			0	0.001		fast
+lone_zero	neg-0.5	float	-0.5	'[<=0]0'			0	-1		fast
+lone_zero	neg-0.6	float	-0.6	'[<=0]0'			0	-1		full
+lone_zero	neg-1	int	-1	'[<=0]0'			0	-1		full
+lone_zero	zero	int	0	'[<=0]0'			0	0		fast
+lone_zero	pos-0.3	float	0.3	'[<=0]0'			0	0.3		full
+lone_zero	neg-0.3	float	-0.3	'[<=0]0.0'			0	-0.3		fast
+lone_zero	neg-0.04	float	-0.04	'[<=0]0.0'			0	0.04		fast
+lone_zero	neg-0.001	float	-0.001	'[<=0]0.0'			0	0.001		fast
+lone_zero	neg-0.5	float	-0.5	'[<=0]0.0'			0	-0.5		full
+lone_zero	neg-0.6	float	-0.6	'[<=0]0.0'			0	-0.6		full
+lone_zero	neg-1	int	-1	'[<=0]0.0'			0	-1.0		full
+lone_zero	zero	int	0	'[<=0]0.0'			0	0.0		fast
+lone_zero	pos-0.3	float	0.3	'[<=0]0.0'			0	0.3		full
+lone_zero	neg-0.3	float	-0.3	'[<=0]0;[>1]0'			0	###############################################################################################################################################################################################################################################################		fast
+lone_zero	neg-0.04	float	-0.04	'[<=0]0;[>1]0'			0	###############################################################################################################################################################################################################################################################		full
+lone_zero	neg-0.001	float	-0.001	'[<=0]0;[>1]0'			0	###############################################################################################################################################################################################################################################################		full
+lone_zero	neg-0.5	float	-0.5	'[<=0]0;[>1]0'			0	-1		fast
+lone_zero	neg-0.6	float	-0.6	'[<=0]0;[>1]0'			0	-1		full
+lone_zero	neg-1	int	-1	'[<=0]0;[>1]0'			0	-1		full
+lone_zero	zero	int	0	'[<=0]0;[>1]0'			0	0		fast
+lone_zero	pos-0.3	float	0.3	'[<=0]0;[>1]0'			0	###############################################################################################################################################################################################################################################################		full
+lone_zero	neg-0.3	float	-0.3	'[<=0.5]0'			0	0		fast
+lone_zero	neg-0.04	float	-0.04	'[<=0.5]0'			0	0		full
+lone_zero	neg-0.001	float	-0.001	'[<=0.5]0'			0	0		full
+lone_zero	neg-0.5	float	-0.5	'[<=0.5]0'			0	-1		fast
+lone_zero	neg-0.6	float	-0.6	'[<=0.5]0'			0	-1		full
+lone_zero	neg-1	int	-1	'[<=0.5]0'			0	-1		full
+lone_zero	zero	int	0	'[<=0.5]0'			0	0		full
+lone_zero	pos-0.3	float	0.3	'[<=0.5]0'			0	0		full
+lone_zero	neg-0.3	float	-0.3	'[<=0.1]0'			0	0.3		fast
+lone_zero	neg-0.04	float	-0.04	'[<=0.1]0'			0	0		fast
+lone_zero	neg-0.001	float	-0.001	'[<=0.1]0'			0	0		full
+lone_zero	neg-0.5	float	-0.5	'[<=0.1]0'			0	-1		fast
+lone_zero	neg-0.6	float	-0.6	'[<=0.1]0'			0	-1		full
+lone_zero	neg-1	int	-1	'[<=0.1]0'			0	-1		full
+lone_zero	zero	int	0	'[<=0.1]0'			0	0		full
+lone_zero	pos-0.3	float	0.3	'[<=0.1]0'			0	0.3		full
+lone_zero	neg-0.3	float	-0.3	'[<>0]0'			0	0		fast
+lone_zero	neg-0.04	float	-0.04	'[<>0]0'			0	0		full
+lone_zero	neg-0.001	float	-0.001	'[<>0]0'			0	0		full
+lone_zero	neg-0.5	float	-0.5	'[<>0]0'			0	-1		fast
+lone_zero	neg-0.6	float	-0.6	'[<>0]0'			0	-1		full
+lone_zero	neg-1	int	-1	'[<>0]0'			0	-1		full
+lone_zero	zero	int	0	'[<>0]0'			0	0		full
+lone_zero	pos-0.3	float	0.3	'[<>0]0'			0	0		full
+lone_zero	neg-0.3	float	-0.3	"'[=0]""zero"";0'"			0	0		fast
+lone_zero	neg-0.04	float	-0.04	"'[=0]""zero"";0'"			0	0		full
+lone_zero	neg-0.001	float	-0.001	"'[=0]""zero"";0'"			0	0		full
+lone_zero	neg-0.5	float	-0.5	"'[=0]""zero"";0'"			0	-1		fast
+lone_zero	neg-0.6	float	-0.6	"'[=0]""zero"";0'"			0	-1		full
+lone_zero	neg-1	int	-1	"'[=0]""zero"";0'"			0	-1		full
+lone_zero	zero	int	0	"'[=0]""zero"";0'"			0	zero		fast
+lone_zero	pos-0.3	float	0.3	"'[=0]""zero"";0'"			0	0		full
+lone_zero	neg-0.3	float	-0.3	'[<0]0'			0	0		fast
+lone_zero	neg-0.04	float	-0.04	'[<0]0'			0	0		full
+lone_zero	neg-0.001	float	-0.001	'[<0]0'			0	0		full
+lone_zero	neg-0.5	float	-0.5	'[<0]0'			0	1		full
+lone_zero	neg-0.6	float	-0.6	'[<0]0'			0	1		full
+lone_zero	neg-1	int	-1	'[<0]0'			0	1		full
+lone_zero	zero	int	0	'[<0]0'			0	0		full
+lone_zero	pos-0.3	float	0.3	'[<0]0'			0	0.3		fast
+lone_zero	neg-0.3	float	-0.3	'[<=0]0;0'			0	0		fast
+lone_zero	neg-0.04	float	-0.04	'[<=0]0;0'			0	0		full
+lone_zero	neg-0.001	float	-0.001	'[<=0]0;0'			0	0		full
+lone_zero	neg-0.5	float	-0.5	'[<=0]0;0'			0	-1		fast
+lone_zero	neg-0.6	float	-0.6	'[<=0]0;0'			0	-1		full
+lone_zero	neg-1	int	-1	'[<=0]0;0'			0	-1		full
+lone_zero	zero	int	0	'[<=0]0;0'			0	0		full
+lone_zero	pos-0.3	float	0.3	'[<=0]0;0'			0	0		full
+lone_zero	neg-0.3	float	-0.3	'[<=-0.2]0'			0	0		fast
+lone_zero	neg-0.04	float	-0.04	'[<=-0.2]0'			0	0.04		fast
+lone_zero	neg-0.001	float	-0.001	'[<=-0.2]0'			0	0.001		fast
+lone_zero	neg-0.5	float	-0.5	'[<=-0.2]0'			0	1		full
+lone_zero	neg-0.6	float	-0.6	'[<=-0.2]0'			0	1		full
+lone_zero	neg-1	int	-1	'[<=-0.2]0'			0	1		full
+lone_zero	zero	int	0	'[<=-0.2]0'			0	0		full
+lone_zero	pos-0.3	float	0.3	'[<=-0.2]0'			0	0.3		fast
+lone_zero	neg-0.3	float	-0.3	'[>=-1]0'			0	0		fast
+lone_zero	neg-0.04	float	-0.04	'[>=-1]0'			0	0		full
+lone_zero	neg-0.001	float	-0.001	'[>=-1]0'			0	0		full
+lone_zero	neg-0.5	float	-0.5	'[>=-1]0'			0	-1		fast
+lone_zero	neg-0.6	float	-0.6	'[>=-1]0'			0	-1		full
+lone_zero	neg-1	int	-1	'[>=-1]0'			0	-1		full
+lone_zero	zero	int	0	'[>=-1]0'			0	0		full
+lone_zero	pos-0.3	float	0.3	'[>=-1]0'			0	0		full
+lone_zero	neg-0.3	float	-0.3	'[<=0]0.00;[>1]0.00'			0	-0.30		fast
+lone_zero	neg-0.04	float	-0.04	'[<=0]0.00;[>1]0.00'			0	-0.04		full
+lone_zero	neg-0.001	float	-0.001	'[<=0]0.00;[>1]0.00'			0	###############################################################################################################################################################################################################################################################		fast
+lone_zero	neg-0.5	float	-0.5	'[<=0]0.00;[>1]0.00'			0	-0.50		full
+lone_zero	neg-0.6	float	-0.6	'[<=0]0.00;[>1]0.00'			0	-0.60		full
+lone_zero	neg-1	int	-1	'[<=0]0.00;[>1]0.00'			0	-1.00		full
+lone_zero	zero	int	0	'[<=0]0.00;[>1]0.00'			0	0.00		fast
+lone_zero	pos-0.3	float	0.3	'[<=0]0.00;[>1]0.00'			0	###############################################################################################################################################################################################################################################################		full

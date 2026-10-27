@@ -1,0 +1,249 @@
+# suite: fraction_ties
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-10-24
+# generator: capture.cases.fraction_ties
+# method: width none=clipboard
+# numbers: repr
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+fraction_ties	D10-W0-k9-+0.250ulp	float	0.95	'# ?/10'			0	1     		fast
+fraction_ties	D10-W0-k6--0.250ulp	float	0.65	'# ?/10'			0	 7/10		fast
+fraction_ties	D10-W0-k3-+0.500ulp	float	0.35	'# ?/10'			0	 4/10		full
+fraction_ties	D10-W0-k5--0.500ulp	float	0.55	'# ?/10'			0	 6/10		full
+fraction_ties	D10-W0-k0-+1.000ulp	float	0.04999999999999999	'# ?/10'			0	 1/10		full
+fraction_ties	D10-W0-k1--1.000ulp	float	0.15000000000000002	'# ?/10'			0	 2/10		full
+fraction_ties	D10-W0-k9-+1.500ulp	float	0.9499999999999997	'# ?/10'			0	1     		full
+fraction_ties	D10-W0-k6--1.500ulp	float	0.6500000000000001	'# ?/10'			0	 7/10		full
+fraction_ties	D10-W0-k8-+2.000ulp	float	0.8499999999999996	'# ?/10'			0	 8/10		full
+fraction_ties	D10-W0-k3--2.000ulp	float	0.3500000000000001	'# ?/10'			0	 4/10		full
+fraction_ties	D10-W0-k9-+4.000ulp	float	0.9499999999999993	'# ?/10'			0	 9/10		full
+fraction_ties	D10-W0-k0--4.000ulp	float	0.050000000000000044	'# ?/10'			0	 1/10		full
+fraction_ties	D10-W0-k3-+8.000ulp	float	0.34999999999999964	'# ?/10'			0	 3/10		full
+fraction_ties	D10-W0-k5--8.000ulp	float	0.5500000000000007	'# ?/10'			0	 6/10		full
+fraction_ties	D10-W1-k9-+0.250ulp	float	1.95	'# ?/10'			0	2     		full
+fraction_ties	D10-W1-k4-+0.500ulp	float	1.45	'# ?/10'			0	1 5/10		fast
+fraction_ties	D10-W1-k5--0.500ulp	float	1.55	'# ?/10'			0	1 6/10		full
+fraction_ties	D10-W1-k6-+1.000ulp	float	1.65	'# ?/10'			0	1 7/10		full
+fraction_ties	D10-W1-k9--1.000ulp	float	1.9500000000000002	'# ?/10'			0	2     		full
+fraction_ties	D10-W1-k9-+1.500ulp	float	1.9499999999999997	'# ?/10'			0	2     		full
+fraction_ties	D10-W1-k6--1.500ulp	float	1.6500000000000001	'# ?/10'			0	1 7/10		full
+fraction_ties	D10-W1-k8-+2.000ulp	float	1.8499999999999996	'# ?/10'			0	1 8/10		full
+fraction_ties	D10-W1-k3--2.000ulp	float	1.35	'# ?/10'			0	1 4/10		full
+fraction_ties	D10-W1-k9-+4.000ulp	float	1.9499999999999993	'# ?/10'			0	1 9/10		full
+fraction_ties	D10-W1-k0--4.000ulp	float	1.05	'# ?/10'			0	1 1/10		full
+fraction_ties	D10-W1-k4-+8.000ulp	float	1.4499999999999993	'# ?/10'			0	1 4/10		full
+fraction_ties	D10-W1-k5--8.000ulp	float	1.5500000000000007	'# ?/10'			0	1 6/10		full
+fraction_ties	D10-W12-k8-+2.000ulp	float	12.85	'# ?/10'			0	12 8/10		fast
+fraction_ties	D10-W12-k9-+4.000ulp	float	12.95	'# ?/10'			0	12 9/10		full
+fraction_ties	D10-W12-k6--4.000ulp	float	12.65	'# ?/10'			0	12 7/10		full
+fraction_ties	D10-W12-k4-+8.000ulp	float	12.45	'# ?/10'			0	12 4/10		full
+fraction_ties	D10-W12-k5--8.000ulp	float	12.55	'# ?/10'			0	12 6/10		full
+fraction_ties	D100-W0-k35-+0.250ulp	float	0.355	'# ??/100'			0	 36/100		fast
+fraction_ties	D100-W0-k6--0.250ulp	float	0.065	'# ??/100'			0	  7/100		fast
+fraction_ties	D100-W0-k11-+0.500ulp	float	0.11499999999999999	'# ??/100'			0	 12/100		full
+fraction_ties	D100-W0-k13--0.500ulp	float	0.135	'# ??/100'			0	 14/100		full
+fraction_ties	D100-W0-k10-+1.000ulp	float	0.10499999999999998	'# ??/100'			0	 11/100		full
+fraction_ties	D100-W0-k14--1.000ulp	float	0.14500000000000002	'# ??/100'			0	 15/100		full
+fraction_ties	D100-W0-k9-+1.500ulp	float	0.09499999999999997	'# ??/100'			0	 10/100		full
+fraction_ties	D100-W0-k15--1.500ulp	float	0.15500000000000003	'# ??/100'			0	 16/100		full
+fraction_ties	D100-W0-k8-+2.000ulp	float	0.08499999999999996	'# ??/100'			0	  8/100		full
+fraction_ties	D100-W0-k20--2.000ulp	float	0.20500000000000007	'# ??/100'			0	 21/100		full
+fraction_ties	D100-W0-k73-+4.000ulp	float	0.7349999999999994	'# ??/100'			0	 73/100		full
+fraction_ties	D100-W0-k76--4.000ulp	float	0.7650000000000006	'# ??/100'			0	 77/100		full
+fraction_ties	D100-W0-k30-+8.000ulp	float	0.3049999999999997	'# ??/100'			0	 30/100		full
+fraction_ties	D100-W0-k51--8.000ulp	float	0.5150000000000006	'# ??/100'			0	 52/100		full
+fraction_ties	D100-W1-k35-+0.250ulp	float	1.355	'# ??/100'			0	1 36/100		fast
+fraction_ties	D100-W1-k39--0.250ulp	float	1.395	'# ??/100'			0	1 40/100		full
+fraction_ties	D100-W1-k11-+0.500ulp	float	1.115	'# ??/100'			0	1 12/100		full
+fraction_ties	D100-W1-k13--0.500ulp	float	1.135	'# ??/100'			0	1 14/100		full
+fraction_ties	D100-W1-k10-+1.000ulp	float	1.105	'# ??/100'			0	1 11/100		full
+fraction_ties	D100-W1-k14--1.000ulp	float	1.145	'# ??/100'			0	1 15/100		full
+fraction_ties	D100-W1-k9-+1.500ulp	float	1.095	'# ??/100'			0	1 10/100		full
+fraction_ties	D100-W1-k15--1.500ulp	float	1.155	'# ??/100'			0	1 16/100		full
+fraction_ties	D100-W1-k8-+2.000ulp	float	1.085	'# ??/100'			0	1  8/100		fast
+fraction_ties	D100-W1-k20--2.000ulp	float	1.205	'# ??/100'			0	1 21/100		full
+fraction_ties	D100-W1-k73-+4.000ulp	float	1.7349999999999994	'# ??/100'			0	1 73/100		full
+fraction_ties	D100-W1-k76--4.000ulp	float	1.7650000000000006	'# ??/100'			0	1 77/100		full
+fraction_ties	D100-W1-k4-+8.000ulp	float	1.045	'# ??/100'			0	1  4/100		full
+fraction_ties	D100-W1-k51--8.000ulp	float	1.5150000000000006	'# ??/100'			0	1 52/100		full
+fraction_ties	D100-W12-k79-+0.500ulp	float	12.795	'# ??/100'			0	12 80/100		fast
+fraction_ties	D100-W12-k70--0.500ulp	float	12.705	'# ??/100'			0	12 71/100		full
+fraction_ties	D100-W12-k54-+1.000ulp	float	12.545	'# ??/100'			0	12 55/100		full
+fraction_ties	D100-W12-k45--1.000ulp	float	12.455	'# ??/100'			0	12 46/100		full
+fraction_ties	D100-W12-k88-+1.500ulp	float	12.885	'# ??/100'			0	12 89/100		full
+fraction_ties	D100-W12-k86--1.500ulp	float	12.865	'# ??/100'			0	12 87/100		full
+fraction_ties	D100-W12-k29-+2.000ulp	float	12.295	'# ??/100'			0	12 30/100		full
+fraction_ties	D100-W12-k20--2.000ulp	float	12.205	'# ??/100'			0	12 21/100		full
+fraction_ties	D100-W12-k73-+4.000ulp	float	12.735	'# ??/100'			0	12 73/100		full
+fraction_ties	D100-W12-k76--4.000ulp	float	12.765	'# ??/100'			0	12 77/100		full
+fraction_ties	D100-W12-k4-+8.000ulp	float	12.045	'# ??/100'			0	12  4/100		fast
+fraction_ties	D100-W12-k51--8.000ulp	float	12.515	'# ??/100'			0	12 52/100		full
+fraction_ties	D1000-W0-k296-+0.250ulp	float	0.2965	'# ???/1000'			0	 297/1000		fast
+fraction_ties	D1000-W0-k592--0.234ulp	float	0.5925	'# ???/1000'			0	 593/1000		full
+fraction_ties	D1000-W0-k999-+0.492ulp	float	0.9994999999999999	'# ???/1000'			0	1         		fast
+fraction_ties	D1000-W0-k407--0.508ulp	float	0.40750000000000003	'# ???/1000'			0	 408/1000		full
+fraction_ties	D1000-W0-k555-+1.031ulp	float	0.5554999999999999	'# ???/1000'			0	 556/1000		full
+fraction_ties	D1000-W0-k814--0.992ulp	float	0.8145000000000001	'# ???/1000'			0	 815/1000		full
+fraction_ties	D1000-W0-k999-+1.469ulp	float	0.9994999999999998	'# ???/1000'			0	1         		full
+fraction_ties	D1000-W0-k629--1.500ulp	float	0.6295000000000002	'# ???/1000'			0	 630/1000		full
+fraction_ties	D1000-W0-k555-+2.008ulp	float	0.5554999999999998	'# ???/1000'			0	 555/1000		full
+fraction_ties	D1000-W0-k814--1.969ulp	float	0.8145000000000002	'# ???/1000'			0	 815/1000		full
+fraction_ties	D1000-W0-k925-+4.000ulp	float	0.9254999999999995	'# ???/1000'			0	 925/1000		full
+fraction_ties	D1000-W0-k0--4.000ulp	float	0.0005000000000000004	'# ???/1000'			0	   1/1000		fast
+fraction_ties	D1000-W0-k407-+6.328ulp	float	0.40749999999999964	'# ???/1000'			0	 407/1000		full
+fraction_ties	D1000-W0-k999--6.344ulp	float	0.9995000000000007	'# ???/1000'			0	1         		full
+fraction_ties	D1000-W1-k296-+0.250ulp	float	1.2965	'# ???/1000'			0	1 297/1000		fast
+fraction_ties	D1000-W1-k592--0.234ulp	float	1.5925	'# ???/1000'			0	1 593/1000		full
+fraction_ties	D1000-W1-k407-+0.469ulp	float	1.4075	'# ???/1000'			0	1 408/1000		full
+fraction_ties	D1000-W1-k999--0.484ulp	float	1.9995	'# ???/1000'			0	2         		full
+fraction_ties	D1000-W1-k555-+1.031ulp	float	1.5554999999999999	'# ???/1000'			0	1 556/1000		full
+fraction_ties	D1000-W1-k555--0.922ulp	float	1.5555	'# ???/1000'			0	1 556/1000		full
+fraction_ties	D1000-W1-k999-+1.469ulp	float	1.9994999999999998	'# ???/1000'			0	2         		full
+fraction_ties	D1000-W1-k629--1.500ulp	float	1.6295000000000002	'# ???/1000'			0	1 630/1000		full
+fraction_ties	D1000-W1-k925-+2.047ulp	float	1.9254999999999998	'# ???/1000'			0	1 926/1000		full
+fraction_ties	D1000-W1-k814--1.969ulp	float	1.8145000000000002	'# ???/1000'			0	1 815/1000		full
+fraction_ties	D1000-W1-k925-+4.000ulp	float	1.9254999999999995	'# ???/1000'			0	1 925/1000		full
+fraction_ties	D1000-W1-k703--4.031ulp	float	1.7035000000000005	'# ???/1000'			0	1 704/1000		full
+fraction_ties	D1000-W1-k296-+8.063ulp	float	1.2964999999999995	'# ???/1000'			0	1 296/1000		full
+fraction_ties	D1000-W1-k592--8.047ulp	float	1.592500000000001	'# ???/1000'			0	1 593/1000		full
+fraction_ties	D1000-W12-k296-+0.250ulp	float	12.2965	'# ???/1000'			0	12 297/1000		fast
+fraction_ties	D1000-W12-k703--0.125ulp	float	12.7035	'# ???/1000'			0	12 704/1000		full
+fraction_ties	D1000-W12-k777-+1.250ulp	float	12.7775	'# ???/1000'			0	12 778/1000		full
+fraction_ties	D1000-W12-k629--1.500ulp	float	12.6295	'# ???/1000'			0	12 630/1000		full
+fraction_ties	D1000-W12-k851-+2.625ulp	float	12.8515	'# ???/1000'			0	12 851/1000		full
+fraction_ties	D1000-W12-k925-+4.000ulp	float	12.9255	'# ???/1000'			0	12 925/1000		full
+fraction_ties	D1000-W12-k888--4.500ulp	float	12.8885	'# ???/1000'			0	12 889/1000		full
+fraction_ties	D1000-W12-k740-+8.375ulp	float	12.740499999999999	'# ???/1000'			0	12 740/1000		full
+fraction_ties	D1000-W12-k481--8.500ulp	float	12.4815	'# ???/1000'			0	12 482/1000		full
+fraction_ties	D16-W0-k0-+0.500ulp	float	0.031249999999999997	'# ??/16'			0	  1/16		fast
+fraction_ties	D16-W0-k1-+1.000ulp	float	0.09374999999999999	'# ??/16'			0	  2/16		full
+fraction_ties	D16-W0-k1--1.000ulp	float	0.09375000000000001	'# ??/16'			0	  2/16		full
+fraction_ties	D16-W0-k0-+1.500ulp	float	0.03124999999999999	'# ??/16'			0	0      		fast
+fraction_ties	D16-W0-k4--1.000ulp	float	0.28125000000000006	'# ??/16'			0	  5/16		full
+fraction_ties	D16-W0-k0-+2.000ulp	float	0.031249999999999986	'# ??/16'			0	0      		full
+fraction_ties	D16-W0-k0--2.000ulp	float	0.031250000000000014	'# ??/16'			0	  1/16		full
+fraction_ties	D16-W0-k8-+4.000ulp	float	0.5312499999999996	'# ??/16'			0	  8/16		full
+fraction_ties	D16-W0-k0--4.000ulp	float	0.03125000000000003	'# ??/16'			0	  1/16		full
+fraction_ties	D16-W0-k2-+6.000ulp	float	0.15624999999999983	'# ??/16'			0	  2/16		full
+fraction_ties	D16-W0-k2--6.000ulp	float	0.15625000000000017	'# ??/16'			0	  3/16		full
+fraction_ties	D16-W1-k8-+2.000ulp	float	1.5312499999999998	'# ??/16'			0	1  8/16		fast
+fraction_ties	D16-W1-k8--2.000ulp	float	1.5312500000000002	'# ??/16'			0	1  9/16		full
+fraction_ties	D16-W1-k8-+4.000ulp	float	1.5312499999999996	'# ??/16'			0	1  8/16		full
+fraction_ties	D16-W1-k8--4.000ulp	float	1.5312500000000004	'# ??/16'			0	1  9/16		full
+fraction_ties	D16-W1-k8-+8.000ulp	float	1.5312499999999991	'# ??/16'			0	1  8/16		full
+fraction_ties	D16-W1-k8--8.000ulp	float	1.5312500000000009	'# ??/16'			0	1  9/16		full
+fraction_ties	D7-W0-k0-+0.250ulp	float	0.07142857142857142	'# ?/7'			0	 1/7		fast
+fraction_ties	D7-W0-k6--0.250ulp	float	0.9285714285714286	'# ?/7'			0	1    		fast
+fraction_ties	D7-W0-k4-+0.500ulp	float	0.6428571428571428	'# ?/7'			0	 5/7		full
+fraction_ties	D7-W0-k1--0.500ulp	float	0.2142857142857143	'# ?/7'			0	 2/7		full
+fraction_ties	D7-W0-k5-+1.000ulp	float	0.7857142857142856	'# ?/7'			0	 6/7		full
+fraction_ties	D7-W0-k2--1.000ulp	float	0.3571428571428572	'# ?/7'			0	 3/7		full
+fraction_ties	D7-W0-k6-+1.500ulp	float	0.9285714285714284	'# ?/7'			0	1    		full
+fraction_ties	D7-W0-k0--1.500ulp	float	0.07142857142857145	'# ?/7'			0	 1/7		full
+fraction_ties	D7-W0-k0-+2.000ulp	float	0.0714285714285714	'# ?/7'			0	0    		full
+fraction_ties	D7-W0-k6--2.000ulp	float	0.9285714285714288	'# ?/7'			0	1    		full
+fraction_ties	D7-W0-k4-+4.000ulp	float	0.6428571428571423	'# ?/7'			0	 4/7		full
+fraction_ties	D7-W0-k1--4.000ulp	float	0.2142857142857144	'# ?/7'			0	 2/7		full
+fraction_ties	D7-W0-k1-+5.625ulp	float	0.2142857142857141	'# ?/7'			0	 1/7		full
+fraction_ties	D7-W0-k3--8.750ulp	float	0.5000000000000006	'# ?/7'			0	 4/7		full
+fraction_ties	D7-W1-k6--0.250ulp	float	1.9285714285714286	'# ?/7'			0	2    		full
+fraction_ties	D7-W1-k4-+0.500ulp	float	1.6428571428571428	'# ?/7'			0	1 5/7		fast
+fraction_ties	D7-W1-k5--0.750ulp	float	1.7857142857142858	'# ?/7'			0	1 6/7		full
+fraction_ties	D7-W1-k5-+1.000ulp	float	1.7857142857142856	'# ?/7'			0	1 6/7		full
+fraction_ties	D7-W1-k2--1.000ulp	float	1.3571428571428572	'# ?/7'			0	1 3/7		full
+fraction_ties	D7-W1-k6-+1.500ulp	float	1.9285714285714284	'# ?/7'			0	2    		full
+fraction_ties	D7-W1-k4--1.250ulp	float	1.642857142857143	'# ?/7'			0	1 5/7		full
+fraction_ties	D7-W1-k0-+2.000ulp	float	1.0714285714285714	'# ?/7'			0	1    		full
+fraction_ties	D7-W1-k6--2.000ulp	float	1.9285714285714288	'# ?/7'			0	2    		full
+fraction_ties	D7-W1-k4-+4.000ulp	float	1.6428571428571423	'# ?/7'			0	1 4/7		full
+fraction_ties	D7-W1-k1--4.000ulp	float	1.2142857142857144	'# ?/7'			0	1 2/7		full
+fraction_ties	D7-W1-k5-+8.000ulp	float	1.7857142857142847	'# ?/7'			0	1 5/7		full
+fraction_ties	D7-W1-k2--8.000ulp	float	1.3571428571428577	'# ?/7'			0	1 3/7		full
+fraction_ties	D7-W12-k6--2.000ulp	float	12.928571428571429	'# ?/7'			0	13    		fast
+fraction_ties	D7-W12-k4-+4.000ulp	float	12.642857142857142	'# ?/7'			0	12 4/7		fast
+fraction_ties	D7-W12-k5-+8.000ulp	float	12.785714285714285	'# ?/7'			0	12 5/7		full
+fraction_ties	D7-W12-k2--8.000ulp	float	12.357142857142858	'# ?/7'			0	12 3/7		full
+fraction_ties	D3-W0-k0-+0.250ulp	float	0.16666666666666666	'# ?/3'			0	 1/3		fast
+fraction_ties	D3-W0-k2--0.250ulp	float	0.8333333333333334	'# ?/3'			0	1    		fast
+fraction_ties	D3-W0-k2-+0.500ulp	float	0.8333333333333333	'# ?/3'			0	1    		full
+fraction_ties	D3-W0-k0--0.500ulp	float	0.16666666666666669	'# ?/3'			0	 1/3		full
+fraction_ties	D3-W0-k0-+1.000ulp	float	0.16666666666666663	'# ?/3'			0	 1/3		full
+fraction_ties	D3-W0-k2--1.000ulp	float	0.8333333333333335	'# ?/3'			0	1    		full
+fraction_ties	D3-W0-k1-+1.500ulp	float	0.4999999999999999	'# ?/3'			0	 2/3		full
+fraction_ties	D3-W0-k1--1.500ulp	float	0.5000000000000001	'# ?/3'			0	 2/3		full
+fraction_ties	D3-W0-k2-+2.000ulp	float	0.833333333333333	'# ?/3'			0	1    		full
+fraction_ties	D3-W0-k0--2.000ulp	float	0.16666666666666674	'# ?/3'			0	 1/3		full
+fraction_ties	D3-W0-k0-+4.000ulp	float	0.16666666666666652	'# ?/3'			0	0    		full
+fraction_ties	D3-W0-k2--4.000ulp	float	0.8333333333333339	'# ?/3'			0	1    		full
+fraction_ties	D3-W0-k0-+4.750ulp	float	0.1666666666666665	'# ?/3'			0	0    		full
+fraction_ties	D3-W0-k1--7.500ulp	float	0.5000000000000006	'# ?/3'			0	 2/3		full
+fraction_ties	D3-W1-k2-+0.500ulp	float	1.8333333333333333	'# ?/3'			0	2    		full
+fraction_ties	D3-W1-k2--1.000ulp	float	1.8333333333333335	'# ?/3'			0	2    		full
+fraction_ties	D3-W1-k2-+2.000ulp	float	1.833333333333333	'# ?/3'			0	2    		full
+fraction_ties	D3-W1-k0--2.000ulp	float	1.1666666666666667	'# ?/3'			0	1 1/3		fast
+fraction_ties	D3-W1-k0-+4.000ulp	float	1.1666666666666665	'# ?/3'			0	1    		full
+fraction_ties	D3-W1-k2--4.000ulp	float	1.833333333333334	'# ?/3'			0	2    		full
+fraction_ties	D3-W1-k2-+8.000ulp	float	1.8333333333333321	'# ?/3'			0	1 2/3		full
+fraction_ties	D3-W1-k0--8.000ulp	float	1.166666666666667	'# ?/3'			0	1 1/3		full
+fraction_ties	D3-W12-k2--4.000ulp	float	12.833333333333334	'# ?/3'			0	13    		fast
+fraction_ties	D3-W12-k2-+8.000ulp	float	12.833333333333332	'# ?/3'			0	12 2/3		fast
+fraction_ties	tie-D2-W0-k0	float	0.25	'# ?/2'			0	 1/2		fast
+fraction_ties	tie-D2-W0-k1	float	0.75	'# ?/2'			0	1    		fast
+fraction_ties	tie-D2-W1-k0	float	1.25	'# ?/2'			0	1 1/2		fast
+fraction_ties	tie-D2-W1-k1	float	1.75	'# ?/2'			0	2    		full
+fraction_ties	tie-D2-W12-k0	float	12.25	'# ?/2'			0	12 1/2		fast
+fraction_ties	tie-D2-W12-k1	float	12.75	'# ?/2'			0	13    		fast
+fraction_ties	tie-D2-W1000-k0	float	1000.25	'# ?/2'			0	1000 1/2		fast
+fraction_ties	tie-D2-W1000-k1	float	1000.75	'# ?/2'			0	1001    		fast
+fraction_ties	tie-D4-W0-k0	float	0.125	'# ?/4'			0	 1/4		fast
+fraction_ties	tie-D4-W0-k1	float	0.375	'# ?/4'			0	 2/4		full
+fraction_ties	tie-D4-W0-k3	float	0.875	'# ?/4'			0	1    		fast
+fraction_ties	tie-D4-W1-k0	float	1.125	'# ?/4'			0	1 1/4		fast
+fraction_ties	tie-D4-W1-k1	float	1.375	'# ?/4'			0	1 2/4		full
+fraction_ties	tie-D4-W1-k3	float	1.875	'# ?/4'			0	2    		full
+fraction_ties	tie-D4-W12-k0	float	12.125	'# ?/4'			0	12 1/4		fast
+fraction_ties	tie-D4-W12-k1	float	12.375	'# ?/4'			0	12 2/4		full
+fraction_ties	tie-D4-W12-k3	float	12.875	'# ?/4'			0	13    		fast
+fraction_ties	tie-D4-W1000-k0	float	1000.125	'# ?/4'			0	1000 1/4		fast
+fraction_ties	tie-D4-W1000-k1	float	1000.375	'# ?/4'			0	1000 2/4		full
+fraction_ties	tie-D4-W1000-k3	float	1000.875	'# ?/4'			0	1001    		fast
+fraction_ties	tie-D8-W0-k0	float	0.0625	'# ?/8'			0	 1/8		fast
+fraction_ties	tie-D8-W0-k1	float	0.1875	'# ?/8'			0	 2/8		full
+fraction_ties	tie-D8-W0-k7	float	0.9375	'# ?/8'			0	1    		fast
+fraction_ties	tie-D8-W1-k0	float	1.0625	'# ?/8'			0	1 1/8		fast
+fraction_ties	tie-D8-W1-k1	float	1.1875	'# ?/8'			0	1 2/8		full
+fraction_ties	tie-D8-W1-k7	float	1.9375	'# ?/8'			0	2    		full
+fraction_ties	tie-D8-W12-k0	float	12.0625	'# ?/8'			0	12 1/8		fast
+fraction_ties	tie-D8-W12-k1	float	12.1875	'# ?/8'			0	12 2/8		full
+fraction_ties	tie-D8-W12-k7	float	12.9375	'# ?/8'			0	13    		fast
+fraction_ties	tie-D8-W1000-k0	float	1000.0625	'# ?/8'			0	1000 1/8		fast
+fraction_ties	tie-D8-W1000-k1	float	1000.1875	'# ?/8'			0	1000 2/8		full
+fraction_ties	tie-D8-W1000-k7	float	1000.9375	'# ?/8'			0	1001    		fast
+fraction_ties	tie-D16-W0-k0	float	0.03125	'# ??/16'			0	  1/16		full
+fraction_ties	tie-D16-W0-k1	float	0.09375	'# ??/16'			0	  2/16		full
+fraction_ties	tie-D16-W0-k15	float	0.96875	'# ??/16'			0	1      		full
+fraction_ties	tie-D16-W1-k0	float	1.03125	'# ??/16'			0	1  1/16		full
+fraction_ties	tie-D16-W1-k1	float	1.09375	'# ??/16'			0	1  2/16		full
+fraction_ties	tie-D16-W1-k15	float	1.96875	'# ??/16'			0	2      		full
+fraction_ties	tie-D16-W12-k0	float	12.03125	'# ??/16'			0	12  1/16		fast
+fraction_ties	tie-D16-W12-k1	float	12.09375	'# ??/16'			0	12  2/16		full
+fraction_ties	tie-D16-W12-k15	float	12.96875	'# ??/16'			0	13      		fast
+fraction_ties	tie-D16-W1000-k0	float	1000.03125	'# ??/16'			0	1000  1/16		fast
+fraction_ties	tie-D16-W1000-k1	float	1000.09375	'# ??/16'			0	1000  2/16		full
+fraction_ties	tie-D16-W1000-k15	float	1000.96875	'# ??/16'			0	1001      		fast
+fraction_ties	tie-D32-W0-k0	float	0.015625	'# ??/32'			0	  1/32		fast
+fraction_ties	tie-D32-W0-k1	float	0.046875	'# ??/32'			0	  2/32		full
+fraction_ties	tie-D32-W0-k31	float	0.984375	'# ??/32'			0	1      		fast
+fraction_ties	tie-D32-W1-k0	float	1.015625	'# ??/32'			0	1  1/32		fast
+fraction_ties	tie-D32-W1-k1	float	1.046875	'# ??/32'			0	1  2/32		full
+fraction_ties	tie-D32-W1-k31	float	1.984375	'# ??/32'			0	2      		full
+fraction_ties	tie-D32-W12-k0	float	12.015625	'# ??/32'			0	12  1/32		fast
+fraction_ties	tie-D32-W12-k1	float	12.046875	'# ??/32'			0	12  2/32		full
+fraction_ties	tie-D32-W12-k31	float	12.984375	'# ??/32'			0	13      		fast
+fraction_ties	tie-D32-W1000-k0	float	1000.015625	'# ??/32'			0	1000  1/32		fast
+fraction_ties	tie-D32-W1000-k1	float	1000.046875	'# ??/32'			0	1000  2/32		full
+fraction_ties	tie-D32-W1000-k31	float	1000.984375	'# ??/32'			0	1001      		fast

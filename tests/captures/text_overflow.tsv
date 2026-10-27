@@ -1,0 +1,61 @@
+# suite: text_overflow
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-10-24
+# generator: capture.cases.text_overflow
+# method: width none=clipboard; width 3=string_value; width 8=string_value; width 15=string_value
+# numbers: repr
+# column_points: C=23.0 D=53.0 E=95.0
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+text_overflow	short	str	'ab'	"'@"" units""'"			0	ab units		fast
+text_overflow	long	str	'Hello World'	"'@"" units""'"			0	Hello World units		fast
+text_overflow	short	str	'ab'	'_(@_)'			0	 ab 		fast
+text_overflow	long	str	'Hello World'	'_(@_)'			0	 Hello World 		fast
+text_overflow	short	str	'ab'	"'""[""@""]""'"			0	[ab]		fast
+text_overflow	long	str	'Hello World'	"'""[""@""]""'"			0	[Hello World]		fast
+text_overflow	short	str	'ab'	'@@'			0	abab		fast
+text_overflow	long	str	'Hello World'	'@@'			0	Hello WorldHello World		fast
+text_overflow	short	str	'ab'	'@'			0	ab		fast
+text_overflow	long	str	'Hello World'	'@'			0	Hello World		fast
+text_overflow	short	str	'ab'	"'""<""@"">""'"			0	<ab>		fast
+text_overflow	long	str	'Hello World'	"'""<""@"">""'"			0	<Hello World>		fast
+text_overflow	short	str	'ab'	"'@"" units""'"	3	3.0	0	ab units		fast
+text_overflow	long	str	'Hello World'	"'@"" units""'"	3	3.0	0	Hello World units		fast
+text_overflow	short	str	'ab'	'_(@_)'	3	3.0	0	 ab 		fast
+text_overflow	long	str	'Hello World'	'_(@_)'	3	3.0	0	 Hello World 		fast
+text_overflow	short	str	'ab'	"'""[""@""]""'"	3	3.0	0	[ab]		fast
+text_overflow	long	str	'Hello World'	"'""[""@""]""'"	3	3.0	0	[Hello World]		fast
+text_overflow	short	str	'ab'	'@@'	3	3.0	0	abab		fast
+text_overflow	long	str	'Hello World'	'@@'	3	3.0	0	Hello WorldHello World		fast
+text_overflow	short	str	'ab'	'@'	3	3.0	0	ab		fast
+text_overflow	long	str	'Hello World'	'@'	3	3.0	0	Hello World		fast
+text_overflow	short	str	'ab'	"'""<""@"">""'"	3	3.0	0	<ab>		fast
+text_overflow	long	str	'Hello World'	"'""<""@"">""'"	3	3.0	0	<Hello World>		fast
+text_overflow	short	str	'ab'	"'@"" units""'"	8	8.0	0	ab units		fast
+text_overflow	long	str	'Hello World'	"'@"" units""'"	8	8.0	0	Hello World units		fast
+text_overflow	short	str	'ab'	'_(@_)'	8	8.0	0	 ab 		fast
+text_overflow	long	str	'Hello World'	'_(@_)'	8	8.0	0	 Hello World 		fast
+text_overflow	short	str	'ab'	"'""[""@""]""'"	8	8.0	0	[ab]		fast
+text_overflow	long	str	'Hello World'	"'""[""@""]""'"	8	8.0	0	[Hello World]		fast
+text_overflow	short	str	'ab'	'@@'	8	8.0	0	abab		fast
+text_overflow	long	str	'Hello World'	'@@'	8	8.0	0	Hello WorldHello World		fast
+text_overflow	short	str	'ab'	'@'	8	8.0	0	ab		fast
+text_overflow	long	str	'Hello World'	'@'	8	8.0	0	Hello World		fast
+text_overflow	short	str	'ab'	"'""<""@"">""'"	8	8.0	0	<ab>		fast
+text_overflow	long	str	'Hello World'	"'""<""@"">""'"	8	8.0	0	<Hello World>		fast
+text_overflow	short	str	'ab'	"'@"" units""'"	15	15.0	0	ab units		fast
+text_overflow	long	str	'Hello World'	"'@"" units""'"	15	15.0	0	Hello World units		fast
+text_overflow	short	str	'ab'	'_(@_)'	15	15.0	0	 ab 		fast
+text_overflow	long	str	'Hello World'	'_(@_)'	15	15.0	0	 Hello World 		fast
+text_overflow	short	str	'ab'	"'""[""@""]""'"	15	15.0	0	[ab]		fast
+text_overflow	long	str	'Hello World'	"'""[""@""]""'"	15	15.0	0	[Hello World]		fast
+text_overflow	short	str	'ab'	'@@'	15	15.0	0	abab		fast
+text_overflow	long	str	'Hello World'	'@@'	15	15.0	0	Hello WorldHello World		fast
+text_overflow	short	str	'ab'	'@'	15	15.0	0	ab		fast
+text_overflow	long	str	'Hello World'	'@'	15	15.0	0	Hello World		fast
+text_overflow	short	str	'ab'	"'""<""@"">""'"	15	15.0	0	<ab>		fast
+text_overflow	long	str	'Hello World'	"'""<""@"">""'"	15	15.0	0	<Hello World>		fast
