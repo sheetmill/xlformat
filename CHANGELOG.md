@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-The first release, to be published as 0.1.0.
+## [0.1.0] - 2026-10-27
+
+First release.
 
 ### Added
 - `format_value(value, format_string)` returns the text Excel displays; `format_cell` returns
@@ -40,4 +42,5 @@ The first release, to be published as 0.1.0.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/commits/main
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.1.0
