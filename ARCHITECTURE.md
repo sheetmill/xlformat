@@ -534,9 +534,9 @@ Measured 2026-10-24 with every section kind implemented (Python 3.11, Apple Sili
 | format `yyyy-mm-dd hh:mm:ss.000` | 8.0 µs |
 | format `0.00E+00` | 8.9 µs |
 | format `# ?/?` and `# ??/??` | 7.1 µs and 7.5 µs |
-| full capture run, 25 suites, 268,305 rows, both width modes (2026-10-25) | about 3 s |
+| full capture run, 30 suites, 270,549 rows, both width modes | about 3 s |
 
-## 13a. What the code taught
+## 14. What the code taught
 
 - A bare `[$-x-systime]` or `[$-x-sysdate]` tag is the whole format: the section has no date
   codes, yet Excel shows the system time or long date. Classification treats a section whose
@@ -552,7 +552,6 @@ Measured 2026-10-24 with every section kind implemented (Python 3.11, Apple Sili
 - Grouping separators are decided per digit place from what sits to their left: a digit gives
   `,`, a `?` pad gives a space, an unfilled `#` gives nothing. This reproduces `0,000` → `0,001`,
   `#,###` → `` for zero and `#,##0` for every magnitude without special cases.
-
 - An empty first section hides numbers (`;` shows nothing for every number; `;;;` for text and
   booleans too), while `[Red]` or `[>1]` alone is kept by Excel as `[Red]General` / `[>1]General`.
 - Sign rules with conditions, from 14 formats: a section whose condition can only hold for
@@ -567,7 +566,6 @@ Measured 2026-10-24 with every section kind implemented (Python 3.11, Apple Sili
   nearest day and broke 4,116 rows; Excel always rounds to the second.
 - The epoch constants were first typed by hand and were two days off; they are now derived
   from `days_from_civil`, and a round-trip test guards them.
-
 - **openpyxl writes floats with 16 significant digits** (`"%.16g"`), so the captures' constants
   denoted a neighboring double for about half of all floats, and three rules had been fitted
   to the wrong doubles: the 16-digit step of the tie rule, the fraction-first clock nesting and
@@ -580,13 +578,19 @@ Measured 2026-10-24 with every section kind implemented (Python 3.11, Apple Sili
   pinned the order of Excel's floating-point operations where half-second rows, which only say
   "up" or "down", could not.
 
-## 14. Open questions
+## 15. Decisions
 
-1. Negative serials under 1904 are captured (`date1904`: a minus sign and the magnitude's
-   rendering); `strict` does the same for lack of a stated alternative.
-
-Settled by probes: `FormattedCell.fill` reports the position in `text`, `None` without a `*`;
-width-less overflow is 255 `#`; en-US only for 0.1
-with locale tags parsed and exposed on `Section`; error values are the caller's responsibility;
-the fraction rules ship with zero deviations (`QUIRKS.md`); lower-case
-`e+` after digits is a `FormatError`; `e` alone is a year code; a condition in section 3 or 4, or on the text section, is a `FormatError` because Excel refuses the file (`CAPTURING.md` §2 item 9, second run).
+- Negative serials under the 1904 system render as a minus sign followed by the magnitude's
+  rendering, and `strict` does the same for lack of a stated alternative (section 7; `date1904`
+  suite).
+- `FormattedCell.fill` reports the position of the fill in `text`, and is `None` without a `*`
+  (section 10).
+- Width-less overflow is 255 `#`, Excel's clipboard rendering (`CAPTURING.md` §2 items 1 and 2).
+- Only en-US for 0.1: locale tags are parsed and exposed on `Section` but not applied, apart
+  from the system date and time tags (sections 1 and 7).
+- Error values such as `#N/A` are the caller's responsibility, not inputs (section 5).
+- The fraction rules ship with zero deviations (`QUIRKS.md`; `CAPTURING.md` §2 item 22).
+- Lower-case `e+` after digits is a `FormatError`, and `e` alone is a year code (`CAPTURING.md`
+  §2 item 9).
+- A condition in section 3 or 4, or on the text section, is a `FormatError`, because Excel refuses
+  the file (`CAPTURING.md` §2 item 9, second run).
