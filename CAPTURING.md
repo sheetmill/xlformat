@@ -152,7 +152,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
    double-clicking one of these workbooks brought up the repair dialog ("We found a problem
    with some content in 'inv_01.xlsx'. Do you want us to try to recover as much as we can?"),
    so `-50` is Excel refusing the file with the dialog suppressed. What the recovered cell shows
-   is expected to be General (Excel's recovery drops the style), not yet observed. Five opened
+   was observed later: General, the other cells keeping their formats (item 33). Five opened
    and rendered, so they are formats to match, not errors: `*-0*-` (two fills; the second one fills: `1235` then dashes), `e+` (`e`
    is a year code: `1234.5678` → `1903+`, `0` → `1900+`, `-0.5` → `#` run), `0.0.0` (the second
    point is a literal inside the decimal digits: `1234.5678` → `1234.5.7`), `0%E+0` (`%` is a
@@ -597,6 +597,17 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     dynamic-array metadata openpyxl does not write and are not captured; the rule is the same
     for every code, only the text differs.
 
+33. **What the repair does (2026-10-28; `capture/repair.py`, `tests/captures/repair.layout.tsv`,
+    248 rows).** The one interactive capture: two workbooks opened with alerts on, the repair
+    dialogs accepted by hand. The first holds all 29 refused formats of item 9, one per row,
+    each between rows of valid custom formats (`0.000`, `[Red]0.00`, `"x"0`, `#,##0.0`,
+    `m/d/yy`); the second a single refused format between two controls. Four values per row
+    (1234.5678, -0.5, 0, `abc`), no column widths. After the repair every cell with a refused
+    format reads back with the format `General` and shows General in its 8-unit column (120 of
+    120 cells match the package's `General`), and every control keeps its format and shows it
+    (128 of 128); the single-format workbook behaves the same. So the repair resets only the
+    offending cells, and catching `FormatError` and rendering General reproduces it.
+
 ## 3. The pipeline
 
 ```
@@ -613,6 +624,7 @@ capture/convert_2023.py       the 2023 clipboard capture into the schema (captur
 capture/rounding_models.py    model comparison for the 15-digit rule
 capture/glyph_fit.py          glyph tables from the measure and space_fill suites (items 26, 30)
 capture/alignment.py          default alignment through Excel's PDF export (item 31)
+capture/repair.py             what Excel's repair does to refused formats; interactive (item 33)
 tests/captures/*.tsv[.gz]      the suites; tests/conftest.py and tests/test_captures.py load them
 ```
 

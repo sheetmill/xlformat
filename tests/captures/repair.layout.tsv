@@ -1,0 +1,251 @@
+# suite: repair (capture.repair); Excel for Mac, en_US; alerts on, repair accepted
+# captured: 2026-10-28; workbook_font: Calibri 11
+workbook	tag	format	value_repr	text	format_after
+repair_all.xlsx	control	'0.000'	1234.5678	1234.568	0.000
+repair_all.xlsx	control	'0.000'	-0.5	-0.500	0.000
+repair_all.xlsx	control	'0.000'	0	0.000	0.000
+repair_all.xlsx	control	'0.000'	'abc'	abc	0.000
+repair_all.xlsx	refused	'0.00e+00'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'0.00e+00'	-0.5	-0.5	General
+repair_all.xlsx	refused	'0.00e+00'	0	0	General
+repair_all.xlsx	refused	'0.00e+00'	'abc'	abc	General
+repair_all.xlsx	control	'[Red]0.00'	1234.5678	1234.57	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	-0.5	-0.50	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	0	0.00	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	'abc'	abc	[Red]0.00
+repair_all.xlsx	refused	'0.00e-00'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'0.00e-00'	-0.5	-0.5	General
+repair_all.xlsx	refused	'0.00e-00'	0	0	General
+repair_all.xlsx	refused	'0.00e-00'	'abc'	abc	General
+repair_all.xlsx	control	"'""x""0'"	1234.5678	x1235	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	-0.5	-x1	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	0	x0	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	'abc'	abc	"""x""0"
+repair_all.xlsx	refused	'##0.0e+0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'##0.0e+0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'##0.0e+0'	0	0	General
+repair_all.xlsx	refused	'##0.0e+0'	'abc'	abc	General
+repair_all.xlsx	control	'#,##0.0'	1234.5678	1,234.6	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	-0.5	-0.5	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	0	0.0	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	'abc'	abc	#,##0.0
+repair_all.xlsx	refused	'0.00E+00;0.00e+00'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'0.00E+00;0.00e+00'	-0.5	-0.5	General
+repair_all.xlsx	refused	'0.00E+00;0.00e+00'	0	0	General
+repair_all.xlsx	refused	'0.00E+00;0.00e+00'	'abc'	abc	General
+repair_all.xlsx	control	'm/d/yy'	1234.5678	5/18/03	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	-0.5	#########	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	0	1/0/00	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	'abc'	abc	m/d/yy
+repair_all.xlsx	refused	'0;0;0;0;0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'0;0;0;0;0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'0;0;0;0;0'	0	0	General
+repair_all.xlsx	refused	'0;0;0;0;0'	'abc'	abc	General
+repair_all.xlsx	control	'0.000'	1234.5678	1234.568	0.000
+repair_all.xlsx	control	'0.000'	-0.5	-0.500	0.000
+repair_all.xlsx	control	'0.000'	0	0.000	0.000
+repair_all.xlsx	control	'0.000'	'abc'	abc	0.000
+repair_all.xlsx	refused	'[Red'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[Red'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[Red'	0	0	General
+repair_all.xlsx	refused	'[Red'	'abc'	abc	General
+repair_all.xlsx	control	'[Red]0.00'	1234.5678	1234.57	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	-0.5	-0.50	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	0	0.00	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	'abc'	abc	[Red]0.00
+repair_all.xlsx	refused	"'0.00""'"	1234.5678	1234.568	General
+repair_all.xlsx	refused	"'0.00""'"	-0.5	-0.5	General
+repair_all.xlsx	refused	"'0.00""'"	0	0	General
+repair_all.xlsx	refused	"'0.00""'"	'abc'	abc	General
+repair_all.xlsx	control	"'""x""0'"	1234.5678	x1235	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	-0.5	-x1	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	0	x0	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	'abc'	abc	"""x""0"
+repair_all.xlsx	refused	'[Red][Blue]0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[Red][Blue]0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[Red][Blue]0'	0	0	General
+repair_all.xlsx	refused	'[Red][Blue]0'	'abc'	abc	General
+repair_all.xlsx	control	'#,##0.0'	1234.5678	1,234.6	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	-0.5	-0.5	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	0	0.0	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	'abc'	abc	#,##0.0
+repair_all.xlsx	refused	'[>1][<5]0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[>1][<5]0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[>1][<5]0'	0	0	General
+repair_all.xlsx	refused	'[>1][<5]0'	'abc'	abc	General
+repair_all.xlsx	control	'm/d/yy'	1234.5678	5/18/03	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	-0.5	#########	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	0	1/0/00	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	'abc'	abc	m/d/yy
+repair_all.xlsx	refused	'@;@'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'@;@'	-0.5	-0.5	General
+repair_all.xlsx	refused	'@;@'	0	0	General
+repair_all.xlsx	refused	'@;@'	'abc'	abc	General
+repair_all.xlsx	control	'0.000'	1234.5678	1234.568	0.000
+repair_all.xlsx	control	'0.000'	-0.5	-0.500	0.000
+repair_all.xlsx	control	'0.000'	0	0.000	0.000
+repair_all.xlsx	control	'0.000'	'abc'	abc	0.000
+repair_all.xlsx	refused	'0;@;0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'0;@;0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'0;@;0'	0	0	General
+repair_all.xlsx	refused	'0;@;0'	'abc'	abc	General
+repair_all.xlsx	control	'[Red]0.00'	1234.5678	1234.57	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	-0.5	-0.50	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	0	0.00	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	'abc'	abc	[Red]0.00
+repair_all.xlsx	refused	'yyyy 0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'yyyy 0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'yyyy 0'	0	0	General
+repair_all.xlsx	refused	'yyyy 0'	'abc'	abc	General
+repair_all.xlsx	control	"'""x""0'"	1234.5678	x1235	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	-0.5	-x1	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	0	x0	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	'abc'	abc	"""x""0"
+repair_all.xlsx	refused	'0 yyyy'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'0 yyyy'	-0.5	-0.5	General
+repair_all.xlsx	refused	'0 yyyy'	0	0	General
+repair_all.xlsx	refused	'0 yyyy'	'abc'	abc	General
+repair_all.xlsx	control	'#,##0.0'	1234.5678	1,234.6	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	-0.5	-0.5	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	0	0.0	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	'abc'	abc	#,##0.0
+repair_all.xlsx	refused	'0.00E+'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'0.00E+'	-0.5	-0.5	General
+repair_all.xlsx	refused	'0.00E+'	0	0	General
+repair_all.xlsx	refused	'0.00E+'	'abc'	abc	General
+repair_all.xlsx	control	'm/d/yy'	1234.5678	5/18/03	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	-0.5	#########	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	0	1/0/00	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	'abc'	abc	m/d/yy
+repair_all.xlsx	refused	'# ?/'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'# ?/'	-0.5	-0.5	General
+repair_all.xlsx	refused	'# ?/'	0	0	General
+repair_all.xlsx	refused	'# ?/'	'abc'	abc	General
+repair_all.xlsx	control	'0.000'	1234.5678	1234.568	0.000
+repair_all.xlsx	control	'0.000'	-0.5	-0.500	0.000
+repair_all.xlsx	control	'0.000'	0	0.000	0.000
+repair_all.xlsx	control	'0.000'	'abc'	abc	0.000
+repair_all.xlsx	refused	'[hh]:mm:[ss]'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[hh]:mm:[ss]'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[hh]:mm:[ss]'	0	0	General
+repair_all.xlsx	refused	'[hh]:mm:[ss]'	'abc'	abc	General
+repair_all.xlsx	control	'[Red]0.00'	1234.5678	1234.57	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	-0.5	-0.50	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	0	0.00	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	'abc'	abc	[Red]0.00
+repair_all.xlsx	refused	'General General'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'General General'	-0.5	-0.5	General
+repair_all.xlsx	refused	'General General'	0	0	General
+repair_all.xlsx	refused	'General General'	'abc'	abc	General
+repair_all.xlsx	control	"'""x""0'"	1234.5678	x1235	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	-0.5	-x1	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	0	x0	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	'abc'	abc	"""x""0"
+repair_all.xlsx	refused	'[Color57]0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[Color57]0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[Color57]0'	0	0	General
+repair_all.xlsx	refused	'[Color57]0'	'abc'	abc	General
+repair_all.xlsx	control	'#,##0.0'	1234.5678	1,234.6	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	-0.5	-0.5	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	0	0.0	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	'abc'	abc	#,##0.0
+repair_all.xlsx	refused	'[Color0]0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[Color0]0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[Color0]0'	0	0	General
+repair_all.xlsx	refused	'[Color0]0'	'abc'	abc	General
+repair_all.xlsx	control	'm/d/yy'	1234.5678	5/18/03	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	-0.5	#########	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	0	1/0/00	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	'abc'	abc	m/d/yy
+repair_all.xlsx	refused	'[]0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[]0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[]0'	0	0	General
+repair_all.xlsx	refused	'[]0'	'abc'	abc	General
+repair_all.xlsx	control	'0.000'	1234.5678	1234.568	0.000
+repair_all.xlsx	control	'0.000'	-0.5	-0.500	0.000
+repair_all.xlsx	control	'0.000'	0	0.000	0.000
+repair_all.xlsx	control	'0.000'	'abc'	abc	0.000
+repair_all.xlsx	refused	'[abc]0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[abc]0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[abc]0'	0	0	General
+repair_all.xlsx	refused	'[abc]0'	'abc'	abc	General
+repair_all.xlsx	control	'[Red]0.00'	1234.5678	1234.57	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	-0.5	-0.50	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	0	0.00	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	'abc'	abc	[Red]0.00
+repair_all.xlsx	refused	'ss.0000'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'ss.0000'	-0.5	-0.5	General
+repair_all.xlsx	refused	'ss.0000'	0	0	General
+repair_all.xlsx	refused	'ss.0000'	'abc'	abc	General
+repair_all.xlsx	control	"'""x""0'"	1234.5678	x1235	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	-0.5	-x1	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	0	x0	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	'abc'	abc	"""x""0"
+repair_all.xlsx	refused	'yyyy @'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'yyyy @'	-0.5	-0.5	General
+repair_all.xlsx	refused	'yyyy @'	0	0	General
+repair_all.xlsx	refused	'yyyy @'	'abc'	abc	General
+repair_all.xlsx	control	'#,##0.0'	1234.5678	1,234.6	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	-0.5	-0.5	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	0	0.0	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	'abc'	abc	#,##0.0
+repair_all.xlsx	refused	'0 @'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'0 @'	-0.5	-0.5	General
+repair_all.xlsx	refused	'0 @'	0	0	General
+repair_all.xlsx	refused	'0 @'	'abc'	abc	General
+repair_all.xlsx	control	'm/d/yy'	1234.5678	5/18/03	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	-0.5	#########	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	0	1/0/00	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	'abc'	abc	m/d/yy
+repair_all.xlsx	refused	'@ 0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'@ 0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'@ 0'	0	0	General
+repair_all.xlsx	refused	'@ 0'	'abc'	abc	General
+repair_all.xlsx	control	'0.000'	1234.5678	1234.568	0.000
+repair_all.xlsx	control	'0.000'	-0.5	-0.500	0.000
+repair_all.xlsx	control	'0.000'	0	0.000	0.000
+repair_all.xlsx	control	'0.000'	'abc'	abc	0.000
+repair_all.xlsx	refused	'# ?/?/?'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'# ?/?/?'	-0.5	-0.5	General
+repair_all.xlsx	refused	'# ?/?/?'	0	0	General
+repair_all.xlsx	refused	'# ?/?/?'	'abc'	abc	General
+repair_all.xlsx	control	'[Red]0.00'	1234.5678	1234.57	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	-0.5	-0.50	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	0	0.00	[Red]0.00
+repair_all.xlsx	control	'[Red]0.00'	'abc'	abc	[Red]0.00
+repair_all.xlsx	refused	'[>1]0;[>2]0;[>3]0'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[>1]0;[>2]0;[>3]0'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[>1]0;[>2]0;[>3]0'	0	0	General
+repair_all.xlsx	refused	'[>1]0;[>2]0;[>3]0'	'abc'	abc	General
+repair_all.xlsx	control	"'""x""0'"	1234.5678	x1235	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	-0.5	-x1	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	0	x0	"""x""0"
+repair_all.xlsx	control	"'""x""0'"	'abc'	abc	"""x""0"
+repair_all.xlsx	refused	'[>1]0;[>2]0;[>3]0;@'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'[>1]0;[>2]0;[>3]0;@'	-0.5	-0.5	General
+repair_all.xlsx	refused	'[>1]0;[>2]0;[>3]0;@'	0	0	General
+repair_all.xlsx	refused	'[>1]0;[>2]0;[>3]0;@'	'abc'	abc	General
+repair_all.xlsx	control	'#,##0.0'	1234.5678	1,234.6	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	-0.5	-0.5	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	0	0.0	#,##0.0
+repair_all.xlsx	control	'#,##0.0'	'abc'	abc	#,##0.0
+repair_all.xlsx	refused	'0;0;0;[>1]@'	1234.5678	1234.568	General
+repair_all.xlsx	refused	'0;0;0;[>1]@'	-0.5	-0.5	General
+repair_all.xlsx	refused	'0;0;0;[>1]@'	0	0	General
+repair_all.xlsx	refused	'0;0;0;[>1]@'	'abc'	abc	General
+repair_all.xlsx	control	'm/d/yy'	1234.5678	5/18/03	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	-0.5	#########	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	0	1/0/00	m/d/yy
+repair_all.xlsx	control	'm/d/yy'	'abc'	abc	m/d/yy
+repair_single.xlsx	control	'0.000'	1234.5678	1234.568	0.000
+repair_single.xlsx	control	'0.000'	-0.5	-0.500	0.000
+repair_single.xlsx	control	'0.000'	0	0.000	0.000
+repair_single.xlsx	control	'0.000'	'abc'	abc	0.000
+repair_single.xlsx	refused	'0.00e+00'	1234.5678	1234.568	General
+repair_single.xlsx	refused	'0.00e+00'	-0.5	-0.5	General
+repair_single.xlsx	refused	'0.00e+00'	0	0	General
+repair_single.xlsx	refused	'0.00e+00'	'abc'	abc	General
+repair_single.xlsx	control	'[Red]0.00'	1234.5678	1234.57	[Red]0.00
+repair_single.xlsx	control	'[Red]0.00'	-0.5	-0.50	[Red]0.00
+repair_single.xlsx	control	'[Red]0.00'	0	0.00	[Red]0.00
+repair_single.xlsx	control	'[Red]0.00'	'abc'	abc	[Red]0.00

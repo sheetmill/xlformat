@@ -110,8 +110,9 @@ True
 {class}`xlformat.FormatError` is raised only for format strings Excel refuses to open from a
 file, such as `0.00e+00` with a lower-case exponent or five sections. Strings that the Format
 Cells dialog rejects but a file may contain, such as two `*` fills, render as Excel renders
-them. A reader of files usually catches the error and falls back to `General`, which is what
-Excel's repair does to the cell.
+them. A reader of files catches the error and renders the cell as `General`, which is what
+Excel shows after it repairs the file: the repair resets each cell with a refused format to
+`General` and keeps every other cell's format.
 
 ```python
 >>> from xlformat import FormatError

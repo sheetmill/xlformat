@@ -55,8 +55,8 @@ the value overflowed, and the text without any width applied.
 `NumberFormat.parse` compiles a format string once. Parsing is cached, and the compiled object
 has `format` and `format_cell` methods and facts about the pattern such as `is_date`. An
 invalid format string raises `FormatError`, but only when Excel itself would refuse to open a
-file containing it. Callers reading files usually catch it and fall back to `General`, which
-is what Excel's repair does.
+file containing it. Callers reading files catch it and render the cell as `General`: Excel's
+repair resets each cell with such a format to `General` and keeps every other cell's format.
 
 ### Width
 
