@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-28
+
 ### Added
 - `file_column_metrics` converts a column width as a file stores it (`<col width>`, or the
   `<sheetFormatPr>` default for a column without one) into the column Excel for Mac lays out,
@@ -45,6 +47,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   otherwise; a leading minus costs its own glyph width (half a digit at Calibri 11 only).
   Checked against 52,084 new width rows at every whole-point column width.
 
+### Changed
+- Faster and smaller: the four-section accounting format compiles in 42.5 µs (61.9 in 0.1),
+  Excel mode with a cell font renders in about 6 µs (10), and a compiled format retains about
+  1.1 KiB (3). No rendering changed: every captured row renders byte for byte as before.
+- Tested against 526,729 rows in 101 suites captured from Excel 16.114 for Mac (en-US), with
+  the 2023 capture, plus Excel's alignment from its PDF export and what its repair does to
+  formats it refuses: a refused format becomes `General` in its cell only. Every row passes; no
+  known deviations.
+
+### Known limits
+- Excel mode bundles Calibri and Aptos Narrow; other sizes are scaled from the nearest
+  measured size, and other fonts raise `LookupError`. Widths are those of Excel for Mac;
+  Windows Excel is not measured.
+- The 255-character limit is taken from Excel's scripting interface, and the text edges in
+  `ColumnMetrics` from its print layout; neither is yet checked on screen.
+- Where an error type shared with the other sheetmill packages lives is provisional.
+
 ## [0.1.0] - 2026-10-27
 
 First release.
@@ -80,5 +99,6 @@ First release.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.2.0
 [0.1.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.1.0

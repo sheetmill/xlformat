@@ -27,7 +27,7 @@ from xlformat._palette import DEFAULT_PALETTE
 from xlformat._parser import NumberFormat, Section, SectionKind
 from xlformat._quirks import Quirks
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "DEFAULT_PALETTE",
