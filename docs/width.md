@@ -116,6 +116,29 @@ How Excel measures, as reproduced here:
   character and a leading minus by its own width (half a digit at Calibri 11), not by glyph
   widths. When no shortened form fits, the shortest one shows if its glyphs fit.
 
+## Measuring text yourself
+
+The measure behind Excel mode is public, for layout that has to agree with it: spilling text
+into the next column, wrapping, indents.
+
+```python
+>>> from xlformat import digit_width, glyph_widths, text_width
+>>> text_width("1,000.0")
+36.0
+>>> text_width("Hello World", ("Calibri", 14))
+66.0
+>>> glyph_widths("W i", Font("Calibri", 11, italic=True))
+(10.1, 2.0, 3.0)
+>>> digit_width(("Aptos Narrow", 16))
+8.0
+```
+
+`text_width` is the floored sum of the advances, the number every fit decision uses;
+`glyph_widths` gives the unfloored advance of each character, for measuring runs of a text;
+`digit_width` is the width of one column unit (and one indent level) for a Normal font;
+`overhang` is how far an italic face reaches past its advances on each side; `measured_fonts`
+lists the bundled tables.
+
 ## Custom measures
 
 `measure` replaces the character count with any callable from text to a width, and `width` is

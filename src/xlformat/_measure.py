@@ -173,6 +173,51 @@ def glyph_measure(font: FontSpec | None = None) -> Measure:
     return measure
 
 
+def text_width(text: str, font: FontSpec | None = None) -> float:
+    """The width of ``text`` in points as Excel for Mac measures it in ``font``.
+
+    The floored sum of the glyph advances, the measure every Excel-mode decision uses (fit,
+    ``#`` count, fill count); glyphs outside the table measure as a digit. Like reportlab's
+    ``stringWidth``, but whole points as Excel hints them.
+
+    Raises:
+        LookupError: ``font`` has no measured table.
+    """
+    return glyph_measure(font)(text)
+
+
+def glyph_widths(text: str, font: FontSpec | None = None) -> tuple[float, ...]:
+    """The advance of each character of ``text`` in points, unfloored.
+
+    For measuring runs of a text (words, spaces): Excel floors a whole run's sum, so
+    ``text_width`` of a run is ``floor(sum(glyph_widths(run)))``.
+    """
+    adv = _table(font)
+    digit = adv["0"]
+    return tuple(float(adv.get(c, digit)) for c in text)
+
+
+def digit_width(font: FontSpec | None = None) -> float:
+    """The maximum digit width (MDW) of ``font`` in points.
+
+    One column unit of a workbook whose Normal font is ``font``, and one indent level.
+    """
+    return _mdw(font)
+
+
+def measured_fonts() -> dict[str, dict[str, tuple[int, ...]]]:
+    """The glyph tables xlformat bundles: family, then style, then the measured sizes.
+
+    Other sizes of a measured family and style scale the nearest measured table; anything else
+    raises ``LookupError``. A caller can test a workbook's fonts against this before choosing
+    Excel mode.
+    """
+    return {
+        display: {style: tuple(sorted(sizes)) for style, sizes in styles.items()}
+        for display, styles in _FONTS.values()
+    }
+
+
 def column_budget(column_width: float, font: FontSpec | None = None) -> float:
     """Points available to a number or date in a column of ``column_width`` dialog units."""
     return column_points(column_width, font) - _COLUMN_PADDING

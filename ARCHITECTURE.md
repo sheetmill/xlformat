@@ -538,6 +538,14 @@ default_col_width=None, font=None)` for a column as a file states it and
 Normal font, and `width` is what `column_width` takes. Format functions take no file width:
 callers convert once per column.
 
+Measurement is public in the shape of reportlab's `stringWidth(text, fontName, fontSize)`, a
+function naming the font by argument (Pillow's `ImageFont.getlength` and tkinter's
+`Font.measure` are methods on a font object; xlformat already names fonts by a `font=` keyword):
+`text_width(text, font=None)` is Excel's measure, the floored sum of the advances in points;
+`glyph_widths(text, font=None)` the unfloored advance of each character, for runs;
+`digit_width(font=None)` the maximum digit width; `overhang(font=None)` an italic face's reach
+past its advances; `measured_fonts()` the bundled tables as family, style and sizes.
+
 Behavioral contract:
 - `FormatError` is raised only when Excel itself has no rendering for the format string **as it
   appears in a file**. "What the Format Cells dialog refuses" is the wrong test for a library

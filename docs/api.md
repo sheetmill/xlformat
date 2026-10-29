@@ -22,6 +22,16 @@ Everything below is importable from `xlformat`.
    :undoc-members:
 ```
 
+## Measuring text
+
+```{eval-rst}
+.. autofunction:: xlformat.text_width
+.. autofunction:: xlformat.glyph_widths
+.. autofunction:: xlformat.digit_width
+.. autofunction:: xlformat.overhang
+.. autofunction:: xlformat.measured_fonts
+```
+
 ## Columns and fonts
 
 ```{eval-rst}

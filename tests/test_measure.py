@@ -149,3 +149,21 @@ def test_the_255_character_limit() -> None:
     assert format_value(1, "* 0", column_width=84) == " " * 249 + "1"
     assert format_value(1e300, "0") == "#" * 255
     assert format_value(1e300, "0", column_width=255) == "#" * 255
+
+
+def test_public_measurement() -> None:
+    from xlformat import digit_width, glyph_widths, measured_fonts, text_width
+
+    assert text_width("1,000.0") == 36  # fits width 6 (CAPTURING.md section 2 item 25)
+    assert text_width("") == 0
+    assert digit_width() == 6
+    assert [digit_width(("Calibri", s)) for s in MEASURED_SIZES] == [5, 5, 6, 6, 7, 8]
+    widths = glyph_widths("1,000.0")
+    assert len(widths) == 7
+    assert text_width("1,000.0") == int(sum(widths))
+    assert glyph_widths("€") == (6.0,)  # outside the table: a digit
+    fonts = measured_fonts()
+    assert set(fonts) == {"Calibri", "Aptos Narrow"}
+    assert fonts["Aptos Narrow"]["bold italic"] == MEASURED_SIZES
+    with pytest.raises(LookupError):
+        text_width("x", "Comic Sans")

@@ -15,7 +15,12 @@ from xlformat._measure import (
     FontSpec,
     Measure,
     column_metrics,
+    digit_width,
     file_column_metrics,
+    glyph_widths,
+    measured_fonts,
+    overhang,
+    text_width,
 )
 from xlformat._palette import DEFAULT_PALETTE
 from xlformat._parser import NumberFormat, Section, SectionKind
@@ -35,9 +40,14 @@ __all__ = [
     "SectionKind",
     "__version__",
     "column_metrics",
+    "digit_width",
     "file_column_metrics",
     "format_cell",
     "format_value",
+    "glyph_widths",
+    "measured_fonts",
+    "overhang",
+    "text_width",
 ]
 
 
