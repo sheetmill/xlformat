@@ -64,8 +64,8 @@ color, the default alignment, the position of a `*` fill, whether the value over
 '0000FF'
 ```
 
-Alignment follows the value, not the format: numbers and dates right, text left, booleans
-centered.
+Alignment follows the value: numbers and dates right, text left, booleans centered. A number
+under a format with only a text section, such as `@`, is left-aligned like text, as in Excel.
 
 ## Compiled formats
 

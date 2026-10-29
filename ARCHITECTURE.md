@@ -442,8 +442,10 @@ Design principle: the plain call returns a plain `str`, and a caller who wants m
 string asks for it explicitly.
 
 What Excel shows beyond the characters: the section color (eight names or `Color1..56`), the
-default horizontal alignment (numbers and dates right, text left, booleans centered, derived from
-the value kind, not the format), the position of a `*` fill, and whether the cell overflowed.
+default horizontal alignment (numbers and dates right, text left, booleans centered, except that
+a number through a format with only a text section, such as `@` or `@" units"`, is left, as text;
+`alignment.layout`, `CAPTURING.md` §2 item 31), the position of a `*` fill, and whether the cell
+overflowed.
 
 Options considered, with precedent:
 

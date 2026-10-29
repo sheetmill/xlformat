@@ -31,6 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   width in points.
 - A `#` run is at most 255 characters, and a number or text that would exceed 255 characters,
   with its `*` fill or without a width, shows a `#` run, as in Excel.
+- `FormattedCell.align` is `left` for a number under a format with only a text section, such
+  as `@`, as Excel aligns it; it was `right`.
 - With a width, a negative that `General` reduces to zero shows `0`, not `-0`, under any General
   other than the plain format (`[Red]General`, `@`, a General section among others).
 - Excel mode: `General` at fractional column widths. When no shortened form fits by

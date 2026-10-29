@@ -24,7 +24,10 @@ CAPTURE_DIR = Path(__file__).parent / "captures"
 SUITE_FILES = sorted(
     p
     for p in CAPTURE_DIR.iterdir()
-    if p.name.endswith((".tsv", ".tsv.gz")) and ".measure." not in p.name
+    # .measure. files hold autofit widths, .layout. files PDF positions; neither is a suite
+    if p.name.endswith((".tsv", ".tsv.gz"))
+    and ".measure." not in p.name
+    and ".layout." not in p.name
 )
 
 # Rows where Excel's DisplayFormat font color, the capture's source for `expected_color`,

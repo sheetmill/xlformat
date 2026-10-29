@@ -35,6 +35,10 @@ Changelog = "https://github.com/sheetmill/xlformat/blob/main/CHANGELOG.md"
 Issues = "https://github.com/sheetmill/xlformat/issues"
 
 [dependency-groups]
+# Capture tooling only (capture/alignment.py): text positions from Excel's PDF export.
+capture = [
+    "pdfminer-six>=20250506",
+]
 dev = [
   "pytest>=8",
   "ruff>=0.8",

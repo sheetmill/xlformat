@@ -1,0 +1,201 @@
+# suite: alignment (capture.alignment); Excel 16.114 for Mac, en_US
+# workbook_font: Calibri 11
+# captured: 2026-10-28; method: PDF export, pdfminer.six
+# align: where the printed text sits between the gridlines; empty: no text
+tag	value_type	value_repr	format	text	align
+int	int	12345	'General'	12345	right
+float	float	1.5	'General'	1.5	right
+negative	int	-1	'General'	-1	right
+zero	int	0	'General'	0	right
+date-serial	int	36529	'General'	36529	right
+bool	bool	True	'General'	TRUE	center
+text	str	'abc'	'General'	abc	left
+int	int	12345	'0'	12345	right
+float	float	1.5	'0'	2	right
+negative	int	-1	'0'	-1	right
+zero	int	0	'0'	0	right
+date-serial	int	36529	'0'	36529	right
+bool	bool	True	'0'	TRUE	center
+text	str	'abc'	'0'	abc	left
+int	int	12345	'0.00'	12345.00	right
+float	float	1.5	'0.00'	1.50	right
+negative	int	-1	'0.00'	-1.00	right
+zero	int	0	'0.00'	0.00	right
+date-serial	int	36529	'0.00'	36529.00	right
+bool	bool	True	'0.00'	TRUE	center
+text	str	'abc'	'0.00'	abc	left
+int	int	12345	'@'	12345	left
+float	float	1.5	'@'	1.5	left
+negative	int	-1	'@'	-1	left
+zero	int	0	'@'	0	left
+date-serial	int	36529	'@'	36529	left
+bool	bool	True	'@'	TRUE	center
+text	str	'abc'	'@'	abc	left
+int	int	12345	"'@"" units""'"	12345	left
+float	float	1.5	"'@"" units""'"	1.5	left
+negative	int	-1	"'@"" units""'"	-1	left
+zero	int	0	"'@"" units""'"	0	left
+date-serial	int	36529	"'@"" units""'"	36529	left
+bool	bool	True	"'@"" units""'"	TRUE units	center
+text	str	'abc'	"'@"" units""'"	abc units	left
+int	int	12345	"'""x""@'"	12345	left
+float	float	1.5	"'""x""@'"	1.5	left
+negative	int	-1	"'""x""@'"	-1	left
+zero	int	0	"'""x""@'"	0	left
+date-serial	int	36529	"'""x""@'"	36529	left
+bool	bool	True	"'""x""@'"	xTRUE	center
+text	str	'abc'	"'""x""@'"	xabc	left
+int	int	12345	'0;0;0;@'	12345	right
+float	float	1.5	'0;0;0;@'	2	right
+negative	int	-1	'0;0;0;@'	1	right
+zero	int	0	'0;0;0;@'	0	right
+date-serial	int	36529	'0;0;0;@'	36529	right
+bool	bool	True	'0;0;0;@'	TRUE	center
+text	str	'abc'	'0;0;0;@'	abc	left
+int	int	12345	';;;@'		
+float	float	1.5	';;;@'		
+negative	int	-1	';;;@'		
+zero	int	0	';;;@'		
+date-serial	int	36529	';;;@'		
+bool	bool	True	';;;@'	TRUE	center
+text	str	'abc'	';;;@'	abc	left
+int	int	12345	'[Red]@'	12345	left
+float	float	1.5	'[Red]@'	1.5	left
+negative	int	-1	'[Red]@'	-1	left
+zero	int	0	'[Red]@'	0	left
+date-serial	int	36529	'[Red]@'	36529	left
+bool	bool	True	'[Red]@'	TRUE	center
+text	str	'abc'	'[Red]@'	abc	left
+int	int	12345	'General;General;General;@'	12345	right
+float	float	1.5	'General;General;General;@'	1.5	right
+negative	int	-1	'General;General;General;@'	1	right
+zero	int	0	'General;General;General;@'	0	right
+date-serial	int	36529	'General;General;General;@'	36529	right
+bool	bool	True	'General;General;General;@'	TRUE	center
+text	str	'abc'	'General;General;General;@'	abc	left
+int	int	12345	'@@'	12345	left
+float	float	1.5	'@@'	1.5	left
+negative	int	-1	'@@'	-1	left
+zero	int	0	'@@'	0	left
+date-serial	int	36529	'@@'	36529	left
+bool	bool	True	'@@'	TRUETRUE	center
+text	str	'abc'	'@@'	abcabc	left
+int	int	12345	'm/d/yy'	10/18/33	right
+float	float	1.5	'm/d/yy'	1/1/00	right
+negative	int	-1	'm/d/yy'	###############################################	left
+zero	int	0	'm/d/yy'	1/0/00	right
+date-serial	int	36529	'm/d/yy'	1/4/00	right
+bool	bool	True	'm/d/yy'	TRUE	center
+text	str	'abc'	'm/d/yy'	abc	left
+int	int	12345	"'""abc""'"	abc	right
+float	float	1.5	"'""abc""'"	abc	right
+negative	int	-1	"'""abc""'"	-abc	right
+zero	int	0	"'""abc""'"	abc	right
+date-serial	int	36529	"'""abc""'"	abc	right
+bool	bool	True	"'""abc""'"	TRUE	center
+text	str	'abc'	"'""abc""'"	abc	left
+int	int	12345	';;;'		
+float	float	1.5	';;;'		
+negative	int	-1	';;;'		
+zero	int	0	';;;'		
+date-serial	int	36529	';;;'		
+bool	bool	True	';;;'		
+text	str	'abc'	';;;'		
+int	int	12345	'0;-0;;@'	12345	right
+float	float	1.5	'0;-0;;@'	2	right
+negative	int	-1	'0;-0;;@'	-1	right
+zero	int	0	'0;-0;;@'		
+date-serial	int	36529	'0;-0;;@'	36529	right
+bool	bool	True	'0;-0;;@'	TRUE	center
+text	str	'abc'	'0;-0;;@'	abc	left
+int	int	12345	'_(@_)'	12345	left
+float	float	1.5	'_(@_)'	1.5	left
+negative	int	-1	'_(@_)'	-1	left
+zero	int	0	'_(@_)'	0	left
+date-serial	int	36529	'_(@_)'	36529	left
+bool	bool	True	'_(@_)'	TRUE	center
+text	str	'abc'	'_(@_)'	abc	left
+int	int	12345	'*-@'	12345	left
+float	float	1.5	'*-@'	1.5	left
+negative	int	-1	'*-@'	-1	left
+zero	int	0	'*-@'	0	left
+date-serial	int	36529	'*-@'	36529	left
+bool	bool	True	'*-@'	---------------------------------------------------------------------- TRUE	left
+text	str	'abc'	'*-@'	-------------------------------------------------------------------------a bc	left
+int	int	12345	'@*-'	12345	left
+float	float	1.5	'@*-'	1.5	left
+negative	int	-1	'@*-'	-1	left
+zero	int	0	'@*-'	0	left
+date-serial	int	36529	'@*-'	36529	left
+bool	bool	True	'@*-'	TRUE----------------------------------------------------------------------	left
+text	str	'abc'	'@*-'	abc-------------------------------------------------------------------------	left
+int	int	12345	'[>100]0'	12345	right
+float	float	1.5	'[>100]0'	1.5	right
+negative	int	-1	'[>100]0'	-1	right
+zero	int	0	'[>100]0'	0	right
+date-serial	int	36529	'[>100]0'	36529	right
+bool	bool	True	'[>100]0'	TRUE	center
+text	str	'abc'	'[>100]0'	abc	left
+int	int	12345	'[Red]General'	12345	right
+float	float	1.5	'[Red]General'	1.5	right
+negative	int	-1	'[Red]General'	-1	right
+zero	int	0	'[Red]General'	0	right
+date-serial	int	36529	'[Red]General'	36529	right
+bool	bool	True	'[Red]General'	TRUE	center
+text	str	'abc'	'[Red]General'	abc	left
+int	int	12345	"'0;-0;0;""t""'"	12345	right
+float	float	1.5	"'0;-0;0;""t""'"	2	right
+negative	int	-1	"'0;-0;0;""t""'"	-1	right
+zero	int	0	"'0;-0;0;""t""'"	0	right
+date-serial	int	36529	"'0;-0;0;""t""'"	36529	right
+bool	bool	True	"'0;-0;0;""t""'"	t	center
+text	str	'abc'	"'0;-0;0;""t""'"	t	left
+int	int	12345	'0;-0;0;@*-'	12345	right
+float	float	1.5	'0;-0;0;@*-'	2	right
+negative	int	-1	'0;-0;0;@*-'	-1	right
+zero	int	0	'0;-0;0;@*-'	0	right
+date-serial	int	36529	'0;-0;0;@*-'	36529	right
+bool	bool	True	'0;-0;0;@*-'	TRUE----------------------------------------------------------------------	left
+text	str	'abc'	'0;-0;0;@*-'	abc-------------------------------------------------------------------------	left
+error #DIV/0!	error	'#DIV/0!'	'General'	#DIV/0!	center
+error #N/A	error	'#N/A'	'General'	#N/A	center
+error #NUM!	error	'#NUM!'	'General'	#NUM!	center
+error #VALUE!	error	'#VALUE!'	'General'	#VALUE!	center
+error #NAME?	error	'#NAME?'	'General'	#NAME?	center
+error #REF!	error	'#REF!'	'General'	#REF!	center
+error #NULL!	error	'#NULL!'	'General'	#NULL!	center
+error #DIV/0!	error	'#DIV/0!'	'0'	#DIV/0!	center
+error #N/A	error	'#N/A'	'0'	#N/A	center
+error #NUM!	error	'#NUM!'	'0'	#NUM!	center
+error #VALUE!	error	'#VALUE!'	'0'	#VALUE!	center
+error #NAME?	error	'#NAME?'	'0'	#NAME?	center
+error #REF!	error	'#REF!'	'0'	#REF!	center
+error #NULL!	error	'#NULL!'	'0'	#NULL!	center
+error #DIV/0!	error	'#DIV/0!'	'@'	#DIV/0!	center
+error #N/A	error	'#N/A'	'@'	#N/A	center
+error #NUM!	error	'#NUM!'	'@'	#NUM!	center
+error #VALUE!	error	'#VALUE!'	'@'	#VALUE!	center
+error #NAME?	error	'#NAME?'	'@'	#NAME?	center
+error #REF!	error	'#REF!'	'@'	#REF!	center
+error #NULL!	error	'#NULL!'	'@'	#NULL!	center
+error #DIV/0!	error	'#DIV/0!'	'[Red]0'	#DIV/0!	center
+error #N/A	error	'#N/A'	'[Red]0'	#N/A	center
+error #NUM!	error	'#NUM!'	'[Red]0'	#NUM!	center
+error #VALUE!	error	'#VALUE!'	'[Red]0'	#VALUE!	center
+error #NAME?	error	'#NAME?'	'[Red]0'	#NAME?	center
+error #REF!	error	'#REF!'	'[Red]0'	#REF!	center
+error #NULL!	error	'#NULL!'	'[Red]0'	#NULL!	center
+error #DIV/0!	error	'#DIV/0!'	';;;'	#DIV/0!	center
+error #N/A	error	'#N/A'	';;;'	#N/A	center
+error #NUM!	error	'#NUM!'	';;;'	#NUM!	center
+error #VALUE!	error	'#VALUE!'	';;;'	#VALUE!	center
+error #NAME?	error	'#NAME?'	';;;'	#NAME?	center
+error #REF!	error	'#REF!'	';;;'	#REF!	center
+error #NULL!	error	'#NULL!'	';;;'	#NULL!	center
+error #DIV/0!	error	'#DIV/0!'	'0;-0;0;@'	#DIV/0!	center
+error #N/A	error	'#N/A'	'0;-0;0;@'	#N/A	center
+error #NUM!	error	'#NUM!'	'0;-0;0;@'	#NUM!	center
+error #VALUE!	error	'#VALUE!'	'0;-0;0;@'	#VALUE!	center
+error #NAME?	error	'#NAME?'	'0;-0;0;@'	#NAME?	center
+error #REF!	error	'#REF!'	'0;-0;0;@'	#REF!	center
+error #NULL!	error	'#NULL!'	'0;-0;0;@'	#NULL!	center

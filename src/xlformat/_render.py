@@ -297,10 +297,13 @@ def _render_number(
         if rendered is None:
             return overflow(chosen.color, width, None, measure)
         pieces = rendered
+    # a number through a format with only a text section shows General, left-aligned like text
+    # (12345 under @ or @" units", alignment.layout); otherwise numbers align right
+    align: Align = "left" if chosen is None and fmt.is_text else "right"
     return assemble(
         pieces,
         chosen.color if chosen else None,
-        "right",
+        align,
         width=width,
         measure=measure,
         general_value=general_value,

@@ -28,7 +28,8 @@ class FormattedCell:
         text: What the cell shows under the given width.
         full_text: The width-less rendering (what copy and paste gives); always set.
         color: Section color, ``'Red'`` ... ``'Color56'``, or ``None``.
-        align: Excel's default horizontal alignment for the value kind.
+        align: Excel's default horizontal alignment: by value kind, and ``left`` for a number
+            through a format with only a text section (``@``).
         fill: ``(index, char)`` of a ``*`` fill in ``text``, or ``None``.
         overflow: True when ``text`` is a run of ``#``.
     """
