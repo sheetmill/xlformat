@@ -248,6 +248,30 @@ _CHAR_KINDS: dict[str, TokenKind] = {
 }
 
 
+# Tokens and pieces of one character are shared between formats: they are immutable, and a
+# format holds one per placeholder, which made them most of what a compiled format retains.
+_SHARED_TOKENS: dict[tuple[TokenKind, str], Token] = {}
+_SHARED_PIECES: dict[tuple[str, str], Piece] = {}
+
+
+def _token(kind: TokenKind, text: str) -> Token:
+    key = (kind, text)
+    token = _SHARED_TOKENS.get(key)
+    if token is None:
+        token = _SHARED_TOKENS.setdefault(key, Token(kind, text))
+    return token
+
+
+def _piece(kind: str, text: str) -> Piece:
+    if len(text) > 1:
+        return (kind, text)
+    key = (kind, text)
+    piece = _SHARED_PIECES.get(key)
+    if piece is None:
+        piece = _SHARED_PIECES.setdefault(key, key)
+    return piece
+
+
 def tokenize(section: str) -> list[Token]:
     """Split one section into tokens. Raises ``FormatError`` for unclosed quotes and brackets."""
     tokens: list[Token] = []
@@ -256,9 +280,9 @@ def tokenize(section: str) -> list[Token]:
         text = m.group(kind) if kind else ""
         simple = _SIMPLE_KINDS.get(kind) if kind else None
         if simple is not None:
-            tokens.append(Token(simple, text))
+            tokens.append(_token(simple, text))
         elif kind == "char":
-            tokens.append(Token(_CHAR_KINDS.get(text, TokenKind.LITERAL), text))
+            tokens.append(_token(_CHAR_KINDS.get(text, TokenKind.LITERAL), text))
         elif kind == "quoted":
             if text:
                 tokens.append(Token(TokenKind.LITERAL, text))
@@ -387,20 +411,20 @@ def _pieces(tokens: list[Token]) -> tuple[Piece, ...]:
     pieces: list[Piece] = []
     for t in tokens:
         if t.kind is TokenKind.DIGIT:
-            pieces.append(("digit", t.text))
+            pieces.append(_piece("digit", t.text))
         elif t.kind is TokenKind.PAD:
-            pieces.append(("pad", t.text))
+            pieces.append(_piece("pad", t.text))
         elif t.kind is TokenKind.FILL:
-            pieces.append(("fill", t.text))
+            pieces.append(_piece("fill", t.text))
         elif t.kind is TokenKind.GENERAL:
             pieces.append(("general", ""))
         elif t.kind is TokenKind.CURRENCY:
             if t.text:
-                pieces.append(("lit", t.text))
+                pieces.append(_piece("lit", t.text))
         elif t.kind in (TokenKind.COLOR, TokenKind.CONDITION):
             continue
         else:
-            pieces.append(("lit", t.text))
+            pieces.append(_piece("lit", t.text))
     return tuple(pieces)
 
 
