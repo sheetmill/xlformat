@@ -15,7 +15,7 @@ from pathlib import Path
 
 import pytest
 
-from xlformat import file_column_metrics, format_cell
+from xlformat import ExcelError, file_column_metrics, format_cell
 
 LAYOUT = Path(__file__).parent / "captures" / "alignment.layout.tsv"
 COLUMN_WIDTH = file_column_metrics(40).width  # capture/alignment.py: COLUMN_WIDTH
@@ -32,14 +32,12 @@ def test_alignment_matches_the_pdf_export() -> None:
     rows = _rows()
     assert rows, "no alignment rows"
     failures = []
-    counts = {"aligned": 0, "fills the column": 0, "no text": 0, "errors (step 8)": 0}
+    counts = {"aligned": 0, "fills the column": 0, "no text": 0}
     for row in rows:
+        value = literal_eval(row["value_repr"])
         if row["value_type"] == "error":
-            counts["errors (step 8)"] += 1
-            continue
-        cell = format_cell(
-            literal_eval(row["value_repr"]), literal_eval(row["format"]), column_width=COLUMN_WIDTH
-        )
+            value = ExcelError(value)
+        cell = format_cell(value, literal_eval(row["format"]), column_width=COLUMN_WIDTH)
         if cell.text.replace(" ", "") != row["text"].replace(" ", ""):
             failures.append(f"{row['format']} {row['value_repr']}: text {cell.text!r}")
             continue

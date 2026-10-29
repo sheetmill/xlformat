@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from decimal import Decimal
 
 from xlformat._assemble import Align, FormattedCell, assemble, overflow
 from xlformat._datetime import render_datetime
+from xlformat._error_values import ExcelError
 from xlformat._fraction import render_fraction
 from xlformat._measure import (
     FontSpec,
@@ -179,6 +181,8 @@ def render(
 ) -> FormattedCell:
     """Render ``value`` under ``fmt``."""
     budget, measure, units = resolve_width(width, column_width, font, measure, normal_font)
+    if isinstance(value, ExcelError):
+        return _render_error(value, budget, measure)
     v = normalize(value, date1904=date1904, quirks=quirks)
     if v.kind is Kind.EMPTY:
         return assemble([], None, "left", width=budget, measure=measure)
@@ -239,6 +243,16 @@ def _general_pieces(x: Decimal, keep_sign: bool, plain: bool) -> tuple[Decimal, 
     if plain or value >= 0:
         return value, [("general", general_text(value))]
     return abs(x), [("sign", "-"), ("general", general_text(abs(x)))]
+
+
+def _render_error(error: ExcelError, width: float | None, measure: Measure) -> FormattedCell:
+    """An error value: its own text under any format, centered, in the font's color.
+
+    At a width it overflows to a '#' run like a number, by glyph width (#DIV/0! shows at width 6
+    and is six '#' at 5, none in a Calibri 14 cell at width 1; error_width, alignment.layout).
+    """
+    cell = assemble([("lit", str(error))], None, "center", width=width, measure=measure)
+    return replace(cell, align="center") if cell.overflow else cell
 
 
 def _render_number(

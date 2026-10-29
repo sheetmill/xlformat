@@ -540,6 +540,20 @@ default_col_width=None, font=None)` for a column as a file states it and
 Normal font, and `width` is what `column_width` takes. Format functions take no file width:
 callers convert once per column.
 
+**Error values.** `ExcelError` is a `StrEnum` of every error text current Excel documents (the
+seven classic codes of ECMA-376 and ERROR.TYPE 1 to 7; `#GETTING_DATA`, ERROR.TYPE 8; the error
+cell values of the Office JavaScript API, `Excel.ErrorCellValueType` in ExcelApi 1.16:
+`#BLOCKED!`, `#BUSY!`, `#CALC!`, `#CONNECT!`, `#EXTERNAL!`, `#FIELD!`, `#SPILL!`, with
+`#PYTHON!` and `#TIMEOUT!` in preview; `#UNKNOWN!`, a data type the running version does not
+support). The format functions accept one as the value: its own text under any format,
+centered, color `None` (the font's), and at a width a `#` run like a number, by glyph width
+(suite `error_width`, `alignment.layout`; `CAPTURING.md` §2 item 32). An unknown code shaped
+like one (`#` and capitals, digits, `_` or `/`, optionally `!` or `?`) is admitted as an unlisted
+member through `_missing_`, so a newer Excel's error renders; other text raises `ValueError`.
+**Provisional**: xlformula must work without xlformat, so where a type shared by the sheetmill
+packages finally lives is decided when xlformula is designed; this one may move or be
+re-exported.
+
 Measurement is public in the shape of reportlab's `stringWidth(text, fontName, fontSize)`, a
 function naming the font by argument (Pillow's `ImageFont.getlength` and tkinter's
 `Font.measure` are methods on a font object; xlformat already names fonts by a `font=` keyword):

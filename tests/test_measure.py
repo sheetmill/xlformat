@@ -167,3 +167,27 @@ def test_public_measurement() -> None:
     assert fonts["Aptos Narrow"]["bold italic"] == MEASURED_SIZES
     with pytest.raises(LookupError):
         text_width("x", "Comic Sans")
+
+
+def test_excel_error_values() -> None:
+    from xlformat import ExcelError, format_cell
+
+    assert len(ExcelError) == 18
+    assert ExcelError("#DIV/0!") is ExcelError.DIV0
+    assert ExcelError.NA == "#N/A"
+    unlisted = ExcelError("#NEWERROR!")
+    assert isinstance(unlisted, ExcelError)
+    assert unlisted not in list(ExcelError)
+    assert format_value(unlisted, "0") == "#NEWERROR!"
+    with pytest.raises(ValueError, match="hello"):
+        ExcelError("hello")
+    # error_width rows: the text under any format, '#' by glyph width, font color, centered
+    assert format_value(ExcelError.DIV0, ";;;") == "#DIV/0!"
+    assert format_value(ExcelError.DIV0, "0", column_width=6) == "#DIV/0!"
+    assert format_value(ExcelError.DIV0, "0", column_width=5) == "######"
+    cell14 = Font("Calibri", 14)
+    assert format_value(ExcelError.DIV0, "0", column_width=1, font=cell14, normal_font=Font(
+        "Calibri", 11)) == ""  # fmt: skip
+    cell = format_cell(ExcelError.NA, "[Red]0", column_width=1)
+    assert (cell.text, cell.align, cell.color, cell.overflow) == ("#", "center", None, True)
+    assert format_value(ExcelError.DIV0, "0", width=3) == "###"

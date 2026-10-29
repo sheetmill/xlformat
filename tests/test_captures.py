@@ -18,7 +18,14 @@ from pathlib import Path
 import pytest
 from capture.schema import Row, read_rows
 
-from xlformat import DEFAULT_PALETTE, Font, file_column_metrics, format_cell, format_value
+from xlformat import (
+    DEFAULT_PALETTE,
+    ExcelError,
+    Font,
+    file_column_metrics,
+    format_cell,
+    format_value,
+)
 
 CAPTURE_DIR = Path(__file__).parent / "captures"
 SUITE_FILES = sorted(
@@ -68,6 +75,9 @@ def _excel_value(row: Row, header: dict[str, str]) -> object:
     denote the Python double.
     """
     value = row.value
+    if row.value_type == "error":
+        assert isinstance(value, str)
+        return ExcelError(value)
     if (
         header.get("numbers") != "repr"
         and row.value_type == "float"

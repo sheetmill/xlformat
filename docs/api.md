@@ -22,6 +22,14 @@ Everything below is importable from `xlformat`.
    :undoc-members:
 ```
 
+## Error values
+
+```{eval-rst}
+.. autoclass:: xlformat.ExcelError
+   :members:
+   :undoc-members:
+```
+
 ## Measuring text
 
 ```{eval-rst}

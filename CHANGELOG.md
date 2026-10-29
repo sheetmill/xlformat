@@ -21,6 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Text measurement as Excel for Mac does it: `text_width`, `glyph_widths` (per character, for
   runs), `digit_width`, `overhang` (an italic face's slant) and `measured_fonts()`, all taking
   `font=` like the format functions.
+- `ExcelError`, every error value current Excel documents (`#DIV/0!`, `#N/A`, ... `#SPILL!`,
+  `#CALC!`, `#TIMEOUT!`), accepted as a value: the error's text under any format, centered, in
+  the font's color, and a `#` run at a width too narrow for it. An unlisted text shaped like an
+  error code is accepted too, so a newer Excel's error renders.
 - Glyph tables for bold, italic and bold italic Calibri and for Aptos Narrow in all four styles,
   each at 9, 10, 11, 12, 14 and 16 points, measured in Excel for Mac. An italic cell's text area
   is a point or two smaller, as in Excel.

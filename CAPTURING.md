@@ -584,6 +584,19 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       that width (spaces aside), and all 134 whose alignment can be read (text present, no fill,
       not a `#` run) match `align`.
 
+32. **Error values (2026-10-28; suite `error_width`, 1,638 rows).** Formulas produce the seven
+    classic codes (`=1/0`, `=NA()`, `=SQRT(-1)`, `="a"+1`, `=XYZZY()`, `=#REF!`,
+    `=SUM(A1:A2 B1:B2)`) under `General`, `0`, `@`, `[Red]0`, `;;;`, `0;-0;0;@`, `"x"0`,
+    `0.00*-` and `[Blue]General`, in Normal-style and Calibri 14 cells of a Calibri 11 workbook,
+    width-less and at widths 1 to 12, with each width-less cell's display-format color. A case's
+    value is a `CellError`, written with `value_type` `error`. An error shows its own text under
+    every format (`;;;` included) in the automatic color (also under `[Red]0`), and at a width
+    overflows to `#` like a number, by glyph width: `#DIV/0!` (35 points) shows at width 6
+    (36) and is six `#` at 5; `#N/A` shows at 4; in a Calibri 14 cell `#DIV/0!` needs width 8
+    and a 6-point budget holds no 7-point `#`. Every row matches. `#SPILL!` and `#CALC!` need
+    dynamic-array metadata openpyxl does not write and are not captured; the rule is the same
+    for every code, only the text differs.
+
 ## 3. The pipeline
 
 ```

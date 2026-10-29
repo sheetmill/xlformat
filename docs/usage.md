@@ -67,6 +67,30 @@ color, the default alignment, the position of a `*` fill, whether the value over
 Alignment follows the value: numbers and dates right, text left, booleans centered. A number
 under a format with only a text section, such as `@`, is left-aligned like text, as in Excel.
 
+## Error values
+
+A cell holding an error shows the error's text whatever its number format, centered and in the
+font's color, and a column too narrow for it shows `#` as for a number. Pass the error as an
+`ExcelError`:
+
+```python
+>>> from xlformat import ExcelError
+>>> format_value(ExcelError.DIV0, "0.00")
+'#DIV/0!'
+>>> format_value(ExcelError("#N/A"), ";;;")
+'#N/A'
+>>> format_value(ExcelError.DIV0, "General", column_width=5)
+'######'
+>>> cell = format_cell(ExcelError.DIV0, "[Red]0")
+>>> cell.align, cell.color
+('center', None)
+```
+
+`ExcelError` lists every error current Excel documents, from `#NULL!` to `#SPILL!` and
+`#TIMEOUT!`. `ExcelError(text)` also accepts a text shaped like an error code that it does not
+list, so a code from a newer Excel renders like the others; any other text raises `ValueError`.
+A reader of a file passes `ExcelError(cell.value)` for a cell of type `e`.
+
 ## Compiled formats
 
 {meth}`xlformat.NumberFormat.parse` compiles a format once. It is cached, so calling it again

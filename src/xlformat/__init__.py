@@ -8,6 +8,7 @@ information. ``NumberFormat.parse`` gives the compiled format. See ``ARCHITECTUR
 from __future__ import annotations
 
 from xlformat._assemble import FormattedCell
+from xlformat._error_values import ExcelError
 from xlformat._errors import FormatError
 from xlformat._measure import (
     ColumnMetrics,
@@ -31,6 +32,7 @@ __version__ = "0.1.0"
 __all__ = [
     "DEFAULT_PALETTE",
     "ColumnMetrics",
+    "ExcelError",
     "Font",
     "FormatError",
     "FormattedCell",
@@ -67,7 +69,8 @@ def format_value(
 
     Args:
         value: ``int``, ``float``, ``Decimal``, ``bool``, ``str``, ``None``, ``date``,
-            ``datetime``, ``time`` or ``timedelta``.
+            ``datetime``, ``time``, ``timedelta`` or :class:`ExcelError`. An error shows its
+            own text under any format, centered, and overflows to ``#`` like a number.
         format_string: An Excel number format; ``""`` means ``General``.
         width: Character mode: the width in characters, or ``None`` for the unconstrained
             rendering (``*`` fills emit nothing, ``_x`` pads one space, overflow is 255 ``#``).
