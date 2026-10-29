@@ -55,17 +55,49 @@ openpyxl writes. A reader of a workbook passes the workbook's Normal font. Calib
 at 9, 10, 11, 12, 14 and 16 points; other sizes scale the nearest measured table and may differ
 from Excel by a character at the edge of a column. Another font raises `LookupError`.
 
+## Columns read from a file
+
+A file stores a column's width as `<col width>`, which is not the dialog number, and a column
+without a `<col>` entry takes its width from `<sheetFormatPr>`. `file_column_metrics` converts
+either into the column Excel lays out; its `width` is what `column_width` takes.
+
+```python
+>>> from xlformat import file_column_metrics
+>>> file_column_metrics()
+ColumnMetrics(width=8.0, points=53.0, budget=48.0, left_inset=3.0, right_inset=2.0, digit_width=6.0)
+>>> file_column_metrics(8.43).width
+7.666666666666667
+>>> format_value(12345678, "0", column_width=file_column_metrics(8.43).width)
+'#########'
+>>> format_value(12345678, "0", column_width=8.43)
+'12345678'
+```
+
+A column openpyxl leaves without a width is 8 units in Excel for Mac (53 points at Calibri 11),
+and one it writes as `8.43` is 7.67 units (51 points), narrower than the 8.43 of the dialog,
+which is 56 points. `file_column_metrics` takes `base_col_width` and `default_col_width` from
+`<sheetFormatPr>` and `font`, the workbook's Normal font. `column_metrics` gives the same
+record for a dialog width. `budget` is what a number may take; `left_inset` and `right_inset`
+are where left-aligned text starts and right-aligned text ends, provisional values from Excel's
+print layout until a screen capture confirms them.
+
 How Excel measures, as reproduced here:
 
 - A column `w` units wide is `round(MDW · w + 5)` points, MDW being the width of a digit in the
   Normal font: 5 points for Calibri 9 and 10, 6 for 11 and 12, 7 for 14, 8 for 16. Five of those
-  points are padding; the text gets `MDW · w`.
+  points are padding; the text gets `MDW · w`. Below one unit a column is `round(w · (MDW + 5))`
+  points.
+- A `<col width>` of `w` is `trunc((256 · w + trunc(128 / MDW)) / 256 · MDW)` points, the formula
+  of ECMA-376 with the digit width in points and `w` first truncated to 1/256.
 - A text measures the sum of its glyph advances, rounded down. Advances are hinted per size, so
   a hyphen is 3 points at 11 and 4 at 12 while a digit is 6 at both.
-- A number fits when its measure is at most the budget. Otherwise it becomes as many `#` as fit.
-- A `*` fill repeats as many times as fit in what is left.
+- A number fits when its measure is at most the budget. Otherwise it becomes as many `#` as fit,
+  none in a column too narrow for one (`General` still shows one) and at most 255.
+- A `*` fill repeats as many times as fit in what is left. A number or text that would exceed 255
+  characters with its fill shows a `#` run instead.
 - `General` is the exception: Excel reduces it by characters against the width in units, one per
-  character and half for a leading minus, not by glyph widths.
+  character and a leading minus by its own width (half a digit at Calibri 11), not by glyph
+  widths. When no shortened form fits, the shortest one shows if its glyphs fit.
 
 ## Custom measures
 

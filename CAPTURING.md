@@ -473,6 +473,38 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     character each leave room that character mode does not have (`( 0 )` for -1.5E-07 at width
     5) are skipped as glyph slack.
 
+28. **The column model (2026-10-28; suites `column_file9` to `column_file16`, 138 widths
+    written into the file as `<col width>` by openpyxl, 19 cases each, at the six measured
+    sizes; `column_default_base10_11`, `column_default_base10_14`, `column_default_dcw12_11`,
+    `column_default_dcw843_14`, a column without `<col>` under those `<sheetFormatPr>`
+    settings; `column_narrow11`, `column_narrow14`, dialog widths below one unit set by the
+    script; `limits`, fills and `#` runs near 255 characters).** The script reads back each
+    column's `column width` and `width` without setting it (method `file_width`, or
+    `file_default` for no `<col>`; the header's `width_source: file`, `sheet_format`).
+    - Points of a file width: `trunc((256 · w' + trunc(128 / MDW)) / 256 · MDW)` with
+      `w' = trunc(256 · w) / 256`, ECMA-376's pixel formula with MDW in points: 828 of 828
+      columns at Calibri 9, 10, 11, 12, 14 and 16, including widths placed just past a half to
+      separate it from rounding half down (which misses 6 to 8 per size) and the formula
+      without the 1/256 step (one miss at 14). openpyxl's `8.43` is 51 points at Calibri 11,
+      `60` is 360, `3.7109375` is 22.
+    - A column without `<col>`: `baseColWidth · MDW + 5` points when `defaultColWidth` is
+      absent (openpyxl writes `baseColWidth="8"` only): 53 points at Calibri 11 and 12, the
+      dialog showing 8.0, not 8.43; `baseColWidth="10"` is 65 points. A present
+      `defaultColWidth` is an ordinary file width (12 is 72 points, 8.43 is 51).
+    - The dialog shows `(points − 5) / MDW`, and `points / (MDW + 5)` below one unit (3 points
+      is 0.27 at Calibri 11), to two decimals half up (1.125 shows as 1.13 at 16).
+    - Below one unit a width set in the dialog is `round(w · (MDW + 5))` points (0.09 is 1
+      point at Calibri 11). A column too narrow for one `#` shows nothing for a number, a date,
+      a boolean, a literal or a text through `@*-`; the General format shows one `#`, and a
+      one-character result even where its glyph does not fit (`1` for 1 and 0.5 in a 1-point
+      column; 12 and -1 are `#`).
+    - A `#` run is at most 255 characters (1529 points at width 254 hold 304), and a text
+      that would exceed 255 characters with its `*` fill shows a `#` run instead, text too
+      (`* 0` with 1 at width 86: 255 spaces and the digit make 256; `@*-` and `*-@` with `abc`
+      at width 130). A number whose text exceeds 255 characters is 255 `#` without a width
+      (`1E+300` under `0`, 301 digits). Read with `string value`; whether the screen shows the
+      same is not yet checked.
+
 ## 3. The pipeline
 
 ```

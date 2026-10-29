@@ -7,7 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `file_column_metrics` converts a column width as a file stores it (`<col width>`, or the
+  `<sheetFormatPr>` default for a column without one) into the column Excel for Mac lays out,
+  and `column_metrics` does the same for a Column Width dialog number. Both return a
+  `ColumnMetrics` with the width in dialog units (what `column_width` takes), the width in
+  points, the budget of a number, the digit width, and the text edges (provisional values from
+  Excel's print layout). A column openpyxl leaves without a width is 8 units in Excel for Mac,
+  and one it writes as 8.43 is 7.67.
+
 ### Fixed
+- Excel mode: a column too narrow for one `#` shows nothing for a number that does not fit
+  (the General format still shows one `#`), and dialog widths below one unit have Excel's
+  width in points.
+- A `#` run is at most 255 characters, and a number or text that would exceed 255 characters,
+  with its `*` fill or without a width, shows a `#` run, as in Excel.
 - Excel mode: `General` at fractional column widths. When no shortened form fits by
   characters, Excel shows the shortest form if its glyphs fit (`1E+06` in a column of 4.67
   units); among literals, a nearly full column shows `0` for a small value and the `#` run

@@ -1,0 +1,317 @@
+# suite: column_narrow11
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-10-28
+# generator: capture.cases.column_narrow11
+# method: width none=clipboard; width 0.09=string_value; width 0.18=string_value; width 0.27=string_value; width 0.36=string_value; width 0.45=string_value; width 0.55=string_value; width 0.64=string_value; width 0.73=string_value; width 0.82=string_value; width 0.91=string_value; width 1.0=string_value; width 1.17=string_value; width 1.33=string_value; width 1.5=string_value; width 1.67=string_value; width 1.83=string_value; width 2.0=string_value; width 2.17=string_value
+# numbers: repr
+# column_points: C=1.0 D=2.0 E=3.0 F=4.0 G=5.0 H=6.0 I=7.0 J=8.0 K=9.0 L=10.0 M=11.0 N=12.0 O=13.0 P=14.0 Q=15.0 R=16.0 S=17.0 T=18.0
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+column_narrow11	digit	int	8	'0'			0	8		fast
+column_narrow11	digits2	int	88	'0'			0	88		fast
+column_narrow11	general-1	int	1	'General'			0	1		fast
+column_narrow11	general-12	int	12	'General'			0	12		fast
+column_narrow11	general-half	float	0.5	'General'			0	0.5		fast
+column_narrow11	general-neg	int	-1	'General'			0	-1		fast
+column_narrow11	general-big	int	123456	'General'			0	123456		fast
+column_narrow11	fixed	float	1.5	'0.0'			0	1.5		fast
+column_narrow11	fill	int	1	'0*-'			0	1		fast
+column_narrow11	date	int	36529	'm/d/yy'			0	1/4/00		fast
+column_narrow11	bool	bool	True	'General'			0	TRUE		fast
+column_narrow11	text	str	'abc'	'General'			0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'			0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'			0	abc		fast
+column_narrow11	literal	int	1	"'""x""'"			0	x		fast
+column_narrow11	empty-section	int	1	';;;'			0			fast
+column_narrow11	digit	int	8	'0'	0.09	0.09	0			fast
+column_narrow11	digits2	int	88	'0'	0.09	0.09	0			full
+column_narrow11	general-1	int	1	'General'	0.09	0.09	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.09	0.09	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.09	0.09	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.09	0.09	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.09	0.09	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.09	0.09	0			fast
+column_narrow11	fill	int	1	'0*-'	0.09	0.09	0			fast
+column_narrow11	date	int	36529	'm/d/yy'	0.09	0.09	0			fast
+column_narrow11	bool	bool	True	'General'	0.09	0.09	0			fast
+column_narrow11	text	str	'abc'	'General'	0.09	0.09	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.09	0.09	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.09	0.09	0			fast
+column_narrow11	literal	int	1	"'""x""'"	0.09	0.09	0			fast
+column_narrow11	empty-section	int	1	';;;'	0.09	0.09	0			fast
+column_narrow11	digit	int	8	'0'	0.18	0.18	0			fast
+column_narrow11	digits2	int	88	'0'	0.18	0.18	0			full
+column_narrow11	general-1	int	1	'General'	0.18	0.18	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.18	0.18	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.18	0.18	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.18	0.18	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.18	0.18	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.18	0.18	0			fast
+column_narrow11	fill	int	1	'0*-'	0.18	0.18	0			fast
+column_narrow11	date	int	36529	'm/d/yy'	0.18	0.18	0			fast
+column_narrow11	bool	bool	True	'General'	0.18	0.18	0			fast
+column_narrow11	text	str	'abc'	'General'	0.18	0.18	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.18	0.18	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.18	0.18	0			fast
+column_narrow11	literal	int	1	"'""x""'"	0.18	0.18	0			fast
+column_narrow11	empty-section	int	1	';;;'	0.18	0.18	0			fast
+column_narrow11	digit	int	8	'0'	0.27	0.27	0			fast
+column_narrow11	digits2	int	88	'0'	0.27	0.27	0			full
+column_narrow11	general-1	int	1	'General'	0.27	0.27	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.27	0.27	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.27	0.27	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.27	0.27	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.27	0.27	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.27	0.27	0			fast
+column_narrow11	fill	int	1	'0*-'	0.27	0.27	0			fast
+column_narrow11	date	int	36529	'm/d/yy'	0.27	0.27	0			fast
+column_narrow11	bool	bool	True	'General'	0.27	0.27	0			fast
+column_narrow11	text	str	'abc'	'General'	0.27	0.27	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.27	0.27	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.27	0.27	0			fast
+column_narrow11	literal	int	1	"'""x""'"	0.27	0.27	0			fast
+column_narrow11	empty-section	int	1	';;;'	0.27	0.27	0			fast
+column_narrow11	digit	int	8	'0'	0.36	0.36	0			fast
+column_narrow11	digits2	int	88	'0'	0.36	0.36	0			full
+column_narrow11	general-1	int	1	'General'	0.36	0.36	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.36	0.36	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.36	0.36	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.36	0.36	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.36	0.36	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.36	0.36	0			fast
+column_narrow11	fill	int	1	'0*-'	0.36	0.36	0			fast
+column_narrow11	date	int	36529	'm/d/yy'	0.36	0.36	0			fast
+column_narrow11	bool	bool	True	'General'	0.36	0.36	0			fast
+column_narrow11	text	str	'abc'	'General'	0.36	0.36	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.36	0.36	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.36	0.36	0			fast
+column_narrow11	literal	int	1	"'""x""'"	0.36	0.36	0			fast
+column_narrow11	empty-section	int	1	';;;'	0.36	0.36	0			fast
+column_narrow11	digit	int	8	'0'	0.45	0.45	0			fast
+column_narrow11	digits2	int	88	'0'	0.45	0.45	0			full
+column_narrow11	general-1	int	1	'General'	0.45	0.45	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.45	0.45	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.45	0.45	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.45	0.45	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.45	0.45	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.45	0.45	0			fast
+column_narrow11	fill	int	1	'0*-'	0.45	0.45	0			fast
+column_narrow11	date	int	36529	'm/d/yy'	0.45	0.45	0			fast
+column_narrow11	bool	bool	True	'General'	0.45	0.45	0			fast
+column_narrow11	text	str	'abc'	'General'	0.45	0.45	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.45	0.45	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.45	0.45	0			fast
+column_narrow11	literal	int	1	"'""x""'"	0.45	0.45	0			fast
+column_narrow11	empty-section	int	1	';;;'	0.45	0.45	0			fast
+column_narrow11	digit	int	8	'0'	0.55	0.55	0			fast
+column_narrow11	digits2	int	88	'0'	0.55	0.55	0			full
+column_narrow11	general-1	int	1	'General'	0.55	0.55	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.55	0.55	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.55	0.55	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.55	0.55	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.55	0.55	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.55	0.55	0			fast
+column_narrow11	fill	int	1	'0*-'	0.55	0.55	0			fast
+column_narrow11	date	int	36529	'm/d/yy'	0.55	0.55	0			fast
+column_narrow11	bool	bool	True	'General'	0.55	0.55	0			fast
+column_narrow11	text	str	'abc'	'General'	0.55	0.55	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.55	0.55	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.55	0.55	0			fast
+column_narrow11	literal	int	1	"'""x""'"	0.55	0.55	0			fast
+column_narrow11	empty-section	int	1	';;;'	0.55	0.55	0			fast
+column_narrow11	digit	int	8	'0'	0.64	0.64	0			fast
+column_narrow11	digits2	int	88	'0'	0.64	0.64	0			full
+column_narrow11	general-1	int	1	'General'	0.64	0.64	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.64	0.64	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.64	0.64	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.64	0.64	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.64	0.64	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.64	0.64	0			fast
+column_narrow11	fill	int	1	'0*-'	0.64	0.64	0			fast
+column_narrow11	date	int	36529	'm/d/yy'	0.64	0.64	0			fast
+column_narrow11	bool	bool	True	'General'	0.64	0.64	0			fast
+column_narrow11	text	str	'abc'	'General'	0.64	0.64	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.64	0.64	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.64	0.64	0			fast
+column_narrow11	literal	int	1	"'""x""'"	0.64	0.64	0			fast
+column_narrow11	empty-section	int	1	';;;'	0.64	0.64	0			fast
+column_narrow11	digit	int	8	'0'	0.73	0.73	0			fast
+column_narrow11	digits2	int	88	'0'	0.73	0.73	0			full
+column_narrow11	general-1	int	1	'General'	0.73	0.73	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.73	0.73	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.73	0.73	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.73	0.73	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.73	0.73	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.73	0.73	0			fast
+column_narrow11	fill	int	1	'0*-'	0.73	0.73	0			fast
+column_narrow11	date	int	36529	'm/d/yy'	0.73	0.73	0			fast
+column_narrow11	bool	bool	True	'General'	0.73	0.73	0			fast
+column_narrow11	text	str	'abc'	'General'	0.73	0.73	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.73	0.73	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.73	0.73	0			fast
+column_narrow11	literal	int	1	"'""x""'"	0.73	0.73	0			fast
+column_narrow11	empty-section	int	1	';;;'	0.73	0.73	0			fast
+column_narrow11	digit	int	8	'0'	0.82	0.82	0			fast
+column_narrow11	digits2	int	88	'0'	0.82	0.82	0			full
+column_narrow11	general-1	int	1	'General'	0.82	0.82	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.82	0.82	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.82	0.82	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.82	0.82	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.82	0.82	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.82	0.82	0			fast
+column_narrow11	fill	int	1	'0*-'	0.82	0.82	0			fast
+column_narrow11	date	int	36529	'm/d/yy'	0.82	0.82	0			fast
+column_narrow11	bool	bool	True	'General'	0.82	0.82	0			fast
+column_narrow11	text	str	'abc'	'General'	0.82	0.82	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.82	0.82	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.82	0.82	0			fast
+column_narrow11	literal	int	1	"'""x""'"	0.82	0.82	0			fast
+column_narrow11	empty-section	int	1	';;;'	0.82	0.82	0			fast
+column_narrow11	digit	int	8	'0'	0.91	0.91	0	#		fast
+column_narrow11	digits2	int	88	'0'	0.91	0.91	0	#		full
+column_narrow11	general-1	int	1	'General'	0.91	0.91	0	1		fast
+column_narrow11	general-12	int	12	'General'	0.91	0.91	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	0.91	0.91	0	1		full
+column_narrow11	general-neg	int	-1	'General'	0.91	0.91	0	#		full
+column_narrow11	general-big	int	123456	'General'	0.91	0.91	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	0.91	0.91	0	#		fast
+column_narrow11	fill	int	1	'0*-'	0.91	0.91	0	#		fast
+column_narrow11	date	int	36529	'm/d/yy'	0.91	0.91	0	#		fast
+column_narrow11	bool	bool	True	'General'	0.91	0.91	0	#		full
+column_narrow11	text	str	'abc'	'General'	0.91	0.91	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	0.91	0.91	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	0.91	0.91	0	#		fast
+column_narrow11	literal	int	1	"'""x""'"	0.91	0.91	0	x		fast
+column_narrow11	empty-section	int	1	';;;'	0.91	0.91	0			fast
+column_narrow11	digit	int	8	'0'	1	1.0	0	8		fast
+column_narrow11	digits2	int	88	'0'	1	1.0	0	#		fast
+column_narrow11	general-1	int	1	'General'	1	1.0	0	1		fast
+column_narrow11	general-12	int	12	'General'	1	1.0	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	1	1.0	0	1		full
+column_narrow11	general-neg	int	-1	'General'	1	1.0	0	#		full
+column_narrow11	general-big	int	123456	'General'	1	1.0	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	1	1.0	0	#		fast
+column_narrow11	fill	int	1	'0*-'	1	1.0	0	1		fast
+column_narrow11	date	int	36529	'm/d/yy'	1	1.0	0	#		fast
+column_narrow11	bool	bool	True	'General'	1	1.0	0	#		full
+column_narrow11	text	str	'abc'	'General'	1	1.0	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	1	1.0	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	1	1.0	0	#		fast
+column_narrow11	literal	int	1	"'""x""'"	1	1.0	0	x		fast
+column_narrow11	empty-section	int	1	';;;'	1	1.0	0			fast
+column_narrow11	digit	int	8	'0'	1.17	1.17	0	8		fast
+column_narrow11	digits2	int	88	'0'	1.17	1.17	0	#		fast
+column_narrow11	general-1	int	1	'General'	1.17	1.17	0	1		fast
+column_narrow11	general-12	int	12	'General'	1.17	1.17	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	1.17	1.17	0	1		full
+column_narrow11	general-neg	int	-1	'General'	1.17	1.17	0	#		full
+column_narrow11	general-big	int	123456	'General'	1.17	1.17	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	1.17	1.17	0	#		fast
+column_narrow11	fill	int	1	'0*-'	1.17	1.17	0	1		fast
+column_narrow11	date	int	36529	'm/d/yy'	1.17	1.17	0	#		fast
+column_narrow11	bool	bool	True	'General'	1.17	1.17	0	#		full
+column_narrow11	text	str	'abc'	'General'	1.17	1.17	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	1.17	1.17	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	1.17	1.17	0	#		fast
+column_narrow11	literal	int	1	"'""x""'"	1.17	1.17	0	x		fast
+column_narrow11	empty-section	int	1	';;;'	1.17	1.17	0			fast
+column_narrow11	digit	int	8	'0'	1.33	1.33	0	8		fast
+column_narrow11	digits2	int	88	'0'	1.33	1.33	0	#		fast
+column_narrow11	general-1	int	1	'General'	1.33	1.33	0	1		fast
+column_narrow11	general-12	int	12	'General'	1.33	1.33	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	1.33	1.33	0	1		full
+column_narrow11	general-neg	int	-1	'General'	1.33	1.33	0	#		full
+column_narrow11	general-big	int	123456	'General'	1.33	1.33	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	1.33	1.33	0	#		fast
+column_narrow11	fill	int	1	'0*-'	1.33	1.33	0	1		fast
+column_narrow11	date	int	36529	'm/d/yy'	1.33	1.33	0	#		fast
+column_narrow11	bool	bool	True	'General'	1.33	1.33	0	#		full
+column_narrow11	text	str	'abc'	'General'	1.33	1.33	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	1.33	1.33	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	1.33	1.33	0	#		fast
+column_narrow11	literal	int	1	"'""x""'"	1.33	1.33	0	x		fast
+column_narrow11	empty-section	int	1	';;;'	1.33	1.33	0			fast
+column_narrow11	digit	int	8	'0'	1.5	1.5	0	8		fast
+column_narrow11	digits2	int	88	'0'	1.5	1.5	0	#		fast
+column_narrow11	general-1	int	1	'General'	1.5	1.5	0	1		fast
+column_narrow11	general-12	int	12	'General'	1.5	1.5	0	#		fast
+column_narrow11	general-half	float	0.5	'General'	1.5	1.5	0	1		full
+column_narrow11	general-neg	int	-1	'General'	1.5	1.5	0	-1		fast
+column_narrow11	general-big	int	123456	'General'	1.5	1.5	0	#		full
+column_narrow11	fixed	float	1.5	'0.0'	1.5	1.5	0	#		fast
+column_narrow11	fill	int	1	'0*-'	1.5	1.5	0	1-		fast
+column_narrow11	date	int	36529	'm/d/yy'	1.5	1.5	0	#		fast
+column_narrow11	bool	bool	True	'General'	1.5	1.5	0	#		full
+column_narrow11	text	str	'abc'	'General'	1.5	1.5	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	1.5	1.5	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	1.5	1.5	0	#		fast
+column_narrow11	literal	int	1	"'""x""'"	1.5	1.5	0	x		fast
+column_narrow11	empty-section	int	1	';;;'	1.5	1.5	0			fast
+column_narrow11	digit	int	8	'0'	1.67	1.67	0	8		fast
+column_narrow11	digits2	int	88	'0'	1.67	1.67	0	##		fast
+column_narrow11	general-1	int	1	'General'	1.67	1.67	0	1		fast
+column_narrow11	general-12	int	12	'General'	1.67	1.67	0	##		fast
+column_narrow11	general-half	float	0.5	'General'	1.67	1.67	0	1		full
+column_narrow11	general-neg	int	-1	'General'	1.67	1.67	0	-1		fast
+column_narrow11	general-big	int	123456	'General'	1.67	1.67	0	##		full
+column_narrow11	fixed	float	1.5	'0.0'	1.67	1.67	0	##		fast
+column_narrow11	fill	int	1	'0*-'	1.67	1.67	0	1-		fast
+column_narrow11	date	int	36529	'm/d/yy'	1.67	1.67	0	##		fast
+column_narrow11	bool	bool	True	'General'	1.67	1.67	0	##		full
+column_narrow11	text	str	'abc'	'General'	1.67	1.67	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	1.67	1.67	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	1.67	1.67	0	##		fast
+column_narrow11	literal	int	1	"'""x""'"	1.67	1.67	0	x		fast
+column_narrow11	empty-section	int	1	';;;'	1.67	1.67	0			fast
+column_narrow11	digit	int	8	'0'	1.83	1.83	0	8		fast
+column_narrow11	digits2	int	88	'0'	1.83	1.83	0	##		fast
+column_narrow11	general-1	int	1	'General'	1.83	1.83	0	1		fast
+column_narrow11	general-12	int	12	'General'	1.83	1.83	0	##		fast
+column_narrow11	general-half	float	0.5	'General'	1.83	1.83	0	1		full
+column_narrow11	general-neg	int	-1	'General'	1.83	1.83	0	-1		fast
+column_narrow11	general-big	int	123456	'General'	1.83	1.83	0	##		full
+column_narrow11	fixed	float	1.5	'0.0'	1.83	1.83	0	##		fast
+column_narrow11	fill	int	1	'0*-'	1.83	1.83	0	1-		fast
+column_narrow11	date	int	36529	'm/d/yy'	1.83	1.83	0	##		fast
+column_narrow11	bool	bool	True	'General'	1.83	1.83	0	##		full
+column_narrow11	text	str	'abc'	'General'	1.83	1.83	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	1.83	1.83	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	1.83	1.83	0	##		fast
+column_narrow11	literal	int	1	"'""x""'"	1.83	1.83	0	x		fast
+column_narrow11	empty-section	int	1	';;;'	1.83	1.83	0			fast
+column_narrow11	digit	int	8	'0'	2	2.0	0	8		fast
+column_narrow11	digits2	int	88	'0'	2	2.0	0	88		fast
+column_narrow11	general-1	int	1	'General'	2	2.0	0	1		fast
+column_narrow11	general-12	int	12	'General'	2	2.0	0	12		fast
+column_narrow11	general-half	float	0.5	'General'	2	2.0	0	1		full
+column_narrow11	general-neg	int	-1	'General'	2	2.0	0	-1		fast
+column_narrow11	general-big	int	123456	'General'	2	2.0	0	##		fast
+column_narrow11	fixed	float	1.5	'0.0'	2	2.0	0	##		fast
+column_narrow11	fill	int	1	'0*-'	2	2.0	0	1--		fast
+column_narrow11	date	int	36529	'm/d/yy'	2	2.0	0	##		fast
+column_narrow11	bool	bool	True	'General'	2	2.0	0	##		full
+column_narrow11	text	str	'abc'	'General'	2	2.0	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	2	2.0	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	2	2.0	0	##		fast
+column_narrow11	literal	int	1	"'""x""'"	2	2.0	0	x		fast
+column_narrow11	empty-section	int	1	';;;'	2	2.0	0			fast
+column_narrow11	digit	int	8	'0'	2.17	2.17	0	8		fast
+column_narrow11	digits2	int	88	'0'	2.17	2.17	0	88		fast
+column_narrow11	general-1	int	1	'General'	2.17	2.17	0	1		fast
+column_narrow11	general-12	int	12	'General'	2.17	2.17	0	12		fast
+column_narrow11	general-half	float	0.5	'General'	2.17	2.17	0	1		full
+column_narrow11	general-neg	int	-1	'General'	2.17	2.17	0	-1		fast
+column_narrow11	general-big	int	123456	'General'	2.17	2.17	0	##		fast
+column_narrow11	fixed	float	1.5	'0.0'	2.17	2.17	0	##		fast
+column_narrow11	fill	int	1	'0*-'	2.17	2.17	0	1--		fast
+column_narrow11	date	int	36529	'm/d/yy'	2.17	2.17	0	##		fast
+column_narrow11	bool	bool	True	'General'	2.17	2.17	0	##		full
+column_narrow11	text	str	'abc'	'General'	2.17	2.17	0	abc		fast
+column_narrow11	text-at	str	'abc'	'@'	2.17	2.17	0	abc		fast
+column_narrow11	text-fill	str	'abc'	'@*-'	2.17	2.17	0	##		fast
+column_narrow11	literal	int	1	"'""x""'"	2.17	2.17	0	x		fast
+column_narrow11	empty-section	int	1	';;;'	2.17	2.17	0			fast

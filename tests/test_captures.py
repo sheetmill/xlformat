@@ -11,12 +11,14 @@ the printed line. Color rows Excel's DisplayFormat API misreports are skipped an
 
 from __future__ import annotations
 
+import re
+from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 import pytest
 from capture.schema import Row, read_rows
 
-from xlformat import DEFAULT_PALETTE, format_cell, format_value
+from xlformat import DEFAULT_PALETTE, file_column_metrics, format_cell, format_value
 
 CAPTURE_DIR = Path(__file__).parent / "captures"
 SUITE_FILES = sorted(
@@ -146,28 +148,56 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         "compared": 0,  # character mode
         "skipped (fractional width)": 0,
         "skipped (glyph slack)": 0,
+        "skipped (file width)": 0,
         "Excel mode compared": 0,
+        "file widths checked": 0,
         "colors compared": 0,
         "color misreports skipped": 0,
     }
-    font_name = header.get("workbook_font", "Calibri 11").split()
-    font = (font_name[0], float(font_name[1])) if len(font_name) == 2 else ("Calibri", 11.0)
+    # "Calibri 11", "Aptos Narrow 11", "Calibri 11 (openpyxl default)"
+    match = re.match(r"(.+?) (\d+(?:\.\d+)?)\b", header.get("workbook_font", ""))
+    font = (match[1], float(match[2])) if match else ("Calibri", 11.0)
+    # widths written into the file (<col width>, or none: <sheetFormatPr>), not set by the script
+    file_widths = header.get("width_source") == "file"
+    sheet_format = dict(kv.split("=") for kv in header.get("sheet_format", "").split())
     for row in rows:
         fmt = row.format_string
         value = _excel_value(row, header)
         date1904 = row.date1904 == "1"
-        if row.width_value is not None:
+        column_width = row.width_value
+        if file_widths:
+            metrics = file_column_metrics(
+                row.width_value,
+                base_col_width=float(sheet_format.get("baseColWidth", 8)),
+                default_col_width=(
+                    float(sheet_format["defaultColWidth"])
+                    if "defaultColWidth" in sheet_format
+                    else None
+                ),
+                font=font,
+            )
+            column_width = metrics.width
+            # the conversion itself: the dialog number Excel showed, to two decimals half up
+            # (1.125 shows as 1.13)
+            counts["file widths checked"] += 1
+            shown = Decimal(repr(metrics.width)).quantize(Decimal("0.01"), ROUND_HALF_UP)
+            if shown != Decimal(row.actual_width):
+                excel_failures.append((row, f"<dialog width {metrics.width:.2f}>"))
+        if column_width is not None:
             # Excel mode: the column width as requested (Excel snaps it), the workbook's font;
             # every width row must match exactly, '#' counts included.
             counts["Excel mode compared"] += 1
             try:
                 got_excel = format_value(
-                    value, fmt, column_width=row.width_value, font=font, date1904=date1904
+                    value, fmt, column_width=column_width, font=font, date1904=date1904
                 )
             except Exception as exc:
                 got_excel = f"<{type(exc).__name__}: {exc}>"
             if got_excel != row.expected_text:
                 excel_failures.append((row, got_excel))
+        if file_widths:
+            counts["skipped (file width)"] += 1  # a file width has no character count
+            continue
         width = _character_width(row.width_value)
         if width == "skip":
             counts["skipped (fractional width)"] += 1

@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from decimal import Decimal
 from typing import Literal
 
-from xlformat._measure import Measure, character_measure, general_cost
+from xlformat._measure import MAX_TEXT, Measure, character_measure, general_cost
 from xlformat._number import GENERAL_SMALL, general_fallback, general_text_fitting
 from xlformat._parser import Piece
 
@@ -44,10 +44,16 @@ class FormattedCell:
 OVERFLOW_WIDTH = 255  # Excel's widest column; the clipboard shows this many '#'
 
 
-def _hashes(width: float | None, measure: Measure) -> str:
+def _hashes(width: float | None, measure: Measure, general: bool = False) -> str:
+    """As many ``#`` as fit, at most 255.
+
+    None in a column too narrow for one, except that General always shows one
+    (``column_narrow``, ``limits``; CAPTURING.md section 2 item 28).
+    """
     if width is None:
         return "#" * OVERFLOW_WIDTH
-    return "#" * max(int(width // measure("#")), 1)
+    count = min(max(int(width // measure("#")), 0), MAX_TEXT)
+    return "#" * max(count, 1 if general else 0)
 
 
 def overflow(
@@ -55,9 +61,10 @@ def overflow(
     width: float | None = None,
     full_text: str | None = None,
     measure: Measure = character_measure,
+    general: bool = False,
 ) -> FormattedCell:
     """A value the section cannot show: a ``#`` run filling the width (255 without a width)."""
-    text = _hashes(width, measure)
+    text = _hashes(width, measure, general)
     # full_text is always the width-less rendering: 255 '#' for a value the section cannot show
     full = _hashes(None, measure) if full_text is None else full_text
     return FormattedCell(text, full, color, "right", None, True)
@@ -102,6 +109,10 @@ def assemble(
     section among others or among literals.
     """
     full_text, fill = _join(pieces, None)
+    if overflows and len(full_text) > MAX_TEXT:
+        # Excel shows at most 255 characters: 1E+300 under '0' is 301 digits and shows a run of
+        # 255 '#' without a width as well as in any column (limits)
+        return overflow(color, width, None, measure, general=general_value is not None)
     if width is None:
         return FormattedCell(full_text, full_text, color, align, fill, False)
     general: str | None = None
@@ -116,6 +127,10 @@ def assemble(
         rest, _ = _join([p for p in pieces if p[0] != "general"], None)
         # rounded: 8.17 units less ' units' (25 / 6) is 4.0, not 3.999..., and fits '3.14'
         budget = round(total_units - measure(rest) / digit, 9)
+        if general_format:
+            # the General format keeps one character in a column narrower than one unit: 1 and
+            # 0.5 show '1' in a 1-point column, 12 and -1 are '#' (column_narrow)
+            budget = max(budget, 1.0)
         cost = general_cost(measure("-") / digit)
         if budget < 1:
             # not one character left: a value from 0.0001 to under 10 shows zero ('( General )'
@@ -129,6 +144,9 @@ def assemble(
             # (1E+06 at 4.67 units, -1E+05x at 6), else the '#' run (general_points suites);
             # the General format keeps the integer on a tie, a General section the scientific
             general = general_fallback(general_value, prefer_integer=general_format)
+            text, _ = _join(pieces, general)
+            if measure(text) > width:
+                return overflow(color, width, full_text, measure, general=True)
         if rest and general.strip("-") == "0":
             # among literals a negative whose General reduced to zero drops its sign, and a '-'
             # literal just before the General: General"x" with -0.001 at width 6 shows "0x"
@@ -147,9 +165,13 @@ def assemble(
         if count > 0:
             position, char = fill
             text = text[:position] + char * count + text[position:]
+            if len(text) > MAX_TEXT:
+                # more than 255 characters with the fill: a '#' run, text too (limits)
+                return overflow(color, width, full_text, measure, general=has_general)
         else:
             fill = None
-    # General too: the reduced text must also fit by glyph width ('0 units' at width 1 is '#')
-    if overflows and measure(text) > width:
-        return overflow(color, width, full_text, measure)
+    # General among literals too must fit by glyph width ('0 units' at width 1 is '#'); the
+    # General format alone fits by characters ('1' shows in a 1-point column)
+    if overflows and not (has_general and general_format) and measure(text) > width:
+        return overflow(color, width, full_text, measure, general=has_general)
     return FormattedCell(text, full_text, color, align, fill, False)

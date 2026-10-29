@@ -9,7 +9,13 @@ from __future__ import annotations
 
 from xlformat._assemble import FormattedCell
 from xlformat._errors import FormatError
-from xlformat._measure import FontSpec, Measure
+from xlformat._measure import (
+    ColumnMetrics,
+    FontSpec,
+    Measure,
+    column_metrics,
+    file_column_metrics,
+)
 from xlformat._palette import DEFAULT_PALETTE
 from xlformat._parser import NumberFormat, Section, SectionKind
 from xlformat._quirks import Quirks
@@ -18,6 +24,7 @@ __version__ = "0.1.0"
 
 __all__ = [
     "DEFAULT_PALETTE",
+    "ColumnMetrics",
     "FormatError",
     "FormattedCell",
     "NumberFormat",
@@ -25,6 +32,8 @@ __all__ = [
     "Section",
     "SectionKind",
     "__version__",
+    "column_metrics",
+    "file_column_metrics",
     "format_cell",
     "format_value",
 ]

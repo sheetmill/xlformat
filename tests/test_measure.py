@@ -75,3 +75,37 @@ def test_general_at_fractional_widths(
     value: float, fmt: str, column_width: float, font: tuple[str, int], expected: str
 ) -> None:
     assert format_value(value, fmt, column_width=column_width, font=font) == expected
+
+
+def test_file_widths_and_the_default_column() -> None:
+    # column_file11 and column_default_* headers (CAPTURING.md section 2 item 28)
+    from xlformat import file_column_metrics
+
+    assert file_column_metrics().points == 53  # baseColWidth 8, no defaultColWidth
+    assert file_column_metrics().width == 8
+    assert file_column_metrics(base_col_width=10).points == 65
+    assert file_column_metrics(default_col_width=12).points == 72
+    assert [file_column_metrics(w).points for w in (8.43, 60, 3.7109375, 0.75)] == [51, 360, 22, 4]
+    assert file_column_metrics(1.75, font=("Calibri", 16)).width == 1.125  # the dialog: 1.13
+    assert file_column_metrics(8.43).budget == 46
+
+
+def test_column_metrics_round_trip_and_narrow_columns() -> None:
+    from xlformat import column_metrics, file_column_metrics
+
+    assert column_metrics(8.43).points == 56
+    assert column_metrics(0.09).points == 1  # below one unit: round(w * (MDW + 5))
+    for w in (0.5, 1.75, 8.43, 13, 255):
+        m = file_column_metrics(w, font=("Calibri", 14))
+        assert column_metrics(m.width, font=("Calibri", 14)).points == m.points
+    assert format_value(1, "0", column_width=0.5) == ""  # no '#' fits
+    assert format_value(1, "General", column_width=0.5) == "1"
+    assert format_value(12, "General", column_width=0.5) == "#"
+
+
+def test_the_255_character_limit() -> None:
+    # limits rows: 256 characters with the fill, and 1E+300 under '0' (301 digits)
+    assert format_value(1, "* 0", column_width=86) == "#" * 103
+    assert format_value(1, "* 0", column_width=84) == " " * 249 + "1"
+    assert format_value(1e300, "0") == "#" * 255
+    assert format_value(1e300, "0", column_width=255) == "#" * 255

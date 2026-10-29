@@ -22,6 +22,15 @@ Everything below is importable from `xlformat`.
    :undoc-members:
 ```
 
+## Columns
+
+```{eval-rst}
+.. autofunction:: xlformat.file_column_metrics
+.. autofunction:: xlformat.column_metrics
+.. autoclass:: xlformat.ColumnMetrics
+   :members:
+```
+
 ## Settings, errors and colors
 
 ```{eval-rst}

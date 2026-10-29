@@ -1,0 +1,91 @@
+# suite: column_default_base10_11
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-10-28
+# generator: capture.cases.column_default_base10_11
+# method: width none=file_default; width 8=file_width; width 8.43=file_width; width 10=file_width
+# numbers: repr
+# column_points: B=65.0 C=48.0 D=51.0 E=60.0
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# width_source: file
+# sheet_format: baseColWidth=10
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+column_default_base10_11	digits1	int	8	'0'		10.0	0	8		fast
+column_default_base10_11	digits2	int	88	'0'		10.0	0	88		fast
+column_default_base10_11	digits3	int	888	'0'		10.0	0	888		fast
+column_default_base10_11	digits4	int	8888	'0'		10.0	0	8888		fast
+column_default_base10_11	digits5	int	88888	'0'		10.0	0	88888		fast
+column_default_base10_11	digits6	int	888888	'0'		10.0	0	888888		fast
+column_default_base10_11	digits7	int	8888888	'0'		10.0	0	8888888		fast
+column_default_base10_11	digits8	int	88888888	'0'		10.0	0	88888888		fast
+column_default_base10_11	digits9	int	888888888	'0'		10.0	0	888888888		fast
+column_default_base10_11	digits10	int	8888888888	'0'		10.0	0	8888888888		fast
+column_default_base10_11	digits11	int	88888888888	'0'		10.0	0	############		fast
+column_default_base10_11	digits12	int	888888888888	'0'		10.0	0	############		full
+column_default_base10_11	digits13	int	8888888888888	'0'		10.0	0	############		full
+column_default_base10_11	digits14	int	88888888888888	'0'		10.0	0	############		full
+column_default_base10_11	digits15	int	888888888888888	'0'		10.0	0	############		full
+column_default_base10_11	fill-dash	int	1	'0*-'		10.0	0	1------------------		fast
+column_default_base10_11	fill-space	int	1	'* 0'		10.0	0	                           1		fast
+column_default_base10_11	general-7.3	float	1234567.891	'General'		10.0	0	1234567.89		fast
+column_default_base10_11	general-0.9	float	0.123456789	'General'		10.0	0	0.12345679		fast
+column_default_base10_11	digits1	int	8	'0'	8	7.17	0	8		fast
+column_default_base10_11	digits2	int	88	'0'	8	7.17	0	88		fast
+column_default_base10_11	digits3	int	888	'0'	8	7.17	0	888		fast
+column_default_base10_11	digits4	int	8888	'0'	8	7.17	0	8888		fast
+column_default_base10_11	digits5	int	88888	'0'	8	7.17	0	88888		fast
+column_default_base10_11	digits6	int	888888	'0'	8	7.17	0	888888		fast
+column_default_base10_11	digits7	int	8888888	'0'	8	7.17	0	8888888		fast
+column_default_base10_11	digits8	int	88888888	'0'	8	7.17	0	########		fast
+column_default_base10_11	digits9	int	888888888	'0'	8	7.17	0	########		full
+column_default_base10_11	digits10	int	8888888888	'0'	8	7.17	0	########		full
+column_default_base10_11	digits11	int	88888888888	'0'	8	7.17	0	########		full
+column_default_base10_11	digits12	int	888888888888	'0'	8	7.17	0	########		full
+column_default_base10_11	digits13	int	8888888888888	'0'	8	7.17	0	########		full
+column_default_base10_11	digits14	int	88888888888888	'0'	8	7.17	0	########		full
+column_default_base10_11	digits15	int	888888888888888	'0'	8	7.17	0	########		full
+column_default_base10_11	fill-dash	int	1	'0*-'	8	7.17	0	1------------		fast
+column_default_base10_11	fill-space	int	1	'* 0'	8	7.17	0	                  1		fast
+column_default_base10_11	general-7.3	float	1234567.891	'General'	8	7.17	0	1234568		fast
+column_default_base10_11	general-0.9	float	0.123456789	'General'	8	7.17	0	0.12346		fast
+column_default_base10_11	digits1	int	8	'0'	8.43	7.67	0	8		fast
+column_default_base10_11	digits2	int	88	'0'	8.43	7.67	0	88		fast
+column_default_base10_11	digits3	int	888	'0'	8.43	7.67	0	888		fast
+column_default_base10_11	digits4	int	8888	'0'	8.43	7.67	0	8888		fast
+column_default_base10_11	digits5	int	88888	'0'	8.43	7.67	0	88888		fast
+column_default_base10_11	digits6	int	888888	'0'	8.43	7.67	0	888888		fast
+column_default_base10_11	digits7	int	8888888	'0'	8.43	7.67	0	8888888		fast
+column_default_base10_11	digits8	int	88888888	'0'	8.43	7.67	0	#########		fast
+column_default_base10_11	digits9	int	888888888	'0'	8.43	7.67	0	#########		full
+column_default_base10_11	digits10	int	8888888888	'0'	8.43	7.67	0	#########		full
+column_default_base10_11	digits11	int	88888888888	'0'	8.43	7.67	0	#########		full
+column_default_base10_11	digits12	int	888888888888	'0'	8.43	7.67	0	#########		full
+column_default_base10_11	digits13	int	8888888888888	'0'	8.43	7.67	0	#########		full
+column_default_base10_11	digits14	int	88888888888888	'0'	8.43	7.67	0	#########		full
+column_default_base10_11	digits15	int	888888888888888	'0'	8.43	7.67	0	#########		full
+column_default_base10_11	fill-dash	int	1	'0*-'	8.43	7.67	0	1-------------		fast
+column_default_base10_11	fill-space	int	1	'* 0'	8.43	7.67	0	                    1		fast
+column_default_base10_11	general-7.3	float	1234567.891	'General'	8.43	7.67	0	1234568		fast
+column_default_base10_11	general-0.9	float	0.123456789	'General'	8.43	7.67	0	0.12346		fast
+column_default_base10_11	digits1	int	8	'0'	10	9.17	0	8		fast
+column_default_base10_11	digits2	int	88	'0'	10	9.17	0	88		fast
+column_default_base10_11	digits3	int	888	'0'	10	9.17	0	888		fast
+column_default_base10_11	digits4	int	8888	'0'	10	9.17	0	8888		fast
+column_default_base10_11	digits5	int	88888	'0'	10	9.17	0	88888		fast
+column_default_base10_11	digits6	int	888888	'0'	10	9.17	0	888888		fast
+column_default_base10_11	digits7	int	8888888	'0'	10	9.17	0	8888888		fast
+column_default_base10_11	digits8	int	88888888	'0'	10	9.17	0	88888888		fast
+column_default_base10_11	digits9	int	888888888	'0'	10	9.17	0	888888888		fast
+column_default_base10_11	digits10	int	8888888888	'0'	10	9.17	0	###########		fast
+column_default_base10_11	digits11	int	88888888888	'0'	10	9.17	0	###########		full
+column_default_base10_11	digits12	int	888888888888	'0'	10	9.17	0	###########		full
+column_default_base10_11	digits13	int	8888888888888	'0'	10	9.17	0	###########		full
+column_default_base10_11	digits14	int	88888888888888	'0'	10	9.17	0	###########		full
+column_default_base10_11	digits15	int	888888888888888	'0'	10	9.17	0	###########		full
+column_default_base10_11	fill-dash	int	1	'0*-'	10	9.17	0	1----------------		fast
+column_default_base10_11	fill-space	int	1	'* 0'	10	9.17	0	                        1		fast
+column_default_base10_11	general-7.3	float	1234567.891	'General'	10	9.17	0	1234567.9		fast
+column_default_base10_11	general-0.9	float	0.123456789	'General'	10	9.17	0	0.1234568		fast

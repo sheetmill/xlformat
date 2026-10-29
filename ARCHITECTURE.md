@@ -252,7 +252,8 @@ Two ways a caller limits width, one mechanism underneath.
 monospace and terminal output. It is not an approximation of Excel; it is its own contract.
 
 **Excel mode** (second): the caller passes an Excel column width, the number from the Column
-Width dialog (8.43 is the default), and gets what Excel displays: the same overflow decision,
+Width dialog (8.43 in a new Windows sheet; a column a file leaves without a width is
+`baseColWidth` units, 8 for openpyxl files), and gets what Excel displays: the same overflow decision,
 the same count of `#`, the same General digit reduction, the same `*` fill count. Excel decides
 by glyph widths, not characters: "Tuesday, January 4, 2000" and "Sunday, December 3, 2000"
 are both 24 characters, yet at column width 21.17 only the second shows `####` (verified by
@@ -364,6 +365,23 @@ section whose `*` fill follows it (`@*-` shows `#`, `*-@` shows the text). Every
 every suite passes in Excel mode, the 2,251 glyph-slack rows included; character mode is
 unchanged. Renders in Excel mode measure 3.6 to 8.7 µs. `width_general14` passes
 at Calibri 14 with no change to the model.
+
+**The column model** (`_measure.column_points`, `file_points`, `file_column_metrics`; suites
+`column_file<size>`, `column_default_*`, `column_narrow11`, `column_narrow14`, `limits`;
+`CAPTURING.md` §2 item 28). A file's `<col width>` of `w` is
+`trunc((256 · w' + trunc(128 / MDW)) / 256 · MDW)` points with `w' = trunc(256 · w) / 256`: the
+pixel formula of ECMA-376 Part 1 §18.3.1.13 with MDW in points, exact for 138 widths at each of
+the six measured sizes. A column without `<col>` is `defaultColWidth` as a file width when the
+sheet has one, else `baseColWidth · MDW + 5` points (53 at Calibri 11, 8.0 in the dialog). The
+dialog shows `(points − 5) / MDW`, below one unit `points / (MDW + 5)`, to two decimals half up;
+`ColumnMetrics.width` is that number exact, so it round-trips through `column_width`. Below one
+unit a dialog width is `round(w · (MDW + 5))` points. A `#` run holds as many `#` as fit, none in a
+column too narrow for one (the cell shows nothing) except under the General format, which shows
+one `#` and keeps a one-character result (`1` in a 1-point column); at most 255. A number or text
+whose displayed text with its `*` fill would exceed 255 characters shows a `#` run, and a number
+whose text exceeds 255 characters is 255 `#` without a width as well (`1E+300` under `0`).
+`ColumnMetrics` also carries the text edges, 3 points from the left gridline and 2 from the
+right, provisional values from Excel's print layout (sheetpeek's PDF capture at Calibri 11).
 
 ## 9. Quirks
 
@@ -482,6 +500,13 @@ bundled fonts (Calibri only, measured at 9, 10, 11, 12, 14 and 16 points and sca
 nearest measured size elsewhere; Aptos Narrow tables are planned for 0.2). `measure:
 Callable[[str], float] | None` is the hook for special cases and is used with `width` as the budget
 in the measure's own units. `DEFAULT_PALETTE` maps color names to `RRGGBB`.
+
+The column model is public: `file_column_metrics(file_width=None, *, base_col_width=8,
+default_col_width=None, font=None)` for a column as a file states it and
+`column_metrics(column_width, font=None)` for a dialog width, both returning a frozen
+`ColumnMetrics(width, points, budget, left_inset, right_inset, digit_width)`; `font` there is the
+Normal font, and `width` is what `column_width` takes. Format functions take no file width:
+callers convert once per column.
 
 Behavioral contract:
 - `FormatError` is raised only when Excel itself has no rendering for the format string **as it
