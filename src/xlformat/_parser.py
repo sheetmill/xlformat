@@ -25,6 +25,10 @@ from xlformat._measure import FontSpec, Measure
 class TokenKind(Enum):
     """What a token means. ``MINUTE`` exists only after ``m`` resolution."""
 
+    # members are singletons compared by identity, so identity hashing is equivalent and avoids
+    # Enum's Python-level __hash__ in the parser's per-kind dictionaries
+    __hash__ = object.__hash__
+
     LITERAL = "literal"
     DIGIT = "digit"  # 0 # ?
     POINT = "point"
@@ -227,17 +231,37 @@ def _bracket_token(inner: str, raw: str) -> Token:
     raise FormatError(msg)
 
 
+# regex groups whose token is their text under one kind; the rest are handled one by one
+_SIMPLE_KINDS: dict[str, TokenKind] = {
+    "escaped": TokenKind.LITERAL,
+    "pad": TokenKind.PAD,
+    "fill": TokenKind.FILL,
+    "ampm": TokenKind.AMPM,  # spelling kept: am/pm renders lower-case
+    "exp": TokenKind.EXP,
+    "digit": TokenKind.DIGIT,
+}
+_CHAR_KINDS: dict[str, TokenKind] = {
+    ".": TokenKind.POINT,
+    ",": TokenKind.COMMA,
+    "%": TokenKind.PERCENT,
+    "/": TokenKind.SLASH,
+}
+
+
 def tokenize(section: str) -> list[Token]:
     """Split one section into tokens. Raises ``FormatError`` for unclosed quotes and brackets."""
     tokens: list[Token] = []
     for m in _TOKEN_RE.finditer(section):
         kind = m.lastgroup
         text = m.group(kind) if kind else ""
-        if kind == "quoted":
+        simple = _SIMPLE_KINDS.get(kind) if kind else None
+        if simple is not None:
+            tokens.append(Token(simple, text))
+        elif kind == "char":
+            tokens.append(Token(_CHAR_KINDS.get(text, TokenKind.LITERAL), text))
+        elif kind == "quoted":
             if text:
                 tokens.append(Token(TokenKind.LITERAL, text))
-        elif kind == "escaped":
-            tokens.append(Token(TokenKind.LITERAL, text))
         elif kind in ("badquote", "badbracket"):
             msg = f"unclosed {text[0]!r} in {section!r}"
             raise FormatError(msg)
@@ -246,33 +270,12 @@ def tokenize(section: str) -> list[Token]:
             raise FormatError(msg)
         elif kind == "bracket":
             tokens.append(_bracket_token(text, m.group(0)))
-        elif kind == "pad":
-            tokens.append(Token(TokenKind.PAD, text))
-        elif kind == "fill":
-            tokens.append(Token(TokenKind.FILL, text))
         elif kind == "general":
             tokens.append(Token(TokenKind.GENERAL, "General"))
         elif kind == "at":
             tokens.append(Token(TokenKind.AT, "@"))
-        elif kind == "ampm":
-            tokens.append(Token(TokenKind.AMPM, text))  # spelling kept: am/pm renders lower-case
-        elif kind == "exp":
-            tokens.append(Token(TokenKind.EXP, text))
-        elif kind == "digit":
-            tokens.append(Token(TokenKind.DIGIT, text))
-        elif kind == "date":
+        else:  # date
             tokens.append(Token(TokenKind.DATE, _normalize_date_code(text)))
-        else:
-            if text == ".":
-                tokens.append(Token(TokenKind.POINT, text))
-            elif text == ",":
-                tokens.append(Token(TokenKind.COMMA, text))
-            elif text == "%":
-                tokens.append(Token(TokenKind.PERCENT, text))
-            elif text == "/":
-                tokens.append(Token(TokenKind.SLASH, text))
-            else:
-                tokens.append(Token(TokenKind.LITERAL, text))
     return tokens
 
 
@@ -316,14 +319,6 @@ def split_sections(format_string: str) -> list[str]:
         msg = f"more than four sections in {format_string!r}"
         raise FormatError(msg)
     return sections
-
-
-def _only(tokens: list[Token], kind: TokenKind, what: str, source: str) -> Token | None:
-    found = [t for t in tokens if t.kind is kind]
-    if len(found) > 1:
-        msg = f"more than one {what} in section {source!r}"
-        raise FormatError(msg)
-    return found[0] if found else None
 
 
 def _resolve_datetime(tokens: list[Token], source: str) -> list[Token]:
@@ -572,29 +567,51 @@ def _compile_fraction(body: list[Token], source: str) -> FractionSpec:
     )
 
 
+_AT_MOST_ONE: tuple[tuple[TokenKind, str], ...] = (
+    (TokenKind.COLOR, "color"),
+    (TokenKind.CONDITION, "condition"),
+    (TokenKind.CURRENCY, "currency or locale tag"),
+    (TokenKind.GENERAL, "General"),
+    (TokenKind.ELAPSED, "elapsed-time code"),
+    (TokenKind.EXP, "exponent"),
+)
+
+
 def compile_section(source: str) -> Section:
     """Tokenize, validate and classify one section."""
     tokens = tokenize(source)
-    color_tok = _only(tokens, TokenKind.COLOR, "color", source)
-    cond_tok = _only(tokens, TokenKind.CONDITION, "condition", source)
-    currency = _only(tokens, TokenKind.CURRENCY, "currency or locale tag", source)
-    _only(tokens, TokenKind.GENERAL, "General", source)
-    _only(tokens, TokenKind.ELAPSED, "elapsed-time code", source)
-    _only(tokens, TokenKind.EXP, "exponent", source)
+    # one pass: the count of every kind, and the first token of each
+    counts: dict[TokenKind, int] = {}
+    first: dict[TokenKind, Token] = {}
+    for t in tokens:
+        counts[t.kind] = counts.get(t.kind, 0) + 1
+        first.setdefault(t.kind, t)
+    for kind, what in _AT_MOST_ONE:
+        if counts.get(kind, 0) > 1:
+            msg = f"more than one {what} in section {source!r}"
+            raise FormatError(msg)
+    color_tok = first.get(TokenKind.COLOR)
+    cond_tok = first.get(TokenKind.CONDITION)
+    currency = first.get(TokenKind.CURRENCY)
     color = color_tok.text if color_tok else None
     condition = cond_tok.condition if cond_tok else None
     locale = currency.locale if currency else None
-    body = [t for t in tokens if t.kind not in (TokenKind.COLOR, TokenKind.CONDITION)]
-    has_at = any(t.kind is TokenKind.AT for t in body)
-    has_general = any(t.kind is TokenKind.GENERAL for t in body)
-    has_digits = any(t.kind is TokenKind.DIGIT for t in body)
-    has_point = any(t.kind is TokenKind.POINT for t in body)
-    has_date = any(t.kind in (TokenKind.DATE, TokenKind.ELAPSED, TokenKind.AMPM) for t in body)
+    if color_tok or cond_tok:
+        body = [t for t in tokens if t.kind not in (TokenKind.COLOR, TokenKind.CONDITION)]
+    else:
+        body = tokens
+    has_at = TokenKind.AT in counts
+    has_general = TokenKind.GENERAL in counts
+    has_digits = TokenKind.DIGIT in counts
+    has_point = TokenKind.POINT in counts
+    has_date = (
+        TokenKind.DATE in counts or TokenKind.ELAPSED in counts or TokenKind.AMPM in counts
+    )
     # A bare system date or time tag ([$-x-sysdate], [$-x-systime]) is itself the format: Excel
     # shows the system long date or time and ignores the rest of the section.
     if (locale or "").lower() in ("x-sysdate", "x-systime", "f800", "f400"):
         has_date = True  # [$-F800] and [$-F400] are the LCID spellings of the same tags
-    exp = next((t for t in body if t.kind is TokenKind.EXP), None)
+    exp = first.get(TokenKind.EXP)
 
     def section(
         kind: SectionKind,
@@ -630,7 +647,7 @@ def compile_section(source: str) -> Section:
     if has_digits and has_at:
         msg = f"text placeholder in number section {source!r}"
         raise FormatError(msg)
-    if has_digits and any(t.kind is TokenKind.SLASH for t in body):
+    if has_digits and TokenKind.SLASH in counts:
         _check_fraction(body, source)
         return section(SectionKind.FRACTION, body, fraction=_compile_fraction(body, source))
     if exp is not None:
