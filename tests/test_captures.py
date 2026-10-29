@@ -1,9 +1,10 @@
 """Run every capture suite under tests/captures against the formatter.
 
 One test per suite file; all mismatching rows are collected and reported together. Width-less
-rows are compared in character mode; width rows are compared in Excel mode (the suite's column
-width and font, exact match) and in character mode, where rows at a fractional width and rows
-Excel fitted by glyph widths rather than by character count are skipped under their own labels.
+rows are compared exactly; width rows are compared in Excel mode (the suite's column width and
+font, exact match, ``#`` counts included) and in character mode, where a ``#`` run matches any
+``#`` run and rows at a fractional width and rows Excel fitted by glyph widths rather than by
+character count are skipped under their own labels.
 Every count is printed per suite and recorded as a test property; zero counts are left out of
 the printed line. Color rows Excel's DisplayFormat API misreports are skipped and counted.
 """
@@ -102,9 +103,16 @@ def _glyph_tight(expected: str, got: str, width: int | None) -> bool:
     )
 
 
-def _texts_match(got: str, expected: str) -> bool:
-    """Equal texts, or two ``#`` runs: Excel's count is glyph-measured (six at width 5), the
-    character-mode count is the width by contract (CAPTURING.md section 2 items 3 and 23)."""
+def _texts_match(got: str, expected: str, width: int | None) -> bool:
+    """Equal texts; at a character-mode width also two ``#`` runs of any length.
+
+    Excel's count is glyph-measured (six at width 5), the character-mode count is the width by
+    contract (CAPTURING.md section 2 items 3 and 23); 4,907 of the 5,396 ``#`` rows compared at
+    a character width differ in count for that reason. Width-less rows (255 ``#``) and every
+    Excel-mode row are compared exactly.
+    """
+    if width is None:
+        return got == expected
     return got == expected or (set(got) == {"#"} and set(expected) == {"#"})
 
 
@@ -161,7 +169,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
             counts["skipped (glyph slack)"] += 1
             continue
         counts["compared"] += 1
-        if not _texts_match(got, row.expected_text):
+        if not _texts_match(got, row.expected_text, width):
             failures.append((row, got))
         if row.expected_color and (row.format, row.value_repr) in DISPLAY_FORMAT_COLOR_MISREPORTS:
             counts["color misreports skipped"] += 1

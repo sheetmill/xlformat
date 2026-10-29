@@ -313,8 +313,9 @@ a text, which is the data a glyph table is built or verified from.
 **Character mode** (`_measure.py`, `_assemble.py`, `general_text_fitting`
 in `_number.py`; suites `width_general`, `width_fill`, `numeric_core_width`; `CAPTURING.md` §2 item
 23). `width: int` is a count of characters, `measure` is `len`. The `#` run is `width` characters
-long by contract; Excel's count is glyph-measured (six at width 5 in Calibri 11), so the capture
-test treats any two `#` runs as equal. Rows where Excel fitted a text longer than the width
+long by contract; Excel's count is glyph-measured (six at width 5 in Calibri 11), so in character
+mode at a width the capture test treats any two `#` runs as equal (4,907 of 5,396 such rows
+differ in count); width-less rows and every Excel-mode row are compared exactly. Rows where Excel fitted a text longer than the width
 (commas, points, spaces and minus signs are narrower than digits: `1,000.0` fits width 6,
 `-12345678` fits 8.43) or overflowed a text no longer than it (`%` is wider: `10000%` overflows
 width 6) are glyph slack and glyph tightness; character mode cannot reproduce them and the test
