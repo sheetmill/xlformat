@@ -1766,16 +1766,10 @@ def general_literals_points() -> Suite:
     return Suite(name, cases, widths=(None, *widths))
 
 
-_CELL_FONTS: tuple[CellFont | None, ...] = (
-    None,
-    CellFont("Calibri", 9),
-    CellFont("Calibri", 14),
-    CellFont("Calibri", 16),
-    CellFont("Calibri", 11, bold=True),
-    CellFont("Calibri", 11, italic=True),
-    CellFont("Calibri", 11, bold=True, italic=True),
-    CellFont("Calibri", 14, bold=True),
-)
+# Cells whose font differs from the workbook's Normal style (0.2; CAPTURING.md section 2 item
+# 29). The tag ends in the cell font's label in brackets, "[normal]" for the Normal style; the
+# capture test reads the cell font from it.
+
 _CELL_FONT_VALUES: tuple[tuple[str, object, str], ...] = (
     *((f"digits{n}", int("8" * n), "0") for n in range(3, 15)),
     ("fill-dash", 1, "0*-"),
@@ -1791,26 +1785,73 @@ _CELL_FONT_VALUES: tuple[tuple[str, object, str], ...] = (
 )
 
 
-def cell_font() -> Suite:
-    """Cells whose font differs from the Normal style (Calibri 11): fit, fills, General, autofit.
-
-    Also autofits every measure text in Calibri 14 and in Calibri 11 bold, to compare with
-    ``measure14`` (Normal style Calibri 14) and to see whether a style's table can be measured
-    in a regular workbook.
-    """
-    name = "cell_font"
-    cases = [
+def _cell_font_cases(
+    name: str, fonts: tuple[CellFont | None, ...], values: tuple[tuple[str, object, str], ...]
+) -> tuple[Case, ...]:
+    return tuple(
         Case(name, f"{tag} [{font.label if font else 'normal'}]", value, fmt, font=font)
-        for font in _CELL_FONTS
-        for tag, value, fmt in _CELL_FONT_VALUES
-    ]
-    for font in (CellFont("Calibri", 14), CellFont("Calibri", 11, bold=True)):
-        cases += [
-            Case(name, f"m{i} [{font.label}]", text, "@", font=font)
-            for i, text in enumerate(_measure_strings())
-        ]
-    widths = (None, 3, 4, 5, 6, 8, 8.43, 10, 12, 14, 16, 20, 30)
-    return Suite(name, tuple(cases), widths=widths, measure=True, probe=True)
+        for font in fonts
+        for tag, value, fmt in values
+    )
+
+
+def _points(mdw: int, low: int = 11, high: int = 100) -> tuple[float, ...]:
+    """Dialog widths at every whole point from ``low`` to ``high`` for a Normal font of MDW."""
+    return tuple(round((p - 5) / mdw, 2) for p in range(max(low, mdw + 5), high + 1))
+
+
+_REGULAR_CELL_FONTS: tuple[CellFont | None, ...] = (
+    None,
+    *(CellFont("Calibri", s) for s in (9, 10, 12, 14, 16)),
+)
+
+
+def cell_font() -> Suite:
+    """Calibri 9 to 16 cells in a Calibri 11 workbook: fit, fills, General, dates, literals."""
+    cases = _cell_font_cases("cell_font", _REGULAR_CELL_FONTS, _CELL_FONT_VALUES)
+    return Suite("cell_font", cases, widths=(None, *_points(6)))
+
+
+def _general_values() -> tuple[tuple[str, object, str], ...]:
+    return tuple((c.tag, c.value, c.format) for c in width_general().cases)
+
+
+def general_cell_font() -> Suite:
+    """The ``width_general`` values in Calibri 9 to 16 cells of a Calibri 11 workbook."""
+    fonts = tuple(CellFont("Calibri", s) for s in (9, 10, 12, 14, 16))
+    cases = _cell_font_cases("general_cell_font", fonts, _general_values())
+    return Suite("general_cell_font", cases, widths=(None, *_points(6)))
+
+
+def cell_font_numeric() -> Suite:
+    """Every ``numeric_core`` case in Calibri 9 and 14 cells of a Calibri 11 workbook."""
+    values = tuple((c.tag, c.value, c.format) for c in numeric_core().cases)
+    fonts = (CellFont("Calibri", 9), CellFont("Calibri", 14))
+    cases = _cell_font_cases("cell_font_numeric", fonts, values)
+    return Suite("cell_font_numeric", cases, widths=(6, 10, 14))
+
+
+_ZERO_SIGN_FORMATS: tuple[str, ...] = ("General", "[Red]General", "@", "[>100]0.00",
+                                       "General;General", "[Blue]General;[Red]General",
+                                       '@" x"', "")  # fmt: skip
+_ZERO_SIGN_VALUES: tuple[tuple[str, object], ...] = (
+    ("neg-0.05", -0.05),
+    ("neg-0.001", -0.001),
+    ("neg-1.5e-07", -1.5e-07),
+    ("neg-0.4", -0.4),
+    ("neg-1.5", -1.5),
+)
+
+
+def general_zero_sign() -> Suite:
+    """Negatives that General reduces to zero, under the plain format and General sections."""
+    name = "general_zero_sign"
+    cases = tuple(
+        Case(name, tag, value, fmt)
+        for fmt in _ZERO_SIGN_FORMATS
+        for tag, value in _ZERO_SIGN_VALUES
+    )
+    return Suite(name, cases, widths=(None, *_points(6, 11, 50)))
 
 
 def aptos_narrow_measure11() -> Suite:
@@ -1881,6 +1922,9 @@ SUITES: dict[str, Callable[[], Suite]] = {
     "general_points16": general_points16,
     "general_literals_points": general_literals_points,
     "cell_font": cell_font,
+    "general_cell_font": general_cell_font,
+    "cell_font_numeric": cell_font_numeric,
+    "general_zero_sign": general_zero_sign,
     "aptos_narrow_measure11": aptos_narrow_measure11,
     "aptos_narrow_space_fill11": aptos_narrow_space_fill11,
 }

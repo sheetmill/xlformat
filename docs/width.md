@@ -50,10 +50,25 @@ character for character, including the number of `#` and fill characters.
 '1234.50---------'
 ```
 
-`font` is a name or a `(name, size)` pair; the default is `("Calibri", 11)`, the Normal style
-openpyxl writes. A reader of a workbook passes the workbook's Normal font. Calibri is measured
-at 9, 10, 11, 12, 14 and 16 points; other sizes scale the nearest measured table and may differ
-from Excel by a character at the edge of a column. Another font raises `LookupError`.
+`font` is the cell's font: a name, a `(name, size)` pair or a `Font`; the default is
+`("Calibri", 11)`, the Normal style openpyxl writes. Calibri is measured at 9, 10, 11, 12, 14 and
+16 points; other sizes scale the nearest measured table and may differ from Excel by a character
+at the edge of a column. A font or style without a table raises `LookupError`.
+
+Excel sizes a column by the digit width of the workbook's Normal font and measures a cell's text
+in the cell's own font. When the two differ, pass the Normal font as `normal_font`; it defaults
+to `font`. A reader of a workbook passes the cell's font and the workbook's Normal font.
+
+```python
+>>> from xlformat import Font
+>>> format_value(88888888, "0", column_width=8, font=("Calibri", 14))
+'88888888'
+>>> format_value(88888888, "0", column_width=8, font=("Calibri", 14), normal_font=Font("Calibri", 11))
+'######'
+```
+
+The first column is 8 units of a 7-point digit (61 points), the second 8 units of a 6-point
+digit (53 points), in which eight 7-point digits do not fit.
 
 ## Columns read from a file
 

@@ -22,13 +22,41 @@ from xlformat._glyphs_calibri import CALIBRI
 Measure = Callable[[str], float]
 """Width of a text in the caller's units."""
 
-FontSpec = str | tuple[str, float]
-"""A font name, or a name and a point size; the name alone means 11 points."""
 
-DEFAULT_FONT: tuple[str, float] = ("Calibri", 11)
+@dataclass(frozen=True, slots=True)
+class Font:
+    """A font for Excel mode: family, size in points and style.
+
+    Attributes:
+        name: The family, such as ``"Calibri"``; matched without regard to case.
+        size: The size in points.
+        bold: Bold.
+        italic: Italic.
+    """
+
+    name: str
+    size: float = 11
+    bold: bool = False
+    italic: bool = False
+
+    @property
+    def style(self) -> str:
+        """``"regular"``, ``"bold"``, ``"italic"`` or ``"bold italic"``."""
+        if self.bold and self.italic:
+            return "bold italic"
+        return "bold" if self.bold else ("italic" if self.italic else "regular")
+
+
+FontSpec = str | tuple[str, float] | Font
+"""A font name, a name and a point size, or a :class:`Font`; the name alone means 11 points."""
+
+DEFAULT_FONT = Font("Calibri", 11)
 """openpyxl's default workbook font; sheetpeek passes the workbook's Normal style."""
 
-_FONTS: dict[str, dict[int, dict[str, float]]] = {"calibri": CALIBRI}
+# family (lower case) -> (display name, style -> size -> advances in points)
+_FONTS: dict[str, tuple[str, dict[str, dict[int, dict[str, float]]]]] = {
+    "calibri": ("Calibri", {"regular": CALIBRI}),
+}
 _COLUMN_PADDING = 5.0  # points Excel adds to MDW * width for the column, not available to text
 _LEFT_INSET = 3.0  # where left-aligned text starts (sheetpeek's PDF capture; provisional)
 _RIGHT_INSET = 2.0  # where right-aligned text ends, from the right gridline (provisional)
@@ -62,21 +90,34 @@ def column_units(column_width: float, font: FontSpec | None = None) -> float:
     return _units(column_points(column_width, font), _mdw(font))
 
 
-def resolve_font(font: FontSpec | None) -> tuple[str, float]:
-    """Canonical (name, size); raises LookupError for a font without a bundled table."""
+def resolve_font(font: FontSpec | None) -> Font:
+    """The canonical :class:`Font`; raises LookupError for a font or style without a table."""
     if font is None:
         return DEFAULT_FONT
-    name, size = (font, 11.0) if isinstance(font, str) else (font[0], float(font[1]))
-    if name.lower() not in _FONTS:
-        bundled = ", ".join(sorted(k.title() for k in _FONTS))
-        msg = f"no glyph table for font {name!r}; bundled: {bundled}"
+    if isinstance(font, str):
+        font = Font(font, 11.0)
+    elif not isinstance(font, Font):
+        font = Font(font[0], float(font[1]))
+    entry = _FONTS.get(font.name.lower())
+    if entry is None:
+        bundled = ", ".join(display for display, _ in _FONTS.values())
+        msg = f"no glyph table for font {font.name!r}; measured: {bundled}"
         raise LookupError(msg)
-    return name.title(), size
+    display, styles = entry
+    if font.style not in styles:
+        msg = f"no glyph table for {display} {font.style}; measured: {', '.join(styles)}"
+        raise LookupError(msg)
+    return Font(display, float(font.size), font.bold, font.italic)
 
 
-@lru_cache(maxsize=16)
-def _advances(name: str, size: float) -> dict[str, float]:
-    tables = _FONTS[name.lower()]
+def _table(font: FontSpec | None) -> dict[str, float]:
+    f = resolve_font(font)
+    return _advances(f.name, f.size, f.style)
+
+
+@lru_cache(maxsize=64)
+def _advances(name: str, size: float, style: str = "regular") -> dict[str, float]:
+    tables = _FONTS[name.lower()][1][style]
     if size in tables:
         return tables[int(size)]
     # An unmeasured size: scale the nearest measured table (the larger one on a tie) and round
@@ -93,8 +134,7 @@ def glyph_measure(font: FontSpec | None = None) -> Measure:
     Glyphs outside the table measure as a digit (the maximum digit width), which is what a
     column width unit is; the documentation says so.
     """
-    name, size = resolve_font(font)
-    adv = _advances(name, size)
+    adv = _table(font)
     digit = adv["0"]
 
     def measure(text: str) -> float:
@@ -121,7 +161,7 @@ def column_points(column_width: float, font: FontSpec | None = None) -> float:
 
 
 def _mdw(font: FontSpec | None) -> float:
-    return float(_advances(*resolve_font(font))["0"])
+    return float(_table(font)["0"])
 
 
 def _units(points: float, mdw: float) -> float:

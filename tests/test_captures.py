@@ -18,7 +18,7 @@ from pathlib import Path
 import pytest
 from capture.schema import Row, read_rows
 
-from xlformat import DEFAULT_PALETTE, file_column_metrics, format_cell, format_value
+from xlformat import DEFAULT_PALETTE, Font, file_column_metrics, format_cell, format_value
 
 CAPTURE_DIR = Path(__file__).parent / "captures"
 SUITE_FILES = sorted(
@@ -73,6 +73,18 @@ def _excel_value(row: Row, header: dict[str, str]) -> object:
         assert isinstance(value, float)
         return float(f"{value:.16g}")
     return value
+
+
+_CELL_FONT = re.compile(r" \[(.+?) (\d+(?:\.\d+)?)((?: bold)?)((?: italic)?)\]$")
+
+
+def _cell_font(tag: str) -> Font | None:
+    """The cell's own font from a tag ending in its label, ``[Calibri 14 bold]``; ``None`` for
+    ``[normal]`` and untagged rows, which inherit the workbook's Normal font."""
+    match = _CELL_FONT.search(tag)
+    if not match:
+        return None
+    return Font(match[1], float(match[2]), bold=bool(match[3]), italic=bool(match[4]))
 
 
 def _character_width(width: float | None) -> int | str | None:
@@ -149,6 +161,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         "skipped (fractional width)": 0,
         "skipped (glyph slack)": 0,
         "skipped (file width)": 0,
+        "skipped (cell font)": 0,
         "Excel mode compared": 0,
         "file widths checked": 0,
         "colors compared": 0,
@@ -156,7 +169,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
     }
     # "Calibri 11", "Aptos Narrow 11", "Calibri 11 (openpyxl default)"
     match = re.match(r"(.+?) (\d+(?:\.\d+)?)\b", header.get("workbook_font", ""))
-    font = (match[1], float(match[2])) if match else ("Calibri", 11.0)
+    normal = Font(match[1], float(match[2])) if match else Font("Calibri", 11.0)
     # widths written into the file (<col width>, or none: <sheetFormatPr>), not set by the script
     file_widths = header.get("width_source") == "file"
     sheet_format = dict(kv.split("=") for kv in header.get("sheet_format", "").split())
@@ -174,7 +187,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
                     if "defaultColWidth" in sheet_format
                     else None
                 ),
-                font=font,
+                font=normal,
             )
             column_width = metrics.width
             # the conversion itself: the dialog number Excel showed, to two decimals half up
@@ -187,9 +200,15 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
             # Excel mode: the column width as requested (Excel snaps it), the workbook's font;
             # every width row must match exactly, '#' counts included.
             counts["Excel mode compared"] += 1
+            cell_font = _cell_font(row.tag)
             try:
                 got_excel = format_value(
-                    value, fmt, column_width=column_width, font=font, date1904=date1904
+                    value,
+                    fmt,
+                    column_width=column_width,
+                    font=cell_font or normal,
+                    normal_font=normal,
+                    date1904=date1904,
                 )
             except Exception as exc:
                 got_excel = f"<{type(exc).__name__}: {exc}>"
@@ -197,6 +216,9 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
                 excel_failures.append((row, got_excel))
         if file_widths:
             counts["skipped (file width)"] += 1  # a file width has no character count
+            continue
+        if _cell_font(row.tag) is not None:
+            counts["skipped (cell font)"] += 1  # characters of another font than the column's
             continue
         width = _character_width(row.width_value)
         if width == "skip":

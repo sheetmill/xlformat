@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   points, the budget of a number, the digit width, and the text edges (provisional values from
   Excel's print layout). A column openpyxl leaves without a width is 8 units in Excel for Mac,
   and one it writes as 8.43 is 7.67.
+- `normal_font` on `format_value`, `format_cell` and `NumberFormat.format` / `format_cell`: the
+  workbook's Normal font, which sets the column's units, when the cell's font (`font`) differs;
+  it defaults to `font`. `Font(name, size, bold, italic)` names a font.
 
 ### Fixed
 - Excel mode: a column too narrow for one `#` shows nothing for a number that does not fit
@@ -22,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   width in points.
 - A `#` run is at most 255 characters, and a number or text that would exceed 255 characters,
   with its `*` fill or without a width, shows a `#` run, as in Excel.
+- With a width, a negative that `General` reduces to zero shows `0`, not `-0`, under any General
+  other than the plain format (`[Red]General`, `@`, a General section among others).
 - Excel mode: `General` at fractional column widths. When no shortened form fits by
   characters, Excel shows the shortest form if its glyphs fit (`1E+06` in a column of 4.67
   units); among literals, a nearly full column shows `0` for a small value and the `#` run

@@ -70,9 +70,10 @@ add a width, and they cannot be combined.
 - **`column_width`** is the number from Excel's Column Width dialog, such as 8.43. The text is
   measured with the glyph widths of `font`, so the result matches the sheet character for
   character, including how many `#` and fill characters fit. `font` is a name or a
-  `(name, size)` pair and defaults to `("Calibri", 11)`, the font openpyxl writes. A width read
-  from a file (`<col width>`, or none) is not the dialog number: `file_column_metrics` converts
-  it.
+  `(name, size)` pair or a `Font`, and defaults to `("Calibri", 11)`, the font openpyxl writes.
+  When the cell's font differs from the workbook's Normal font, `font` is the cell's and
+  `normal_font` the Normal one, which sets the column's units. A width read from a file
+  (`<col width>`, or none) is not the dialog number: `file_column_metrics` converts it.
 
 ```python
 >>> format_value(1234567.891, "General", width=7)

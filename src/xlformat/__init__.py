@@ -11,6 +11,7 @@ from xlformat._assemble import FormattedCell
 from xlformat._errors import FormatError
 from xlformat._measure import (
     ColumnMetrics,
+    Font,
     FontSpec,
     Measure,
     column_metrics,
@@ -25,6 +26,7 @@ __version__ = "0.1.0"
 __all__ = [
     "DEFAULT_PALETTE",
     "ColumnMetrics",
+    "Font",
     "FormatError",
     "FormattedCell",
     "NumberFormat",
@@ -46,6 +48,7 @@ def format_value(
     width: int | None = None,
     column_width: float | None = None,
     font: FontSpec | None = None,
+    normal_font: FontSpec | None = None,
     measure: Measure | None = None,
     date1904: bool = False,
     quirks: Quirks | None = None,
@@ -61,11 +64,13 @@ def format_value(
         column_width: Excel mode: the column width in Column Width dialog units; the text is
             measured with the glyph table of ``font`` as Excel for Mac does, so overflow, ``#``
             and fill counts and General digit reduction match the sheet. Not with ``width``.
-        font: The cell's font for Excel mode, a name or ``(name, size)``; default
-            ``("Calibri", 11)``, openpyxl's workbook default. Only Calibri is bundled (measured
-            at 9, 10, 11, 12, 14 and 16 points, scaled from the nearest measured size
-            elsewhere); other names raise ``LookupError``. Glyphs outside the table measure as
-            a digit.
+        font: The cell's font for Excel mode, a name, ``(name, size)`` or :class:`Font`;
+            default ``("Calibri", 11)``, openpyxl's workbook default. The text is measured in
+            it. Calibri is measured at 9, 10, 11, 12, 14 and 16 points and scaled from the
+            nearest measured size elsewhere; other fonts and styles without a table raise
+            ``LookupError``. Glyphs outside the table measure as a digit.
+        normal_font: The workbook's Normal font for Excel mode, whose digit width sets the
+            column (one unit of ``column_width``); default ``font``.
         measure: A custom text measure for ``width``, whose units then also apply to ``width``.
         date1904: Use the 1904 date system for dates and serials.
         quirks: Which Excel quirks to reproduce; ``None`` means ``Quirks.EXCEL``.
@@ -80,6 +85,7 @@ def format_value(
         width=width,
         column_width=column_width,
         font=font,
+        normal_font=normal_font,
         measure=measure,
         date1904=date1904,
         quirks=quirks,
@@ -93,6 +99,7 @@ def format_cell(
     width: int | None = None,
     column_width: float | None = None,
     font: FontSpec | None = None,
+    normal_font: FontSpec | None = None,
     measure: Measure | None = None,
     date1904: bool = False,
     quirks: Quirks | None = None,
@@ -103,6 +110,7 @@ def format_cell(
         width=width,
         column_width=column_width,
         font=font,
+        normal_font=normal_font,
         measure=measure,
         date1904=date1904,
         quirks=quirks,

@@ -2,7 +2,7 @@
 
 import pytest
 
-from xlformat import format_value
+from xlformat import Font, format_value
 from xlformat._glyphs_calibri import CALIBRI
 from xlformat._measure import _advances, column_budget, glyph_measure, resolve_font
 
@@ -38,10 +38,28 @@ def test_column_budget_uses_the_size_digit_width() -> None:
 
 
 def test_resolve_font_defaults_and_errors() -> None:
-    assert resolve_font(None) == ("Calibri", 11)
-    assert resolve_font("calibri") == ("Calibri", 11.0)
+    assert resolve_font(None) == Font("Calibri", 11)
+    assert resolve_font("calibri") == Font("Calibri", 11.0)
+    assert resolve_font(("CALIBRI", 14)) == Font("Calibri", 14.0)
     with pytest.raises(LookupError, match="Calibri"):
-        resolve_font("Aptos Narrow")
+        resolve_font("Comic Sans")
+
+
+def test_cell_font_against_the_normal_font() -> None:
+    # cell_font and general_cell_font rows: the column from the Normal font (Calibri 11), the
+    # text measured in the cell's (CAPTURING.md section 2 item 29)
+    normal = Font("Calibri", 11)
+    assert format_value(88888888, "0", column_width=8, normal_font=normal) == "88888888"
+    # six '#' of 7 points in the 48-point budget (cell_font, digits8 [Calibri 14] at width 8)
+    cell = Font("Calibri", 14)
+    assert format_value(88888888, "0", column_width=8, font=cell, normal_font=normal) == "######"
+    # General counts characters in the cell font's digits: 36 points / 5 at Calibri 9
+    assert format_value(1234567.891, "General", column_width=6, font=("Calibri", 9),
+                        normal_font=normal) == "1234568"  # fmt: skip
+    assert format_value(-0.001, "[Red]General", column_width=6, font=("Calibri", 14),
+                        normal_font=normal) == "0"  # fmt: skip
+    assert format_value(-0.001, "General", column_width=6, font=("Calibri", 14),
+                        normal_font=normal) == "-0"  # fmt: skip
 
 
 def test_glyph_measure_floors_the_sum() -> None:

@@ -105,8 +105,8 @@ def assemble(
     ``general_value`` is the number behind a ``general`` piece, for digit reduction, which
     Excel does by characters against the column width in ``units`` (``general_cost``), not by
     glyph widths; ``overflows`` is False for text, which never becomes a ``#`` run.
-    ``general_format`` is True for the format ``General`` itself, as opposed to a General
-    section among others or among literals.
+    ``general_format`` is True for the plain format ``General`` itself, as opposed to a General
+    section (colored, among others or among literals) or a number through a text format.
     """
     full_text, fill = _join(pieces, None)
     if overflows and len(full_text) > MAX_TEXT:
@@ -127,15 +127,16 @@ def assemble(
         rest, _ = _join([p for p in pieces if p[0] != "general"], None)
         # rounded: 8.17 units less ' units' (25 / 6) is 4.0, not 3.999..., and fits '3.14'
         budget = round(total_units - measure(rest) / digit, 9)
-        if general_format:
-            # the General format keeps one character in a column narrower than one unit: 1 and
-            # 0.5 show '1' in a 1-point column, 12 and -1 are '#' (column_narrow)
-            budget = max(budget, 1.0)
+        a = abs(general_value)
+        if general_format and budget < 1 and (a == 0 or a >= GENERAL_SMALL):
+            # the General format keeps one character with less than one left: 1 and 0.5 show
+            # '1' in a 1-point column, 12 and -1 are '#' (column_narrow); a value below 0.0001
+            # gets no form (1E-05 in a Calibri 14 cell at width 1 is '#', general_cell_font)
+            budget = 1.0
         cost = general_cost(measure("-") / digit)
         if budget < 1:
             # not one character left: a value from 0.0001 to under 10 shows zero ('( General )'
             # with -1.5 or -0.05 at 2.67 units is '( 0 )'), any other nothing (-1.5E-07 '###')
-            a = abs(general_value)
             general = "0" if a == 0 or GENERAL_SMALL <= a < 10 else None
         else:
             general = general_text_fitting(general_value, budget, cost)
@@ -147,11 +148,12 @@ def assemble(
             text, _ = _join(pieces, general)
             if measure(text) > width:
                 return overflow(color, width, full_text, measure, general=True)
-        if rest and general.strip("-") == "0":
-            # among literals a negative whose General reduced to zero drops its sign, and a '-'
-            # literal just before the General: General"x" with -0.001 at width 6 shows "0x"
+        if not general_format and general.strip("-") == "0":
+            # a negative whose General reduced to zero drops its sign, and a '-' literal just
+            # before the General: General"x" with -0.001 at width 6 shows "0x"
             # (numeric_core_width), General;-General with -0.05 at width 1 shows "0"
-            # (general_literals_points); bare General keeps "-0" (width_general)
+            # (general_literals_points), [Red]General and @ show "0" (cell_font_numeric); the
+            # General format keeps "-0" (width_general)
             general = "0"
             k = next(i for i, p in enumerate(pieces) if p[0] == "general")
             pieces = [

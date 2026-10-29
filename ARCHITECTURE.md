@@ -383,6 +383,17 @@ whose text exceeds 255 characters is 255 `#` without a width as well (`1E+300` u
 `ColumnMetrics` also carries the text edges, 3 points from the left gridline and 2 from the
 right, provisional values from Excel's print layout (sheetpeek's PDF capture at Calibri 11).
 
+**Cell font and Normal font** (`_render.resolve_width`; suites `cell_font`, `general_cell_font`,
+`cell_font_numeric`, `general_zero_sign`; `CAPTURING.md` §2 item 29). The column comes from the
+workbook's Normal font (`normal_font`, default `font`): its digit width sets the unit and the
+budget. The text is measured in the cell's font (`font`): fit, `#` count and fill count. General
+counts characters against the budget in the cell font's digits, a leading minus by the cell font's
+own advance. Measuring everything in either one font fails 111 to 172 rows per size; the split
+matches every row. Only the plain General format (no color, no other section, not reached through
+a text format or a failed condition) keeps `-0` and charges its minus inside the General text;
+any other General renders the magnitude after a sign piece, as among literals, so a reduced zero
+shows `0` (`[Red]General` with -0.05 at 1.5 units, where plain General shows `-0`).
+
 ## 9. Quirks
 
 ```python
@@ -500,6 +511,11 @@ bundled fonts (Calibri only, measured at 9, 10, 11, 12, 14 and 16 points and sca
 nearest measured size elsewhere; Aptos Narrow tables are planned for 0.2). `measure:
 Callable[[str], float] | None` is the hook for special cases and is used with `width` as the budget
 in the measure's own units. `DEFAULT_PALETTE` maps color names to `RRGGBB`.
+
+`font` and `normal_font` take a `FontSpec`: a name, `(name, size)` or the frozen
+`Font(name, size=11, bold=False, italic=False)`. `font` is the cell's font, the one the text is
+measured in; `normal_font` is the workbook's Normal font, whose digit width sets the column, and
+defaults to `font`, so a caller with one font (every 0.1 caller) sees no change.
 
 The column model is public: `file_column_metrics(file_width=None, *, base_col_width=8,
 default_col_width=None, font=None)` for a column as a file states it and

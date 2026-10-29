@@ -124,14 +124,17 @@ def resolve_width(
     column_width: float | None,
     font: FontSpec | None,
     measure: Measure | None,
+    normal_font: FontSpec | None = None,
 ) -> tuple[float | None, Measure, float | None]:
     """Budget, measure and column width in units for the ways a caller limits width (§8).
 
     The units are ``None`` outside Excel mode, where the budget is the width in the measure's
     own units.
     ``width`` is a count of characters (or the budget in ``measure``'s own units when a measure
-    is given); ``column_width`` is Excel's Column Width number, measured with the glyph table of
-    ``font``. Passing both raises ``ValueError``.
+    is given); ``column_width`` is Excel's Column Width number. In Excel mode the column comes
+    from ``normal_font`` (default: ``font``), the workbook's Normal font, and the text is
+    measured in ``font``, the cell's; General counts characters against the budget in the cell
+    font's digits (CAPTURING.md section 2 item 29). Passing both widths raises ``ValueError``.
     """
     if width is not None and column_width is not None:
         msg = "pass width (characters) or column_width (Excel units), not both"
@@ -143,11 +146,12 @@ def resolve_width(
         if column_width <= 0:
             msg = f"column_width must be positive, not {column_width!r}"
             raise ValueError(msg)
-        return (
-            column_budget(column_width, font),
-            glyph_measure(font),
-            column_units(column_width, font),
-        )
+        normal = font if normal_font is None else normal_font
+        cell = glyph_measure(font)
+        units = column_units(column_width, normal)
+        if normal_font is not None:
+            units *= glyph_measure(normal)("0") / cell("0")  # in the cell font's digits
+        return column_budget(column_width, normal), cell, units
     if width is not None and (not isinstance(width, int) or isinstance(width, bool) or width < 1):
         msg = f"width must be a positive int or None, not {width!r}"
         raise ValueError(msg)
@@ -165,9 +169,10 @@ def render(
     measure: Measure | None = None,
     date1904: bool = False,
     quirks: Quirks | None = None,
+    normal_font: FontSpec | None = None,
 ) -> FormattedCell:
     """Render ``value`` under ``fmt``."""
-    budget, measure, units = resolve_width(width, column_width, font, measure)
+    budget, measure, units = resolve_width(width, column_width, font, measure, normal_font)
     v = normalize(value, date1904=date1904, quirks=quirks)
     if v.kind is Kind.EMPTY:
         return assemble([], None, "left", width=budget, measure=measure)
@@ -215,6 +220,21 @@ def render(
     return cell
 
 
+def _general_pieces(x: Decimal, keep_sign: bool, plain: bool) -> tuple[Decimal, list[Piece]]:
+    """The General value and pieces of a section that is General alone.
+
+    The plain General format converts the signed value: -0.05 at width 3 is "-0"
+    (width_general). Any other General (colored, a section among others, a number through a
+    text format) renders the magnitude after a sign piece, as among literals: with less than
+    one character left for it, -1.5 under [Red]General at width 1 shows "0"
+    (general_zero_sign).
+    """
+    value = x if keep_sign else abs(x)
+    if plain or value >= 0:
+        return value, [("general", general_text(value))]
+    return abs(x), [("sign", "-"), ("general", general_text(abs(x)))]
+
+
 def _render_number(
     fmt: NumberFormat,
     chosen: Section | Overflow | None,
@@ -228,7 +248,9 @@ def _render_number(
     units: float | None = None,
 ) -> FormattedCell:
     """Render a number under the selected section."""
-    sole = len(fmt.numeric) <= 1  # a lone bare General section is the General format
+    # the plain General format, as opposed to a General section (colored, among others) or a
+    # number falling through a text format to General: only it keeps '-0' (cell_font_numeric)
+    plain = fmt.is_general and fmt.sections[0].color is None
     if isinstance(chosen, Overflow):
         return overflow(None, width, None, measure)
     negative = keep_sign and x < 0
@@ -236,8 +258,7 @@ def _render_number(
     pieces: list[Piece]
     general_value: Decimal | None = None
     if chosen is None:
-        general_value = x if keep_sign else magnitude
-        pieces = [("general", general_text(general_value))]
+        general_value, pieces = _general_pieces(x, keep_sign, plain)
     elif chosen.kind is SectionKind.EMPTY:
         pieces = []
     elif chosen.kind is SectionKind.NUMBER:
@@ -255,9 +276,7 @@ def _render_number(
     elif chosen.kind in (SectionKind.GENERAL, SectionKind.TEXT):
         pieces = render_text_section(chosen, None, magnitude)
         if len(pieces) == 1 and pieces[0][0] == "general":
-            # Bare General converts the signed value: -0.05 at width 3 is "-0" (width_general).
-            general_value = x if keep_sign else magnitude
-            pieces = [("general", general_text(general_value))]
+            general_value, pieces = _general_pieces(x, keep_sign, plain)
         else:
             if chosen.has_general:
                 general_value = magnitude
@@ -280,6 +299,5 @@ def _render_number(
         measure=measure,
         general_value=general_value,
         units=units,
-        general_format=chosen is None
-        or (sole and chosen.kind is SectionKind.GENERAL and len(pieces) == 1),
+        general_format=plain,
     )

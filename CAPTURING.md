@@ -505,6 +505,38 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       (`1E+300` under `0`, 301 digits). Read with `string value`; whether the screen shows the
       same is not yet checked.
 
+29. **Cell font different from the Normal font (2026-10-28; suites `cell_font`, 132 cases in
+    Calibri 9, 10, 12, 14 and 16 cells and Normal-style cells of a Calibri 11 workbook at every
+    whole point from 11 to 100; `general_cell_font`, the `width_general` values in those cell
+    fonts at the same widths; `cell_font_numeric`, every `numeric_core` case in Calibri 9 and 14
+    cells at widths 6, 10 and 14, 65,664 rows; `general_zero_sign`, 8 formats with 5 negatives
+    at every point from 11 to 50 at Calibri 11).** A case's `font` is set on its cells and its
+    tag ends in the font's label (`[Calibri 14]`; `[normal]` for the Normal style). Probe first
+    (Calibri 9, 14, 16, 11 bold, italic and bold italic cells, 13 widths): budget and units from
+    the Normal font with the text measured in the cell font matched every non-General row;
+    everything in the cell font or everything in the Normal font failed 111 to 172 rows per
+    size. Rules, all rows matched:
+    - The column (unit, points, budget) comes from the Normal font; fit, `#` and fill counts
+      measure the text in the cell font: eight digits fit width 8 at Calibri 11 and are `######`
+      (seven-point `#`, 48 points) in a Calibri 14 cell.
+    - General counts characters against the budget in the cell font's digits (36 / 5 = 7.2 at
+      Calibri 9: `1234568` at width 6) and a leading minus by the cell font's advance (5 / 8 in a
+      Calibri 16 cell: `-12345678` at width 10 is `-1E+07`, the last row the half unit missed).
+    - Only the plain General format, and the empty format, keep `-0` and charge the minus inside
+      the General text; `[Red]General`, `General;General`, `@`, `@" x"` and `[>100]0.00`
+      (reached through a failed condition) render the magnitude after a sign piece, so -0.05 at
+      1.5 units is `-0` under `General` and `0` under the others, and -1.5 at width 1 is `0`
+      under them (less than one character left, General's 0.0001-to-10 rule). In a Calibri 14
+      cell at width 1 a value below 0.0001 gets no form under plain General either (`1E-05` is
+      `#`; 6 points of a 7-point digit).
+    - Autofit measures in the cell font with the same 7-point padding, so style tables can be
+      measured in a workbook whose Normal style is the regular face (Calibri 11 bold: 515 of 515
+      space-less texts exact). A Calibri 14 cell in a Calibri 11 workbook autofits one point
+      wider than in a Calibri 14 workbook on 14 ten-runs of glyphs with a tenth (readback through
+      other column units), so tables are measured with the Normal style in the same family and
+      size.
+    Character mode skips cell-font rows (characters of another font than the column's).
+
 ## 3. The pipeline
 
 ```
