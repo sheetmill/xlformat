@@ -17,7 +17,8 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from functools import lru_cache
 
-from xlformat._glyphs_calibri import CALIBRI
+from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
+from xlformat._glyphs_calibri import CALIBRI, CALIBRI_OVERHANG
 
 Measure = Callable[[str], float]
 """Width of a text in the caller's units."""
@@ -55,7 +56,14 @@ DEFAULT_FONT = Font("Calibri", 11)
 
 # family (lower case) -> (display name, style -> size -> advances in points)
 _FONTS: dict[str, tuple[str, dict[str, dict[int, dict[str, float]]]]] = {
-    "calibri": ("Calibri", {"regular": CALIBRI}),
+    "calibri": ("Calibri", CALIBRI),
+    "aptos narrow": ("Aptos Narrow", APTOS_NARROW),
+}
+# family (lower case) -> style -> size -> points an italic face's text reaches past its advances
+# on each side: the cell's budget is that much smaller (CAPTURING.md section 2 item 30)
+_OVERHANG: dict[str, dict[str, dict[int, float]]] = {
+    "calibri": CALIBRI_OVERHANG,
+    "aptos narrow": APTOS_NARROW_OVERHANG,
 }
 _COLUMN_PADDING = 5.0  # points Excel adds to MDW * width for the column, not available to text
 _LEFT_INSET = 3.0  # where left-aligned text starts (sheetpeek's PDF capture; provisional)
@@ -126,6 +134,28 @@ def _advances(name: str, size: float, style: str = "regular") -> dict[str, float
     nearest = min(tables, key=lambda measured: (abs(measured - size), -measured))
     base = tables[nearest]
     return {ch: float(round(adv * size / nearest)) for ch, adv in base.items()}
+
+
+def overhang(font: FontSpec | None = None) -> float:
+    """Points an italic face reaches past its advances on each side; 0 for upright faces.
+
+    The text area of a cell in that font is this much smaller: an italic Calibri 11 cell holds
+    one fill space fewer than a regular one. An unmeasured size scales the nearest measured
+    overhang to whole points.
+    """
+    f = resolve_font(font)
+    return _overhang(f.name, f.size, f.style)
+
+
+@lru_cache(maxsize=64)
+def _overhang(name: str, size: float, style: str) -> float:
+    table = _OVERHANG[name.lower()].get(style, {})
+    if not table:
+        return 0.0
+    if size in table:
+        return float(table[int(size)])
+    nearest = min(table, key=lambda measured: (abs(measured - size), -measured))
+    return float(round(table[nearest] * size / nearest))
 
 
 def glyph_measure(font: FontSpec | None = None) -> Measure:

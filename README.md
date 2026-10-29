@@ -105,10 +105,10 @@ evidence for each.
 
 ## Scope and known differences
 
-- **Excel mode measures Calibri only**, at 9, 10, 11, 12, 14 and 16 points. Other Calibri
-  sizes are scaled from the nearest measured size and may differ from Excel by a character
-  near the edge of a column. Any other font raises `LookupError`. Aptos Narrow, the Windows
-  default, is planned for 0.2, measured in Excel for Mac, which bundles it.
+- **Excel mode measures Calibri and Aptos Narrow**, regular, bold, italic and bold italic, at
+  9, 10, 11, 12, 14 and 16 points, in Excel for Mac (which bundles Aptos Narrow, the Windows
+  default). Other sizes are scaled from the nearest measured size and may differ from Excel by
+  a character near the edge of a column. Any other font raises `LookupError`.
 - **Character mode is its own contract.** A `#` run is always `width` characters, and a value
   is judged by its character count, where Excel would fit or overflow some texts by glyph
   width.

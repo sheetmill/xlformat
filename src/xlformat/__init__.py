@@ -66,8 +66,8 @@ def format_value(
             and fill counts and General digit reduction match the sheet. Not with ``width``.
         font: The cell's font for Excel mode, a name, ``(name, size)`` or :class:`Font`;
             default ``("Calibri", 11)``, openpyxl's workbook default. The text is measured in
-            it. Calibri is measured at 9, 10, 11, 12, 14 and 16 points and scaled from the
-            nearest measured size elsewhere; other fonts and styles without a table raise
+            it. Calibri and Aptos Narrow are measured in four styles at 9, 10, 11, 12, 14 and 16
+            points and scaled from the nearest measured size elsewhere; other fonts raise
             ``LookupError``. Glyphs outside the table measure as a digit.
         normal_font: The workbook's Normal font for Excel mode, whose digit width sets the
             column (one unit of ``column_width``); default ``font``.

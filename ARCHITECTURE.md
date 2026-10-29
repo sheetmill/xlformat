@@ -267,11 +267,12 @@ says so.
 design stored one table per font in em fractions and scaled it at run time; Excel for Mac hints
 advances per size (digits are 6 points at both 11 and 12, the hyphen 3 then 4), and no
 size-independent fraction reproduces that, so the measured tables replaced it (the Excel-mode
-paragraph below). Calibri is the only bundled font: openpyxl writes Calibri 11 as the workbook
-default and Excel for Mac's own default is Calibri 12. Aptos Narrow, the default of current
-Windows Excel, ships inside Excel for Mac and is measured there the same way (tables planned for
-0.2); whether Windows Excel's widths differ from the Mac's is a separate, open question. Reading
-installed fonts is an optional extra later, never a requirement.
+paragraph below). Two families are bundled, each in regular, bold, italic and bold italic at 9,
+10, 11, 12, 14 and 16 points: Calibri, which openpyxl writes as the workbook default (Calibri 11;
+Excel for Mac's own default is Calibri 12), and Aptos Narrow, the default of current Windows
+Excel, which ships inside Excel for Mac and is measured there the same way; whether Windows
+Excel's widths differ from the Mac's is a separate, open question. Reading installed fonts is an
+optional extra later, never a requirement.
 
 **The seam**: internally both modes are "a measure function plus a width in its units": `len`
 for character mode, a glyph-advance sum for Excel mode. The same seam is exposed for callers
@@ -394,6 +395,19 @@ a text format or a failed condition) keeps `-0` and charges its minus inside the
 any other General renders the magnitude after a sign piece, as among literals, so a reduced zero
 shows `0` (`[Red]General` with -0.05 at 1.5 units, where plain General shows `-0`).
 
+**Styles and families** (`_glyphs_calibri.py`, `_glyphs_aptos_narrow.py`, both written by
+`capture/glyph_fit.py`; suites `measure_<family>_<style><size>`, `space_fill_...`,
+`cell_font_styles`, `general_cell_font_styles`, `column_file_aptos_narrow11`,
+`general_points_aptos_narrow11`, `numeric_core_width_aptos_narrow11`; `CAPTURING.md` §2 item 30).
+A table per family, style and size, measured as the regular Calibri tables were, with the Normal
+style the regular face of the family at the size and the cells styled. Every one of the 48 faces
+fits its 515 space-less autofit texts exactly and its 160 fill rows with a single space advance.
+Bold has the regular face's digit width and padding. An italic face autofits with a larger
+padding, 9, 11 or 13 points against 7: its slant reaches `(padding − 7) / 2` points past its
+advances on each side, the overhang (1 point at 9, 2 at 11 to 14, 3 at 16; 1 at 10 for Aptos
+Narrow, 2 for Calibri), and a cell in an italic face has that much less budget, General's
+characters included: an italic Calibri 11 cell holds one fill space fewer than an upright one.
+
 ## 9. Quirks
 
 ```python
@@ -507,8 +521,8 @@ characters; `column_width: float | None` is Excel mode in Column Width dialog un
 the glyph table of `font`; passing both raises `ValueError`. `font: str | tuple[str, float] | None`
 names the font and size, default `("Calibri", 11)` (openpyxl's workbook default; sheetpeek passes
 the workbook's Normal style); a font without a bundled table raises `LookupError` naming the
-bundled fonts (Calibri only, measured at 9, 10, 11, 12, 14 and 16 points and scaled from the
-nearest measured size elsewhere; Aptos Narrow tables are planned for 0.2). `measure:
+measured fonts (Calibri and Aptos Narrow in four styles, measured at 9, 10, 11, 12, 14 and 16
+points and scaled from the nearest measured size elsewhere). `measure:
 Callable[[str], float] | None` is the hook for special cases and is used with `width` as the budget
 in the measure's own units. `DEFAULT_PALETTE` maps color names to `RRGGBB`.
 

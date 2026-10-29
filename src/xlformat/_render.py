@@ -14,6 +14,7 @@ from xlformat._measure import (
     column_budget,
     column_units,
     glyph_measure,
+    overhang,
 )
 from xlformat._number import general_text, render_number, render_scientific
 from xlformat._parser import NumberFormat, Piece, Section, SectionKind
@@ -151,7 +152,12 @@ def resolve_width(
         units = column_units(column_width, normal)
         if normal_font is not None:
             units *= glyph_measure(normal)("0") / cell("0")  # in the cell font's digits
-        return column_budget(column_width, normal), cell, units
+        # an italic face reaches past its advances: its cell holds that much less, General's
+        # characters included (1E-04 shows 0 in a Calibri 11 italic cell at width 5)
+        lost = overhang(font)
+        if lost:
+            units -= lost / cell("0")
+        return column_budget(column_width, normal) - lost, cell, units
     if width is not None and (not isinstance(width, int) or isinstance(width, bool) or width < 1):
         msg = f"width must be a positive int or None, not {width!r}"
         raise ValueError(msg)

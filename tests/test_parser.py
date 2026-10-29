@@ -230,8 +230,8 @@ def test_width_excel_mode() -> None:
     assert cell.full_text == "#" * 255
     with pytest.raises(ValueError, match="not both"):
         format_value(1, "0", width=6, column_width=6)
-    with pytest.raises(LookupError, match="Calibri"):
-        format_value(1, "0", column_width=6, font="Aptos Narrow")
+    with pytest.raises(LookupError, match="Aptos Narrow"):
+        format_value(1, "0", column_width=6, font="Comic Sans")
     assert format_value(12345, "0", width=10, measure=lambda t: 2.0 * len(t)) == "12345"
     # the budget is in the measure's units: 12 > 10 overflows, and 10 // 2 gives five '#'
     assert format_value(123456, "0", width=10, measure=lambda t: 2.0 * len(t)) == "#####"

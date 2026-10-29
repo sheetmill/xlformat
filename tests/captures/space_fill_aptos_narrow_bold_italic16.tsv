@@ -1,0 +1,213 @@
+# suite: space_fill_aptos_narrow_bold_italic16
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Aptos Narrow 16
+# locale: en_US
+# captured: 2026-10-28
+# generator: capture.cases.space_fill_aptos_narrow_bold_italic16
+# method: width none=clipboard; width 6=string_value; width 10=string_value; width 14=string_value; width 20=string_value
+# numbers: repr
+# column_points: C=53.0 D=85.0 E=117.0 F=165.0
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 -   		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1.00 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 (1.00)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 12.00 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1,234.50 		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 (1,234.50)		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 0.50 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1,234,567.89 		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $- 		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $(1)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $12 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1,235 		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $(1,235)		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1,234,568 		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'0* '			0	0		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'0* '			0	1		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'0* '			0	-1		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'0* '			0	12		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'0* '			0	1235		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'0* '			0	-1235		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'0* '			0	1		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'0* '			0	1234568		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'0* '			0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'0* '			0	TRUE		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'* 0'			0	0		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'* 0'			0	1		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'* 0'			0	-1		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'* 0'			0	12		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'* 0'			0	1235		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'* 0'			0	-1235		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'* 0'			0	1		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'* 0'			0	1234568		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'* 0'			0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'* 0'			0	TRUE		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	          -   		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	    1.00 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	  (1.00)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	  12.00 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		full
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	    0.50 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		full
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $        - 		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $       1 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $     (1)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $     12 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		full
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $       1 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		full
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'0* '	6	6.0	0	0            		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'0* '	6	6.0	0	1            		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'0* '	6	6.0	0	-1          		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'0* '	6	6.0	0	12         		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'0* '	6	6.0	0	1235    		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'0* '	6	6.0	0	-1235  		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'0* '	6	6.0	0	1            		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'0* '	6	6.0	0	#####		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'0* '	6	6.0	0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'0* '	6	6.0	0	TRUE		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'* 0'	6	6.0	0	            0		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'* 0'	6	6.0	0	            1		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'* 0'	6	6.0	0	-          1		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'* 0'	6	6.0	0	         12		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'* 0'	6	6.0	0	    1235		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'* 0'	6	6.0	0	-  1235		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'* 0'	6	6.0	0	            1		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'* 0'	6	6.0	0	#####		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'* 0'	6	6.0	0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'* 0'	6	6.0	0	TRUE		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	                     -   		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	               1.00 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	             (1.00)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	            12.00 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	      1,234.50 		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	   (1,234.50)		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	               0.50 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	#########		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $                   - 		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $                  1 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $                (1)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $               12 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $         1,235 		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $      (1,235)		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $                  1 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	#########		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'0* '	10	10.0	0	0                       		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'0* '	10	10.0	0	1                       		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'0* '	10	10.0	0	-1                     		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'0* '	10	10.0	0	12                    		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'0* '	10	10.0	0	1235               		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'0* '	10	10.0	0	-1235             		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'0* '	10	10.0	0	1                       		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'0* '	10	10.0	0	1234568       		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'0* '	10	10.0	0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'0* '	10	10.0	0	TRUE		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'* 0'	10	10.0	0	                       0		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'* 0'	10	10.0	0	                       1		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'* 0'	10	10.0	0	-                     1		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'* 0'	10	10.0	0	                    12		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'* 0'	10	10.0	0	               1235		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'* 0'	10	10.0	0	-             1235		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'* 0'	10	10.0	0	                       1		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'* 0'	10	10.0	0	       1234568		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'* 0'	10	10.0	0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'* 0'	10	10.0	0	TRUE		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                               -   		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                          1.00 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                       (1.00)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                       12.00 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                1,234.50 		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	              (1,234.50)		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                          0.50 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	       1,234,567.89 		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                              - 		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                             1 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                          (1)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                          12 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                   1,235 		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                 (1,235)		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                             1 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $          1,234,568 		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'0* '	14	14.0	0	0                                 		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'0* '	14	14.0	0	1                                 		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'0* '	14	14.0	0	-1                                		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'0* '	14	14.0	0	12                               		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'0* '	14	14.0	0	1235                         		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'0* '	14	14.0	0	-1235                        		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'0* '	14	14.0	0	1                                 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'0* '	14	14.0	0	1234568                 		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'0* '	14	14.0	0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'0* '	14	14.0	0	TRUE		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'* 0'	14	14.0	0	                                 0		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'* 0'	14	14.0	0	                                 1		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'* 0'	14	14.0	0	-                                1		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'* 0'	14	14.0	0	                               12		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'* 0'	14	14.0	0	                         1235		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'* 0'	14	14.0	0	-                        1235		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'* 0'	14	14.0	0	                                 1		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'* 0'	14	14.0	0	                 1234568		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'* 0'	14	14.0	0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'* 0'	14	14.0	0	TRUE		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                               -   		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                          1.00 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                       (1.00)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                       12.00 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                1,234.50 		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                              (1,234.50)		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                          0.50 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                       1,234,567.89 		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                              - 		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                             1 		fast
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                          (1)		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                          12 		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                   1,235 		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                 (1,235)		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                             1 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                          1,234,568 		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 abc 		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 TRUE 		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'0* '	20	20.0	0	0                                                 		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'0* '	20	20.0	0	1                                                 		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'0* '	20	20.0	0	-1                                                		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'0* '	20	20.0	0	12                                               		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'0* '	20	20.0	0	1235                                         		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'0* '	20	20.0	0	-1235                                        		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'0* '	20	20.0	0	1                                                 		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'0* '	20	20.0	0	1234568                                 		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'0* '	20	20.0	0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'0* '	20	20.0	0	TRUE		fast
+space_fill_aptos_narrow_bold_italic16	zero [Aptos Narrow 16 bold italic]	int	0	'* 0'	20	20.0	0	                                                 0		fast
+space_fill_aptos_narrow_bold_italic16	one [Aptos Narrow 16 bold italic]	int	1	'* 0'	20	20.0	0	                                                 1		full
+space_fill_aptos_narrow_bold_italic16	neg-one [Aptos Narrow 16 bold italic]	int	-1	'* 0'	20	20.0	0	-                                                1		fast
+space_fill_aptos_narrow_bold_italic16	twelve [Aptos Narrow 16 bold italic]	int	12	'* 0'	20	20.0	0	                                               12		fast
+space_fill_aptos_narrow_bold_italic16	1234.5 [Aptos Narrow 16 bold italic]	float	1234.5	'* 0'	20	20.0	0	                                         1235		fast
+space_fill_aptos_narrow_bold_italic16	neg-1234.5 [Aptos Narrow 16 bold italic]	float	-1234.5	'* 0'	20	20.0	0	-                                        1235		fast
+space_fill_aptos_narrow_bold_italic16	half [Aptos Narrow 16 bold italic]	float	0.5	'* 0'	20	20.0	0	                                                 1		full
+space_fill_aptos_narrow_bold_italic16	million [Aptos Narrow 16 bold italic]	float	1234567.891	'* 0'	20	20.0	0	                                 1234568		fast
+space_fill_aptos_narrow_bold_italic16	text [Aptos Narrow 16 bold italic]	str	'abc'	'* 0'	20	20.0	0	abc		fast
+space_fill_aptos_narrow_bold_italic16	bool [Aptos Narrow 16 bold italic]	bool	True	'* 0'	20	20.0	0	TRUE		fast

@@ -29,6 +29,15 @@ DEFAULT_FAST_CAP = 15
 FULL_ONLY: dict[str, int] = {"capture2023": 0, "capture2023_sample": 0}
 
 
+class CellError(str):
+    """An error value a formula produces (``#DIV/0!``); its ``value_type`` is ``error``."""
+
+    __slots__ = ()
+
+    def __repr__(self) -> str:
+        return str.__repr__(str(self))
+
+
 @dataclass(frozen=True, slots=True)
 class CellFont:
     """A cell's own font, set on the cell instead of inheriting the workbook's Normal style."""
@@ -67,8 +76,8 @@ class Case:
 
     @property
     def value_type(self) -> str:
-        """Type name as stored in the TSV."""
-        return type(self.value).__name__
+        """Type name as stored in the TSV; ``error`` for a :class:`CellError`."""
+        return "error" if isinstance(self.value, CellError) else type(self.value).__name__
 
     @property
     def value_repr(self) -> str:
@@ -1854,18 +1863,139 @@ def general_zero_sign() -> Suite:
     return Suite(name, cases, widths=(None, *_points(6, 11, 50)))
 
 
-def aptos_narrow_measure11() -> Suite:
-    """Autofit widths of the measure texts in a workbook whose Normal style is Aptos Narrow 11."""
-    s = _measure("aptos_narrow_measure11", 11)
-    return Suite(s.name, s.cases, widths=(), measure=True, font_size=11,
-                 font_name="Aptos Narrow", probe=True)  # fmt: skip
+# Glyph tables per family, style and size (0.2; CAPTURING.md section 2 item 30). The Normal
+# style is the regular face of the family at the size; the cells carry the style, so autofit and
+# the fills measure the styled face against the regular column (item 29).
+
+_FAMILIES: tuple[str, ...] = ("Calibri", "Aptos Narrow")
+_STYLES: tuple[tuple[bool, bool], ...] = (
+    (False, False),
+    (True, False),
+    (False, True),
+    (True, True),
+)
+_TABLE_SIZES: tuple[int, ...] = (9, 10, 11, 12, 14, 16)
 
 
-def aptos_narrow_space_fill11() -> Suite:
-    """Space fills at Aptos Narrow 11."""
-    s = _space_fill("aptos_narrow_space_fill11", 11)
-    return Suite(s.name, s.cases, widths=s.widths, font_size=11, font_name="Aptos Narrow",
-                 probe=True)  # fmt: skip
+def _table_slug(family: str, bold: bool, italic: bool, size: int) -> str:
+    style = "_".join(n for n, on in (("bold", bold), ("italic", italic)) if on)
+    return family.lower().replace(" ", "_") + (f"_{style}" if style else "") + str(size)
+
+
+def _styled(name: str, cases: tuple[Case, ...], font: CellFont | None) -> tuple[Case, ...]:
+    """The cases with ``font`` on their cells and its label at the end of the tag."""
+    if font is None:
+        return cases
+    return tuple(Case(name, f"{c.tag} [{font.label}]", c.value, c.format, font=font) for c in cases)
+
+
+def _table_suites() -> dict[str, Callable[[], Suite]]:
+    """``measure_<family>[_<style>]<size>`` and ``space_fill_...`` for every table but the six
+    regular Calibri ones, which are ``measure<size>`` and ``space_fill<size>``."""
+    out: dict[str, Callable[[], Suite]] = {}
+    for family in _FAMILIES:
+        for bold, italic in _STYLES:
+            for size in _TABLE_SIZES:
+                if family == "Calibri" and not (bold or italic):
+                    continue
+                slug = _table_slug(family, bold, italic, size)
+                font = CellFont(family, size, bold, italic) if (bold or italic) else None
+
+                def measure(slug: str = slug, font: CellFont | None = font, size: int = size,
+                            family: str = family) -> Suite:  # fmt: skip
+                    name = f"measure_{slug}"
+                    base = _measure(name, size)
+                    return Suite(name, _styled(name, base.cases, font), widths=(), measure=True,
+                                 font_size=size, font_name=family)  # fmt: skip
+
+                def space_fill(slug: str = slug, font: CellFont | None = font, size: int = size,
+                               family: str = family) -> Suite:  # fmt: skip
+                    name = f"space_fill_{slug}"
+                    base = _space_fill(name, size)
+                    return Suite(name, _styled(name, base.cases, font), widths=base.widths,
+                                 font_size=size, font_name=family)  # fmt: skip
+
+                out[f"measure_{slug}"] = measure
+                out[f"space_fill_{slug}"] = space_fill
+    return out
+
+
+_STYLED_CELL_FONTS: tuple[CellFont | None, ...] = (
+    CellFont("Calibri", 11, bold=True),
+    CellFont("Calibri", 11, italic=True),
+    CellFont("Calibri", 11, bold=True, italic=True),
+    CellFont("Calibri", 14, bold=True),
+    CellFont("Aptos Narrow", 11),
+    CellFont("Aptos Narrow", 11, bold=True),
+    CellFont("Aptos Narrow", 14, italic=True),
+)
+
+
+def cell_font_styles() -> Suite:
+    """Bold, italic and Aptos Narrow cells in a Calibri 11 workbook, at every point."""
+    cases = _cell_font_cases("cell_font_styles", _STYLED_CELL_FONTS, _CELL_FONT_VALUES)
+    return Suite("cell_font_styles", cases, widths=(None, *_points(6)))
+
+
+def general_cell_font_styles() -> Suite:
+    """The ``width_general`` values in bold and Aptos Narrow cells of a Calibri 11 workbook."""
+    fonts = (CellFont("Calibri", 11, bold=True), CellFont("Aptos Narrow", 11),
+             CellFont("Aptos Narrow", 16, bold=True))  # fmt: skip
+    cases = _cell_font_cases("general_cell_font_styles", fonts, _general_values())
+    return Suite("general_cell_font_styles", cases, widths=(None, *_points(6)))
+
+
+def column_file_aptos_narrow11() -> Suite:
+    """The file widths in a workbook whose Normal style is Aptos Narrow 11."""
+    return _column_file("column_file_aptos_narrow11", 11, font_name="Aptos Narrow")
+
+
+def general_points_aptos_narrow11() -> Suite:
+    """The ``width_general`` values at every point, Normal style Aptos Narrow 11."""
+    s = _general_points("general_points_aptos_narrow11", 11, 6)
+    return Suite(s.name, s.cases, widths=s.widths, font_size=11, font_name="Aptos Narrow")
+
+
+def numeric_core_width_aptos_narrow11() -> Suite:
+    """Every ``numeric_core`` case at widths 6, 10 and 14, Normal style Aptos Narrow 11."""
+    name = "numeric_core_width_aptos_narrow11"
+    cases = tuple(Case(name, c.tag, c.value, c.format) for c in numeric_core().cases)
+    return Suite(name, cases, widths=(6, 10, 14), font_size=11, font_name="Aptos Narrow")
+
+
+# Error values (0.2; CAPTURING.md section 2 item 32). Formulas produce the seven classic codes;
+# the value is a CellError, written to the TSV with value_type "error".
+
+_ERROR_FORMULAS: tuple[tuple[str, str], ...] = (
+    ("#DIV/0!", "=1/0"),
+    ("#N/A", "=NA()"),
+    ("#NUM!", "=SQRT(-1)"),
+    ("#VALUE!", '="a"+1'),
+    ("#NAME?", "=XYZZY()"),
+    ("#REF!", "=#REF!"),
+    ("#NULL!", "=SUM(A1:A2 B1:B2)"),
+)
+_ERROR_FORMATS: tuple[str, ...] = ("General", "0", "@", "[Red]0", ";;;", "0;-0;0;@", '"x"0',
+                                   "0.00*-", "[Blue]General")  # fmt: skip
+
+
+def error_width() -> Suite:
+    """Every classic error under nine formats at widths 1 to 12, in Calibri 11 and 14 cells."""
+    name = "error_width"
+    cases = tuple(
+        Case(
+            name,
+            f"{code} [{font.label if font else 'normal'}]",
+            CellError(code),
+            fmt,
+            formula=formula,
+            font=font,
+        )
+        for font in (None, CellFont("Calibri", 14))
+        for fmt in _ERROR_FORMATS
+        for code, formula in _ERROR_FORMULAS
+    )
+    return Suite(name, cases, widths=(None, *range(1, 13)), colors=True)
 
 
 SUITES: dict[str, Callable[[], Suite]] = {
@@ -1925,9 +2055,16 @@ SUITES: dict[str, Callable[[], Suite]] = {
     "general_cell_font": general_cell_font,
     "cell_font_numeric": cell_font_numeric,
     "general_zero_sign": general_zero_sign,
-    "aptos_narrow_measure11": aptos_narrow_measure11,
-    "aptos_narrow_space_fill11": aptos_narrow_space_fill11,
+    "cell_font_styles": cell_font_styles,
+    "general_cell_font_styles": general_cell_font_styles,
+    "column_file_aptos_narrow11": column_file_aptos_narrow11,
+    "general_points_aptos_narrow11": general_points_aptos_narrow11,
+    "numeric_core_width_aptos_narrow11": numeric_core_width_aptos_narrow11,
+    "error_width": error_width,
 }
+
+
+SUITES.update(_table_suites())
 
 
 def distinct_measure_cases(cases: Iterable[Case]) -> list[Case]:

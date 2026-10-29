@@ -3,30 +3,52 @@
 import pytest
 
 from xlformat import Font, format_value
+from xlformat._glyphs_aptos_narrow import APTOS_NARROW
 from xlformat._glyphs_calibri import CALIBRI
-from xlformat._measure import _advances, column_budget, glyph_measure, resolve_font
+from xlformat._measure import _advances, column_budget, glyph_measure, overhang, resolve_font
 
 MEASURED_SIZES = (9, 10, 11, 12, 14, 16)
+STYLES = ("regular", "bold", "italic", "bold italic")
 
 
 def test_measured_sizes_are_bundled() -> None:
-    assert tuple(sorted(CALIBRI)) == MEASURED_SIZES
+    for table in (CALIBRI, APTOS_NARROW):
+        assert tuple(table) == STYLES
+        assert all(tuple(sorted(table[style])) == MEASURED_SIZES for style in STYLES)
+    regular = CALIBRI["regular"]
     # the maximum digit width per size (CAPTURING.md section 2 item 26)
-    assert [CALIBRI[s]["0"] for s in MEASURED_SIZES] == [5, 5, 6, 6, 7, 8]
-    assert [CALIBRI[s][" "] for s in MEASURED_SIZES] == [2, 2, 2, 3, 3, 4]
+    assert [regular[s]["0"] for s in MEASURED_SIZES] == [5, 5, 6, 6, 7, 8]
+    assert [regular[s][" "] for s in MEASURED_SIZES] == [2, 2, 2, 3, 3, 4]
+    assert [APTOS_NARROW["regular"][s][" "] for s in MEASURED_SIZES] == [2, 2, 2, 2, 3, 3]
 
 
 @pytest.mark.parametrize("size", MEASURED_SIZES)
-def test_measured_size_uses_its_own_table(size: int) -> None:
-    assert _advances("Calibri", float(size)) is CALIBRI[size]
+@pytest.mark.parametrize("style", STYLES)
+def test_measured_size_uses_its_own_table(size: int, style: str) -> None:
+    assert _advances("Calibri", float(size), style) is CALIBRI[style][size]
+    assert _advances("Aptos Narrow", float(size), style) is APTOS_NARROW[style][size]
 
 
 def test_unmeasured_size_scales_the_nearest_table() -> None:
     # 13 lies between 12 and 14; the larger wins the tie and every advance is a whole point
+    regular = CALIBRI["regular"]
     scaled = _advances("Calibri", 13.0)
-    assert scaled["0"] == round(CALIBRI[14]["0"] * 13 / 14)
+    assert scaled["0"] == round(regular[14]["0"] * 13 / 14)
     assert all(adv == int(adv) for adv in scaled.values())
-    assert _advances("Calibri", 18.0)["0"] == round(CALIBRI[16]["0"] * 18 / 16)
+    assert _advances("Calibri", 18.0)["0"] == round(regular[16]["0"] * 18 / 16)
+
+
+def test_italic_overhang() -> None:
+    # (autofit padding - 7) / 2: 1, 2, 2, 2, 2, 3 points from Calibri 9 to 16 (item 30)
+    assert [overhang(Font("Calibri", s, italic=True)) for s in MEASURED_SIZES] == [
+        1, 2, 2, 2, 2, 3,
+    ]  # fmt: skip
+    assert overhang(Font("Aptos Narrow", 10, bold=True, italic=True)) == 1
+    assert overhang(Font("Calibri", 11, bold=True)) == 0
+    # one fill space fewer than upright Calibri 11 at width 6 (space_fill_calibri_italic11)
+    italic = Font("Calibri", 11, italic=True)
+    assert format_value(1, "0* ", column_width=6).count(" ") == 15
+    assert format_value(1, "0* ", column_width=6, font=italic).count(" ") == 14
 
 
 def test_column_budget_uses_the_size_digit_width() -> None:

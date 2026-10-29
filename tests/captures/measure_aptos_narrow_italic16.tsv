@@ -1,0 +1,13 @@
+# suite: measure_aptos_narrow_italic16
+# excel_version: 16.114
+# standard_font: Calibri 12.0
+# workbook_font: Aptos Narrow 16
+# locale: en_US
+# captured: 2026-10-28
+# generator: capture.cases.measure_aptos_narrow_italic16
+# method: 
+# numbers: repr
+# column_points: 
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier

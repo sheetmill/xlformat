@@ -18,6 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `normal_font` on `format_value`, `format_cell` and `NumberFormat.format` / `format_cell`: the
   workbook's Normal font, which sets the column's units, when the cell's font (`font`) differs;
   it defaults to `font`. `Font(name, size, bold, italic)` names a font.
+- Glyph tables for bold, italic and bold italic Calibri and for Aptos Narrow in all four styles,
+  each at 9, 10, 11, 12, 14 and 16 points, measured in Excel for Mac. An italic cell's text area
+  is a point or two smaller, as in Excel.
 
 ### Fixed
 - Excel mode: a column too narrow for one `#` shows nothing for a number that does not fit
