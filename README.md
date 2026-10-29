@@ -136,7 +136,7 @@ With uv, which installs the exact versions pinned in `uv.lock`:
 
 ```bash
 uv sync --group docs
-uv run pytest                 # unit tests and every captured Excel row, a few seconds
+uv run pytest                 # unit tests and every captured Excel row, about eight seconds
 uv run pytest --tier=fast     # a per-format sample of the Excel captures
 uv run ruff check . && uv run ruff format --check . && uv run mypy
 uv run --group docs sphinx-build -n -W docs docs/_build/html

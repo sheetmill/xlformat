@@ -50,7 +50,7 @@ mypy
 sphinx-build -n -W docs docs/_build/html # the strict documentation build
 ```
 
-`pytest` checks every row captured from Excel in a few seconds; `pytest --tier=fast` runs a
+`pytest` checks every row captured from Excel in about eight seconds; `pytest --tier=fast` runs a
 per-format sample. The examples in `README.md` and `docs/*.md` run as doctests, so a change of
 behavior shows up there too.
 

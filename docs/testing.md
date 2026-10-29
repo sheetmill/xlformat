@@ -23,7 +23,7 @@ defined in `capture/cases.py`. Capturing a suite takes four steps:
    Excel build, the fonts, the locale, the date and the generator's commit.
 
 The test suite then renders every row with xlformat and compares the text exactly. A default
-`pytest` run checks every captured row in a few seconds. Width rows are checked twice: in Excel
+`pytest` run checks every captured row in about eight seconds. Width rows are checked twice: in Excel
 mode, which must match exactly, and in character mode, which skips the rows where Excel fitted
 a text by glyph width.
 

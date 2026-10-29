@@ -612,24 +612,36 @@ capture/            generator, capture scripts (not part of the wheel)
 ## 13. Performance
 
 Targets: parse under 50 µs for a typical format; format under 10 µs for `#,##0.00`, under 20 µs
-for dates; every captured row under 3 s. Techniques: parse once and cache, precompute everything
+for dates; every captured row under 3 s (set at 270,549 rows; not met at 526,729, see below). Techniques: parse once and cache, precompute everything
 derivable from the format, no regex at render time, no `datetime` objects, Decimal only where
 precision needs it.
 
-Measured 2026-10-24 with every section kind implemented (Python 3.11, Apple Silicon):
+Measured with `bench/timing.py` (Python 3.11, Apple Silicon), before and after the 0.2 speed
+pass; parse times bypass the cache, render times are per call with a parsed format. Every
+change of the pass was checked with `bench/golden.py`: the 984,508 renderings of every captured
+row in every mode were byte-identical before and after each commit.
 
-| operation | time |
-|---|---|
-| parse `#,##0.00` (cache cleared) | 16.5 µs |
-| parse `General` | 4.4 µs |
-| parse the four-section accounting format | 61 µs (over target) |
-| format `#,##0.00` with 1234.5 | 4.9 µs |
-| format `General` with 1234567.891 | 3.2 µs |
-| format `m/d/yy` | 5.7 µs |
-| format `yyyy-mm-dd hh:mm:ss.000` | 8.0 µs |
-| format `0.00E+00` | 8.9 µs |
-| format `# ?/?` and `# ??/??` | 7.1 µs and 7.5 µs |
-| full capture run, 30 suites, 270,549 rows, both width modes | about 3 s |
+| operation | before | after |
+|---|---|---|
+| parse `#,##0.00` | 16.4 µs | 11.8 µs |
+| parse `General` | 4.3 µs | 3.1 µs |
+| parse the four-section accounting format (target 50) | 61.9 µs | 42.5 µs |
+| parse `m/d/yy` | 9.3 µs | 6.9 µs |
+| parse `yyyy-mm-dd hh:mm:ss.000` | 21.0 µs | 14.8 µs |
+| format `#,##0.00`: width-less, `width=10`, `column_width=10` | 5.3, 5.7, 7.2 µs | 5.5, 5.9, 6.2 µs |
+| format `#,##0.00` in Excel mode with a cell font other than the Normal font | 10.1 µs | 6.3 µs |
+| format `General` with 1234567.891: width-less, `width=10`, `column_width=10` | 4.8, 7.8, 9.4 µs | 5.0, 8.1, 8.6 µs |
+| format the accounting format with -1234.5 in Excel mode | 8.6 µs | 7.4 µs |
+| format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 11.5 µs | 10.8 µs |
+| memory retained by 1,000 distinct compiled formats | 3,013 KiB | 1,147 KiB |
+| memory of one compiled accounting format | 3.9 KiB | 2.5 KiB |
+| `pytest`, 149 suite files, 526,729 rows in all modes | 9.0 s | 8.1 s |
+| `pytest --tier=fast` | 2.0 s | 1.7 s |
+
+The pass: one scan per section instead of eleven, table-driven tokens, identity hashing for the
+parser's token kinds, the column's budget, measure and units cached per column width and fonts,
+and one-character tokens and pieces shared between formats. Of the 8.1 s of a full test run,
+reading and decoding the suite files takes about 2.4 s.
 
 ## 14. What the code taught
 
