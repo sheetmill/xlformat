@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 from decimal import Decimal
+from functools import lru_cache
 
 from xlformat._assemble import Align, FormattedCell, assemble, overflow
 from xlformat._datetime import render_datetime
@@ -149,22 +150,30 @@ def resolve_width(
         if column_width <= 0:
             msg = f"column_width must be positive, not {column_width!r}"
             raise ValueError(msg)
-        normal = font if normal_font is None else normal_font
-        cell = glyph_measure(font)
-        units = column_units(column_width, normal)
-        if normal_font is not None:
-            units *= glyph_measure(normal)("0") / cell("0")  # in the cell font's digits
-        # an italic face reaches past its advances: its cell holds that much less, General's
-        # characters included (1E-04 shows 0 in a Calibri 11 italic cell at width 5)
-        lost = overhang(font)
-        if lost:
-            units -= lost / cell("0")
-        return column_budget(column_width, normal) - lost, cell, units
+        return _excel_width(column_width, font, normal_font)
     if width is not None and (not isinstance(width, int) or isinstance(width, bool) or width < 1):
         msg = f"width must be a positive int or None, not {width!r}"
         raise ValueError(msg)
     budget = None if width is None else float(width)
     return budget, (measure or character_measure), None
+
+
+@lru_cache(maxsize=4096)
+def _excel_width(
+    column_width: float, font: FontSpec | None, normal_font: FontSpec | None
+) -> tuple[float, Measure, float]:
+    """Excel mode's budget, measure and units: the same for every cell of a column and font."""
+    normal = font if normal_font is None else normal_font
+    cell = glyph_measure(font)
+    units = column_units(column_width, normal)
+    if normal_font is not None:
+        units *= glyph_measure(normal)("0") / cell("0")  # in the cell font's digits
+    # an italic face reaches past its advances: its cell holds that much less, General's
+    # characters included (1E-04 shows 0 in a Calibri 11 italic cell at width 5)
+    lost = overhang(font)
+    if lost:
+        units -= lost / cell("0")
+    return column_budget(column_width, normal) - lost, cell, units
 
 
 def render(

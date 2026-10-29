@@ -604,9 +604,7 @@ def compile_section(source: str) -> Section:
     has_general = TokenKind.GENERAL in counts
     has_digits = TokenKind.DIGIT in counts
     has_point = TokenKind.POINT in counts
-    has_date = (
-        TokenKind.DATE in counts or TokenKind.ELAPSED in counts or TokenKind.AMPM in counts
-    )
+    has_date = TokenKind.DATE in counts or TokenKind.ELAPSED in counts or TokenKind.AMPM in counts
     # A bare system date or time tag ([$-x-sysdate], [$-x-systime]) is itself the format: Excel
     # shows the system long date or time and ignores the rest of the section.
     if (locale or "").lower() in ("x-sysdate", "x-systime", "f800", "f400"):
