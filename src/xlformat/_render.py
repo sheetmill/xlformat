@@ -127,6 +127,8 @@ def resolve_width(
 ) -> tuple[float | None, Measure, float | None]:
     """Budget, measure and column width in units for the ways a caller limits width (§8).
 
+    The units are ``None`` outside Excel mode, where the budget is the width in the measure's
+    own units.
     ``width`` is a count of characters (or the budget in ``measure``'s own units when a measure
     is given); ``column_width`` is Excel's Column Width number, measured with the glyph table of
     ``font``. Passing both raises ``ValueError``.
@@ -150,7 +152,7 @@ def resolve_width(
         msg = f"width must be a positive int or None, not {width!r}"
         raise ValueError(msg)
     budget = None if width is None else float(width)
-    return budget, (measure or character_measure), budget
+    return budget, (measure or character_measure), None
 
 
 def render(
@@ -226,7 +228,7 @@ def _render_number(
     units: float | None = None,
 ) -> FormattedCell:
     """Render a number under the selected section."""
-    del fmt
+    sole = len(fmt.numeric) <= 1  # a lone bare General section is the General format
     if isinstance(chosen, Overflow):
         return overflow(None, width, None, measure)
     negative = keep_sign and x < 0
@@ -278,4 +280,6 @@ def _render_number(
         measure=measure,
         general_value=general_value,
         units=units,
+        general_format=chosen is None
+        or (sole and chosen.kind is SectionKind.GENERAL and len(pieces) == 1),
     )

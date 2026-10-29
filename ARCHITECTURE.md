@@ -344,12 +344,22 @@ the package with every candidate advance (`CAPTURING.md` §2 item 26); `_x` pads
 measure as spaces. A `#` run holds `floor(budget / 5)` characters at 11 points (six at width 5),
 a `*` fill `floor((budget − text) / advance)` repeats (35 dashes at width 30 in Calibri 12). Fits
 are `measure ≤ budget`: `1,000.0` (36 points) fits width 6 and `10000%` (38) does not. `General`
-alone reduces by characters, not points: one unit per character and half for a leading minus
-against the column width in units (`-12345678` fits 8.5, `-1234.6` does not fit 6, `-2E-07` needs
-6); among literals the General token gets the units less the literals' and the sign's advances in
-digit units (`( 1234 )` shows at width 6, `( 0.125 )` becomes `( 0.13 )`), and the scientific form
-of a value whose integer part does not fit is admitted without charging the sign (`-1E+05x` at
-width 6) while a value that rounds to zero still pays for it (`0x`). Text overflows only through a
+reduces by characters, not points: one unit per character, a leading minus costing its own
+advance in digits (3 / 6 at Calibri 11, 4 / 7 at 14), against the column width in units
+(`-12345678` fits 8.5, `-1234.6` does not fit 6, `-2E-07` needs 6); among literals the General
+token gets the units less the literals' and the sign's advances in digit units (`( 1234 )` shows
+at width 6, `( 0.125 )` becomes `( 0.13 )`, `3.14 units` shows at 8.17). When no reduced form fits
+by characters, the shorter of the rounded integer and the one-digit scientific form shows if its
+glyphs fit the column, else the `#` run: `1E+06` at 4.67 units (28 points of 28), `-1E+05x` at
+width 6. On a tie the format `General` keeps the integer (`12345` at 4.67 is `#####`) and a
+General section takes the scientific form (`( 1E+04 )` at 6.33, also under `General;-General`).
+With less than one character left among literals, a value from 0.0001 to under 10 shows `0`
+(`( 0 )` for -1.5 at 2.67 units) and any other nothing. Among literals a General that reduced to
+zero drops the sign and a `-` literal just before it (`0x`, and `0` under `General;-General`);
+bare General keeps `-0`. Every General text also passes the glyph test (`0 units` at width 1 is
+`#`). At whole widths these rules agree with the character count alone, which is why the 0.1
+suites did not show them (`general_points<size>`, `general_literals_points`; `CAPTURING.md` §2 item
+27). Text overflows only through a
 section whose `*` fill follows it (`@*-` shows `#`, `*-@` shows the text). Every width row of
 every suite passes in Excel mode, the 2,251 glyph-slack rows included; character mode is
 unchanged. Renders in Excel mode measure 3.6 to 8.7 µs. `width_general14` passes

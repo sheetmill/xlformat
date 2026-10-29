@@ -36,15 +36,21 @@ def character_measure(text: str) -> float:
     return float(len(text))
 
 
-def general_cost(text: str) -> float:
+def general_cost(minus: float) -> Measure:
     """What ``General`` digit reduction counts against the column width in units.
 
-    Excel reduces General by characters, not by glyph widths: one unit per character and half
-    a unit for a leading minus sign (``-12345678`` fits width 8.5, ``-1.2E+07`` needs 8, while
-    the exponent's minus is a full unit: ``-2E-07`` needs 6; CAPTURING.md section 2 item 25). In
-    character mode this equals ``len`` at whole widths.
+    Excel reduces General by characters, not by glyph widths: one unit per character, and a
+    leading minus sign costs its own advance in digits, ``minus`` (3 / 6 at Calibri 11:
+    ``-12345678`` fits width 8.5, ``-1.2E+07`` needs 8), while the exponent's minus is a full
+    unit (``-2E-07`` needs 6; CAPTURING.md section 2 items 25 and 27). In character mode
+    ``minus`` is 1 and the cost is ``len``.
     """
-    return len(text) - (0.5 if text.startswith("-") else 0.0)
+
+    def cost(text: str) -> float:
+        # rounded like the budget it meets: 4 / 7 of a minus ties a width of x.57 exactly
+        return round(len(text) - (1.0 - minus if text.startswith("-") else 0.0), 9)
+
+    return cost
 
 
 def column_units(column_width: float, font: FontSpec | None = None) -> float:

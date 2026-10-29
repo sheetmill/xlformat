@@ -14,7 +14,7 @@ from decimal import Decimal
 from typing import Literal
 
 from xlformat._measure import Measure, character_measure, general_cost
-from xlformat._number import general_text_fitting
+from xlformat._number import GENERAL_SMALL, general_fallback, general_text_fitting
 from xlformat._parser import Piece
 
 Align = Literal["left", "right", "center"]
@@ -91,12 +91,15 @@ def assemble(
     overflows: bool = True,
     general_value: Decimal | None = None,
     units: float | None = None,
+    general_format: bool = False,
 ) -> FormattedCell:
     """Join pieces and apply the width decision.
 
     ``general_value`` is the number behind a ``general`` piece, for digit reduction, which
     Excel does by characters against the column width in ``units`` (``general_cost``), not by
     glyph widths; ``overflows`` is False for text, which never becomes a ``#`` run.
+    ``general_format`` is True for the format ``General`` itself, as opposed to a General
+    section among others or among literals.
     """
     full_text, fill = _join(pieces, None)
     if width is None:
@@ -111,16 +114,33 @@ def assemble(
         total_units = width if units is None else units
         digit = measure("0")
         rest, _ = _join([p for p in pieces if p[0] != "general"], None)
-        unsigned, _ = _join([p for p in pieces if p[0] not in ("general", "sign")], None)
-        budget = total_units - measure(rest) / digit
-        sci_budget = total_units - measure(unsigned) / digit if rest else None
-        general = general_text_fitting(general_value, budget, general_cost, sci_budget)
+        # rounded: 8.17 units less ' units' (25 / 6) is 4.0, not 3.999..., and fits '3.14'
+        budget = round(total_units - measure(rest) / digit, 9)
+        cost = general_cost(measure("-") / digit)
+        if budget < 1:
+            # not one character left: a value from 0.0001 to under 10 shows zero ('( General )'
+            # with -1.5 or -0.05 at 2.67 units is '( 0 )'), any other nothing (-1.5E-07 '###')
+            a = abs(general_value)
+            general = "0" if a == 0 or GENERAL_SMALL <= a < 10 else None
+        else:
+            general = general_text_fitting(general_value, budget, cost)
         if general is None:
-            return overflow(color, width, full_text, measure)
-        if general.strip("-") == "0":
-            # a negative whose General reduced to zero drops its sign: General"x" with -0.001
-            # at width 6 shows "0x" (numeric_core_width)
-            pieces = [p for p in pieces if p[0] != "sign"]
+            # nothing fits by characters: the shortest form shows if its glyphs fit the column
+            # (1E+06 at 4.67 units, -1E+05x at 6), else the '#' run (general_points suites);
+            # the General format keeps the integer on a tie, a General section the scientific
+            general = general_fallback(general_value, prefer_integer=general_format)
+        if rest and general.strip("-") == "0":
+            # among literals a negative whose General reduced to zero drops its sign, and a '-'
+            # literal just before the General: General"x" with -0.001 at width 6 shows "0x"
+            # (numeric_core_width), General;-General with -0.05 at width 1 shows "0"
+            # (general_literals_points); bare General keeps "-0" (width_general)
+            general = "0"
+            k = next(i for i, p in enumerate(pieces) if p[0] == "general")
+            pieces = [
+                p
+                for i, p in enumerate(pieces)
+                if p[0] != "sign" and not (i == k - 1 and p == ("lit", "-"))
+            ]
     text, fill = _join(pieces, general)
     if fill is not None:
         count = int((width - measure(text)) // measure(fill[1]))
@@ -129,6 +149,7 @@ def assemble(
             text = text[:position] + char * count + text[position:]
         else:
             fill = None
-    if overflows and not has_general and measure(text) > width:
+    # General too: the reduced text must also fit by glyph width ('0 units' at width 1 is '#')
+    if overflows and measure(text) > width:
         return overflow(color, width, full_text, measure)
     return FormattedCell(text, full_text, color, align, fill, False)

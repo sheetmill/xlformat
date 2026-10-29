@@ -442,6 +442,37 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     points) and reduces to `-1.2E+07` at 14 (64 points is 8.43 units of 7, below the 8.5 the sign
     and eight digits cost). Nothing in the model changed for the new sizes.
 
+27. **General at every whole-point width (2026-10-28; suites `general_points9`, `11`, `12`, `14`,
+    `16`, the 58 `width_general` values at every point from MDW + 5 to 100 points, 25,984 width
+    rows; `general_literals_points`, the same values under `General"x"`, `( General )`,
+    `"$"General`, `General" units"` and `General;-General` at every point from 11 to 100 at
+    Calibri 11, 26,100 width rows).** The earlier General suites use whole dialog widths, where
+    a character count and a glyph measure agree; columns read from files are mostly fractional
+    (an openpyxl `8.43` is 7.67 units). The 0.1 model missed 158 bare rows and 637 among
+    literals, all now matched:
+    - When no reduced form fits by characters, the shorter of the rounded integer and the
+      one-digit scientific form shows if its glyph measure fits the points budget: `1E+06` is
+      28 points and shows at 4.67 units (28-point budget), `-1E+06` at 5.17, `1E+100` at 5.67,
+      `1E-100` (a value below one: always the scientific form) at 5.33. On a tie the format
+      `General` keeps the integer (`12345` at 4.67 is `#####`: 30 points) while a General
+      section takes the scientific form (`( 1E+04 )` at 6.33, `1E+04` under `General;-General`
+      at 4.67). This also explains 0.1's "scientific form admitted without charging the sign"
+      among literals (`-1E+05x` at width 6: 36 points of 36), which is removed.
+    - A leading minus costs its own advance in digits: 3 / 6 at Calibri 11 (0.1's half unit),
+      4 / 6 at 12, 4 / 7 at 14, 5 / 8 at 16; at x.57 units the cost at 14 ties the width, so
+      cost and budget are compared rounded to nine places (as is `8.17 − 25 / 6` = 4, which fits
+      `3.14 units`).
+    - Among literals, with less than one character left, a value from 0.0001 to under 10 shows
+      `0` (`( 0 )` for -1.5 and -0.05 at 2.67 units, where the sign takes the last half unit;
+      `0` for -1.5 under `General;-General` at width 1) and any other value shows nothing
+      (-12345678 and -1.5E-07 are `###`; only -1.5E-07 decides the lower bound, which is
+      General's existing 0.0001 threshold). A General that reduced to zero drops the sign and
+      a `-` literal just before it; bare General keeps `-0`.
+    - Every General text passes the glyph test as well (`0 units` is `#` at width 1).
+    Character mode: 2 rows of `general_literals_points` where Excel's literals cost less than a
+    character each leave room that character mode does not have (`( 0 )` for -1.5E-07 at width
+    5) are skipped as glyph slack.
+
 ## 3. The pipeline
 
 ```

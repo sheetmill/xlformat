@@ -1554,7 +1554,8 @@ def measure12() -> Suite:
     return _measure("measure12", 12)
 
 
-# Probes for 0.2 (column model, cell fonts, Aptos Narrow). Written under capture/build/probes/.
+# Column model (0.2). Widths written into the file, columns without <col>, columns narrower than
+# one unit, and the 255-character limit (CAPTURING.md section 2 item 28).
 
 _FILE_WIDTHS: tuple[float | None, ...] = (
     None,
@@ -1567,7 +1568,7 @@ _FILE_WIDTHS: tuple[float | None, ...] = (
 )  # fmt: skip
 
 
-def _width_probe_cases(name: str) -> tuple[Case, ...]:
+def _column_cases(name: str) -> tuple[Case, ...]:
     """Digit runs, two fills and two General values: enough to read a column's text budget."""
     cases = [Case(name, f"digits{n}", int("8" * n), "0") for n in range(1, 16)]
     cases += [
@@ -1579,7 +1580,7 @@ def _width_probe_cases(name: str) -> tuple[Case, ...]:
     return tuple(cases)
 
 
-def _file_widths(
+def _column_file(
     name: str,
     font_size: int | None,
     font_name: str = "Calibri",
@@ -1588,73 +1589,181 @@ def _file_widths(
 ) -> Suite:
     return Suite(
         name,
-        _width_probe_cases(name),
+        _column_cases(name),
         widths=widths,
         font_size=font_size,
         font_name=font_name,
         width_source="file",
         sheet_format=sheet_format,
-        probe=True,
     )
 
 
-def file_widths9() -> Suite:
+def column_file9() -> Suite:
     """``<col width>`` as openpyxl writes it, read back as dialog units and points, Calibri 9."""
-    return _file_widths("file_widths9", 9)
+    return _column_file("column_file9", 9)
 
 
-def file_widths11() -> Suite:
+def column_file10() -> Suite:
+    """The same at Calibri 10."""
+    return _column_file("column_file10", 10)
+
+
+def column_file11() -> Suite:
     """The same in openpyxl's default workbook (Calibri 11)."""
-    return _file_widths("file_widths11", None)
+    return _column_file("column_file11", None)
 
 
-def file_widths12() -> Suite:
+def column_file12() -> Suite:
     """The same at Calibri 12."""
-    return _file_widths("file_widths12", 12)
+    return _column_file("column_file12", 12)
 
 
-def file_widths14() -> Suite:
+def column_file14() -> Suite:
     """The same at Calibri 14."""
-    return _file_widths("file_widths14", 14)
+    return _column_file("column_file14", 14)
 
 
-_DEFAULT_PROBE_WIDTHS: tuple[float | None, ...] = (None, 8, 8.43, 10)
+def column_file16() -> Suite:
+    """The same at Calibri 16."""
+    return _column_file("column_file16", 16)
 
 
-def default_width_base10() -> Suite:
+_DEFAULT_WIDTHS: tuple[float | None, ...] = (None, 8, 8.43, 10)
+
+
+def column_default_base10_11() -> Suite:
     """A column without ``<col>`` when ``baseColWidth`` is 10 (Calibri 11)."""
-    return _file_widths(
-        "default_width_base10", None, sheet_format=(("baseColWidth", 10),),
-        widths=_DEFAULT_PROBE_WIDTHS,
-    )  # fmt: skip
+    return _column_file("column_default_base10_11", None, sheet_format=(("baseColWidth", 10),),
+                        widths=_DEFAULT_WIDTHS)  # fmt: skip
 
 
-def default_width_dcw12() -> Suite:
+def column_default_base10_14() -> Suite:
+    """A column without ``<col>`` when ``baseColWidth`` is 10 (Calibri 14)."""
+    return _column_file("column_default_base10_14", 14, sheet_format=(("baseColWidth", 10),),
+                        widths=_DEFAULT_WIDTHS)  # fmt: skip
+
+
+def column_default_dcw12_11() -> Suite:
     """A column without ``<col>`` when ``defaultColWidth`` is 12 (Calibri 11)."""
-    return _file_widths(
-        "default_width_dcw12", None, sheet_format=(("defaultColWidth", 12),),
-        widths=_DEFAULT_PROBE_WIDTHS,
-    )  # fmt: skip
+    return _column_file("column_default_dcw12_11", None, sheet_format=(("defaultColWidth", 12),),
+                        widths=_DEFAULT_WIDTHS)  # fmt: skip
 
 
-def default_width_dcw843() -> Suite:
-    """A column without ``<col>`` when ``defaultColWidth`` is 8.43 (Calibri 11)."""
-    return _file_widths(
-        "default_width_dcw843", None, sheet_format=(("defaultColWidth", 8.43),),
-        widths=_DEFAULT_PROBE_WIDTHS,
-    )  # fmt: skip
+def column_default_dcw843_14() -> Suite:
+    """A column without ``<col>`` when ``defaultColWidth`` is 8.43 (Calibri 14)."""
+    return _column_file("column_default_dcw843_14", 14,
+                        sheet_format=(("defaultColWidth", 8.43),),
+                        widths=_DEFAULT_WIDTHS)  # fmt: skip
+
+
+_NARROW_CASES: tuple[tuple[str, object, str], ...] = (
+    ("digit", 8, "0"),
+    ("digits2", 88, "0"),
+    ("general-1", 1, "General"),
+    ("general-12", 12, "General"),
+    ("general-half", 0.5, "General"),
+    ("general-neg", -1, "General"),
+    ("general-big", 123456, "General"),
+    ("fixed", 1.5, "0.0"),
+    ("fill", 1, "0*-"),
+    ("date", 36529, "m/d/yy"),
+    ("bool", True, "General"),
+    ("text", "abc", "General"),
+    ("text-at", "abc", "@"),
+    ("text-fill", "abc", "@*-"),
+    ("literal", 1, '"x"'),
+    ("empty-section", 1, ";;;"),
+)
+
+
+def _column_narrow(name: str, font_size: int | None, mdw: int) -> Suite:
+    """Dialog widths below one unit and just above, set by the script: every point to MDW + 7."""
+    widths = tuple(round(p / (mdw + 5), 2) for p in range(1, mdw + 6)) + tuple(
+        round((p - 5) / mdw, 2) for p in range(mdw + 6, mdw + 13)
+    )
+    cases = tuple(Case(name, tag, value, fmt) for tag, value, fmt in _NARROW_CASES)
+    return Suite(name, cases, widths=(None, *widths), font_size=font_size)
+
+
+def column_narrow11() -> Suite:
+    """Columns narrower than one unit, Calibri 11."""
+    return _column_narrow("column_narrow11", None, 6)
+
+
+def column_narrow14() -> Suite:
+    """Columns narrower than one unit, Calibri 14."""
+    return _column_narrow("column_narrow14", 14, 7)
+
+
+_LIMIT_FORMATS: tuple[str, ...] = ("0*-", "* 0", "0.00*-", "@*-", "*-@", '"x"*.0', "0")
+_LIMIT_VALUES: tuple[tuple[str, object], ...] = (
+    ("one", 1),
+    ("long", 123456789012345),
+    ("huge", 1e300),
+    ("text", "abc"),
+)
+
+
+def limits() -> Suite:
+    """Fills and ``#`` runs near 255 characters, in wide columns (Calibri 11)."""
+    widths: tuple[float | None, ...] = (None, 40, 60, 80, 82, 84, 86, 88, 90, 100, 120, 125,
+                                        127, 128, 130, 150, 200, 254, 255)  # fmt: skip
+    cases = tuple(
+        Case("limits", tag, value, fmt) for fmt in _LIMIT_FORMATS for tag, value in _LIMIT_VALUES
+    )
+    return Suite("limits", cases, widths=widths)
+
+
+# General at whole-point widths (0.2). The width_general suites use whole dialog widths (and
+# 8.43, which is 8.5); columns read from files are mostly fractional (openpyxl's 8.43 is 7.67
+# units at Calibri 11), so these read the General budget at every point.
+
+
+def _general_points(name: str, font_size: int | None, mdw: int) -> Suite:
+    widths = tuple(round((p - 5) / mdw, 2) for p in range(mdw + 5, 101))
+    cases = tuple(Case(name, c.tag, c.value, c.format) for c in width_general().cases)
+    return Suite(name, cases, widths=(None, *widths), font_size=font_size)
+
+
+def general_points9() -> Suite:
+    """The ``width_general`` values at every whole-point column up to 100 points, Calibri 9."""
+    return _general_points("general_points9", 9, 5)
 
 
 def general_points11() -> Suite:
-    """The ``width_general`` values at every whole-point column from 6 to 100 points (Calibri 11).
+    """The same at Calibri 11."""
+    return _general_points("general_points11", None, 6)
 
-    The other General suites use whole dialog widths (and 8.43, which is 8.5); columns read from
-    files are mostly fractional (openpyxl's 8.43 is 7.67 units), so this probes the budget there.
-    """
-    s = width_general()
+
+def general_points12() -> Suite:
+    """The same at Calibri 12."""
+    return _general_points("general_points12", 12, 6)
+
+
+def general_points14() -> Suite:
+    """The same at Calibri 14."""
+    return _general_points("general_points14", 14, 7)
+
+
+def general_points16() -> Suite:
+    """The same at Calibri 16."""
+    return _general_points("general_points16", 16, 8)
+
+
+_GENERAL_LITERAL_FORMATS: tuple[str, ...] = ('General"x"', "( General )", '"$"General',
+                                             'General" units"', "General;-General")  # fmt: skip
+
+
+def general_literals_points() -> Suite:
+    """General among literals at every whole-point column up to 100 points (Calibri 11)."""
+    name = "general_literals_points"
     widths = tuple(round((p - 5) / 6, 2) for p in range(11, 101))
-    cases = tuple(Case("general_points11", c.tag, c.value, c.format) for c in s.cases)
-    return Suite("general_points11", cases, widths=widths, probe=True)
+    cases = tuple(
+        Case(name, c.tag, c.value, fmt)
+        for fmt in _GENERAL_LITERAL_FORMATS
+        for c in width_general().cases
+    )
+    return Suite(name, cases, widths=(None, *widths))
 
 
 _CELL_FONTS: tuple[CellFont | None, ...] = (
@@ -1752,15 +1861,26 @@ SUITES: dict[str, Callable[[], Suite]] = {
     "space_fill14": space_fill14,
     "space_fill16": space_fill16,
     "width_general14": width_general14,
-    "file_widths9": file_widths9,
-    "file_widths11": file_widths11,
-    "file_widths12": file_widths12,
-    "file_widths14": file_widths14,
-    "default_width_base10": default_width_base10,
-    "default_width_dcw12": default_width_dcw12,
-    "default_width_dcw843": default_width_dcw843,
-    "cell_font": cell_font,
+    "column_file9": column_file9,
+    "column_file10": column_file10,
+    "column_file11": column_file11,
+    "column_file12": column_file12,
+    "column_file14": column_file14,
+    "column_file16": column_file16,
+    "column_default_base10_11": column_default_base10_11,
+    "column_default_base10_14": column_default_base10_14,
+    "column_default_dcw12_11": column_default_dcw12_11,
+    "column_default_dcw843_14": column_default_dcw843_14,
+    "column_narrow11": column_narrow11,
+    "column_narrow14": column_narrow14,
+    "limits": limits,
+    "general_points9": general_points9,
     "general_points11": general_points11,
+    "general_points12": general_points12,
+    "general_points14": general_points14,
+    "general_points16": general_points16,
+    "general_literals_points": general_literals_points,
+    "cell_font": cell_font,
     "aptos_narrow_measure11": aptos_narrow_measure11,
     "aptos_narrow_space_fill11": aptos_narrow_space_fill11,
 }

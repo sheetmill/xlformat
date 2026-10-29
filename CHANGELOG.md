@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Excel mode: `General` at fractional column widths. When no shortened form fits by
+  characters, Excel shows the shortest form if its glyphs fit (`1E+06` in a column of 4.67
+  units); among literals, a nearly full column shows `0` for a small value and the `#` run
+  otherwise; a leading minus costs its own glyph width (half a digit at Calibri 11 only).
+  Checked against 52,084 new width rows at every whole-point column width.
+
 ## [0.1.0] - 2026-10-27
 
 First release.

@@ -55,3 +55,23 @@ def test_space_fill_at_a_new_size() -> None:
     fmt = '_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)'
     # 42 points: pads and ? blanks as 3-point spaces, the dash 4, eight fill spaces
     assert format_value(0, fmt, column_width=6, font=("Calibri", 14)) == "         -   "
+
+
+@pytest.mark.parametrize(
+    ("value", "fmt", "column_width", "font", "expected"),
+    [
+        # general_points11 and general_literals_points rows (CAPTURING.md section 2 item 27)
+        (1234567.891, "General", 4.67, ("Calibri", 11), "1E+06"),
+        (12345, "General", 4.67, ("Calibri", 11), "#####"),
+        (12345, "( General )", 6.33, ("Calibri", 11), "( 1E+04 )"),
+        (3.14159265358979, 'General" units"', 8.17, ("Calibri", 11), "3.14 units"),
+        (-1.5, "( General )", 2.67, ("Calibri", 11), "( 0 )"),
+        (-1.5e-07, "( General )", 2.67, ("Calibri", 11), "###"),
+        (-0.05, "General;-General", 1, ("Calibri", 11), "0"),
+        (-12345678, "General", 7.57, ("Calibri", 14), "-1.2E+07"),
+    ],
+)
+def test_general_at_fractional_widths(
+    value: float, fmt: str, column_width: float, font: tuple[str, int], expected: str
+) -> None:
+    assert format_value(value, fmt, column_width=column_width, font=font) == expected

@@ -210,6 +210,12 @@ def capture(suite_name: str) -> tuple[Path, dict[str, str]]:
             if f"points_{c.letter}" in meta
         ),
         "tier_rule": rule_description(suite.fast_cap),
+        **({"width_source": "file"} if suite.width_source == "file" else {}),
+        **(
+            {"sheet_format": " ".join(f"{k}={v:g}" for k, v in suite.sheet_format)}
+            if suite.sheet_format
+            else {}
+        ),
         "columns": " ".join(COLUMNS),
     }
     out_dir = PROBE_DIR if suite.probe else OUT_DIR

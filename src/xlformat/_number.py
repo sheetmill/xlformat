@@ -10,7 +10,7 @@ from xlformat._parser import NumberSpec, Piece, ScientificSpec
 _UNFILLED = {"0": "0", "?": " ", "#": ""}
 _GENERAL_SCI_AT = Decimal("99999999999.5")  # 12 integer digits switch to scientific
 _GENERAL_INT_AT = Decimal("9999999999.5")  # 11 integer digits show as a rounded integer
-_GENERAL_SMALL = Decimal("0.0001")
+GENERAL_SMALL = Decimal("0.0001")
 
 
 def render_number(spec: NumberSpec, magnitude: Decimal, negative: bool) -> list[Piece]:
@@ -112,7 +112,6 @@ def general_text_fitting(
     x: Decimal,
     width: float,
     measure: Callable[[str], float],
-    sci_width: float | None = None,
 ) -> str | None:
     """``General`` reduced to fit ``width`` under ``measure``; ``None`` when nothing fits.
 
@@ -132,11 +131,6 @@ def general_text_fitting(
         return full
     sign = "-" if x < 0 else ""
     a = abs(x)
-    # Among literals Excel admits the scientific form of a value whose integer part does not
-    # fit without charging the sign (General"x" with -123456 at width 6 shows -1E+05x), while
-    # a value that rounds to zero still pays for it (-0.001 shows 0x). Bare General charges it
-    # in both places (-12345678 at width 5 is a '#' run). ``sci_width`` is that budget.
-    sci_budget = width if sci_width is None else sci_width
     with localcontext() as ctx:
         ctx.prec = 400
         if "E" in full:
@@ -159,7 +153,33 @@ def general_text_fitting(
                 if sci is not None and (carried or _digits(text) < _digits(sci)):
                     return sci
             return sign + text
-        return _sci_fitting(a, sign, sci_budget, measure)
+        return _sci_fitting(a, sign, width, measure)
+
+
+def general_fallback(x: Decimal, *, prefer_integer: bool = True) -> str:
+    """What ``General`` shows when no reduced form fits by characters, if its glyphs fit.
+
+    The shorter of the rounded integer and the one-digit scientific form, the integer on a tie
+    when ``prefer_integer`` (the General format), the scientific form otherwise (a General
+    section, also among literals or in ``General;-General``); for
+    a value below one, the scientific form. ``1E+06`` shows at 4.67 units, 28 points of 28;
+    ``12345`` under ``General`` stays ``#####`` there while ``( General )`` shows
+    ``( 1E+04 )`` at 6.33;
+    ``1E-100`` shows at 5.33 (CAPTURING.md section 2 item 27). The caller applies the glyph test.
+    """
+    sign = "-" if x < 0 else ""
+    with localcontext() as ctx:
+        ctx.prec = 400
+        a = abs(x)
+        m = a.quantize(Decimal(1).scaleb(a.adjusted()), rounding=ROUND_HALF_UP)
+        e = m.adjusted()
+        sci = f"{sign}{int(m.scaleb(-e))}E{'-' if e < 0 else '+'}{abs(e):02d}"
+        if a < 1:
+            return sci
+        integer = sign + str(int(a.quantize(Decimal(1), rounding=ROUND_HALF_UP)))
+    if len(integer) < len(sci) or (prefer_integer and len(integer) == len(sci)):
+        return integer
+    return sci
 
 
 def _digits(text: str) -> int:
@@ -200,7 +220,7 @@ def general_text(x: Decimal) -> str:
             s = _strip(f"{q:f}") if q < _GENERAL_INT_AT else str(int(q))
         else:
             exponent = a.normalize().as_tuple().exponent
-            fits = a >= _GENERAL_SMALL or (isinstance(exponent, int) and exponent >= -9)
+            fits = a >= GENERAL_SMALL or (isinstance(exponent, int) and exponent >= -9)
             if fits:
                 q = a.quantize(Decimal("1e-9"), rounding=ROUND_HALF_UP)
                 s = _strip(f"{q:f}")
