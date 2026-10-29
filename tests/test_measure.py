@@ -191,3 +191,15 @@ def test_excel_error_values() -> None:
     cell = format_cell(ExcelError.NA, "[Red]0", column_width=1)
     assert (cell.text, cell.align, cell.color, cell.overflow) == ("#", "center", None, True)
     assert format_value(ExcelError.DIV0, "0", width=3) == "###"
+
+
+def test_unlisted_excel_errors_compare_with_equality() -> None:
+    from xlformat import ExcelError
+
+    a, b = ExcelError("#NEWERROR!"), ExcelError("#NEWERROR!")
+    assert a == b
+    assert hash(a) == hash(b)
+    assert {a: 1}[b] == 1
+    assert len({a, b}) == 1
+    assert a == "#NEWERROR!"
+    assert a != ExcelError("#OTHERERROR!")

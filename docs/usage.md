@@ -89,7 +89,9 @@ font's color, and a column too narrow for it shows `#` as for a number. Pass the
 `ExcelError` lists every error current Excel documents, from `#NULL!` to `#SPILL!` and
 `#TIMEOUT!`. `ExcelError(text)` also accepts a text shaped like an error code that it does not
 list, so a code from a newer Excel renders like the others; any other text raises `ValueError`.
-A reader of a file passes `ExcelError(cell.value)` for a cell of type `e`.
+A reader of a file passes `ExcelError(cell.value)` for a cell of type `e`. Compare errors with
+`==`, not `is`: an unlisted code is a new object on each lookup, though equal, with an equal
+hash, to every other lookup of the same text.
 
 ## Compiled formats
 

@@ -24,6 +24,10 @@ class ExcelError(StrEnum):
     ``!`` or ``?``) gives an unlisted member that renders like any other error, so a code from a
     newer Excel still renders; other text raises ``ValueError``. A reader of a file passes
     ``ExcelError(cell.value)`` for a cell whose type is ``e``.
+
+    Compare errors with ``==``, not ``is``: each lookup of an unlisted code makes a new object.
+    Two of them with the same text are equal, hash equal and are the same dictionary key, and
+    every error equals its text (``ExcelError.NA == "#N/A"``).
     """
 
     NULL = "#NULL!"
