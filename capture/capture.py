@@ -23,13 +23,14 @@ from collections import defaultdict
 from pathlib import Path
 
 from capture.build import BUILD_DIR, Manifest, build
-from capture.cases import SUITES, Case, distinct_value_formats
+from capture.cases import SUITES, Case, distinct_measure_cases
 from capture.schema import COLUMNS, Row, read_rows, write_rows
 from capture.tiers import assign_tiers, rule_description
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "capture" / "capture_template.applescript"
 OUT_DIR = ROOT / "tests" / "captures"
+PROBE_DIR = BUILD_DIR / "probes"  # probe suites: evidence for a model not yet built
 RS, US = "\x1e", "\x1f"
 
 
@@ -190,9 +191,6 @@ def capture(suite_name: str) -> tuple[Path, dict[str, str]]:
     print(f"osascript finished in {(dt.datetime.now() - started).total_seconds():.1f} s")
     meta, columns, measure, colors = parse_output(output, manifest)
     rows = assign_tiers(make_rows(suite.cases, manifest, columns, meta, colors), suite.fast_cap)
-    git = subprocess.run(
-        ["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, check=False
-    )
     header = {
         "suite": suite.name,
         "excel_version": meta.get("excel_version", ""),
@@ -200,7 +198,7 @@ def capture(suite_name: str) -> tuple[Path, dict[str, str]]:
         "workbook_font": meta.get("workbook_font", ""),
         "locale": "en_US",
         "captured": dt.date.today().isoformat(),
-        "generator": f"capture.cases.{suite_name} @ {git.stdout.strip() or 'uncommitted'}",
+        "generator": f"capture.cases.{suite_name}",
         "method": "; ".join(
             f"width {'none' if c.width is None else c.width:}={c.method}" for c in manifest.columns
         )
@@ -214,10 +212,11 @@ def capture(suite_name: str) -> tuple[Path, dict[str, str]]:
         "tier_rule": rule_description(suite.fast_cap),
         "columns": " ".join(COLUMNS),
     }
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    out = write_suite(OUT_DIR / f"{suite.name}.tsv", header, rows)
+    out_dir = PROBE_DIR if suite.probe else OUT_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = write_suite(out_dir / f"{suite.name}.tsv", header, rows)
     if measure:
-        measure_path = OUT_DIR / f"{suite.name}.measure.tsv"
+        measure_path = out_dir / f"{suite.name}.measure.tsv"
         with measure_path.open("w", encoding="utf-8") as f:
             f.write(
                 "# autofit column width (Excel units) per distinct (value, format); font: "
@@ -225,10 +224,16 @@ def capture(suite_name: str) -> tuple[Path, dict[str, str]]:
             )
             raw_points = meta.get("measure_points", "")
             points = raw_points.split(US) if raw_points else [""] * len(measure)
-            pairs = distinct_value_formats(suite.cases)
-            f.write("value_type\tvalue_repr\tformat\tautofit_width\tautofit_points\n")
-            for (value, fmt), w, pt in zip(pairs, measure, points, strict=True):
-                f.write(f"{type(value).__name__}\t{value!r}\t{fmt!r}\t{w}\t{pt}\n")
+            entries = distinct_measure_cases(suite.cases)
+            # a cell_font column only when some cell has its own font (glyph_fit reads five)
+            fonts = any(c.font is not None for c in entries)
+            f.write(
+                "value_type\tvalue_repr\tformat\tautofit_width\tautofit_points"
+                + ("\tcell_font\n" if fonts else "\n")
+            )
+            for case, w, pt in zip(entries, measure, points, strict=True):
+                font = ("\t" + (case.font.label if case.font else "")) if fonts else ""
+                f.write(f"{case.value_type}\t{case.value_repr}\t{case.format!r}\t{w}\t{pt}{font}\n")
         print(f"wrote {measure_path}")
     fast = sum(1 for r in rows if r.tier == "fast")
     print(f"wrote {out}: {len(rows)} rows, {fast} fast")

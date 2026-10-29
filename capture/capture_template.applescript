@@ -4,7 +4,8 @@
 -- What it does: opens the suite workbook by path, optionally switches it to the 1904 date
 -- system, records Excel's version and fonts, then for each capture column either copies the
 -- column to the clipboard (width-less rendering, read by capture.py with pbpaste) or sets the
--- Excel column width and reads `string value of every cell` (one Apple event per column).
+-- Excel column width and reads `string value of every cell` (one Apple event per column); a
+-- column whose width the file sets ("file_width", "file_default") is read without setting it.
 -- Optionally reads each cell's display-format font color (one event per cell) and autofits
 -- the measure cells and reads their column widths back. Closes the
 -- workbook without saving. Touches no other workbook. Non-interactive. Restores `display
@@ -32,7 +33,7 @@ on run
 		set xlWs to worksheet "cases" of xlWb
 		set end of xlOut to "excel_version" & US & (version as text)
 		set end of xlOut to "standard_font" & US & (standard font as text) & " " & (standard font size as text)
-		set end of xlOut to "workbook_font" & US & (name of font object of range "B1" of xlWs) & " " & (font size of font object of range "B1" of xlWs)
+		set end of xlOut to "workbook_font" & US & (name of font object of range "A1" of xlWs) & " " & (font size of font object of range "A1" of xlWs)
 		set end of xlOut to "date1904" & US & (date 1904 of xlWb as text)
 		activate object xlWs
 		repeat with spec in colSpecs
@@ -40,8 +41,8 @@ on run
 			set xlWidth to item 2 of spec
 			set xlMethod to item 3 of spec
 			set xlRange to range (xlLetter & "1:" & xlLetter & nRows) of xlWs
-			if xlMethod is "string_value" then
-				set column width of range (xlLetter & ":" & xlLetter) of xlWs to xlWidth
+			if xlMethod is not "clipboard" then
+				if xlMethod is "string_value" then set column width of range (xlLetter & ":" & xlLetter) of xlWs to xlWidth
 				set xlShown to string value of every cell of xlRange
 				set AppleScript's text item delimiters to US
 				set xlJoined to xlShown as text

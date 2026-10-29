@@ -267,9 +267,10 @@ design stored one table per font in em fractions and scaled it at run time; Exce
 advances per size (digits are 6 points at both 11 and 12, the hyphen 3 then 4), and no
 size-independent fraction reproduces that, so the measured tables replaced it (the Excel-mode
 paragraph below). Calibri is the only bundled font: openpyxl writes Calibri 11 as the workbook
-default and Excel for Mac's own default is Calibri 12. Aptos Narrow, Windows Excel's default,
-waits for a Windows capture; reading installed fonts is an optional extra later, never a
-requirement.
+default and Excel for Mac's own default is Calibri 12. Aptos Narrow, the default of current
+Windows Excel, ships inside Excel for Mac and is measured there the same way (tables planned for
+0.2); whether Windows Excel's widths differ from the Mac's is a separate, open question. Reading
+installed fonts is an optional extra later, never a requirement.
 
 **The seam**: internally both modes are "a measure function plus a width in its units": `len`
 for character mode, a glyph-advance sum for Excel mode. The same seam is exposed for callers
@@ -467,7 +468,7 @@ the glyph table of `font`; passing both raises `ValueError`. `font: str | tuple[
 names the font and size, default `("Calibri", 11)` (openpyxl's workbook default; sheetpeek passes
 the workbook's Normal style); a font without a bundled table raises `LookupError` naming the
 bundled fonts (Calibri only, measured at 9, 10, 11, 12, 14 and 16 points and scaled from the
-nearest measured size elsewhere; Aptos Narrow waits for a Windows machine). `measure:
+nearest measured size elsewhere; Aptos Narrow tables are planned for 0.2). `measure:
 Callable[[str], float] | None` is the hook for special cases and is used with `width` as the budget
 in the measure's own units. `DEFAULT_PALETTE` maps color names to `RRGGBB`.
 

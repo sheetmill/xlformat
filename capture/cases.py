@@ -12,6 +12,7 @@ from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from decimal import Decimal
 from pathlib import Path
+from typing import Literal
 
 from capture.schema import read_rows
 
@@ -26,6 +27,22 @@ GENERAL_WIDTHS: tuple[float, ...] = (1, 2, 3, 4, 5, 6, 7, 8, 8.43, 9, 10, 11, 12
 DEFAULT_FAST_CAP = 15
 # Suites that exist only as full-tier regression data.
 FULL_ONLY: dict[str, int] = {"capture2023": 0, "capture2023_sample": 0}
+
+
+@dataclass(frozen=True, slots=True)
+class CellFont:
+    """A cell's own font, set on the cell instead of inheriting the workbook's Normal style."""
+
+    name: str
+    size: float
+    bold: bool = False
+    italic: bool = False
+
+    @property
+    def label(self) -> str:
+        """``Calibri 14``, ``Calibri 11 bold italic``: used in tags and measure files."""
+        style = " ".join(s for s, on in (("bold", self.bold), ("italic", self.italic)) if on)
+        return f"{self.name} {self.size:g}" + (f" {style}" if style else "")
 
 
 @dataclass(frozen=True, slots=True)
@@ -45,6 +62,8 @@ class Case:
     """When set, the exact decimal text written into the file for a numeric cell. openpyxl's
     default is ``"%.16g"``, which denotes a different double for about half of all floats;
     ``repr(value)`` is the shortest text that denotes ``value`` exactly."""
+    font: CellFont | None = None
+    """When set, the cell's own font; otherwise the cell inherits the Normal style."""
 
     @property
     def value_type(self) -> str:
@@ -63,7 +82,15 @@ class Suite:
 
     ``widths`` holds ``None`` for the width-less clipboard capture and numbers for
     ``string value`` reads at that Excel column width. ``measure`` asks the capture to autofit
-    each distinct (value, format) in its own column and record Excel's own width for it.
+    each distinct (value, format, cell font) in its own column and record Excel's own width
+    for it.
+
+    With ``width_source="file"`` the widths are written into the file as ``<col width>`` by
+    openpyxl instead of being set in dialog units by the script, ``None`` meaning a column
+    without a ``<col>`` entry, and the script only reads back what Excel made of them.
+    ``sheet_format`` sets attributes of ``<sheetFormatPr>`` (``baseColWidth``,
+    ``defaultColWidth``). A ``probe`` suite writes under ``capture/build/probes/`` instead of
+    ``tests/captures/``: its rows are evidence for a model not yet built, not test data.
     """
 
     name: str
@@ -72,6 +99,10 @@ class Suite:
     measure: bool = False
     colors: bool = False  # read each width-less cell's display-format font color (slow loop)
     font_size: int | None = None  # Normal style font size for the workbook (openpyxl default 11)
+    font_name: str = "Calibri"  # Normal style font family
+    width_source: Literal["dialog", "file"] = "dialog"
+    sheet_format: tuple[tuple[str, float], ...] = ()  # <sheetFormatPr> attributes to set
+    probe: bool = False
     date1904: bool = False
     fast_cap: int = DEFAULT_FAST_CAP  # rows per (format, width) in the fast tier; 0 = full only
 
@@ -1523,6 +1554,170 @@ def measure12() -> Suite:
     return _measure("measure12", 12)
 
 
+# Probes for 0.2 (column model, cell fonts, Aptos Narrow). Written under capture/build/probes/.
+
+_FILE_WIDTHS: tuple[float | None, ...] = (
+    None,
+    *(k / 8 for k in range(4, 97)),  # 0.5 to 12 in eighths
+    3.7109375, 8.43, 8.7109375, 9.140625, 10.7109375, 13, 15, 20, 30, 60, 100, 255,
+    # MDW * width just past a half, for each MDW from 5 to 8: separates the ECMA-376 pixel
+    # formula (rounds up from 1 - trunc(128 / MDW) / 256 * MDW, about .508 at 6) from half-down
+    *(round((k + f) / mdw, 7) for mdw in (5, 6, 7, 8) for k in (20, 50)
+      for f in (0.502, 0.504, 0.506, 0.51)),
+)  # fmt: skip
+
+
+def _width_probe_cases(name: str) -> tuple[Case, ...]:
+    """Digit runs, two fills and two General values: enough to read a column's text budget."""
+    cases = [Case(name, f"digits{n}", int("8" * n), "0") for n in range(1, 16)]
+    cases += [
+        Case(name, "fill-dash", 1, "0*-"),
+        Case(name, "fill-space", 1, "* 0"),
+        Case(name, "general-7.3", 1234567.891, "General"),
+        Case(name, "general-0.9", 0.123456789, "General"),
+    ]
+    return tuple(cases)
+
+
+def _file_widths(
+    name: str,
+    font_size: int | None,
+    font_name: str = "Calibri",
+    sheet_format: tuple[tuple[str, float], ...] = (),
+    widths: tuple[float | None, ...] = _FILE_WIDTHS,
+) -> Suite:
+    return Suite(
+        name,
+        _width_probe_cases(name),
+        widths=widths,
+        font_size=font_size,
+        font_name=font_name,
+        width_source="file",
+        sheet_format=sheet_format,
+        probe=True,
+    )
+
+
+def file_widths9() -> Suite:
+    """``<col width>`` as openpyxl writes it, read back as dialog units and points, Calibri 9."""
+    return _file_widths("file_widths9", 9)
+
+
+def file_widths11() -> Suite:
+    """The same in openpyxl's default workbook (Calibri 11)."""
+    return _file_widths("file_widths11", None)
+
+
+def file_widths12() -> Suite:
+    """The same at Calibri 12."""
+    return _file_widths("file_widths12", 12)
+
+
+def file_widths14() -> Suite:
+    """The same at Calibri 14."""
+    return _file_widths("file_widths14", 14)
+
+
+_DEFAULT_PROBE_WIDTHS: tuple[float | None, ...] = (None, 8, 8.43, 10)
+
+
+def default_width_base10() -> Suite:
+    """A column without ``<col>`` when ``baseColWidth`` is 10 (Calibri 11)."""
+    return _file_widths(
+        "default_width_base10", None, sheet_format=(("baseColWidth", 10),),
+        widths=_DEFAULT_PROBE_WIDTHS,
+    )  # fmt: skip
+
+
+def default_width_dcw12() -> Suite:
+    """A column without ``<col>`` when ``defaultColWidth`` is 12 (Calibri 11)."""
+    return _file_widths(
+        "default_width_dcw12", None, sheet_format=(("defaultColWidth", 12),),
+        widths=_DEFAULT_PROBE_WIDTHS,
+    )  # fmt: skip
+
+
+def default_width_dcw843() -> Suite:
+    """A column without ``<col>`` when ``defaultColWidth`` is 8.43 (Calibri 11)."""
+    return _file_widths(
+        "default_width_dcw843", None, sheet_format=(("defaultColWidth", 8.43),),
+        widths=_DEFAULT_PROBE_WIDTHS,
+    )  # fmt: skip
+
+
+def general_points11() -> Suite:
+    """The ``width_general`` values at every whole-point column from 6 to 100 points (Calibri 11).
+
+    The other General suites use whole dialog widths (and 8.43, which is 8.5); columns read from
+    files are mostly fractional (openpyxl's 8.43 is 7.67 units), so this probes the budget there.
+    """
+    s = width_general()
+    widths = tuple(round((p - 5) / 6, 2) for p in range(11, 101))
+    cases = tuple(Case("general_points11", c.tag, c.value, c.format) for c in s.cases)
+    return Suite("general_points11", cases, widths=widths, probe=True)
+
+
+_CELL_FONTS: tuple[CellFont | None, ...] = (
+    None,
+    CellFont("Calibri", 9),
+    CellFont("Calibri", 14),
+    CellFont("Calibri", 16),
+    CellFont("Calibri", 11, bold=True),
+    CellFont("Calibri", 11, italic=True),
+    CellFont("Calibri", 11, bold=True, italic=True),
+    CellFont("Calibri", 14, bold=True),
+)
+_CELL_FONT_VALUES: tuple[tuple[str, object, str], ...] = (
+    *((f"digits{n}", int("8" * n), "0") for n in range(3, 15)),
+    ("fill-dash", 1, "0*-"),
+    ("fill-space", 1, "* 0"),
+    ("text-fill", "ab", "@*-"),
+    ("general-7.3", 1234567.891, "General"),
+    ("general-neg8", -12345678, "General"),
+    ("general-small", 0.000123, "General"),
+    ("general-12", 123456789012, "General"),
+    ("comma", 1234567.891, "#,##0.00"),
+    ("date-long", 36529, "dddd, mmmm d, yyyy"),
+    ("letters", 1, '0" Wmwmwm"'),
+)
+
+
+def cell_font() -> Suite:
+    """Cells whose font differs from the Normal style (Calibri 11): fit, fills, General, autofit.
+
+    Also autofits every measure text in Calibri 14 and in Calibri 11 bold, to compare with
+    ``measure14`` (Normal style Calibri 14) and to see whether a style's table can be measured
+    in a regular workbook.
+    """
+    name = "cell_font"
+    cases = [
+        Case(name, f"{tag} [{font.label if font else 'normal'}]", value, fmt, font=font)
+        for font in _CELL_FONTS
+        for tag, value, fmt in _CELL_FONT_VALUES
+    ]
+    for font in (CellFont("Calibri", 14), CellFont("Calibri", 11, bold=True)):
+        cases += [
+            Case(name, f"m{i} [{font.label}]", text, "@", font=font)
+            for i, text in enumerate(_measure_strings())
+        ]
+    widths = (None, 3, 4, 5, 6, 8, 8.43, 10, 12, 14, 16, 20, 30)
+    return Suite(name, tuple(cases), widths=widths, measure=True, probe=True)
+
+
+def aptos_narrow_measure11() -> Suite:
+    """Autofit widths of the measure texts in a workbook whose Normal style is Aptos Narrow 11."""
+    s = _measure("aptos_narrow_measure11", 11)
+    return Suite(s.name, s.cases, widths=(), measure=True, font_size=11,
+                 font_name="Aptos Narrow", probe=True)  # fmt: skip
+
+
+def aptos_narrow_space_fill11() -> Suite:
+    """Space fills at Aptos Narrow 11."""
+    s = _space_fill("aptos_narrow_space_fill11", 11)
+    return Suite(s.name, s.cases, widths=s.widths, font_size=11, font_name="Aptos Narrow",
+                 probe=True)  # fmt: skip
+
+
 SUITES: dict[str, Callable[[], Suite]] = {
     "capture2023_sample": capture2023_sample,
     "capture2026": capture2026,
@@ -1557,13 +1752,23 @@ SUITES: dict[str, Callable[[], Suite]] = {
     "space_fill14": space_fill14,
     "space_fill16": space_fill16,
     "width_general14": width_general14,
+    "file_widths9": file_widths9,
+    "file_widths11": file_widths11,
+    "file_widths12": file_widths12,
+    "file_widths14": file_widths14,
+    "default_width_base10": default_width_base10,
+    "default_width_dcw12": default_width_dcw12,
+    "default_width_dcw843": default_width_dcw843,
+    "cell_font": cell_font,
+    "general_points11": general_points11,
+    "aptos_narrow_measure11": aptos_narrow_measure11,
+    "aptos_narrow_space_fill11": aptos_narrow_space_fill11,
 }
 
 
-def distinct_value_formats(cases: Iterable[Case]) -> list[tuple[object, str]]:
-    """Distinct (value, format) pairs in first-seen order, for the measure sheet."""
-    seen: dict[tuple[str, str, str], tuple[object, str]] = {}
+def distinct_measure_cases(cases: Iterable[Case]) -> list[Case]:
+    """The first case of each distinct (value, format, cell font), for the measure sheet."""
+    seen: dict[tuple[str, str, str, CellFont | None], Case] = {}
     for case in cases:
-        key = (case.value_type, case.value_repr, case.format)
-        seen.setdefault(key, (case.value, case.format))
+        seen.setdefault((case.value_type, case.value_repr, case.format, case.font), case)
     return list(seen.values())

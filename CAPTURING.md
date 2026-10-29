@@ -496,7 +496,7 @@ Choices that hold:
 - **The 2023 capture stays**, gzipped, as a full-tier-only suite; the diff between captures is
   evidence about Excel builds and about the method.
 - **Header metadata** per suite: Excel build, standard font, workbook font, locale, capture
-  date, generator and git hash, capture method per column, tier rule. A regeneration that
+  date, generator (the `capture.cases` function), capture method per column, tier rule. A regeneration that
   changes any expected text is a reviewed diff.
 
 **Schema (frozen 2026-10-23).** Columns: `suite tag value_type value_repr format width
