@@ -607,6 +607,11 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     120 cells match the package's `General`), and every control keeps its format and shows it
     (128 of 128); the single-format workbook behaves the same. So the repair resets only the
     offending cells, and catching `FormatError` and rendering General reproduces it.
+    The dialogs, per workbook: "We found a problem with some content ... Do you want us to try
+    to recover as much as we can?" (yes), then a notice offering to view the repair details or
+    delete them. The details are a `recoveryLog` XML file whose only entry, for both workbooks
+    (29 refused formats or one), is `Repaired Records: Format from /xl/styles.xml part
+    (Styles)`. A second run of the single-format workbook read back the same cells.
 
 ## 3. The pipeline
 
