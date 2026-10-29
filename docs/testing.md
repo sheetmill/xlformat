@@ -56,15 +56,22 @@ before Excel was asked, and every prediction matched.
 | suite | rows | what it covers |
 |---|---|---|
 | `capture2023`, `capture2026`, `capture2023_sample` | 89,680, 89,680, 1,993 | 152 formats across 584 values, captured in 2023 and again in 2026; no differences |
-| `numeric_core`, `numeric_core_width` | 10,944 and 32,832 | number sections, conditions, grouping, scaling, at three widths |
+| `numeric_core`, `numeric_core_width`, `numeric_core_width_aptos_narrow11` | 76,608 | number sections, conditions, grouping, scaling, at three widths, in Calibri and Aptos Narrow |
 | `fraction`, `fraction_ties`, `fraction_threshold`, `fraction_random` | 33,452 | denominators, half steps, the nudge's bounds, random doubles |
 | `datetime`, `date1904`, `clock_boundaries`, `clock_formulas` | 4,794 | date codes, the 1904 system, rounding at second boundaries |
 | `scientific`, `rounding_15digit`, `parser_check` | 1,695 | exponents, the fifteen-digit rule, the parser |
-| `width_general`, `width_general14`, `width_fill`, `text_overflow`, `space_fill9` to `16` | 4,986 | `General` reduction, fills, overflow, the space at six sizes |
+| `width_general`, `width_general14`, `width_fill`, `text_overflow`, 48 `space_fill` suites | 13,386 | `General` reduction, fills, overflow, the space of every measured face |
+| `general_points9` to `16`, `general_points_aptos_narrow11`, `general_literals_points`, `general_zero_sign` | 59,582 | `General` at every whole-point column width, among literals, negatives that reduce to zero |
+| `column_file9` to `16`, `column_file_aptos_narrow11`, four `column_default_*`, `column_narrow11`, `column_narrow14`, `limits` | 19,814 | widths written into the file, columns without a width, columns below one unit, the 255-character limit |
+| `cell_font`, `general_cell_font`, `cell_font_numeric`, `cell_font_styles`, `general_cell_font_styles` | 133,914 | cells whose font differs from the Normal font, in size, style and family |
+| `error_width` | 1,638 | error values under formats and widths |
 | `colors`, `lone_zero`, `conditions_rounding`, `selection_fallback` | 493 | section colors and section selection |
-| `measure9` to `measure16` | 523 texts each | autofit widths from which the glyph tables are fitted |
+| `measure9` to `measure16` and 42 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri and Aptos Narrow, four styles, six sizes |
 
-Every row passes. Fifteen color readings are skipped because Excel's scripting interface
+Two further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
+from Excel's PDF export) holds where Excel places each value, and `repair.layout.tsv` (248 rows)
+what Excel's repair does to formats it refuses. In all, 149 suite files (101 with rows, the
+others autofit measurements) hold 526,729 rows. Every row passes. Fifteen color readings are skipped because Excel's scripting interface
 reports automatic black where the sheet, checked by eye, shows the section color.
 
 The full record of every probe, including the hypotheses that turned out wrong, is

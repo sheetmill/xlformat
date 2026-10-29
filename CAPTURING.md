@@ -10,8 +10,8 @@ unpublished prototype: openpyxl wrote one row per (value, format) pair with the 
 applied to column A as a real number format, columns B and C carry `"<type> <repr>"` and
 `repr(format)`; the workbook was opened in Excel for Mac, the cells selected and copied, and the
 clipboard text saved. The clipboard text is the displayed text with padding spaces but without
-column-width effects: `1234567.911` under `General` is in the file although it cannot fit the
-default 8.43-character column. So the clipboard is not `Range.Text`, and width needs a different
+column-width effects: `1234567.911` under `General` is in the file although it cannot fit a
+column of the default width. So the clipboard is not `Range.Text`, and width needs a different
 capture.
 
 ## 2. Driving Excel for Mac with AppleScript
@@ -403,8 +403,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     6, 10 and 14 pin the space advance at 2 points (12 fill spaces around 11 points of text in
     36) and show `_x` pads and `?` blanks measuring as spaces. `General` alone does not use the
     glyph measure: it reduces by characters against the width in units, a leading minus counting
-    half (`-1234.6` and `1,000.0` both measure 36 points at width 6, Excel reduces the first and
-    keeps the second; `-12345678` shows at 8.5; `-2E-07` needs 6, `-1.5E-07` needs 8); all 1,107
+    half (refined in items 27 and 29: the minus costs its own advance in digits, which is half
+    only at Calibri 11, and a glyph test decides the last resort) (`-1234.6` and `1,000.0` both
+    measure 36 points at width 6, Excel reduces the first and keeps the second; `-12345678` shows at 8.5; `-2E-07` needs 6, `-1.5E-07` needs 8); all 1,107
     shown General rows fit that budget and none is reducible further. Among literals the General
     token's budget is the units less the literals' and the sign's advances in digit units (`( `
     and ` )` cost 1.67: `( 1234 )` shows at width 6, `( 12345 )` is `#`, `( 0.125 )` becomes

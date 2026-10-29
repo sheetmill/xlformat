@@ -115,8 +115,8 @@ evidence for each.
 - **Expected outputs come from Excel 16 for Mac** with the en-US locale. Month and day names are English;
   locale tags such as `[$-409]` are parsed but not applied. Windows Excel renders text with a
   different engine and may disagree on a borderline fit in Excel mode.
-- **Error values** such as `#N/A` are not inputs. Excel displays them regardless of the format,
-  so a caller shows them directly.
+- **Error values** are passed as `ExcelError` (`ExcelError("#N/A")`); a plain string such as
+  `"#N/A"` is text.
 - **Conditional formatting** and cell styles beyond the format string are out of scope.
 
 Every captured row passes; no known deviations remain. Fifteen color readings in the Excel captures
