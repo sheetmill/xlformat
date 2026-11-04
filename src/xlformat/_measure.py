@@ -265,10 +265,11 @@ class ColumnMetrics:
 
     Attributes:
         width: The width in Column Width dialog units, exact (Excel shows it to two decimals:
-            8.43 becomes 8.5 at Calibri 11); pass it as ``column_width``.
+            8.43 becomes 8.5 at Calibri 11); pass it as ``column_width``, unless it is 0 (a
+            column of no width, which ``column_width`` refuses with ``ValueError``).
         points: The column's width in points (53 for an openpyxl column without a width).
         budget: Points a number or date may take before it becomes a ``#`` run: ``points``
-            less 5.
+            less 5, and 0 for a column under 5 points.
         left_inset: Where left-aligned text starts, in points from the left gridline.
         right_inset: Where right-aligned text ends, in points from the right gridline.
         digit_width: The maximum digit width of the Normal font: one column unit, one indent
@@ -292,7 +293,7 @@ def _metrics(points: float, font: FontSpec | None) -> ColumnMetrics:
     return ColumnMetrics(
         width=_units(points, mdw),
         points=points,
-        budget=points - _COLUMN_PADDING,
+        budget=max(points - _COLUMN_PADDING, 0.0),
         left_inset=_LEFT_INSET,
         right_inset=_RIGHT_INSET,
         digit_width=mdw,

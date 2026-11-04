@@ -18,6 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   argument to `column_metrics` keeps working and means the Normal font. `font=` warns with a
   `DeprecationWarning` and goes away in 1.0; passing both raises `ValueError`.
 
+### Fixed
+- `ColumnMetrics.budget` is 0 for a column under 5 points instead of negative
+  (`file_column_metrics(0)` gave -5). A column of no width has a `width` of 0, which
+  `column_width` refuses with `ValueError`.
+
 ## [0.2.0] - 2026-10-28
 
 ### Added

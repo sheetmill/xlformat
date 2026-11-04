@@ -130,6 +130,17 @@ def test_file_widths_and_the_default_column() -> None:
     assert file_column_metrics(8.43).budget == 46
 
 
+def test_the_budget_of_a_column_under_five_points_is_zero() -> None:
+    from xlformat import column_metrics, file_column_metrics
+
+    assert [file_column_metrics(w).budget for w in (0, 0.1, 0.5, 0.8, 1)] == [0, 0, 0, 0, 1]
+    assert column_metrics(0.09).points == 1
+    assert column_metrics(0.09).budget == 0
+    assert file_column_metrics(0).width == 0
+    with pytest.raises(ValueError, match="positive"):
+        format_value(1, column_width=file_column_metrics(0).width)
+
+
 def test_the_column_functions_take_normal_font_and_deprecate_font() -> None:
     from xlformat import column_metrics, file_column_metrics
 
