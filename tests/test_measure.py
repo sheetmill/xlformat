@@ -84,10 +84,12 @@ def test_cell_font_against_the_normal_font() -> None:
                         normal_font=normal) == "-0"  # fmt: skip
 
 
-def test_glyph_measure_floors_the_sum() -> None:
+def test_glyph_measure_sums_whole_advances() -> None:
     measure = glyph_measure(("Calibri", 11))
     assert measure("1,000.0") == 36  # fits width 6 (36 points) while -1234.6 is reduced
     assert measure("10000%") == 38
+    assert CALIBRI["regular"][11]["W"] == 10.1  # the tenth is real in autofit only
+    assert measure("W" * 10) == 100  # advance_tenths11: ten W and a digit fit a 106-point budget
 
 
 def test_space_fill_at_a_new_size() -> None:

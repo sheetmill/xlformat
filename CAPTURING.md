@@ -736,6 +736,16 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     of 2 points, and six of them as one of 6). The blocks include single columns of the same point
     widths as controls, and a hidden column adds nothing (`(0, 5)` and `(5, 0)` are 30 points).
 
+41. **Fit and fill use whole advances (2026-11-03; suites `advance_tenths11`, `advance_tenths12`,
+    runs of 1 to 30 glyphs and `*` fills of the glyphs that carry a tenth in the tables (`W @ M m`
+    at Calibri 11, `W % w` at 12) and of a whole one (`H`) at every point up to 400 and every 37 to
+    1,500, 41,481 rows, in about 11 minutes).** The tables hold 10.1 for `W` at Calibri 11 because
+    the autofit of ten of them is 101 points. Decisions do not use that tenth: in a 111-point column
+    (budget 106) ten `W` and a digit show, where 101 + 6 would overflow, and `*W0` holds ten `W`,
+    not nine. Every row matches the sum of the floored advances; only autofit keeps the tenth. Excel
+    draws them whole as well, 10 points apart in a PDF export at Calibri 11 (sheetpeek's layout
+    capture). Character mode skips these suites: the glyphs are wider than digits.
+
 ## 3. The pipeline
 
 ```

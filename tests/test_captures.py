@@ -204,6 +204,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         "skipped (fractional width)": 0,
         "skipped (glyph slack)": 0,
         "clipboard plain year": 0,
+        "skipped (wide glyphs)": 0,
         "skipped (file width)": 0,
         "skipped (cell font)": 0,
         "Excel mode compared": 0,
@@ -273,6 +274,9 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
                 excel_failures.append((row, got_excel))
         if file_widths:
             counts["skipped (file width)"] += 1  # a file width has no character count
+            continue
+        if header["suite"].startswith("advance_tenths"):
+            counts["skipped (wide glyphs)"] += 1  # glyphs wider than a digit, by design
             continue
         if _cell_font(row.tag) is not None:
             counts["skipped (cell font)"] += 1  # characters of another font than the column's

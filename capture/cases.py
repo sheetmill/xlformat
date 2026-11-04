@@ -2411,6 +2411,28 @@ def general_sign_narrow() -> Suite:
     return Suite(name, cases, widths=(1, 1.33, 1.5))
 
 
+def _advance_tenths(name: str, font_size: int | None, mdw: int, glyphs: str) -> Suite:
+    """Do fit and fill use a glyph's tenth of a point? Long runs at every point say."""
+    runs = (1, 5, 9, 10, 11, 19, 20, 21, 30)
+    formats = [f'"{glyph * n}"0' for glyph in glyphs for n in runs]
+    formats += [f"*{glyph}0" for glyph in glyphs]
+    formats += [f"0*{glyph}" for glyph in glyphs]
+    cases = tuple(Case(name, "five", 5, f) for f in formats)
+    every = tuple(round((p - 5) / mdw, 2) for p in range(mdw + 5, 400))
+    far = tuple(round((p - 5) / mdw, 2) for p in range(400, 1500, 37))
+    return Suite(name, cases, widths=(*every, *far), font_size=font_size, fast_cap=0)
+
+
+def advance_tenths11() -> Suite:
+    """The glyphs with a tenth at Calibri 11 (``W``, ``@``, ``M``, ``m``) and a whole one, ``H``."""
+    return _advance_tenths("advance_tenths11", None, 6, "W@MmH")
+
+
+def advance_tenths12() -> Suite:
+    """The glyphs with a tenth at Calibri 12 (``W``, ``%``, ``w``) and a whole one, ``H``."""
+    return _advance_tenths("advance_tenths12", 12, 6, "W%wH")
+
+
 # TEXT(): the value and the format come from cells of sheet inputs, so no literal is rounded to
 # 15 digits and no format is quoted; a format Excel refuses in a file only makes TEXT an error.
 
@@ -2537,6 +2559,8 @@ def text_function1904() -> Suite:
 
 SUITES: dict[str, Callable[[], Suite]] = {
     "huge_values": huge_values,
+    "advance_tenths11": advance_tenths11,
+    "advance_tenths12": advance_tenths12,
     "general_sign_narrow": general_sign_narrow,
     "general_text_narrow": general_text_narrow,
     "merged11": merged11,

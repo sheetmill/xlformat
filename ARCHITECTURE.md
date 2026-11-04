@@ -358,12 +358,15 @@ bare `General` (`-0.05` at width 3 shows `-0`). `FormattedCell.fill` reports the
 points. A column of `w` units is `round(MDW · w + 5)` points, MDW being the maximum digit width of
 the Normal font: 5 points for Calibri 9 and 10, 6 for 11 and 12 (so 8.43 snaps to 8.5 units, 56
 points), 7 for 14, 8 for 16; text has those points less the 5 of padding: `MDW · w`. A text
-measures the floored sum of its glyph advances in points at the cell's size; the advances are
-hinted per size (digits are 6 at 11 and 12, `-` is 3 at 11 and 4 at 12, `%` 8 and 9.1), so the
+measures the sum of its whole glyph advances in points at the cell's size; the advances are
+hinted per size (digits are 6 at 11 and 12, `-` is 3 at 11 and 4 at 12, `%` 8 and 9), so the
 bundled table holds every measured size (9, 10, 11, 12, 14, 16) as measured and scales the
 nearest measured table with per-glyph rounding for other sizes; glyphs outside the table measure
-as a digit. The autofit width of a text is that measure plus 7 points at every size, which is how
-the tables were fitted (`capture/glyph_fit.py`, 515 of 515 space-less texts exact per size). The
+as a digit. The autofit width of a text is the floored sum of its advances plus 7 points at every
+size, which is how the tables were fitted (`capture/glyph_fit.py`, 515 of 515 space-less texts exact
+per size). Autofit alone counts the tenth a few wide glyphs carry in the tables (`W` is 10.1 at
+Calibri 11, so ten measure 101): fit and fill use whole points, and ten `W` and a digit fit a budget
+of 106 (`advance_tenths11`, `advance_tenths12`; `CAPTURING.md` §2 item 41). The
 space (2, 2, 2, 3, 3, 4 points from 9 to 16) comes from the `space_fill` suites, rendered through
 the package with every candidate advance (`CAPTURING.md` §2 item 26); `_x` pads and `?` blanks
 measure as spaces. A `#` run holds `floor(budget / 5)` characters at 11 points (six at width 5),
@@ -604,8 +607,8 @@ is `General`, so the empty format is reached through the function only.
 Measurement is public in the shape of reportlab's `stringWidth(text, fontName, fontSize)`, a
 function naming the font by argument (Pillow's `ImageFont.getlength` and tkinter's
 `Font.measure` are methods on a font object; xlformat already names fonts by a `font=` keyword):
-`text_width(text, font=None)` is Excel's measure, the floored sum of the advances in points;
-`glyph_widths(text, font=None)` the unfloored advance of each character, for runs;
+`text_width(text, font=None)` is Excel's measure, the sum of the whole advances in points;
+`glyph_widths(text, font=None)` the whole advance of each character, for runs;
 `digit_width(font=None)` the maximum digit width; `overhang(font=None)` an italic face's reach
 past its advances; `measured_fonts()` the bundled tables as family, style and sizes.
 

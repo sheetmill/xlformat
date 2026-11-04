@@ -147,13 +147,13 @@ into the next column, wrapping, indents.
 >>> text_width("Hello World", ("Calibri", 14))
 66.0
 >>> glyph_widths("W i", Font("Calibri", 11, italic=True))
-(10.1, 2.0, 3.0)
+(10.0, 2.0, 3.0)
 >>> digit_width(("Aptos Narrow", 16))
 8.0
 ```
 
-`text_width` is the floored sum of the advances, the number every fit decision uses;
-`glyph_widths` gives the unfloored advance of each character, for measuring runs of a text;
+`text_width` is the sum of the whole advances, the number every fit decision uses;
+`glyph_widths` gives the whole advance of each character, for measuring runs of a text;
 `digit_width` is the width of one column unit (and one indent level) for a Normal font;
 `overhang` is how far an italic face reaches past its advances on each side; `measured_fonts`
 lists the bundled tables.

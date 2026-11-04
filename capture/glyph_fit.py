@@ -111,6 +111,7 @@ def _install(face: Font, table: dict[str, float], overhang: float = 0.0) -> None
     if overhang:
         measure_module._OVERHANG[key].setdefault(face.style, {})[int(face.size)] = overhang
     measure_module._advances.cache_clear()
+    measure_module._whole_advances.cache_clear()
     measure_module._overhang.cache_clear()
 
 

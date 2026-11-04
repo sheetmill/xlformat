@@ -121,7 +121,18 @@ def resolve_font(font: FontSpec | None) -> Font:
 
 def _table(font: FontSpec | None) -> dict[str, float]:
     f = resolve_font(font)
-    return _advances(f.name, f.size, f.style)
+    return _whole_advances(f.name, f.size, f.style)
+
+
+@lru_cache(maxsize=64)
+def _whole_advances(name: str, size: float, style: str) -> dict[str, float]:
+    """The advances fit and fill decisions use: whole points, without the tables' tenths.
+
+    A tenth (``W`` is 10.1 at Calibri 11) is real only in autofit, where ten ``W`` measure 101;
+    ten ``W`` and a digit fit a budget of 106, and ``*W0`` holds 10 of them there
+    (CAPTURING.md section 2 item 41).
+    """
+    return {c: float(math.floor(a + 1e-9)) for c, a in _advances(name, size, style).items()}
 
 
 @lru_cache(maxsize=64)
@@ -160,7 +171,7 @@ def _overhang(name: str, size: float, style: str) -> float:
 
 
 def glyph_measure(font: FontSpec | None = None) -> Measure:
-    """Excel mode: floored sum of glyph advances in points at the font's size.
+    """Excel mode: the sum of whole glyph advances in points at the font's size.
 
     Glyphs outside the table measure as a digit (the maximum digit width), which is what a
     column width unit is; the documentation says so.
@@ -169,7 +180,7 @@ def glyph_measure(font: FontSpec | None = None) -> Measure:
     digit = adv["0"]
 
     def measure(text: str) -> float:
-        return float(math.floor(sum(adv.get(c, digit) for c in text) + 1e-9))
+        return sum(adv.get(c, digit) for c in text)
 
     return measure
 
@@ -177,9 +188,10 @@ def glyph_measure(font: FontSpec | None = None) -> Measure:
 def text_width(text: str, font: FontSpec | None = None) -> float:
     """The width of ``text`` in points as Excel for Mac measures it in ``font``.
 
-    The floored sum of the glyph advances, the measure every Excel-mode decision uses (fit,
-    ``#`` count, fill count); glyphs outside the table measure as a digit. Like reportlab's
-    ``stringWidth``, but whole points as Excel hints them.
+    The sum of the whole glyph advances, the measure every Excel-mode decision uses (fit, ``#``
+    count, fill count); glyphs outside the table measure as a digit. Like reportlab's
+    ``stringWidth``, but whole points as Excel hints them. Excel's autofit alone counts a tenth
+    on a few wide glyphs.
 
     Raises:
         LookupError: ``font`` has no measured table.
@@ -188,10 +200,10 @@ def text_width(text: str, font: FontSpec | None = None) -> float:
 
 
 def glyph_widths(text: str, font: FontSpec | None = None) -> tuple[float, ...]:
-    """The advance of each character of ``text`` in points, unfloored.
+    """The advance of each character of ``text`` in whole points.
 
-    For measuring runs of a text (words, spaces): Excel floors a whole run's sum, so
-    ``text_width`` of a run is ``floor(sum(glyph_widths(run)))``.
+    For measuring runs of a text (words, spaces): ``text_width`` of a run is
+    ``sum(glyph_widths(run))``.
     """
     adv = _table(font)
     digit = adv["0"]
