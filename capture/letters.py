@@ -11,8 +11,6 @@ from __future__ import annotations
 
 import string
 
-from capture.invalid import check
-
 BUDDHIST_FORMS = (
     "bbb",
     "bbbb",
@@ -268,4 +266,6 @@ def candidates() -> dict[str, str]:
 
 
 if __name__ == "__main__":
+    from capture.invalid import check  # needs openpyxl; the lists above are read by the tests
+
     check(candidates())
