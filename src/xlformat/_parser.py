@@ -38,9 +38,8 @@ class TokenKind(Enum):
     SLASH = "slash"
     GENERAL = "general"
     AT = "at"
-    DATE = (
-        "date"  # normalized code: y yy yyyy m mm mmm mmmm mmmmm d dd ddd dddd h hh s ss e, s.0 ...
-    )
+    # normalized date code: y yy yyyy m mm mmm mmmm mmmmm d dd ddd dddd h hh s ss e bb bbbb g, s.0
+    DATE = "date"
     MINUTE = "minute"  # m or mm resolved as minutes
     AMPM = "ampm"  # AM/PM or A/P
     ELAPSED = "elapsed"  # [h] [mm] [sss] ...
@@ -177,7 +176,10 @@ _TOKEN_RE = re.compile(
   | (?P<ampm>am/pm|a/p)
   | (?P<exp>e[+-])
   | (?P<digit>[0#?])
-  | (?P<date>y+|m+|d+|h+|s+|e+)
+  | (?P<calendar>b[12])
+  | (?P<baddigit>b+[0-9])
+  | (?P<badletter>n)
+  | (?P<date>y+|m+|d+|h+|s+|e+|b+|g+)
   | (?P<char>.)
     """,
     re.X | re.S | re.I,
@@ -197,6 +199,10 @@ def _normalize_date_code(run: str) -> str:
         return "h" if n == 1 else "hh"
     if c == "s":
         return "s" if n == 1 else "ss"
+    if c == "b":
+        return "bb" if n <= 2 else "bbbb"
+    if c == "g":
+        return "g"
     return "e"
 
 
@@ -272,9 +278,14 @@ def _piece(kind: str, text: str) -> Piece:
     return piece
 
 
+# What may stand before a calendar prefix (b1, b2) in a section.
+_BEFORE_CALENDAR = frozenset({TokenKind.COLOR, TokenKind.CONDITION, TokenKind.CURRENCY})
+
+
 def tokenize(section: str) -> list[Token]:
     """Split one section into tokens. Raises ``FormatError`` for unclosed quotes and brackets."""
     tokens: list[Token] = []
+    has_calendar = False
     for m in _TOKEN_RE.finditer(section):
         kind = m.lastgroup
         text = m.group(kind) if kind else ""
@@ -298,8 +309,26 @@ def tokenize(section: str) -> list[Token]:
             tokens.append(Token(TokenKind.GENERAL, "General"))
         elif kind == "at":
             tokens.append(Token(TokenKind.AT, "@"))
+        elif kind == "calendar":
+            if not all(t.kind in _BEFORE_CALENDAR for t in tokens):
+                msg = f"calendar prefix {text!r} after other codes in {section!r}"
+                raise FormatError(msg)
+            has_calendar = True
+            tokens.append(Token(TokenKind.LITERAL, ""))
+        elif kind in ("baddigit", "badletter"):
+            msg = f"{text!r} is not a format code in {section!r}"
+            raise FormatError(msg)
         else:  # date
-            tokens.append(Token(TokenKind.DATE, _normalize_date_code(text)))
+            code = _normalize_date_code(text)
+            if code == "e" and "E" in text:
+                msg = f"upper-case {text!r} without a sign in {section!r}"
+                raise FormatError(msg)
+            if code[0] == "b" and any(t.kind is TokenKind.CURRENCY for t in tokens):
+                code = "yy" if code == "bb" else "yyyy"  # after [$...] it is the plain year
+            tokens.append(Token(TokenKind.DATE, code))
+    if has_calendar and any(t.kind is TokenKind.DIGIT for t in tokens):
+        msg = f"calendar prefix with digit placeholders in {section!r}"
+        raise FormatError(msg)
     return tokens
 
 
@@ -375,6 +404,9 @@ def _resolve_datetime(tokens: list[Token], source: str) -> list[Token]:
             msg = f"digit placeholder in date/time section {source!r}"
             raise FormatError(msg)
         if t.kind is TokenKind.EXP:  # ``e+`` without digits: year code then literal
+            if t.text[0] == "E":
+                msg = f"upper-case {t.text!r} without digits in {source!r}"
+                raise FormatError(msg)
             out.append(Token(TokenKind.DATE, "e"))
             out.append(Token(TokenKind.LITERAL, t.text[1]))
             i += 1
@@ -819,10 +851,18 @@ class NumberFormat:
         )
 
 
+_BEFORE_FINAL_B = frozenset({"B", "\\", "_", "*"})
+
+
 @lru_cache(maxsize=1024)
 def _parse_cached(format_string: str) -> NumberFormat:
     if format_string == "":
         format_string = "General"
+    # Excel refuses a format whose last character is a lone code B, however the run began
+    # (B, bB, BbB, [Red]B, 0;B; but BB, Bb and B;0 are the Buddhist year; capture/letters.py)
+    if format_string[-1] == "B" and format_string[-2:-1] not in _BEFORE_FINAL_B:
+        msg = f"format ends in a lone code 'B': {format_string!r}"
+        raise FormatError(msg)
     raw_sections = split_sections(format_string)
     sections: list[Section] = []
     for raw in raw_sections:

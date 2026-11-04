@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `ExcelError`; `xlrecalc` has its own `ErrorValue`, which compares equal to it. The
   `sheetmill` meta-package is released and installs all three packages.
 
+### Added
+- The Buddhist-year code: `b` and `bb` show the year's last two digits and `bbb` and longer all
+  four, in either case (`abc` with 12.5 shows `a43c`); after a `[$...]` tag they are the plain
+  year. The era code `g`, empty in en-US. The calendar prefixes `b1` and `b2`, which print
+  nothing; the Hijri calendar `b2` selects is not modeled, and such a format renders as Gregorian.
+
 ### Deprecated
 - `font=` on `file_column_metrics` and `column_metrics`, which names the workbook's Normal font
   there and the cell's font in the format functions: pass `normal_font=`. A second positional
@@ -19,6 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `DeprecationWarning` and goes away in 1.0; passing both raises `ValueError`.
 
 ### Fixed
+- Formats Excel refuses in a file now raise `FormatError`: `n` or `N` outside quotes, `E` without
+  a sign and digits, a format ending in a lone code `B`, a `b1` or `b2` after other codes or with
+  digit placeholders, and any other digit after `b`.
+- A clock section reached as the negative section shows a `#` run for a negative (`0;yy` with
+  -0.5), as in Excel; it showed the magnitude's date.
+- `General` in a date section reduces at a width like a General among literals.
 - General keeps four mantissa decimals, not five, from an exponent magnitude of 99 (Excel shows
   `2.2251E-308` and `1.2346E+99`), and counts such an exponent as three digits when it reduces at
   a width. A negative with no room for a scientific form shows `-0` where that fits and a `#`

@@ -12,6 +12,7 @@ from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from decimal import Decimal
 from pathlib import Path
+from string import ascii_uppercase
 from typing import Literal
 
 from capture.schema import read_rows
@@ -2089,7 +2090,67 @@ def subnormal() -> Suite:
     return Suite(name, cases)
 
 
+# Every letter of either case, alone, doubled, after 0 and after a date code, and the forms of
+# the Buddhist-year code; the refused ones are unit tests (capture/letters.py).
+
+_LETTER_VALUES: tuple[tuple[str, object], ...] = (
+    ("num-1234.5678", 1234.5678),
+    ("neg-0.5", -0.5),
+    ("zero", 0),
+    ("serial-12.5", 12.5),
+    ("serial-45000.75", 45000.75),
+    ("frac-0.25", 0.25),
+    ("text", "abc"),
+    ("bool", True),
+)
+
+
+def _letter_suite(name: str, formats: tuple[str, ...]) -> Suite:
+    cases = tuple(Case(name, tag, value, f) for f in formats for tag, value in _LETTER_VALUES)
+    return Suite(name, cases, widths=(None, 6, 12))
+
+
+def letters() -> Suite:
+    """Lower-case letters and the Buddhist-year forms (``capture/letters.py``) Excel renders."""
+    from capture.letters import accepted
+
+    formats = accepted()
+    upper = ascii_uppercase_forms(formats)
+    return _letter_suite("letters", tuple(f for f in formats if f not in upper))
+
+
+def letters_upper() -> Suite:
+    """Upper-case letters: a workbook holding 259 custom formats is refused, half of them not."""
+    from capture.letters import accepted
+
+    return _letter_suite("letters_upper", ascii_uppercase_forms(accepted()))
+
+
+def ascii_uppercase_forms(formats: tuple[str, ...]) -> tuple[str, ...]:
+    """The sweep's forms of an upper-case letter: ``X``, ``XX``, ``0X``, ``yyyy X``."""
+    forms = {
+        form
+        for letter in ascii_uppercase
+        for form in (letter, letter * 2, f"0{letter}", f"yyyy {letter}")
+    }
+    return tuple(f for f in formats if f in forms)
+
+
+def letters1904() -> Suite:
+    """The year codes under the 1904 date system."""
+    name = "letters1904"
+    formats = ("b", "bb", "bbb", "bbbb", "abc", "b/m/d", "g", "e", "b1bbbb", "[$-409]bbbb")
+    values = (("zero", 0), ("one", 1), ("neg", -1), ("serial", 44927.5))
+    cases = tuple(
+        Case(name, tag, value, f, date1904=True) for f in formats for tag, value in values
+    )
+    return Suite(name, cases, widths=(None, 12), date1904=True)
+
+
 SUITES: dict[str, Callable[[], Suite]] = {
+    "letters": letters,
+    "letters_upper": letters_upper,
+    "letters1904": letters1904,
     "general_exponent3": general_exponent3,
     "general_exponent_sweep": general_exponent_sweep,
     "subnormal": subnormal,

@@ -22,6 +22,7 @@ from xlformat import (
     DEFAULT_PALETTE,
     ExcelError,
     Font,
+    NumberFormat,
     file_column_metrics,
     format_cell,
     format_value,
@@ -130,6 +131,19 @@ def _glyph_tight(expected: str, got: str, width: int | None) -> bool:
     )
 
 
+def _clipboard_year(row: Row, width: int | str | None, value: object, date1904: bool) -> bool:
+    """Width-less, a Buddhist-year code: the clipboard gives the plain year (a ``03`` where the
+    sheet, ``string value`` and ``TEXT`` show ``46``), so the row is compared with the plain year
+    code. The package follows the sheet (QUIRKS.md, CAPTURING.md section 2 item 35)."""
+    fmt = row.format_string
+    if width is not None or "b" not in fmt.lower() or not NumberFormat.parse(fmt).is_date:
+        return False
+    if not any(c.text[:1] == "b" for s in NumberFormat.parse(fmt).sections for c in s.tokens):
+        return False
+    plain = re.sub("[bB]+(?![12])", lambda m: "yy" if len(m[0]) <= 2 else "yyyy", fmt)
+    return format_value(value, plain, date1904=date1904) == row.expected_text
+
+
 def _glyph_slack_exponent(expected: str, got: str, width: int | None) -> bool:
     """A reduced scientific General among literals: ``( 1.2346E-99 )`` is 14 characters and
     Excel charges the exponent a third digit, but its literals cost less than a digit each, so
@@ -185,6 +199,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         "compared": 0,  # character mode
         "skipped (fractional width)": 0,
         "skipped (glyph slack)": 0,
+        "clipboard plain year": 0,
         "skipped (file width)": 0,
         "skipped (cell font)": 0,
         "Excel mode compared": 0,
@@ -248,6 +263,9 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         width = _character_width(row.width_value)
         if width == "skip":
             counts["skipped (fractional width)"] += 1
+            continue
+        if _clipboard_year(row, width, value, date1904):
+            counts["clipboard plain year"] += 1
             continue
         if _glyph_slack(row.expected_text, width):
             counts["skipped (glyph slack)"] += 1

@@ -43,13 +43,13 @@ CANDIDATES: dict[str, str] = {
 }
 
 
-def build(directory: Path) -> list[str]:
+def build(directory: Path, candidates: dict[str, str]) -> list[str]:
     """One workbook per candidate; returns the file names in candidate order."""
     directory.mkdir(parents=True, exist_ok=True)
     for old in directory.glob("inv_*.xlsx"):
         old.unlink()
     names: list[str] = []
-    for k, (label, fmt) in enumerate(CANDIDATES.items(), 1):
+    for k, (label, fmt) in enumerate(candidates.items(), 1):
         BUILTIN_FORMATS_REVERSE.clear()
         wb = Workbook()
         ws = wb.active
@@ -62,16 +62,16 @@ def build(directory: Path) -> list[str]:
             ws.cell(row=row, column=2, value=label)
             ws.cell(row=row, column=3, value=repr(value))
             ws.cell(row=row, column=4, value=repr(fmt))
-        name = f"inv_{k:02d}.xlsx"
+        name = f"inv_{k:03d}.xlsx"
         wb.save(directory / name)
         names.append(name)
     return names
 
 
-def main() -> None:
-    """Build, run, print."""
+def check(candidates: dict[str, str]) -> None:
+    """Build one workbook per candidate, run them through Excel and print the results."""
     directory = (WORKBOOK_DIR / "invalid").resolve()
-    names = build(directory)
+    names = build(directory, candidates)
     proc = subprocess.run(
         ["osascript", str(SCRIPT), str(directory), str(len(VALUES))],
         capture_output=True,
@@ -85,7 +85,7 @@ def main() -> None:
     for line in proc.stdout.rstrip("\n").split("\n"):
         name, _, rest = line.partition("\t")
         by_name.setdefault(name, []).append(rest)
-    for name, (label, fmt) in zip(names, CANDIDATES.items(), strict=True):
+    for name, (label, fmt) in zip(names, candidates.items(), strict=True):
         lines = by_name.get(name, ["<no output>"])
         if lines[0].startswith("ERROR"):
             print(f"{label:36s} {fmt!r:26s} refused  ({lines[0][:40]})")
@@ -96,4 +96,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    check(CANDIDATES)

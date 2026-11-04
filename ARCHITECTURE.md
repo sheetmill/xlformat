@@ -12,8 +12,10 @@ is a secondary reference and is wrong or silent in places where Excel is definit
 
 Out of scope: locales other than en-US (format codes are parsed, names are English,
 `[$-x-sysdate]` renders the en-US long date), fonts without a bundled glyph table in Excel mode
-(section 8), conditional formatting, right-to-left and East Asian calendar codes (`g`, `b`), cell
-styles beyond what the format string itself implies.
+(section 8), conditional formatting, calendars other than the Gregorian and the Buddhist year
+code (the Hijri calendar of a `b2` prefix and the calendar and digit parts of a locale tag such as
+`[$-D07041E]`, which render as Gregorian), cell styles beyond what the format string itself
+implies.
 
 ## 2. Pipeline
 
@@ -51,7 +53,9 @@ Tokens per section, produced by one regex pass (the old tokenizer approach, kept
 | `[h]`, `[mm]`, `[ss]` and longer runs | elapsed time; at most one per section; nothing may precede it except literals |
 | `General` (case-insensitive), `@` | General placeholder (allowed in numeric and text sections, with literals around it); text placeholder |
 | `0 # ?`, `.`, `,`, `%`, `E+ E-`, `/` | numeric codes. Lower-case `e+`/`e-` after digits make Excel refuse the file (`FormatError`, `CAPTURING.md` §2 item 9). A second `.` is a literal inside the decimal digits (`0.0.0` shows `1234.5.7`). `%` between mantissa and `E` is a literal and does not scale (`0%E+0` shows `1%E+3`) |
-| `y m d h s e`, `AM/PM`, `A/P` runs | date/time codes, case-insensitive, normalized (`yyy`→`yyyy`, `mmmmmm`→`mmmm`, `ddddd`→`dddd`, `sss`→`ss`). `e` is a four-digit year in en-US (`e+` shows `1903+` for serial 1234) |
+| `y m d h s e b g`, `AM/PM`, `A/P` runs | date/time codes, case-insensitive except as below, normalized (`yyy`→`yyyy`, `mmmmmm`→`mmmm`, `ddddd`→`dddd`, `sss`→`ss`, `bbb`→`bbbb`). `e` is a four-digit year in en-US (`e+` shows `1903+` for serial 1234); `b` and `bb` are the Buddhist year's last two digits and longer runs all four, the plain year after any `[$...]` tag; `g` is an era name, which is empty in en-US. An upper-case `E` without a sign and digits is a `FormatError`; so is a format whose last character is a lone code `B` (`B`, `bB`, `[Red]B`, `0;B`; `BB` and `B;0` are the year) |
+| `b1`, `b2` | calendar prefix, printing nothing, only before every other code in its section and never with digit placeholders (`b1` shows nothing, and `-` for a negative). Any other digit after `b` is a `FormatError` |
+| `n`, `N` | a `FormatError` anywhere outside quotes, escapes, `_x` and `*x` |
 | `_x`, `*x` | pad (width of `x`, one space in text output) and fill (repeat `x`). Excel accepts two fills in a file and honors the last one (`*-0*-` shows `1235` then dashes); the dialog refuses it |
 | anything else | literal |
 
@@ -111,7 +115,9 @@ Given the normalized value and the compiled sections (n = 1..4):
 - An empty section renders nothing (this is how `0;;` hides negatives), except that an empty first
   section, or an empty section carrying a color or condition, behaves as General.
 - Values a datetime section cannot show (negative, or `>= 2958466` after rounding to the displayed
-  precision) render as overflow (section 8).
+  precision) render as overflow (section 8). A clock section reached as the negative section does
+  so too (`0;yy` and `0;h:mm` show `#` for -0.5), while an elapsed one shows the magnitude (`0;[h]`
+  shows `12`).
 
 ## 5. Value model
 
@@ -248,7 +254,8 @@ bias in seconds.
   `[$-x-systime]` and `[$-F400]` render `h:mm:ss AM/PM`; a bare tag is the whole format.
 - `General` inside a date section shows Excel's biased seconds before truncation (`s` above):
   a whole day shows `0.5`, 23:59:59.999 shows `0.499`, serial 365 shows `0.499999999`. The
-  noise is reproduced because the arithmetic is.
+  noise is reproduced because the arithmetic is. At a width it reduces like a General among
+  literals (`General yyyy` with 45000.75 shows `0 2023` at width 6 and `0.5 2023` at 12).
 - Names are English; month and weekday names, `mmmmm` (initial) and `ddd` (three letters).
 
 ## 8. Width model
@@ -731,5 +738,7 @@ reading and decoding the suite files takes about 2.4 s.
 - The fraction rules ship with zero deviations (`QUIRKS.md`; `CAPTURING.md` §2 item 22).
 - Lower-case `e+` after digits is a `FormatError`, and `e` alone is a year code (`CAPTURING.md`
   §2 item 9).
+- The Buddhist-year code shows the Buddhist year width-less as well, as the sheet and `TEXT` do;
+  Excel's clipboard alone gives the plain year (`CAPTURING.md` §2 item 35).
 - A condition in section 3 or 4, or on the text section, is a `FormatError`, because Excel refuses
   the file (`CAPTURING.md` §2 item 9, second run).

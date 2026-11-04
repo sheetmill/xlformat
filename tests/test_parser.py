@@ -3,6 +3,7 @@
 from decimal import Decimal
 
 import pytest
+from capture.letters import REFUSED as LETTERS_REFUSED
 
 from xlformat import FormatError, NumberFormat, SectionKind, format_cell, format_value
 from xlformat._parser import TokenKind, split_sections, tokenize
@@ -160,6 +161,20 @@ REFUSED = [
     "[hh]:mm:[ss]",
     "General General",
 ]
+
+
+@pytest.mark.parametrize("source", LETTERS_REFUSED)
+def test_letter_forms_excel_refuses(source: str) -> None:
+    with pytest.raises(FormatError):
+        NumberFormat.parse(source)
+
+
+def test_a_final_b_is_a_literal_when_escaped() -> None:
+    assert format_value(1, "0\\B") == "1B"
+    assert format_value(1, '0"B"') == "1B"
+    assert format_value(1, "0_B") == "1 "
+    assert NumberFormat.parse("BB").is_date
+    assert NumberFormat.parse("B;0").is_date
 
 
 @pytest.mark.parametrize("source", REFUSED)

@@ -113,6 +113,9 @@ when the nudged half-up rule replaced the empirical tolerance (`CAPTURING.md` §
 Fifteen color rows of the `colors` suite are skipped under `tests/test_captures.py:
 DISPLAY_FORMAT_COLOR_MISREPORTS`: Excel's DisplayFormat API reports automatic black where the sheet
 paints the section color (verified by eye); the package is right there (`CAPTURING.md` §2 item 21).
+Width-less rows of a Buddhist-year code are compared with the plain year, which is what Excel's
+clipboard gives, while `string value` at any width and `TEXT` show the Buddhist year; the package
+shows the Buddhist year (`CAPTURING.md` §2 item 35).
 
 ## Candidates (evidence needed before they become switches)
 

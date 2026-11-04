@@ -313,13 +313,17 @@ def _render_number(
                 # Dropped when the General reduces to zero at a width: General"x" shows "0x".
                 pieces.insert(0, ("sign", "-"))
     elif chosen.kind is SectionKind.DATETIME:
-        signed_raw = raw if keep_sign else abs(raw)
-        rendered = render_datetime(
-            chosen, signed_raw, magnitude, date1904=date1904, quirks=quirks or Quirks.EXCEL
+        dated = render_datetime(
+            chosen,
+            raw,
+            magnitude,
+            date1904=date1904,
+            quirks=quirks or Quirks.EXCEL,
+            keep_sign=keep_sign,
         )
-        if rendered is None:
+        if dated is None:
             return overflow(chosen.color, width, None, measure)
-        pieces = rendered
+        pieces, general_value = dated
     # a number through a format with only a text section shows General, left-aligned like text
     # (12345 under @ or @" units", alignment.layout); otherwise numbers align right
     align: Align = "left" if chosen is None and fmt.is_text else "right"

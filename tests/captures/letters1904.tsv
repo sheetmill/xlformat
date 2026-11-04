@@ -1,0 +1,93 @@
+# suite: letters1904
+# excel_version: 16.114.3
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-11-03
+# generator: capture.cases.letters1904
+# method: width none=clipboard; width 12=string_value
+# numbers: repr
+# column_points: C=77.0
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+letters1904	zero	int	0	'b'			1	04		fast
+letters1904	one	int	1	'b'			1	04		full
+letters1904	neg	int	-1	'b'			1	-04		fast
+letters1904	serial	float	44927.5	'b'			1	27		full
+letters1904	zero	int	0	'bb'			1	04		fast
+letters1904	one	int	1	'bb'			1	04		full
+letters1904	neg	int	-1	'bb'			1	-04		fast
+letters1904	serial	float	44927.5	'bb'			1	27		full
+letters1904	zero	int	0	'bbb'			1	1904		fast
+letters1904	one	int	1	'bbb'			1	1904		full
+letters1904	neg	int	-1	'bbb'			1	-1904		fast
+letters1904	serial	float	44927.5	'bbb'			1	2027		full
+letters1904	zero	int	0	'bbbb'			1	1904		fast
+letters1904	one	int	1	'bbbb'			1	1904		full
+letters1904	neg	int	-1	'bbbb'			1	-1904		fast
+letters1904	serial	float	44927.5	'bbbb'			1	2027		full
+letters1904	zero	int	0	'abc'			1	a04c		fast
+letters1904	one	int	1	'abc'			1	a04c		full
+letters1904	neg	int	-1	'abc'			1	-a04c		fast
+letters1904	serial	float	44927.5	'abc'			1	a27c		full
+letters1904	zero	int	0	'b/m/d'			1	04/1/1		fast
+letters1904	one	int	1	'b/m/d'			1	04/1/2		full
+letters1904	neg	int	-1	'b/m/d'			1	-04/1/2		fast
+letters1904	serial	float	44927.5	'b/m/d'			1	27/1/2		full
+letters1904	zero	int	0	'g'			1			fast
+letters1904	one	int	1	'g'			1			full
+letters1904	neg	int	-1	'g'			1	-		fast
+letters1904	serial	float	44927.5	'g'			1			full
+letters1904	zero	int	0	'e'			1	1904		fast
+letters1904	one	int	1	'e'			1	1904		full
+letters1904	neg	int	-1	'e'			1	-1904		fast
+letters1904	serial	float	44927.5	'e'			1	2027		full
+letters1904	zero	int	0	'b1bbbb'			1	1904		fast
+letters1904	one	int	1	'b1bbbb'			1	1904		full
+letters1904	neg	int	-1	'b1bbbb'			1	-1904		fast
+letters1904	serial	float	44927.5	'b1bbbb'			1	2027		full
+letters1904	zero	int	0	'[$-409]bbbb'			1	1904		fast
+letters1904	one	int	1	'[$-409]bbbb'			1	1904		full
+letters1904	neg	int	-1	'[$-409]bbbb'			1	-1904		fast
+letters1904	serial	float	44927.5	'[$-409]bbbb'			1	2027		full
+letters1904	zero	int	0	'b'	12	12.0	1	47		fast
+letters1904	one	int	1	'b'	12	12.0	1	47		full
+letters1904	neg	int	-1	'b'	12	12.0	1	-47		fast
+letters1904	serial	float	44927.5	'b'	12	12.0	1	70		full
+letters1904	zero	int	0	'bb'	12	12.0	1	47		fast
+letters1904	one	int	1	'bb'	12	12.0	1	47		full
+letters1904	neg	int	-1	'bb'	12	12.0	1	-47		fast
+letters1904	serial	float	44927.5	'bb'	12	12.0	1	70		full
+letters1904	zero	int	0	'bbb'	12	12.0	1	2447		fast
+letters1904	one	int	1	'bbb'	12	12.0	1	2447		full
+letters1904	neg	int	-1	'bbb'	12	12.0	1	-2447		fast
+letters1904	serial	float	44927.5	'bbb'	12	12.0	1	2570		full
+letters1904	zero	int	0	'bbbb'	12	12.0	1	2447		fast
+letters1904	one	int	1	'bbbb'	12	12.0	1	2447		full
+letters1904	neg	int	-1	'bbbb'	12	12.0	1	-2447		fast
+letters1904	serial	float	44927.5	'bbbb'	12	12.0	1	2570		full
+letters1904	zero	int	0	'abc'	12	12.0	1	a47c		fast
+letters1904	one	int	1	'abc'	12	12.0	1	a47c		full
+letters1904	neg	int	-1	'abc'	12	12.0	1	-a47c		fast
+letters1904	serial	float	44927.5	'abc'	12	12.0	1	a70c		full
+letters1904	zero	int	0	'b/m/d'	12	12.0	1	47/1/1		fast
+letters1904	one	int	1	'b/m/d'	12	12.0	1	47/1/2		full
+letters1904	neg	int	-1	'b/m/d'	12	12.0	1	-47/1/2		fast
+letters1904	serial	float	44927.5	'b/m/d'	12	12.0	1	70/1/2		full
+letters1904	zero	int	0	'g'	12	12.0	1			fast
+letters1904	one	int	1	'g'	12	12.0	1			full
+letters1904	neg	int	-1	'g'	12	12.0	1	-		fast
+letters1904	serial	float	44927.5	'g'	12	12.0	1			full
+letters1904	zero	int	0	'e'	12	12.0	1	1904		fast
+letters1904	one	int	1	'e'	12	12.0	1	1904		full
+letters1904	neg	int	-1	'e'	12	12.0	1	-1904		fast
+letters1904	serial	float	44927.5	'e'	12	12.0	1	2027		full
+letters1904	zero	int	0	'b1bbbb'	12	12.0	1	2447		fast
+letters1904	one	int	1	'b1bbbb'	12	12.0	1	2447		full
+letters1904	neg	int	-1	'b1bbbb'	12	12.0	1	-2447		fast
+letters1904	serial	float	44927.5	'b1bbbb'	12	12.0	1	2570		full
+letters1904	zero	int	0	'[$-409]bbbb'	12	12.0	1	1904		fast
+letters1904	one	int	1	'[$-409]bbbb'	12	12.0	1	1904		full
+letters1904	neg	int	-1	'[$-409]bbbb'	12	12.0	1	-1904		fast
+letters1904	serial	float	44927.5	'[$-409]bbbb'	12	12.0	1	2027		full

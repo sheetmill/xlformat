@@ -122,11 +122,15 @@ def render_datetime(
     *,
     date1904: bool,
     quirks: Quirks,
-) -> list[Piece] | None:
-    """Pieces for a date/time section, or ``None`` when the value cannot be shown.
+    keep_sign: bool = True,
+) -> tuple[list[Piece], Decimal | None] | None:
+    """Pieces for a date/time section and the number behind its ``General``, if it can show.
 
-    ``serial`` is the double Excel works from; ``display`` is the 15-digit value, which Excel
-    does not use for clock arithmetic.
+    ``None`` when the value cannot be shown. ``serial`` is the double Excel works from;
+    ``display`` is the 15-digit value, which Excel does not use for clock arithmetic.
+    ``keep_sign`` is False through a negative section, where elapsed codes and the 1904 system
+    show the magnitude; a clock section in the 1900 system shows ``#`` either way (``0;yy`` and
+    ``0;h:mm`` with -0.5, while ``0;[h]`` shows 12).
     """
     del display
     tokens = _system_tokens(section)
@@ -136,6 +140,7 @@ def render_datetime(
     negative = serial < 0
     if negative and not (date1904 or elapsed_only):
         return None  # decided on the raw sign: -1e-9 shows '#', not January 0, 1900
+    negative = negative and keep_sign
     x = abs(serial)
     digits = _fraction_digits(tokens)
     scale = 10**digits
@@ -158,9 +163,10 @@ def render_datetime(
         return None
     has_ampm = any(t.kind is TokenKind.AMPM for t in tokens)
     year = month = dom = weekday = 0
-    if any(t.kind is TokenKind.DATE and t.text[0] in "ymde" for t in tokens):
+    if any(t.kind is TokenKind.DATE and t.text[0] in "ymdeb" for t in tokens):
         year, month, dom, weekday = calendar(day, date1904, quirks)
     out: list[Piece] = [("lit", "-")] if negative else []
+    general_value: Decimal | None = None
     for t in tokens:
         k = t.kind
         if k is TokenKind.DATE:
@@ -168,7 +174,16 @@ def render_datetime(
                 (
                     "lit",
                     _date_field(
-                        t.text, year, month, dom, weekday, hour, second, frac, digits, has_ampm
+                        t.text,
+                        year,
+                        month,
+                        dom,
+                        weekday,
+                        hour,
+                        second,
+                        frac,
+                        digits,
+                        has_ampm,
                     ),
                 )
             )
@@ -191,10 +206,11 @@ def render_datetime(
         elif k is TokenKind.GENERAL:
             # Excel leaks its biased seconds before truncation, noise included (a whole day
             # shows "0.5"; serial 44927 shows "0.499999803").
-            out.append(("lit", general_text(limit_precision(Decimal(biased_seconds)))))
+            general_value = limit_precision(Decimal(biased_seconds))
+            out.append(("general", general_text(general_value)))
         else:
             out.append(("lit", t.text))
-    return out
+    return out, general_value
 
 
 def _ampm(token: str, hour: int) -> str:
@@ -222,6 +238,10 @@ def _date_field(
         return f"{year % 100:02d}" if code == "yy" else f"{year:04d}"
     if c == "e":
         return f"{year:04d}"
+    if c == "b":  # the Buddhist era
+        return f"{(year + 543) % 100:02d}" if code == "bb" else f"{year + 543:04d}"
+    if c == "g":  # an era name; none in en-US
+        return ""
     if c == "m":
         if code == "m":
             return str(month)

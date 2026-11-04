@@ -638,6 +638,42 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     Character mode: 5 rows of `( General )` where Excel's narrow literals leave room for the
     longer form are skipped as glyph slack.
 
+35. **What a bare letter means (2026-11-03; `capture/letters.py`, 351 candidates checked one
+    workbook each, 73 refused; suites `letters`, `letters_upper`, the rendered ones with eight
+    values, width-less and at widths 6 and 12, 6,504 rows; `letters1904`, ten formats under the
+    1904 system, 80 rows).** Every letter of either case alone, doubled, after `0` and after
+    `yyyy `, and the forms of the year code. Excel refuses a workbook holding 259 of the rendered
+    formats while either half of them opens, hence two suites.
+    - Literal: `a c f i j k l o p q r t u v w x z` in either case (`0c` shows `1235c`, `-1c`).
+    - Refused wherever it stands, outside quotes, escapes, `_x` and `*x`: `n` and `N`.
+    - Refused: `E` in any run without a sign and digits (`E`, `EE`, `Ee`, `eE`, `yyyy E+`), while
+      `e` and `ee` are the year.
+    - `b` and `bb` show the last two digits of the Buddhist year (Gregorian + 543) and longer runs
+      all four, in either case: 12.5 under `abc` is `a43c`, under `bbbb` it is `2443`; also under
+      the 1904 system. After any `[$...]` tag it is the plain year (`[$-409]bbbb`, `[$€]b`,
+      `[$-41E]b`), before one it is not (`b[$-409]`). A date code: digits with it are refused
+      (`0 b`, `b0`), and a negative shows `#`.
+    - **The clipboard gives the plain year** for all these width-less rows (`03` where the sheet
+      shows `46`), under both date systems; `string value` at any width and `TEXT` show the
+      Buddhist year. The package follows the sheet and the capture test compares these rows with
+      the plain year code.
+    - A format whose last character is a lone code `B` is refused: `B`, `bB`, `BbB`, `yyyy B`,
+      `0;B`, `[Red]B`. `BB`, `BBB`, `Bb`, `bBB`, `B;0`, `B_)` and `B yyyy` render.
+    - `g` in any run and case is a date code that shows nothing in en-US (`yyyy g` is `1903 `; a
+      negative shows `#`; `0g` and `@g` are refused).
+    - `b1` and `b2` (either case) print nothing, before every other code of the section: `b1`
+      shows nothing and `-` for a negative, `b1 x` shows ` x`, `b1@` and `b1General` show what
+      `@` and `General` do. After another code, or with digit placeholders, they are refused
+      (`yyyy b1`, `"x"b1`, `b1 0`, `b10`, `b1b2`), and so is any other digit after `b` (`b3`,
+      `bb1`). `b1bbbb` is the Buddhist year.
+    - Not modeled, as other calendars are out of scope, and left out of the suite: `b2yyyy` is the
+      Hijri year (1321 for 1234.5678), `b2bbbb` that year plus 543, `[$-1070000]yyyy` the Buddhist
+      year and `[$-D07041E]yyyy` the same in Thai digits. The package renders these as Gregorian.
+    - Found on the way: a clock section reached as the negative section shows a `#` run
+      (`0;yy`, `0;h:mm`, `0;m/d/yy`, `x;yy` with -0.5), and an elapsed one the magnitude (`0;[h]`
+      shows `12`). `General` in a date section reduces at a width as among literals (`General
+      yyyy` with 45000.75 is `0.499999803 2023` width-less, `0.5 2023` at 12, `0 2023` at 6).
+
 ## 3. The pipeline
 
 ```
@@ -646,6 +682,7 @@ capture/cases.py              suites: tagged Case(value, format) lists plus the 
 capture/build.py              openpyxl -> <Excel container>/xlformat/<suite>.xlsx and
                              capture/build/<suite>.manifest.json; sheet "cases": A = row index,
                              one value column per width; sheet "measure" for autofit
+capture/letters.py            which bare letters Excel refuses or reads as codes (item 35)
 capture/capture_template.applescript   filled per suite into capture/build/<suite>.capture.applescript
 capture/capture.py            runs osascript, parses the output, assigns tiers, writes the TSV
 capture/tiers.py, retier.py   fast-tier rule and the command that reapplies it without recapture
