@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `text_function(value, format_string, *, date1904=False, quirks=None)` and
+  `NumberFormat.text_function`, what Excel's `TEXT` function returns: a blank is 0, an error passes
+  through, a refused format or a `#` run is `ExcelError.VALUE`, and the empty format gives the
+  empty text for a number and `-` for a negative one.
+- `column_metrics_from_points(points, normal_font=None)`, the column of a width in points. A merged
+  cell formats as one column of the sum of its columns' points, with a single padding of 5, and a
+  hidden column counts as 0 (suites `merged11`, `merged14`).
+- The Buddhist-year code: `b` and `bb` show the year's last two digits and `bbb` and longer all
+  four, in either case (`abc` with 12.5 shows `a43c`); after a `[$...]` tag they are the plain
+  year. The era code `g`, empty in en-US. The calendar prefixes `b1` and `b2`, which print
+  nothing. Other calendars are localization, which stays out of scope. Without a width the code
+  shows the Buddhist year, as the sheet and `TEXT` do; Excel's clipboard alone gives the plain year,
+  a known deviation for that medium, not modeled.
+
 ### Changed
 - The formula engine is named `xlrecalc` throughout the documentation. xlformat keeps
   `ExcelError`; `xlrecalc` has its own `ErrorValue`, which compares equal to it. The
@@ -23,19 +38,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A fraction's numerator shows a `#` run above 32767 with a fixed denominator, as in Excel (`?/10`
   with 3276.8, `?/10%` with 50), and from 2147483647 with a free one. Those values rendered the
   fraction. Evidence: suite `fraction_percent`.
-
-### Added
-- `text_function(value, format_string, *, date1904=False, quirks=None)` and
-  `NumberFormat.text_function`, what Excel's `TEXT` function returns: a blank is 0, an error passes
-  through, a refused format or a `#` run is `ExcelError.VALUE`, and the empty format gives the
-  empty text for a number and `-` for a negative one.
-- `column_metrics_from_points(points, normal_font=None)`, the column of a width in points. A merged
-  cell formats as one column of the sum of its columns' points, with a single padding of 5, and a
-  hidden column counts as 0 (suites `merged11`, `merged14`).
-- The Buddhist-year code: `b` and `bb` show the year's last two digits and `bbb` and longer all
-  four, in either case (`abc` with 12.5 shows `a43c`); after a `[$...]` tag they are the plain
-  year. The era code `g`, empty in en-US. The calendar prefixes `b1` and `b2`, which print
-  nothing. Other calendars are localization, which stays out of scope.
+- `text_width` and `glyph_widths` give whole points, and fit and fill decisions use them, as Excel
+  does: ten `W` at Calibri 11 measure 100, not 101, and `*W0` holds as many as whole points allow.
+  Autofit alone counts the tenth some wide glyphs carry. Evidence: suites `advance_tenths11`,
+  `advance_tenths12`.
 
 ### Deprecated
 - `font=` on `file_column_metrics` and `column_metrics`, which names the workbook's Normal font
@@ -47,9 +53,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A point and one to three zeros after any date or time code are fractions of a second, as in
   Excel: `[s].00` raised `FormatError`, and so did `[h].00`, `yyyy.00` and `s x.00` (suite
   `elapsed_decimals`). Beside an elapsed code `%`, `AM/PM` and `/` before a digit now raise it.
-- Fit and fill decisions, `text_width` and `glyph_widths` use whole advances, as Excel does: ten `W`
-  at Calibri 11 measure 100, not 101, and `*W0` holds as many as whole points allow. Autofit alone
-  counts the tenth some wide glyphs carry (suites `advance_tenths11`, `advance_tenths12`).
 - A number through `@`, `[Red]General` or `General;General` shows nothing in a column too narrow
   for one `#`; only the plain `General` shows one `#`. A negative through such a format with less
   than one character beside its sign shows `0` or `#` by its magnitude, as captured.
