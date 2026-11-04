@@ -42,6 +42,7 @@ class TokenKind(Enum):
     # normalized date code: y yy yyyy m mm mmm mmmm mmmmm d dd ddd dddd h hh s ss e bb bbbb g, s.0
     DATE = "date"
     MINUTE = "minute"  # m or mm resolved as minutes
+    FRACTION = "fraction"  # .0 .00 .000 elsewhere than right after s or ss: of the second
     AMPM = "ampm"  # AM/PM or A/P
     ELAPSED = "elapsed"  # [h] [mm] [sss] ...
     COLOR = "color"
@@ -375,17 +376,41 @@ def split_sections(format_string: str) -> list[str]:
     return sections
 
 
+def _check_elapsed(tokens: list[Token], source: str) -> None:
+    """Refuse what Excel refuses beside an elapsed code: ``%``, ``AM/PM`` and ``/`` and a digit."""
+    for k, t in enumerate(tokens):
+        refused = t.kind in (TokenKind.PERCENT, TokenKind.AMPM) or (
+            t.kind is TokenKind.SLASH
+            and k + 1 < len(tokens)
+            and tokens[k + 1].kind is TokenKind.LITERAL
+            and tokens[k + 1].text[:1].isdigit()
+        )
+        if refused:
+            msg = f"{t.text!r} with an elapsed code in {source!r}"
+            raise FormatError(msg)
+
+
+_FRACTION_FOLLOWS = frozenset({TokenKind.DATE, TokenKind.ELAPSED, TokenKind.AMPM})
+
+
 def _resolve_datetime(tokens: list[Token], source: str) -> list[Token]:
     """Fold fractional seconds, reject stray digits, resolve ``m`` as month or minute."""
     out: list[Token] = []
+    seen_code = False  # a date or time code stands before: a point and zeros are of the second
     i = 0
     while i < len(tokens):
         t = tokens[i]
+        seen_code = seen_code or t.kind in _FRACTION_FOLLOWS
+        if (
+            t.kind is TokenKind.DATE
+            and out
+            and out[-1].kind is TokenKind.ELAPSED
+            and out[-1].text[0] == t.text[0]
+        ):
+            t = Token(TokenKind.ELAPSED, t.text)  # Excel stores [h]h as [h][h]
         if (
             t.kind is TokenKind.POINT
-            and out
-            and out[-1].kind is TokenKind.DATE
-            and out[-1].text in ("s", "ss")
+            and seen_code
             and i + 1 < len(tokens)
             and tokens[i + 1].kind is TokenKind.DIGIT
             and tokens[i + 1].text == "0"
@@ -398,7 +423,10 @@ def _resolve_datetime(tokens: list[Token], source: str) -> list[Token]:
             if zeros > 3:
                 msg = f"more than three fractional-second digits in {source!r}"
                 raise FormatError(msg)
-            out[-1] = Token(TokenKind.DATE, out[-1].text + "." + "0" * zeros)
+            if out[-1].kind is TokenKind.DATE and out[-1].text in ("s", "ss"):
+                out[-1] = Token(TokenKind.DATE, out[-1].text + "." + "0" * zeros)
+            else:
+                out.append(Token(TokenKind.FRACTION, "." + "0" * zeros))
             i = j
             continue
         if t.kind is TokenKind.DIGIT:
@@ -415,7 +443,9 @@ def _resolve_datetime(tokens: list[Token], source: str) -> list[Token]:
         out.append(t)
         i += 1
     tokens = out
-    date_kinds = (TokenKind.DATE, TokenKind.ELAPSED)
+    if any(t.kind is TokenKind.ELAPSED for t in tokens):
+        _check_elapsed(tokens, source)
+    date_kinds = (TokenKind.DATE, TokenKind.ELAPSED, TokenKind.FRACTION)
     last_m = -1
     for ix, t in enumerate(tokens):
         if t.kind is TokenKind.DATE and t.text in ("m", "mm"):
@@ -432,7 +462,9 @@ def _resolve_datetime(tokens: list[Token], source: str) -> list[Token]:
                 for fwd in range(ix + 1, len(tokens)):
                     nxt = tokens[fwd]
                     if nxt.kind in date_kinds:
-                        minute = nxt.kind is TokenKind.DATE and nxt.text[0] == "s"
+                        minute = nxt.kind is TokenKind.FRACTION or (
+                            nxt.kind is TokenKind.DATE and nxt.text[0] == "s"
+                        )
                         break
             if minute:
                 tokens[ix] = Token(TokenKind.MINUTE, t.text)

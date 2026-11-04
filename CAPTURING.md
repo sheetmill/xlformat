@@ -746,6 +746,26 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     draws them whole as well, 10 points apart in a PDF export at Calibri 11 (sheetpeek's layout
     capture). Character mode skips these suites: the glyphs are wider than digits.
 
+42. **A point and zeros after a date or time code (2026-11-03; `capture/elapsed_forms.py`, 74 forms
+    one workbook each, 18 refused; suite `elapsed_decimals`, 59 forms under 13 values, width-less
+    and at widths 8 and 30, 2,301 rows).** `[s].00` raised `FormatError` although Excel renders it.
+    - The zeros are fractions of the second, whatever the unit: 1234.5678 under `[h].00` is
+      `29629.92`, under `yyyy.00` `1903.92`, under `s x.00` `37 x.92`, under `AM/PM.0` `PM.9`, and
+      `s.00.0` is `37.92.9`. Literals may stand between (`[s]_).00`, `[s]".".00`). `m` before the
+      fraction is a minute (`m.00` is `37.92`). A negative under an elapsed code with a fraction is
+      a `#` run, where `[s]` shows `-43200`; `[s].` keeps the sign, its point being a literal.
+    - Refused: more than three zeros (`[s].0000`), another placeholder (`[s].#`, `[s].0#`), an
+      escaped point (`[s]\.00`), a point and zeros before any code (`.00 s`), and beside an elapsed
+      code `%`, `AM/PM` and `/` before a digit.
+    - `[h]h` and `[s]s` are stored as `[h][h]` and `[s][s]` and show the count twice (`3636.0`).
+    - Not modeled, left out of the suite: `d [s].00` and `yyyy [s].00` show numbers no rule here
+      explains (`0 4363200.50` for half a second).
+    - A batch stopped with `AppleEvent timed out` (-1712) on the workbook holding `[s]*-.00`. Excel
+      did not answer scripts for some time; when looked at later no dialog showed, that workbook
+      was open and alerts were on, and it answered once the workbook was closed by hand. Whether
+      the format is the cause is not established. `capture/probe_file_many.applescript` now limits each workbook to 30 seconds and stops at the
+      first timeout, naming the format. The form has no capture.
+
 ## 3. The pipeline
 
 ```
@@ -754,6 +774,7 @@ capture/cases.py              suites: tagged Case(value, format) lists plus the 
 capture/build.py              openpyxl -> <Excel container>/xlformat/<suite>.xlsx and
                              capture/build/<suite>.manifest.json; sheet "cases": A = row index,
                              one value column per width; sheet "measure" for autofit
+capture/elapsed_forms.py      where a point and zeros are fractions of a second (item 42)
 capture/letters.py            which bare letters Excel refuses or reads as codes (item 35)
 capture/capture_template.applescript   filled per suite into capture/build/<suite>.capture.applescript
 capture/capture.py            runs osascript, parses the output, assigns tiers, writes the TSV

@@ -3,6 +3,7 @@
 from decimal import Decimal
 
 import pytest
+from capture.elapsed_forms import REFUSED as ELAPSED_REFUSED
 from capture.letters import REFUSED as LETTERS_REFUSED
 
 from xlformat import FormatError, NumberFormat, SectionKind, format_cell, format_value
@@ -163,7 +164,7 @@ REFUSED = [
 ]
 
 
-@pytest.mark.parametrize("source", LETTERS_REFUSED)
+@pytest.mark.parametrize("source", [*LETTERS_REFUSED, *ELAPSED_REFUSED])
 def test_letter_forms_excel_refuses(source: str) -> None:
     with pytest.raises(FormatError):
         NumberFormat.parse(source)

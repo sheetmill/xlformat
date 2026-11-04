@@ -48,7 +48,8 @@ Tokens per section, produced by one regex pass (the old tokenizer approach, kept
 | `[Red]` ... `[Color56]` | section color; case-insensitive; `[Color 3]` with a space is accepted and kept as `[Color3]` (`CAPTURING.md` §2 item 9) |
 | `[<=100]`, `[<>0]`, `[=1]` | condition, sections 1 and 2 only; a condition in the text section is an error |
 | `[$€-x-euro2]`, `[$-409]`, `[$-F800]` | currency symbol (emitted as a literal) and locale tag (recorded, not applied) |
-| `[h]`, `[mm]`, `[ss]` and longer runs | elapsed time; at most one per section; nothing may precede it except literals |
+| `[h]`, `[mm]`, `[ss]` and longer runs | elapsed time; at most one per section, and with it `%`, `AM/PM` and `/` before a digit are a `FormatError`. A code of the same letter right after it is elapsed too (`[h]h` is stored as `[h][h]`) |
+| `.0`, `.00`, `.000` after any date or time code in the section | fractions of a second, whatever the codes and literals between (`[s].00`, `yyyy.00`, `s x.00`). More than three zeros, or another placeholder after the point, is a `FormatError`, and so is a point and zeros before any code |
 | `General` (case-insensitive), `@` | General placeholder (allowed in numeric and text sections, with literals around it); text placeholder |
 | `0 # ?`, `.`, `,`, `%`, `E+ E-`, `/` | numeric codes. Lower-case `e+`/`e-` after digits make Excel refuse the file (`FormatError`, `CAPTURING.md` §2 item 9). A second `.` is a literal inside the decimal digits (`0.0.0` shows `1234.5.7`). `%` between mantissa and `E` is a literal and does not scale (`0%E+0` shows `1%E+3`) |
 | `y m d h s e b g`, `AM/PM`, `A/P` runs | date/time codes, case-insensitive except as below, normalized (`yyy`→`yyyy`, `mmmmmm`→`mmmm`, `ddddd`→`dddd`, `sss`→`ss`, `bbb`→`bbbb`). `e` is a four-digit year in en-US (`e+` shows `1903+` for serial 1234); `b` and `bb` are the Buddhist year's last two digits and longer runs all four, the plain year after any `[$...]` tag; `g` is an era name, which is empty in en-US. An upper-case `E` without a sign and digits is a `FormatError`; so is a format whose last character is a lone code `B` (`B`, `bB`, `[Red]B`, `0;B`; `BB` and `B;0` are the year) |
@@ -72,7 +73,7 @@ knows whether AM/PM is present, fractional-second digit count).
 `m` resolution (from the 2023 prototype, verified by the Excel captures): scanning left to right, an `m` run
 is a minute if an `h` run precedes it since the previous `m` run; otherwise a minute if the next
 date/time code is a second; otherwise a month. The general rule is that `m` next to `h` or `s` is
-a minute.
+a minute, and a fraction of a second counts as a second there (`m.00` is minutes and hundredths).
 
 Comma rules (from the 2023 prototype's docstring, which the Excel captures confirm): commas between digit
 placeholders before the decimal point turn on grouping; commas immediately after the last digit
@@ -246,8 +247,9 @@ bias in seconds.
   negative value renders as `-` followed by the rendering of its magnitude (`-1` under
   `m/d/yyyy` is `-1/2/1904`, `-0.5` under `h:mm` is `-12:00`).
 - **Negatives in 1900**: a section made only of elapsed codes shows `-` and the magnitude
-  (`[h]` with -1 is `-24`) and has no upper limit; any other section shows the `#` run, decided
-  on the raw sign (-1e-9 is `#`, not January 0).
+  (`[h]` with -1 is `-24`) and has no upper limit; any other section, one with a fraction of a
+  second included (`[s].00`), shows the `#` run, decided on the raw sign (-1e-9 is `#`, not
+  January 0).
 - **Limits**: a clock section whose rounded value reaches day 2958466 (year 10000) shows `#`;
   under 1904 the limit is 1462 days lower. 23:59:59.5 on 9999-12-31 overflows under `ss` and
   shows `59.5` under `ss.0`.

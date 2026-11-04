@@ -15,6 +15,7 @@ on run argv
 			set xlName to xlNameRef as text
 			set xlPath to xlDir & "/" & xlName
 			try
+				with timeout of 30 seconds
 				open workbook workbook file name xlPath
 				set xlWb to workbook xlName
 				set xlWs to worksheet 1 of xlWb
@@ -26,8 +27,11 @@ on run argv
 					set end of xlOut to xlName & xlTab & (item 1 of xlRec) & xlTab & (item 2 of xlRec) & xlTab & (item 3 of xlRec) & xlTab & (item i of xlShown) & xlTab & xlKept
 				end repeat
 				close xlWb saving no
+				end timeout
 			on error e number num
 				set end of xlOut to xlName & xlTab & "ERROR " & num & ": " & e
+				-- a timeout means Excel is stuck on this workbook: stop here and name it
+				if num is -1712 then exit repeat
 				if exists workbook xlName then close workbook xlName saving no
 			end try
 		end repeat

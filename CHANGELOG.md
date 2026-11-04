@@ -44,6 +44,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `DeprecationWarning` and goes away in 1.0; passing both raises `ValueError`.
 
 ### Fixed
+- A point and one to three zeros after any date or time code are fractions of a second, as in
+  Excel: `[s].00` raised `FormatError`, and so did `[h].00`, `yyyy.00` and `s x.00` (suite
+  `elapsed_decimals`). Beside an elapsed code `%`, `AM/PM` and `/` before a digit now raise it.
 - Fit and fill decisions, `text_width` and `glyph_widths` use whole advances, as Excel does: ten `W`
   at Calibri 11 measure 100, not 101, and `*W0` holds as many as whole points allow. Autofit alone
   counts the tenth some wide glyphs carry (suites `advance_tenths11`, `advance_tenths12`).

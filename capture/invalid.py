@@ -87,6 +87,11 @@ def check(candidates: dict[str, str]) -> None:
         by_name.setdefault(name, []).append(rest)
     for name, (label, fmt) in zip(names, candidates.items(), strict=True):
         lines = by_name.get(name, ["<no output>"])
+        if lines[0].startswith("ERROR -1712"):
+            print(
+                f"{label:36s} {fmt!r:26s} STUCK: Excel stopped answering here; later ones not run"
+            )
+            break
         if lines[0].startswith("ERROR"):
             print(f"{label:36s} {fmt!r:26s} refused  ({lines[0][:40]})")
             continue

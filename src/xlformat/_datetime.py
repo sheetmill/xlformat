@@ -103,7 +103,7 @@ def _fraction_digits(tokens: tuple[Token, ...]) -> int:
     """Fractional-second digits displayed (0 to 3). Excel always rounds to at least the second."""
     digits = 0
     for t in tokens:
-        if t.kind is TokenKind.DATE and "." in t.text:
+        if t.kind is TokenKind.FRACTION or (t.kind is TokenKind.DATE and "." in t.text):
             digits = max(digits, len(t.text.partition(".")[2]))
     return digits
 
@@ -137,8 +137,10 @@ def render_datetime(
     """
     del display
     tokens = _system_tokens(section)
+    # a fraction of a second makes it a clock section for a negative: [s].00 shows '#'
     elapsed_only = all(
-        t.kind not in (TokenKind.DATE, TokenKind.MINUTE, TokenKind.AMPM) for t in tokens
+        t.kind not in (TokenKind.DATE, TokenKind.MINUTE, TokenKind.AMPM, TokenKind.FRACTION)
+        for t in tokens
     ) and any(t.kind is TokenKind.ELAPSED for t in tokens)
     negative = serial < 0
     if negative and not (date1904 or elapsed_only):
@@ -190,6 +192,8 @@ def render_datetime(
                     ),
                 )
             )
+        elif k is TokenKind.FRACTION:
+            out.append(("lit", "." + f"{frac:0{digits}d}"[: len(t.text) - 1]))
         elif k is TokenKind.MINUTE:
             out.append(("lit", f"{minute:02d}" if t.text == "mm" else str(minute)))
         elif k is TokenKind.AMPM:

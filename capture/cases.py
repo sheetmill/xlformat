@@ -2433,6 +2433,30 @@ def advance_tenths12() -> Suite:
     return _advance_tenths("advance_tenths12", 12, 6, "W%wH")
 
 
+def elapsed_decimals() -> Suite:
+    """A point and zeros after a date or time code: fractions of a second (``elapsed_forms``)."""
+    from capture.elapsed_forms import ACCEPTED
+
+    name = "elapsed_decimals"
+    values: tuple[tuple[str, object], ...] = (
+        ("zero", 0),
+        ("half-second", 0.5 / 86400),
+        ("second-and-a-half", 1.5 / 86400),
+        ("near-minute", 59.9996 / 86400),
+        ("rounds-up", 59.99996 / 86400),
+        ("three-quarters", 0.75),
+        ("one-and-a-half", 1.5),
+        ("dec", 1234.5678),
+        ("serial", 44927.75),
+        ("neg-half", -0.5),
+        ("neg-one", -1),
+        ("text", "abc"),
+        ("bool", True),
+    )
+    cases = tuple(Case(name, tag, value, f) for f in ACCEPTED for tag, value in values)
+    return Suite(name, cases, widths=(None, 8, 30))
+
+
 # TEXT(): the value and the format come from cells of sheet inputs, so no literal is rounded to
 # 15 digits and no format is quoted; a format Excel refuses in a file only makes TEXT an error.
 
@@ -2559,6 +2583,7 @@ def text_function1904() -> Suite:
 
 SUITES: dict[str, Callable[[], Suite]] = {
     "huge_values": huge_values,
+    "elapsed_decimals": elapsed_decimals,
     "advance_tenths11": advance_tenths11,
     "advance_tenths12": advance_tenths12,
     "general_sign_narrow": general_sign_narrow,

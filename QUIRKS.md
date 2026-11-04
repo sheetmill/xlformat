@@ -109,6 +109,11 @@ width, as the sheet and `TEXT` do at every width, while Excel's clipboard gives 
 35). The package follows the sheet and does not model that medium; `full_text` says so, and the
 capture test compares these rows with the plain year code, so a change on either side fails it.
 
+An elapsed code after a date code is not modeled: `d [s].00` with half a second shows `0 4363200.50`
+in Excel, numbers no rule here explains, and the package shows the elapsed count (`0 0.50`). A
+capture batch stopped on a workbook with `[s]*-.00`, so that form has no capture (`CAPTURING.md` §2
+item 42).
+
 No other row is known to differ. Such rows would be listed in `tests/test_captures.py` and here,
 with the evidence, and counted on every run. History: 99
 entries (floating noise in the leaked `General` seconds, half-second boundaries on serial 44927)
