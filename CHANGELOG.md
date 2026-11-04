@@ -41,6 +41,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `DeprecationWarning` and goes away in 1.0; passing both raises `ValueError`.
 
 ### Fixed
+- A number through `@`, `[Red]General` or `General;General` shows nothing in a column too narrow
+  for one `#`; only the plain `General` shows one `#`. A negative through such a format with less
+  than one character beside its sign shows `0` or `#` by its magnitude, as captured.
 - A huge value no longer raises under a fraction or elapsed format: `# ?/?` with 1e100 raised
   `decimal.InvalidOperation`, and `[h]` and `?/?%` with the largest double raised
   `OverflowError`. Their digits past 15 print as zeros, as in Excel.

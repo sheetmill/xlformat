@@ -116,6 +116,9 @@ class Suite:
     width_source: Literal["dialog", "file"] = "dialog"
     sheet_format: tuple[tuple[str, float], ...] = ()  # <sheetFormatPr> attributes to set
     probe: bool = False
+    merged: tuple[tuple[float, ...], ...] = ()
+    """One block per entry of ``widths``: the ``<col width>`` of the columns merged across each
+    row. ``widths`` then holds each block's total points, and ``width_source`` is ``file``."""
     date1904: bool = False
     fast_cap: int = DEFAULT_FAST_CAP  # rows per (format, width) in the fast tier; 0 = full only
 
@@ -2279,6 +2282,131 @@ def fraction_percent() -> Suite:
     return Suite(name, cases, widths=(None, 12))
 
 
+def _merged(name: str, font_size: int | None, *, probe: bool) -> Suite:
+    """Cells merged across columns: wide blocks, narrow blocks, mixed, with a zero-width column."""
+    from xlformat import Font, file_column_metrics
+
+    normal = Font("Calibri", float(font_size or 11))
+    blocks = (
+        (1, 1),
+        (1, 2),
+        (2, 2),
+        (2, 5),
+        (3, 3),
+        (4, 4),
+        (5, 5),
+        (8.43, 8.43),
+        (10, 10),
+        (1, 1, 1),
+        (2, 2, 2),
+        (3, 4, 5),
+        (8, 8, 8),
+        (1, 1, 1, 1, 1),
+        (0.5, 0.5),
+        (0.3, 0.3),
+        (0.2, 0.2, 0.2),
+        (0.1, 0.1),
+        (0.1, 0.1, 0.1, 0.1),
+        (0.5, 3),
+        (3, 0.5),
+        (0.8, 0.8),
+        (20, 0.5, 0.5),
+        (0, 5),
+        (5, 0),
+        (0.18,),
+        (0.3,),
+        (0.5,),
+        (0.65,),
+        (0.8,),
+        (1,),
+        (1.2,),
+        (2,),
+    )
+    formats = (
+        "0",
+        "#,##0.00",
+        "m/d/yyyy",
+        "dddd, mmmm d, yyyy",
+        "General",
+        "0* ",
+        "*-0",
+        "@",
+        "@*-",
+        '"x"0',
+    )
+    values: tuple[tuple[str, object], ...] = (
+        ("short", 5),
+        ("eight", 12345678),
+        ("long", 1234567890123),
+        ("dec", 1234.5678),
+        ("neg", -1234.5678),
+        ("serial", 44927.75),
+        ("tiny", 1.5e-07),
+        ("text", "abc"),
+        ("bool", True),
+    )
+    cases = tuple(Case(name, f"merged:{tag}", value, f) for f in formats for tag, value in values)
+    widths = tuple(
+        sum(file_column_metrics(w, normal_font=normal).points for w in b) for b in blocks
+    )
+    return Suite(
+        name,
+        cases,
+        widths=widths,
+        font_size=font_size,
+        width_source="file",
+        merged=blocks,
+        probe=probe,
+    )
+
+
+def merged_probe() -> Suite:
+    """Merged cells at Calibri 11, as a probe."""
+    return _merged("merged_probe", None, probe=True)
+
+
+def general_text_narrow() -> Suite:
+    """A General that is not the General format, in columns from 1 to 30 points."""
+    name = "general_text_narrow"
+    formats = ("@", "@*-", "*-@", "_(@_)", '@" x"', "[Red]General", "General;General", "General")
+    values = (
+        ("pos-5", 5),
+        ("pos-12", 12),
+        ("pos-1234.5", 1234.5),
+        ("pos-long", 12345678),
+        ("pos-tiny", 1.5e-07),
+        ("pos-half", 0.5),
+        ("zero", 0),
+        ("neg-1.5", -1.5),
+        ("neg-9.5", -9.5),
+        ("neg-10", -10),
+        ("neg-12", -12),
+        ("neg-1234.5", -1234.5),
+        ("neg-long", -12345678),
+        ("neg-tiny", -1.5e-07),
+        ("neg-half", -0.5),
+    )
+    cases = tuple(Case(name, tag, value, f) for f in formats for tag, value in values)
+    narrow = tuple(round(p / 11, 2) for p in range(1, 11))
+    wide = tuple(round((p - 5) / 6, 2) for p in range(11, 31))
+    return Suite(name, cases, widths=(*narrow, *wide))
+
+
+def general_sign_narrow() -> Suite:
+    """Negatives through a non-plain General with less than one character left beside the sign."""
+    name = "general_sign_narrow"
+    values = (
+        -0.00001, -0.00009, -0.0001, -0.001, -0.004, -0.005, -0.01, -0.05, -0.09, -0.1, -0.2,
+        -0.4, -0.49, -0.5, -0.51, -0.9, -0.99, -1, -1.1, -1.4, -1.49, -1.5, -1.51, -2, -2.5, -3,
+        -3.5, -4, -4.4, -4.5, -5, -5.5, -8.5, -9, -9.4, -9.49, -9.5, -9.6, -9.9, -10, -10.5, -11,
+        -12, -49.5, -50, -99, -99.4, -99.5, -100, -999, -999.5, -1000, -9999, -9999.5, -10000,
+        -99999, -100000, -999999, -1000000, -1234567, -9999999, -10000000, -99999999, -100000000,
+        -1e9, -1e10, -1e11, -1e12, -1e15, -1e21, -1e100,
+    )  # fmt: skip
+    cases = tuple(Case(name, repr(v), v, f) for f in ("@", "[Red]General") for v in values)
+    return Suite(name, cases, widths=(1, 1.33, 1.5))
+
+
 # TEXT(): the value and the format come from cells of sheet inputs, so no literal is rounded to
 # 15 digits and no format is quoted; a format Excel refuses in a file only makes TEXT an error.
 
@@ -2405,6 +2533,9 @@ def text_function1904() -> Suite:
 
 SUITES: dict[str, Callable[[], Suite]] = {
     "huge_values": huge_values,
+    "general_sign_narrow": general_sign_narrow,
+    "general_text_narrow": general_text_narrow,
+    "merged_probe": merged_probe,
     "empty_text": empty_text,
     "fraction_percent": fraction_percent,
     "text_function": text_function,

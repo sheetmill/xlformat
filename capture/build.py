@@ -119,11 +119,25 @@ def build(suite: Suite) -> Manifest:
     for attr, value in suite.sheet_format:
         setattr(ws.sheet_format, attr, value)
     columns: list[ColumnSpec] = []
+    # the sheet column of each capture column: consecutive, or a block's first column when merged
+    starts: list[int] = []
+    next_column = 2
     for k, width in enumerate(suite.widths):
-        letter = get_column_letter(k + 2)
+        starts.append(next_column)
+        letter = get_column_letter(next_column)
         columns.append(ColumnSpec(letter, width, _method(suite, width)))
-        if suite.width_source == "file" and width is not None:
-            ws.column_dimensions[letter].width = width
+        if suite.merged:
+            for offset, file_width in enumerate(suite.merged[k]):
+                dimension = ws.column_dimensions[get_column_letter(next_column + offset)]
+                if file_width:
+                    dimension.width = file_width
+                else:
+                    dimension.hidden = True  # openpyxl leaves out a width of 0
+            next_column += len(suite.merged[k])
+        else:
+            next_column += 1
+            if suite.width_source == "file" and width is not None:
+                ws.column_dimensions[letter].width = width
     inputs = wb.create_sheet("inputs") if any(c.text_function for c in suite.cases) else None
     for row, case in enumerate(suite.cases, 1):
         ws.cell(row=row, column=1, value=row)
@@ -134,10 +148,17 @@ def build(suite: Suite) -> Manifest:
             text = f"=TEXT(inputs!$A${row},inputs!$B${row})"
             _set_value(ws, row, 2, None, "General", text)
             continue
-        for k in range(len(suite.widths)):
-            _set_value(ws, row, k + 2, case.value, case.format, case.formula, case.written)
+        for k, start in enumerate(starts):
+            _set_value(ws, row, start, case.value, case.format, case.formula, case.written)
             if case.font is not None:
-                ws.cell(row=row, column=k + 2).font = _font(case.font)
+                ws.cell(row=row, column=start).font = _font(case.font)
+            if suite.merged and len(suite.merged[k]) > 1:
+                ws.merge_cells(
+                    start_row=row,
+                    end_row=row,
+                    start_column=start,
+                    end_column=start + len(suite.merged[k]) - 1,
+                )
     measure_cells: list[str] = []
     if suite.measure:
         ms = wb.create_sheet("measure")

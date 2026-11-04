@@ -44,6 +44,9 @@ class FormattedCell:
     overflow: bool
 
 
+_ZERO_BELOW = Decimal("0.5")
+_ZERO_UNDER = Decimal(10000)
+_LEADING_DIGIT_LIMIT = Decimal(5)
 OVERFLOW_WIDTH = 255  # Excel's widest column; the clipboard shows this many '#'
 
 
@@ -57,6 +60,19 @@ def _hashes(width: float | None, measure: Measure, general: bool = False) -> str
         return "#" * OVERFLOW_WIDTH
     count = min(max(int(width // measure("#")), 0), MAX_TEXT)
     return "#" * max(count, 1 if general else 0)
+
+
+def _zero_without_room(a: Decimal) -> bool:
+    """Whether a General with less than one character left shows ``0`` rather than nothing.
+
+    Zero; from 0.0001 to under 0.5; and from 1 to under 10,000 with a leading digit under 5, so
+    ``( General )`` with -1.5 or -0.05 at 2.67 units is ``( 0 )``, with -5 or -0.5 a ``#`` run.
+    """
+    if a == 0:
+        return True
+    if a < 1:
+        return GENERAL_SMALL <= a < _ZERO_BELOW
+    return a < _ZERO_UNDER and a.scaleb(-a.adjusted()) < _LEADING_DIGIT_LIMIT
 
 
 def overflow(
@@ -138,9 +154,8 @@ def assemble(
             budget = 1.0
         cost = general_cost(measure("-") / digit)
         if budget < 1:
-            # not one character left: a value from 0.0001 to under 10 shows zero ('( General )'
-            # with -1.5 or -0.05 at 2.67 units is '( 0 )'), any other nothing (-1.5E-07 '###')
-            general = "0" if a == 0 or GENERAL_SMALL <= a < 10 else None
+            # not one character left: zero or nothing, by the magnitude (general_sign_narrow)
+            general = "0" if _zero_without_room(a) else None
         else:
             general = general_text_fitting(general_value, budget, cost)
         if general is None:
@@ -150,7 +165,7 @@ def assemble(
             general = general_fallback(general_value, prefer_integer=general_format)
             text, _ = _join(pieces, general)
             if measure(text) > width:
-                return overflow(color, width, full_text, measure, general=True)
+                return overflow(color, width, full_text, measure, general=general_format)
         if not general_format and general.strip("-") == "0":
             # a negative whose General reduced to zero drops its sign, and a '-' literal just
             # before the General: General"x" with -0.001 at width 6 shows "0x"
@@ -172,11 +187,11 @@ def assemble(
             text = text[:position] + char * count + text[position:]
             if len(text) > MAX_TEXT:
                 # more than 255 characters with the fill: a '#' run, text too (limits)
-                return overflow(color, width, full_text, measure, general=has_general)
+                return overflow(color, width, full_text, measure, general=general_format)
         else:
             fill = None
     # General among literals too must fit by glyph width ('0 units' at width 1 is '#'); the
     # General format alone fits by characters ('1' shows in a 1-point column)
     if overflows and not (has_general and general_format) and measure(text) > width:
-        return overflow(color, width, full_text, measure, general=has_general)
+        return overflow(color, width, full_text, measure, general=general_format)
     return FormattedCell(text, full_text, color, align, fill, False)

@@ -378,8 +378,9 @@ by characters, the shorter of the rounded integer and the one-digit scientific f
 glyphs fit the column, else the `#` run: `1E+06` at 4.67 units (28 points of 28), `-1E+05x` at
 width 6. On a tie the format `General` keeps the integer (`12345` at 4.67 is `#####`) and a
 General section takes the scientific form (`( 1E+04 )` at 6.33, also under `General;-General`).
-With less than one character left among literals, a value from 0.0001 to under 10 shows `0`
-(`( 0 )` for -1.5 at 2.67 units) and any other nothing. Among literals a General that reduced to
+With less than one character left among literals or beside a sign, a value shows `0` from 0.0001 to
+under 0.5 and from 1 to under 10,000 with a leading digit under 5 (`( 0 )` for -1.5 at 2.67 units),
+and otherwise nothing fits (-5 and -0.5 are `#` there; `general_sign_narrow`). Among literals a General that reduced to
 zero drops the sign and a `-` literal just before it (`0x`, and `0` under `General;-General`);
 bare General keeps `-0`. Every General text also passes the glyph test (`0 units` at width 1 is
 `#`). At whole widths these rules agree with the character count alone, which is why the suites
@@ -400,8 +401,9 @@ sheet has one, else `baseColWidth · MDW + 5` points (53 at Calibri 11, 8.0 in t
 dialog shows `(points − 5) / MDW`, below one unit `points / (MDW + 5)`, to two decimals half up;
 `ColumnMetrics.width` is that number exact, so it round-trips through `column_width`. Below one
 unit a dialog width is `round(w · (MDW + 5))` points. A `#` run holds as many `#` as fit, none in a
-column too narrow for one (the cell shows nothing) except under the General format, which shows
-one `#` and keeps a one-character result (`1` in a 1-point column); at most 255. A number or text
+column too narrow for one (the cell shows nothing) except under the plain General format, which
+shows one `#` and keeps a one-character result (`1` in a 1-point column), while a number through
+`@`, `[Red]General` or `General;General` shows nothing there (`general_text_narrow`); at most 255. A number or text
 whose displayed text with its `*` fill would exceed 255 characters shows a `#` run, and a number
 whose text exceeds 255 characters is 255 `#` without a width as well (`1E+300` under `0`).
 `ColumnMetrics` also carries the text edges, 3 points from the left gridline and 2 from the

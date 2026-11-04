@@ -714,6 +714,18 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     Text reading as a number is not part of the corpus: `TEXT("12","0.00")` converts first, which a
     caller of `text_function` does itself. It found the crash of item 36 and the rules of item 37.
 
+39. **General that is not the General format, in narrow columns (2026-11-03; suites
+    `general_text_narrow`, 15 values under 8 formats at every point from 1 to 30 at Calibri 11,
+    3,600 rows; `general_sign_narrow`, 71 negatives under `@` and `[Red]General` at 1, 1.33 and 1.5
+    units, 426 rows).** A probe of merged cells showed single columns behaving this way too.
+    - A column too narrow for one `#` shows nothing for a number through `@`, `@*-`, `*-@`, `_(@_)`,
+      `@" x"`, `[Red]General` or `General;General`. Only the plain `General` shows one `#`.
+    - At 1 to 1.33 units, where a minus leaves less than a character, the value decides: `0` from
+      0.0001 to under 0.5 (-0.49) and from 1 to under 10,000 with a leading digit under 5 (-1, -4.5,
+      -49.5, -100, -1000); nothing, so a `#` run, for -0.00009, -0.5 to -0.99, -5 to -9.9, -50, -999,
+      -9999 and from -10000 on. At 1.5 units the form fits (`-1`, `-9`) until `-9.5` rounds to two
+      digits. The earlier rule, "from 0.0001 to under 10", had been fitted to -1.5 and -0.05.
+
 ## 3. The pipeline
 
 ```
