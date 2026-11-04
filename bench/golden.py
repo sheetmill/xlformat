@@ -18,7 +18,7 @@ from pathlib import Path
 
 from capture.schema import read_rows
 
-from xlformat import Font, file_column_metrics, format_cell
+from xlformat import Font, file_column_metrics, format_cell, text_function
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tests"))
@@ -48,6 +48,9 @@ def lines() -> list[str]:
             fmt = row.format_string
             d = row.date1904 == "1"
             key = f"{path.name}|{row.tag}|{row.value_repr}|{row.format}|{row.width}"
+            if row.tag.startswith("text:"):
+                out.append(f"{key}|text|{text_function(value, fmt, date1904=d)!r}")
+                continue
             out.append(f"{key}|none|{_cell(value, fmt, date1904=d)}")
             width = row.width_value
             if file_widths:

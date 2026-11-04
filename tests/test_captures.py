@@ -26,6 +26,7 @@ from xlformat import (
     file_column_metrics,
     format_cell,
     format_value,
+    text_function,
 )
 
 CAPTURE_DIR = Path(__file__).parent / "captures"
@@ -76,8 +77,8 @@ def _excel_value(row: Row, header: dict[str, str]) -> object:
     denote the Python double.
     """
     value = row.value
-    if value == "" and "formula:" not in row.tag:
-        return None  # openpyxl writes the empty string as a blank cell; empty_text has real ones
+    if value == "" and not row.tag.startswith(("formula:", "text:")):
+        return None  # openpyxl writes the empty string as a blank cell; these rows hold real ones
     if row.value_type == "error":
         assert isinstance(value, str)
         return ExcelError(value)
@@ -219,6 +220,12 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         fmt = row.format_string
         value = _excel_value(row, header)
         date1904 = row.date1904 == "1"
+        if row.tag.startswith("text:"):  # the cell holds TEXT of the value under the format
+            counts["compared"] += 1
+            got = text_function(value, fmt, date1904=date1904)
+            if got != row.expected_text:
+                failures.append((row, got))
+            continue
         column_width = row.width_value
         if file_widths:
             metrics = file_column_metrics(

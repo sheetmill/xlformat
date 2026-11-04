@@ -93,6 +93,30 @@ A reader of a file passes `ExcelError(cell.value)` for a cell of type `e`. Compa
 `==`, not `is`: an unlisted code is a new object on each lookup, though equal, with an equal
 hash, to every other lookup of the same text.
 
+## Excel's TEXT function
+
+A formula engine evaluating `TEXT` calls `text_function`. It is the width-less text, with what
+`TEXT` does differently: a blank (`None`) is 0, an error passes through, and a format Excel refuses
+or a value the format cannot show gives `ExcelError.VALUE` instead of raising or showing `#`.
+
+```python
+>>> from xlformat import text_function
+>>> text_function(1234.5, "*-0")
+'1235'
+>>> text_function(1234.5, "0_)")
+'1235 '
+>>> text_function(None, "0.00")
+'0.00'
+>>> text_function(-1, "m/d/yy") == ExcelError.VALUE
+True
+>>> text_function(1, "0.00e+00") == ExcelError.VALUE
+True
+>>> text_function(-5, "")
+'-'
+```
+
+Text that reads as a number stays text: a caller evaluating `TEXT("12", "0.00")` converts it first.
+
 ## Compiled formats
 
 {meth}`xlformat.NumberFormat.parse` compiles a format once. It is cached, so calling it again

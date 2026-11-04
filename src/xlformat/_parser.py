@@ -18,6 +18,7 @@ from xlformat._errors import FormatError
 
 if TYPE_CHECKING:
     from xlformat._assemble import FormattedCell
+    from xlformat._error_values import ExcelError
     from xlformat._quirks import Quirks
 from xlformat._measure import FontSpec, Measure
 
@@ -849,6 +850,23 @@ class NumberFormat:
             date1904=date1904,
             quirks=quirks,
         )
+
+    def text_function(
+        self,
+        value: object,
+        *,
+        date1904: bool = False,
+        quirks: Quirks | None = None,
+    ) -> str | ExcelError:
+        """What Excel's ``TEXT`` returns for ``value`` under this format.
+
+        Takes the keyword arguments of :func:`xlformat.text_function` and returns what it does,
+        with one difference: ``NumberFormat.parse("")`` is the format ``General``, so the empty
+        format of ``TEXT`` is reached through the function only.
+        """
+        from xlformat._render import text_function
+
+        return text_function(self, value, date1904=date1904, quirks=quirks)
 
 
 _BEFORE_FINAL_B = frozenset({"B", "\\", "_", "*"})

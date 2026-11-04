@@ -109,8 +109,8 @@ def render_fraction(
     x = float(v)
     for _ in range(spec.percent):
         x *= 100.0  # in double arithmetic, as Excel does (1234567.891 under ?/?% is 1111111102/9)
-    if math.isinf(x):
-        x = 0.0  # scaling past the largest double leaves nothing: ?/?% shows 0/1%
+    if math.isinf(x) or (spec.whole is None and math.isinf(x * (spec.fixed_denominator or 1))):
+        x = 0.0  # past the largest double nothing is left: ?/?% and ?/10 show 0/1% and 0/10
     if spec.fixed_denominator and quirks.fraction_denominators:
         frac = Fraction(fixed_numerator(Decimal(x), spec.fixed_denominator), spec.fixed_denominator)
     elif spec.fixed_denominator:

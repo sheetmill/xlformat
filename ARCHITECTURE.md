@@ -530,12 +530,14 @@ def format_value(value, format_string="General", *, width=None, column_width=Non
                  normal_font=None, measure=None, date1904=False, quirks=None) -> str
 def format_cell(value, format_string="General", *, width=None, column_width=None, font=None,
                 normal_font=None, measure=None, date1904=False, quirks=None) -> FormattedCell
+def text_function(value, format_string, *, date1904=False, quirks=None) -> str | ExcelError
 
 class NumberFormat:
     @classmethod
     def parse(cls, format_string: str) -> "NumberFormat"      # cached; raises FormatError
     def format(self, value, *, width=None, column_width=None, font=None, normal_font=None,
                measure=None, date1904=False, quirks=None) -> str
+    def text_function(self, value, *, date1904=False, quirks=None) -> str | ExcelError
     def format_cell(self, value, *, width=None, column_width=None, font=None, normal_font=None,
                     measure=None, date1904=False, quirks=None) -> FormattedCell
     is_date: bool; is_text: bool; is_general: bool; sections: tuple[Section, ...]
@@ -579,6 +581,17 @@ like one (`#` and capitals, digits, `_` or `/`, optionally `!` or `?`) is admitt
 member through `_missing_`, so a newer Excel's error renders; other text raises `ValueError`.
 xlformat keeps this type; `xlrecalc`, which requires xlformat, has its own `ErrorValue`, which
 compares equal to it.
+
+**Excel's `TEXT` function.** `text_function` gives what `=TEXT(value, format)` returns, so format
+semantics stay in this package for a formula engine. It is the width-less rendering, which already
+drops `*` fills and turns `_x` into one space, with what `TEXT` does differently (suites
+`text_function`, `text_function1904`; `CAPTURING.md` §2 item 38): `None` is 0; an `ExcelError` value
+passes through, under any format; a format Excel refuses, or a value the section shows as a `#`
+run, is `ExcelError.VALUE`, which is a `str`, while a literal `"#"` or `"#VALUE!"` in the format
+stays a plain one; and the empty format gives the empty text for a number (`-` for a negative) and
+leaves text and booleans as they are. Parsing text as a number is the caller's: it needs the
+caller's date context, and the package treats `str` as text throughout. `NumberFormat.parse("")`
+is `General`, so the empty format is reached through the function only.
 
 Measurement is public in the shape of reportlab's `stringWidth(text, fontName, fontSize)`, a
 function naming the font by argument (Pillow's `ImageFont.getlength` and tkinter's
@@ -742,6 +755,9 @@ reading and decoding the suite files takes about 2.4 s.
 - `font` is the cell's font and `normal_font` the workbook's Normal font, defaulting to `font`
   (section 11); measurement is functions taking `font=`, not methods on `Font`.
 - Format functions take no file width: `file_column_metrics` converts once per column.
+- `TEXT` is a separate function and method, not a flag on `format_value`: width arguments have no
+  meaning there, its result can be an error, and the format functions' hot path stays as it is.
+  `date1904` stays a keyword beside `quirks`, as a workbook property rather than a switchable quirk.
 - The 255-character limit is modeled from `string value` rows; the screen is not yet checked
   (`CAPTURING.md` §2 item 28).
 - `ColumnMetrics` carries the text edges (3 and 2 points) as provisional print-layout values

@@ -674,14 +674,15 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       shows `12`). `General` in a date section reduces at a width as among literals (`General
       yyyy` with 45000.75 is `0.499999803 2023` width-less, `0.5 2023` at 12, `0 2023` at 6).
 
-36. **Values too large for fraction and elapsed arithmetic (2026-11-03; suite `huge_values`, 15
+36. **Values too large for fraction and elapsed arithmetic (2026-11-03; suite `huge_values`, 20
     formats with values from 1e15 to the largest double of either sign, width-less and at width
-    12, 270 rows).** A fraction's whole part and an elapsed count print 15 significant digits and
+    12, 360 rows).** A fraction's whole part and an elapsed count print 15 significant digits and
     then zeros (`# ?/?` with 1e100 is `1` and 100 zeros, `[h]` is `24` and 100 zeros); past 255
     characters they are `#` runs. An elapsed count past the largest double is 0, judged per unit:
     1e304 under `[s]` is `0` and under `[ss]` `00`, under `[h]` (2.4e305) and `[m]` it is a `#`
     run; the largest double is `0` under all of them, and its negative `-0`. `?/?%` with the
-    largest double is `0/1%`, `%` having scaled it past the limit.
+    largest double is `0/1%`, `%` having scaled it past the limit, and `?/10` is `0/10`, the
+    product with the denominator having done so.
 
 37. **The empty text, and the numerator's limits (2026-11-03; suites `empty_text`, 19 formats in
     cells holding `=""`, width-less and at widths 6 and 12, 57 rows; `fraction_percent`, 15 formats
@@ -695,6 +696,23 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       percent and whatever the placeholders: 3276.7 under `?/10` is `32767/10` and 3276.8 is `#`,
       32.767 under `?/10%` is `32767/10%` and 32.768 is `#`. A free denominator's reaches at least
       1073741824/5 and 2147483647/1 is `#`.
+
+38. **The `TEXT` function (2026-11-03; suites `text_function`, every format of every other suite
+    with the empty format and the formats Excel refuses in a file, under 29 values, 24,737 rows;
+    `text_function1904`, 24 date formats in a 1904 workbook, 696 rows).** Each cell holds
+    `=TEXT(inputs!$A$n,inputs!$B$n)`, its value and format read from a second sheet, so no literal
+    is rounded to 15 digits, no format needs quoting, and a refused format only makes the cell an
+    error instead of the file unopenable (`Case.text_function`; the tag starts with `text:`, the
+    schema is unchanged). The result is text in a General cell, read from the clipboard, so the
+    clipboard's plain year of item 35 does not arise. Every row is the width-less rendering except:
+    - A blank value is 0 (`0.00` shows `0.00`, `m/d/yy` shows `1/0/00`).
+    - An error value passes through, under a refused format too (`#N/A` under `0n`).
+    - A format Excel refuses in a file gives `#VALUE!`, and so does every value whose rendering is
+      a `#` run (a negative date, 1e300 under `0`). A literal `#` is not one: `1` under `"#"` is `#`.
+    - The empty format gives the empty text for a number and `-` for a negative one
+      (-0.0004 included), and leaves text and booleans as they are.
+    Text reading as a number is not part of the corpus: `TEXT("12","0.00")` converts first, which a
+    caller of `text_function` does itself. It found the crash of item 36 and the rules of item 37.
 
 ## 3. The pipeline
 
@@ -761,8 +779,8 @@ actual_width date1904 expected_text expected_color tier`; `#`-prefixed header li
 metadata. Changing the schema rewrites every suite and its history, so it is a reviewed
 decision, not a convenience.
 
-`TEXT()` formulas are not used anywhere: they differ from cell display for `*`, `_x` and `####`
-and never produce overflow.
+`TEXT()` formulas are used only by the suites of its own (§2 item 38): its result differs from
+cell display for `####`, and it has no width.
 
 The TSV carries `actual_width` (the width Excel reports after setting it; `8.43` snaps to
 `8.5`). Tiers are recomputable: `uv run python -m capture.retier <suite>|--all` reassigns the

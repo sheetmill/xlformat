@@ -7,6 +7,7 @@ information. ``NumberFormat.parse`` gives the compiled format. See ``ARCHITECTUR
 
 from __future__ import annotations
 
+from xlformat import _render
 from xlformat._assemble import FormattedCell
 from xlformat._error_values import ExcelError
 from xlformat._errors import FormatError
@@ -49,6 +50,7 @@ __all__ = [
     "glyph_widths",
     "measured_fonts",
     "overhang",
+    "text_function",
     "text_width",
 ]
 
@@ -103,6 +105,44 @@ def format_value(
         date1904=date1904,
         quirks=quirks,
     )
+
+
+def text_function(
+    value: object,
+    format_string: str,
+    *,
+    date1904: bool = False,
+    quirks: Quirks | None = None,
+) -> str | ExcelError:
+    """Return what Excel's ``TEXT`` function returns for ``value`` under ``format_string``.
+
+    The text a cell of no particular width shows, but for what ``TEXT`` does differently: a
+    ``None`` value (a blank cell) is 0, an :class:`ExcelError` value is returned as it is, the
+    empty format gives the empty text for a number (``-`` for a negative one) and leaves text and
+    booleans as they are, and a format Excel refuses, or a value the format cannot show (a
+    negative date), gives ``ExcelError.VALUE`` rather than raising or showing ``#``.
+
+    Text that reads as a number stays text here: a caller evaluating ``TEXT("12", "0.00")``
+    converts it first.
+
+    Args:
+        value: What :func:`format_value` accepts.
+        format_string: An Excel number format.
+        date1904: The workbook uses the 1904 date system.
+        quirks: The quirk settings; ``None`` means ``Quirks.EXCEL``.
+
+    Returns:
+        The text as a ``str``, or an :class:`ExcelError` (itself a ``str``).
+    """
+    if isinstance(value, ExcelError):
+        return value
+    if format_string == "":
+        return _render.text_function_empty_format(value, date1904=date1904, quirks=quirks)
+    try:
+        fmt = NumberFormat.parse(format_string)
+    except FormatError:
+        return ExcelError.VALUE
+    return fmt.text_function(value, date1904=date1904, quirks=quirks)
 
 
 def format_cell(

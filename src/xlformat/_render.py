@@ -239,6 +239,37 @@ def render(
     return cell
 
 
+def text_function(
+    fmt: NumberFormat,
+    value: object,
+    *,
+    date1904: bool = False,
+    quirks: Quirks | None = None,
+) -> str | ExcelError:
+    """What Excel's ``TEXT`` returns for ``value`` under a format it accepts.
+
+    The width-less rendering already drops ``*`` fills and turns ``_x`` into one space; ``TEXT``
+    adds that a blank is 0, an error passes through and a ``#`` run is ``#VALUE!``.
+    """
+    if isinstance(value, ExcelError):
+        return value
+    cell = render(fmt, 0 if value is None else value, date1904=date1904, quirks=quirks)
+    return ExcelError.VALUE if cell.overflow else cell.text
+
+
+def text_function_empty_format(
+    value: object, *, date1904: bool = False, quirks: Quirks | None = None
+) -> str | ExcelError:
+    """``TEXT`` under the empty format: a number is empty but for its sign, other values stay."""
+    if isinstance(value, ExcelError):
+        return value
+    v = normalize(value, date1904=date1904, quirks=quirks)
+    if v.kind is Kind.NUMBER:
+        assert v.number is not None
+        return "-" if v.number < 0 else ""
+    return v.text or ""
+
+
 def _general_pieces(x: Decimal, keep_sign: bool, plain: bool) -> tuple[Decimal, list[Piece]]:
     """The General value and pieces of a section that is General alone.
 

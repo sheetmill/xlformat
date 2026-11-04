@@ -1,7 +1,16 @@
 """FormattedCell fields and the public API surface."""
 
 import xlformat
-from xlformat import DEFAULT_PALETTE, FormattedCell, Quirks, format_cell, format_value
+from xlformat import (
+    DEFAULT_PALETTE,
+    ExcelError,
+    FormattedCell,
+    NumberFormat,
+    Quirks,
+    format_cell,
+    format_value,
+    text_function,
+)
 
 
 def test_public_names() -> None:
@@ -18,6 +27,31 @@ def test_public_names() -> None:
 def test_format_cell_fields_for_a_colored_negative() -> None:
     cell = format_cell(-1234.5, "[Red]0.00;[Blue]-0.00")
     assert cell == FormattedCell("-1234.50", "-1234.50", "Blue", "right", None, False)
+
+
+def test_text_function_is_the_width_less_text_with_excels_differences() -> None:
+    assert text_function(1234.5, "*-0") == "1235"
+    assert text_function(1234.5, "0_)") == "1235 "
+    assert text_function(None, "0.00") == "0.00"
+    assert text_function(12.5, "abc") == "a43c"
+    assert text_function("abc", "0.00") == "abc"
+
+
+def test_text_function_returns_errors_rather_than_raising_or_showing_hashes() -> None:
+    assert text_function(-1, "m/d/yy") is ExcelError.VALUE
+    assert text_function(1, "0.00e+00") is ExcelError.VALUE
+    assert text_function(ExcelError.NA, "0.00e+00") is ExcelError.NA
+    assert text_function(1, '"#"') == "#"
+    assert type(text_function(1, '"#VALUE!"')) is str
+
+
+def test_text_function_under_the_empty_format() -> None:
+    assert text_function(5, "") == ""
+    assert text_function(-5, "") == "-"
+    assert text_function("abc", "") == "abc"
+    assert text_function(True, "") == "TRUE"
+    assert text_function(None, "") == ""
+    assert NumberFormat.parse("").text_function(5) == "5"  # parse("") is General
 
 
 def test_format_cell_fill_position_and_alignments() -> None:

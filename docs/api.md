@@ -7,6 +7,7 @@ Everything below is importable from `xlformat`.
 ```{eval-rst}
 .. autofunction:: xlformat.format_value
 .. autofunction:: xlformat.format_cell
+.. autofunction:: xlformat.text_function
 .. autoclass:: xlformat.FormattedCell
    :members:
 ```
