@@ -103,8 +103,14 @@ fixed-denominator rows.
 
 ## Known deviations
 
-None. Rows Excel renders in a way the package does not reproduce would be listed in
-`tests/test_captures.py` and here, with the evidence, and counted on every run. History: 99
+One, for the clipboard only. A Buddhist-year code (`b`, `bbbb`) renders the Buddhist year without a
+width, as the sheet and `TEXT` do at every width, while Excel's clipboard gives the plain year:
+`03` where the sheet shows `46` (`letters`, `letters_upper`, `letters1904`; `CAPTURING.md` §2 item
+35). The package follows the sheet and does not model that medium; `full_text` says so, and the
+capture test compares these rows with the plain year code, so a change on either side fails it.
+
+No other row is known to differ. Such rows would be listed in `tests/test_captures.py` and here,
+with the evidence, and counted on every run. History: 99
 entries (floating noise in the leaked `General` seconds, half-second boundaries on serial 44927)
 were removed on 2026-10-24 when Excel's clock arithmetic was reproduced operation for operation
 and the captures began writing exact number texts (`CAPTURING.md` §2 items 15 and 16); 32 entries
@@ -113,9 +119,6 @@ when the nudged half-up rule replaced the empirical tolerance (`CAPTURING.md` §
 Fifteen color rows of the `colors` suite are skipped under `tests/test_captures.py:
 DISPLAY_FORMAT_COLOR_MISREPORTS`: Excel's DisplayFormat API reports automatic black where the sheet
 paints the section color (verified by eye); the package is right there (`CAPTURING.md` §2 item 21).
-Width-less rows of a Buddhist-year code are compared with the plain year, which is what Excel's
-clipboard gives, while `string value` at any width and `TEXT` show the Buddhist year; the package
-shows the Buddhist year (`CAPTURING.md` §2 item 35).
 
 ## Candidates (evidence needed before they become switches)
 

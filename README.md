@@ -119,9 +119,10 @@ evidence for each.
   `"#N/A"` is text.
 - **Conditional formatting** and cell styles beyond the format string are out of scope.
 
-Every captured row passes; no known deviations remain. Fifteen color readings in the Excel captures
-are skipped because Excel's scripting interface misreports them; the sheet itself shows the
-color the package returns.
+Every captured row passes. One known deviation is for the clipboard only: a Buddhist-year code
+shows the Buddhist year without a width, as the sheet does, where Excel's clipboard gives the plain
+year (`QUIRKS.md`). Fifteen color readings in the Excel captures are skipped because Excel's
+scripting interface misreports them; the sheet itself shows the color the package returns.
 
 ## Related packages
 

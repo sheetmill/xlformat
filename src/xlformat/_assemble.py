@@ -26,7 +26,9 @@ class FormattedCell:
 
     Attributes:
         text: What the cell shows under the given width.
-        full_text: The width-less rendering (what copy and paste gives); always set.
+        full_text: The width-less rendering; always set. It is what copy and paste gives, except
+            that a Buddhist-year code shows the Buddhist year here, as the sheet does, where
+            Excel's clipboard gives the plain year.
         color: Section color, ``'Red'`` ... ``'Color56'``, or ``None``.
         align: Excel's default horizontal alignment: by value kind, and ``left`` for a number
             through a format with only a text section (``@``).

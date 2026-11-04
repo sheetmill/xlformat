@@ -11,6 +11,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The formula engine is named `xlrecalc` throughout the documentation. xlformat keeps
   `ExcelError`; `xlrecalc` has its own `ErrorValue`, which compares equal to it. The
   `sheetmill` meta-package is released and installs all three packages.
+- The empty string is ordinary text, as in Excel: `@" units"` with `""` shows ` units`,
+  `"pos";"neg";"zero";"text"` shows `text` and `@*-` fills a column. It rendered nothing. A blank
+  cell is `None`, which still does. Evidence: cells holding `=""` (suite `empty_text`).
+- More formats raise `FormatError`, because Excel refuses to open them: `n` or `N` outside quotes
+  (`0 n`), `E` without a sign and digits (`E`, `yyyy E+`), `b` or `g` with digit placeholders
+  (`0b`, `g0`) or `@` (`@b`), a format ending in a lone code `B` (`0;B`), a `b1` or `b2` after
+  other codes or with digit placeholders, and any other digit after `b` (`b3`). They rendered
+  before. Evidence: one workbook per form, `capture/letters.py` (59 of the 73 refused forms
+  captured there were new to the parser).
+- A fraction's numerator shows a `#` run above 32767 with a fixed denominator, as in Excel (`?/10`
+  with 3276.8, `?/10%` with 50), and from 2147483647 with a free one. Those values rendered the
+  fraction. Evidence: suite `fraction_percent`.
 
 ### Added
 - `text_function(value, format_string, *, date1904=False, quirks=None)` and
@@ -20,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The Buddhist-year code: `b` and `bb` show the year's last two digits and `bbb` and longer all
   four, in either case (`abc` with 12.5 shows `a43c`); after a `[$...]` tag they are the plain
   year. The era code `g`, empty in en-US. The calendar prefixes `b1` and `b2`, which print
-  nothing; the Hijri calendar `b2` selects is not modeled, and such a format renders as Gregorian.
+  nothing. Other calendars are localization, which stays out of scope.
 
 ### Deprecated
 - `font=` on `file_column_metrics` and `column_metrics`, which names the workbook's Normal font
@@ -29,16 +41,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `DeprecationWarning` and goes away in 1.0; passing both raises `ValueError`.
 
 ### Fixed
-- The empty string is ordinary text: `@" units"` with `""` shows ` units` as in Excel, and `@*-`
-  fills. It rendered nothing. A cell without a value is `None`.
-- A numerator above 32767 with a fixed denominator shows a `#` run (`?/10` with 3276.8, `?/10%`
-  with 50), and a free denominator's numerator from 2147483647.
 - A huge value no longer raises under a fraction or elapsed format: `# ?/?` with 1e100 raised
   `decimal.InvalidOperation`, and `[h]` and `?/?%` with the largest double raised
   `OverflowError`. Their digits past 15 print as zeros, as in Excel.
-- Formats Excel refuses in a file now raise `FormatError`: `n` or `N` outside quotes, `E` without
-  a sign and digits, a format ending in a lone code `B`, a `b1` or `b2` after other codes or with
-  digit placeholders, and any other digit after `b`.
 - A clock section reached as the negative section shows a `#` run for a negative (`0;yy` with
   -0.5), as in Excel; it showed the magnitude's date.
 - `General` in a date section reduces at a width like a General among literals.

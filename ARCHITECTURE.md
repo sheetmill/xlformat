@@ -10,12 +10,10 @@ Pure Python, standard library only, Python 3.11+. Priorities in order: match Exc
 then speed, then code quality. Excel's behavior is the specification; ECMA-376 section 18.8.31
 is a secondary reference and is wrong or silent in places where Excel is definite.
 
-Out of scope: locales other than en-US (format codes are parsed, names are English,
+Out of scope: localization, that is locales other than en-US and their calendars and digits (locale
+tags are parsed and ignored, calendar prefixes print nothing, names are English, and
 `[$-x-sysdate]` renders the en-US long date), fonts without a bundled glyph table in Excel mode
-(section 8), conditional formatting, calendars other than the Gregorian and the Buddhist year
-code (the Hijri calendar of a `b2` prefix and the calendar and digit parts of a locale tag such as
-`[$-D07041E]`, which render as Gregorian), cell styles beyond what the format string itself
-implies.
+(section 8), conditional formatting, cell styles beyond what the format string itself implies.
 
 ## 2. Pipeline
 
@@ -514,8 +512,9 @@ class FormattedCell:
     overflow: bool             # text is a run of '#'
 ```
 
-`full_text` is what copy-and-paste gives a user and what the 2023 capture holds; it is computed
-before the width decision, so it costs nothing. `overflow` means only "`text` is a `#` run";
+`full_text` is what copy-and-paste gives a user and what the 2023 capture holds, apart from the
+Buddhist-year code, where it follows the sheet (`QUIRKS.md`); it is computed before the width
+decision, so it costs nothing. `overflow` means only "`text` is a `#` run";
 General digit reduction and `*` fill also make `text` differ from `full_text` without being
 overflow, and a caller who needs to know compares the two fields. `xlformat.DEFAULT_PALETTE` maps the
 canonical color names to `RRGGBB` in the default palette (the eight names and `Color1` to
@@ -766,6 +765,7 @@ reading and decoding the suite files takes about 2.4 s.
 - Lower-case `e+` after digits is a `FormatError`, and `e` alone is a year code (`CAPTURING.md`
   §2 item 9).
 - The Buddhist-year code shows the Buddhist year width-less as well, as the sheet and `TEXT` do;
-  Excel's clipboard alone gives the plain year (`CAPTURING.md` §2 item 35).
+  Excel's clipboard alone gives the plain year, a known deviation for that medium, not modeled
+  (`QUIRKS.md`, `CAPTURING.md` §2 item 35).
 - A condition in section 3 or 4, or on the text section, is a `FormatError`, because Excel refuses
   the file (`CAPTURING.md` §2 item 9, second run).

@@ -666,9 +666,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       `@` and `General` do. After another code, or with digit placeholders, they are refused
       (`yyyy b1`, `"x"b1`, `b1 0`, `b10`, `b1b2`), and so is any other digit after `b` (`b3`,
       `bb1`). `b1bbbb` is the Buddhist year.
-    - Not modeled, as other calendars are out of scope, and left out of the suite: `b2yyyy` is the
-      Hijri year (1321 for 1234.5678), `b2bbbb` that year plus 543, `[$-1070000]yyyy` the Buddhist
-      year and `[$-D07041E]yyyy` the same in Thai digits. The package renders these as Gregorian.
+    - Left out of the suite as localization, which is out of scope (locale tags are parsed and
+      ignored): `b2yyyy` is the Hijri year (1321 for 1234.5678), `b2bbbb` that year plus 543,
+      `[$-1070000]yyyy` the Buddhist year and `[$-D07041E]yyyy` the same in Thai digits.
     - Found on the way: a clock section reached as the negative section shows a `#` run
       (`0;yy`, `0;h:mm`, `0;m/d/yy`, `x;yy` with -0.5), and an elapsed one the magnitude (`0;[h]`
       shows `12`). `General` in a date section reduces at a width as among literals (`General
