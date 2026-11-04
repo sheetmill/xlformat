@@ -193,7 +193,9 @@ search and the fixed-denominator rounding in double arithmetic, which is what re
   `10^digits - 1` with the epsilon from ExcelNumberFormat, which the Excel captures confirm for the
   2023 cases; `fraction_denominators` off uses `Fraction.limit_denominator`. Zero fraction: `?`
   numerators show spaces (the bar too), `#` show nothing, `0` show `0/1`; a whole value of zero
-  shows `0` even under `#`; `%` scales. A decimal point before the bar is a `FormatError`
+  shows `0` even under `#`; `%` scales, and scaling past the largest double leaves zero (`?/?%` with
+1.7976931348623157e308 shows `0/1%`). A whole part prints digits past 15 as zeros. A decimal point
+before the bar is a `FormatError`
   (Excel refuses the file). All 5,310 rows of 2023 pass.
 
 **Fixed-denominator numerator** (`fraction_ties`, `fraction_threshold`,
@@ -221,6 +223,10 @@ minute = floor(m);     s = (m - minute) * 60
 second = floor(s);     fraction = floor((s - second) * scale)
 elapsed [h], [m], [s] = floor((x / (1/86400) + 0.5 / scale) / unit)
 ```
+
+An elapsed count prints digits past 15 as zeros (`[h]` with 1e100 is `24` and 100 zeros). A total
+past the largest double is 0, judged per unit: 1e304 under `[s]` is `0`, while under `[h]` it is
+2.4e305 and overflows to a `#` run (suite `huge_values`, `CAPTURING.md` §2 item 36).
 
 Every field is truncated, so the bias rounds half-up and the carry propagates into the day:
 23:59:59.999 under `h:mm` is `0:00` the next day, under `ss.000` it is `59.999`. The

@@ -74,6 +74,9 @@ class Case:
     ``repr(value)`` is the shortest text that denotes ``value`` exactly."""
     font: CellFont | None = None
     """When set, the cell's own font; otherwise the cell inherits the Normal style."""
+    text_function: bool = False
+    """When true, the cell holds ``TEXT`` of the value under the format, both read from the row
+    of sheet ``inputs``, and stays General itself; its ``tag`` starts with ``text:``."""
 
     @property
     def value_type(self) -> str:
@@ -2147,7 +2150,169 @@ def letters1904() -> Suite:
     return Suite(name, cases, widths=(None, 12), date1904=True)
 
 
+def huge_values() -> Suite:
+    """Fraction and elapsed formats with values too large for their arithmetic."""
+    name = "huge_values"
+    formats = (
+        "# ?/?",
+        "# ?/10",
+        "# ??/16",
+        "# 0/0",
+        "?/?",
+        "?/?%",
+        "# ?/?%",
+        "?/10%",
+        "# ??/16%",
+        "[h]",
+        "[hh]",
+        "[m]",
+        "[s]",
+        "[ss]",
+        "[h]:mm:ss",
+    )
+    values = (
+        ("1e15", 1e15),
+        ("1e16", 1e16),
+        ("1e100", 1e100),
+        ("1e300", 1e300),
+        ("1e303", 1e303),
+        ("1e304", 1e304),
+        ("dbl-max", 1.7976931348623157e308),
+        ("neg-1e300", -1e300),
+        ("neg-dbl-max", -1.7976931348623157e308),
+    )
+    cases = tuple(Case(name, tag, value, f) for f in formats for tag, value in values)
+    return Suite(name, cases, widths=(None, 12))
+
+
+# TEXT(): the value and the format come from cells of sheet inputs, so no literal is rounded to
+# 15 digits and no format is quoted; a format Excel refuses in a file only makes TEXT an error.
+
+_TEXT_VALUES: tuple[tuple[str, object], ...] = (
+    ("int", 1234),
+    ("one", 1),
+    ("zero", 0),
+    ("neg-int", -1234),
+    ("dec", 1234.5678),
+    ("neg-dec", -1234.5678),
+    ("half", 0.5),
+    ("neg-half", -0.5),
+    ("small", 0.001234),
+    ("rounds-to-zero", -0.0004),
+    ("hundredth", 0.015),
+    ("million", 1234567.891),
+    ("twelve-digits", 123456789012.0),
+    ("sci-tiny", 1.5e-7),
+    ("dbl-min", 2.2250738585072014e-308),
+    ("sci-huge", 1.7976931348623157e308),
+    ("huge-300", 1e300),
+    ("serial", 44927.75),
+    ("serial-frac", 0.75),
+    ("serial-60", 60),
+    ("serial-limit", 2958466),
+    ("text", "abc"),
+    ("text-empty", ""),
+    ("text-spaces", " a b "),
+    ("bool-true", True),
+    ("bool-false", False),
+    ("blank", None),
+)
+
+_TEXT_ERRORS = (
+    ("error-div0", CellError("#DIV/0!"), "=1/0"),
+    ("error-na", CellError("#N/A"), "=NA()"),
+)
+
+_TEXT_REFUSED = (
+    "0.00e+00",
+    "0;0;0;0;0",
+    "[Red",
+    '0.00"',
+    "[Red][Blue]0",
+    "[>1][<5]0",
+    "@;@",
+    "0;@;0",
+    "yyyy 0",
+    "0 yyyy",
+    "0.00E+",
+    "# ?/",
+    "[hh]:mm:[ss]",
+    "General General",
+    "[Color57]0",
+    "[]0",
+    "[abc]0",
+    "ss.0000",
+    "yyyy @",
+    "0 @",
+    "# ?/?/?",
+    "[>1]0;[>2]0;[>3]0",
+    "0;0;0;[>1]@",
+)
+
+
+def _text_formats() -> tuple[str, ...]:
+    """Every format of the other suites, the empty one and those Excel refuses in a file."""
+    from capture.letters import REFUSED
+
+    formats = {"", *_TEXT_REFUSED, *REFUSED}
+    for path in sorted((ROOT / "tests" / "captures").iterdir()):
+        name = path.name
+        if (
+            not name.endswith((".tsv", ".tsv.gz"))
+            or ".measure." in name
+            or ".layout." in name
+            or name.startswith("text_function")
+        ):
+            continue
+        formats.update(row.format_string for row in read_rows(path)[1])
+    return tuple(sorted(formats))
+
+
+def _text_cases(name: str, formats: Iterable[str], *, date1904: bool = False) -> tuple[Case, ...]:
+    cases = []
+    for f in formats:
+        cases.extend(
+            Case(name, f"text:{tag}", value, f, date1904=date1904, text_function=True)
+            for tag, value in _TEXT_VALUES
+        )
+        cases.extend(
+            Case(
+                name,
+                f"text:{tag}",
+                value,
+                f,
+                date1904=date1904,
+                formula=formula,
+                text_function=True,
+            )
+            for tag, value, formula in _TEXT_ERRORS
+        )
+    return tuple(cases)
+
+
+def text_function() -> Suite:
+    """``TEXT`` over every format of the other suites."""
+    name = "text_function"
+    return Suite(name, _text_cases(name, _text_formats()))
+
+
+def text_function1904() -> Suite:
+    """``TEXT`` in a 1904 workbook, under the formats of the ``date1904`` and year-code suites."""
+    name = "text_function1904"
+    formats = sorted(
+        {
+            row.format_string
+            for suite in ("date1904", "letters1904")
+            for row in read_rows(ROOT / "tests" / "captures" / f"{suite}.tsv")[1]
+        }
+    )
+    return Suite(name, _text_cases(name, formats, date1904=True), date1904=True)
+
+
 SUITES: dict[str, Callable[[], Suite]] = {
+    "huge_values": huge_values,
+    "text_function": text_function,
+    "text_function1904": text_function1904,
     "letters": letters,
     "letters_upper": letters_upper,
     "letters1904": letters1904,

@@ -674,6 +674,15 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       shows `12`). `General` in a date section reduces at a width as among literals (`General
       yyyy` with 45000.75 is `0.499999803 2023` width-less, `0.5 2023` at 12, `0 2023` at 6).
 
+36. **Values too large for fraction and elapsed arithmetic (2026-11-03; suite `huge_values`, 15
+    formats with values from 1e15 to the largest double of either sign, width-less and at width
+    12, 270 rows).** A fraction's whole part and an elapsed count print 15 significant digits and
+    then zeros (`# ?/?` with 1e100 is `1` and 100 zeros, `[h]` is `24` and 100 zeros); past 255
+    characters they are `#` runs. An elapsed count past the largest double is 0, judged per unit:
+    1e304 under `[s]` is `0` and under `[ss]` `00`, under `[h]` (2.4e305) and `[m]` it is a `#`
+    run; the largest double is `0` under all of them, and its negative `-0`. `?/?%` with the
+    largest double is `0/1%`, `%` having scaled it past the limit.
+
 ## 3. The pipeline
 
 ```

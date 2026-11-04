@@ -124,8 +124,16 @@ def build(suite: Suite) -> Manifest:
         columns.append(ColumnSpec(letter, width, _method(suite, width)))
         if suite.width_source == "file" and width is not None:
             ws.column_dimensions[letter].width = width
+    inputs = wb.create_sheet("inputs") if any(c.text_function for c in suite.cases) else None
     for row, case in enumerate(suite.cases, 1):
         ws.cell(row=row, column=1, value=row)
+        if case.text_function:
+            _set_value(inputs, row, 1, case.value, "General", case.formula, case.written)
+            if case.format:
+                _set_value(inputs, row, 2, case.format, "General")
+            text = f"=TEXT(inputs!$A${row},inputs!$B${row})"
+            _set_value(ws, row, 2, None, "General", text)
+            continue
         for k in range(len(suite.widths)):
             _set_value(ws, row, k + 2, case.value, case.format, case.formula, case.written)
             if case.font is not None:

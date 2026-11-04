@@ -43,6 +43,9 @@ _MONTHS = (
 _DAYS = ("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
 _SECONDS_PER_DAY = 86400
 _DAY_RECIPROCAL = 1 / 86400  # Excel forms the total seconds as x / (1/86400), not x * 86400
+_SECONDS_PER_UNIT = {"h": 3600, "m": 60, "s": 1}
+_UNITS_PER_DAY = {"h": 24, "m": 1440, "s": 86400}
+_FIFTEEN_DIGITS = 10**15
 _MAX_DAY_1900 = 2958465  # 9999-12-31
 _DAYS_1900_TO_1904 = 1462
 SYSTEM_DATE = "dddd, mmmm d, yyyy"
@@ -192,8 +195,7 @@ def render_datetime(
         elif k is TokenKind.AMPM:
             out.append(("lit", _ampm(t.text, hour)))
         elif k is TokenKind.ELAPSED:
-            whole = math.floor(elapsed / {"h": 3600, "m": 60, "s": 1}[t.text[0]])
-            out.append(("lit", str(whole).zfill(len(t.text))))
+            out.append(("lit", _elapsed_field(x, elapsed, t.text[0]).zfill(len(t.text))))
         elif k is TokenKind.PAD:
             out.append(("pad", t.text))
         elif k is TokenKind.FILL:
@@ -211,6 +213,24 @@ def render_datetime(
         else:
             out.append(("lit", t.text))
     return out, general_value
+
+
+def _elapsed_field(x: float, elapsed: float, unit: str) -> str:
+    """An elapsed count from ``elapsed`` seconds, as Excel prints a large one.
+
+    Digits past 15 show as zeros (``[h]`` with 1e100). Past the largest double the count is 0,
+    judged per unit: 1e304 under ``[s]`` is 0 while ``[h]`` holds 2.4e305 (``huge_values``).
+    """
+    if math.isinf(elapsed):
+        count = x * _UNITS_PER_DAY[unit]
+        if math.isinf(count):
+            return "0"
+        whole = math.floor(count)
+    else:
+        whole = math.floor(elapsed / _SECONDS_PER_UNIT[unit])
+    if whole < _FIFTEEN_DIGITS:
+        return str(whole)
+    return str(int(limit_precision(Decimal(whole))))
 
 
 def _ampm(token: str, hour: int) -> str:

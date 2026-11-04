@@ -9,12 +9,13 @@ double arithmetic (``fixed_numerator``), zero misses on every captured row.
 from __future__ import annotations
 
 import math
-from decimal import ROUND_HALF_DOWN, ROUND_HALF_UP, Decimal
+from decimal import ROUND_HALF_DOWN, ROUND_HALF_UP, Decimal, localcontext
 from fractions import Fraction
 
 from xlformat._number import render_number
 from xlformat._parser import FractionSpec, NumberSpec, Piece
 from xlformat._quirks import Quirks
+from xlformat._values import limit_precision
 
 _NUDGE = 1.0 + 2.0**-52  # 1 + DBL_EPSILON, exactly representable
 
@@ -105,6 +106,8 @@ def render_fraction(
     x = float(v)
     for _ in range(spec.percent):
         x *= 100.0  # in double arithmetic, as Excel does (1234567.891 under ?/?% is 1111111102/9)
+    if math.isinf(x):
+        x = 0.0  # scaling past the largest double leaves nothing: ?/?% shows 0/1%
     if spec.fixed_denominator and quirks.fraction_denominators:
         frac = Fraction(fixed_numerator(Decimal(x), spec.fixed_denominator), spec.fixed_denominator)
     elif spec.fixed_denominator:
@@ -120,7 +123,10 @@ def render_fraction(
         whole = math.floor(frac)
         frac -= whole
         if x > 99_999_999_999_999:  # 15+ integer digits: Excel rounds half down here
-            whole = int(Decimal(x).quantize(Decimal(1), rounding=ROUND_HALF_DOWN))
+            with localcontext() as ctx:
+                ctx.prec = 400  # a double can need 309 integer digits
+                whole = int(Decimal(x).quantize(Decimal(1), rounding=ROUND_HALF_DOWN))
+                whole = int(limit_precision(Decimal(whole)))  # digits past 15 show as zeros
     numerator, denominator = frac.numerator, frac.denominator
     if spec.fixed_denominator:
         numerator = numerator * (spec.fixed_denominator // denominator)

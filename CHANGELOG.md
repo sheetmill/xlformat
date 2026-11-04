@@ -25,6 +25,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `DeprecationWarning` and goes away in 1.0; passing both raises `ValueError`.
 
 ### Fixed
+- A huge value no longer raises under a fraction or elapsed format: `# ?/?` with 1e100 raised
+  `decimal.InvalidOperation`, and `[h]` and `?/?%` with the largest double raised
+  `OverflowError`. Their digits past 15 print as zeros, as in Excel.
 - Formats Excel refuses in a file now raise `FormatError`: `n` or `N` outside quotes, `E` without
   a sign and digits, a format ending in a lone code `B`, a `b1` or `b2` after other codes or with
   digit placeholders, and any other digit after `b`.
