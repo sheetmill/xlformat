@@ -93,8 +93,8 @@ ColumnMetrics(width=8.0, points=53.0, budget=48.0, left_inset=3.0, right_inset=2
 A column openpyxl leaves without a width is 8 units in Excel for Mac (53 points at Calibri 11),
 and one it writes as `8.43` is 7.67 units (51 points), narrower than the 8.43 of the dialog,
 which is 56 points. `file_column_metrics` takes `base_col_width` and `default_col_width` from
-`<sheetFormatPr>` and `font`, the workbook's Normal font. `column_metrics` gives the same
-record for a dialog width. `budget` is what a number may take; `left_inset` and `right_inset`
+`<sheetFormatPr>` and `normal_font`, the workbook's Normal font (`font` is its deprecated name
+there). `column_metrics` gives the same record for a dialog width. `budget` is what a number may take; `left_inset` and `right_inset`
 are where left-aligned text starts and right-aligned text ends, provisional values from Excel's
 print layout until a screen capture confirms them.
 

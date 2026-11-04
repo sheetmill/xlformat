@@ -535,10 +535,11 @@ measured in; `normal_font` is the workbook's Normal font, whose digit width sets
 defaults to `font`, so a caller with one font passes only `font`.
 
 The column model is public: `file_column_metrics(file_width=None, *, base_col_width=8,
-default_col_width=None, font=None)` for a column as a file states it and
-`column_metrics(column_width, font=None)` for a dialog width, both returning a frozen
-`ColumnMetrics(width, points, budget, left_inset, right_inset, digit_width)`; `font` there is the
-Normal font, and `width` is what `column_width` takes. Format functions take no file width:
+default_col_width=None, normal_font=None)` for a column as a file states it and
+`column_metrics(column_width, normal_font=None)` for a dialog width, both returning a frozen
+`ColumnMetrics(width, points, budget, left_inset, right_inset, digit_width)`; `width` is what
+`column_width` takes. Both still accept the Normal font under its deprecated name `font`, with
+a `DeprecationWarning`, until 1.0, and raise `ValueError` when given both. Format functions take no file width:
 callers convert once per column.
 
 **Error values.** `ExcelError` is a `StrEnum` of every error text current Excel documents (the

@@ -126,8 +126,26 @@ def test_file_widths_and_the_default_column() -> None:
     assert file_column_metrics(base_col_width=10).points == 65
     assert file_column_metrics(default_col_width=12).points == 72
     assert [file_column_metrics(w).points for w in (8.43, 60, 3.7109375, 0.75)] == [51, 360, 22, 4]
-    assert file_column_metrics(1.75, font=("Calibri", 16)).width == 1.125  # the dialog: 1.13
+    assert file_column_metrics(1.75, normal_font=("Calibri", 16)).width == 1.125  # dialog: 1.13
     assert file_column_metrics(8.43).budget == 46
+
+
+def test_the_column_functions_take_normal_font_and_deprecate_font() -> None:
+    from xlformat import column_metrics, file_column_metrics
+
+    calibri14 = ("Calibri", 14)
+    expected = column_metrics(10, normal_font=calibri14)
+    assert expected.points == 75
+    assert column_metrics(10, calibri14) == expected  # the positional call stays, undeprecated
+    with pytest.warns(DeprecationWarning, match="normal_font"):
+        assert column_metrics(10, font=calibri14) == expected
+    expected = file_column_metrics(10, normal_font=calibri14)
+    with pytest.warns(DeprecationWarning, match="normal_font"):
+        assert file_column_metrics(10, font=calibri14) == expected
+    with pytest.raises(ValueError, match="not both"):
+        column_metrics(10, normal_font=calibri14, font=calibri14)
+    with pytest.raises(ValueError, match="not both"):
+        file_column_metrics(10, normal_font=calibri14, font=calibri14)
 
 
 def test_column_metrics_round_trip_and_narrow_columns() -> None:
@@ -136,8 +154,8 @@ def test_column_metrics_round_trip_and_narrow_columns() -> None:
     assert column_metrics(8.43).points == 56
     assert column_metrics(0.09).points == 1  # below one unit: round(w * (MDW + 5))
     for w in (0.5, 1.75, 8.43, 13, 255):
-        m = file_column_metrics(w, font=("Calibri", 14))
-        assert column_metrics(m.width, font=("Calibri", 14)).points == m.points
+        m = file_column_metrics(w, normal_font=("Calibri", 14))
+        assert column_metrics(m.width, normal_font=("Calibri", 14)).points == m.points
     assert format_value(1, "0", column_width=0.5) == ""  # no '#' fits
     assert format_value(1, "General", column_width=0.5) == "1"
     assert format_value(12, "General", column_width=0.5) == "#"

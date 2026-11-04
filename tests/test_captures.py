@@ -200,7 +200,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
                     if "defaultColWidth" in sheet_format
                     else None
                 ),
-                font=normal,
+                normal_font=normal,
             )
             column_width = metrics.width
             # the conversion itself: the dialog number Excel showed, to two decimals half up

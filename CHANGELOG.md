@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `ExcelError`; `xlrecalc` has its own `ErrorValue`, which compares equal to it. The
   `sheetmill` meta-package is released and installs all three packages.
 
+### Deprecated
+- `font=` on `file_column_metrics` and `column_metrics`, which names the workbook's Normal font
+  there and the cell's font in the format functions: pass `normal_font=`. A second positional
+  argument to `column_metrics` keeps working and means the Normal font. `font=` warns with a
+  `DeprecationWarning` and goes away in 1.0; passing both raises `ValueError`.
+
 ## [0.2.0] - 2026-10-28
 
 ### Added

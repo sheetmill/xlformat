@@ -59,7 +59,7 @@ def lines() -> list[str]:
                         if "defaultColWidth" in sheet_format
                         else None
                     ),
-                    font=normal,
+                    normal_font=normal,
                 ).width
             if width is not None:
                 font = _cell_font(row.tag) or normal

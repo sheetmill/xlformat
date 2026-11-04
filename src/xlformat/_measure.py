@@ -13,6 +13,7 @@ dividing the budget by the glyph's measure (CAPTURING.md section 2 items 24 and 
 from __future__ import annotations
 
 import math
+import warnings
 from collections.abc import Callable
 from dataclasses import dataclass
 from functools import lru_cache
@@ -298,12 +299,43 @@ def _metrics(points: float, font: FontSpec | None) -> ColumnMetrics:
     )
 
 
-def column_metrics(column_width: float, font: FontSpec | None = None) -> ColumnMetrics:
-    """The column of ``column_width`` dialog units in the Normal font ``font``."""
+def _normal_font_argument(normal_font: FontSpec | None, font: FontSpec | None) -> FontSpec | None:
+    """The Normal font a column function was given, warning on the deprecated ``font``."""
+    if font is None:
+        return normal_font
+    if normal_font is not None:
+        msg = "pass normal_font or the deprecated font, not both"
+        raise ValueError(msg)
+    warnings.warn(
+        "font is deprecated here and will be removed in 1.0: pass normal_font, the workbook's "
+        "Normal font (in the format functions, font is the cell's font)",
+        DeprecationWarning,
+        stacklevel=3,
+    )
+    return font
+
+
+def column_metrics(
+    column_width: float,
+    normal_font: FontSpec | None = None,
+    *,
+    font: FontSpec | None = None,
+) -> ColumnMetrics:
+    """The column of ``column_width`` dialog units in the workbook's Normal font.
+
+    Args:
+        column_width: The width in Column Width dialog units.
+        normal_font: The workbook's Normal font, whose digit width sets the column's units.
+        font: Deprecated name of ``normal_font``, removed in 1.0.
+
+    Raises:
+        ValueError: ``column_width`` is not positive, or both font arguments were passed.
+    """
+    normal_font = _normal_font_argument(normal_font, font)
     if column_width <= 0:
         msg = f"column_width must be positive, not {column_width!r}"
         raise ValueError(msg)
-    return _metrics(column_points(column_width, font), font)
+    return _metrics(column_points(column_width, normal_font), normal_font)
 
 
 def file_column_metrics(
@@ -311,6 +343,7 @@ def file_column_metrics(
     *,
     base_col_width: float = 8,
     default_col_width: float | None = None,
+    normal_font: FontSpec | None = None,
     font: FontSpec | None = None,
 ) -> ColumnMetrics:
     """The column a file describes: ``<col width>``, or ``None`` for a column without one.
@@ -318,14 +351,16 @@ def file_column_metrics(
     A column without ``<col>`` takes ``<sheetFormatPr defaultColWidth>`` as a file width, and
     without that ``baseColWidth`` characters plus the padding: ``baseColWidth * MDW + 5``
     points, 53 at Calibri 11 for the ``baseColWidth="8"`` openpyxl writes, which the dialog
-    shows as 8 (not 8.43). ``font`` is the workbook's Normal font (CAPTURING.md section 2 item
-    28).
+    shows as 8 (not 8.43). ``normal_font`` is the workbook's Normal font (CAPTURING.md section
+    2 item 28); ``font`` is its deprecated name, removed in 1.0, and passing both raises
+    ``ValueError``.
     """
+    normal_font = _normal_font_argument(normal_font, font)
     if file_width is None:
         if default_col_width is None:
-            return _metrics(base_col_width * _mdw(font) + _COLUMN_PADDING, font)
+            return _metrics(base_col_width * _mdw(normal_font) + _COLUMN_PADDING, normal_font)
         file_width = default_col_width
     if file_width < 0:
         msg = f"file_width must not be negative, not {file_width!r}"
         raise ValueError(msg)
-    return _metrics(file_points(file_width, font), font)
+    return _metrics(file_points(file_width, normal_font), normal_font)
