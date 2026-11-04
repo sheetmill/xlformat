@@ -61,11 +61,16 @@ def limit_precision(x: Decimal) -> Decimal:
         return x.quantize(Decimal(1).scaleb(x.adjusted() - 14), rounding=ROUND_HALF_DOWN)
 
 
+# Excel has no subnormal numbers: a magnitude below the smallest normal double is zero.
+_DBL_MIN = 2.2250738585072014e-308
+_DBL_MIN_DECIMAL = Decimal(_DBL_MIN)
+
+
 def _from_float(f: float) -> Decimal:
     if math.isnan(f) or math.isinf(f):
         msg = f"cannot format non-finite number {f!r}"
         raise ValueError(msg)
-    return Decimal(f)
+    return Decimal(0) if -_DBL_MIN < f < _DBL_MIN else Decimal(f)
 
 
 def _from_int(i: int) -> Decimal:
@@ -134,7 +139,7 @@ def normalize(value: object, *, date1904: bool = False, quirks: Quirks | None = 
         if not value.is_finite():
             msg = f"cannot format non-finite number {value!r}"
             raise ValueError(msg)
-        number = value
+        number = Decimal(0) if abs(value) < _DBL_MIN_DECIMAL else value
     elif isinstance(value, _dt.date | _dt.time | _dt.timedelta):
         number = to_serial(value, date1904=date1904, quirks=quirks)
     elif hasattr(value, "__index__"):

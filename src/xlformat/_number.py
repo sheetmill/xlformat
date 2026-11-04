@@ -11,6 +11,8 @@ _UNFILLED = {"0": "0", "?": " ", "#": ""}
 _GENERAL_SCI_AT = Decimal("99999999999.5")  # 12 integer digits switch to scientific
 _GENERAL_INT_AT = Decimal("9999999999.5")  # 11 integer digits show as a rounded integer
 GENERAL_SMALL = Decimal("0.0001")
+_GENERAL_WIDE_EXPONENT = 99  # from here the mantissa gives up a decimal (general_exponent_sweep)
+_GENERAL_THREE_DIGITS = 100
 
 
 def render_number(spec: NumberSpec, magnitude: Decimal, negative: bool) -> list[Piece]:
@@ -101,8 +103,14 @@ def _strip(text: str) -> str:
     return text.rstrip("0").rstrip(".") if "." in text else text
 
 
+def _wide_exponent(a: Decimal) -> bool:
+    """General takes three exponent digits from a magnitude of 99, before the text has them."""
+    return abs(a.adjusted()) >= _GENERAL_WIDE_EXPONENT
+
+
 def _sci(a: Decimal) -> str:
-    m = a.quantize(Decimal(1).scaleb(a.adjusted() - 5), rounding=ROUND_HALF_UP)
+    decimals = 4 if _wide_exponent(a) else 5
+    m = a.quantize(Decimal(1).scaleb(a.adjusted() - decimals), rounding=ROUND_HALF_UP)
     e = m.adjusted()
     mant = _strip(f"{m.scaleb(-e):f}")
     return f"{mant}E{'-' if e < 0 else '+'}{abs(e):02d}"
@@ -124,19 +132,22 @@ def general_text_fitting(
     new power of ten (``0.00005`` as ``0.0001``) or shows fewer significant digits than the
     scientific form that fits (``0.0000002`` against ``1.5E-07``) loses to it. A value whose
     unconstrained form is already scientific stays scientific; when not even ``dE+ee`` fits it
-    shows ``0`` below width 5 if it is below one, else nothing fits (the caller's ``#`` run).
+    shows ``0`` below the width of a five-character form if it is below one, else nothing fits
+    (the caller's ``#`` run). With an exponent magnitude of 99 or more it starts from four
+    mantissa decimals and is charged three exponent digits (``general_exponent_sweep``).
     """
     full = general_text(x)
-    if measure(full) <= width:
-        return full
     sign = "-" if x < 0 else ""
     a = abs(x)
+    if measure(full) <= width and "E" not in full:
+        return full
     with localcontext() as ctx:
         ctx.prec = 400
         if "E" in full:
             sci = _sci_fitting(a, sign, width, measure)
-            if sci is None and a < 1 and width < 5:
-                return sign + "0"
+            if sci is None and a < 1 and measure(sign + "0E+00") > width:
+                # no scientific form has room: zero, if it has (-0 needs 1.5 units at Calibri 11)
+                return sign + "0" if measure(sign + "0") <= width else None
             return sci
         n_decimals = len(full.partition(".")[2])
         for d in range(n_decimals - 1, -1, -1):
@@ -191,13 +202,18 @@ def _digits(text: str) -> int:
 def _sci_fitting(
     a: Decimal, sign: str, width: float, measure: Callable[[str], float]
 ) -> str | None:
-    """Scientific notation with as many mantissa decimals as fit (at most five), else None."""
-    for decimals in range(5, -1, -1):
+    """Scientific notation with as many mantissa decimals as fit, else None.
+
+    At most five decimals, four where the exponent is charged three digits (from 99).
+    """
+    wide = _wide_exponent(a)
+    for decimals in range(4 if wide else 5, -1, -1):
         m = a.quantize(Decimal(1).scaleb(a.adjusted() - decimals), rounding=ROUND_HALF_UP)
         e = m.adjusted()
         mant = _strip(f"{m.scaleb(-e):f}")
         text = f"{sign}{mant}E{'-' if e < 0 else '+'}{abs(e):02d}"
-        if measure(text) <= width:
+        charged = text + "0" if wide and abs(e) < _GENERAL_THREE_DIGITS else text
+        if measure(charged) <= width:
             return text
     return None
 

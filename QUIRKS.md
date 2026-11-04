@@ -120,5 +120,6 @@ paints the section color (verified by eye); the package is right there (`CAPTURI
 
 Matched unconditionally as Excel semantics, not as quirks (no caller would want otherwise):
 scientific zero rendering (`0` under `##0.0E+0` shows `000.0E+0`, every placeholder a zero;
-`scientific` suite), the section-selection sign rules, the last `*` fill winning, and `General`
-inside a date section.
+`scientific` suite), the section-selection sign rules, the last `*` fill winning, `General`
+inside a date section, and no subnormal numbers (a magnitude below 2.2250738585072014e-308 is
+zero; `subnormal` suite).

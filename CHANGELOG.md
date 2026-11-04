@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `DeprecationWarning` and goes away in 1.0; passing both raises `ValueError`.
 
 ### Fixed
+- General keeps four mantissa decimals, not five, from an exponent magnitude of 99 (Excel shows
+  `2.2251E-308` and `1.2346E+99`), and counts such an exponent as three digits when it reduces at
+  a width. A negative with no room for a scientific form shows `-0` where that fits and a `#`
+  run where it does not.
+- A number below the smallest normal double is zero, as in Excel, which has no subnormal
+  numbers (`1e-310` under General shows `0`).
 - `ColumnMetrics.budget` is 0 for a column under 5 points instead of negative
   (`file_column_metrics(0)` gave -5). A column of no width has a `width` of 0, which
   `column_width` refuses with `ValueError`.

@@ -614,6 +614,30 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     (29 refused formats or one), is `Repaired Records: Format from /xl/styles.xml part
     (Styles)`. A second run of the single-format workbook read back the same cells.
 
+34. **General with long exponents, and subnormal numbers (2026-11-03; suites
+    `general_exponent3`, 31 values under `General`, `[Red]General`, `General"x"`, `( General )`,
+    `General;-General` and `@` at every point from 11 to 100 at Calibri 11, 16,926 rows;
+    `general_exponent_sweep`, five mantissas at exponents from 5 to 307 of either sign under
+    `General` and `General"x"` at every point from 11 to 90, 51,840 rows; `subnormal`, nine values
+    under eight formats, 72 rows).** The values in earlier suites with three-digit exponents were
+    round (1e100, 1.5e300), so none showed this.
+    - The mantissa keeps five decimals up to an exponent magnitude of 98 and four from 99,
+      read from the value before the mantissa rounds: `1.23456789e98` is `1.23457E+98`,
+      `1.23456789e99` is `1.2346E+99` (ten characters, so the rule is not "what fits 11"),
+      `1.23456789e-99` is `1.2346E-99`, `2.2250738585072014e-308` is `2.2251E-308`. `9.99995e98`
+      stays `9.99995E+98` and `9.99995e-99` rounds to `1E-98`.
+    - Reducing at a width, such an exponent is charged three digits, 99 included: `1.2E-99` at
+      8.67 units, where `1.23E-99` would fit by its own eight characters.
+    - A negative whose scientific form has no room shows `-0` while `-0` fits and a
+      five-character form does not, then the `#` run: -2.2250738585072014e-308 is `#` to 1.33
+      units, `-0` from 1.5 to 5.33, `######` at 5.5 and 5.67, `-2E-308` from 5.83.
+    - Below the smallest normal double every value is zero under every format, with no sign:
+      `2.225073858507201e-308` shows `0` under `General`, `0.00E+00` under `0.00E+00`, `zero`
+      under `0;"neg";"zero"`, and its negative `1/0/00` under `m/d/yy` where
+      -2.2250738585072014e-308 shows a `#` run. A value written below that limit is read as 0.
+    Character mode: 5 rows of `( General )` where Excel's narrow literals leave room for the
+    longer form are skipped as glyph slack.
+
 ## 3. The pipeline
 
 ```

@@ -130,6 +130,18 @@ def _glyph_tight(expected: str, got: str, width: int | None) -> bool:
     )
 
 
+def _glyph_slack_exponent(expected: str, got: str, width: int | None) -> bool:
+    """A reduced scientific General among literals: ``( 1.2346E-99 )`` is 14 characters and
+    Excel charges the exponent a third digit, but its literals cost less than a digit each, so
+    it keeps a form that character mode, charging 15, shortens."""
+    return (
+        width is not None
+        and "E" in expected
+        and len(got) < len(expected) <= width
+        and any(c in " ()" for c in expected)
+    )
+
+
 def _glyph_slack_literals(expected: str, got: str, width: int | None) -> bool:
     """Excel fitted a text no longer than the width that character mode overflows, because the
     literals around a General cost less than a digit each ('( ' is 0.83 units, two characters):
@@ -244,8 +256,10 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
             got = format_value(value, fmt, width=width, date1904=date1904)
         except Exception as exc:
             got = f"<{type(exc).__name__}: {exc}>"
-        if _glyph_tight(row.expected_text, got, width) or _glyph_slack_literals(
-            row.expected_text, got, width
+        if (
+            _glyph_tight(row.expected_text, got, width)
+            or _glyph_slack_literals(row.expected_text, got, width)
+            or _glyph_slack_exponent(row.expected_text, got, width)
         ):
             counts["skipped (glyph slack)"] += 1
             continue

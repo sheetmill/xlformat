@@ -1,0 +1,85 @@
+# suite: subnormal
+# excel_version: 16.114.3
+# standard_font: Calibri 12.0
+# workbook_font: Calibri 11
+# locale: en_US
+# captured: 2026-11-03
+# generator: capture.cases.subnormal
+# method: width none=clipboard
+# numbers: repr
+# column_points: 
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+subnormal	dbl-min	float	2.2250738585072014e-308	'General'			0	2.2251E-308		fast
+subnormal	dbl-min-next	float	2.225073858507202e-308	'General'			0	2.2251E-308		full
+subnormal	largest-subnormal	float	2.225073858507201e-308	'General'			0	0		fast
+subnormal	subnormal-1e-308	float	1e-308	'General'			0	0		full
+subnormal	subnormal-1e-310	float	1e-310	'General'			0	0		full
+subnormal	subnormal-min	float	5e-324	'General'			0	0		full
+subnormal	neg-dbl-min	float	-2.2250738585072014e-308	'General'			0	-2.2251E-308		fast
+subnormal	neg-largest-subnormal	float	-2.225073858507201e-308	'General'			0	0		full
+subnormal	neg-subnormal-1e-310	float	-1e-310	'General'			0	0		full
+subnormal	dbl-min	float	2.2250738585072014e-308	'0'			0	0		fast
+subnormal	dbl-min-next	float	2.225073858507202e-308	'0'			0	0		full
+subnormal	largest-subnormal	float	2.225073858507201e-308	'0'			0	0		full
+subnormal	subnormal-1e-308	float	1e-308	'0'			0	0		full
+subnormal	subnormal-1e-310	float	1e-310	'0'			0	0		full
+subnormal	subnormal-min	float	5e-324	'0'			0	0		full
+subnormal	neg-dbl-min	float	-2.2250738585072014e-308	'0'			0	0		full
+subnormal	neg-largest-subnormal	float	-2.225073858507201e-308	'0'			0	0		full
+subnormal	neg-subnormal-1e-310	float	-1e-310	'0'			0	0		full
+subnormal	dbl-min	float	2.2250738585072014e-308	'0.00E+00'			0	2.23E-308		fast
+subnormal	dbl-min-next	float	2.225073858507202e-308	'0.00E+00'			0	2.23E-308		full
+subnormal	largest-subnormal	float	2.225073858507201e-308	'0.00E+00'			0	0.00E+00		fast
+subnormal	subnormal-1e-308	float	1e-308	'0.00E+00'			0	0.00E+00		full
+subnormal	subnormal-1e-310	float	1e-310	'0.00E+00'			0	0.00E+00		full
+subnormal	subnormal-min	float	5e-324	'0.00E+00'			0	0.00E+00		full
+subnormal	neg-dbl-min	float	-2.2250738585072014e-308	'0.00E+00'			0	-2.23E-308		fast
+subnormal	neg-largest-subnormal	float	-2.225073858507201e-308	'0.00E+00'			0	0.00E+00		full
+subnormal	neg-subnormal-1e-310	float	-1e-310	'0.00E+00'			0	0.00E+00		full
+subnormal	dbl-min	float	2.2250738585072014e-308	'0.0E+000'			0	2.2E-308		fast
+subnormal	dbl-min-next	float	2.225073858507202e-308	'0.0E+000'			0	2.2E-308		full
+subnormal	largest-subnormal	float	2.225073858507201e-308	'0.0E+000'			0	0.0E+000		fast
+subnormal	subnormal-1e-308	float	1e-308	'0.0E+000'			0	0.0E+000		full
+subnormal	subnormal-1e-310	float	1e-310	'0.0E+000'			0	0.0E+000		full
+subnormal	subnormal-min	float	5e-324	'0.0E+000'			0	0.0E+000		full
+subnormal	neg-dbl-min	float	-2.2250738585072014e-308	'0.0E+000'			0	-2.2E-308		fast
+subnormal	neg-largest-subnormal	float	-2.225073858507201e-308	'0.0E+000'			0	0.0E+000		full
+subnormal	neg-subnormal-1e-310	float	-1e-310	'0.0E+000'			0	0.0E+000		full
+subnormal	dbl-min	float	2.2250738585072014e-308	"'0;""neg"";""zero""'"			0	0		fast
+subnormal	dbl-min-next	float	2.225073858507202e-308	"'0;""neg"";""zero""'"			0	0		full
+subnormal	largest-subnormal	float	2.225073858507201e-308	"'0;""neg"";""zero""'"			0	zero		fast
+subnormal	subnormal-1e-308	float	1e-308	"'0;""neg"";""zero""'"			0	zero		full
+subnormal	subnormal-1e-310	float	1e-310	"'0;""neg"";""zero""'"			0	zero		full
+subnormal	subnormal-min	float	5e-324	"'0;""neg"";""zero""'"			0	zero		full
+subnormal	neg-dbl-min	float	-2.2250738585072014e-308	"'0;""neg"";""zero""'"			0	neg		fast
+subnormal	neg-largest-subnormal	float	-2.225073858507201e-308	"'0;""neg"";""zero""'"			0	zero		full
+subnormal	neg-subnormal-1e-310	float	-1e-310	"'0;""neg"";""zero""'"			0	zero		full
+subnormal	dbl-min	float	2.2250738585072014e-308	'[>0]0;[<0]-0;0'			0	0		fast
+subnormal	dbl-min-next	float	2.225073858507202e-308	'[>0]0;[<0]-0;0'			0	0		full
+subnormal	largest-subnormal	float	2.225073858507201e-308	'[>0]0;[<0]-0;0'			0	0		full
+subnormal	subnormal-1e-308	float	1e-308	'[>0]0;[<0]-0;0'			0	0		full
+subnormal	subnormal-1e-310	float	1e-310	'[>0]0;[<0]-0;0'			0	0		full
+subnormal	subnormal-min	float	5e-324	'[>0]0;[<0]-0;0'			0	0		full
+subnormal	neg-dbl-min	float	-2.2250738585072014e-308	'[>0]0;[<0]-0;0'			0	-0		fast
+subnormal	neg-largest-subnormal	float	-2.225073858507201e-308	'[>0]0;[<0]-0;0'			0	0		full
+subnormal	neg-subnormal-1e-310	float	-1e-310	'[>0]0;[<0]-0;0'			0	0		full
+subnormal	dbl-min	float	2.2250738585072014e-308	'm/d/yy'			0	1/0/00		fast
+subnormal	dbl-min-next	float	2.225073858507202e-308	'm/d/yy'			0	1/0/00		full
+subnormal	largest-subnormal	float	2.225073858507201e-308	'm/d/yy'			0	1/0/00		full
+subnormal	subnormal-1e-308	float	1e-308	'm/d/yy'			0	1/0/00		full
+subnormal	subnormal-1e-310	float	1e-310	'm/d/yy'			0	1/0/00		full
+subnormal	subnormal-min	float	5e-324	'm/d/yy'			0	1/0/00		full
+subnormal	neg-dbl-min	float	-2.2250738585072014e-308	'm/d/yy'			0	###############################################################################################################################################################################################################################################################		fast
+subnormal	neg-largest-subnormal	float	-2.225073858507201e-308	'm/d/yy'			0	1/0/00		full
+subnormal	neg-subnormal-1e-310	float	-1e-310	'm/d/yy'			0	1/0/00		full
+subnormal	dbl-min	float	2.2250738585072014e-308	'# ?/?'			0	0    		fast
+subnormal	dbl-min-next	float	2.225073858507202e-308	'# ?/?'			0	0    		full
+subnormal	largest-subnormal	float	2.225073858507201e-308	'# ?/?'			0	0    		full
+subnormal	subnormal-1e-308	float	1e-308	'# ?/?'			0	0    		full
+subnormal	subnormal-1e-310	float	1e-310	'# ?/?'			0	0    		full
+subnormal	subnormal-min	float	5e-324	'# ?/?'			0	0    		full
+subnormal	neg-dbl-min	float	-2.2250738585072014e-308	'# ?/?'			0	-0    		fast
+subnormal	neg-largest-subnormal	float	-2.225073858507201e-308	'# ?/?'			0	0    		full
+subnormal	neg-subnormal-1e-310	float	-1e-310	'# ?/?'			0	0    		full

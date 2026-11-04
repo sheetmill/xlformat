@@ -1563,7 +1563,7 @@ def measure12() -> Suite:
     return _measure("measure12", 12)
 
 
-# Column model (0.2). Widths written into the file, columns without <col>, columns narrower than
+# Column model. Widths written into the file, columns without <col>, columns narrower than
 # one unit, and the 255-character limit (CAPTURING.md section 2 item 28).
 
 _FILE_WIDTHS: tuple[float | None, ...] = (
@@ -1723,7 +1723,7 @@ def limits() -> Suite:
     return Suite("limits", cases, widths=widths)
 
 
-# General at whole-point widths (0.2). The width_general suites use whole dialog widths (and
+# General at whole-point widths. The width_general suites use whole dialog widths (and
 # 8.43, which is 8.5); columns read from files are mostly fractional (openpyxl's 8.43 is 7.67
 # units at Calibri 11), so these read the General budget at every point.
 
@@ -1998,7 +1998,101 @@ def error_width() -> Suite:
     return Suite(name, cases, widths=(None, *range(1, 13)), colors=True)
 
 
+# General with a three-digit exponent. The width_general values with one are round (1e100,
+# 1.5e300), so they never show whether the mantissa gives way to the longer exponent. The
+# two-digit rows beside them are controls, the carries cross from two digits to three.
+
+_EXPONENT_VALUES: tuple[tuple[str, float], ...] = (
+    ("dbl-min", 2.2250738585072014e-308),
+    ("dbl-max", 1.7976931348623157e308),
+    ("subnormal-1e-310", 1e-310),
+    ("subnormal-min", 5e-324),
+    ("tiny-1e-300", 1e-300),
+    ("tiny-long", 1.23456789e-300),
+    ("tiny-1.2345e-200", 1.2345e-200),
+    ("tiny-1.23456e-200", 1.23456e-200),
+    ("tiny-1.23445e-200", 1.23445e-200),
+    ("tiny-1.5e-100", 1.5e-100),
+    ("tiny-9.9995e-101", 9.9995e-101),
+    ("tiny-9.99995e-101", 9.99995e-101),
+    ("tiny-control-e-99", 1.23456789e-99),
+    ("tiny-carry-to-e-99", 9.99995e-100),
+    ("huge-1e100", 1e100),
+    ("huge-long", 1.23456789e100),
+    ("huge-1.2345e200", 1.2345e200),
+    ("huge-1.23456e200", 1.23456e200),
+    ("huge-1.23445e200", 1.23445e200),
+    ("huge-9.9995e100", 9.9995e100),
+    ("huge-9.99995e100", 9.99995e100),
+    ("huge-control-e99", 1.23456789e99),
+    ("huge-carry-to-e100", 9.99995e99),
+    ("huge-carry-short-e99", 9.9999e99),
+    ("neg-dbl-min", -2.2250738585072014e-308),
+    ("neg-dbl-max", -1.7976931348623157e308),
+    ("neg-long", -1.23456789e100),
+    ("neg-control-e99", -1.23456789e99),
+    ("neg-tiny-e-20", -1.23456789e-20),
+    ("neg-tiny-1e-20", -1e-20),
+    ("neg-tiny-e-99", -1.23456789e-99),
+)
+
+
+def general_exponent3() -> Suite:
+    """General, bare and in other forms, with three-digit exponents at every point to 100."""
+    name = "general_exponent3"
+    formats = ("General", "[Red]General", 'General"x"', "( General )", "General;-General", "@")
+    cases = tuple(Case(name, tag, value, f) for f in formats for tag, value in _EXPONENT_VALUES)
+    widths = tuple(round((p - 5) / 6, 2) for p in range(11, 101))
+    return Suite(name, cases, widths=(None, *widths))
+
+
+def general_exponent_sweep() -> Suite:
+    """Where the mantissa gives way: long mantissas at exponents from 5 to 308, either sign."""
+    name = "general_exponent_sweep"
+    powers = (*range(11, 21), 50, *range(90, 111), 200, 300, 307)
+    small = (5, 9, 10, 20, 50, *range(90, 111), 200, 300, 307)
+    cases = []
+    for mantissa in ("1", "1.23456789", "9.87654321", "9.99995", "9.999995"):
+        exponents = [f"e+{e}" for e in powers] + [f"e-{e}" for e in small]
+        for e in exponents:
+            value = float(mantissa + e)
+            cases.extend(Case(name, f"{mantissa}{e}", value, f) for f in ("General", 'General"x"'))
+    widths = tuple(round((p - 5) / 6, 2) for p in range(11, 91))
+    return Suite(name, tuple(cases), widths=(None, *widths))
+
+
+def subnormal() -> Suite:
+    """Doubles below the smallest normal one, and their neighbors, under several formats."""
+    name = "subnormal"
+    values = (
+        ("dbl-min", 2.2250738585072014e-308),
+        ("dbl-min-next", 2.225073858507202e-308),
+        ("largest-subnormal", 2.225073858507201e-308),
+        ("subnormal-1e-308", 1e-308),
+        ("subnormal-1e-310", 1e-310),
+        ("subnormal-min", 5e-324),
+        ("neg-dbl-min", -2.2250738585072014e-308),
+        ("neg-largest-subnormal", -2.225073858507201e-308),
+        ("neg-subnormal-1e-310", -1e-310),
+    )
+    formats = (
+        "General",
+        "0",
+        "0.00E+00",
+        "0.0E+000",
+        '0;"neg";"zero"',
+        "[>0]0;[<0]-0;0",
+        "m/d/yy",
+        "# ?/?",
+    )
+    cases = tuple(Case(name, tag, value, f) for f in formats for tag, value in values)
+    return Suite(name, cases)
+
+
 SUITES: dict[str, Callable[[], Suite]] = {
+    "general_exponent3": general_exponent3,
+    "general_exponent_sweep": general_exponent_sweep,
+    "subnormal": subnormal,
     "capture2023_sample": capture2023_sample,
     "capture2026": capture2026,
     "width_general": width_general,

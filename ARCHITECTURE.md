@@ -150,6 +150,10 @@ Precision rules applied at normalization, each a quirk (section 9):
 them as strings with `cell.data_type == 'e'`, so a reader passes `ExcelError(cell.value)`. A plain
 string such as `'#N/A'` passed in is text.
 
+**No subnormal numbers.** Excel has none: a magnitude below the smallest normal double,
+2.2250738585072014e-308, is exact zero under every format and takes the zero section with no
+sign (suite `subnormal`, `CAPTURING.md` §2 item 34). This is matched unconditionally, not a quirk.
+
 Fraction formats work from the exact double, not the 15-digit value, and run the denominator
 search and the fixed-denominator rounding in double arithmetic, which is what reproduces Excel.
 
@@ -164,8 +168,11 @@ search and the fixed-denominator rounding in double arithmetic, which is what re
 - **General**: integer values print as integers; otherwise up to 11 characters (10 significant
   digits plus the point), trailing zeros stripped; at or above `99,999,999,999.5` or below
   `0.0001` (with more than nine decimals needed) switch to `d.dddddE+ee` with up to five
-  mantissa decimals and a two-digit exponent. These thresholds come from the 2023 prototype and the
-  Excel captures; the width-dependent form is in section 8.
+  mantissa decimals and an exponent of at least two digits. From an exponent magnitude of 99, read
+  before the mantissa rounds, the mantissa has up to four decimals (`1.23457E+98`, `1.2346E+99`,
+  `1.2346E-300`; `9.99995E+98`, but `9.99995e-99` shows `1E-98`). These thresholds come from the
+  2023 prototype and the Excel captures (`general_exponent_sweep`, `CAPTURING.md` §2 item 34); the
+  width-dependent form is in section 8.
 - **Scientific**: with `n` integer placeholders the mantissa has `(exponent mod n) + 1` integer
   digits (so `##0.0E+0` is engineering notation); zero renders every integer placeholder as `0`
   (`000.0E+0`, but `#.#E+#` shows `0.E+0`); the exponent is padded to its placeholder count,
@@ -303,6 +310,8 @@ Observed in the `width_general` capture (`CAPTURING.md` §2 item 11): General dr
 a time, rounding, until the text fits (`999.9999999` becomes `1000` as soon as one decimal goes);
 when the integer part does not fit it switches to scientific with as many mantissa decimals as
 fit, down to `1E+07`; below that, `#`. Values below one reduce to `0` rather than overflow.
+An exponent magnitude of 99 or more is charged three digits while reducing, including 99 itself,
+which prints two (`1.23E-99` is eight characters, yet `1.2E-99` shows at 8.67 units).
 Booleans overflow like numbers; text never does. Fill and overflow counts in Excel are
 glyph-measured (35 dashes and 53 spaces at width 30), so character mode and Excel mode differ
 on them by design.
