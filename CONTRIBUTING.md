@@ -8,10 +8,8 @@ A screenshot of the cell helps when the difference is a space or a fill characte
 
 ## Pull requests
 
-The project is just getting started, so pull requests aren't being accepted yet while
-the test-capture workflow, release process and review practices settle. This will be
-revisited after the first releases. In the meantime, if you have a change in mind,
-please open an issue describing it.
+Pull requests aren't being accepted yet. If you have a change in mind, please open an issue
+describing it.
 
 When pull requests open, these rules will apply:
 
@@ -50,7 +48,7 @@ mypy
 sphinx-build -n -W docs docs/_build/html # the strict documentation build
 ```
 
-`pytest` checks every row captured from Excel in about eight seconds; `pytest --tier=fast` runs a
+`pytest` checks every row captured from Excel in about eleven seconds; `pytest --tier=fast` runs a
 per-format sample. The examples in `README.md` and `docs/*.md` run as doctests, so a change of
 behavior shows up there too.
 

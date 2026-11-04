@@ -126,8 +126,9 @@ scripting interface misreports them; the sheet itself shows the color the packag
 
 ## Related packages
 
-xlformat is one of three packages from the `sheetmill` project, with `sheetpeek`, which
-renders workbooks to HTML, Markdown and terminal output, and `xlrecalc`, which evaluates
+xlformat is one of three packages from the [sheetmill](https://github.com/sheetmill/sheetmill)
+project, with [sheetpeek](https://github.com/sheetmill/sheetpeek), which renders workbooks to HTML,
+Markdown and terminal output, and [xlrecalc](https://github.com/sheetmill/xlrecalc), which evaluates
 formulas. xlformat has no dependencies; the other two require it. The `sheetmill` meta-package
 installs all three.
 
@@ -137,7 +138,7 @@ With uv, which installs the exact versions pinned in `uv.lock`:
 
 ```bash
 uv sync --group docs
-uv run pytest                 # unit tests and every captured Excel row, about eight seconds
+uv run pytest                 # unit tests and every captured Excel row, about eleven seconds
 uv run pytest --tier=fast     # a per-format sample of the Excel captures
 uv run ruff check . && uv run ruff format --check . && uv run mypy
 uv run --group docs sphinx-build -n -W docs docs/_build/html

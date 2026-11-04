@@ -51,8 +51,7 @@ class Value:
 def limit_precision(x: Decimal) -> Decimal:
     """Excel's 15-significant-digit rule on a non-negative exact value: ties round down.
 
-    Evidence: ``QUIRKS.md``. An earlier extra step for values at or above 1e14 was an artifact
-    of the captures' 16-digit number texts, not of Excel (``CAPTURING.md`` section 2 item 16).
+    Evidence: ``QUIRKS.md`` and ``CAPTURING.md`` section 2 item 16.
     """
     if x == 0:
         return x

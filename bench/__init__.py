@@ -1,1 +1,1 @@
-"""Benchmarks and the golden snapshot for the speed pass (not part of the wheel)."""
+"""Benchmarks and the golden snapshot (not part of the wheel)."""

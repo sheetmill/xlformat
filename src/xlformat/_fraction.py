@@ -86,8 +86,8 @@ def fixed_numerator(value: Decimal, denominator: int) -> int:
 def fraction_value(raw: float) -> Decimal:
     """The value fractions work from: the exact double, as a Decimal.
 
-    An earlier version rounded it to 15 significant digits; the recapture with exact number
-    texts showed the step changes nothing (CAPTURING.md section 2 item 18).
+    Rounding it to 15 significant digits first changes no captured row (CAPTURING.md section 2
+    item 18).
     """
     return Decimal(abs(raw))
 

@@ -1,7 +1,7 @@
 """Convert the 2023 clipboard capture into the current capture schema, gzipped.
 
-Source: ``batch_test_cases.tsv`` from the 2023 ``pyxlformat`` project (path given on the command
-line; it lives outside this repository). Output: ``tests/captures/capture2023.tsv.gz``, a
+Source: the 2023 capture's TSV (path given on the command line; it is not part of this
+repository). Output: ``tests/captures/capture2023.tsv.gz``, a
 full-tier-only suite tagged ``capture2023``.
 """
 

@@ -92,7 +92,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
    Calibri 12 workbook: `Tuesday, January 4, 2000` → 21.0 and `Sunday, December 3, 2000` →
    22.33, which matches what the sheet shows by hand. Every width-general value has its measurement in
    `tests/captures/width_general.measure.tsv`; that file is the seed for the Calibri 11 glyph table.
-8. **Rounding at 15 digits (point d).** Workbook `probe_halfdown.xlsx`, formats `0`, `General`,
+8. **Rounding at 15 digits.** Workbook `probe_halfdown.xlsx`, formats `0`, `General`,
    `0.0`:
 
    | value (exact binary) | `0` | `0.0` |
@@ -143,7 +143,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
    to 16 digits, not Excel. With exact inputs the rule is plain: the exact double rounded to 15
    significant digits with ties down, zero misses on every numeric row. `QUIRKS.md` carries the
    settled table.
-9. **Formats Excel refuses in a file (point a).** 21 formats the dialog rejects were each written
+9. **Formats Excel refuses in a file.** 21 formats the dialog rejects were each written
    with openpyxl into their own workbook and opened with alerts off. Sixteen made Excel refuse
    to open the file (`open workbook` fails with "Parameter error (-50)"): `0.00e+00`,
    `0.00e-00`, `##0.0e+0`, `0.00E+00;0.00e+00`, `0;0;0;0;0`, `[Red`, `0.00"`, `[Red][Blue]0`,
@@ -185,8 +185,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     than overflow (`0.000123` at width 4 is `0`, at width 5 `1E-04`, at width 6 `0.0001`).
     Negative values need one more unit for the sign (`-12345678` is `######` at width 5 where
     `12345678` is `1E+07`). Booleans overflow to `#` like numbers (`TRUE` at width 3 is `###`);
-    text never does. The exact reduction rule is derived from this file when the width work
-    starts.
+    text never does. The exact reduction rule was derived from this file (item 23).
 12. **Conditions and rounding (2026-10-24, suite `conditions_rounding`, 187 rows, 11 formats).**
     The hypothesis "a condition sees the value after rounding to the section's precision" is
     false: `[=0]"zero";0` shows `0` for 0.001 and `[<>0]0;"zero"` shows `0` for it, so the
@@ -331,7 +330,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     the half) round opposite ways, up for 9.5 and down for 8.5. Half-up on the double product of
     the fraction part with a tolerance of `c · 2⁻⁵² · (k + 0.5)` for c between 1.7 and 1.8 misses
     exactly one row (`0.03124999999999999` under `# ??/16`, 1.5 ulp below 0.5, rounds down);
-    division by `1/D` instead of multiplication changes nothing. Decision (time-boxed): the
+    division by `1/D` instead of multiplication changes nothing. Decision: the
     current tolerance stayed and the 32 rows were known deviations.
     **Resolved 2026-10-25 by a larger capture of half-step values**, included as
     `fraction_threshold` and `fraction_random`. The rule, with `W = floor(x)`

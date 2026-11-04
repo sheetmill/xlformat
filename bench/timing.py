@@ -1,4 +1,4 @@
-"""Time parsing and rendering, and measure memory, for the speed pass.
+"""Time parsing and rendering, and measure memory.
 
 Usage: ``uv run python -m bench.timing``. Parse times bypass the cache (the compile step alone);
 render times use a parsed format, one call per mode: width-less, character mode (``width``),

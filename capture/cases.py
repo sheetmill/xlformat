@@ -23,8 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # in for "wide enough for anything" when string value is read instead of the clipboard.
 GENERAL_WIDTHS: tuple[float, ...] = (1, 2, 3, 4, 5, 6, 7, 8, 8.43, 9, 10, 11, 12, 13, 14, 16, 20)
 
-# Fast-tier cap per (format, width) group; see capture/tiers.py. Chosen so the planned suites
-# (about 27,000 rows) give roughly 5,000 fast rows.
+# Fast-tier cap per (format, width) group; see capture/tiers.py.
 DEFAULT_FAST_CAP = 15
 # Suites that exist only as full-tier regression data.
 FULL_ONLY: dict[str, int] = {"capture2023": 0, "capture2023_sample": 0}

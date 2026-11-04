@@ -40,7 +40,7 @@ value ──normalize──▶ Value  │
 
 ## 3. Format model
 
-Tokens per section, produced by one regex pass (the old tokenizer approach, kept):
+Tokens per section, produced by one regex pass:
 
 | token | notes |
 |---|---|
@@ -70,12 +70,12 @@ percent count, exponent placeholders and sign style, fraction numerator/denomina
 or fixed denominator, resolved date fields (`m` already resolved to month or minute, `h` already
 knows whether AM/PM is present, fractional-second digit count).
 
-`m` resolution (from the 2023 prototype, verified by the Excel captures): scanning left to right, an `m` run
+`m` resolution (verified by the Excel captures): scanning left to right, an `m` run
 is a minute if an `h` run precedes it since the previous `m` run; otherwise a minute if the next
 date/time code is a second; otherwise a month. The general rule is that `m` next to `h` or `s` is
 a minute, and a fraction of a second counts as a second there (`m.00` is minutes and hundredths).
 
-Comma rules (from the 2023 prototype's docstring, which the Excel captures confirm): commas between digit
+Comma rules (which the Excel captures confirm): commas between digit
 placeholders before the decimal point turn on grouping; commas immediately after the last digit
 placeholder scale by a thousand each; commas before any placeholder, or after a literal, are
 literals; commas after the decimal point are dropped.
@@ -136,7 +136,7 @@ Accepted inputs and their normalization:
 **Decimal, not float**, is the working type: Excel's display is a decimal process (15
 significant digits, half-up rounding at the displayed place) applied to a binary double, and
 `Decimal(float)` reproduces the double exactly so the decimal process can be applied faithfully.
-`float` arithmetic would reintroduce the errors the 2023 prototype spent effort avoiding. Performance
+`float` arithmetic would round where Excel's decimal process does not. Performance
 cost is acceptable (a few microseconds per value) and is measured, not assumed.
 
 Precision rules applied at normalization, each a quirk (section 9):
@@ -147,8 +147,7 @@ Precision rules applied at normalization, each a quirk (section 9):
   `….2`, `123451234512345.5` under `0` shows `…345`, `….515625` shows `…346`). Zero failures on
   69,690 numeric captured rows. An earlier extra step at or above 1e14 ("round to 16 digits
   first") fitted the 16-digit number texts openpyxl had written, not Excel; the formula-written
-  rows removed it. The 2023 prototype's "exact .5 rounds down at 15 integer digits" was an
-  approximation of the same artifact.
+  rows removed it.
 
 **Error values.** `#N/A`, `#DIV/0!` and the other error values are inputs as
 `ExcelError` (section 11). Excel displays them regardless of number format, and openpyxl exposes
@@ -176,7 +175,7 @@ search and the fixed-denominator rounding in double arithmetic, which is what re
   mantissa decimals and an exponent of at least two digits. From an exponent magnitude of 99, read
   before the mantissa rounds, the mantissa has up to four decimals (`1.23457E+98`, `1.2346E+99`,
   `1.2346E-300`; `9.99995E+98`, but `9.99995e-99` shows `1E-98`). These thresholds come from the
-  2023 prototype and the Excel captures (`general_exponent_sweep`, `CAPTURING.md` §2 item 34); the
+  Excel captures (`width_general`, `general_exponent_sweep`; `CAPTURING.md` §2 items 11 and 34); the
   width-dependent form is in section 8.
 - **Scientific**: with `n` integer placeholders the mantissa has `(exponent mod n) + 1` integer
   digits (so `##0.0E+0` is engineering notation); zero renders every integer placeholder as `0`
@@ -456,9 +455,7 @@ class Quirks:
     STRICT: ClassVar[Quirks]  # all False
 ```
 
-Names are shared with `xlrecalc` where a quirk exists in both packages; an early candidate,
-`half_down_above_15_digits`, is folded into `fifteen_digit_precision` (section 5).
-Quirks bind at format
+Names are shared with `xlrecalc` where a quirk exists in both packages. Quirks bind at format
 time: `format_value`, `format_cell` and the `NumberFormat` methods take
 `quirks: Quirks | None = None` (None means `Quirks.EXCEL`); `NumberFormat.parse` does not, and
 the parse cache is keyed on the string alone. If a parse-affecting quirk ever appears, revisit.
@@ -535,7 +532,12 @@ canonical color names to `RRGGBB` in the default palette (the eight names and `C
 ## 11. Public API
 
 ```python
-from xlformat import format_value, format_cell, NumberFormat, FormattedCell, Quirks, FormatError
+from xlformat import (
+    format_value, format_cell, text_function, NumberFormat, FormattedCell, Section, SectionKind,
+    Quirks, FormatError, ExcelError, DEFAULT_PALETTE, Font, ColumnMetrics, column_metrics,
+    column_metrics_from_points, file_column_metrics, text_width, glyph_widths, digit_width,
+    overhang, measured_fonts,
+)
 
 def format_value(value, format_string="General", *, width=None, column_width=None, font=None,
                  normal_font=None, measure=None, date1904=False, quirks=None) -> str
@@ -663,36 +665,32 @@ capture/            generator, capture scripts (not part of the wheel)
 ## 13. Performance
 
 Targets: parse under 50 µs for a typical format; format under 10 µs for `#,##0.00`, under 20 µs
-for dates; every captured row under 3 s (set at 270,549 rows; not met at 526,729, see below). Techniques: parse once and cache, precompute everything
-derivable from the format, no regex at render time, no `datetime` objects, Decimal only where
-precision needs it.
+for dates. Techniques: parse once and cache, precompute everything derivable from the format, no
+regex at render time, no `datetime` objects, Decimal only where precision needs it, one scan per
+section, table-driven tokens, identity hashing for the parser's token kinds, the column's budget,
+measure and units cached per column width and fonts, and one-character tokens and pieces shared
+between formats.
 
-Measured with `bench/timing.py` (Python 3.11, Apple Silicon), before and after the speed
-pass; parse times bypass the cache, render times are per call with a parsed format. Every
-change of the pass was checked with `bench/golden.py`: the 984,508 renderings of every captured
-row in every mode were byte-identical before and after each commit.
+Measured with `bench/timing.py` (Python 3.11, Apple Silicon) at this version; parse times bypass
+the cache, render times are per call with a parsed format. `bench/golden.py` renders every captured
+row in every mode, so a change meant to keep the output can show that it did.
 
-| operation | before | after |
-|---|---|---|
-| parse `#,##0.00` | 16.4 µs | 11.8 µs |
-| parse `General` | 4.3 µs | 3.1 µs |
-| parse the four-section accounting format (target 50) | 61.9 µs | 42.5 µs |
-| parse `m/d/yy` | 9.3 µs | 6.9 µs |
-| parse `yyyy-mm-dd hh:mm:ss.000` | 21.0 µs | 14.8 µs |
-| format `#,##0.00`: width-less, `width=10`, `column_width=10` | 5.3, 5.7, 7.2 µs | 5.5, 5.9, 6.2 µs |
-| format `#,##0.00` in Excel mode with a cell font other than the Normal font | 10.1 µs | 6.3 µs |
-| format `General` with 1234567.891: width-less, `width=10`, `column_width=10` | 4.8, 7.8, 9.4 µs | 5.0, 8.1, 8.6 µs |
-| format the accounting format with -1234.5 in Excel mode | 8.6 µs | 7.4 µs |
-| format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 11.5 µs | 10.8 µs |
-| memory retained by 1,000 distinct compiled formats | 3,013 KiB | 1,147 KiB |
-| memory of one compiled accounting format | 3.9 KiB | 2.5 KiB |
-| `pytest`, 149 suite files, 526,729 rows in all modes | 9.0 s | 8.1 s |
-| `pytest --tier=fast` | 2.0 s | 1.7 s |
-
-The pass: one scan per section instead of eleven, table-driven tokens, identity hashing for the
-parser's token kinds, the column's budget, measure and units cached per column width and fonts,
-and one-character tokens and pieces shared between formats. Of the 8.1 s of a full test run,
-reading and decoding the suite files takes about 2.4 s.
+| operation | measured |
+|---|---|
+| parse `#,##0.00` | 11.2 µs |
+| parse `General` | 3.0 µs |
+| parse the four-section accounting format (target 50) | 41.2 µs |
+| parse `m/d/yy` | 7.6 µs |
+| parse `yyyy-mm-dd hh:mm:ss.000` | 16.3 µs |
+| format `#,##0.00`: width-less, `width=10`, `column_width=10` | 5.2, 5.6, 6.0 µs |
+| format `#,##0.00` in Excel mode with a cell font other than the Normal font | 6.0 µs |
+| format `General` with 1234567.891: width-less, `width=10`, `column_width=10` | 4.8, 7.8, 8.3 µs |
+| format the accounting format with -1234.5 in Excel mode | 7.1 µs |
+| format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
+| memory retained by 1,000 distinct compiled formats | 1,149 KiB |
+| memory of one compiled accounting format | 2.5 KiB |
+| `pytest`, 167 suite files, 682,709 rows in all modes | 11.1 s |
+| `pytest --tier=fast` | 2.3 s |
 
 ## 14. What the code taught
 
@@ -701,9 +699,9 @@ reading and decoding the suite files takes about 2.4 s.
   locale is one of these as date/time.
 - Excel honors the **last** `*` fill in a section, not the first (`*-0*-` shows `1235` then
   dashes), so `FormattedCell.fill` records the last one.
-- The 2023 prototype stripped trailing `#` placeholders from the decimal part, which makes `0.0#`
-  behave like `0.0`; the 2023 capture never had such a format so it passed. The renderer keeps
-  them and drops trailing zero digits only over `#` and `?` positions (`1.55` → `1.55`, `1` →
+- Trailing `#` placeholders in the decimal part count: `0.0#` is not `0.0`, and the 2023 capture
+  has no such format. The renderer keeps them and drops trailing zero digits only over `#` and `?`
+  positions (`1.55` → `1.55`, `1` →
   `1.0` under `0.0#`, `1.` under `0.##`); the `numeric_core` suite covers this.
 - `-0.5` under `0` renders `-1` (half-up on the magnitude, sign kept); under `0.00` a value that
   rounds to zero drops its sign. Both follow from "round the magnitude, then decide the sign".

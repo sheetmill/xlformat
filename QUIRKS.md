@@ -9,13 +9,11 @@ shared with `xlrecalc` where the quirk exists in both.
 
 **Excel**: a number is displayed from at most 15 significant digits. The exact binary value of
 the double is rounded to 15 significant digits with ties **down**; only then is the format's own
-rounding (half-up at the displayed decimals) applied. An earlier version of this entry had an
-extra step for values at or above 1e14 (round to 16 digits first); it fitted number texts that
-openpyxl had rounded to 16 significant digits, not Excel (`CAPTURING.md` §2 items 15 and 16).
+rounding (half-up at the displayed decimals) applied (`CAPTURING.md` §2 items 15 and 16).
 
 **Strict**: the exact value is used with no 15-digit rounding.
 
-**Evidence** (`tests/captures/rounding_15digit.tsv`, 135 rows, recaptured 2026-10-24 with exact
+**Evidence** (`tests/captures/rounding_15digit.tsv`, 135 rows, with exact
 number texts; `clock_formulas`, 270 numeric rows written as constants and as formulas; the 1,695
 float rows of the 2023 capture under `0`, `0.00` and thirty decimals; zero failures on 69,690
 numeric captured rows in all):
@@ -86,9 +84,7 @@ fixed denominators round the exact product half-up.
 `fraction_threshold`, 710 rows, every value as `repr` text and as a formula pinning the double;
 `fraction_random`, 30,300 rows predicted before capture; the 5,310 fraction rows of the 2023
 capture and of `capture2026`; and 6,351,456 free-denominator rows of unpublished 2023
-captures, `CAPTURING.md` §2 item 22): zero misses in every suite. The fixed rule
-replaced an empirical tolerance on 2026-10-25; the tolerance missed 484 of 38,904
-fixed-denominator rows.
+captures, `CAPTURING.md` §2 item 22): zero misses in every suite.
 
 | value written | format | Excel | strict | note |
 |---|---|---|---|---|
@@ -103,25 +99,19 @@ fixed-denominator rows.
 
 ## Known deviations
 
-One, for the clipboard only. A Buddhist-year code (`b`, `bbbb`) renders the Buddhist year without a
+Two. The first concerns the clipboard only: a Buddhist-year code (`b`, `bbbb`) renders the Buddhist year without a
 width, as the sheet and `TEXT` do at every width, while Excel's clipboard gives the plain year:
 `03` where the sheet shows `46` (`letters`, `letters_upper`, `letters1904`; `CAPTURING.md` §2 item
 35). The package follows the sheet and does not model that medium; `full_text` says so, and the
 capture test compares these rows with the plain year code, so a change on either side fails it.
 
-An elapsed code after a date code is not modeled: `d [s].00` with half a second shows `0 4363200.50`
+The second: an elapsed code after a date code is not modeled: `d [s].00` with half a second shows `0 4363200.50`
 in Excel, numbers no rule here explains, and the package shows the elapsed count (`0 0.50`). A
 capture batch stopped on a workbook with `[s]*-.00`, so that form has no capture (`CAPTURING.md` §2
 item 42).
 
 No other row is known to differ. Such rows would be listed in `tests/test_captures.py` and here,
-with the evidence, and counted on every run. History: 99
-entries (floating noise in the leaked `General` seconds, half-second boundaries on serial 44927)
-were removed on 2026-10-24 when Excel's clock arithmetic was reproduced operation for operation
-and the captures began writing exact number texts (`CAPTURING.md` §2 items 15 and 16); 32 entries
-(`fraction_ties`, the fixed-denominator numerator near half steps) were removed on 2026-10-25
-when the nudged half-up rule replaced the empirical tolerance (`CAPTURING.md` §2 item 22).
-Fifteen color rows of the `colors` suite are skipped under `tests/test_captures.py:
+with the evidence, and counted on every run. Fifteen color rows of the `colors` suite are skipped under `tests/test_captures.py:
 DISPLAY_FORMAT_COLOR_MISREPORTS`: Excel's DisplayFormat API reports automatic black where the sheet
 paints the section color (verified by eye); the package is right there (`CAPTURING.md` §2 item 21).
 

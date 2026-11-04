@@ -20,10 +20,10 @@ defined in `capture/cases.py`. Capturing a suite takes four steps:
    digit reduction. Section colors are read from each cell's display format, and autofit
    widths from Excel's own measurement of a text.
 4. **Write.** The texts are written to `tests/captures/<suite>.tsv` with a header recording the
-   Excel build, the fonts, the locale, the date and the generator's commit.
+   Excel build, the fonts, the locale, the date and the generator function.
 
 The test suite then renders every row with xlformat and compares the text exactly. A default
-`pytest` run checks every captured row in about eight seconds. Width rows are checked twice: in Excel
+`pytest` run checks every captured row in about eleven seconds. Width rows are checked twice: in Excel
 mode, which must match exactly, and in character mode, which skips the rows where Excel fitted
 a text by glyph width.
 
@@ -64,15 +64,24 @@ before Excel was asked, and every prediction matched.
 | `general_points9` to `16`, `general_points_aptos_narrow11`, `general_literals_points`, `general_zero_sign` | 59,582 | `General` at every whole-point column width, among literals, negatives that reduce to zero |
 | `column_file9` to `16`, `column_file_aptos_narrow11`, four `column_default_*`, `column_narrow11`, `column_narrow14`, `limits` | 19,814 | widths written into the file, columns without a width, columns below one unit, the 255-character limit |
 | `cell_font`, `general_cell_font`, `cell_font_numeric`, `cell_font_styles`, `general_cell_font_styles` | 133,914 | cells whose font differs from the Normal font, in size, style and family |
+| `general_exponent3`, `general_exponent_sweep`, `subnormal` | 68,838 | `General` with long exponents, and doubles below the smallest normal one |
+| `general_text_narrow`, `general_sign_narrow` | 4,026 | a number through `@` or `[Red]General` in narrow columns, and negatives with less than a character beside the sign |
+| `merged11`, `merged14` | 5,940 | cells merged across columns, in Calibri 11 and 14 |
+| `advance_tenths11`, `advance_tenths12` | 41,481 | long runs and fills of the glyphs that autofit measures with a tenth of a point |
 | `error_width` | 1,638 | error values under formats and widths |
 | `colors`, `lone_zero`, `conditions_rounding`, `selection_fallback` | 493 | section colors and section selection |
+| `letters`, `letters_upper`, `letters1904` | 6,584 | what a bare letter means in a format, and the Buddhist-year code |
+| `elapsed_decimals`, `huge_values`, `empty_text`, `fraction_percent` | 3,678 | fractions of a second after any date or time code, values too large for fraction and elapsed arithmetic, the empty text, a numerator's limits |
+| `text_function`, `text_function1904` | 25,433 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
 | `measure9` to `measure16` and 42 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri and Aptos Narrow, four styles, six sizes |
 
 Two further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
 from Excel's PDF export) holds where Excel places each value, and `repair.layout.tsv` (248 rows)
-what Excel's repair does to formats it refuses. In all, 149 suite files (101 with rows, the
-others autofit measurements) hold 526,729 rows. Every row passes. Fifteen color readings are skipped because Excel's scripting interface
-reports automatic black where the sheet, checked by eye, shows the section color.
+what Excel's repair does to formats it refuses. In all, 167 suite files (119 with rows, the
+others autofit measurements) hold 682,709 rows. Every row passes. Fifteen color readings are
+skipped because Excel's scripting interface reports automatic black where the sheet, checked by
+eye, shows the section color, and width-less rows of a Buddhist-year code are compared with the
+plain year, which is what Excel's clipboard gives where the sheet shows the Buddhist year.
 
 The full record of every probe, including the hypotheses that turned out wrong, is
 [CAPTURING.md](https://github.com/sheetmill/xlformat/blob/main/CAPTURING.md) in the repository. The
@@ -87,5 +96,6 @@ Regenerating a suite needs Excel for Mac and permission for the terminal to cont
 uv run python -m capture numeric_core
 ```
 
-A 10,000-row suite takes about a second of Excel time. The scripts never touch a workbook they
+A suite takes about a second of Excel time per 10,000 rows, and about 0.75 s more for each column
+whose width the script sets. The scripts never touch a workbook they
 did not create.

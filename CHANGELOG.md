@@ -24,8 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - The formula engine is named `xlrecalc` throughout the documentation. xlformat keeps
-  `ExcelError`; `xlrecalc` has its own `ErrorValue`, which compares equal to it. The
-  `sheetmill` meta-package is released and installs all three packages.
+  `ExcelError`; `xlrecalc` has its own `ErrorValue`, which compares equal to it.
 - The empty string is ordinary text, as in Excel: `@" units"` with `""` shows ` units`,
   `"pos";"neg";"zero";"text"` shows `text` and `@*-` fills a column. It rendered nothing. A blank
   cell is `None`, which still does. Evidence: cells holding `=""` (suite `empty_text`).
