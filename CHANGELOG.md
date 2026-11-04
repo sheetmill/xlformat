@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-03
+
 ### Added
 - `text_function(value, format_string, *, date1904=False, quirks=None)` and
   `NumberFormat.text_function`, what Excel's `TEXT` function returns: a blank is 0, an error passes
@@ -163,6 +165,7 @@ First release.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.3.0
 [0.2.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.2.0
 [0.1.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.1.0
