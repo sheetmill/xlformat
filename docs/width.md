@@ -100,6 +100,23 @@ may take, 0 in a column under 5 points; a column of no width has a `width` of 0,
 text starts and right-aligned text ends, provisional values from Excel's print layout until a
 screen capture confirms them.
 
+A merged cell formats as one column of the sum of its columns' points, with a single padding, and
+a hidden column counts as 0. `column_metrics_from_points` makes that column:
+
+```python
+>>> from xlformat import column_metrics_from_points
+>>> points = sum(file_column_metrics(w).points for w in (2, 2, 2))
+>>> points
+36.0
+>>> merged = column_metrics_from_points(points)
+>>> merged.width, merged.budget
+(5.166666666666667, 31.0)
+>>> format_value(12345, "0", column_width=merged.width)
+'12345'
+>>> format_value(12345678, "0", column_width=merged.width)
+'######'
+```
+
 How Excel measures, as reproduced here:
 
 - A column `w` units wide is `round(MDW · w + 5)` points, MDW being the width of a digit in the

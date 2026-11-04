@@ -48,6 +48,7 @@ Everything below is importable from `xlformat`.
    :members: style
 .. autofunction:: xlformat.file_column_metrics
 .. autofunction:: xlformat.column_metrics
+.. autofunction:: xlformat.column_metrics_from_points
 .. autoclass:: xlformat.ColumnMetrics
    :members:
 ```

@@ -29,6 +29,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `NumberFormat.text_function`, what Excel's `TEXT` function returns: a blank is 0, an error passes
   through, a refused format or a `#` run is `ExcelError.VALUE`, and the empty format gives the
   empty text for a number and `-` for a negative one.
+- `column_metrics_from_points(points, normal_font=None)`, the column of a width in points. A merged
+  cell formats as one column of the sum of its columns' points, with a single padding of 5, and a
+  hidden column counts as 0 (suites `merged11`, `merged14`).
 - The Buddhist-year code: `b` and `bb` show the year's last two digits and `bbb` and longer all
   four, in either case (`abc` with 12.5 shows `a43c`); after a `[$...]` tag they are the plain
   year. The era code `g`, empty in en-US. The calendar prefixes `b1` and `b2`, which print

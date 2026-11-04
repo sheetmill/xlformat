@@ -339,6 +339,22 @@ def column_metrics(
     return _metrics(column_points(column_width, normal_font), normal_font)
 
 
+def column_metrics_from_points(points: float, normal_font: FontSpec | None = None) -> ColumnMetrics:
+    """The column ``points`` wide, in the workbook's Normal font.
+
+    For a merged cell, pass the sum of its columns' ``points``: Excel formats it as one column of
+    that width, with a single padding (CAPTURING.md section 2 item 40), and a hidden column counts
+    as 0. The result's ``width`` is what ``column_width`` takes, unless it is 0.
+
+    Raises:
+        ValueError: ``points`` is negative.
+    """
+    if points < 0:
+        msg = f"points must not be negative, not {points!r}"
+        raise ValueError(msg)
+    return _metrics(float(points), normal_font)
+
+
 def file_column_metrics(
     file_width: float | None = None,
     *,

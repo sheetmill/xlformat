@@ -130,6 +130,19 @@ def test_file_widths_and_the_default_column() -> None:
     assert file_column_metrics(8.43).budget == 46
 
 
+def test_column_metrics_from_points() -> None:
+    from xlformat import column_metrics, column_metrics_from_points, file_column_metrics
+
+    assert column_metrics_from_points(53) == file_column_metrics()
+    assert column_metrics_from_points(3).width == 3 / 11
+    assert column_metrics_from_points(3).budget == 0
+    for w in (0.5, 1.75, 8.43, 13):
+        m = column_metrics(w, ("Calibri", 14))
+        assert column_metrics_from_points(m.points, ("Calibri", 14)) == m
+    with pytest.raises(ValueError, match="negative"):
+        column_metrics_from_points(-1)
+
+
 def test_the_budget_of_a_column_under_five_points_is_zero() -> None:
     from xlformat import column_metrics, file_column_metrics
 

@@ -18,7 +18,13 @@ from pathlib import Path
 
 from capture.schema import read_rows
 
-from xlformat import Font, file_column_metrics, format_cell, text_function
+from xlformat import (
+    Font,
+    column_metrics_from_points,
+    file_column_metrics,
+    format_cell,
+    text_function,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tests"))
@@ -48,6 +54,12 @@ def lines() -> list[str]:
             fmt = row.format_string
             d = row.date1904 == "1"
             key = f"{path.name}|{row.tag}|{row.value_repr}|{row.format}|{row.width}"
+            if row.tag.startswith("merged:"):
+                width = column_metrics_from_points(row.width_value or 0, normal).width
+                out.append(
+                    f"{key}|excel|{_cell(value, fmt, column_width=width, normal_font=normal)}"
+                )
+                continue
             if row.tag.startswith("text:"):
                 out.append(f"{key}|text|{text_function(value, fmt, date1904=d)!r}")
                 continue

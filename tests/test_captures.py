@@ -23,6 +23,7 @@ from xlformat import (
     ExcelError,
     Font,
     NumberFormat,
+    column_metrics_from_points,
     file_column_metrics,
     format_cell,
     format_value,
@@ -227,6 +228,13 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
                 failures.append((row, got))
             continue
         column_width = row.width_value
+        if row.tag.startswith("merged:"):  # the width is the block's total points
+            counts["Excel mode compared"] += 1
+            cw = column_metrics_from_points(row.width_value or 0, normal).width
+            got = format_value(value, fmt, column_width=cw, font=normal, normal_font=normal)
+            if got != row.expected_text:
+                excel_failures.append((row, got))
+            continue
         if file_widths:
             metrics = file_column_metrics(
                 row.width_value,

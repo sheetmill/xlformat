@@ -726,6 +726,16 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       -9999 and from -10000 on. At 1.5 units the form fits (`-1`, `-9`) until `-9.5` rounds to two
       digits. The earlier rule, "from 0.0001 to under 10", had been fitted to -1.5 and -0.05.
 
+40. **Merged cells (2026-11-03; suites `merged11`, `merged14`, 33 blocks of one to five columns
+    written into the file as `<col width>`, wide and narrow, mixed, with a hidden column, 90 cases
+    each, Calibri 11 and 14, 2,970 rows each; `Suite.merged`, the width column holding the block's
+    total points).** `string value` of the first cell of a merged range formats it for the whole
+    range. Every row matches one column of the summed points through
+    `column_metrics_from_points`: the padding of 5 is charged once, General counts characters
+    against that width, and the narrow rules apply to the sum (two 1-point columns behave as one
+    of 2 points, and six of them as one of 6). The blocks include single columns of the same point
+    widths as controls, and a hidden column adds nothing (`(0, 5)` and `(5, 0)` are 30 points).
+
 ## 3. The pipeline
 
 ```

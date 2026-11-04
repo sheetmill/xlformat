@@ -409,6 +409,11 @@ whose text exceeds 255 characters is 255 `#` without a width as well (`1E+300` u
 `ColumnMetrics` also carries the text edges, 3 points from the left gridline and 2 from the
 right, provisional values from Excel's print layout (sheetpeek's PDF capture at Calibri 11).
 
+**Merged cells** (suites `merged11`, `merged14`; `CAPTURING.md` §2 item 40). A cell merged across
+columns formats exactly as one column of the sum of their points, with a single padding of 5: its
+budget is that sum less 5, not less 5 per column, and a hidden column counts as 0.
+`column_metrics_from_points` gives that column.
+
 **Cell font and Normal font** (`_render.resolve_width`; suites `cell_font`, `general_cell_font`,
 `cell_font_numeric`, `general_zero_sign`; `CAPTURING.md` §2 item 29). The column comes from the
 workbook's Normal font (`normal_font`, default `font`): its digit width sets the unit and the
@@ -563,7 +568,9 @@ defaults to `font`, so a caller with one font passes only `font`.
 
 The column model is public: `file_column_metrics(file_width=None, *, base_col_width=8,
 default_col_width=None, normal_font=None)` for a column as a file states it and
-`column_metrics(column_width, normal_font=None)` for a dialog width, both returning a frozen
+`column_metrics(column_width, normal_font=None)` for a dialog width, and
+`column_metrics_from_points(points, normal_font=None)` for a width in points, such as a merged
+cell's sum of its columns' points, all returning a frozen
 `ColumnMetrics(width, points, budget, left_inset, right_inset, digit_width)`; `width` is what
 `column_width` takes, except that a column of no width has a `width` of 0 and `column_width` raises
 `ValueError` for it. `budget` is `points` less 5, and 0 under 5 points. Both still accept the Normal font under its deprecated name `font`, with

@@ -2282,7 +2282,7 @@ def fraction_percent() -> Suite:
     return Suite(name, cases, widths=(None, 12))
 
 
-def _merged(name: str, font_size: int | None, *, probe: bool) -> Suite:
+def _merged(name: str, font_size: int | None) -> Suite:
     """Cells merged across columns: wide blocks, narrow blocks, mixed, with a zero-width column."""
     from xlformat import Font, file_column_metrics
 
@@ -2356,13 +2356,17 @@ def _merged(name: str, font_size: int | None, *, probe: bool) -> Suite:
         font_size=font_size,
         width_source="file",
         merged=blocks,
-        probe=probe,
     )
 
 
-def merged_probe() -> Suite:
-    """Merged cells at Calibri 11, as a probe."""
-    return _merged("merged_probe", None, probe=True)
+def merged11() -> Suite:
+    """Merged cells at Calibri 11."""
+    return _merged("merged11", None)
+
+
+def merged14() -> Suite:
+    """Merged cells at Calibri 14."""
+    return _merged("merged14", 14)
 
 
 def general_text_narrow() -> Suite:
@@ -2535,7 +2539,8 @@ SUITES: dict[str, Callable[[], Suite]] = {
     "huge_values": huge_values,
     "general_sign_narrow": general_sign_narrow,
     "general_text_narrow": general_text_narrow,
-    "merged_probe": merged_probe,
+    "merged11": merged11,
+    "merged14": merged14,
     "empty_text": empty_text,
     "fraction_percent": fraction_percent,
     "text_function": text_function,
