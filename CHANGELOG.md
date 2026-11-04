@@ -25,6 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `DeprecationWarning` and goes away in 1.0; passing both raises `ValueError`.
 
 ### Fixed
+- The empty string is ordinary text: `@" units"` with `""` shows ` units` as in Excel, and `@*-`
+  fills. It rendered nothing. A cell without a value is `None`.
+- A numerator above 32767 with a fixed denominator shows a `#` run (`?/10` with 3276.8, `?/10%`
+  with 50), and a free denominator's numerator from 2147483647.
 - A huge value no longer raises under a fraction or elapsed format: `# ?/?` with 1e100 raised
   `decimal.InvalidOperation`, and `[h]` and `?/?%` with the largest double raised
   `OverflowError`. Their digits past 15 print as zeros, as in Excel.

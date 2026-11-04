@@ -200,7 +200,7 @@ def render(
         align: Align = "left" if v.kind is Kind.TEXT else "center"
         section = fmt.text_section
         is_text = v.kind is Kind.TEXT  # booleans overflow like numbers, text never does...
-        if section is None or text == "":  # an empty string shows nothing, literals included
+        if section is None:
             return assemble(
                 [("lit", text)], None, align, width=budget, measure=measure, overflows=not is_text
             )

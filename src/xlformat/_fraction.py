@@ -92,7 +92,10 @@ def fraction_value(raw: float) -> Decimal:
     return Decimal(abs(raw))
 
 
-_MAX_NUMERATOR = 2**31 - 1  # a larger numerator shows '#' (fraction suite: 49382715605/4)
+# A larger numerator shows '#': 32767/10 shows and 32768/10 does not, with or without a percent;
+# a free denominator's holds to 1073741824/5, and 2147483647/1 does not show (fraction_percent).
+_MAX_FIXED_NUMERATOR = 32767
+_MAX_FREE_NUMERATOR = 2**31 - 2
 
 
 def render_fraction(
@@ -131,7 +134,7 @@ def render_fraction(
     if spec.fixed_denominator:
         numerator = numerator * (spec.fixed_denominator // denominator)
         denominator = spec.fixed_denominator
-    if numerator > _MAX_NUMERATOR:
+    if numerator > (_MAX_FIXED_NUMERATOR if spec.fixed_denominator else _MAX_FREE_NUMERATOR):
         return None
     show_fraction = spec.whole is None or "0" in spec.numerator
     out: list[Piece] = []

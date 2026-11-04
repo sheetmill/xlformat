@@ -193,7 +193,9 @@ search and the fixed-denominator rounding in double arithmetic, which is what re
   `10^digits - 1` with the epsilon from ExcelNumberFormat, which the Excel captures confirm for the
   2023 cases; `fraction_denominators` off uses `Fraction.limit_denominator`. Zero fraction: `?`
   numerators show spaces (the bar too), `#` show nothing, `0` show `0/1`; a whole value of zero
-  shows `0` even under `#`; `%` scales, and scaling past the largest double leaves zero (`?/?%` with
+  shows `0` even under `#`; a numerator above 32767 with a fixed denominator (`3276.7` under `?/10`
+shows and `3276.8` is `#`), or from 2147483647 with a free one, shows a `#` run (`fraction_percent`);
+`%` scales, and scaling past the largest double leaves zero (`?/?%` with
 1.7976931348623157e308 shows `0/1%`). A whole part prints digits past 15 as zeros. A decimal point
 before the bar is a `FormatError`
   (Excel refuses the file). All 5,310 rows of 2023 pass.
@@ -690,7 +692,10 @@ reading and decoding the suite files takes about 2.4 s.
   General, dropping the sign when the bound is negative, and shows `#` when the body is
   `General`. Four `[<=0]0` rows (negatives that round to zero show General of the magnitude)
   were known deviations until the re-render rule (`CAPTURING.md` §2 item 17) explained them.
-- An empty-string value renders nothing, literals included (`@" units"` with `""` is empty).
+- The empty text is text like any other: `@" units"` shows ` units` and `@*-` fills. A blank cell
+  (`None`) shows nothing. A `""` constant written by openpyxl is a blank cell, which once read as
+  a rule that the empty text hides its literals; a formula (`=""`) gives Excel the real value
+  (`empty_text`, `CAPTURING.md` §2 item 37).
 - The clock arithmetic needed the double, not the 15-digit value, and two different paths for
   clock and elapsed fields (section 7). The first attempt rounded date-only formats to the
   nearest day and broke 4,116 rows; Excel always rounds to the second.

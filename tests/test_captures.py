@@ -76,6 +76,8 @@ def _excel_value(row: Row, header: dict[str, str]) -> object:
     denote the Python double.
     """
     value = row.value
+    if value == "" and "formula:" not in row.tag:
+        return None  # openpyxl writes the empty string as a blank cell; empty_text has real ones
     if row.value_type == "error":
         assert isinstance(value, str)
         return ExcelError(value)

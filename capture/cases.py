@@ -2185,6 +2185,95 @@ def huge_values() -> Suite:
     return Suite(name, cases, widths=(None, 12))
 
 
+def empty_text() -> Suite:
+    """A cell holding the empty text (``=""``), which openpyxl cannot write as a constant."""
+    name = "empty_text"
+    formats = (
+        "General",
+        "@",
+        '@" units"',
+        '"<"@">"',
+        "(@)",
+        "_(@_)",
+        "@*-",
+        "*-@",
+        "c@",
+        "0",
+        "0;0;0",
+        '"pos";"neg";"zero";"text"',
+        "0;0;0;@",
+        '0;0;0;"x"@',
+        ";;;",
+        "[Red]@",
+        '_($* #,##0_);_($* (#,##0);_($* "-"_);_(@_)',
+        "m/d/yy",
+        "[Red]General",
+    )
+    cases = tuple(Case(name, 'formula:=""', "", f, formula='=""') for f in formats)
+    return Suite(name, cases, widths=(None, 6, 12))
+
+
+def fraction_percent() -> Suite:
+    """Fractions with percent: where a large numerator stops showing."""
+    name = "fraction_percent"
+    formats = (
+        "?/10%",
+        "??/10%",
+        "???/10%",
+        "?/100%",
+        "?/2%",
+        "??/16%",
+        "# ?/10%",
+        "?/?%",
+        "0/10%",
+        "?/10",
+        "?/100",
+        "?/16",
+        "0/10",
+        "?/2",
+        "?/?",
+    )
+    values = tuple(
+        (repr(v), v)
+        for v in (
+            1,
+            2,
+            5,
+            9,
+            10,
+            20,
+            32.767,
+            32.768,
+            50,
+            60,
+            100,
+            327.67,
+            327.68,
+            1000,
+            3276.7,
+            3276.8,
+            16383.5,
+            16384,
+            21474,
+            32767,
+            32768,
+            44927.75,
+            65535,
+            65536,
+            214748364.7,
+            214748364.8,
+            2147483647,
+            2147483648,
+            -1,
+            -60,
+            -32768,
+            0.5,
+        )
+    )
+    cases = tuple(Case(name, tag, value, f) for f in formats for tag, value in values)
+    return Suite(name, cases, widths=(None, 12))
+
+
 # TEXT(): the value and the format come from cells of sheet inputs, so no literal is rounded to
 # 15 digits and no format is quoted; a format Excel refuses in a file only makes TEXT an error.
 
@@ -2211,14 +2300,14 @@ _TEXT_VALUES: tuple[tuple[str, object], ...] = (
     ("serial-60", 60),
     ("serial-limit", 2958466),
     ("text", "abc"),
-    ("text-empty", ""),
     ("text-spaces", " a b "),
     ("bool-true", True),
     ("bool-false", False),
     ("blank", None),
 )
 
-_TEXT_ERRORS = (
+_TEXT_FORMULAS = (
+    ("text-empty", "", '=""'),  # openpyxl writes an empty string as a blank cell
     ("error-div0", CellError("#DIV/0!"), "=1/0"),
     ("error-na", CellError("#N/A"), "=NA()"),
 )
@@ -2254,7 +2343,7 @@ def _text_formats() -> tuple[str, ...]:
     """Every format of the other suites, the empty one and those Excel refuses in a file."""
     from capture.letters import REFUSED
 
-    formats = {"", *_TEXT_REFUSED, *REFUSED}
+    formats = {"", '"#"', "\\#", '"###"', *_TEXT_REFUSED, *REFUSED}
     for path in sorted((ROOT / "tests" / "captures").iterdir()):
         name = path.name
         if (
@@ -2285,7 +2374,7 @@ def _text_cases(name: str, formats: Iterable[str], *, date1904: bool = False) ->
                 formula=formula,
                 text_function=True,
             )
-            for tag, value, formula in _TEXT_ERRORS
+            for tag, value, formula in _TEXT_FORMULAS
         )
     return tuple(cases)
 
@@ -2311,6 +2400,8 @@ def text_function1904() -> Suite:
 
 SUITES: dict[str, Callable[[], Suite]] = {
     "huge_values": huge_values,
+    "empty_text": empty_text,
+    "fraction_percent": fraction_percent,
     "text_function": text_function,
     "text_function1904": text_function1904,
     "letters": letters,

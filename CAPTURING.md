@@ -683,6 +683,19 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     run; the largest double is `0` under all of them, and its negative `-0`. `?/?%` with the
     largest double is `0/1%`, `%` having scaled it past the limit.
 
+37. **The empty text, and the numerator's limits (2026-11-03; suites `empty_text`, 19 formats in
+    cells holding `=""`, width-less and at widths 6 and 12, 57 rows; `fraction_percent`, 15 formats
+    and 32 values, width-less and at width 12, 960 rows).** The `TEXT` capture of item 38 showed
+    both, and these show the cell does the same.
+    - A real empty text is ordinary text: `@" units"` shows ` units`, `"<"@">"` shows `<>`,
+      `_(@_)` two spaces, a fourth section `"text"` its literal, and `@*-` and `*-@` a run of
+      dashes at a width. `@` and `General` show nothing. Every earlier `""` row was a blank cell,
+      as openpyxl writes the empty string so, and the capture test reads such a row as `None`.
+    - A fixed denominator's numerator shows up to 32767 and then a `#` run, with or without a
+      percent and whatever the placeholders: 3276.7 under `?/10` is `32767/10` and 3276.8 is `#`,
+      32.767 under `?/10%` is `32767/10%` and 32.768 is `#`. A free denominator's reaches at least
+      1073741824/5 and 2147483647/1 is `#`.
+
 ## 3. The pipeline
 
 ```
