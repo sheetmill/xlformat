@@ -689,8 +689,8 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`, 167 suite files, 682,709 rows in all modes | 11.1 s |
-| `pytest --tier=fast` | 2.3 s |
+| `pytest`, 167 suite files, 682,709 rows in all modes | 12.0 s |
+| `pytest --tier=fast` | 3.2 s |
 
 ## 14. What the code taught
 
