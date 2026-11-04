@@ -3,7 +3,7 @@
 Excel behaviors that `xlformat` reproduces on purpose and that a caller may switch off through
 `Quirks` (see `ARCHITECTURE.md` §9). Every entry names the switch, states what Excel does, what
 `strict` does instead, and the evidence (rows captured from Excel 16 for Mac). Names are
-shared with `xlformula` where the quirk exists in both.
+shared with `xlrecalc` where the quirk exists in both.
 
 ## `fifteen_digit_precision`
 

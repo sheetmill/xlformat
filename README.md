@@ -126,9 +126,9 @@ color the package returns.
 ## Related packages
 
 xlformat is one of three packages from the `sheetmill` project, with `sheetpeek`, which
-renders workbooks to HTML, Markdown and terminal output, and `xlformula`, which evaluates
-formulas. Each installs and works on its own. A `sheetmill` meta-package that installs all
-three is planned.
+renders workbooks to HTML, Markdown and terminal output, and `xlrecalc`, which evaluates
+formulas. xlformat has no dependencies; the other two require it. The `sheetmill` meta-package
+installs all three.
 
 ## Development
 

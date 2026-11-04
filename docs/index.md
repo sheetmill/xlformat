@@ -19,8 +19,8 @@ pip install xlformat
 Python 3.11 or later. The source is at <https://github.com/sheetmill/xlformat>.
 
 xlformat is one of three packages from the `sheetmill` project, with `sheetpeek`, which
-renders workbooks, and `xlformula`, which evaluates formulas. Each installs and works on its
-own. A `sheetmill` meta-package that installs all three is planned.
+renders workbooks, and `xlrecalc`, which evaluates formulas. xlformat has no dependencies; the
+other two require it. The `sheetmill` meta-package installs all three.
 
 The search box uses Pagefind on the published site and on any copy served over http. A copy
 of these pages opened straight from disk uses Sphinx's built-in search instead, because

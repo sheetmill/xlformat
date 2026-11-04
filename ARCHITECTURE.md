@@ -10,10 +10,10 @@ Pure Python, standard library only, Python 3.11+. Priorities in order: match Exc
 then speed, then code quality. Excel's behavior is the specification; ECMA-376 section 18.8.31
 is a secondary reference and is wrong or silent in places where Excel is definite.
 
-Out of scope for 0.1: locales other than en-US (format codes are parsed, names are English,
-`[$-x-sysdate]` renders the en-US long date), fonts other than Calibri in Excel mode, conditional formatting,
-right-to-left and East Asian calendar codes (`e`, `g`, `b`), cell styles beyond what the format
-string itself implies.
+Out of scope: locales other than en-US (format codes are parsed, names are English,
+`[$-x-sysdate]` renders the en-US long date), fonts without a bundled glyph table in Excel mode
+(section 8), conditional formatting, right-to-left and East Asian calendar codes (`g`, `b`), cell
+styles beyond what the format string itself implies.
 
 ## 2. Pipeline
 
@@ -145,7 +145,7 @@ Precision rules applied at normalization, each a quirk (section 9):
   rows removed it. The 2023 prototype's "exact .5 rounds down at 15 integer digits" was an
   approximation of the same artifact.
 
-**Error values.** `#N/A`, `#DIV/0!` and the other error values are inputs from 0.2 as
+**Error values.** `#N/A`, `#DIV/0!` and the other error values are inputs as
 `ExcelError` (section 11). Excel displays them regardless of number format, and openpyxl exposes
 them as strings with `cell.data_type == 'e'`, so a reader passes `ExcelError(cell.value)`. A plain
 string such as `'#N/A'` passed in is text.
@@ -248,10 +248,10 @@ bias in seconds.
 
 Two ways a caller limits width, one mechanism underneath.
 
-**Character mode** (first to ship): `width: int`, a literal character count. Exact for
+**Character mode**: `width: int`, a literal character count. Exact for
 monospace and terminal output. It is not an approximation of Excel; it is its own contract.
 
-**Excel mode** (second): the caller passes an Excel column width, the number from the Column
+**Excel mode**: the caller passes an Excel column width, the number from the Column
 Width dialog (8.43 in a new Windows sheet; a column a file leaves without a width is
 `baseColWidth` units, 8 for openpyxl files), and gets what Excel displays: the same overflow decision,
 the same count of `#`, the same General digit reduction, the same `*` fill count. Excel decides
@@ -271,8 +271,8 @@ paragraph below). Two families are bundled, each in regular, bold, italic and bo
 10, 11, 12, 14 and 16 points: Calibri, which openpyxl writes as the workbook default (Calibri 11;
 Excel for Mac's own default is Calibri 12), and Aptos Narrow, the default of current Windows
 Excel, which ships inside Excel for Mac and is measured there the same way; whether Windows
-Excel's widths differ from the Mac's is a separate, open question. Reading installed fonts is an
-optional extra later, never a requirement.
+Excel's widths differ from the Mac's is a separate, open question. Installed fonts
+are not read.
 
 **The seam**: internally both modes are "a measure function plus a width in its units": `len`
 for character mode, a glyph-advance sum for Excel mode. The same seam is exposed for callers
@@ -289,8 +289,8 @@ What the width logic does, and why a caller cannot do it afterwards from the pla
   apply this rule from outside because it depends on the value kind and on the section, not on
   the string.
 - General reduces before it overflows: it drops decimals (rounding) to fit, then tries
-  scientific with fewer mantissa digits, then `#`. The exact order is reverse-engineered from the
-  `width_general` capture suite before implementation, not assumed.
+  scientific with fewer mantissa digits, then `#`. The exact order comes from the
+  `width_general` capture suite.
 - `_x` counts one character in character mode and the advance of `x` in Excel mode.
 
 `width=None` is the unconstrained rendering: `*x` emits nothing, `_x` emits one space, General
@@ -323,7 +323,7 @@ differ in count); width-less rows and every Excel-mode row are compared exactly.
 `-12345678` fits 8.43) or overflowed a text no longer than it (`%` is wider: `10000%` overflows
 width 6) are glyph slack and glyph tightness; character mode cannot reproduce them and the test
 skips them (2,224 of the 32,832 `numeric_core_width` rows, 11 of `width_fill`, 16 of
-`width_general`); they are the evidence Excel mode will be fitted to. Rows at fractional widths
+`width_general`); Excel mode reproduces them. Rows at fractional widths
 (8.43) have no character-mode meaning and are skipped. Two refinements of the rules above came
 from the suites: text does overflow to `#` when its section carries a `*` fill (`@*-` with
 `Hello World` at width 6), and a negative whose `General` reduces to zero at the width drops its
@@ -360,8 +360,8 @@ With less than one character left among literals, a value from 0.0001 to under 1
 (`( 0 )` for -1.5 at 2.67 units) and any other nothing. Among literals a General that reduced to
 zero drops the sign and a `-` literal just before it (`0x`, and `0` under `General;-General`);
 bare General keeps `-0`. Every General text also passes the glyph test (`0 units` at width 1 is
-`#`). At whole widths these rules agree with the character count alone, which is why the 0.1
-suites did not show them (`general_points<size>`, `general_literals_points`; `CAPTURING.md` §2 item
+`#`). At whole widths these rules agree with the character count alone, which is why the suites
+at whole widths did not show them (`general_points<size>`, `general_literals_points`; `CAPTURING.md` §2 item
 27). Text overflows only through a
 section whose `*` fill follows it (`@*-` shows `#`, `*-@` shows the text). Every width row of
 every suite passes in Excel mode, the 2,251 glyph-slack rows included; character mode is
@@ -422,14 +422,14 @@ class Quirks:
     STRICT: ClassVar[Quirks]  # all False
 ```
 
-Names are shared with `xlformula` where a quirk exists in both packages; an early candidate,
+Names are shared with `xlrecalc` where a quirk exists in both packages; an early candidate,
 `half_down_above_15_digits`, is folded into `fifteen_digit_precision` (section 5).
 Quirks bind at format
 time: `format_value`, `format_cell` and the `NumberFormat` methods take
 `quirks: Quirks | None = None` (None means `Quirks.EXCEL`); `NumberFormat.parse` does not, and
 the parse cache is keyed on the string alone. If a parse-affecting quirk ever appears, revisit.
-`QUIRKS.md` holds, per quirk, the Excel evidence (captured rows), what `strict` does instead, and
-the first version it appeared in. Candidates that need evidence before they are added:
+`QUIRKS.md` holds, per quirk, the Excel evidence (captured rows) and what `strict` does instead.
+Candidates that need evidence before they are added:
 the `[$-x-sysdate]` `dd` versus `d` discrepancy. Scientific zero rendering (`000.0E+0`), the
 section-selection sign rules, the last `*` fill winning and `General` inside a date section are
 Excel semantics matched unconditionally, not quirks (`QUIRKS.md`).
@@ -503,17 +503,17 @@ canonical color names to `RRGGBB` in the default palette (the eight names and `C
 from xlformat import format_value, format_cell, NumberFormat, FormattedCell, Quirks, FormatError
 
 def format_value(value, format_string="General", *, width=None, column_width=None, font=None,
-                 measure=None, date1904=False, quirks=None) -> str
+                 normal_font=None, measure=None, date1904=False, quirks=None) -> str
 def format_cell(value, format_string="General", *, width=None, column_width=None, font=None,
-                measure=None, date1904=False, quirks=None) -> FormattedCell
+                normal_font=None, measure=None, date1904=False, quirks=None) -> FormattedCell
 
 class NumberFormat:
     @classmethod
     def parse(cls, format_string: str) -> "NumberFormat"      # cached; raises FormatError
-    def format(self, value, *, width=None, column_width=None, font=None, measure=None,
-               date1904=False, quirks=None) -> str
-    def format_cell(self, value, *, width=None, column_width=None, font=None, measure=None,
-                    date1904=False, quirks=None) -> FormattedCell
+    def format(self, value, *, width=None, column_width=None, font=None, normal_font=None,
+               measure=None, date1904=False, quirks=None) -> str
+    def format_cell(self, value, *, width=None, column_width=None, font=None, normal_font=None,
+                    measure=None, date1904=False, quirks=None) -> FormattedCell
     is_date: bool; is_text: bool; is_general: bool; sections: tuple[Section, ...]
 
 class FormatError(ValueError): ...
@@ -532,7 +532,7 @@ in the measure's own units. `DEFAULT_PALETTE` maps color names to `RRGGBB`.
 `font` and `normal_font` take a `FontSpec`: a name, `(name, size)` or the frozen
 `Font(name, size=11, bold=False, italic=False)`. `font` is the cell's font, the one the text is
 measured in; `normal_font` is the workbook's Normal font, whose digit width sets the column, and
-defaults to `font`, so a caller with one font (every 0.1 caller) sees no change.
+defaults to `font`, so a caller with one font passes only `font`.
 
 The column model is public: `file_column_metrics(file_width=None, *, base_col_width=8,
 default_col_width=None, font=None)` for a column as a file states it and
@@ -551,9 +551,8 @@ centered, color `None` (the font's), and at a width a `#` run like a number, by 
 (suite `error_width`, `alignment.layout`; `CAPTURING.md` §2 item 32). An unknown code shaped
 like one (`#` and capitals, digits, `_` or `/`, optionally `!` or `?`) is admitted as an unlisted
 member through `_missing_`, so a newer Excel's error renders; other text raises `ValueError`.
-**Provisional**: xlformula must work without xlformat, so where a type shared by the sheetmill
-packages finally lives is decided when xlformula is designed; this one may move or be
-re-exported.
+xlformat keeps this type; `xlrecalc`, which requires xlformat, has its own `ErrorValue`, which
+compares equal to it.
 
 Measurement is public in the shape of reportlab's `stringWidth(text, fontName, fontSize)`, a
 function naming the font by argument (Pillow's `ImageFont.getlength` and tkinter's
@@ -579,7 +578,7 @@ Behavioral contract:
   `General`.
 - Thread-safe (immutable compiled objects, `lru_cache`).
 
-This signature is the formatter contract the sibling packages `sheetpeek` and `xlformula` rely
+This signature is the formatter contract the sibling packages `sheetpeek` and `xlrecalc` rely
 on, with `format_cell` / `FormattedCell` as the rich pair.
 
 ## 12. Module layout
@@ -616,7 +615,7 @@ for dates; every captured row under 3 s (set at 270,549 rows; not met at 526,729
 derivable from the format, no regex at render time, no `datetime` objects, Decimal only where
 precision needs it.
 
-Measured with `bench/timing.py` (Python 3.11, Apple Silicon), before and after the 0.2 speed
+Measured with `bench/timing.py` (Python 3.11, Apple Silicon), before and after the speed
 pass; parse times bypass the cache, render times are per call with a parsed format. Every
 change of the pass was checked with `bench/golden.py`: the 984,508 renderings of every captured
 row in every mode were byte-identical before and after each commit.
@@ -685,7 +684,7 @@ reading and decoding the suite files takes about 2.4 s.
   pinned the order of Excel's floating-point operations where half-second rows, which only say
   "up" or "down", could not.
 - **Whole widths hide rules.** At whole dialog widths a character count and a glyph measure
-  agree, so every 0.1 suite passed with "General reduces by characters" alone; capturing every
+  agree, so the suites at whole widths passed with "General reduces by characters" alone; capturing every
   whole point (fractional dialog widths, which files mostly have) showed the glyph-tested
   fallback, the minus by its own advance and the nearly-full-column rules (`CAPTURING.md` §2
   item 27).
@@ -706,11 +705,11 @@ reading and decoding the suite files takes about 2.4 s.
 - `FormattedCell.fill` reports the position of the fill in `text`, and is `None` without a `*`
   (section 10).
 - Width-less overflow is 255 `#`, Excel's clipboard rendering (`CAPTURING.md` §2 items 1 and 2).
-- Only en-US for 0.1: locale tags are parsed and exposed on `Section` but not applied, apart
+- Only en-US: locale tags are parsed and exposed on `Section` but not applied, apart
   from the system date and time tags (sections 1 and 7).
-- Error values are inputs from 0.2: `ExcelError`, a `StrEnum` of every documented code that
-  admits unlisted codes shaped like one; where a type shared with xlformula lives is
-  provisional (section 11).
+- Error values are inputs: `ExcelError`, a `StrEnum` of every documented code that admits
+  unlisted codes shaped like one. xlformat keeps it; `xlrecalc` has its own `ErrorValue`, which
+  compares equal to it (section 11).
 - `font` is the cell's font and `normal_font` the workbook's Normal font, defaulting to `font`
   (section 11); measurement is functions taking `font=`, not methods on `Font`.
 - Format functions take no file width: `file_column_metrics` converts once per column.
@@ -718,8 +717,6 @@ reading and decoding the suite files takes about 2.4 s.
   (`CAPTURING.md` §2 item 28).
 - `ColumnMetrics` carries the text edges (3 and 2 points) as provisional print-layout values
   until a screen capture confirms them.
-- The fonts measured for 0.2 are Calibri and Aptos Narrow in four styles at six sizes; Arial is
-  the first candidate after.
 - The fraction rules ship with zero deviations (`QUIRKS.md`; `CAPTURING.md` §2 item 22).
 - Lower-case `e+` after digits is a `FormatError`, and `e` alone is a year code (`CAPTURING.md`
   §2 item 9).

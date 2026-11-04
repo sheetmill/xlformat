@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- The formula engine is named `xlrecalc` throughout the documentation. xlformat keeps
+  `ExcelError`; `xlrecalc` has its own `ErrorValue`, which compares equal to it. The
+  `sheetmill` meta-package is released and installs all three packages.
+
 ## [0.2.0] - 2026-10-28
 
 ### Added
