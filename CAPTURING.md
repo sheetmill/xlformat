@@ -765,6 +765,39 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       the format is the cause is not established. `capture/probe_file_many.applescript` now limits each workbook to 30 seconds and stops at the
       first timeout, naming the format. The form has no capture.
 
+43. **Every suite again, on Microsoft 365 (2026-11-12; Excel 16.115 (26110837), Microsoft 365
+    Subscription, update channel Current; every suite but the 2023 capture).** The suites before
+    this were captured on Excel 16.114 under Office Home & Business 2021; both the build and the
+    edition changed, so a difference could have come from either. None did: every row of all 166
+    suites (597,582 rows, about 35 minutes of Excel) has the same text, color and reported column
+    width, the autofit widths of the `measure*` suites are the same, the glyph tables refit from
+    them are unchanged, and the alignment layout of the PDF export is the same on all 196 rows.
+    - Excel's standard font is now Aptos Narrow 12, where it was Calibri 12. The suites set the
+      workbook's Normal font (Calibri 11 unless a suite says otherwise), which is what widths
+      follow, so no row moves; the header's `standard_font` records it.
+    - Setting a column's width is faster: `advance_tenths11` and `advance_tenths12` took about 55
+      seconds each, where they took about five minutes.
+    - Refitting showed a fault in `capture/glyph_fit.py`: it scored every candidate space advance
+      with the first table, a cached column measure surviving the table's change, so every
+      candidate tied and the lowest won. With that cache cleared each face matches all 160 of its
+      fill rows, and the tables come out as committed.
+    - `text_function` grew to 1,010 formats (29,290 rows): its corpus is every format of every
+      suite at build time, so it takes in the suites added since its first capture, and it now
+      also holds every refused form of `capture/letters.py`, `capture/elapsed_forms.py` and the
+      parser tests. Each still gives `#VALUE!`, so no refusal changed and none needed a file.
+    - **Refusals after a build change** are re-checked this way: one workbook of `TEXT` cells
+      settles that a format is still refused; only a format `TEXT` now accepts is opened in a file.
+      Files hold at most about 120 custom formats: Excel takes between 200 and 250 per workbook
+      (item 35's workbook of 259 was refused while either half opened), so batches of a thousand
+      formats, as a formula probe might use, would fail on the count alone.
+    - **Headers** now record the full build (`excel_build`), the edition and update channel
+      (`edition`; `capture/edition.py`, which refuses to run until the edition is stated in
+      `capture/build/excel_edition.txt` or `XLFORMAT_EXCEL_EDITION`) and whether the display was
+      kept awake (`display`). Requests go through `capture/excel_watch.py`: a window of Excel's
+      own (the About window, a dialog) stops a run before its first request, a request past its
+      time limit saves evidence under `capture/build/excel_hangs/` and closes its workbook once
+      Excel answers, and the long captures run under `caffeinate -d -i`.
+
 ## 3. The pipeline
 
 ```
@@ -822,7 +855,8 @@ Choices that hold:
   the API misreports are skipped by the test.
 - **The 2023 capture stays**, gzipped, as a full-tier-only suite; the diff between captures is
   evidence about Excel builds and about the method.
-- **Header metadata** per suite: Excel build, standard font, workbook font, locale, capture
+- **Header metadata** per suite: Excel version and full build, edition and update channel,
+  whether the display was kept awake, standard font, workbook font, locale, capture
   date, generator (the `capture.cases` function), capture method per column, tier rule. A regeneration that
   changes any expected text is a reviewed diff.
 

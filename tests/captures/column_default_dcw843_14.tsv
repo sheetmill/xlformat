@@ -1,9 +1,12 @@
 # suite: column_default_dcw843_14
-# excel_version: 16.114
-# standard_font: Calibri 12.0
+# excel_version: 16.115
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# display: display kept awake: yes (caffeinate -d, pid 86329); display at the start of the run, last change: 2026-11-12 14:57:28 -0800 Notification Display is turned on
+# standard_font: Aptos Narrow 12.0
 # workbook_font: Calibri 14
 # locale: en_US
-# captured: 2026-10-28
+# captured: 2026-11-12
 # generator: capture.cases.column_default_dcw843_14
 # method: width none=file_default; width 8=file_width; width 8.43=file_width; width 10=file_width
 # numbers: repr

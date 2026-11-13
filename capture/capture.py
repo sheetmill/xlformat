@@ -211,7 +211,7 @@ def capture(suite_name: str) -> tuple[Path, dict[str, str]]:
         "excel_version": meta.get("excel_version", ""),
         "excel_build": excel_build(),
         "edition": f"{edition}, update channel {channel}",
-        "display": awake(),
+        "display": " ".join(awake().split()),
         "standard_font": meta.get("standard_font", ""),
         "workbook_font": meta.get("workbook_font", ""),
         "locale": "en_US",

@@ -15,10 +15,11 @@ on run argv
 	tell application "Microsoft Excel"
 		set display alerts to true
 		activate
-		with timeout of 600 seconds
+		-- the repair dialog can come up after the open returns, blocking the next request until a
+		-- person answers it, so everything up to the close waits as long as the open does
+		with timeout of 1800 seconds
 			open workbook workbook file name xlPath
-		end timeout
-		set xlWb to active workbook
+			set xlWb to active workbook
 		set end of xlOut to "workbook" & US & (name of xlWb)
 		set xlWs to worksheet 1 of xlWb
 		repeat with r from 1 to nRows
@@ -29,7 +30,8 @@ on run argv
 			end repeat
 			set end of xlOut to xlLine
 		end repeat
-		close xlWb saving no
+			close xlWb saving no
+		end timeout
 	end tell
 	set AppleScript's text item delimiters to linefeed
 	set xlText to xlOut as text

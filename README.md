@@ -112,9 +112,10 @@ evidence for each.
 - **Character mode is its own contract.** A `#` run is always `width` characters, and a value
   is judged by its character count, where Excel would fit or overflow some texts by glyph
   width.
-- **Expected outputs come from Excel 16 for Mac** with the en-US locale. Month and day names are English;
-  locale tags such as `[$-409]` are parsed but not applied. Windows Excel renders text with a
-  different engine and may disagree on a borderline fit in Excel mode.
+- **Expected outputs come from Excel 16 for Mac** under Microsoft 365, with the en-US locale.
+  Month and day names are English; locale tags such as `[$-409]` are parsed but not applied.
+  Windows Excel renders text with a different engine and may disagree on a borderline fit in
+  Excel mode.
 - **Error values** are passed as `ExcelError` (`ExcelError("#N/A")`); a plain string such as
   `"#N/A"` is text.
 - **Conditional formatting** and cell styles beyond the format string are out of scope.

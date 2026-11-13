@@ -290,7 +290,8 @@ advances per size (digits are 6 points at both 11 and 12, the hyphen 3 then 4), 
 size-independent fraction reproduces that, so the measured tables replaced it (the Excel-mode
 paragraph below). Two families are bundled, each in regular, bold, italic and bold italic at 9,
 10, 11, 12, 14 and 16 points: Calibri, which openpyxl writes as the workbook default (Calibri 11;
-Excel for Mac's own default is Calibri 12), and Aptos Narrow, the default of current Windows
+Excel for Mac's own default is Aptos Narrow 12 under Microsoft 365 and was Calibri 12 under
+Office 2021), and Aptos Narrow, the default of current Windows
 Excel, which ships inside Excel for Mac and is measured there the same way; whether Windows
 Excel's widths differ from the Mac's is a separate, open question. Installed fonts
 are not read.
@@ -689,7 +690,7 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`, 167 suite files, 682,709 rows in all modes | 12.0 s |
+| `pytest`, 167 suite files, 687,262 rows in all modes | 12.0 s |
 | `pytest --tier=fast` | 3.2 s |
 
 ## 14. What the code taught

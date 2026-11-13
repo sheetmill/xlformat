@@ -29,6 +29,7 @@ from pathlib import Path
 from capture.schema import read_rows
 from xlformat import Font, format_value
 from xlformat import _measure as measure_module
+from xlformat import _render as render_module
 
 ROOT = Path(__file__).resolve().parents[1]
 CAPTURE_DIR = ROOT / "tests" / "captures"
@@ -113,6 +114,7 @@ def _install(face: Font, table: dict[str, float], overhang: float = 0.0) -> None
     measure_module._advances.cache_clear()
     measure_module._whole_advances.cache_clear()
     measure_module._overhang.cache_clear()
+    render_module._excel_width.cache_clear()  # holds a measure built from the old table
 
 
 def fit_space(
@@ -199,7 +201,7 @@ def _write(
     order = [s for s in ("regular", "bold", "italic", "bold italic") if s in styles]
     sizes = sorted({size for style in order for size in styles[style]})
     lines = [
-        f'"""{family} glyph advances in points, measured in Excel for Mac 16.114 (generated).',
+        f'"""{family} glyph advances in points, measured in Excel for Mac (generated).',
         "",
         "Written by ``capture/glyph_fit.py`` from ``tests/captures/measure*.measure.tsv``.",
         f"Styles: {', '.join(order)}. Sizes: {', '.join(str(n) for n in sizes)}.",

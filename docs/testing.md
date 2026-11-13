@@ -72,13 +72,13 @@ before Excel was asked, and every prediction matched.
 | `colors`, `lone_zero`, `conditions_rounding`, `selection_fallback` | 493 | section colors and section selection |
 | `letters`, `letters_upper`, `letters1904` | 6,584 | what a bare letter means in a format, and the Buddhist-year code |
 | `elapsed_decimals`, `huge_values`, `empty_text`, `fraction_percent` | 3,678 | fractions of a second after any date or time code, values too large for fraction and elapsed arithmetic, the empty text, a numerator's limits |
-| `text_function`, `text_function1904` | 25,433 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
+| `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
 | `measure9` to `measure16` and 42 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri and Aptos Narrow, four styles, six sizes |
 
 Two further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
 from Excel's PDF export) holds where Excel places each value, and `repair.layout.tsv` (248 rows)
 what Excel's repair does to formats it refuses. In all, 167 suite files (119 with rows, the
-others autofit measurements) hold 682,709 rows. Every row passes. Fifteen color readings are
+others autofit measurements) hold 687,262 rows. Every row passes. Fifteen color readings are
 skipped because Excel's scripting interface reports automatic black where the sheet, checked by
 eye, shows the section color, and width-less rows of a Buddhist-year code are compared with the
 plain year, which is what Excel's clipboard gives where the sheet shows the Buddhist year.

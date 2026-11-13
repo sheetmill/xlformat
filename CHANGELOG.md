@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- The expected outputs are captured from Excel for Mac 16.115 under Microsoft 365 (Excel's
+  standard font there is Aptos Narrow 12). Every suite matched its earlier capture from Excel
+  16.114 under Office Home & Business 2021, so no rendering changed.
+
 ## [0.3.0] - 2026-11-03
 
 ### Added

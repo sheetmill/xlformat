@@ -1,9 +1,12 @@
 # suite: column_narrow14
-# excel_version: 16.114
-# standard_font: Calibri 12.0
+# excel_version: 16.115
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# display: display kept awake: yes (caffeinate -d, pid 86367); display at the start of the run, last change: 2026-11-12 14:57:28 -0800 Notification Display is turned on
+# standard_font: Aptos Narrow 12.0
 # workbook_font: Calibri 14
 # locale: en_US
-# captured: 2026-10-28
+# captured: 2026-11-12
 # generator: capture.cases.column_narrow14
 # method: width none=clipboard; width 0.08=string_value; width 0.17=string_value; width 0.25=string_value; width 0.33=string_value; width 0.42=string_value; width 0.5=string_value; width 0.58=string_value; width 0.67=string_value; width 0.75=string_value; width 0.83=string_value; width 0.92=string_value; width 1.0=string_value; width 1.14=string_value; width 1.29=string_value; width 1.43=string_value; width 1.57=string_value; width 1.71=string_value; width 1.86=string_value; width 2.0=string_value
 # numbers: repr

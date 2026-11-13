@@ -1,6 +1,8 @@
-# suite: alignment (capture.alignment); Excel 16.114 for Mac, en_US
+# suite: alignment (capture.alignment); Excel 16.115 for Mac, en_US
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
 # workbook_font: Calibri 11
-# captured: 2026-10-28; method: PDF export, pdfminer.six
+# captured: 2026-11-12; method: PDF export, pdfminer.six
 # align: where the printed text sits between the gridlines; empty: no text
 tag	value_type	value_repr	format	text	align
 int	int	12345	'General'	12345	right

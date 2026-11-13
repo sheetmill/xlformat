@@ -2519,14 +2519,18 @@ _TEXT_REFUSED = (
     "# ?/?/?",
     "[>1]0;[>2]0;[>3]0",
     "0;0;0;[>1]@",
+    "0.00e-00",
+    "##0.0e+0",
+    "0.00E+00;0.00e+00",
 )
 
 
 def _text_formats() -> tuple[str, ...]:
     """Every format of the other suites, the empty one and those Excel refuses in a file."""
+    from capture.elapsed_forms import REFUSED as ELAPSED_REFUSED
     from capture.letters import REFUSED
 
-    formats = {"", '"#"', "\\#", '"###"', *_TEXT_REFUSED, *REFUSED}
+    formats = {"", '"#"', "\\#", '"###"', *_TEXT_REFUSED, *REFUSED, *ELAPSED_REFUSED}
     for path in sorted((ROOT / "tests" / "captures").iterdir()):
         name = path.name
         if (

@@ -48,6 +48,7 @@ RECENT_SECONDS = 1800.0
 APPLE_EVENT_TIMEOUT = "(-1712)"
 """AppleScript's error when it gives up on a request, which can come before our limit."""
 SAMPLE_SECONDS = 10
+PREFLIGHT_LOOKS = 4  # one look a second
 _VERSION = 'tell application "Microsoft Excel" to version'
 CONTAINER_MARK = "/Library/Containers/com.microsoft.Excel/"
 """Only workbooks in Excel's own container are ever closed: the probes create theirs there."""
@@ -216,18 +217,26 @@ def preflight() -> None:
         if _began_empty is None:
             _began_empty = True
         return  # not running: the first request starts it
-    on_screen = excel_windows()
-    try:
-        result = subprocess.run(
-            ["osascript", "-e", _DOCUMENT_WINDOWS], capture_output=True, text=True, timeout=10.0
-        )
-        documents = int(result.stdout.strip()) if result.returncode == 0 else None
-    except (subprocess.TimeoutExpired, ValueError):
-        documents = None
-    if _began_empty is None:
-        _began_empty = documents == 0
-    if documents is not None and len(on_screen) <= documents:
-        return
+    # A workbook just closed can stay in the screen's window list for a moment after Excel
+    # stops reporting it (seen between two captures), so a surplus is looked at again.
+    for attempt in range(PREFLIGHT_LOOKS):
+        if attempt:
+            time.sleep(1.0)
+        on_screen = excel_windows()
+        try:
+            result = subprocess.run(
+                ["osascript", "-e", _DOCUMENT_WINDOWS],
+                capture_output=True,
+                text=True,
+                timeout=10.0,
+            )
+            documents = int(result.stdout.strip()) if result.returncode == 0 else None
+        except (subprocess.TimeoutExpired, ValueError):
+            documents = None
+        if _began_empty is None:
+            _began_empty = documents == 0
+        if documents is not None and len(on_screen) <= documents:
+            return
     seen = ", ".join(on_screen) or "none listed"
     state = "does not answer" if documents is None else f"has {documents} workbook windows"
     sys.exit(

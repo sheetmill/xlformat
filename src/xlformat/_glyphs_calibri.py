@@ -1,4 +1,4 @@
-"""Calibri glyph advances in points, measured in Excel for Mac 16.114 (generated).
+"""Calibri glyph advances in points, measured in Excel for Mac (generated).
 
 Written by ``capture/glyph_fit.py`` from ``tests/captures/measure*.measure.tsv``.
 Styles: regular, bold, italic, bold italic. Sizes: 9, 10, 11, 12, 14, 16.
