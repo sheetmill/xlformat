@@ -20,7 +20,6 @@ import csv
 import datetime as dt
 import itertools
 import shutil
-import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -30,6 +29,8 @@ from openpyxl.styles.numbers import BUILTIN_FORMATS_REVERSE
 
 from capture.build import BUILD_DIR, WORKBOOK_DIR
 from capture.cases import Case, CellError
+from capture.edition import edition_line, excel_build
+from capture.excel_watch import osascript_or_exit
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "tests" / "captures" / "alignment.layout.tsv"
@@ -107,12 +108,7 @@ def build() -> None:
 def export() -> str:
     """Have Excel save the workbook as PDF; return Excel's version."""
     EXPORT.unlink(missing_ok=True)
-    result = subprocess.run(
-        ["osascript", str(SCRIPT), str(WORKBOOK), str(EXPORT)],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
+    result = osascript_or_exit(str(SCRIPT), str(WORKBOOK), str(EXPORT), seconds=300.0)
     if result.returncode != 0:
         sys.exit(f"osascript failed: {result.stderr.strip()}")
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
@@ -177,6 +173,7 @@ def write(version: str) -> None:
         sys.exit(f"found {len(lines)} rows in the PDF, expected {len(named)}")
     with OUTPUT.open("w", encoding="utf-8", newline="") as out:
         out.write(f"# suite: alignment (capture.alignment); Excel {version} for Mac, en_US\n")
+        out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         out.write("# workbook_font: Calibri 11\n")
         out.write(f"# captured: {dt.date.today().isoformat()}; method: PDF export, pdfminer.six\n")
         out.write("# align: where the printed text sits between the gridlines; empty: no text\n")

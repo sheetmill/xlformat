@@ -9,7 +9,6 @@ and rendered ones go into the ``odd_formats`` suite in ``capture/cases.py``.
 
 from __future__ import annotations
 
-import subprocess
 import sys
 from pathlib import Path
 
@@ -17,6 +16,7 @@ from openpyxl import Workbook
 from openpyxl.styles.numbers import BUILTIN_FORMATS_REVERSE
 
 from capture.build import WORKBOOK_DIR
+from capture.excel_watch import osascript
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "capture" / "probe_file_many.applescript"
@@ -72,11 +72,9 @@ def check(candidates: dict[str, str]) -> None:
     """Build one workbook per candidate, run them through Excel and print the results."""
     directory = (WORKBOOK_DIR / "invalid").resolve()
     names = build(directory, candidates)
-    proc = subprocess.run(
-        ["osascript", str(SCRIPT), str(directory), str(len(VALUES))],
-        capture_output=True,
-        text=True,
-        check=False,
+    # the script limits each workbook to 30 s and stops at the first timeout
+    proc = osascript(
+        str(SCRIPT), str(directory), str(len(VALUES)), seconds=60.0 + 35.0 * len(names)
     )
     if proc.returncode != 0:
         print(proc.stderr, file=sys.stderr)

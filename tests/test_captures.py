@@ -306,7 +306,12 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         if not _texts_match(got, row.expected_text, width):
             failures.append((row, got))
         if row.expected_color and (row.format, row.value_repr) in DISPLAY_FORMAT_COLOR_MISREPORTS:
+            # strict: a listed row Excel now reports as the package colors it is a stale entry
             counts["color misreports skipped"] += 1
+            cell = format_cell(value, fmt, date1904=date1904)
+            ours = DEFAULT_PALETTE[cell.color] if cell.color else "000000"
+            if ours == row.expected_color:
+                color_failures.append((row, f"{ours} (listed as misreported, now matches)"))
         elif row.expected_color:
             # Excel reports the display format's font color; a cell without a section color
             # reads as the automatic black, 000000, which [Black] also gives.
@@ -345,3 +350,15 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         pytest.fail(
             f"{len(failures)} of {counts['compared']} compared rows differ:\n" + "\n".join(lines)
         )
+
+
+def test_color_misreports_are_all_used() -> None:
+    """Every listed color misreport names a captured row: an unused entry is stale."""
+    used: set[tuple[str, str]] = set()
+    for path in SUITE_FILES:
+        header, rows = read_rows(path)
+        if "colors=" not in header.get("method", ""):
+            continue
+        used.update((r.format, r.value_repr) for r in rows if r.expected_color)
+    unused = sorted(set(DISPLAY_FORMAT_COLOR_MISREPORTS) - used)
+    assert not unused, f"color misreports no captured row has: {unused}"

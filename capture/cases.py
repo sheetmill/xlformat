@@ -11,6 +11,7 @@ import math
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from decimal import Decimal
+from fractions import Fraction
 from pathlib import Path
 from string import ascii_uppercase
 from typing import Literal
@@ -2580,6 +2581,155 @@ def text_function1904() -> Suite:
     return Suite(name, _text_cases(name, formats, date1904=True), date1904=True)
 
 
+# --- fixed-denominator numerator (CAPTURING.md section 2 item 22) ---------------------------
+
+
+def pin_formula(x: float) -> str:
+    """A formula whose IEEE evaluation is exactly ``x``: ``(mh*2^27+ml)*2^e`` with mh, ml < 2^27.
+
+    Every literal has at most 9 digits, so Excel's 15-digit literal parsing cannot alter it; the
+    product and the sum are exact, and so is the scaling by a power of two.
+    """
+    assert x > 0
+    assert math.isfinite(x)
+    m, e = math.frexp(x)  # x = m * 2**e, 0.5 <= m < 1
+    mant = int(m * 2**53)
+    exp = e - 53
+    assert math.ldexp(mant, exp) == x
+    mh, ml = mant >> 27, mant & ((1 << 27) - 1)
+    return f"=({mh}*2^27+{ml})*2^({exp})"
+
+
+def _ulp_below(h: float) -> float:
+    return math.ulp(math.nextafter(h, 0.0))
+
+
+def _deficits(x: float, w: int, d: int, h: float) -> tuple[float, float]:
+    """How many ulps (the spacing just below ``h``) the double product and the exact product of
+    the fraction part sit below ``h``."""
+    u = Fraction(_ulp_below(h))
+    t_dbl = Fraction((x - w) * d)
+    t_exact = (Fraction(x) - w) * d
+    return float((Fraction(h) - t_dbl) / u), float((Fraction(h) - t_exact) / u)
+
+
+def _deficit_ratio(j: float, h: float) -> float:
+    """The half-step deficit relative to ``h``, in units of 2^-52."""
+    return j * _ulp_below(h) / h / 2**-52
+
+
+def _around_half(
+    w: int, d: int, k: int, targets: Iterable[int], steps: int = 60
+) -> list[tuple[str, float]]:
+    """For each target j (ulps below h = k + 0.5 in the double product) the first double below
+    W + h/D whose double fraction product sits exactly j ulps below h.
+
+    The tag records D, W, k, j of the double product, the exact product's deficit and the ratio.
+    """
+    h = k + 0.5
+    x = w + h / d
+    found: dict[int, tuple[str, float]] = {}
+    for _ in range(steps):
+        if math.floor(x) == w:
+            j_dbl, j_exact = _deficits(x, w, d, h)
+            if j_dbl.is_integer() and int(j_dbl) in targets and int(j_dbl) not in found:
+                r = _deficit_ratio(j_dbl, h)
+                found[int(j_dbl)] = (f"D{d}-W{w}-k{k}-j{int(j_dbl)}-jx{j_exact:+.3f}-r{r:.4f}", x)
+        x = math.nextafter(x, -math.inf)
+    return [found[j] for j in sorted(found)]
+
+
+_FIXED_FORMATS: dict[int, str] = {
+    2: "# ?/2",
+    3: "# ?/3",
+    4: "# ?/4",
+    7: "# ?/7",
+    8: "# ?/8",
+    10: "# ?/10",
+    16: "# ??/16",
+    32: "# ??/32",
+    100: "# ??/100",
+    1000: "# ???/1000",
+}
+
+
+def fraction_threshold() -> Suite:
+    """Values a few ulps below a half step of a fixed denominator (CAPTURING.md §2 item 22).
+
+    Every value is written twice: as ``repr`` text and as a formula that pins the double
+    (``pin_formula``), so a disagreement would be the parser's, not the rule's. Groups:
+    ``outlier`` (0.03125 less 1 to 6 fine ulps under ``# ??/16``), ``k0`` (h = 0.5, a binade
+    boundary, for ten denominators, W = 0 and 1), ``sweep`` (D = 1000, k from 512 to 999, j = 2
+    and 3, so that the relative deficit spans 1 to 2 x 2^-52), ``d16`` (every k of D = 16),
+    ``d100`` (D = 100, k from 64 to 99) and ``w`` (the sweep at W = 1 and 12).
+    """
+    cases: list[Case] = []
+
+    def add(group: str, tag: str, x: float, d: int) -> None:
+        fmt = _FIXED_FORMATS[d]
+        cases.append(Case("fraction_threshold", f"{group}:{tag}", x, fmt, written=repr(x)))
+        cases.append(
+            Case("fraction_threshold", f"{group}:{tag}:formula", x, fmt, formula=pin_formula(x))
+        )
+
+    for j in range(1, 7):
+        x = 0.03125 - j * 2.0**-58
+        _, j_exact = _deficits(x, 0, 16, 0.5)
+        add("outlier", f"D16-W0-k0-j{j}-jx{j_exact:+.3f}-r{_deficit_ratio(j, 0.5):.4f}", x, 16)
+    for d in (16, 8, 32, 10, 100, 1000, 7, 3, 2, 4):
+        for w in (0, 1):
+            for tag, x in _around_half(w, d, 0, range(1, 7)):
+                add("k0", tag, x, d)
+    for k in [*range(512, 1000, 7), 999, 998, 997, 996, 995]:
+        for tag, x in _around_half(0, 1000, k, (2, 3)):
+            add("sweep", tag, x, 1000)
+    for k in range(1, 16):
+        for tag, x in _around_half(0, 16, k, (1, 2, 3, 4)):
+            add("d16", tag, x, 16)
+    for k in range(64, 100):
+        for tag, x in _around_half(0, 100, k, (2, 3)):
+            add("d100", tag, x, 100)
+    for w in (1, 12):
+        for k in range(512, 1000, 21):
+            for tag, x in _around_half(w, 1000, k, (2,)):
+                add("w", tag, x, 1000)
+    return Suite("fraction_threshold", tuple(cases), fast_cap=0)
+
+
+def fraction_random(n_random: int = 3000, n_near: int = 300, seed: int = 20261024) -> Suite:
+    """Random doubles under every fixed denominator (CAPTURING.md §2 item 22).
+
+    ``n_random`` doubles, log-uniform in magnitude over [1e-3, 1e6] with a random sign, each under
+    every format of ``_FIXED_FORMATS``; plus ``n_near`` doubles within ten ulps of a half step of
+    a random format (whole part 0 to 999, random numerator), each under that format. The seed
+    fixes the values; the rule was predicted before the first capture.
+    """
+    import random
+
+    formats = tuple(_FIXED_FORMATS.values())
+    rng = random.Random(seed)
+    cases: list[Case] = []
+    for i in range(n_random):
+        x = 10 ** rng.uniform(-3, 6)
+        if rng.random() < 0.5:
+            x = -x
+        cases.extend(Case("fraction_random", f"random-{i}", x, fmt) for fmt in formats)
+    for i in range(n_near):
+        fmt = rng.choice(formats)
+        d = int(fmt.split("/")[1])
+        w = rng.choice((0, 0, 1, 2, 7, 12, 99, 999))
+        k = rng.randrange(d)
+        x = w + (k + 0.5) / d
+        rng.randint(-10, 10)  # drawn and unused when the values were first made; keeps the stream
+        steps = rng.randint(-10, 10)
+        for _ in range(abs(steps)):
+            x = math.nextafter(x, math.inf if steps > 0 else -math.inf)
+        if rng.random() < 0.3:
+            x = -x
+        cases.append(Case("fraction_random", f"near-{i}-D{d}-W{w}-k{k}-s{steps:+d}", x, fmt))
+    return Suite("fraction_random", tuple(cases), fast_cap=0)
+
+
 SUITES: dict[str, Callable[[], Suite]] = {
     "huge_values": huge_values,
     "elapsed_decimals": elapsed_decimals,
@@ -2665,6 +2815,8 @@ SUITES: dict[str, Callable[[], Suite]] = {
 
 
 SUITES.update(_table_suites())
+SUITES["fraction_threshold"] = fraction_threshold
+SUITES["fraction_random"] = fraction_random
 
 
 def distinct_measure_cases(cases: Iterable[Case]) -> list[Case]:

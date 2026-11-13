@@ -24,6 +24,8 @@ from pathlib import Path
 
 from capture.build import BUILD_DIR, Manifest, build
 from capture.cases import SUITES, Case, distinct_measure_cases
+from capture.edition import excel_build, excel_edition, update_channel
+from capture.excel_watch import awake, osascript_or_exit
 from capture.schema import COLUMNS, Row, read_rows, write_rows
 from capture.tiers import assign_tiers, rule_description
 
@@ -63,13 +65,25 @@ def _pb(cmd: str, data: str | None = None) -> str:
     return subprocess.run([cmd], input=data, capture_output=True, text=True, check=False).stdout
 
 
-def run_osascript(script_path: Path) -> str:
-    """Run the script; return its stdout. Raises on a non-zero exit."""
+def time_limit(manifest: Manifest) -> float:
+    """Seconds a suite's script may take: generous, since setting a column width takes about
+    0.75 s, a color is read cell by cell and an autofit column by column."""
+    widths = sum(1 for c in manifest.columns if c.width is not None)
+    colors = manifest.n_rows if manifest.colors else 0
+    return 180.0 + 3.0 * widths + 0.5 * colors + 2.0 * len(manifest.measure_cells)
+
+
+def run_osascript(script_path: Path, workbook: str = "", seconds: float = 600.0) -> str:
+    """Run the script under ``capture.excel_watch``; return its stdout.
+
+    The workbook path goes along as an argument the script ignores, so that a recovered hang
+    closes it (``excel_watch.tidy``). Raises on a non-zero exit; a request past ``seconds``
+    saves its evidence and ends the process.
+    """
     saved = _pb("pbpaste")
     try:
-        proc = subprocess.run(
-            ["osascript", str(script_path)], capture_output=True, text=True, check=False
-        )
+        arguments = (str(script_path), workbook) if workbook else (str(script_path),)
+        proc = osascript_or_exit(*arguments, seconds=seconds)
     finally:
         _pb("pbcopy", saved)
     if proc.returncode != 0:
@@ -187,13 +201,17 @@ def capture(suite_name: str) -> tuple[Path, dict[str, str]]:
     print(f"built {manifest.workbook} ({manifest.n_rows} rows, {len(manifest.columns)} columns)")
     print(f"running {script_path}")
     started = dt.datetime.now()
-    output = run_osascript(script_path)
+    edition, channel = excel_edition(), update_channel()  # refuses to run without an edition
+    output = run_osascript(script_path, manifest.workbook, time_limit(manifest))
     print(f"osascript finished in {(dt.datetime.now() - started).total_seconds():.1f} s")
     meta, columns, measure, colors = parse_output(output, manifest)
     rows = assign_tiers(make_rows(suite.cases, manifest, columns, meta, colors), suite.fast_cap)
     header = {
         "suite": suite.name,
         "excel_version": meta.get("excel_version", ""),
+        "excel_build": excel_build(),
+        "edition": f"{edition}, update channel {channel}",
+        "display": awake(),
         "standard_font": meta.get("standard_font", ""),
         "workbook_font": meta.get("workbook_font", ""),
         "locale": "en_US",

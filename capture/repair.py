@@ -15,7 +15,6 @@ from __future__ import annotations
 
 import csv
 import datetime as dt
-import subprocess
 import sys
 from pathlib import Path
 
@@ -23,6 +22,8 @@ from openpyxl import Workbook
 from openpyxl.styles.numbers import BUILTIN_FORMATS_REVERSE
 
 from capture.build import WORKBOOK_DIR
+from capture.edition import edition_line, excel_build
+from capture.excel_watch import osascript_or_exit
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "tests" / "captures" / "repair.layout.tsv"
@@ -73,11 +74,9 @@ def build(name: str, rows: list[tuple[str, str]]) -> Path:
 
 def run(path: Path, rows: list[tuple[str, str]]) -> tuple[str, list[list[str]]]:
     print(f"opening {path.name} with alerts on: accept Excel's repair dialogs")
-    proc = subprocess.run(
-        ["osascript", str(SCRIPT), str(path), str(len(rows)), str(len(VALUES))],
-        capture_output=True,
-        text=True,
-        check=False,
+    # alerts are on and a person answers the repair dialogs: a long limit
+    proc = osascript_or_exit(
+        str(SCRIPT), str(path), str(len(rows)), str(len(VALUES)), seconds=1800.0
     )
     if proc.returncode != 0:
         sys.exit(f"osascript failed: {proc.stderr.strip()}")
@@ -99,6 +98,7 @@ def main() -> None:
         f.write(
             "# suite: repair (capture.repair); Excel for Mac, en_US; alerts on, repair accepted\n"
         )
+        f.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         f.write(f"# captured: {dt.date.today().isoformat()}; workbook_font: Calibri 11\n")
         writer = csv.writer(f, dialect="excel-tab", lineterminator="\n")
         writer.writerow(["workbook", "tag", "format", "value_repr", "text", "format_after"])
