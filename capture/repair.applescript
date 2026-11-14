@@ -1,26 +1,26 @@
--- Open a workbook Excel will want to repair (argument 1), WITH alerts on, so Excel shows its
--- repair dialogs and a person answers them; then read every case row back and close the
--- repaired workbook without saving. capture/repair.py runs it, announced, with the person at
--- the keyboard. The only interactive capture script: alerts stay on (as they were) on every
--- path. Opens only the workbook it is given, by path, inside Excel's container.
+-- Read a workbook Excel has repaired, found by name (argument 1), then close it without saving.
+-- capture/repair.py runs it only after the person has answered Excel's repair dialog and said so:
+-- nothing is sent to Excel while that dialog may be open. Alerts are left as they are (on).
 --
 -- Output: one line per row, fields separated by ASCII 31: row, then per value column the
--- displayed text and the number format; the first line is the repaired workbook's name.
+-- displayed text and the number format; the first line is "window" and the captions of the
+-- workbook's windows (a repaired one's says "Repaired").
 on run argv
-	set xlPath to item 1 of argv
+	set xlName to item 1 of argv
 	set nRows to (item 2 of argv) as integer
 	set nCols to (item 3 of argv) as integer
 	set US to ASCII character 31
 	set xlOut to {}
 	tell application "Microsoft Excel"
-		set display alerts to true
-		activate
-		-- the repair dialog can come up after the open returns, blocking the next request until a
-		-- person answers it, so everything up to the close waits as long as the open does
-		with timeout of 1800 seconds
-			open workbook workbook file name xlPath
-			set xlWb to active workbook
-		set end of xlOut to "workbook" & US & (name of xlWb)
+		set xlWb to workbook xlName
+		set xlCaptions to ""
+		try
+			repeat with xlWin in (every window)
+				set xlCaption to (caption of xlWin) as text
+				if xlCaption contains xlName then set xlCaptions to xlCaptions & US & xlCaption
+			end repeat
+		end try
+		set end of xlOut to "window" & xlCaptions
 		set xlWs to worksheet 1 of xlWb
 		repeat with r from 1 to nRows
 			set xlLine to (r as text)
@@ -30,8 +30,7 @@ on run argv
 			end repeat
 			set end of xlOut to xlLine
 		end repeat
-			close xlWb saving no
-		end timeout
+		close xlWb saving no
 	end tell
 	set AppleScript's text item delimiters to linefeed
 	set xlText to xlOut as text

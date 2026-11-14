@@ -816,7 +816,9 @@ capture/convert_2023.py       the 2023 clipboard capture into the schema (captur
 capture/rounding_models.py    model comparison for the 15-digit rule
 capture/glyph_fit.py          glyph tables from the measure and space_fill suites (items 26, 30)
 capture/alignment.py          default alignment through Excel's PDF export (item 31)
-capture/repair.py             what Excel's repair does to refused formats; interactive (item 33)
+capture/repair.py             what Excel's repair does to refused formats (item 33): `open`
+                             through Launch Services, a person answers the dialog, then
+                             `read` finds the workbook by name; `write` gathers the TSV
 tests/captures/*.tsv[.gz]      the suites; tests/conftest.py and tests/test_captures.py load them
 ```
 
