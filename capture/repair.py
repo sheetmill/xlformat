@@ -111,8 +111,8 @@ def open_case(case: str) -> None:
     preflight()
     if not answers():
         sys.exit("Excel does not answer a question about its workbooks: nothing opened")
-    names = _ask("get name of every workbook")
-    if names:
+    if _ask("get count of workbooks") != "0":
+        names = _ask("get name of every workbook")
         sys.exit(f"Excel holds workbooks ({names}): close them first; nothing opened")
     if _ask("get display alerts") != "true":
         _ask("set display alerts to true")
@@ -140,7 +140,8 @@ def records(report: str) -> str:
 def read_case(case: str, report: str) -> None:
     """Find the repaired workbook by name, read and close it, and record the case."""
     name, rows = CASES[case]
-    open_names = [n.strip() for n in _ask("get name of every workbook").split(",") if n.strip()]
+    answer = _ask("get name of every workbook")  # "missing value" when none is open
+    open_names = [n.strip() for n in answer.split(",") if n.strip() and answer != "missing value"]
     stem = name.removesuffix(".xlsx")
     matches = [n for n in open_names if n == name or n.startswith(stem)]
     if len(matches) != 1:

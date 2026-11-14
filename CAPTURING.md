@@ -771,7 +771,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     edition changed, so a difference could have come from either. None did: every row of all 166
     suites (597,582 rows, about 35 minutes of Excel) has the same text, color and reported column
     width, the autofit widths of the `measure*` suites are the same, the glyph tables refit from
-    them are unchanged, and the alignment layout of the PDF export is the same on all 196 rows.
+    them are unchanged, the alignment layout of the PDF export is the same on all 196 rows, and
+    so is what the repair leaves on all 248 rows of `repair.layout.tsv`.
     - Excel's standard font is now Aptos Narrow 12, where it was Calibri 12. The suites set the
       workbook's Normal font (Calibri 11 unless a suite says otherwise), which is what widths
       follow, so no row moves; the header's `standard_font` records it.
@@ -790,6 +791,13 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       Files hold at most about 120 custom formats: Excel takes between 200 and 250 per workbook
       (item 35's workbook of 259 was refused while either half opened), so batches of a thousand
       formats, as a formula probe might use, would fail on the count alone.
+    - **The repair dialog** comes up after an AppleScript open has returned, so the workbook is
+      not there to read until a person has answered, and a request sent while a person answers
+      a dialog can crash Excel. `capture/repair.py` therefore opens each case through Launch
+      Services and exits; after the person has answered Yes and said so, it finds the workbook
+      by name (a repaired workbook keeps its file's name, its window's caption ending
+      "- Repaired") and reads it. A second open and read of the same case gave the same cells.
+      Excel was restarted before this capture, since one capture can leave Excel altered for the next.
     - **Headers** now record the full build (`excel_build`), the edition and update channel
       (`edition`; `capture/edition.py`, which refuses to run until the edition is stated in
       `capture/build/excel_edition.txt` or `XLFORMAT_EXCEL_EDITION`) and whether the display was
