@@ -31,6 +31,11 @@ def _call(normal: Font, tag: str) -> RowMetrics:
     """The ``row_metrics`` call a captured row's tag describes."""
     if tag in ("standard height", "number", "no element", "number again", "number at the end"):
         return row_metrics(normal)
+    if m := re.fullmatch(r"wrapped (\d+) lines (.+) beside (.+)", tag):
+        face = None if m.group(2) == "normal" else _font(m.group(2))
+        return row_metrics(
+            normal, cell_fonts=[_font(m.group(3))], wrapped=[(face, int(m.group(1)))]
+        )
     if m := re.fullmatch(r"wrapped (\d+) lines(?: (.+))?", tag):
         face = _font(m.group(2)) if m.group(2) else None
         return row_metrics(normal, wrapped=[(face, int(m.group(1)))])
@@ -48,7 +53,11 @@ def _rows() -> list[list[str]]:
 
 def test_every_captured_row_height() -> None:
     rows = _rows()
-    assert len(rows) == 48 * 148
+    per_font: dict[str, list[str]] = {}
+    for normal, _, tag, _ in rows:
+        per_font.setdefault(normal, []).append(tag)
+    assert len(per_font) == 48
+    assert len({tuple(tags) for tags in per_font.values()}) == 1  # the same rows in every workbook
     misses = [
         (normal, tag, height, got)
         for normal, _, tag, height in rows

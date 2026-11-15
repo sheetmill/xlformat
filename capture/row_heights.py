@@ -101,6 +101,24 @@ def rows() -> tuple[RowCase, ...]:
                 RowCase(f"wrapped {n} lines {f.label}", (Cell(1, _lines(n), f, True),))
                 for n in range(1, MAX_LINES + 1)
             )
+    # wrapped text beside an unwrapped cell in another font, in the same row
+    for wrap_font, lines, other in (
+        (None, 1, CellFont("Calibri", 14)),
+        (None, 2, CellFont("Calibri", 16)),
+        (None, 3, CellFont("Aptos Narrow", 16)),
+        (CellFont("Calibri", 9), 1, CellFont("Calibri", 16)),
+        (CellFont("Calibri", 9), 2, CellFont("Calibri", 16)),
+        (CellFont("Calibri", 9), 3, CellFont("Calibri", 14)),
+        (CellFont("Calibri", 14), 2, CellFont("Calibri", 16)),
+        (CellFont("Aptos Narrow", 9), 2, CellFont("Aptos Narrow", 16)),
+    ):
+        label = "normal" if wrap_font is None else wrap_font.label
+        out.append(
+            RowCase(
+                f"wrapped {lines} lines {label} beside {other.label}",
+                (Cell(1, _lines(lines), wrap_font, True), Cell(2, 1234, other)),
+            )
+        )
     out.append(RowCase("number at the end", (Cell(1, 1234),)))
     return tuple(out)
 
