@@ -826,6 +826,23 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       102 of them. p behaves like a part of the Normal font's line that a smaller font's line
       does not fill, the descent being the likely candidate.
 
+45. **A sheet that hides zeros (2026-11-15; probe suites `hidden_zeros`, on a sheet with
+    `<sheetView showZeros="0">`, and `hidden_zeros_control`, the same 425 cases on a sheet that
+    shows zeros: 25 formats under 17 values, width-less and at width 12, 850 rows each; written
+    under `capture/build/probes/`, not test data; Excel 16.115 under Microsoft 365).** The control
+    matches the package on every row. On the hiding sheet:
+    - **A cell whose value is exactly 0 shows nothing, under a format without a zero section**
+      (fewer than three sections): `General`, `0`, `0.00`, `0%`, `0.0E+00`, `# ?/?`, `m/d/yy`,
+      `h:mm`, `[h]:mm`, `@`, `0;-0`, `0;"neg"`, `"x"0`, `[Red]0`, and conditional formats whose
+      condition takes the zero (`[=0]"z";0`, `[<1]"small";0`), width-less and at a width alike.
+    - **A format with a zero section shows it as usual:** `0;-0;"zero"`, `0;-0;;@`,
+      `General;General;General`, `#,##0;(#,##0);"-"` and the accounting format are unchanged.
+    - **Only the stored value counts:** 0.4 under `0` still shows `0`, and 1e-10, the text "0" and
+      the booleans are unchanged. -0.0 and 5e-324 are loaded as 0 and hidden, and so are formulas
+      giving 0, `=0.1+0.2-0.3` included, which Excel calculates as exactly 0.
+    One rule matches all 1,700 rows: render the value as usual, except that a number equal to 0
+    under a format of fewer than three sections becomes the empty text.
+
 ## 3. The pipeline
 
 ```
