@@ -851,6 +851,22 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     One rule matches all 1,700 rows: render the value as usual, except that a number equal to 0
     under a format of fewer than three sections becomes the empty text.
 
+46. **Vertical placement in the print layout (2026-11-15; `capture/vertical_pdf.py`, a probe:
+    two workbooks, Normal font Calibri 11 and Aptos Narrow 11, 168 rows each of "Hxg" in the 12
+    regular faces aligned top, center and bottom in rows of the face's F, F + 10 and 2F, rows Excel
+    fits, two and three wrapped lines, and the styles at 11 and 16; Excel's PDF export read with
+    pdfminer.six, baselines from the text origins; written to `capture/build/probes/`).**
+    - **Placement depends on the face and the row's height only.** Every row of a stated height is
+      placed the same under both Normal fonts, and bold and italic place as regular.
+    - **Two constants per face:** with top alignment the baseline is a fixed distance below the
+      row's top (Calibri 9 to 16: 9, 10, 10, 11, 13, 15 print points; Aptos Narrow: 8, 9, 10, 11,
+      13, 15), with bottom alignment a fixed distance above its bottom (Calibri: 4, 4, 4, 4, 5, 5;
+      Aptos Narrow: 4, 4, 4, 4, 5, 6), at every row height tried; centered text sits midway between
+      the two placements, to half a point.
+    - **The print layout is not the screen:** rows print smaller than their height (15 points as
+      14, 25 as 23, 30 as 28) and wrapped lines closer (14 points apart at Calibri 11, where the
+      sheet gives 16), so these distances are print points. The screen gives the sheet's.
+
 ## 3. The pipeline
 
 ```
@@ -870,6 +886,7 @@ capture/rounding_models.py    model comparison for the 15-digit rule
 capture/glyph_fit.py          glyph tables from the measure and space_fill suites (items 26, 30)
 capture/alignment.py          default alignment through Excel's PDF export (item 31)
 capture/row_heights.py        row heights per Normal font, cell font and wrapped line (item 44)
+capture/vertical_pdf.py       vertical placement in the PDF export, a probe (item 46)
 capture/repair.py             what Excel's repair does to refused formats (item 33): `open`
                              through Launch Services, a person answers the dialog, then
                              `read` finds the workbook by name; `write` gathers the TSV
