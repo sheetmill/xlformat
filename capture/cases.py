@@ -116,6 +116,7 @@ class Suite:
     width_source: Literal["dialog", "file"] = "dialog"
     sheet_format: tuple[tuple[str, float], ...] = ()  # <sheetFormatPr> attributes to set
     probe: bool = False
+    show_zeros: bool = True  # False writes <sheetView showZeros="0">
     merged: tuple[tuple[float, ...], ...] = ()
     """One block per entry of ``widths``: the ``<col width>`` of the columns merged across each
     row. ``widths`` then holds each block's total points, and ``width_source`` is ``file``."""
@@ -2734,6 +2735,61 @@ def fraction_random(n_random: int = 3000, n_near: int = 300, seed: int = 2026102
     return Suite("fraction_random", tuple(cases), fast_cap=0)
 
 
+# --- hidden zeros: a sheet with showZeros="0" (probe) ---------------------------------------------
+
+_HIDDEN_ZERO_FORMATS: tuple[str, ...] = (
+    "General", "0", "0.00", "#,##0", "0%", "0.0E+00", "# ?/?", "m/d/yy", "h:mm", "[h]:mm", "@",
+    '0;-0;"zero"', "0;-0;;@", "0;-0;0;@", '[=0]"z";0', '[<1]"small";0', '0;"neg"', '"x"0', '0"x"',
+    "[Red]0", "General;General;General", '#,##0;(#,##0);"-"',
+    '_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)', "0;-0", "0.00;-0.00;0.00",
+)  # fmt: skip
+_HIDDEN_ZERO_VALUES: tuple[tuple[str, object, str | None], ...] = (
+    ("zero", 0, None),
+    ("float-zero", 0.0, None),
+    ("negative-zero", -0.0, None),
+    ("tiny", 1e-10, None),
+    ("negative-tiny", -1e-10, None),
+    ("rounds-to-zero", 0.4, None),
+    ("negative-rounds-to-zero", -0.4, None),
+    ("rounds-to-zero-2dp", 0.004, None),
+    ("half", 0.5, None),
+    ("denormal", 5e-324, None),
+    ("one", 1, None),
+    ("text-zero", "0", None),
+    ("true", True, None),
+    ("false", False, None),
+    ("formula-zero", 0.0, "=1-1"),
+    ("formula-negative-zero", 0.0, "=-(1-1)"),
+    ("formula-noise", 0.1 + 0.2 - 0.3, "=0.1+0.2-0.3"),
+)
+
+
+def _hidden_zero_cases(name: str) -> tuple[Case, ...]:
+    cases = []
+    for fmt in _HIDDEN_ZERO_FORMATS:
+        for tag, value, formula in _HIDDEN_ZERO_VALUES:
+            tag = f"formula:{formula}" if formula else tag
+            cases.append(Case(name, tag, value, fmt, formula=formula))
+    return tuple(cases)
+
+
+def hidden_zeros() -> Suite:
+    """What a sheet that hides zeros (``<sheetView showZeros="0">``) shows: exact zeros, values
+    rounding to zero, a zero section with text, -0, text and booleans (a probe)."""
+    return Suite(
+        "hidden_zeros", _hidden_zero_cases("hidden_zeros"), widths=(None, 12), show_zeros=False,
+        probe=True,
+    )  # fmt: skip
+
+
+def hidden_zeros_control() -> Suite:
+    """The same cases on a sheet that shows zeros, captured beside ``hidden_zeros`` (a probe)."""
+    return Suite(
+        "hidden_zeros_control", _hidden_zero_cases("hidden_zeros_control"), widths=(None, 12),
+        probe=True,
+    )  # fmt: skip
+
+
 SUITES: dict[str, Callable[[], Suite]] = {
     "huge_values": huge_values,
     "elapsed_decimals": elapsed_decimals,
@@ -2821,6 +2877,8 @@ SUITES: dict[str, Callable[[], Suite]] = {
 SUITES.update(_table_suites())
 SUITES["fraction_threshold"] = fraction_threshold
 SUITES["fraction_random"] = fraction_random
+SUITES["hidden_zeros"] = hidden_zeros
+SUITES["hidden_zeros_control"] = hidden_zeros_control
 
 
 def distinct_measure_cases(cases: Iterable[Case]) -> list[Case]:

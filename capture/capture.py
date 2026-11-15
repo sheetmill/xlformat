@@ -234,6 +234,7 @@ def capture(suite_name: str) -> tuple[Path, dict[str, str]]:
             if suite.sheet_format
             else {}
         ),
+        **({"show_zeros": "0"} if not suite.show_zeros else {}),
         "columns": " ".join(COLUMNS),
     }
     out_dir = PROBE_DIR if suite.probe else OUT_DIR

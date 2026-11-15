@@ -118,6 +118,8 @@ def build(suite: Suite) -> Manifest:
     ws.title = "cases"
     for attr, value in suite.sheet_format:
         setattr(ws.sheet_format, attr, value)
+    if not suite.show_zeros:
+        ws.sheet_view.showZeros = False
     columns: list[ColumnSpec] = []
     # the sheet column of each capture column: consecutive, or a block's first column when merged
     starts: list[int] = []
