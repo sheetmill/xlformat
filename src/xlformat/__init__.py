@@ -16,6 +16,7 @@ from xlformat._measure import (
     Font,
     FontSpec,
     Measure,
+    RowMetrics,
     column_metrics,
     column_metrics_from_points,
     digit_width,
@@ -23,6 +24,7 @@ from xlformat._measure import (
     glyph_widths,
     measured_fonts,
     overhang,
+    row_metrics,
     text_width,
 )
 from xlformat._palette import DEFAULT_PALETTE
@@ -40,6 +42,7 @@ __all__ = [
     "FormattedCell",
     "NumberFormat",
     "Quirks",
+    "RowMetrics",
     "Section",
     "SectionKind",
     "__version__",
@@ -52,6 +55,7 @@ __all__ = [
     "glyph_widths",
     "measured_fonts",
     "overhang",
+    "row_metrics",
     "text_function",
     "text_width",
 ]

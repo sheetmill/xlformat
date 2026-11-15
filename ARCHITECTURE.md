@@ -537,7 +537,7 @@ from xlformat import (
     format_value, format_cell, text_function, NumberFormat, FormattedCell, Section, SectionKind,
     Quirks, FormatError, ExcelError, DEFAULT_PALETTE, Font, ColumnMetrics, column_metrics,
     column_metrics_from_points, file_column_metrics, text_width, glyph_widths, digit_width,
-    overhang, measured_fonts,
+    overhang, measured_fonts, RowMetrics, row_metrics,
 )
 
 def format_value(value, format_string="General", *, width=None, column_width=None, font=None,
@@ -584,6 +584,14 @@ cell's sum of its columns' points, all returning a frozen
 `ValueError` for it. `budget` is `points` less 5, and 0 under 5 points. Both still accept the Normal font under its deprecated name `font`, with
 a `DeprecationWarning`, until 1.0, and raise `ValueError` when given both. Format functions take no file width:
 callers convert once per column.
+
+The row model is public too: `row_metrics(normal_font=None, *, cell_fonts=(), wrapped=())`
+returns a frozen `RowMetrics(height, font_height, line_height)`, the height Excel fits a row
+without a stored height to (`CAPTURING.md` §2 item 44). `wrapped` holds one `(font, lines)` per
+cell with wrapped text, `None` for the Normal font; one argument with one kind of item leaves room
+to take whole cells later. Lines are the caller's: xlformat does not break text. Two whole-point
+tables per measured face carry the model, the font height and the line inset, and a face without
+them raises `LookupError` rather than being scaled.
 
 **Error values.** `ExcelError` is a `StrEnum` of every error text current Excel documents (the
 seven classic codes of ECMA-376 and ERROR.TYPE 1 to 7; `#GETTING_DATA`, ERROR.TYPE 8; the error

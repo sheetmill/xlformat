@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import math
 import warnings
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from functools import lru_cache
 
@@ -393,3 +393,93 @@ def file_column_metrics(
         msg = f"file_width must not be negative, not {file_width!r}"
         raise ValueError(msg)
     return _metrics(file_points(file_width, normal_font), normal_font)
+
+
+# --- the row model (CAPTURING.md section 2 item 44) ----------------------------------------------
+
+# family (lower case) -> size -> the face's font height in points: the height Excel gives a row in
+# that font, the same for every style
+_FONT_HEIGHT: dict[str, dict[int, float]] = {
+    "calibri": {9: 12.0, 10: 14.0, 11: 15.0, 12: 16.0, 14: 19.0, 16: 21.0},
+    "aptos narrow": {9: 13.0, 10: 14.0, 11: 15.0, 12: 16.0, 14: 19.0, 16: 22.0},
+}
+# family (lower case) -> size -> points of the Normal font's line that wrapped text in a smaller
+# face does not fill: k wrapped lines in face f add max(0, inset(normal) - inset(f))
+_LINE_INSET: dict[str, dict[int, float]] = {
+    "calibri": {9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 14: 2.0, 16: 2.0},
+    "aptos narrow": {9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 14: 2.0, 16: 3.0},
+}
+
+
+@dataclass(frozen=True, slots=True)
+class RowMetrics:
+    """A row as Excel for Mac fits it when it opens a file, in whole points.
+
+    Attributes:
+        height: The row's height: what Excel gives a row without a stored height (no ``ht``)
+            holding the fonts and wrapped text given.
+        font_height: The Normal font's height: a row in the Normal font alone, and the sheet's
+            standard height.
+        line_height: What each wrapped line in the Normal font takes: ``font_height`` plus 1, so
+            one wrapped line is a point taller than the row without it.
+    """
+
+    height: float
+    font_height: float
+    line_height: float
+
+
+def _row_face(font: FontSpec | None) -> tuple[str, int]:
+    """(family key, size) of a face the row model has measured; LookupError otherwise."""
+    f = resolve_font(font)
+    key = f.name.lower()
+    sizes = _FONT_HEIGHT.get(key, {})
+    if f.size not in sizes:
+        measured = ", ".join(f"{size:g}" for size in sizes)
+        msg = f"no row heights for {f.name} {f.size:g}; measured sizes: {measured}"
+        raise LookupError(msg)
+    return key, int(f.size)
+
+
+def row_metrics(
+    normal_font: FontSpec | None = None,
+    *,
+    cell_fonts: Iterable[FontSpec] = (),
+    wrapped: Iterable[tuple[FontSpec | None, int]] = (),
+) -> RowMetrics:
+    """The height Excel gives a row without a stored height, in the workbook's Normal font.
+
+    A row is as tall as its tallest font: the Normal font's height or that of any cell's font in
+    the row, an empty cell styled with a font included. Wrapped text of ``lines`` lines in a face
+    takes ``lines * (height + 1)`` points of that face, plus, under a Normal font with a larger
+    line inset, the difference of the two insets (CAPTURING.md section 2 item 44). Bold and italic
+    change nothing. Measured: Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16 points; the
+    row model raises ``LookupError`` for any other face rather than scaling one.
+
+    A row holding both wrapped text and a cell in another unwrapped font is given the larger of
+    the two heights; that combination has not been captured.
+
+    Args:
+        normal_font: The workbook's Normal font.
+        cell_fonts: The fonts of the row's cells that are not the Normal font and do not wrap.
+        wrapped: One ``(font, lines)`` per cell with wrapped text: its font (``None`` for the
+            Normal font) and its number of lines, as the caller broke them.
+
+    Raises:
+        LookupError: A font or size the row model has not measured.
+        ValueError: A number of lines below 1.
+    """
+    normal = _row_face(normal_font)
+    font_height = _FONT_HEIGHT[normal[0]][normal[1]]
+    height = font_height
+    for font in cell_fonts:
+        key, size = _row_face(font)
+        height = max(height, _FONT_HEIGHT[key][size])
+    for wrap_font, lines in wrapped:
+        if lines < 1:
+            msg = f"wrapped text has at least one line, not {lines!r}"
+            raise ValueError(msg)
+        key, size = normal if wrap_font is None else _row_face(wrap_font)
+        inset = max(0.0, _LINE_INSET[normal[0]][normal[1]] - _LINE_INSET[key][size])
+        height = max(height, lines * (_FONT_HEIGHT[key][size] + 1.0) + inset)
+    return RowMetrics(height=height, font_height=font_height, line_height=font_height + 1.0)

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `row_metrics(normal_font=None, *, cell_fonts=(), wrapped=())` and `RowMetrics`: the height
+  Excel gives a row without a stored height, from its Normal font, its cells' fonts and its
+  wrapped lines, for Calibri and Aptos Narrow at 9 to 16 points (captured from Excel).
+
 ### Changed
 - The expected outputs are captured from Excel for Mac 16.115 under Microsoft 365 (Excel's
   standard font there is Aptos Narrow 12). Every suite matched its earlier capture from Excel

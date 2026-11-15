@@ -135,6 +135,31 @@ How Excel measures, as reproduced here:
   character and a leading minus by its own width (half a digit at Calibri 11), not by glyph
   widths. When no shortened form fits, the shortest one shows if its glyphs fit.
 
+## Rows
+
+Excel fits a row without a stored height to what it holds when it opens a file. `row_metrics`
+gives that height for the workbook's Normal font, the fonts of the row's other cells and the
+cells with wrapped text, each as `(font, lines)` with `None` for the Normal font:
+
+```python
+>>> from xlformat import row_metrics
+>>> row_metrics()
+RowMetrics(height=15.0, font_height=15.0, line_height=16.0)
+>>> row_metrics(cell_fonts=[("Calibri", 14)]).height
+19.0
+>>> row_metrics(wrapped=[(None, 3)]).height
+48.0
+>>> row_metrics(("Calibri", 14), wrapped=[(("Calibri", 9), 2)]).height
+28.0
+```
+
+A row is as tall as its tallest font, and bold or italic changes nothing. Each wrapped line takes
+its font's height plus one point, so a single wrapped line makes a Calibri 11 row 16 points; under
+a larger Normal font, a smaller font's wrapped text takes up to three points more. The caller breaks
+the lines. Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16 points are measured; any other face
+raises `LookupError`. A row holding both wrapped text and an unwrapped cell in another font gets
+the larger of the two heights, a combination not yet captured.
+
 ## Measuring text yourself
 
 The measure behind Excel mode is public, for layout that has to agree with it: spilling text
