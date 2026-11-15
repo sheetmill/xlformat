@@ -806,6 +806,26 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       time limit saves evidence under `capture/build/excel_hangs/` and closes its workbook once
       Excel answers, and the long captures run under `caffeinate -d -i`.
 
+44. **Row heights (2026-11-14; `capture/row_heights.py`, 48 workbooks, one per Normal font:
+    Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16 points in four styles, 147 rows each,
+    7,056 heights and 48 standard heights in `row_height.layout.tsv`, about five minutes of Excel;
+    Excel 16.115 under Microsoft 365, restarted first).** Excel fits each row when it opens the file.
+    - **The font height** F of a face, the height of a row in that Normal font, does not depend on
+      bold or italic: Calibri 9 to 16 give 12, 14, 15, 16, 19 and 21 points, Aptos Narrow 13, 14,
+      15, 16, 19 and 22. The sheet's standard height and a row without an element are the Normal
+      font's F (the sheet keeps openpyxl's `<sheetFormatPr>`, without `customHeight`).
+    - **A row is as tall as its tallest font:** the larger of the Normal font's F and that of every
+      cell font in the row, an empty cell styled with a font included, in all 48 workbooks.
+    - **Wrapped text** (one to six lines joined by line feeds, wrap on): in the Normal font, k lines
+      are k(F + 1) points, so even one wrapped line is a point taller than the row. In another cell
+      font, k lines are the larger of the Normal font's F and k(F_cell + 1) + c, where c depends
+      on the Normal font and the cell font, not on their styles, and is p(normal) - p(cell) or 0,
+      whichever is larger, with one whole number p per face: 0 for Calibri 9; 1 for Calibri 10, 11
+      and 12 and Aptos Narrow 9 to 12; 2 for Calibri 14 and 16 and Aptos Narrow 14; 3 for Aptos
+      Narrow 16. The rule matches all 3,456 wrapped rows and all 144 pairs of faces; c is 0 for
+      102 of them. p behaves like a part of the Normal font's line that a smaller font's line
+      does not fill, the descent being the likely candidate.
+
 ## 3. The pipeline
 
 ```
@@ -824,6 +844,7 @@ capture/convert_2023.py       the 2023 clipboard capture into the schema (captur
 capture/rounding_models.py    model comparison for the 15-digit rule
 capture/glyph_fit.py          glyph tables from the measure and space_fill suites (items 26, 30)
 capture/alignment.py          default alignment through Excel's PDF export (item 31)
+capture/row_heights.py        row heights per Normal font, cell font and wrapped line (item 44)
 capture/repair.py             what Excel's repair does to refused formats (item 33): `open`
                              through Launch Services, a person answers the dialog, then
                              `read` finds the workbook by name; `write` gathers the TSV
