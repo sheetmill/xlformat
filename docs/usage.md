@@ -49,6 +49,26 @@ with a minus sign instead of `#`.
 The last line is 255 `#`, Excel's overflow without a width; with a width it fills the column
 (see {doc}`width`).
 
+## Sheets that hide zeros
+
+A sheet can hide zero values (Excel's "Show a zero in cells that have zero value" turned off,
+`<sheetView showZeros="0">` in the file). Pass `show_zeros=False` for such a sheet: a number equal
+to 0 then shows nothing, unless the format has a zero section of its own. A value that only
+rounds to 0 is not hidden.
+
+```python
+>>> format_value(0, "0.00", show_zeros=False)
+''
+>>> format_value(0, '#,##0;(#,##0);"-"', show_zeros=False)
+'-'
+>>> format_value(0.004, "0.00", show_zeros=False)
+'0.00'
+```
+
+Pass the value as stored: an exact zero, `-0.0` included, is a zero. Excel loads some file texts
+as 0 that Python reads otherwise (a denormal such as `5e-324`), and calculates some formulas as 0
+(`=0.1+0.2-0.3`); converting those is the reader's or the calculator's part.
+
 ## What Excel shows around the text
 
 {func}`xlformat.format_cell` returns a {class}`xlformat.FormattedCell`: the text, the section

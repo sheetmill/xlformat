@@ -832,6 +832,7 @@ class NumberFormat:
         normal_font: FontSpec | None = None,
         measure: Measure | None = None,
         date1904: bool = False,
+        show_zeros: bool = True,
         quirks: Quirks | None = None,
     ) -> str:
         """The text Excel displays for ``value`` under this format.
@@ -849,6 +850,7 @@ class NumberFormat:
             normal_font=normal_font,
             measure=measure,
             date1904=date1904,
+            show_zeros=show_zeros,
             quirks=quirks,
         ).text
 
@@ -862,6 +864,7 @@ class NumberFormat:
         normal_font: FontSpec | None = None,
         measure: Measure | None = None,
         date1904: bool = False,
+        show_zeros: bool = True,
         quirks: Quirks | None = None,
     ) -> FormattedCell:
         """Text plus color, alignment, fill and overflow information.
@@ -880,6 +883,7 @@ class NumberFormat:
             normal_font=normal_font,
             measure=measure,
             date1904=date1904,
+            show_zeros=show_zeros,
             quirks=quirks,
         )
 

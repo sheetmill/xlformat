@@ -71,6 +71,7 @@ def format_value(
     normal_font: FontSpec | None = None,
     measure: Measure | None = None,
     date1904: bool = False,
+    show_zeros: bool = True,
     quirks: Quirks | None = None,
 ) -> str:
     """Return the text Excel displays for ``value`` under ``format_string``.
@@ -94,6 +95,11 @@ def format_value(
             column (one unit of ``column_width``); default ``font``.
         measure: A custom text measure for ``width``, whose units then also apply to ``width``.
         date1904: Use the 1904 date system for dates and serials.
+        show_zeros: False for a sheet that hides zeros (``showZeros="0"``, Excel's "Show a zero
+            in cells that have zero value" turned off): a number equal to 0, ``-0.0``
+            included, shows nothing under a format of fewer than three sections. A format
+            with a zero section shows it as usual, and so does a value that only rounds to 0.
+            Pass the value as stored.
         quirks: Which Excel quirks to reproduce; ``None`` means ``Quirks.EXCEL``.
 
     Raises:
@@ -109,6 +115,7 @@ def format_value(
         normal_font=normal_font,
         measure=measure,
         date1904=date1904,
+        show_zeros=show_zeros,
         quirks=quirks,
     )
 
@@ -161,6 +168,7 @@ def format_cell(
     normal_font: FontSpec | None = None,
     measure: Measure | None = None,
     date1904: bool = False,
+    show_zeros: bool = True,
     quirks: Quirks | None = None,
 ) -> FormattedCell:
     """Like :func:`format_value` but return a :class:`FormattedCell` with display details."""
@@ -172,5 +180,6 @@ def format_cell(
         normal_font=normal_font,
         measure=measure,
         date1904=date1904,
+        show_zeros=show_zeros,
         quirks=quirks,
     )

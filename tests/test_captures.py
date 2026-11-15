@@ -218,6 +218,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
     # widths written into the file (<col width>, or none: <sheetFormatPr>), not set by the script
     file_widths = header.get("width_source") == "file"
     sheet_format = dict(kv.split("=") for kv in header.get("sheet_format", "").split())
+    show_zeros = header.get("show_zeros") != "0"  # a sheet that hides zeros says so
     for row in rows:
         fmt = row.format_string
         value = _excel_value(row, header)
@@ -267,6 +268,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
                     font=cell_font or normal,
                     normal_font=normal,
                     date1904=date1904,
+                    show_zeros=show_zeros,
                 )
             except Exception as exc:
                 got_excel = f"<{type(exc).__name__}: {exc}>"
@@ -292,7 +294,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
             counts["skipped (glyph slack)"] += 1
             continue
         try:
-            got = format_value(value, fmt, width=width, date1904=date1904)
+            got = format_value(value, fmt, width=width, date1904=date1904, show_zeros=show_zeros)
         except Exception as exc:
             got = f"<{type(exc).__name__}: {exc}>"
         if (

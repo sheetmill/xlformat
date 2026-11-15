@@ -541,19 +541,20 @@ from xlformat import (
 )
 
 def format_value(value, format_string="General", *, width=None, column_width=None, font=None,
-                 normal_font=None, measure=None, date1904=False, quirks=None) -> str
+                 normal_font=None, measure=None, date1904=False, show_zeros=True, quirks=None) -> str
 def format_cell(value, format_string="General", *, width=None, column_width=None, font=None,
-                normal_font=None, measure=None, date1904=False, quirks=None) -> FormattedCell
+                normal_font=None, measure=None, date1904=False, show_zeros=True,
+                quirks=None) -> FormattedCell
 def text_function(value, format_string, *, date1904=False, quirks=None) -> str | ExcelError
 
 class NumberFormat:
     @classmethod
     def parse(cls, format_string: str) -> "NumberFormat"      # cached; raises FormatError
     def format(self, value, *, width=None, column_width=None, font=None, normal_font=None,
-               measure=None, date1904=False, quirks=None) -> str
+               measure=None, date1904=False, show_zeros=True, quirks=None) -> str
     def text_function(self, value, *, date1904=False, quirks=None) -> str | ExcelError
     def format_cell(self, value, *, width=None, column_width=None, font=None, normal_font=None,
-                    measure=None, date1904=False, quirks=None) -> FormattedCell
+                    measure=None, date1904=False, show_zeros=True, quirks=None) -> FormattedCell
     is_date: bool; is_text: bool; is_general: bool; sections: tuple[Section, ...]
 
 class FormatError(ValueError): ...
@@ -584,6 +585,11 @@ cell's sum of its columns' points, all returning a frozen
 `ValueError` for it. `budget` is `points` less 5, and 0 under 5 points. Both still accept the Normal font under its deprecated name `font`, with
 a `DeprecationWarning`, until 1.0, and raise `ValueError` when given both. Format functions take no file width:
 callers convert once per column.
+
+`show_zeros` is a sheet property, passed beside the workbook's `date1904` rather than as a
+quirk: `False` for a sheet with `showZeros="0"`, where a number equal to 0 shows nothing under a
+format of fewer than three sections (`CAPTURING.md` §2 item 45). It is checked once, after the
+value is known to be a number, before section selection.
 
 The row model is public too: `row_metrics(normal_font=None, *, cell_fonts=(), wrapped=())`
 returns a frozen `RowMetrics(height, font_height, line_height)`, the height Excel fits a row
@@ -698,7 +704,7 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`, 167 suite files, 687,262 rows in all modes | 12.0 s |
+| `pytest`, 169 suite files, 688,962 rows in all modes | 12.0 s |
 | `pytest --tier=fast` | 3.2 s |
 
 ## 14. What the code taught

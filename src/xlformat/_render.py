@@ -187,6 +187,7 @@ def render(
     date1904: bool = False,
     quirks: Quirks | None = None,
     normal_font: FontSpec | None = None,
+    show_zeros: bool = True,
 ) -> FormattedCell:
     """Render ``value`` under ``fmt``."""
     budget, measure, units = resolve_width(width, column_width, font, measure, normal_font)
@@ -215,6 +216,10 @@ def render(
         )
     assert v.number is not None
     x = v.number
+    if not show_zeros and x == 0 and len(fmt.sections) < 3:
+        # a sheet that hides zeros shows nothing for an exact zero unless the format has a zero
+        # section (CAPTURING.md section 2 item 45)
+        return assemble([], None, "right", width=budget, measure=measure)
     chosen, keep_sign = select(fmt, x)
     cell = _render_number(
         fmt, chosen, keep_sign, x, v.raw, date1904, quirks, budget, measure, units

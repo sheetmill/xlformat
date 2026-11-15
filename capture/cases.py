@@ -2760,7 +2760,9 @@ _HIDDEN_ZERO_VALUES: tuple[tuple[str, object, str | None], ...] = (
     ("false", False, None),
     ("formula-zero", 0.0, "=1-1"),
     ("formula-negative-zero", 0.0, "=-(1-1)"),
-    ("formula-noise", 0.1 + 0.2 - 0.3, "=0.1+0.2-0.3"),
+    # Excel calculates this as exactly 0 (a cancellation snapped to 0), not 5.55e-17: the
+    # case holds the value Excel stores, as a reader of the file would pass it
+    ("formula-cancels", 0.0, "=0.1+0.2-0.3"),
 )
 
 
@@ -2775,18 +2777,16 @@ def _hidden_zero_cases(name: str) -> tuple[Case, ...]:
 
 def hidden_zeros() -> Suite:
     """What a sheet that hides zeros (``<sheetView showZeros="0">``) shows: exact zeros, values
-    rounding to zero, a zero section with text, -0, text and booleans (a probe)."""
+    rounding to zero, a zero section with text, -0, text and booleans."""
     return Suite(
-        "hidden_zeros", _hidden_zero_cases("hidden_zeros"), widths=(None, 12), show_zeros=False,
-        probe=True,
+        "hidden_zeros", _hidden_zero_cases("hidden_zeros"), widths=(None, 12), show_zeros=False
     )  # fmt: skip
 
 
 def hidden_zeros_control() -> Suite:
-    """The same cases on a sheet that shows zeros, captured beside ``hidden_zeros`` (a probe)."""
+    """The same cases on a sheet that shows zeros, captured beside ``hidden_zeros``."""
     return Suite(
-        "hidden_zeros_control", _hidden_zero_cases("hidden_zeros_control"), widths=(None, 12),
-        probe=True,
+        "hidden_zeros_control", _hidden_zero_cases("hidden_zeros_control"), widths=(None, 12)
     )  # fmt: skip
 
 

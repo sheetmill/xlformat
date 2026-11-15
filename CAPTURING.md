@@ -834,9 +834,11 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
 
 45. **A sheet that hides zeros (2026-11-15; probe suites `hidden_zeros`, on a sheet with
     `<sheetView showZeros="0">`, and `hidden_zeros_control`, the same 425 cases on a sheet that
-    shows zeros: 25 formats under 17 values, width-less and at width 12, 850 rows each; written
-    under `capture/build/probes/`, not test data; Excel 16.115 under Microsoft 365).** The control
-    matches the package on every row. On the hiding sheet:
+    shows zeros: 25 formats under 17 values, width-less and at width 12, 850 rows each; Excel
+    16.115 under Microsoft 365).** The control matches the package on every row, and the hiding
+    sheet matches `show_zeros=False`. The case `=0.1+0.2-0.3` holds 0, the value Excel stores for
+    it (its first capture, as a probe, recorded the Python double and gave the same texts). On the
+    hiding sheet:
     - **A cell whose value is exactly 0 shows nothing, under a format without a zero section**
       (fewer than three sections): `General`, `0`, `0.00`, `0%`, `0.0E+00`, `# ?/?`, `m/d/yy`,
       `h:mm`, `[h]:mm`, `@`, `0;-0`, `0;"neg"`, `"x"0`, `[Red]0`, and conditional formats whose
