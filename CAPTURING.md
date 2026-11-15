@@ -808,7 +808,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
 
 44. **Row heights (2026-11-14; `capture/row_heights.py`, 48 workbooks, one per Normal font:
     Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16 points in four styles, 147 rows each,
-    7,056 heights and 48 standard heights in `row_height.layout.tsv`, about five minutes of Excel;
+    7,056 heights and 48 standard heights in `row_height.layout.tsv`, 7,488 since (below); five minutes;
     Excel 16.115 under Microsoft 365, restarted first).** Excel fits each row when it opens the file.
     - **The font height** F of a face, the height of a row in that Normal font, does not depend on
       bold or italic: Calibri 9 to 16 give 12, 14, 15, 16, 19 and 21 points, Aptos Narrow 13, 14,
@@ -825,6 +825,12 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       Narrow 16. The rule matches all 3,456 wrapped rows and all 144 pairs of faces; c is 0 for
       102 of them. p behaves like a part of the Normal font's line that a smaller font's line
       does not fill, the descent being the likely candidate.
+    - **Wrapped text beside another font** (2026-11-15, eight more rows a workbook, 7,488 heights in
+      all; the 7,104 earlier ones repeated exactly): the other cell's font counts as the Normal
+      font's does, both for the row's height and for p. k lines in face f beside unwrapped cells
+      are the largest of every font's F and k(F_f + 1) + max(0, P - p_f), P the largest p of the
+      Normal font and the row's other cell fonts; all 384 such rows match. Several cells with
+      wrapped text in one row are not captured.
 
 45. **A sheet that hides zeros (2026-11-15; probe suites `hidden_zeros`, on a sheet with
     `<sheetView showZeros="0">`, and `hidden_zeros_control`, the same 425 cases on a sheet that

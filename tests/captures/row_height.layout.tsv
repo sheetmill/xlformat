@@ -2,7 +2,7 @@
 # excel_build: 16.115 (26110837)
 # edition: Microsoft 365 Subscription, update channel Current
 # method: one workbook per Normal font, opened through AppleScript with alerts off; row height of each row and the sheet's standard height read in points; <sheetFormatPr> as openpyxl writes it (no customHeight)
-# captured: 2026-11-14; wrapped lines are 'x' each, joined by line feeds in column A at the default width
+# captured: 2026-11-15; wrapped lines are 'x' each, joined by line feeds in column A at the default width
 normal_font	row	tag	height
 Calibri 9	0	standard height	12.0
 Calibri 9	1	number	12.0
@@ -151,7 +151,15 @@ Calibri 9	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 9	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 9	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 9	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 9	147	number at the end	12.0
+Calibri 9	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 9	148	wrapped 2 lines normal beside Calibri 16	28.0
+Calibri 9	149	wrapped 3 lines normal beside Aptos Narrow 16	42.0
+Calibri 9	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 9	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 9	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 9	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 9	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 9	155	number at the end	12.0
 Calibri 9 bold	0	standard height	12.0
 Calibri 9 bold	1	number	12.0
 Calibri 9 bold	2	no element	12.0
@@ -299,7 +307,15 @@ Calibri 9 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 9 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 9 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 9 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 9 bold	147	number at the end	12.0
+Calibri 9 bold	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 9 bold	148	wrapped 2 lines normal beside Calibri 16	28.0
+Calibri 9 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	42.0
+Calibri 9 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 9 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 9 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 9 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 9 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 9 bold	155	number at the end	12.0
 Calibri 9 italic	0	standard height	12.0
 Calibri 9 italic	1	number	12.0
 Calibri 9 italic	2	no element	12.0
@@ -447,7 +463,15 @@ Calibri 9 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 9 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 9 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 9 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 9 italic	147	number at the end	12.0
+Calibri 9 italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 9 italic	148	wrapped 2 lines normal beside Calibri 16	28.0
+Calibri 9 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	42.0
+Calibri 9 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 9 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 9 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 9 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 9 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 9 italic	155	number at the end	12.0
 Calibri 9 bold italic	0	standard height	12.0
 Calibri 9 bold italic	1	number	12.0
 Calibri 9 bold italic	2	no element	12.0
@@ -595,7 +619,15 @@ Calibri 9 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 9 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 9 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 9 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 9 bold italic	147	number at the end	12.0
+Calibri 9 bold italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 9 bold italic	148	wrapped 2 lines normal beside Calibri 16	28.0
+Calibri 9 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	42.0
+Calibri 9 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 9 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 9 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 9 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 9 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 9 bold italic	155	number at the end	12.0
 Calibri 10	0	standard height	14.0
 Calibri 10	1	number	14.0
 Calibri 10	2	no element	14.0
@@ -743,7 +775,15 @@ Calibri 10	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 10	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 10	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 10	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 10	147	number at the end	14.0
+Calibri 10	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 10	148	wrapped 2 lines normal beside Calibri 16	31.0
+Calibri 10	149	wrapped 3 lines normal beside Aptos Narrow 16	47.0
+Calibri 10	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 10	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 10	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 10	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 10	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 10	155	number at the end	14.0
 Calibri 10 bold	0	standard height	14.0
 Calibri 10 bold	1	number	14.0
 Calibri 10 bold	2	no element	14.0
@@ -891,7 +931,15 @@ Calibri 10 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 10 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 10 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 10 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 10 bold	147	number at the end	14.0
+Calibri 10 bold	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 10 bold	148	wrapped 2 lines normal beside Calibri 16	31.0
+Calibri 10 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	47.0
+Calibri 10 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 10 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 10 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 10 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 10 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 10 bold	155	number at the end	14.0
 Calibri 10 italic	0	standard height	14.0
 Calibri 10 italic	1	number	14.0
 Calibri 10 italic	2	no element	14.0
@@ -1039,7 +1087,15 @@ Calibri 10 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 10 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 10 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 10 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 10 italic	147	number at the end	14.0
+Calibri 10 italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 10 italic	148	wrapped 2 lines normal beside Calibri 16	31.0
+Calibri 10 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	47.0
+Calibri 10 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 10 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 10 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 10 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 10 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 10 italic	155	number at the end	14.0
 Calibri 10 bold italic	0	standard height	14.0
 Calibri 10 bold italic	1	number	14.0
 Calibri 10 bold italic	2	no element	14.0
@@ -1187,7 +1243,15 @@ Calibri 10 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 10 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 10 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 10 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 10 bold italic	147	number at the end	14.0
+Calibri 10 bold italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 10 bold italic	148	wrapped 2 lines normal beside Calibri 16	31.0
+Calibri 10 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	47.0
+Calibri 10 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 10 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 10 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 10 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 10 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 10 bold italic	155	number at the end	14.0
 Calibri 11	0	standard height	15.0
 Calibri 11	1	number	15.0
 Calibri 11	2	no element	15.0
@@ -1335,7 +1399,15 @@ Calibri 11	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 11	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 11	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 11	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 11	147	number at the end	15.0
+Calibri 11	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 11	148	wrapped 2 lines normal beside Calibri 16	33.0
+Calibri 11	149	wrapped 3 lines normal beside Aptos Narrow 16	50.0
+Calibri 11	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 11	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 11	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 11	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 11	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 11	155	number at the end	15.0
 Calibri 11 bold	0	standard height	15.0
 Calibri 11 bold	1	number	15.0
 Calibri 11 bold	2	no element	15.0
@@ -1483,7 +1555,15 @@ Calibri 11 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 11 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 11 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 11 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 11 bold	147	number at the end	15.0
+Calibri 11 bold	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 11 bold	148	wrapped 2 lines normal beside Calibri 16	33.0
+Calibri 11 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	50.0
+Calibri 11 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 11 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 11 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 11 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 11 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 11 bold	155	number at the end	15.0
 Calibri 11 italic	0	standard height	15.0
 Calibri 11 italic	1	number	15.0
 Calibri 11 italic	2	no element	15.0
@@ -1631,7 +1711,15 @@ Calibri 11 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 11 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 11 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 11 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 11 italic	147	number at the end	15.0
+Calibri 11 italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 11 italic	148	wrapped 2 lines normal beside Calibri 16	33.0
+Calibri 11 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	50.0
+Calibri 11 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 11 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 11 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 11 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 11 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 11 italic	155	number at the end	15.0
 Calibri 11 bold italic	0	standard height	15.0
 Calibri 11 bold italic	1	number	15.0
 Calibri 11 bold italic	2	no element	15.0
@@ -1779,7 +1867,15 @@ Calibri 11 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 11 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 11 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 11 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 11 bold italic	147	number at the end	15.0
+Calibri 11 bold italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 11 bold italic	148	wrapped 2 lines normal beside Calibri 16	33.0
+Calibri 11 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	50.0
+Calibri 11 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 11 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 11 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 11 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 11 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 11 bold italic	155	number at the end	15.0
 Calibri 12	0	standard height	16.0
 Calibri 12	1	number	16.0
 Calibri 12	2	no element	16.0
@@ -1927,7 +2023,15 @@ Calibri 12	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 12	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 12	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 12	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 12	147	number at the end	16.0
+Calibri 12	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 12	148	wrapped 2 lines normal beside Calibri 16	35.0
+Calibri 12	149	wrapped 3 lines normal beside Aptos Narrow 16	53.0
+Calibri 12	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 12	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 12	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 12	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 12	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 12	155	number at the end	16.0
 Calibri 12 bold	0	standard height	16.0
 Calibri 12 bold	1	number	16.0
 Calibri 12 bold	2	no element	16.0
@@ -2075,7 +2179,15 @@ Calibri 12 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 12 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 12 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 12 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 12 bold	147	number at the end	16.0
+Calibri 12 bold	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 12 bold	148	wrapped 2 lines normal beside Calibri 16	35.0
+Calibri 12 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	53.0
+Calibri 12 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 12 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 12 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 12 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 12 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 12 bold	155	number at the end	16.0
 Calibri 12 italic	0	standard height	16.0
 Calibri 12 italic	1	number	16.0
 Calibri 12 italic	2	no element	16.0
@@ -2223,7 +2335,15 @@ Calibri 12 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 12 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 12 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 12 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 12 italic	147	number at the end	16.0
+Calibri 12 italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 12 italic	148	wrapped 2 lines normal beside Calibri 16	35.0
+Calibri 12 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	53.0
+Calibri 12 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 12 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 12 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 12 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 12 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 12 italic	155	number at the end	16.0
 Calibri 12 bold italic	0	standard height	16.0
 Calibri 12 bold italic	1	number	16.0
 Calibri 12 bold italic	2	no element	16.0
@@ -2371,7 +2491,15 @@ Calibri 12 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 12 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 12 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 12 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 12 bold italic	147	number at the end	16.0
+Calibri 12 bold italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Calibri 12 bold italic	148	wrapped 2 lines normal beside Calibri 16	35.0
+Calibri 12 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	53.0
+Calibri 12 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 12 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 12 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 12 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 12 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 12 bold italic	155	number at the end	16.0
 Calibri 14	0	standard height	19.0
 Calibri 14	1	number	19.0
 Calibri 14	2	no element	19.0
@@ -2519,7 +2647,15 @@ Calibri 14	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 14	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 14	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 14	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 14	147	number at the end	19.0
+Calibri 14	147	wrapped 1 lines normal beside Calibri 14	20.0
+Calibri 14	148	wrapped 2 lines normal beside Calibri 16	40.0
+Calibri 14	149	wrapped 3 lines normal beside Aptos Narrow 16	61.0
+Calibri 14	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 14	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 14	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 14	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 14	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 14	155	number at the end	19.0
 Calibri 14 bold	0	standard height	19.0
 Calibri 14 bold	1	number	19.0
 Calibri 14 bold	2	no element	19.0
@@ -2667,7 +2803,15 @@ Calibri 14 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 14 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 14 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 14 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 14 bold	147	number at the end	19.0
+Calibri 14 bold	147	wrapped 1 lines normal beside Calibri 14	20.0
+Calibri 14 bold	148	wrapped 2 lines normal beside Calibri 16	40.0
+Calibri 14 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	61.0
+Calibri 14 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 14 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 14 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 14 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 14 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 14 bold	155	number at the end	19.0
 Calibri 14 italic	0	standard height	19.0
 Calibri 14 italic	1	number	19.0
 Calibri 14 italic	2	no element	19.0
@@ -2815,7 +2959,15 @@ Calibri 14 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 14 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 14 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 14 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 14 italic	147	number at the end	19.0
+Calibri 14 italic	147	wrapped 1 lines normal beside Calibri 14	20.0
+Calibri 14 italic	148	wrapped 2 lines normal beside Calibri 16	40.0
+Calibri 14 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	61.0
+Calibri 14 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 14 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 14 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 14 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 14 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 14 italic	155	number at the end	19.0
 Calibri 14 bold italic	0	standard height	19.0
 Calibri 14 bold italic	1	number	19.0
 Calibri 14 bold italic	2	no element	19.0
@@ -2963,7 +3115,15 @@ Calibri 14 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 14 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 14 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 14 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 14 bold italic	147	number at the end	19.0
+Calibri 14 bold italic	147	wrapped 1 lines normal beside Calibri 14	20.0
+Calibri 14 bold italic	148	wrapped 2 lines normal beside Calibri 16	40.0
+Calibri 14 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	61.0
+Calibri 14 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 14 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 14 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 14 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 14 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 14 bold italic	155	number at the end	19.0
 Calibri 16	0	standard height	21.0
 Calibri 16	1	number	21.0
 Calibri 16	2	no element	21.0
@@ -3111,7 +3271,15 @@ Calibri 16	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 16	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 16	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 16	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 16	147	number at the end	21.0
+Calibri 16	147	wrapped 1 lines normal beside Calibri 14	22.0
+Calibri 16	148	wrapped 2 lines normal beside Calibri 16	44.0
+Calibri 16	149	wrapped 3 lines normal beside Aptos Narrow 16	67.0
+Calibri 16	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 16	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 16	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 16	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 16	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 16	155	number at the end	21.0
 Calibri 16 bold	0	standard height	21.0
 Calibri 16 bold	1	number	21.0
 Calibri 16 bold	2	no element	21.0
@@ -3259,7 +3427,15 @@ Calibri 16 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 16 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 16 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 16 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 16 bold	147	number at the end	21.0
+Calibri 16 bold	147	wrapped 1 lines normal beside Calibri 14	22.0
+Calibri 16 bold	148	wrapped 2 lines normal beside Calibri 16	44.0
+Calibri 16 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	67.0
+Calibri 16 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 16 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 16 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 16 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 16 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 16 bold	155	number at the end	21.0
 Calibri 16 italic	0	standard height	21.0
 Calibri 16 italic	1	number	21.0
 Calibri 16 italic	2	no element	21.0
@@ -3407,7 +3583,15 @@ Calibri 16 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 16 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 16 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 16 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 16 italic	147	number at the end	21.0
+Calibri 16 italic	147	wrapped 1 lines normal beside Calibri 14	22.0
+Calibri 16 italic	148	wrapped 2 lines normal beside Calibri 16	44.0
+Calibri 16 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	67.0
+Calibri 16 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 16 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 16 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 16 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 16 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 16 italic	155	number at the end	21.0
 Calibri 16 bold italic	0	standard height	21.0
 Calibri 16 bold italic	1	number	21.0
 Calibri 16 bold italic	2	no element	21.0
@@ -3555,7 +3739,15 @@ Calibri 16 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Calibri 16 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Calibri 16 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Calibri 16 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Calibri 16 bold italic	147	number at the end	21.0
+Calibri 16 bold italic	147	wrapped 1 lines normal beside Calibri 14	22.0
+Calibri 16 bold italic	148	wrapped 2 lines normal beside Calibri 16	44.0
+Calibri 16 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	67.0
+Calibri 16 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Calibri 16 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Calibri 16 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Calibri 16 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Calibri 16 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Calibri 16 bold italic	155	number at the end	21.0
 Aptos Narrow 9	0	standard height	13.0
 Aptos Narrow 9	1	number	13.0
 Aptos Narrow 9	2	no element	13.0
@@ -3703,7 +3895,15 @@ Aptos Narrow 9	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 9	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 9	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 9	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 9	147	number at the end	13.0
+Aptos Narrow 9	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 9	148	wrapped 2 lines normal beside Calibri 16	29.0
+Aptos Narrow 9	149	wrapped 3 lines normal beside Aptos Narrow 16	44.0
+Aptos Narrow 9	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 9	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 9	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 9	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 9	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 9	155	number at the end	13.0
 Aptos Narrow 9 bold	0	standard height	13.0
 Aptos Narrow 9 bold	1	number	13.0
 Aptos Narrow 9 bold	2	no element	13.0
@@ -3851,7 +4051,15 @@ Aptos Narrow 9 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 9 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 9 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 9 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 9 bold	147	number at the end	13.0
+Aptos Narrow 9 bold	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 9 bold	148	wrapped 2 lines normal beside Calibri 16	29.0
+Aptos Narrow 9 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	44.0
+Aptos Narrow 9 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 9 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 9 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 9 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 9 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 9 bold	155	number at the end	13.0
 Aptos Narrow 9 italic	0	standard height	13.0
 Aptos Narrow 9 italic	1	number	13.0
 Aptos Narrow 9 italic	2	no element	13.0
@@ -3999,7 +4207,15 @@ Aptos Narrow 9 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 9 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 9 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 9 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 9 italic	147	number at the end	13.0
+Aptos Narrow 9 italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 9 italic	148	wrapped 2 lines normal beside Calibri 16	29.0
+Aptos Narrow 9 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	44.0
+Aptos Narrow 9 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 9 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 9 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 9 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 9 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 9 italic	155	number at the end	13.0
 Aptos Narrow 9 bold italic	0	standard height	13.0
 Aptos Narrow 9 bold italic	1	number	13.0
 Aptos Narrow 9 bold italic	2	no element	13.0
@@ -4147,7 +4363,15 @@ Aptos Narrow 9 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 9 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 9 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 9 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 9 bold italic	147	number at the end	13.0
+Aptos Narrow 9 bold italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 9 bold italic	148	wrapped 2 lines normal beside Calibri 16	29.0
+Aptos Narrow 9 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	44.0
+Aptos Narrow 9 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 9 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 9 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 9 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 9 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 9 bold italic	155	number at the end	13.0
 Aptos Narrow 10	0	standard height	14.0
 Aptos Narrow 10	1	number	14.0
 Aptos Narrow 10	2	no element	14.0
@@ -4295,7 +4519,15 @@ Aptos Narrow 10	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 10	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 10	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 10	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 10	147	number at the end	14.0
+Aptos Narrow 10	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 10	148	wrapped 2 lines normal beside Calibri 16	31.0
+Aptos Narrow 10	149	wrapped 3 lines normal beside Aptos Narrow 16	47.0
+Aptos Narrow 10	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 10	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 10	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 10	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 10	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 10	155	number at the end	14.0
 Aptos Narrow 10 bold	0	standard height	14.0
 Aptos Narrow 10 bold	1	number	14.0
 Aptos Narrow 10 bold	2	no element	14.0
@@ -4443,7 +4675,15 @@ Aptos Narrow 10 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 10 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 10 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 10 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 10 bold	147	number at the end	14.0
+Aptos Narrow 10 bold	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 10 bold	148	wrapped 2 lines normal beside Calibri 16	31.0
+Aptos Narrow 10 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	47.0
+Aptos Narrow 10 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 10 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 10 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 10 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 10 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 10 bold	155	number at the end	14.0
 Aptos Narrow 10 italic	0	standard height	14.0
 Aptos Narrow 10 italic	1	number	14.0
 Aptos Narrow 10 italic	2	no element	14.0
@@ -4591,7 +4831,15 @@ Aptos Narrow 10 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 10 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 10 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 10 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 10 italic	147	number at the end	14.0
+Aptos Narrow 10 italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 10 italic	148	wrapped 2 lines normal beside Calibri 16	31.0
+Aptos Narrow 10 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	47.0
+Aptos Narrow 10 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 10 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 10 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 10 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 10 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 10 italic	155	number at the end	14.0
 Aptos Narrow 10 bold italic	0	standard height	14.0
 Aptos Narrow 10 bold italic	1	number	14.0
 Aptos Narrow 10 bold italic	2	no element	14.0
@@ -4739,7 +4987,15 @@ Aptos Narrow 10 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 10 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 10 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 10 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 10 bold italic	147	number at the end	14.0
+Aptos Narrow 10 bold italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 10 bold italic	148	wrapped 2 lines normal beside Calibri 16	31.0
+Aptos Narrow 10 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	47.0
+Aptos Narrow 10 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 10 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 10 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 10 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 10 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 10 bold italic	155	number at the end	14.0
 Aptos Narrow 11	0	standard height	15.0
 Aptos Narrow 11	1	number	15.0
 Aptos Narrow 11	2	no element	15.0
@@ -4887,7 +5143,15 @@ Aptos Narrow 11	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 11	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 11	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 11	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 11	147	number at the end	15.0
+Aptos Narrow 11	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 11	148	wrapped 2 lines normal beside Calibri 16	33.0
+Aptos Narrow 11	149	wrapped 3 lines normal beside Aptos Narrow 16	50.0
+Aptos Narrow 11	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 11	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 11	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 11	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 11	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 11	155	number at the end	15.0
 Aptos Narrow 11 bold	0	standard height	15.0
 Aptos Narrow 11 bold	1	number	15.0
 Aptos Narrow 11 bold	2	no element	15.0
@@ -5035,7 +5299,15 @@ Aptos Narrow 11 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 11 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 11 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 11 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 11 bold	147	number at the end	15.0
+Aptos Narrow 11 bold	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 11 bold	148	wrapped 2 lines normal beside Calibri 16	33.0
+Aptos Narrow 11 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	50.0
+Aptos Narrow 11 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 11 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 11 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 11 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 11 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 11 bold	155	number at the end	15.0
 Aptos Narrow 11 italic	0	standard height	15.0
 Aptos Narrow 11 italic	1	number	15.0
 Aptos Narrow 11 italic	2	no element	15.0
@@ -5183,7 +5455,15 @@ Aptos Narrow 11 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 11 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 11 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 11 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 11 italic	147	number at the end	15.0
+Aptos Narrow 11 italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 11 italic	148	wrapped 2 lines normal beside Calibri 16	33.0
+Aptos Narrow 11 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	50.0
+Aptos Narrow 11 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 11 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 11 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 11 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 11 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 11 italic	155	number at the end	15.0
 Aptos Narrow 11 bold italic	0	standard height	15.0
 Aptos Narrow 11 bold italic	1	number	15.0
 Aptos Narrow 11 bold italic	2	no element	15.0
@@ -5331,7 +5611,15 @@ Aptos Narrow 11 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 11 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 11 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 11 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 11 bold italic	147	number at the end	15.0
+Aptos Narrow 11 bold italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 11 bold italic	148	wrapped 2 lines normal beside Calibri 16	33.0
+Aptos Narrow 11 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	50.0
+Aptos Narrow 11 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 11 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 11 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 11 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 11 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 11 bold italic	155	number at the end	15.0
 Aptos Narrow 12	0	standard height	16.0
 Aptos Narrow 12	1	number	16.0
 Aptos Narrow 12	2	no element	16.0
@@ -5479,7 +5767,15 @@ Aptos Narrow 12	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 12	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 12	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 12	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 12	147	number at the end	16.0
+Aptos Narrow 12	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 12	148	wrapped 2 lines normal beside Calibri 16	35.0
+Aptos Narrow 12	149	wrapped 3 lines normal beside Aptos Narrow 16	53.0
+Aptos Narrow 12	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 12	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 12	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 12	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 12	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 12	155	number at the end	16.0
 Aptos Narrow 12 bold	0	standard height	16.0
 Aptos Narrow 12 bold	1	number	16.0
 Aptos Narrow 12 bold	2	no element	16.0
@@ -5627,7 +5923,15 @@ Aptos Narrow 12 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 12 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 12 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 12 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 12 bold	147	number at the end	16.0
+Aptos Narrow 12 bold	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 12 bold	148	wrapped 2 lines normal beside Calibri 16	35.0
+Aptos Narrow 12 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	53.0
+Aptos Narrow 12 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 12 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 12 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 12 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 12 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 12 bold	155	number at the end	16.0
 Aptos Narrow 12 italic	0	standard height	16.0
 Aptos Narrow 12 italic	1	number	16.0
 Aptos Narrow 12 italic	2	no element	16.0
@@ -5775,7 +6079,15 @@ Aptos Narrow 12 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 12 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 12 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 12 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 12 italic	147	number at the end	16.0
+Aptos Narrow 12 italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 12 italic	148	wrapped 2 lines normal beside Calibri 16	35.0
+Aptos Narrow 12 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	53.0
+Aptos Narrow 12 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 12 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 12 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 12 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 12 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 12 italic	155	number at the end	16.0
 Aptos Narrow 12 bold italic	0	standard height	16.0
 Aptos Narrow 12 bold italic	1	number	16.0
 Aptos Narrow 12 bold italic	2	no element	16.0
@@ -5923,7 +6235,15 @@ Aptos Narrow 12 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 12 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 12 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 12 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 12 bold italic	147	number at the end	16.0
+Aptos Narrow 12 bold italic	147	wrapped 1 lines normal beside Calibri 14	19.0
+Aptos Narrow 12 bold italic	148	wrapped 2 lines normal beside Calibri 16	35.0
+Aptos Narrow 12 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	53.0
+Aptos Narrow 12 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 12 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 12 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 12 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 12 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 12 bold italic	155	number at the end	16.0
 Aptos Narrow 14	0	standard height	19.0
 Aptos Narrow 14	1	number	19.0
 Aptos Narrow 14	2	no element	19.0
@@ -6071,7 +6391,15 @@ Aptos Narrow 14	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 14	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 14	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 14	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 14	147	number at the end	19.0
+Aptos Narrow 14	147	wrapped 1 lines normal beside Calibri 14	20.0
+Aptos Narrow 14	148	wrapped 2 lines normal beside Calibri 16	40.0
+Aptos Narrow 14	149	wrapped 3 lines normal beside Aptos Narrow 16	61.0
+Aptos Narrow 14	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 14	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 14	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 14	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 14	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 14	155	number at the end	19.0
 Aptos Narrow 14 bold	0	standard height	19.0
 Aptos Narrow 14 bold	1	number	19.0
 Aptos Narrow 14 bold	2	no element	19.0
@@ -6219,7 +6547,15 @@ Aptos Narrow 14 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 14 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 14 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 14 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 14 bold	147	number at the end	19.0
+Aptos Narrow 14 bold	147	wrapped 1 lines normal beside Calibri 14	20.0
+Aptos Narrow 14 bold	148	wrapped 2 lines normal beside Calibri 16	40.0
+Aptos Narrow 14 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	61.0
+Aptos Narrow 14 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 14 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 14 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 14 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 14 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 14 bold	155	number at the end	19.0
 Aptos Narrow 14 italic	0	standard height	19.0
 Aptos Narrow 14 italic	1	number	19.0
 Aptos Narrow 14 italic	2	no element	19.0
@@ -6367,7 +6703,15 @@ Aptos Narrow 14 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 14 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 14 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 14 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 14 italic	147	number at the end	19.0
+Aptos Narrow 14 italic	147	wrapped 1 lines normal beside Calibri 14	20.0
+Aptos Narrow 14 italic	148	wrapped 2 lines normal beside Calibri 16	40.0
+Aptos Narrow 14 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	61.0
+Aptos Narrow 14 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 14 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 14 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 14 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 14 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 14 italic	155	number at the end	19.0
 Aptos Narrow 14 bold italic	0	standard height	19.0
 Aptos Narrow 14 bold italic	1	number	19.0
 Aptos Narrow 14 bold italic	2	no element	19.0
@@ -6515,7 +6859,15 @@ Aptos Narrow 14 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 14 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 14 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 14 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 14 bold italic	147	number at the end	19.0
+Aptos Narrow 14 bold italic	147	wrapped 1 lines normal beside Calibri 14	20.0
+Aptos Narrow 14 bold italic	148	wrapped 2 lines normal beside Calibri 16	40.0
+Aptos Narrow 14 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	61.0
+Aptos Narrow 14 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	21.0
+Aptos Narrow 14 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	28.0
+Aptos Narrow 14 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	41.0
+Aptos Narrow 14 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	40.0
+Aptos Narrow 14 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 14 bold italic	155	number at the end	19.0
 Aptos Narrow 16	0	standard height	22.0
 Aptos Narrow 16	1	number	22.0
 Aptos Narrow 16	2	no element	22.0
@@ -6663,7 +7015,15 @@ Aptos Narrow 16	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 16	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 16	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 16	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 16	147	number at the end	22.0
+Aptos Narrow 16	147	wrapped 1 lines normal beside Calibri 14	23.0
+Aptos Narrow 16	148	wrapped 2 lines normal beside Calibri 16	46.0
+Aptos Narrow 16	149	wrapped 3 lines normal beside Aptos Narrow 16	69.0
+Aptos Narrow 16	150	wrapped 1 lines Calibri 9 beside Calibri 16	22.0
+Aptos Narrow 16	151	wrapped 2 lines Calibri 9 beside Calibri 16	29.0
+Aptos Narrow 16	152	wrapped 3 lines Calibri 9 beside Calibri 14	42.0
+Aptos Narrow 16	153	wrapped 2 lines Calibri 14 beside Calibri 16	41.0
+Aptos Narrow 16	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 16	155	number at the end	22.0
 Aptos Narrow 16 bold	0	standard height	22.0
 Aptos Narrow 16 bold	1	number	22.0
 Aptos Narrow 16 bold	2	no element	22.0
@@ -6811,7 +7171,15 @@ Aptos Narrow 16 bold	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 16 bold	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 16 bold	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 16 bold	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 16 bold	147	number at the end	22.0
+Aptos Narrow 16 bold	147	wrapped 1 lines normal beside Calibri 14	23.0
+Aptos Narrow 16 bold	148	wrapped 2 lines normal beside Calibri 16	46.0
+Aptos Narrow 16 bold	149	wrapped 3 lines normal beside Aptos Narrow 16	69.0
+Aptos Narrow 16 bold	150	wrapped 1 lines Calibri 9 beside Calibri 16	22.0
+Aptos Narrow 16 bold	151	wrapped 2 lines Calibri 9 beside Calibri 16	29.0
+Aptos Narrow 16 bold	152	wrapped 3 lines Calibri 9 beside Calibri 14	42.0
+Aptos Narrow 16 bold	153	wrapped 2 lines Calibri 14 beside Calibri 16	41.0
+Aptos Narrow 16 bold	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 16 bold	155	number at the end	22.0
 Aptos Narrow 16 italic	0	standard height	22.0
 Aptos Narrow 16 italic	1	number	22.0
 Aptos Narrow 16 italic	2	no element	22.0
@@ -6959,7 +7327,15 @@ Aptos Narrow 16 italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 16 italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 16 italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 16 italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 16 italic	147	number at the end	22.0
+Aptos Narrow 16 italic	147	wrapped 1 lines normal beside Calibri 14	23.0
+Aptos Narrow 16 italic	148	wrapped 2 lines normal beside Calibri 16	46.0
+Aptos Narrow 16 italic	149	wrapped 3 lines normal beside Aptos Narrow 16	69.0
+Aptos Narrow 16 italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	22.0
+Aptos Narrow 16 italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	29.0
+Aptos Narrow 16 italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	42.0
+Aptos Narrow 16 italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	41.0
+Aptos Narrow 16 italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 16 italic	155	number at the end	22.0
 Aptos Narrow 16 bold italic	0	standard height	22.0
 Aptos Narrow 16 bold italic	1	number	22.0
 Aptos Narrow 16 bold italic	2	no element	22.0
@@ -7107,4 +7483,12 @@ Aptos Narrow 16 bold italic	143	wrapped 3 lines Aptos Narrow 16	69.0
 Aptos Narrow 16 bold italic	144	wrapped 4 lines Aptos Narrow 16	92.0
 Aptos Narrow 16 bold italic	145	wrapped 5 lines Aptos Narrow 16	115.0
 Aptos Narrow 16 bold italic	146	wrapped 6 lines Aptos Narrow 16	138.0
-Aptos Narrow 16 bold italic	147	number at the end	22.0
+Aptos Narrow 16 bold italic	147	wrapped 1 lines normal beside Calibri 14	23.0
+Aptos Narrow 16 bold italic	148	wrapped 2 lines normal beside Calibri 16	46.0
+Aptos Narrow 16 bold italic	149	wrapped 3 lines normal beside Aptos Narrow 16	69.0
+Aptos Narrow 16 bold italic	150	wrapped 1 lines Calibri 9 beside Calibri 16	22.0
+Aptos Narrow 16 bold italic	151	wrapped 2 lines Calibri 9 beside Calibri 16	29.0
+Aptos Narrow 16 bold italic	152	wrapped 3 lines Calibri 9 beside Calibri 14	42.0
+Aptos Narrow 16 bold italic	153	wrapped 2 lines Calibri 14 beside Calibri 16	41.0
+Aptos Narrow 16 bold italic	154	wrapped 2 lines Aptos Narrow 9 beside Aptos Narrow 16	30.0
+Aptos Narrow 16 bold italic	155	number at the end	22.0

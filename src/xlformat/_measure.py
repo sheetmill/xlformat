@@ -451,13 +451,14 @@ def row_metrics(
 
     A row is as tall as its tallest font: the Normal font's height or that of any cell's font in
     the row, an empty cell styled with a font included. Wrapped text of ``lines`` lines in a face
-    takes ``lines * (height + 1)`` points of that face, plus, under a Normal font with a larger
-    line inset, the difference of the two insets (CAPTURING.md section 2 item 44). Bold and italic
-    change nothing. Measured: Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16 points; the
-    row model raises ``LookupError`` for any other face rather than scaling one.
+    takes ``lines * (height + 1)`` points of that face, plus, when the Normal font or another
+    cell's font in the row has a larger line inset, the difference of the insets (CAPTURING.md
+    section 2 item 44). Bold and italic change nothing. Measured: Calibri and Aptos Narrow at 9,
+    10, 11, 12, 14 and 16 points; the row model raises ``LookupError`` for any other face rather
+    than scaling one.
 
-    A row holding both wrapped text and a cell in another unwrapped font is given the larger of
-    the two heights; that combination has not been captured.
+    Several cells with wrapped text in one row are each computed this way and the row takes the
+    tallest; that combination has not been captured.
 
     Args:
         normal_font: The workbook's Normal font.
@@ -472,14 +473,16 @@ def row_metrics(
     normal = _row_face(normal_font)
     font_height = _FONT_HEIGHT[normal[0]][normal[1]]
     height = font_height
+    top_inset = _LINE_INSET[normal[0]][normal[1]]  # the largest inset of the row's unwrapped fonts
     for font in cell_fonts:
         key, size = _row_face(font)
         height = max(height, _FONT_HEIGHT[key][size])
+        top_inset = max(top_inset, _LINE_INSET[key][size])
     for wrap_font, lines in wrapped:
         if lines < 1:
             msg = f"wrapped text has at least one line, not {lines!r}"
             raise ValueError(msg)
         key, size = normal if wrap_font is None else _row_face(wrap_font)
-        inset = max(0.0, _LINE_INSET[normal[0]][normal[1]] - _LINE_INSET[key][size])
+        inset = max(0.0, top_inset - _LINE_INSET[key][size])
         height = max(height, lines * (_FONT_HEIGHT[key][size] + 1.0) + inset)
     return RowMetrics(height=height, font_height=font_height, line_height=font_height + 1.0)

@@ -154,11 +154,11 @@ RowMetrics(height=15.0, font_height=15.0, line_height=16.0)
 ```
 
 A row is as tall as its tallest font, and bold or italic changes nothing. Each wrapped line takes
-its font's height plus one point, so a single wrapped line makes a Calibri 11 row 16 points; under
-a larger Normal font, a smaller font's wrapped text takes up to three points more. The caller breaks
-the lines. Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16 points are measured; any other face
-raises `LookupError`. A row holding both wrapped text and an unwrapped cell in another font gets
-the larger of the two heights, a combination not yet captured.
+its font's height plus one point, so a single wrapped line makes a Calibri 11 row 16 points; when
+the Normal font or another cell's font in the row is larger, a smaller font's wrapped text takes up
+to three points more. The caller breaks the lines. Calibri and Aptos Narrow at 9, 10, 11, 12, 14
+and 16 points are measured; any other face raises `LookupError`. Several cells with wrapped text in
+one row are a combination not yet captured: the row takes the tallest of them.
 
 ## Measuring text yourself
 
