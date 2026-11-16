@@ -82,9 +82,11 @@ def build(normal: CellFont) -> Path:
             style.font = base
     ws = wb.active
     ws.title = "vertical"
-    magenta = PatternFill("solid", fgColor="FF00FF")
+    # two marker colors in turn: Excel draws no gridline between cells of one fill, so rows of
+    # a single color would merge into one band on screen
+    markers = (PatternFill("solid", fgColor="FF00FF"), PatternFill("solid", fgColor="00FFFF"))
     for r, case in enumerate(cases(), 1):
-        ws.cell(row=r, column=1).fill = magenta
+        ws.cell(row=r, column=1).fill = markers[r % 2]
         cell = ws.cell(row=r, column=2, value="\n".join([TEXT] * case.lines))
         cell.data_type = "s"
         f = case.font
@@ -162,9 +164,19 @@ def read_png(path: Path) -> Image:
     return Image(width, height, channels, rows)
 
 
-def is_magenta(rgb: tuple[int, int, int]) -> bool:
+def marker(rgb: tuple[int, int, int]) -> str:
+    """``"m"`` for magenta, ``"c"`` for cyan, ``""`` for anything else."""
     r, g, b = rgb
-    return r > 200 and g < 90 and b > 200
+    if g < 90 and r > 200 and b > 200:
+        return "m"
+    if r < 90 and g > 200 and b > 200:
+        return "c"
+    return ""
+
+
+def is_magenta(rgb: tuple[int, int, int]) -> bool:
+    """Either marker color (the name kept from the first layout)."""
+    return marker(rgb) != ""
 
 
 def is_ink(rgb: tuple[int, int, int]) -> bool:
@@ -234,6 +246,8 @@ def run_normal(normal: CellFont) -> None:
             rows = rows_in_view(read_png(shot), top, [float(h) for h in heights.split(",")])
             if not rows or rows[0][0] != top:
                 sys.exit(f"{shot.name}: row {top} not found whole at the top")
+            if len(rows) < 3 and rows[-1][0] < n:
+                sys.exit(f"{shot.name}: only {len(rows)} rows recognized in a view: stopping")
             top = rows[-1][0] + 1
     finally:
         _request("close", name)
@@ -256,14 +270,13 @@ def _bands(image: Image) -> list[tuple[int, int]]:
     """(first, last) pixel rows of each magenta band, top to bottom."""
     x = _magenta_column(image)
     out: list[tuple[int, int]] = []
-    start = None
-    for y in range(image.height):
-        m = is_magenta(image.rgb(x, y))
-        if m and start is None:
-            start = y
-        elif not m and start is not None:
-            out.append((start, y - 1))
-            start = None
+    start, current = None, ""
+    for y in range(image.height + 1):
+        m = marker(image.rgb(x, y)) if y < image.height else ""
+        if m != current:
+            if current:
+                out.append((start or 0, y - 1))
+            start, current = (y if m else None), m
     return out
 
 
