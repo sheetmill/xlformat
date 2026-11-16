@@ -922,6 +922,24 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       every measured size. And it took the autofit padding beyond 7 as overhang, which held only
       while the column's padding was 5.
 
+49. **The built-in number format ids (2026-11-16; `capture/builtin_formats.py`, a probe: every id
+    from 0 to 163 as a style naming the id with no format string, as Excel writes a typed date,
+    under a date and time, 1234.5678, -1234.5678, 0.25, 0, 1.5 and a text; Excel 16.115 under
+    Microsoft 365, en-US; written to `capture/build/probes/`).** Excel opens every id; `number
+    format` and `number format local` agree for all of them, and the package renders every one of
+    the 1,148 texts from Excel's own format string.
+    - 0 to 22, 37 to 40, 45, 46, 48 and 49 are the strings ECMA-376 lists, except **14, which is
+      `m/d/yy`** (a typed 1 January 2024 shows `1/1/24`), and 5 to 8, the dollar formats, which
+      read `$#,##0_);($#,##0)` and the like with the dollar unquoted.
+    - 41 to 44 are the accounting formats, the dollar unquoted and the parentheses plain; 47 is
+      `mm:ss.0`.
+    - 23 to 26 are `General`; 27 to 31 and 36 are `m/d/yy`; 32 to 35 are `h:mm:ss` (ids defined for
+      East Asian locales, shown in en-US as these).
+    - 50 to 58 are `m/d/yy`, 59 to 81 repeat 1 to 8, 9, 10, 12 and 13, then `m/d/yy` twice, 15
+      to 17, 20, 21, 22, 45, 46 and 47; 82 to 163 are `General`.
+    - openpyxl's table differs at 14 (`mm-dd-yy`), 47 (`mmss.0`) and 44 (its sections lack the
+      semicolons); its 5 to 8 and 41 to 43 differ only in quoting and escapes, rendering the same.
+
 ## 3. The pipeline
 
 ```
