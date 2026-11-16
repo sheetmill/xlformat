@@ -2,6 +2,7 @@
 
     uv run python -m capture.builtin_formats build   # the workbooks, no Excel
     uv run python -m capture.builtin_formats run     # open each, read, write the TSV
+    uv run python -m capture.builtin_formats run LABEL   # the date, time and currency ids only
 
 A cell can name a number format by id alone (``<xf numFmtId="14">`` with no ``<numFmt>``): Excel
 writes id 14 for every date typed as a short date, and the format string it stands for is the
@@ -122,15 +123,22 @@ def _capture(ids: list[int], tag: str, out: dict[int, list[str] | None]) -> None
         _capture(ids[half:], f"{tag}b", out)
 
 
-def run() -> None:
+LOCALE_IDS = (*range(5, 9), *range(14, 23), *range(37, 48))
+"""The ids whose format may follow the system's settings: dates, times, currency."""
+
+
+def run(label: str = "") -> None:
+    """Capture every id, or with ``label`` the ``LOCALE_IDS`` under the current macOS settings."""
     if not answers():
         sys.exit("Excel does not answer: nothing run")
     found: dict[int, list[str] | None] = {}
-    for k, group in enumerate(GROUPS):
-        _capture(list(group), f"g{k}", found)
-        print(f"group {group.start}-{group.stop - 1}: done")
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT.open("w", encoding="utf-8") as f:
+    groups = [LOCALE_IDS] if label else [tuple(g) for g in GROUPS]
+    for k, group in enumerate(groups):
+        _capture(list(group), f"{label}g{k}", found)
+        print(f"group of {len(group)} ids: done")
+    out = OUTPUT.with_name(f"builtin_formats_{label}.tsv") if label else OUTPUT
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8") as f:
         f.write(
             "# suite: builtin_formats (capture.builtin_formats); Excel for Mac, en_US; a probe\n"
         )
@@ -141,12 +149,12 @@ def run() -> None:
             "values: " + ", ".join(f"{label}={value!r}" for label, value in VALUES) + "\n"
         )
         f.write("id\tnumber_format\tnumber_format_local\t" + "\t".join(v for v, _ in VALUES) + "\n")
-        for ident in IDS:
+        for ident in sorted(found):
             row = found.get(ident)
             fields = ["refused"] * (2 + len(VALUES)) if row is None else row
             f.write("\t".join([str(ident), *(repr(x) for x in fields)]) + "\n")
-    refused = [i for i in IDS if found.get(i) is None]
-    print(f"wrote {OUTPUT}: {len(IDS)} ids, refused {refused}")
+    refused = [i for i in sorted(found) if found[i] is None]
+    print(f"wrote {out}: {len(found)} ids, refused {refused}")
 
 
 def main(argv: list[str]) -> None:
@@ -156,7 +164,7 @@ def main(argv: list[str]) -> None:
         for k, group in enumerate(GROUPS):
             print(build(list(group), f"builtin_g{k}.xlsx"))
     elif command == "run":
-        run()
+        run(argv[1] if len(argv) > 1 else "")
     else:
         sys.exit(__doc__)
 
