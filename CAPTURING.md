@@ -975,6 +975,7 @@ capture/row_heights.py        row heights per Normal font, cell font and wrapped
 capture/vertical_pdf.py       vertical placement in the PDF export, a probe (item 46)
 capture/screen_vertical.py    vertical placement on screen: window captures at zoom 100, a probe
 capture/builtin_formats.py    what each built-in number format id shows, a probe
+capture/screen_palette.py     section colors under a workbook palette, on screen, a probe
 capture/repair.py             what Excel's repair does to refused formats (item 33): `open`
                              through Launch Services, a person answers the dialog, then
                              `read` finds the workbook by name; `write` gathers the TSV
