@@ -60,9 +60,9 @@ before Excel was asked, and every prediction matched.
 | `fraction`, `fraction_ties`, `fraction_threshold`, `fraction_random` | 33,452 | denominators, half steps, the nudge's bounds, random doubles |
 | `datetime`, `date1904`, `clock_boundaries`, `clock_formulas` | 4,794 | date codes, the 1904 system, rounding at second boundaries |
 | `scientific`, `rounding_15digit`, `parser_check` | 1,695 | exponents, the fifteen-digit rule, the parser |
-| `width_general`, `width_general14`, `width_fill`, `text_overflow`, 48 `space_fill` suites | 13,386 | `General` reduction, fills, overflow, the space of every measured face |
-| `general_points9` to `16`, `general_points_aptos_narrow11`, `general_literals_points`, `general_zero_sign` | 59,582 | `General` at every whole-point column width, among literals, negatives that reduce to zero |
-| `column_file9` to `16`, `column_file_aptos_narrow11`, four `column_default_*`, `column_narrow11`, `column_narrow14`, `limits` | 19,814 | widths written into the file, columns without a width, columns below one unit, the 255-character limit |
+| `width_general`, `width_general14`, `width_fill`, `text_overflow`, 72 `space_fill` suites | 18,186 | `General` reduction, fills, overflow, the space of every measured face |
+| `general_points9` to `24`, `general_points_aptos_narrow11`, `general_literals_points`, `general_zero_sign` | 74,662 | `General` at every whole-point column width, among literals, negatives that reduce to zero |
+| `column_file9` to `24`, `column_file_aptos_narrow11`, `18`, `20`, `24`, four `column_default_*`, `column_narrow11`, `column_narrow14`, `limits` | 35,546 | widths written into the file, columns without a width, columns below one unit, the 255-character limit |
 | `cell_font`, `general_cell_font`, `cell_font_numeric`, `cell_font_styles`, `general_cell_font_styles` | 133,914 | cells whose font differs from the Normal font, in size, style and family |
 | `general_exponent3`, `general_exponent_sweep`, `subnormal` | 68,838 | `General` with long exponents, and doubles below the smallest normal one |
 | `general_text_narrow`, `general_sign_narrow` | 4,026 | a number through `@` or `[Red]General` in narrow columns, and negatives with less than a character beside the sign |
@@ -74,14 +74,14 @@ before Excel was asked, and every prediction matched.
 | `elapsed_decimals`, `huge_values`, `empty_text`, `fraction_percent` | 3,678 | fractions of a second after any date or time code, values too large for fraction and elapsed arithmetic, the empty text, a numerator's limits |
 | `hidden_zeros`, `hidden_zeros_control` | 1,700 | a sheet that hides zeros (`show_zeros=False`) and the same cases on one that shows them: exact zeros, values rounding to zero, zero sections |
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
-| `measure9` to `measure16` and 42 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri and Aptos Narrow, four styles, six sizes |
+| `measure9` to `measure16` and 66 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri and Aptos Narrow, four styles, nine sizes |
 
 Four further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
 from Excel's PDF export) holds where Excel places each value, `repair.layout.tsv` (248 rows)
 what Excel's repair does to formats it refuses, and `row_height.layout.tsv` (7,488 rows) the
 height Excel gives each row for its Normal font, its cell fonts and its wrapped lines, and
-`vertical.layout.tsv` (336 rows, measured in window captures) where the text sits in the row. In all, 169 suite files (121 with rows, the
-others autofit measurements) hold 688,962 rows. Every row passes. Fifteen color readings are
+`vertical.layout.tsv` (336 rows, measured in window captures) where the text sits in the row. In all, 226 suite files (154 with rows, the
+others autofit measurements) hold 724,574 rows. Every row passes. Fifteen color readings are
 skipped because Excel's scripting interface reports automatic black where the sheet, checked by
 eye, shows the section color, and width-less rows of a Buddhist-year code are compared with the
 plain year, which is what Excel's clipboard gives where the sheet shows the Buddhist year.

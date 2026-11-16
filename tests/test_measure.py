@@ -7,7 +7,7 @@ from xlformat._glyphs_aptos_narrow import APTOS_NARROW
 from xlformat._glyphs_calibri import CALIBRI
 from xlformat._measure import _advances, column_budget, glyph_measure, overhang, resolve_font
 
-MEASURED_SIZES = (9, 10, 11, 12, 14, 16)
+MEASURED_SIZES = (9, 10, 11, 12, 14, 16, 18, 20, 24)
 STYLES = ("regular", "bold", "italic", "bold italic")
 
 
@@ -17,9 +17,9 @@ def test_measured_sizes_are_bundled() -> None:
         assert all(tuple(sorted(table[style])) == MEASURED_SIZES for style in STYLES)
     regular = CALIBRI["regular"]
     # the maximum digit width per size (CAPTURING.md section 2 item 26)
-    assert [regular[s]["0"] for s in MEASURED_SIZES] == [5, 5, 6, 6, 7, 8]
-    assert [regular[s][" "] for s in MEASURED_SIZES] == [2, 2, 2, 3, 3, 4]
-    assert [APTOS_NARROW["regular"][s][" "] for s in MEASURED_SIZES] == [2, 2, 2, 2, 3, 3]
+    assert [regular[s]["0"] for s in MEASURED_SIZES] == [5, 5, 6, 6, 7, 8, 9, 10, 12]
+    assert [regular[s][" "] for s in MEASURED_SIZES] == [2, 2, 2, 3, 3, 4, 4, 5, 5]
+    assert [APTOS_NARROW["regular"][s][" "] for s in MEASURED_SIZES] == [2, 2, 2, 2, 3, 3, 3, 4, 4]
 
 
 @pytest.mark.parametrize("size", MEASURED_SIZES)
@@ -35,13 +35,15 @@ def test_unmeasured_size_scales_the_nearest_table() -> None:
     scaled = _advances("Calibri", 13.0)
     assert scaled["0"] == round(regular[14]["0"] * 13 / 14)
     assert all(adv == int(adv) for adv in scaled.values())
-    assert _advances("Calibri", 18.0)["0"] == round(regular[16]["0"] * 18 / 16)
+    # 22 lies between 20 and 24: the larger again
+    assert _advances("Calibri", 22.0)["0"] == round(regular[24]["0"] * 22 / 24)
 
 
 def test_italic_overhang() -> None:
-    # (autofit padding - 7) / 2: 1, 2, 2, 2, 2, 3 points from Calibri 9 to 16 (item 30)
+    # (autofit padding - column padding - 2) / 2: 1, 2, 2, 2, 2, 3 points from Calibri 9 to 16
+    # (item 30), then 3, 3, 4 at 18, 20, 24 (item 48)
     assert [overhang(Font("Calibri", s, italic=True)) for s in MEASURED_SIZES] == [
-        1, 2, 2, 2, 2, 3,
+        1, 2, 2, 2, 2, 3, 3, 3, 4,
     ]  # fmt: skip
     assert overhang(Font("Aptos Narrow", 10, bold=True, italic=True)) == 1
     assert overhang(Font("Calibri", 11, bold=True)) == 0
@@ -201,7 +203,7 @@ def test_public_measurement() -> None:
     assert text_width("1,000.0") == 36  # fits width 6 (CAPTURING.md section 2 item 25)
     assert text_width("") == 0
     assert digit_width() == 6
-    assert [digit_width(("Calibri", s)) for s in MEASURED_SIZES] == [5, 5, 6, 6, 7, 8]
+    assert [digit_width(("Calibri", s)) for s in MEASURED_SIZES] == [5, 5, 6, 6, 7, 8, 9, 10, 12]
     widths = glyph_widths("1,000.0")
     assert len(widths) == 7
     assert text_width("1,000.0") == int(sum(widths))

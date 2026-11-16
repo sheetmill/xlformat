@@ -30,6 +30,7 @@ from capture.schema import read_rows
 from xlformat import Font, format_value
 from xlformat import _measure as measure_module
 from xlformat import _render as render_module
+from xlformat._measure import column_padding
 
 ROOT = Path(__file__).resolve().parents[1]
 CAPTURE_DIR = ROOT / "tests" / "captures"
@@ -165,12 +166,14 @@ def main(argv: list[str] | None = None) -> None:
         if check and not fill.exists():
             continue
         adv, pad, exact, off, worse = fit(measured)
-        over = (pad - 7) / 2
+        # autofit pads a text by the column's padding plus 2; an italic face's overhang beyond
+        over = (pad - column_padding(adv["0"]) - 2) / 2
         space, matched, tried, ties = fit_space(path, face, normal, adv, over)
         adv[" "] = space
         _install(face, adv, over)
-        if over:
-            overhangs.setdefault(face.name, {}).setdefault(face.style, {})[int(face.size)] = over
+        # every measured size, zeros included: a size missing from a style's map is scaled from
+        # the nearest one listed, so a measured face without overhang must still be listed
+        overhangs.setdefault(face.name, {}).setdefault(face.style, {})[int(face.size)] = over
         spaced = [t for t in measured if " " in t and set(t) != {" "}]
         space_exact = sum(_predict(t, adv, pad) == measured[t] for t in spaced)
         tables.setdefault(face.name, {}).setdefault(face.style, {})[int(face.size)] = adv

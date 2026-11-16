@@ -68,6 +68,12 @@ DISPLAY_FORMAT_COLOR_MISREPORTS: dict[tuple[str, str], str] = {
     ("'[Red][h]:mm'", "-1234.5"): _HASH,
 }
 
+# A file width Excel converts to one point more than ECMA-376's formula gives, at one digit width
+# only (CAPTURING.md section 2 item 48): 10.7109 at a maximum digit width of 12 points (Calibri
+# and Aptos Narrow 24) is 129 points in Excel, 128 by the formula, which every other width of the
+# 137 at that size, and every width at the other sizes, follows. Rows at it are skipped.
+FILE_WIDTH_DEVIATIONS: frozenset[tuple[str, float]] = frozenset({("10.7109", 12.0)})
+
 
 def _excel_value(row: Row, header: dict[str, str]) -> object:
     """The value Excel loaded for the row.
@@ -209,6 +215,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         "skipped (cell font)": 0,
         "Excel mode compared": 0,
         "file widths checked": 0,
+        "known deviation (file width)": 0,
         "colors compared": 0,
         "color misreports skipped": 0,
     }
@@ -251,8 +258,14 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
             column_width = metrics.width
             # the conversion itself: the dialog number Excel showed, to two decimals half up
             # (1.125 shows as 1.13)
-            counts["file widths checked"] += 1
             shown = Decimal(repr(metrics.width)).quantize(Decimal("0.01"), ROUND_HALF_UP)
+            if (row.width, metrics.digit_width) in FILE_WIDTH_DEVIATIONS:
+                # a listed width that Excel now converts as the package does is a stale entry
+                if shown == Decimal(row.actual_width):
+                    excel_failures.append((row, "<listed in FILE_WIDTH_DEVIATIONS, now matches>"))
+                counts["known deviation (file width)"] += 1
+                continue
+            counts["file widths checked"] += 1
             if shown != Decimal(row.actual_width):
                 excel_failures.append((row, f"<dialog width {metrics.width:.2f}>"))
         if column_width is not None:

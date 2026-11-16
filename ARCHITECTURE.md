@@ -289,7 +289,7 @@ design stored one table per font in em fractions and scaled it at run time; Exce
 advances per size (digits are 6 points at both 11 and 12, the hyphen 3 then 4), and no
 size-independent fraction reproduces that, so the measured tables replaced it (the Excel-mode
 paragraph below). Two families are bundled, each in regular, bold, italic and bold italic at 9,
-10, 11, 12, 14 and 16 points: Calibri, which openpyxl writes as the workbook default (Calibri 11;
+10, 11, 12, 14, 16, 18, 20 and 24 points: Calibri, which openpyxl writes as the workbook default (Calibri 11;
 Excel for Mac's own default is Aptos Narrow 12 under Microsoft 365 and was Calibri 12 under
 Office 2021), and Aptos Narrow, the default of current Windows
 Excel, which ships inside Excel for Mac and is measured there the same way; whether Windows
@@ -362,14 +362,14 @@ the Normal font: 5 points for Calibri 9 and 10, 6 for 11 and 12 (so 8.43 snaps t
 points), 7 for 14, 8 for 16; text has those points less the 5 of padding: `MDW · w`. A text
 measures the sum of its whole glyph advances in points at the cell's size; the advances are
 hinted per size (digits are 6 at 11 and 12, `-` is 3 at 11 and 4 at 12, `%` 8 and 9), so the
-bundled table holds every measured size (9, 10, 11, 12, 14, 16) as measured and scales the
+bundled table holds every measured size (9, 10, 11, 12, 14, 16, 18, 20, 24) as measured and scales the
 nearest measured table with per-glyph rounding for other sizes; glyphs outside the table measure
 as a digit. The autofit width of a text is the floored sum of its advances plus 7 points at every
 size, which is how the tables were fitted (`capture/glyph_fit.py`, 515 of 515 space-less texts exact
 per size). Autofit alone counts the tenth a few wide glyphs carry in the tables (`W` is 10.1 at
 Calibri 11, so ten measure 101): fit and fill use whole points, and ten `W` and a digit fit a budget
 of 106 (`advance_tenths11`, `advance_tenths12`; `CAPTURING.md` §2 item 41). The
-space (2, 2, 2, 3, 3, 4 points from 9 to 16) comes from the `space_fill` suites, rendered through
+space (2, 2, 2, 3, 3, 4, 4, 5, 5 points from 9 to 24) comes from the `space_fill` suites, rendered through
 the package with every candidate advance (`CAPTURING.md` §2 item 26); `_x` pads and `?` blanks
 measure as spaces. A `#` run holds `floor(budget / 5)` characters at 11 points (six at width 5),
 a `*` fill `floor((budget − text) / advance)` repeats (35 dashes at width 30 in Calibri 12). Fits
@@ -565,7 +565,7 @@ characters; `column_width: float | None` is Excel mode in Column Width dialog un
 the glyph table of `font`; passing both raises `ValueError`. `font: str | tuple[str, float] | None`
 names the font and size, default `("Calibri", 11)` (openpyxl's workbook default; sheetpeek passes
 the workbook's Normal style); a font without a bundled table raises `LookupError` naming the
-measured fonts (Calibri and Aptos Narrow in four styles, measured at 9, 10, 11, 12, 14 and 16
+measured fonts (Calibri and Aptos Narrow in four styles, measured at 9, 10, 11, 12, 14, 16, 18, 20 and 24
 points and scaled from the nearest measured size elsewhere). `measure:
 Callable[[str], float] | None` is the hook for special cases and is used with `width` as the budget
 in the measure's own units. `DEFAULT_PALETTE` maps color names to `RRGGBB`.
@@ -712,7 +712,7 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`, 169 suite files, 688,962 rows in all modes | 12.0 s |
+| `pytest`, 226 suite files, 724,574 rows in all modes | 12.0 s |
 | `pytest --tier=fast` | 3.2 s |
 
 ## 14. What the code taught

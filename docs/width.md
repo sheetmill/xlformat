@@ -52,7 +52,7 @@ character for character, including the number of `#` and fill characters.
 
 `font` is the cell's font: a name, a `(name, size)` pair or a `Font`; the default is
 `("Calibri", 11)`, the Normal style openpyxl writes. Calibri and Aptos Narrow are measured in
-regular, bold, italic and bold italic at 9, 10, 11, 12, 14 and 16 points; other sizes scale the
+regular, bold, italic and bold italic at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; other sizes scale the
 nearest measured table and may differ from Excel by a character at the edge of a column. Another
 font raises `LookupError`. An italic face's slant reaches past its glyphs, so a cell in italic
 holds a point or two less than an upright one, as in Excel.

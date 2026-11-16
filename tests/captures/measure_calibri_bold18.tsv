@@ -1,0 +1,16 @@
+# suite: measure_calibri_bold18
+# excel_version: 16.115
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# display: display kept awake: yes (caffeinate -d, pid 18177); display at the start of the run, last change: 2026-11-15 21:43:10 -0800 Notification Display is turned on
+# standard_font: Aptos Narrow 12.0
+# workbook_font: Calibri 18
+# locale: en_US
+# captured: 2026-11-15
+# generator: capture.cases.measure_calibri_bold18
+# method: 
+# numbers: repr
+# column_points: 
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier

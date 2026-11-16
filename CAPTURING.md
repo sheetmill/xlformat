@@ -892,6 +892,28 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       glyphs touch, so a single ink run gives H's foot from its leftmost columns and its top
       from the run's highest ink.
 
+48. **18, 20 and 24 points (2026-11-15; the `measure*` and `space_fill*` suites at those sizes in
+    both families and four styles, 48 suites; `column_file18` to `24`, `column_file_aptos_narrow18`
+    to `24` and `general_points18` to `24`, 35,612 rows; Excel 16.115 under Microsoft 365).**
+    - **A column's padding grows with the digit width:** the default column (8 units) is 79, 87
+      and 103 points at Calibri 18, 20 and 24, eight digits plus 7, where it is eight plus 5 up to
+      16 points. `2 * ceil(MDW / 4) + 1` gives 5 for a maximum digit width of 5 to 8 and 7 for 9
+      to 12, and with it every row of the new suites matches: dialog widths, budgets, `#` runs,
+      fills and General. Autofit pads by the column's padding plus 2, so the regular faces at the
+      new sizes have no overhang (their autofit padding is 9), and the italic overhang is 3, 3 and
+      4 points at 18, 20 and 24.
+    - **The glyph tables** at the new sizes fit every autofit text (515 of 515 per face) and every
+      fill row (160 of 160); the digit is 9, 10 and 12 points and the space 4, 5, 5 (Calibri) and
+      3, 4, 4 (Aptos Narrow). The tables at 9 to 16 come out unchanged.
+    - **One file width** converts to a point more than ECMA-376's formula gives: 10.7109 at a digit
+      width of 12 is 129 points, 128 by the formula; the 136 other widths at 24 points follow it, and
+      rounding the width to 1/256 or `128 / MDW` instead of truncating breaks other rows. A known
+      deviation (`QUIRKS.md`).
+    - Two faults of the fitting script surfaced: it wrote an italic face's overhang only when not
+      zero, so a style listing only the new sizes made the sizes below scale from them; it now writes
+      every measured size. And it took the autofit padding beyond 7 as overhang, which held only
+      while the column's padding was 5.
+
 ## 3. The pipeline
 
 ```

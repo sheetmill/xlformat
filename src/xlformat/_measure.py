@@ -66,7 +66,17 @@ _OVERHANG: dict[str, dict[str, dict[int, float]]] = {
     "calibri": CALIBRI_OVERHANG,
     "aptos narrow": APTOS_NARROW_OVERHANG,
 }
-_COLUMN_PADDING = 5.0  # points Excel adds to MDW * width for the column, not available to text
+
+
+def column_padding(mdw: float) -> float:
+    """Points Excel adds to ``MDW * width`` for a column, not available to text.
+
+    ``2 * ceil(MDW / 4) + 1``: 5 for a maximum digit width of 5 to 8 points, 7 for 9 to 12
+    (CAPTURING.md section 2 item 48).
+    """
+    return 2.0 * math.ceil(mdw / 4) + 1.0
+
+
 _LEFT_INSET = 3.0  # where left-aligned text starts (sheetpeek's PDF capture; provisional)
 _RIGHT_INSET = 2.0  # where right-aligned text ends, from the right gridline (provisional)
 MAX_TEXT = 255  # Excel shows at most 255 characters: a longer filled text is a '#' run
@@ -142,7 +152,7 @@ def _advances(name: str, size: float, style: str = "regular") -> dict[str, float
         return tables[int(size)]
     # An unmeasured size: scale the nearest measured table (the larger one on a tie) and round
     # each advance to whole points, the way hinting does. An approximation; the measured sizes
-    # (Calibri 9, 10, 11, 12, 14 and 16) are exact.
+    # (9, 10, 11, 12, 14, 16, 18, 20 and 24) are exact.
     nearest = min(tables, key=lambda measured: (abs(measured - size), -measured))
     base = tables[nearest]
     return {ch: float(round(adv * size / nearest)) for ch, adv in base.items()}
@@ -233,19 +243,19 @@ def measured_fonts() -> dict[str, dict[str, tuple[int, ...]]]:
 
 def column_budget(column_width: float, font: FontSpec | None = None) -> float:
     """Points available to a number or date in a column of ``column_width`` dialog units."""
-    return column_points(column_width, font) - _COLUMN_PADDING
+    return column_points(column_width, font) - column_padding(_mdw(font))
 
 
 def column_points(column_width: float, font: FontSpec | None = None) -> float:
     """A column's width in whole points.
 
-    ``round(MDW * w + 5)``, and below one unit ``round(w * (MDW + 5))`` (CAPTURING.md section 2
-    item 28).
+    ``round(MDW * w + P)``, and below one unit ``round(w * (MDW + P))``, ``P`` being
+    :func:`column_padding` (CAPTURING.md section 2 items 28 and 48).
     """
     mdw = _mdw(font)
     if column_width < 1:
-        return float(round(column_width * (mdw + _COLUMN_PADDING)))
-    return float(round(mdw * column_width + _COLUMN_PADDING))
+        return float(round(column_width * (mdw + column_padding(mdw))))
+    return float(round(mdw * column_width + column_padding(mdw)))
 
 
 def _mdw(font: FontSpec | None) -> float:
@@ -254,9 +264,10 @@ def _mdw(font: FontSpec | None) -> float:
 
 def _units(points: float, mdw: float) -> float:
     """Dialog units of a column of ``points``, exact (Excel shows them to two decimals)."""
-    if points < mdw + _COLUMN_PADDING:
-        return points / (mdw + _COLUMN_PADDING)
-    return (points - _COLUMN_PADDING) / mdw
+    pad = column_padding(mdw)
+    if points < mdw + pad:
+        return points / (mdw + pad)
+    return (points - pad) / mdw
 
 
 def file_points(file_width: float, font: FontSpec | None = None) -> float:
@@ -281,7 +292,8 @@ class ColumnMetrics:
             column of no width, which ``column_width`` refuses with ``ValueError``).
         points: The column's width in points (53 for an openpyxl column without a width).
         budget: Points a number or date may take before it becomes a ``#`` run: ``points``
-            less 5, and 0 for a column under 5 points.
+            less the column padding (5 points up to a digit width of 8, 7 from 9 to 12), and 0
+            for a column narrower than that.
         left_inset: Where left-aligned text starts, in points from the left gridline.
         right_inset: Where right-aligned text ends, in points from the right gridline.
         digit_width: The maximum digit width of the Normal font: one column unit, one indent
@@ -305,7 +317,7 @@ def _metrics(points: float, font: FontSpec | None) -> ColumnMetrics:
     return ColumnMetrics(
         width=_units(points, mdw),
         points=points,
-        budget=max(points - _COLUMN_PADDING, 0.0),
+        budget=max(points - column_padding(mdw), 0.0),
         left_inset=_LEFT_INSET,
         right_inset=_RIGHT_INSET,
         digit_width=mdw,
@@ -387,7 +399,8 @@ def file_column_metrics(
     normal_font = _normal_font_argument(normal_font, font)
     if file_width is None:
         if default_col_width is None:
-            return _metrics(base_col_width * _mdw(normal_font) + _COLUMN_PADDING, normal_font)
+            mdw = _mdw(normal_font)
+            return _metrics(base_col_width * mdw + column_padding(mdw), normal_font)
         file_width = default_col_width
     if file_width < 0:
         msg = f"file_width must not be negative, not {file_width!r}"

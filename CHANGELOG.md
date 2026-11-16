@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Glyph tables for Calibri and Aptos Narrow at 18, 20 and 24 points in four styles, measured
+  in Excel. Text at those sizes is measured exactly, and the sizes between scale from the
+  nearest of them instead of from 16 points.
 - `vertical_metrics(font=None)` and `VerticalMetrics`: where Excel draws a face's text in a
   cell (the baseline from the top and from the bottom, the line pitch, the cap height and the
   descender), for Calibri and Aptos Narrow at 9 to 16 points (captured from Excel's screen).
@@ -19,6 +22,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   wrapped lines, for Calibri and Aptos Narrow at 9 to 16 points (captured from Excel).
 
 ### Changed
+- A column's padding grows with the Normal font's digit width: 5 points up to a digit width
+  of 8 (Calibri 16) and 7 from 9 to 12 (Calibri 18 to 24), `2 * ceil(MDW / 4) + 1`. Columns,
+  budgets and General's reduction in workbooks with a Normal font of 18 points or more change;
+  the earlier sizes are as before.
 - The expected outputs are captured from Excel for Mac 16.115 under Microsoft 365 (Excel's
   standard font there is Aptos Narrow 12). Every suite matched its earlier capture from Excel
   16.114 under Office Home & Business 2021, so no rendering changed.
