@@ -537,7 +537,7 @@ from xlformat import (
     format_value, format_cell, text_function, NumberFormat, FormattedCell, Section, SectionKind,
     Quirks, FormatError, ExcelError, DEFAULT_PALETTE, Font, ColumnMetrics, column_metrics,
     column_metrics_from_points, file_column_metrics, text_width, glyph_widths, digit_width,
-    overhang, measured_fonts, RowMetrics, row_metrics,
+    overhang, measured_fonts, RowMetrics, row_metrics, VerticalMetrics, vertical_metrics,
 )
 
 def format_value(value, format_string="General", *, width=None, column_width=None, font=None,
@@ -598,6 +598,14 @@ cell with wrapped text, `None` for the Normal font; one argument with one kind o
 to take whole cells later. Lines are the caller's: xlformat does not break text. Two whole-point
 tables per measured face carry the model, the font height and the line inset, and a face without
 them raises `LookupError` rather than being scaled.
+
+`vertical_metrics(font=None)` returns a frozen `VerticalMetrics(baseline_from_top,
+baseline_from_bottom, font_height, line_height, line_pitch, line_inset, cap_height, descender)`:
+where Excel draws a face's text in a cell, measured on screen (`CAPTURING.md` §2 item 47). They
+are facts, as the column's insets are; the caller aligns the text, as it does horizontally. The
+fields are the distances the screen shows: the top inset and the ascent appear only as their sum,
+and no split by convention is made. `line_inset` is the row model's per-face constant; the one
+placement the Normal font moves (wrapped text in a face with a smaller inset) is stated with it.
 
 **Error values.** `ExcelError` is a `StrEnum` of every error text current Excel documents (the
 seven classic codes of ECMA-376 and ERROR.TYPE 1 to 7; `#GETTING_DATA`, ERROR.TYPE 8; the error

@@ -869,7 +869,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
 
 47. **Vertical placement on screen (2026-11-15; `capture/screen_vertical.py`, a probe: the cases
     of item 46 with column A filled magenta and cyan in turn, Excel's window captured at zoom 100
-    on a 2x display, 10 views, 336 rows; written to `capture/build/probes/`).** Measured from each
+    on a 2x display, 10 views, 336 rows in `vertical.layout.tsv`, every measured distance in
+    pixels; the images stay in `capture/build/`).** Measured from each
     row's top in sheet points, the baseline being the bottom of "H":
     - **Top-aligned text has its baseline the face's size below the row's top** (Calibri 9 at 9
       points, Aptos Narrow 16 at 16), at every row height.
@@ -884,8 +885,12 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       1 point). All 336 rows match these rules to half a point.
     - The print layout of item 46 gives the same gaps and order with smaller distances; the screen
       is the sheet's measure.
-    - Two traps of the method: Excel draws no gridline between cells of one fill, so the marker
-      column alternates two colors; and the screen draws cyan as about (117, 251, 253).
+    - **The ink** of "H" above the baseline and of "g" below it depends on the family and the
+      size only (Calibri 11: 7 and 2 points; Aptos Narrow 16: 10.5 and 3), in every style.
+    - Traps of the method: Excel draws no gridline between cells of one fill, so the marker
+      column alternates two colors; the screen draws cyan as about (117, 251, 253); and italic
+      glyphs touch, so a single ink run gives H's foot from its leftmost columns and its top
+      from the run's highest ink.
 
 ## 3. The pipeline
 

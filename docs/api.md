@@ -54,6 +54,9 @@ Everything below is importable from `xlformat`.
 .. autofunction:: xlformat.row_metrics
 .. autoclass:: xlformat.RowMetrics
    :members:
+.. autofunction:: xlformat.vertical_metrics
+.. autoclass:: xlformat.VerticalMetrics
+   :members:
 ```
 
 ## Settings, errors and colors

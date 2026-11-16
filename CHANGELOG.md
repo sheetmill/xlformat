@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `vertical_metrics(font=None)` and `VerticalMetrics`: where Excel draws a face's text in a
+  cell (the baseline from the top and from the bottom, the line pitch, the cap height and the
+  descender), for Calibri and Aptos Narrow at 9 to 16 points (captured from Excel's screen).
 - `show_zeros=False` on `format_value`, `format_cell` and the `NumberFormat` methods, for a
   sheet that hides zeros (`showZeros="0"`): a number equal to 0 shows nothing under a format
   without a zero section, as Excel shows it (captured from Excel).

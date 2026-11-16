@@ -17,6 +17,7 @@ from xlformat._measure import (
     FontSpec,
     Measure,
     RowMetrics,
+    VerticalMetrics,
     column_metrics,
     column_metrics_from_points,
     digit_width,
@@ -26,6 +27,7 @@ from xlformat._measure import (
     overhang,
     row_metrics,
     text_width,
+    vertical_metrics,
 )
 from xlformat._palette import DEFAULT_PALETTE
 from xlformat._parser import NumberFormat, Section, SectionKind
@@ -45,6 +47,7 @@ __all__ = [
     "RowMetrics",
     "Section",
     "SectionKind",
+    "VerticalMetrics",
     "__version__",
     "column_metrics",
     "column_metrics_from_points",
@@ -58,6 +61,7 @@ __all__ = [
     "row_metrics",
     "text_function",
     "text_width",
+    "vertical_metrics",
 ]
 
 

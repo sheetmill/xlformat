@@ -1,4 +1,4 @@
-"""Where Excel puts text vertically in a cell, from the screen (a probe; CAPTURING.md section 2).
+"""Where Excel puts text vertically in a cell, from the screen (CAPTURING.md section 2 item 47).
 
     uv run python -m capture.screen_vertical build    # the workbooks, no Excel
     uv run python -m capture.screen_vertical run      # open, capture every view, close; then read
@@ -17,8 +17,8 @@ baseline (the bottom of "H"), the last glyph's the descender's bottom ("g"), per
 The run needs the display on, Excel in front and nobody at the keyboard; it sends Excel one
 request a step, starts only when Excel answers with no workbook open and no window of its own,
 and closes the workbook without saving, alerts on, on every path. No clipboard. Writes
-``capture/build/probes/screen_vertical.tsv``, distances in image pixels from the band's top with
-the scale beside them.
+``tests/captures/vertical.layout.tsv``, every measured distance in image pixels from the row's top,
+the scale in the header; the captures stay in ``capture/build/screen_vertical/``.
 """
 
 from __future__ import annotations
@@ -40,7 +40,7 @@ from capture.vertical_pdf import NORMALS, TEXT, Case, cases
 
 SCRIPT = Path(__file__).with_name("screen_vertical.applescript")
 SHOTS = BUILD_DIR / "screen_vertical"
-OUTPUT = BUILD_DIR / "probes" / "screen_vertical.tsv"
+OUTPUT = BUILD_DIR.parent.parent / "tests" / "captures" / "vertical.layout.tsv"
 _WINDOWS_JXA = r"""
 ObjC.import("CoreGraphics");
 const list = ObjC.castRefToObject(
@@ -335,10 +335,12 @@ def measure(image: Image, band: tuple[int, int]) -> tuple[list[tuple[int, int]],
     if not runs:
         return [], []
     if len(runs) == 1:
-        # italic glyphs touch: H's stem is the run's leftmost columns, g's tail its lowest ink
+        # italic glyphs touch: H's foot is in the run's leftmost columns, its top (the tallest
+        # glyph of "Hxg") the run's highest ink, g's tail the run's lowest ink, per line
         x0, x1 = runs[0]
-        h_runs = _ink_rows(image, x0, min(x1, x0 + 3), y0, y1)
+        feet = _ink_rows(image, x0, min(x1, x0 + 3), y0, y1)
         g_runs = _ink_rows(image, x0, x1, y0, y1)
+        h_runs = [(whole[0], foot[1]) for whole, foot in zip(g_runs, feet, strict=False)]
     else:
         h_runs = _ink_rows(image, runs[0][0], runs[0][1], y0, y1)
         g_runs = _ink_rows(image, runs[-1][0], runs[-1][1], y0, y1)
@@ -405,9 +407,7 @@ def write() -> None:
             )
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT.open("w", encoding="utf-8") as out:
-        out.write(
-            "# suite: screen_vertical (capture.screen_vertical); Excel for Mac, en_US; a probe\n"
-        )
+        out.write("# suite: vertical (capture.screen_vertical); Excel for Mac, en_US\n")
         out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         out.write(
             f"# captured: {dt.date.today().isoformat()}; method: window capture at zoom 100; "

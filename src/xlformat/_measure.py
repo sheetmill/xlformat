@@ -486,3 +486,86 @@ def row_metrics(
         inset = max(0.0, top_inset - _LINE_INSET[key][size])
         height = max(height, lines * (_FONT_HEIGHT[key][size] + 1.0) + inset)
     return RowMetrics(height=height, font_height=font_height, line_height=font_height + 1.0)
+
+
+# --- vertical placement (CAPTURING.md section 2 item 47) ----------------------------------------
+
+# family (lower case) -> size -> points between a bottom-aligned baseline and the row's bottom
+_BASELINE_FROM_BOTTOM: dict[str, dict[int, float]] = {
+    "calibri": {9: 4.0, 10: 4.0, 11: 4.0, 12: 4.0, 14: 5.0, 16: 5.0},
+    "aptos narrow": {9: 4.0, 10: 4.0, 11: 4.0, 12: 4.0, 14: 5.0, 16: 6.0},
+}
+# family (lower case) -> size -> (cap height, descender): the ink of "H" above the baseline and of
+# "g" below it, as Excel draws them at zoom 100 on a 2x display (half points)
+_INK: dict[str, dict[int, tuple[float, float]]] = {
+    "calibri": {
+        9: (6.0, 1.5), 10: (6.5, 2.0), 11: (7.0, 2.0), 12: (8.0, 2.0), 14: (9.0, 2.5),
+        16: (10.5, 3.0),
+    },
+    "aptos narrow": {
+        9: (6.0, 1.5), 10: (6.5, 2.0), 11: (7.5, 2.0), 12: (8.0, 2.0), 14: (9.5, 2.5),
+        16: (10.5, 3.0),
+    },
+}  # fmt: skip
+
+
+@dataclass(frozen=True, slots=True)
+class VerticalMetrics:
+    """Where Excel for Mac draws a face's text in a cell, in sheet points.
+
+    Every field is a distance Excel's screen shows, not a split of one by convention: the top
+    inset and the ascent are seen only as their sum, ``baseline_from_top``, and the descent and
+    the bottom inset as ``baseline_from_bottom``.
+
+    Attributes:
+        baseline_from_top: The baseline's distance below the row's top for top-aligned text: the
+            face's size in points.
+        baseline_from_bottom: The baseline's distance above the row's bottom for bottom-aligned
+            text (Excel's default). Centered text sits midway between the two placements, to half
+            a point.
+        font_height: The height of a row in this face alone (no stored height).
+        line_height: What each wrapped line in this face adds to a row: ``font_height`` plus 1.
+        line_pitch: The distance between the baselines of wrapped lines: ``font_height``; the
+            last line is placed as bottom-aligned text is.
+        line_inset: The face's line inset, the ``p`` of the row model. Wrapped text in this face,
+            in a row whose Normal font or other cell fonts have a larger ``line_inset``, takes
+            that difference more height (``row_metrics``) and sits that much higher, the extra
+            lying below its last line.
+        cap_height: The ink of "H" above the baseline, to half a point.
+        descender: The ink of "g" below the baseline, to half a point.
+    """
+
+    baseline_from_top: float
+    baseline_from_bottom: float
+    font_height: float
+    line_height: float
+    line_pitch: float
+    line_inset: float
+    cap_height: float
+    descender: float
+
+
+def vertical_metrics(font: FontSpec | None = None) -> VerticalMetrics:
+    """Where Excel draws text in ``font`` within a cell (CAPTURING.md section 2 item 47).
+
+    Bold and italic place as the regular face does, and the workbook's Normal font moves nothing,
+    except for wrapped text in a face with a smaller ``line_inset`` (see
+    :class:`VerticalMetrics`). Measured: Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16
+    points; any other face raises ``LookupError``.
+
+    Raises:
+        LookupError: A font or size not measured.
+    """
+    key, size = _row_face(font)
+    height = _FONT_HEIGHT[key][size]
+    cap, descender = _INK[key][size]
+    return VerticalMetrics(
+        baseline_from_top=float(size),
+        baseline_from_bottom=_BASELINE_FROM_BOTTOM[key][size],
+        font_height=height,
+        line_height=height + 1.0,
+        line_pitch=height,
+        line_inset=_LINE_INSET[key][size],
+        cap_height=cap,
+        descender=descender,
+    )
