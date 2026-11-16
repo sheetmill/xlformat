@@ -150,9 +150,19 @@ def _text_color(
     y0, y1 = band
     x0 = _magenta_right(image, (y0 + y1) // 2, _magenta_column(image)) + 4
     fill = _rgb(FILL)
+    # column B ends where its fill does: the last fill pixel on the band's top rows
+    near = [
+        x
+        for y in (y0 + 1, y0 + 2)
+        for x in range(x0, min(image.width, x0 + 900))
+        if _distance(srgb.rgb(x, y), fill) <= 40
+    ]
+    if not near:
+        return (-1, -1, -1), 0
+    x1 = max(near)
     counts: Counter[tuple[int, int, int]] = Counter()
     for y in range(y0 + 2, y1 - 1):
-        for x in range(x0, min(image.width, x0 + 500)):
+        for x in range(x0, x1 - 2):
             c = srgb.rgb(x, y)
             if _distance(c, fill) > 40:
                 counts[c] += 1
@@ -171,7 +181,8 @@ def write() -> None:
             + tuple(DEFAULT_PALETTE[f"Color{i}"] for i in range(1, 57))
         )
         found: dict[int, tuple[tuple[int, int, int], int]] = {}
-        for shot in sorted((SHOTS / kind).glob("top_*.png")):
+        shots = (s for s in (SHOTS / kind).glob("top_*.png") if ".srgb" not in s.name)
+        for shot in sorted(shots):
             converted = shot.with_name(shot.stem + ".srgb.png")
             if not converted.exists():
                 subprocess.run(

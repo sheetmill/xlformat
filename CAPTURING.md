@@ -953,6 +953,18 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       dates and the dollar alike. (c) The United States defaults restored: every id as first
       captured. What a cell under 14, 15, 16 or 22 shows depends on the viewer's custom short date.
 
+50. **Section colors under a workbook palette (2026-11-16; `capture/screen_palette.py`, a probe:
+    a workbook whose `<indexedColors>` holds 64 colors far from the default ones, and a control with
+    the default palette; one row per color name and per `[Color1]` to `[Color56]`, bold 20-point
+    text on a brown fill; window captures converted to sRGB; each cell's text color its most
+    frequent pixel away from the fill, at least 2,080 pixels a cell; Excel 16.115 under Microsoft
+    365).** Every measured color is within 3 of one candidate:
+    - **`[ColorN]` is drawn in the workbook's palette entry N + 7**, all 56 of them.
+    - **The eight names (`[Black]` to `[Cyan]`) are drawn in their standard colors**, `FF0000` for
+      `[Red]` and so on, whatever entries 0 to 7 of the palette hold, as the screen shows where
+      Excel's scripting reports the palette's color.
+    - With the default palette every cell is the default color.
+
 ## 3. The pipeline
 
 ```
