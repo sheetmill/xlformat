@@ -332,10 +332,16 @@ def measure(image: Image, band: tuple[int, int]) -> tuple[list[tuple[int, int]],
     y0, y1 = band
     left = _magenta_right(image, (y0 + y1) // 2, _magenta_column(image)) + 2
     runs = _glyph_runs(image, left, min(image.width, left + 600), y0, y1)
-    if len(runs) < 2:
+    if not runs:
         return [], []
-    h_runs = _ink_rows(image, runs[0][0], runs[0][1], y0, y1)
-    g_runs = _ink_rows(image, runs[-1][0], runs[-1][1], y0, y1)
+    if len(runs) == 1:
+        # italic glyphs touch: H's stem is the run's leftmost columns, g's tail its lowest ink
+        x0, x1 = runs[0]
+        h_runs = _ink_rows(image, x0, min(x1, x0 + 3), y0, y1)
+        g_runs = _ink_rows(image, x0, x1, y0, y1)
+    else:
+        h_runs = _ink_rows(image, runs[0][0], runs[0][1], y0, y1)
+        g_runs = _ink_rows(image, runs[-1][0], runs[-1][1], y0, y1)
     return [(a - y0, b - y0) for a, b in h_runs], [b - y0 for _, b in g_runs]
 
 
@@ -346,6 +352,7 @@ class Measured:
     band: tuple[int, int]
     h_lines: list[tuple[int, int]]
     g_bottoms: list[int]
+    shift: int  # the band's first row less the row's top computed from the view's first band
 
 
 def read_normal(normal: CellFont) -> list[Measured]:
@@ -357,18 +364,30 @@ def read_normal(normal: CellFont) -> list[Measured]:
     for shot in sorted(folder.glob("top_*.png")):
         top = int(shot.stem.split("_")[1])
         image = read_png(shot)
-        for row, band in rows_in_view(image, top, heights):
+        rows = rows_in_view(image, top, heights)
+        if not rows:
+            continue
+        first_row, first_band = rows[0]
+        ratios = sorted((b[1] - b[0] + 1) / heights[r - 1] for r, b in rows)
+        scale = round(ratios[len(ratios) // 2])  # whole pixels a point (2 on a 2x display)
+        for row, band in rows:
             if row in found:
                 continue
-            h_lines, g_bottoms = measure(image, band)
-            found[row] = Measured(all_cases[row - 1], heights[row - 1], band, h_lines, g_bottoms)
+            # boundaries between filled cells are sometimes drawn a pixel row or two off, so
+            # distances are taken from the row's top computed from the view's first band
+            top_px = first_band[0] + round(scale * sum(heights[first_row - 1 : row - 1]))
+            bottom_px = top_px + round(scale * heights[row - 1]) - 1
+            h_lines, g_bottoms = measure(image, (top_px, bottom_px))
+            found[row] = Measured(
+                all_cases[row - 1], heights[row - 1], band, h_lines, g_bottoms, band[0] - top_px
+            )
     missing = [r for r in range(1, len(all_cases) + 1) if r not in found]
     if missing:
         sys.exit(f"{normal.label}: rows never measured: {missing[:10]}")
     # the band heights must follow the row heights at one scale
-    scales = {round((m.band[1] - m.band[0] + 1) / m.height, 1) for m in found.values()}
-    if len(scales) > 2:
-        sys.exit(f"{normal.label}: band heights do not follow the row heights: {sorted(scales)}")
+    off = [(m.case.tag, m.shift) for m in found.values() if abs(m.shift) > 2]
+    if off:
+        sys.exit(f"{normal.label}: bands off their computed rows by more than 2 px: {off[:3]}")
     return [found[r] for r in sorted(found)]
 
 
@@ -381,7 +400,8 @@ def write() -> None:
             g = " ".join(str(b) for b in m.g_bottoms)
             stated = "" if m.case.height is None else f"{m.case.height:g}"
             lines.append(
-                f"{normal.label}\t{m.case.tag}\t{stated}\t{m.height:g}\t{band_px}\t{h}\t{g}"
+                f"{normal.label}\t{m.case.tag}\t{stated}\t{m.height:g}\t{band_px}\t{m.shift}"
+                f"\t{h}\t{g}"
             )
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT.open("w", encoding="utf-8") as out:
@@ -391,10 +411,14 @@ def write() -> None:
         out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         out.write(
             f"# captured: {dt.date.today().isoformat()}; method: window capture at zoom 100; "
-            "pixels from the top of each row's magenta band (column A); H: cap top-baseline per "
+            "pixels (2 a point) from each row's top, computed from the view's first marker band "
+            "(column A); H: cap top-baseline per "
             "line, g: descender bottom per line\n"
         )
-        out.write("normal_font\ttag\tstated_height\trow_height\tband_px\tH_top-bottom\tg_bottom\n")
+        out.write(
+            "normal_font\ttag\tstated_height\trow_height\tband_px\tband_shift\tH_top-bottom"
+            "\tg_bottom\n"
+        )
         out.write("\n".join(lines) + "\n")
     print(f"wrote {OUTPUT}: {len(lines)} rows")
 

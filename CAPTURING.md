@@ -867,6 +867,26 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       14, 25 as 23, 30 as 28) and wrapped lines closer (14 points apart at Calibri 11, where the
       sheet gives 16), so these distances are print points. The screen gives the sheet's.
 
+47. **Vertical placement on screen (2026-11-15; `capture/screen_vertical.py`, a probe: the cases
+    of item 46 with column A filled magenta and cyan in turn, Excel's window captured at zoom 100
+    on a 2x display, 10 views, 336 rows; written to `capture/build/probes/`).** Measured from each
+    row's top in sheet points, the baseline being the bottom of "H":
+    - **Top-aligned text has its baseline the face's size below the row's top** (Calibri 9 at 9
+      points, Aptos Narrow 16 at 16), at every row height.
+    - **Bottom-aligned text has its baseline a gap G above the row's bottom:** Calibri 9 to 16 4,
+      4, 4, 4, 5, 5; Aptos Narrow 4, 4, 4, 4, 5, 6. G is F - size except at Calibri 9 (4, where
+      F - size is 3), and the row model's p is F - size - 3 for every face.
+    - **Centered text sits midway**, to half a point; **wrapped lines are F apart** (Calibri 11:
+      15 points), the last one placed as a bottom-aligned line.
+    - **The Normal font and the style move nothing**, with one exception that follows the row
+      model: wrapped text in a face whose p is below the Normal font's sits c = p(normal) - p(face)
+      higher, the extra height of item 44 lying below the last line (Calibri 9 under Calibri 11:
+      1 point). All 336 rows match these rules to half a point.
+    - The print layout of item 46 gives the same gaps and order with smaller distances; the screen
+      is the sheet's measure.
+    - Two traps of the method: Excel draws no gridline between cells of one fill, so the marker
+      column alternates two colors; and the screen draws cyan as about (117, 251, 253).
+
 ## 3. The pipeline
 
 ```
