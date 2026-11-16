@@ -169,7 +169,7 @@ def marker(rgb: tuple[int, int, int]) -> str:
     r, g, b = rgb
     if g < 90 and r > 200 and b > 200:
         return "m"
-    if r < 90 and g > 200 and b > 200:
+    if r < 160 and g > 200 and b > 200:  # cyan shows as about (117, 251, 253) on screen
         return "c"
     return ""
 
