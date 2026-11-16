@@ -8,6 +8,9 @@ Everything below is importable from `xlformat`.
 .. autofunction:: xlformat.format_value
 .. autofunction:: xlformat.format_cell
 .. autofunction:: xlformat.text_function
+.. autofunction:: xlformat.builtin_format
+.. autodata:: xlformat.BUILTIN_FORMATS
+   :no-value:
 .. autoclass:: xlformat.FormattedCell
    :members:
 ```

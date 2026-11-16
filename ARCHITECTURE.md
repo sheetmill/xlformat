@@ -538,6 +538,7 @@ from xlformat import (
     Quirks, FormatError, ExcelError, DEFAULT_PALETTE, Font, ColumnMetrics, column_metrics,
     column_metrics_from_points, file_column_metrics, text_width, glyph_widths, digit_width,
     overhang, measured_fonts, RowMetrics, row_metrics, VerticalMetrics, vertical_metrics,
+    builtin_format, BUILTIN_FORMATS,
 )
 
 def format_value(value, format_string="General", *, width=None, column_width=None, font=None,
@@ -585,6 +586,13 @@ cell's sum of its columns' points, all returning a frozen
 `ValueError` for it. `budget` is `points` less 5, and 0 under 5 points. Both still accept the Normal font under its deprecated name `font`, with
 a `DeprecationWarning`, until 1.0, and raise `ValueError` when given both. Format functions take no file width:
 callers convert once per column.
+
+`builtin_format(number_format_id) -> str` and the read-only `BUILTIN_FORMATS` give the string Excel
+uses for a built-in `numFmtId` (0 to 163), as Excel for Mac reports it in en-US (`CAPTURING.md` §2
+item 49); a reader resolves an id with it and passes the string, and `format_value` takes strings
+only. The ids whose display follows the viewer's system (a custom short date on the Mac; dates,
+times and currency on Windows) keep the en-US string; keyword-only arguments can choose the other
+forms later without changing a call.
 
 `show_zeros` is a sheet property, passed beside the workbook's `date1904` rather than as a
 quirk: `False` for a sheet with `showZeros="0"`, where a number equal to 0 shows nothing under a

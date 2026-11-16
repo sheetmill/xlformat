@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `builtin_format(number_format_id)` and `BUILTIN_FORMATS`: the format string Excel uses for
+  each built-in id from 0 to 163, as Excel for Mac reports it in en-US. Id 14, which Excel writes
+  for typed dates, is `m/d/yy` (a typed date shows `1/1/24`); openpyxl's table has `mm-dd-yy` there
+  and differs at 44 and 47 too.
 - Glyph tables for Calibri and Aptos Narrow at 18, 20 and 24 points in four styles, measured
   in Excel. Text at those sizes is measured exactly, and the sizes between scale from the
   nearest of them instead of from 16 points.

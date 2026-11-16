@@ -49,6 +49,29 @@ with a minus sign instead of `#`.
 The last line is 255 `#`, Excel's overflow without a width; with a width it fills the column
 (see {doc}`width`).
 
+## Built-in formats
+
+A cell can name its format by a built-in id instead of a string: Excel writes id 14 for every date
+typed as a short date. `builtin_format` gives the string Excel uses for an id, as Excel for Mac
+reports it in en-US:
+
+```python
+>>> from xlformat import builtin_format
+>>> builtin_format(14)
+'m/d/yy'
+>>> format_value(45292, builtin_format(14))
+'1/1/24'
+>>> builtin_format(47)
+'mm:ss.0'
+```
+
+Ids 0 to 163 are built in (`BUILTIN_FORMATS` holds them all; many are `General`); 164 and above
+are defined in the file and raise `ValueError`. What some ids show depends on the viewer's system:
+Excel for Mac follows a custom short date set in macOS for ids 14 and 22 (a year-first setting
+shows `2024-01-01`) and pads the day of 15 and 16 to match, while the region alone changes
+nothing on the Mac; Excel for Windows is documented to follow the system for the date, time and
+currency ids. The table is the en-US one.
+
 ## Sheets that hide zeros
 
 A sheet can hide zero values (Excel's "Show a zero in cells that have zero value" turned off,

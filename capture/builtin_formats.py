@@ -15,8 +15,8 @@ built-in id and the placeholder is gone. Excel reads back each row's ``number fo
 
 An id Excel does not take can make it refuse the whole file, so the ids go in groups, and a group
 Excel refuses is split until each refused id stands alone. No clipboard. Writes
-``capture/build/probes/builtin_formats.tsv``; refused ids are rows with ``refused`` in place of
-the format.
+``tests/captures/builtin_formats.layout.tsv``, or with a label ``capture/build/probes/``; refused
+ids are rows with ``refused`` in place of the format.
 """
 
 from __future__ import annotations
@@ -32,7 +32,7 @@ from capture.edition import edition_line, excel_build
 from capture.excel_watch import answers, osascript
 
 SCRIPT = Path(__file__).with_name("builtin_formats.applescript")
-OUTPUT = BUILD_DIR / "probes" / "builtin_formats.tsv"
+OUTPUT = BUILD_DIR.parent.parent / "tests" / "captures" / "builtin_formats.layout.tsv"
 DIRECTORY = WORKBOOK_DIR / "builtin_formats"
 IDS = tuple(range(164))
 VALUES: tuple[tuple[str, object], ...] = (
@@ -136,7 +136,7 @@ def run(label: str = "") -> None:
     for k, group in enumerate(groups):
         _capture(list(group), f"{label}g{k}", found)
         print(f"group of {len(group)} ids: done")
-    out = OUTPUT.with_name(f"builtin_formats_{label}.tsv") if label else OUTPUT
+    out = BUILD_DIR / "probes" / f"builtin_formats_{label}.tsv" if label else OUTPUT
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", encoding="utf-8") as f:
         f.write(

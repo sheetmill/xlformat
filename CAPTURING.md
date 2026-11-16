@@ -939,6 +939,14 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       to 17, 20, 21, 22, 45, 46 and 47; 82 to 163 are `General`.
     - openpyxl's table differs at 14 (`mm-dd-yy`), 47 (`mmss.0`) and 44 (its sections lack the
       semicolons); its 5 to 8 and 41 to 43 differ only in quoting and escapes, rendering the same.
+    - **macOS's settings** (2026-11-16; ids 5 to 8, 14 to 22 and 37 to 47 captured three more
+      times, Excel restarted before each, one change each): (a) the United States region with a
+      custom short date `y-MM-dd`: id 14 shows `2024-01-01` and 22 `2024-01-01 13:30`, their `number
+      format` still `m/d/yy` and `m/d/yy h:mm` and their `number format local` `yyyy-mm-dd` and
+      `yyyy-mm-dd h:mm`, and 15 and 16 pad the day (`01-Jan-24`, `01-Jan`); nothing else changes.
+      (b) The United Kingdom region with its default formats (`en_US@rg=gbzzzz`): nothing changes,
+      dates and the dollar alike. (c) The United States defaults restored: every id as first
+      captured. What a cell under 14, 15, 16 or 22 shows depends on the viewer's custom short date.
 
 ## 3. The pipeline
 

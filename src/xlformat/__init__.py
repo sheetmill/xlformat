@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from xlformat import _render
 from xlformat._assemble import FormattedCell
+from xlformat._builtin import BUILTIN_FORMATS, builtin_format
 from xlformat._error_values import ExcelError
 from xlformat._errors import FormatError
 from xlformat._measure import (
@@ -36,6 +37,7 @@ from xlformat._quirks import Quirks
 __version__ = "0.3.0"
 
 __all__ = [
+    "BUILTIN_FORMATS",
     "DEFAULT_PALETTE",
     "ColumnMetrics",
     "ExcelError",
@@ -49,6 +51,7 @@ __all__ = [
     "SectionKind",
     "VerticalMetrics",
     "__version__",
+    "builtin_format",
     "column_metrics",
     "column_metrics_from_points",
     "digit_width",
