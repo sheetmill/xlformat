@@ -937,6 +937,11 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       East Asian locales, shown in en-US as these).
     - 50 to 58 are `m/d/yy`, 59 to 81 repeat 1 to 8, 9, 10, 12 and 13, then `m/d/yy` twice, 15
       to 17, 20, 21, 22, 45, 46 and 47; 82 to 163 are `General`.
+    - **The sources:** ECMA-376 Part 1 §18.8.30 lists 14 as `mm-dd-yy`, 22 as `m/d/yy h:mm` and 47 as
+      `mmss.0`; Microsoft's [MS-OI29500] §2.1.712 says Excel defines 14 as `m/d/yyyy`, 22 as
+      `m/d/yyyy h:mm`, 37 to 40 with `_)` and 47 as `mm:ss.0`, for en-US. Excel for Mac agrees with
+      Microsoft at 37 to 40 and 47 and differs at 14 and 22 (`m/d/yy`, `m/d/yy h:mm`); neither
+      source says an id follows the system's settings.
     - openpyxl's table differs at 14 (`mm-dd-yy`), 47 (`mmss.0`) and 44 (its sections lack the
       semicolons); its 5 to 8 and 41 to 43 differ only in quoting and escapes, rendering the same.
     - **macOS's settings** (2026-11-16; ids 5 to 8, 14 to 22 and 37 to 47 captured three more

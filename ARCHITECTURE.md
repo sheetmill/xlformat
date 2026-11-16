@@ -590,8 +590,12 @@ callers convert once per column.
 `builtin_format(number_format_id) -> str` and the read-only `BUILTIN_FORMATS` give the string Excel
 uses for a built-in `numFmtId` (0 to 163), as Excel for Mac reports it in en-US (`CAPTURING.md` §2
 item 49); a reader resolves an id with it and passes the string, and `format_value` takes strings
-only. The ids whose display follows the viewer's system (a custom short date on the Mac; dates,
-times and currency on Windows) keep the en-US string; keyword-only arguments can choose the other
+only. The sources disagree: ECMA-376 Part 1 §18.8.30 defines 14 as `mm-dd-yy`, 22 as `m/d/yy h:mm`
+and 47 as `mmss.0`; Microsoft's [MS-OI29500] §2.1.712 says Excel defines 14 as `m/d/yyyy`, 22 as
+`m/d/yyyy h:mm`, 37 to 40 with `_)` and 47 as `mm:ss.0`, for en-US. Excel for Mac reports 14 as
+`m/d/yy` and 22 as `m/d/yy h:mm`; neither source says an id follows the system's settings, and the
+Mac follows a custom short date for 14 to 16 and 22. The ids whose display follows the viewer's
+system (a custom short date on the Mac; dates, times and currency on Windows) keep the en-US string; keyword-only arguments can choose the other
 forms later without changing a call.
 
 `show_zeros` is a sheet property, passed beside the workbook's `date1904` rather than as a
