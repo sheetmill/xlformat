@@ -35,7 +35,7 @@ SCRIPT = Path(__file__).with_name("row_heights.applescript")
 STATE = BUILD_DIR / "row_heights.json"  # what `run` read so far (capture/build: not committed)
 DIRECTORY = WORKBOOK_DIR / "row_heights"
 FAMILIES = ("Calibri", "Aptos Narrow")
-SIZES = (9, 10, 11, 12, 14, 16)
+SIZES = (9, 10, 11, 12, 14, 16, 18, 20, 24)
 STYLES = ((False, False), (True, False), (False, True), (True, True))
 MAX_LINES = 6
 

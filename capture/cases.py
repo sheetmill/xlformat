@@ -1882,7 +1882,8 @@ _STYLES: tuple[tuple[bool, bool], ...] = (
     (False, True),
     (True, True),
 )
-_TABLE_SIZES: tuple[int, ...] = (9, 10, 11, 12, 14, 16)
+_TABLE_SIZES: tuple[int, ...] = (9, 10, 11, 12, 14, 16, 18, 20, 24)
+_NAMED_SIZES: tuple[int, ...] = (9, 10, 11, 12, 14, 16)  # regular Calibri: measure<size> suites
 
 
 def _table_slug(family: str, bold: bool, italic: bool, size: int) -> str:
@@ -1904,7 +1905,7 @@ def _table_suites() -> dict[str, Callable[[], Suite]]:
     for family in _FAMILIES:
         for bold, italic in _STYLES:
             for size in _TABLE_SIZES:
-                if family == "Calibri" and not (bold or italic):
+                if family == "Calibri" and not (bold or italic) and size in _NAMED_SIZES:
                     continue
                 slug = _table_slug(family, bold, italic, size)
                 font = CellFont(family, size, bold, italic) if (bold or italic) else None
@@ -2878,6 +2879,16 @@ SUITES.update(_table_suites())
 SUITES["fraction_threshold"] = fraction_threshold
 SUITES["fraction_random"] = fraction_random
 SUITES["hidden_zeros"] = hidden_zeros
+# the larger sizes: the column conversion in the Normal font, and General against points (the
+# grid of widths estimates the digit width as half the size, which the tables then measure)
+for _size in (18, 20, 24):
+    SUITES[f"column_file{_size}"] = lambda s=_size: _column_file(f"column_file{s}", s)
+    SUITES[f"column_file_aptos_narrow{_size}"] = lambda s=_size: _column_file(
+        f"column_file_aptos_narrow{s}", s, font_name="Aptos Narrow"
+    )
+    SUITES[f"general_points{_size}"] = lambda s=_size: _general_points(
+        f"general_points{s}", s, s // 2
+    )
 SUITES["hidden_zeros_control"] = hidden_zeros_control
 
 
