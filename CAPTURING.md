@@ -831,6 +831,10 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       are the largest of every font's F and k(F_f + 1) + max(0, P - p_f), P the largest p of the
       Normal font and the row's other cell fonts; all 384 such rows match. Several cells with
       wrapped text in one row are not captured.
+    - **18, 20 and 24 points** (2026-11-15, 72 workbooks of 222 rows, 15,984 heights; the 7,488
+      earlier ones repeated exactly): F is 24, 26 and 31 at Calibri and 24, 27 and 32 at Aptos
+      Narrow, in every style, and p is F - size - 3 as item 47 found (3, 3, 4 and 3, 4, 5); the
+      rules above match every row.
 
 45. **A sheet that hides zeros (2026-11-15; probe suites `hidden_zeros`, on a sheet with
     `<sheetView showZeros="0">`, and `hidden_zeros_control`, the same 425 cases on a sheet that
@@ -887,6 +891,10 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       is the sheet's measure.
     - **The ink** of "H" above the baseline and of "g" below it depends on the family and the
       size only (Calibri 11: 7 and 2 points; Aptos Narrow 16: 10.5 and 3), in every style.
+    - **18, 20 and 24 points** (2026-11-15, 480 rows; the 336 earlier ones repeated, the band
+      columns aside, which depend on where a row falls in a view): the baseline is the size below
+      the top, G is F - size (Calibri 6, 6, 7; Aptos Narrow 6, 7, 8), and the ink is 11.5/3,
+      13/3.5, 15.5/4.5 (Calibri) and 12/3.5, 13.5/3.5, 16/4.5 (Aptos Narrow).
     - Traps of the method: Excel draws no gridline between cells of one fill, so the marker
       column alternates two colors; the screen draws cyan as about (117, 251, 253); and italic
       glyphs touch, so a single ink run gives H's foot from its leftmost columns and its top

@@ -33,11 +33,11 @@ SCRIPT = Path(__file__).with_name("pdf_export.applescript")
 OUTPUT = BUILD_DIR / "probes" / "vertical_pdf.tsv"
 NORMALS = (CellFont("Calibri", 11), CellFont("Aptos Narrow", 11))
 FAMILIES = ("Calibri", "Aptos Narrow")
-SIZES = (9, 10, 11, 12, 14, 16)
+SIZES = (9, 10, 11, 12, 14, 16, 18, 20, 24)
 # the font height F of each face (CAPTURING.md section 2 item 44)
 FONT_HEIGHT = {
-    "Calibri": {9: 12, 10: 14, 11: 15, 12: 16, 14: 19, 16: 21},
-    "Aptos Narrow": {9: 13, 10: 14, 11: 15, 12: 16, 14: 19, 16: 22},
+    "Calibri": {9: 12, 10: 14, 11: 15, 12: 16, 14: 19, 16: 21, 18: 24, 20: 26, 24: 31},
+    "Aptos Narrow": {9: 13, 10: 14, 11: 15, 12: 16, 14: 19, 16: 22, 18: 24, 20: 27, 24: 32},
 }
 TEXT = "Hxg"
 COLUMN_WIDTH = 30  # file units, wider than every text here

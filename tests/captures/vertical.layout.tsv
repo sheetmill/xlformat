@@ -75,6 +75,42 @@ Calibri 11	bottom F+10 Calibri 16	31	31	62	-2	31-51	57
 Calibri 11	bottom 2F Calibri 16	42	42	84	-2	53-73	79
 Calibri 11	wrapped 2 Calibri 16		44	88	-2	15-35 57-77	41 83
 Calibri 11	wrapped 3 Calibri 16		66	132	-2	17-37 59-79 101-121	43 85 127
+Calibri 11	natural Calibri 18		24	48	-2	13-35	41
+Calibri 11	top F Calibri 18	24	24	48	-2	13-35	41
+Calibri 11	top F+10 Calibri 18	34	34	68	-2	13-35	41
+Calibri 11	top 2F Calibri 18	48	48	96	-2	13-35	41
+Calibri 11	center F Calibri 18	24	24	48	-2	13-35	41
+Calibri 11	center F+10 Calibri 18	34	34	66	0	23-45	51
+Calibri 11	center 2F Calibri 18	48	48	96	-2	37-59	65
+Calibri 11	bottom F Calibri 18	24	24	48	-2	13-35	41
+Calibri 11	bottom F+10 Calibri 18	34	34	68	-2	33-55	61
+Calibri 11	bottom 2F Calibri 18	48	48	96	-2	61-83	89
+Calibri 11	wrapped 2 Calibri 18		50	100	-2	17-39 65-87	45 93
+Calibri 11	wrapped 3 Calibri 18		75	150	-2	19-41 67-89 115-137	47 95 143
+Calibri 11	natural Calibri 20		26	52	-2	14-39	46
+Calibri 11	top F Calibri 20	26	26	52	-2	14-39	46
+Calibri 11	top F+10 Calibri 20	36	36	72	-2	14-39	46
+Calibri 11	top 2F Calibri 20	52	52	104	-2	14-39	46
+Calibri 11	center F Calibri 20	26	26	52	-2	14-39	46
+Calibri 11	center F+10 Calibri 20	36	36	72	-2	24-49	56
+Calibri 11	center 2F Calibri 20	52	52	104	-2	40-65	72
+Calibri 11	bottom F Calibri 20	26	26	52	-2	14-39	46
+Calibri 11	bottom F+10 Calibri 20	36	36	72	-2	34-59	66
+Calibri 11	bottom 2F Calibri 20	52	52	104	-2	66-91	98
+Calibri 11	wrapped 2 Calibri 20		54	108	-2	18-43 70-95	50 102
+Calibri 11	wrapped 3 Calibri 20		81	162	-2	20-45 72-97 124-149	52 104 156
+Calibri 11	natural Calibri 24		31	62	-2	17-47	56
+Calibri 11	top F Calibri 24	31	31	62	-2	17-47	56
+Calibri 11	top F+10 Calibri 24	41	41	82	-2	17-47	56
+Calibri 11	top 2F Calibri 24	62	62	124	-2	17-47	56
+Calibri 11	center F Calibri 24	31	31	62	-2	17-47	56
+Calibri 11	center F+10 Calibri 24	41	41	82	-2	27-57	66
+Calibri 11	center 2F Calibri 24	62	62	122	0	47-77	86
+Calibri 11	bottom F Calibri 24	31	31	62	-2	17-47	56
+Calibri 11	bottom F+10 Calibri 24	41	41	82	-2	37-67	76
+Calibri 11	bottom 2F Calibri 24	62	62	124	-2	79-109	118
+Calibri 11	wrapped 2 Calibri 24		64	128	-2	21-51 83-113	60 122
+Calibri 11	wrapped 3 Calibri 24		96	192	-2	23-53 85-115 147-177	62 124 186
 Calibri 11	natural Aptos Narrow 9		15	30	-2	10-21	24
 Calibri 11	top F Aptos Narrow 9	13	13	26	-2	6-17	20
 Calibri 11	top F+10 Aptos Narrow 9	23	23	46	-2	6-17	20
@@ -83,7 +119,7 @@ Calibri 11	center F Aptos Narrow 9	13	13	26	-2	6-17	20
 Calibri 11	center F+10 Aptos Narrow 9	23	23	46	-2	16-27	30
 Calibri 11	center 2F Aptos Narrow 9	26	26	52	-2	18-29	32
 Calibri 11	bottom F Aptos Narrow 9	13	13	26	-2	6-17	20
-Calibri 11	bottom F+10 Aptos Narrow 9	23	23	44	0	26-37	40
+Calibri 11	bottom F+10 Aptos Narrow 9	23	23	46	-2	26-37	40
 Calibri 11	bottom 2F Aptos Narrow 9	26	26	52	-2	32-43	46
 Calibri 11	wrapped 2 Aptos Narrow 9		28	56	-2	10-21 36-47	24 50
 Calibri 11	wrapped 3 Aptos Narrow 9		42	84	-2	12-23 38-49 64-75	26 52 78
@@ -106,7 +142,7 @@ Calibri 11	top 2F Aptos Narrow 11	30	30	60	-2	7-21	25
 Calibri 11	center F Aptos Narrow 11	15	15	30	-2	7-21	25
 Calibri 11	center F+10 Aptos Narrow 11	25	25	50	-2	17-31	35
 Calibri 11	center 2F Aptos Narrow 11	30	30	60	-2	21-35	39
-Calibri 11	bottom F Aptos Narrow 11	15	15	30	-2	7-21	25
+Calibri 11	bottom F Aptos Narrow 11	15	15	28	0	7-21	25
 Calibri 11	bottom F+10 Aptos Narrow 11	25	25	50	-2	27-41	45
 Calibri 11	bottom 2F Aptos Narrow 11	30	30	60	-2	37-51	55
 Calibri 11	wrapped 2 Aptos Narrow 11		32	64	-2	11-25 41-55	29 59
@@ -124,7 +160,7 @@ Calibri 11	bottom 2F Aptos Narrow 12	32	32	64	-2	40-55	59
 Calibri 11	wrapped 2 Aptos Narrow 12		34	68	-2	12-27 44-59	31 63
 Calibri 11	wrapped 3 Aptos Narrow 12		51	102	-2	14-29 46-61 78-93	33 65 97
 Calibri 11	natural Aptos Narrow 14		19	38	-2	9-27	32
-Calibri 11	top F Aptos Narrow 14	19	19	36	0	9-27	32
+Calibri 11	top F Aptos Narrow 14	19	19	38	-2	9-27	32
 Calibri 11	top F+10 Aptos Narrow 14	29	29	58	-2	9-27	32
 Calibri 11	top 2F Aptos Narrow 14	38	38	76	-2	9-27	32
 Calibri 11	center F Aptos Narrow 14	19	19	38	-2	9-27	32
@@ -142,11 +178,47 @@ Calibri 11	top 2F Aptos Narrow 16	44	44	88	-2	11-31	37
 Calibri 11	center F Aptos Narrow 16	22	22	44	-2	11-31	37
 Calibri 11	center F+10 Aptos Narrow 16	32	32	64	-2	21-41	47
 Calibri 11	center 2F Aptos Narrow 16	44	44	88	-2	33-53	59
-Calibri 11	bottom F Aptos Narrow 16	22	22	44	-2	11-31	37
+Calibri 11	bottom F Aptos Narrow 16	22	22	42	0	11-31	37
 Calibri 11	bottom F+10 Aptos Narrow 16	32	32	64	-2	31-51	57
 Calibri 11	bottom 2F Aptos Narrow 16	44	44	88	-2	55-75	81
 Calibri 11	wrapped 2 Aptos Narrow 16		46	92	-2	15-35 59-79	41 85
 Calibri 11	wrapped 3 Aptos Narrow 16		69	138	-2	17-37 61-81 105-125	43 87 131
+Calibri 11	natural Aptos Narrow 18		24	48	-2	12-35	42
+Calibri 11	top F Aptos Narrow 18	24	24	48	-2	12-35	42
+Calibri 11	top F+10 Aptos Narrow 18	34	34	68	-2	12-35	42
+Calibri 11	top 2F Aptos Narrow 18	48	48	96	-2	12-35	42
+Calibri 11	center F Aptos Narrow 18	24	24	48	-2	12-35	42
+Calibri 11	center F+10 Aptos Narrow 18	34	34	68	-2	22-45	52
+Calibri 11	center 2F Aptos Narrow 18	48	48	96	-2	36-59	66
+Calibri 11	bottom F Aptos Narrow 18	24	24	48	-2	12-35	42
+Calibri 11	bottom F+10 Aptos Narrow 18	34	34	68	-2	32-55	62
+Calibri 11	bottom 2F Aptos Narrow 18	48	48	96	-2	60-83	90
+Calibri 11	wrapped 2 Aptos Narrow 18		50	100	-2	16-39 64-87	46 94
+Calibri 11	wrapped 3 Aptos Narrow 18		75	150	-2	18-41 66-89 114-137	48 96 144
+Calibri 11	natural Aptos Narrow 20		27	54	-2	13-39	46
+Calibri 11	top F Aptos Narrow 20	27	27	54	-2	13-39	46
+Calibri 11	top F+10 Aptos Narrow 20	37	37	74	-2	13-39	46
+Calibri 11	top 2F Aptos Narrow 20	54	54	108	-2	13-39	46
+Calibri 11	center F Aptos Narrow 20	27	27	54	-2	13-39	46
+Calibri 11	center F+10 Aptos Narrow 20	37	37	74	-2	23-49	56
+Calibri 11	center 2F Aptos Narrow 20	54	54	108	-2	39-65	72
+Calibri 11	bottom F Aptos Narrow 20	27	27	54	-2	13-39	46
+Calibri 11	bottom F+10 Aptos Narrow 20	37	37	74	-2	33-59	66
+Calibri 11	bottom 2F Aptos Narrow 20	54	54	108	-2	67-93	100
+Calibri 11	wrapped 2 Aptos Narrow 20		56	110	0	17-43 71-97	50 104
+Calibri 11	wrapped 3 Aptos Narrow 20		84	168	-2	19-45 73-99 127-153	52 106 160
+Calibri 11	natural Aptos Narrow 24		32	64	-2	16-47	56
+Calibri 11	top F Aptos Narrow 24	32	32	64	-2	16-47	56
+Calibri 11	top F+10 Aptos Narrow 24	42	42	84	-2	16-47	56
+Calibri 11	top 2F Aptos Narrow 24	64	64	128	-2	16-47	56
+Calibri 11	center F Aptos Narrow 24	32	32	64	-2	16-47	56
+Calibri 11	center F+10 Aptos Narrow 24	42	42	84	-2	26-57	66
+Calibri 11	center 2F Aptos Narrow 24	64	64	128	-2	48-79	88
+Calibri 11	bottom F Aptos Narrow 24	32	32	64	-2	16-47	56
+Calibri 11	bottom F+10 Aptos Narrow 24	42	42	84	-2	36-67	76
+Calibri 11	bottom 2F Aptos Narrow 24	64	64	128	-2	80-111	120
+Calibri 11	wrapped 2 Aptos Narrow 24		66	132	-2	20-51 84-115	60 124
+Calibri 11	wrapped 3 Aptos Narrow 24		99	198	-2	22-53 86-117 150-181	62 126 190
 Calibri 11	natural Calibri 11 bold		15	30	-2	8-21	25
 Calibri 11	bottom F+10 Calibri 11 bold	25	25	50	-2	28-41	45
 Calibri 11	natural Calibri 11 italic		15	30	-2	8-21	25
@@ -159,9 +231,9 @@ Calibri 11	natural Calibri 16 italic		21	42	-2	11-31	37
 Calibri 11	bottom F+10 Calibri 16 italic	31	31	62	-2	31-51	57
 Calibri 11	natural Calibri 16 bold italic		21	42	-2	11-31	37
 Calibri 11	bottom F+10 Calibri 16 bold italic	31	31	62	-2	31-51	57
-Calibri 11	natural Aptos Narrow 11 bold		15	28	0	7-21	25
+Calibri 11	natural Aptos Narrow 11 bold		15	30	-2	7-21	25
 Calibri 11	bottom F+10 Aptos Narrow 11 bold	25	25	50	-2	27-41	45
-Calibri 11	natural Aptos Narrow 11 italic		15	30	-2	7-21	25
+Calibri 11	natural Aptos Narrow 11 italic		15	28	0	7-21	25
 Calibri 11	bottom F+10 Aptos Narrow 11 italic	25	25	50	-2	27-41	45
 Calibri 11	natural Aptos Narrow 11 bold italic		15	30	-2	7-21	25
 Calibri 11	bottom F+10 Aptos Narrow 11 bold italic	25	25	50	-2	27-41	45
@@ -243,6 +315,42 @@ Aptos Narrow 11	bottom F+10 Calibri 16	31	31	62	-2	31-51	57
 Aptos Narrow 11	bottom 2F Calibri 16	42	42	84	-2	53-73	79
 Aptos Narrow 11	wrapped 2 Calibri 16		44	88	-2	15-35 57-77	41 83
 Aptos Narrow 11	wrapped 3 Calibri 16		66	132	-2	17-37 59-79 101-121	43 85 127
+Aptos Narrow 11	natural Calibri 18		24	48	-2	13-35	41
+Aptos Narrow 11	top F Calibri 18	24	24	48	-2	13-35	41
+Aptos Narrow 11	top F+10 Calibri 18	34	34	68	-2	13-35	41
+Aptos Narrow 11	top 2F Calibri 18	48	48	96	-2	13-35	41
+Aptos Narrow 11	center F Calibri 18	24	24	48	-2	13-35	41
+Aptos Narrow 11	center F+10 Calibri 18	34	34	66	0	23-45	51
+Aptos Narrow 11	center 2F Calibri 18	48	48	96	-2	37-59	65
+Aptos Narrow 11	bottom F Calibri 18	24	24	48	-2	13-35	41
+Aptos Narrow 11	bottom F+10 Calibri 18	34	34	68	-2	33-55	61
+Aptos Narrow 11	bottom 2F Calibri 18	48	48	96	-2	61-83	89
+Aptos Narrow 11	wrapped 2 Calibri 18		50	100	-2	17-39 65-87	45 93
+Aptos Narrow 11	wrapped 3 Calibri 18		75	150	-2	19-41 67-89 115-137	47 95 143
+Aptos Narrow 11	natural Calibri 20		26	52	-2	14-39	46
+Aptos Narrow 11	top F Calibri 20	26	26	52	-2	14-39	46
+Aptos Narrow 11	top F+10 Calibri 20	36	36	72	-2	14-39	46
+Aptos Narrow 11	top 2F Calibri 20	52	52	104	-2	14-39	46
+Aptos Narrow 11	center F Calibri 20	26	26	52	-2	14-39	46
+Aptos Narrow 11	center F+10 Calibri 20	36	36	72	-2	24-49	56
+Aptos Narrow 11	center 2F Calibri 20	52	52	104	-2	40-65	72
+Aptos Narrow 11	bottom F Calibri 20	26	26	52	-2	14-39	46
+Aptos Narrow 11	bottom F+10 Calibri 20	36	36	72	-2	34-59	66
+Aptos Narrow 11	bottom 2F Calibri 20	52	52	104	-2	66-91	98
+Aptos Narrow 11	wrapped 2 Calibri 20		54	108	-2	18-43 70-95	50 102
+Aptos Narrow 11	wrapped 3 Calibri 20		81	162	-2	20-45 72-97 124-149	52 104 156
+Aptos Narrow 11	natural Calibri 24		31	62	-2	17-47	56
+Aptos Narrow 11	top F Calibri 24	31	31	62	-2	17-47	56
+Aptos Narrow 11	top F+10 Calibri 24	41	41	82	-2	17-47	56
+Aptos Narrow 11	top 2F Calibri 24	62	62	124	-2	17-47	56
+Aptos Narrow 11	center F Calibri 24	31	31	62	-2	17-47	56
+Aptos Narrow 11	center F+10 Calibri 24	41	41	82	-2	27-57	66
+Aptos Narrow 11	center 2F Calibri 24	62	62	122	0	47-77	86
+Aptos Narrow 11	bottom F Calibri 24	31	31	62	-2	17-47	56
+Aptos Narrow 11	bottom F+10 Calibri 24	41	41	82	-2	37-67	76
+Aptos Narrow 11	bottom 2F Calibri 24	62	62	124	-2	79-109	118
+Aptos Narrow 11	wrapped 2 Calibri 24		64	128	-2	21-51 83-113	60 122
+Aptos Narrow 11	wrapped 3 Calibri 24		96	192	-2	23-53 85-115 147-177	62 124 186
 Aptos Narrow 11	natural Aptos Narrow 9		15	30	-2	10-21	24
 Aptos Narrow 11	top F Aptos Narrow 9	13	13	26	-2	6-17	20
 Aptos Narrow 11	top F+10 Aptos Narrow 9	23	23	46	-2	6-17	20
@@ -251,7 +359,7 @@ Aptos Narrow 11	center F Aptos Narrow 9	13	13	26	-2	6-17	20
 Aptos Narrow 11	center F+10 Aptos Narrow 9	23	23	46	-2	16-27	30
 Aptos Narrow 11	center 2F Aptos Narrow 9	26	26	52	-2	18-29	32
 Aptos Narrow 11	bottom F Aptos Narrow 9	13	13	26	-2	6-17	20
-Aptos Narrow 11	bottom F+10 Aptos Narrow 9	23	23	44	0	26-37	40
+Aptos Narrow 11	bottom F+10 Aptos Narrow 9	23	23	46	-2	26-37	40
 Aptos Narrow 11	bottom 2F Aptos Narrow 9	26	26	52	-2	32-43	46
 Aptos Narrow 11	wrapped 2 Aptos Narrow 9		28	56	-2	10-21 36-47	24 50
 Aptos Narrow 11	wrapped 3 Aptos Narrow 9		42	84	-2	12-23 38-49 64-75	26 52 78
@@ -274,7 +382,7 @@ Aptos Narrow 11	top 2F Aptos Narrow 11	30	30	60	-2	7-21	25
 Aptos Narrow 11	center F Aptos Narrow 11	15	15	30	-2	7-21	25
 Aptos Narrow 11	center F+10 Aptos Narrow 11	25	25	50	-2	17-31	35
 Aptos Narrow 11	center 2F Aptos Narrow 11	30	30	60	-2	21-35	39
-Aptos Narrow 11	bottom F Aptos Narrow 11	15	15	30	-2	7-21	25
+Aptos Narrow 11	bottom F Aptos Narrow 11	15	15	28	0	7-21	25
 Aptos Narrow 11	bottom F+10 Aptos Narrow 11	25	25	50	-2	27-41	45
 Aptos Narrow 11	bottom 2F Aptos Narrow 11	30	30	60	-2	37-51	55
 Aptos Narrow 11	wrapped 2 Aptos Narrow 11		32	64	-2	11-25 41-55	29 59
@@ -292,7 +400,7 @@ Aptos Narrow 11	bottom 2F Aptos Narrow 12	32	32	64	-2	40-55	59
 Aptos Narrow 11	wrapped 2 Aptos Narrow 12		34	68	-2	12-27 44-59	31 63
 Aptos Narrow 11	wrapped 3 Aptos Narrow 12		51	102	-2	14-29 46-61 78-93	33 65 97
 Aptos Narrow 11	natural Aptos Narrow 14		19	38	-2	9-27	32
-Aptos Narrow 11	top F Aptos Narrow 14	19	19	36	0	9-27	32
+Aptos Narrow 11	top F Aptos Narrow 14	19	19	38	-2	9-27	32
 Aptos Narrow 11	top F+10 Aptos Narrow 14	29	29	58	-2	9-27	32
 Aptos Narrow 11	top 2F Aptos Narrow 14	38	38	76	-2	9-27	32
 Aptos Narrow 11	center F Aptos Narrow 14	19	19	38	-2	9-27	32
@@ -310,11 +418,47 @@ Aptos Narrow 11	top 2F Aptos Narrow 16	44	44	88	-2	11-31	37
 Aptos Narrow 11	center F Aptos Narrow 16	22	22	44	-2	11-31	37
 Aptos Narrow 11	center F+10 Aptos Narrow 16	32	32	64	-2	21-41	47
 Aptos Narrow 11	center 2F Aptos Narrow 16	44	44	88	-2	33-53	59
-Aptos Narrow 11	bottom F Aptos Narrow 16	22	22	44	-2	11-31	37
+Aptos Narrow 11	bottom F Aptos Narrow 16	22	22	42	0	11-31	37
 Aptos Narrow 11	bottom F+10 Aptos Narrow 16	32	32	64	-2	31-51	57
 Aptos Narrow 11	bottom 2F Aptos Narrow 16	44	44	88	-2	55-75	81
 Aptos Narrow 11	wrapped 2 Aptos Narrow 16		46	92	-2	15-35 59-79	41 85
 Aptos Narrow 11	wrapped 3 Aptos Narrow 16		69	138	-2	17-37 61-81 105-125	43 87 131
+Aptos Narrow 11	natural Aptos Narrow 18		24	48	-2	12-35	42
+Aptos Narrow 11	top F Aptos Narrow 18	24	24	48	-2	12-35	42
+Aptos Narrow 11	top F+10 Aptos Narrow 18	34	34	68	-2	12-35	42
+Aptos Narrow 11	top 2F Aptos Narrow 18	48	48	96	-2	12-35	42
+Aptos Narrow 11	center F Aptos Narrow 18	24	24	48	-2	12-35	42
+Aptos Narrow 11	center F+10 Aptos Narrow 18	34	34	68	-2	22-45	52
+Aptos Narrow 11	center 2F Aptos Narrow 18	48	48	96	-2	36-59	66
+Aptos Narrow 11	bottom F Aptos Narrow 18	24	24	48	-2	12-35	42
+Aptos Narrow 11	bottom F+10 Aptos Narrow 18	34	34	68	-2	32-55	62
+Aptos Narrow 11	bottom 2F Aptos Narrow 18	48	48	96	-2	60-83	90
+Aptos Narrow 11	wrapped 2 Aptos Narrow 18		50	100	-2	16-39 64-87	46 94
+Aptos Narrow 11	wrapped 3 Aptos Narrow 18		75	150	-2	18-41 66-89 114-137	48 96 144
+Aptos Narrow 11	natural Aptos Narrow 20		27	54	-2	13-39	46
+Aptos Narrow 11	top F Aptos Narrow 20	27	27	54	-2	13-39	46
+Aptos Narrow 11	top F+10 Aptos Narrow 20	37	37	74	-2	13-39	46
+Aptos Narrow 11	top 2F Aptos Narrow 20	54	54	108	-2	13-39	46
+Aptos Narrow 11	center F Aptos Narrow 20	27	27	54	-2	13-39	46
+Aptos Narrow 11	center F+10 Aptos Narrow 20	37	37	74	-2	23-49	56
+Aptos Narrow 11	center 2F Aptos Narrow 20	54	54	108	-2	39-65	72
+Aptos Narrow 11	bottom F Aptos Narrow 20	27	27	54	-2	13-39	46
+Aptos Narrow 11	bottom F+10 Aptos Narrow 20	37	37	74	-2	33-59	66
+Aptos Narrow 11	bottom 2F Aptos Narrow 20	54	54	108	-2	67-93	100
+Aptos Narrow 11	wrapped 2 Aptos Narrow 20		56	110	0	17-43 71-97	50 104
+Aptos Narrow 11	wrapped 3 Aptos Narrow 20		84	168	-2	19-45 73-99 127-153	52 106 160
+Aptos Narrow 11	natural Aptos Narrow 24		32	64	-2	16-47	56
+Aptos Narrow 11	top F Aptos Narrow 24	32	32	64	-2	16-47	56
+Aptos Narrow 11	top F+10 Aptos Narrow 24	42	42	84	-2	16-47	56
+Aptos Narrow 11	top 2F Aptos Narrow 24	64	64	128	-2	16-47	56
+Aptos Narrow 11	center F Aptos Narrow 24	32	32	64	-2	16-47	56
+Aptos Narrow 11	center F+10 Aptos Narrow 24	42	42	84	-2	26-57	66
+Aptos Narrow 11	center 2F Aptos Narrow 24	64	64	128	-2	48-79	88
+Aptos Narrow 11	bottom F Aptos Narrow 24	32	32	64	-2	16-47	56
+Aptos Narrow 11	bottom F+10 Aptos Narrow 24	42	42	84	-2	36-67	76
+Aptos Narrow 11	bottom 2F Aptos Narrow 24	64	64	128	-2	80-111	120
+Aptos Narrow 11	wrapped 2 Aptos Narrow 24		66	132	-2	20-51 84-115	60 124
+Aptos Narrow 11	wrapped 3 Aptos Narrow 24		99	198	-2	22-53 86-117 150-181	62 126 190
 Aptos Narrow 11	natural Calibri 11 bold		15	30	-2	8-21	25
 Aptos Narrow 11	bottom F+10 Calibri 11 bold	25	25	50	-2	28-41	45
 Aptos Narrow 11	natural Calibri 11 italic		15	30	-2	8-21	25
@@ -327,9 +471,9 @@ Aptos Narrow 11	natural Calibri 16 italic		21	42	-2	11-31	37
 Aptos Narrow 11	bottom F+10 Calibri 16 italic	31	31	62	-2	31-51	57
 Aptos Narrow 11	natural Calibri 16 bold italic		21	42	-2	11-31	37
 Aptos Narrow 11	bottom F+10 Calibri 16 bold italic	31	31	62	-2	31-51	57
-Aptos Narrow 11	natural Aptos Narrow 11 bold		15	28	0	7-21	25
+Aptos Narrow 11	natural Aptos Narrow 11 bold		15	30	-2	7-21	25
 Aptos Narrow 11	bottom F+10 Aptos Narrow 11 bold	25	25	50	-2	27-41	45
-Aptos Narrow 11	natural Aptos Narrow 11 italic		15	30	-2	7-21	25
+Aptos Narrow 11	natural Aptos Narrow 11 italic		15	28	0	7-21	25
 Aptos Narrow 11	bottom F+10 Aptos Narrow 11 italic	25	25	50	-2	27-41	45
 Aptos Narrow 11	natural Aptos Narrow 11 bold italic		15	30	-2	7-21	25
 Aptos Narrow 11	bottom F+10 Aptos Narrow 11 bold italic	25	25	50	-2	27-41	45

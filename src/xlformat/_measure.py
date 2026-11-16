@@ -413,14 +413,44 @@ def file_column_metrics(
 # family (lower case) -> size -> the face's font height in points: the height Excel gives a row in
 # that font, the same for every style
 _FONT_HEIGHT: dict[str, dict[int, float]] = {
-    "calibri": {9: 12.0, 10: 14.0, 11: 15.0, 12: 16.0, 14: 19.0, 16: 21.0},
-    "aptos narrow": {9: 13.0, 10: 14.0, 11: 15.0, 12: 16.0, 14: 19.0, 16: 22.0},
+    "calibri": {
+        9: 12.0,
+        10: 14.0,
+        11: 15.0,
+        12: 16.0,
+        14: 19.0,
+        16: 21.0,
+        18: 24.0,
+        20: 26.0,
+        24: 31.0,
+    },
+    "aptos narrow": {
+        9: 13.0,
+        10: 14.0,
+        11: 15.0,
+        12: 16.0,
+        14: 19.0,
+        16: 22.0,
+        18: 24.0,
+        20: 27.0,
+        24: 32.0,
+    },
 }
 # family (lower case) -> size -> points of the Normal font's line that wrapped text in a smaller
 # face does not fill: k wrapped lines in face f add max(0, inset(normal) - inset(f))
 _LINE_INSET: dict[str, dict[int, float]] = {
-    "calibri": {9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 14: 2.0, 16: 2.0},
-    "aptos narrow": {9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 14: 2.0, 16: 3.0},
+    "calibri": {9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 14: 2.0, 16: 2.0, 18: 3.0, 20: 3.0, 24: 4.0},
+    "aptos narrow": {
+        9: 1.0,
+        10: 1.0,
+        11: 1.0,
+        12: 1.0,
+        14: 2.0,
+        16: 3.0,
+        18: 3.0,
+        20: 4.0,
+        24: 5.0,
+    },
 }
 
 
@@ -467,8 +497,8 @@ def row_metrics(
     takes ``lines * (height + 1)`` points of that face, plus, when the Normal font or another
     cell's font in the row has a larger line inset, the difference of the insets (CAPTURING.md
     section 2 item 44). Bold and italic change nothing. Measured: Calibri and Aptos Narrow at 9,
-    10, 11, 12, 14 and 16 points; the row model raises ``LookupError`` for any other face rather
-    than scaling one.
+    10, 11, 12, 14, 16, 18, 20 and 24 points; the row model raises ``LookupError`` for any other
+    face rather than scaling one.
 
     Several cells with wrapped text in one row are each computed this way and the row takes the
     tallest; that combination has not been captured.
@@ -505,19 +535,29 @@ def row_metrics(
 
 # family (lower case) -> size -> points between a bottom-aligned baseline and the row's bottom
 _BASELINE_FROM_BOTTOM: dict[str, dict[int, float]] = {
-    "calibri": {9: 4.0, 10: 4.0, 11: 4.0, 12: 4.0, 14: 5.0, 16: 5.0},
-    "aptos narrow": {9: 4.0, 10: 4.0, 11: 4.0, 12: 4.0, 14: 5.0, 16: 6.0},
+    "calibri": {9: 4.0, 10: 4.0, 11: 4.0, 12: 4.0, 14: 5.0, 16: 5.0, 18: 6.0, 20: 6.0, 24: 7.0},
+    "aptos narrow": {
+        9: 4.0,
+        10: 4.0,
+        11: 4.0,
+        12: 4.0,
+        14: 5.0,
+        16: 6.0,
+        18: 6.0,
+        20: 7.0,
+        24: 8.0,
+    },
 }
 # family (lower case) -> size -> (cap height, descender): the ink of "H" above the baseline and of
 # "g" below it, as Excel draws them at zoom 100 on a 2x display (half points)
 _INK: dict[str, dict[int, tuple[float, float]]] = {
     "calibri": {
         9: (6.0, 1.5), 10: (6.5, 2.0), 11: (7.0, 2.0), 12: (8.0, 2.0), 14: (9.0, 2.5),
-        16: (10.5, 3.0),
+        16: (10.5, 3.0), 18: (11.5, 3.0), 20: (13.0, 3.5), 24: (15.5, 4.5),
     },
     "aptos narrow": {
         9: (6.0, 1.5), 10: (6.5, 2.0), 11: (7.5, 2.0), 12: (8.0, 2.0), 14: (9.5, 2.5),
-        16: (10.5, 3.0),
+        16: (10.5, 3.0), 18: (12.0, 3.5), 20: (13.5, 3.5), 24: (16.0, 4.5),
     },
 }  # fmt: skip
 
@@ -563,8 +603,8 @@ def vertical_metrics(font: FontSpec | None = None) -> VerticalMetrics:
 
     Bold and italic place as the regular face does, and the workbook's Normal font moves nothing,
     except for wrapped text in a face with a smaller ``line_inset`` (see
-    :class:`VerticalMetrics`). Measured: Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16
-    points; any other face raises ``LookupError``.
+    :class:`VerticalMetrics`). Measured: Calibri and Aptos Narrow at 9, 10, 11, 12, 14, 16, 18,
+    20 and 24 points; any other face raises ``LookupError``.
 
     Raises:
         LookupError: A font or size not measured.

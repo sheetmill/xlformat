@@ -78,9 +78,9 @@ before Excel was asked, and every prediction matched.
 
 Four further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
 from Excel's PDF export) holds where Excel places each value, `repair.layout.tsv` (248 rows)
-what Excel's repair does to formats it refuses, and `row_height.layout.tsv` (7,488 rows) the
+what Excel's repair does to formats it refuses, and `row_height.layout.tsv` (15,984 rows) the
 height Excel gives each row for its Normal font, its cell fonts and its wrapped lines, and
-`vertical.layout.tsv` (336 rows, measured in window captures) where the text sits in the row. In all, 226 suite files (154 with rows, the
+`vertical.layout.tsv` (480 rows, measured in window captures) where the text sits in the row. In all, 226 suite files (154 with rows, the
 others autofit measurements) hold 724,574 rows. Every row passes. Fifteen color readings are
 skipped because Excel's scripting interface reports automatic black where the sheet, checked by
 eye, shows the section color, and width-less rows of a Buddhist-year code are compared with the

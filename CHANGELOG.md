@@ -13,13 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   nearest of them instead of from 16 points.
 - `vertical_metrics(font=None)` and `VerticalMetrics`: where Excel draws a face's text in a
   cell (the baseline from the top and from the bottom, the line pitch, the cap height and the
-  descender), for Calibri and Aptos Narrow at 9 to 16 points (captured from Excel's screen).
+  descender), for Calibri and Aptos Narrow at nine sizes from 9 to 24 points (captured from
+  Excel's screen).
 - `show_zeros=False` on `format_value`, `format_cell` and the `NumberFormat` methods, for a
   sheet that hides zeros (`showZeros="0"`): a number equal to 0 shows nothing under a format
   without a zero section, as Excel shows it (captured from Excel).
 - `row_metrics(normal_font=None, *, cell_fonts=(), wrapped=())` and `RowMetrics`: the height
   Excel gives a row without a stored height, from its Normal font, its cells' fonts and its
-  wrapped lines, for Calibri and Aptos Narrow at 9 to 16 points (captured from Excel).
+  wrapped lines, for Calibri and Aptos Narrow at nine sizes from 9 to 24 points (captured from
+  Excel).
 
 ### Changed
 - A column's padding grows with the Normal font's digit width: 5 points up to a digit width

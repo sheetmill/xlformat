@@ -53,7 +53,7 @@ def _rows() -> list[list[str]]:
 
 def test_every_captured_placement() -> None:
     rows = _rows()
-    assert len(rows) == 336
+    assert len(rows) == 480
     misses = []
     for normal_label, tag, _, height, _, _, h_ink, g_ink in rows:
         normal = vertical_metrics(_font(normal_label))
@@ -88,7 +88,7 @@ def test_fields() -> None:
 
 
 def test_unmeasured_faces() -> None:
-    with pytest.raises(LookupError, match="no row heights for Calibri 18"):
-        vertical_metrics(("Calibri", 18))
+    with pytest.raises(LookupError, match="no row heights for Calibri 22"):
+        vertical_metrics(("Calibri", 22))
     with pytest.raises(LookupError):
         vertical_metrics("Arial")

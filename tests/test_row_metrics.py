@@ -1,6 +1,6 @@
 """``row_metrics`` against ``tests/captures/row_height.layout.tsv`` (CAPTURING.md §2 item 44).
 
-The capture holds, per Normal font (both families, six sizes, four styles), the height Excel
+The capture holds, per Normal font (both families, nine sizes, four styles), the height Excel
 gave each row of a workbook: a row in the Normal font, a row without an element, the sheet's
 standard height, a number in each measured cell font, styled empty cells, two fonts in one row,
 and one to six wrapped lines in the Normal font and in each regular cell font. Each row's tag
@@ -56,7 +56,7 @@ def test_every_captured_row_height() -> None:
     per_font: dict[str, list[str]] = {}
     for normal, _, tag, _ in rows:
         per_font.setdefault(normal, []).append(tag)
-    assert len(per_font) == 48
+    assert len(per_font) == 72  # two families, nine sizes, four styles
     assert len({tuple(tags) for tags in per_font.values()}) == 1  # the same rows in every workbook
     misses = [
         (normal, tag, height, got)
@@ -75,8 +75,8 @@ def test_font_and_line_height() -> None:
 def test_unmeasured_faces_and_bad_lines() -> None:
     with pytest.raises(LookupError, match="no row heights for Calibri 13"):
         row_metrics(("Calibri", 13))
-    with pytest.raises(LookupError, match="no row heights for Calibri 18"):
-        row_metrics(cell_fonts=[("Calibri", 18)])
+    with pytest.raises(LookupError, match="no row heights for Calibri 22"):
+        row_metrics(cell_fonts=[("Calibri", 22)])
     with pytest.raises(LookupError):
         row_metrics("Arial")
     with pytest.raises(ValueError, match="at least one line"):

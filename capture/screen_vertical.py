@@ -258,8 +258,9 @@ def run_normal(normal: CellFont) -> None:
 
 
 def _magenta_column(image: Image) -> int:
-    """An x inside column A's magenta, from the middle of the image down."""
-    for y in range(image.height // 3, image.height):
+    """An x inside column A's marker fill, searched from the image's top (the last view of a
+    sheet holds only a few rows, near the top)."""
+    for y in range(image.height):
         for x in range(image.width // 2):
             if is_magenta(image.rgb(x, y)) and is_magenta(image.rgb(x + 4, y)):
                 return x + 2
