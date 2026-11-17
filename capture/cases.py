@@ -2939,6 +2939,67 @@ def line_breaks_aptos_narrow() -> Suite:
 
 
 SUITES["line_breaks"] = line_breaks
+
+
+# Column-width edges: a column without <col> under other base widths and sizes, file widths
+# written to four decimals on either side of a 1/256 step, and fills past 255 characters.
+_DEFAULT_BASES: tuple[int, ...] = (6, 10, 12)
+_DEFAULT_SIZES: tuple[int, ...] = (9, 11, 14, 16, 18, 24)
+
+
+def _column_default(base: int, size: int) -> Suite:
+    name = f"column_default_base{base}_{size}"
+    return _column_file(name, size, sheet_format=(("baseColWidth", base),), widths=_DEFAULT_WIDTHS)
+
+
+def _boundary_widths() -> tuple[float | None, ...]:
+    """Widths whose four-decimal text lies just below or just above a 1/256 step, so that
+    truncating and rounding to 1/256 differ, and the steps themselves as controls."""
+    below: list[float] = []
+    above: list[float] = []
+    exact: list[float] = []
+    for k in range(260, 256 * 40, 37):
+        w = round(k / 256, 4)
+        if w * 256 < k - 1e-9 and len(below) < 50:
+            below.append(w)
+        elif w * 256 > k + 1e-9 and len(above) < 50:
+            above.append(w)
+        elif len(exact) < 20:
+            exact.append(k / 256)
+    return tuple(sorted(below + above + exact))
+
+
+def _column_boundary(size: int) -> Suite:
+    name = f"column_boundary{size}"
+    return _column_file(name, size, widths=_boundary_widths())
+
+
+_LONG_FILL_CASES: tuple[tuple[str, object, str], ...] = (
+    ("one-dash", 1, "0*-"),
+    ("one-space", 1, "* 0"),
+    ("text-dash", "abc", "@*-"),
+    ("dash-text", "abc", "*-@"),
+    ("one-period", 1, "0*."),
+    ("one-zero", 1, "0*0"),
+)
+
+
+def long_fills() -> Suite:
+    """Fills whose displayed text passes 255 characters as the column widens."""
+    cases = tuple(Case("long_fills", tag, value, fmt) for tag, value, fmt in _LONG_FILL_CASES)
+    return Suite("long_fills", cases, widths=(40, 60, 80, 100, 150, 200, 255), font_size=9)
+
+
+for _base in _DEFAULT_BASES:
+    for _size in _DEFAULT_SIZES:
+        if (_base, _size) in ((10, 11), (10, 14)):
+            continue  # column_default_base10_11 and _14 already hold these
+        SUITES[f"column_default_base{_base}_{_size}"] = lambda b=_base, s=_size: _column_default(
+            b, s
+        )
+for _size in (11, 16, 24):
+    SUITES[f"column_boundary{_size}"] = lambda s=_size: _column_boundary(s)
+SUITES["long_fills"] = long_fills
 SUITES["line_breaks_aptos_narrow"] = line_breaks_aptos_narrow
 
 
