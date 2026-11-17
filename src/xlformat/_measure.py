@@ -306,9 +306,10 @@ class ColumnMetrics:
         digit_width: The maximum digit width of the Normal font: one column unit, one indent
             level.
 
-    The insets are provisional: they come from Excel's print layout at Calibri 11 (a PDF
-    export) and wait for a screen capture. ``points - left_inset`` is how far a left-aligned
-    text may reach before it spills into the next column (50 of a 53-point column).
+    The insets are measured in Excel's print layout at Calibri 11 (a PDF export,
+    ``capture/alignment.py``); other sizes and the screen are not captured.
+    ``points - left_inset`` is how far a left-aligned text may reach before it spills into the
+    next column (50 of a 53-point column).
     """
 
     width: float

@@ -97,8 +97,8 @@ which is 56 points. `file_column_metrics` takes `base_col_width` and `default_co
 there). `column_metrics` gives the same record for a dialog width. `budget` is what a number
 may take, 0 in a column under 5 points; a column of no width has a `width` of 0, which
 `column_width` refuses with `ValueError`. `left_inset` and `right_inset` are where left-aligned
-text starts and right-aligned text ends, provisional values from Excel's print layout until a
-screen capture confirms them.
+text starts and right-aligned text ends, as measured in Excel's print layout at Calibri 11; other
+sizes and the screen are not captured.
 
 A merged cell formats as one column of the sum of its columns' points, with a single padding, and
 a hidden column counts as 0. `column_metrics_from_points` makes that column:

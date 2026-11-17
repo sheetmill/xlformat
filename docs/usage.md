@@ -70,7 +70,7 @@ are defined in the file and raise `ValueError`. What some ids show depends on th
 Excel for Mac follows a custom short date set in macOS for ids 14 and 22 (a year-first setting
 shows `2024-01-01`) and pads the day of 15 and 16 to match, while the region alone changes
 nothing on the Mac. For Excel on Windows, Microsoft's [Format numbers as dates or
-times](https://support.microsoft.com/en-us/office/format-numbers-as-dates-or-times-418bd3fe-0577-47c8-8caa-b4d30c528309) says that "Date and time formats that begin with an asterisk (\*) respond to
+times](https://support.microsoft.com/en-us/excel/format-numbers-as-dates-or-times) says that "Date and time formats that begin with an asterisk (\*) respond to
 changes in regional date and time settings that are specified in Control Panel." The table is the
 en-US one.
 

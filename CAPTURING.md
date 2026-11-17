@@ -473,8 +473,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     character each leave room that character mode does not have (`( 0 )` for -1.5E-07 at width
     5) are skipped as glyph slack.
 
-28. **The column model (2026-10-28; suites `column_file9` to `column_file16`, 138 widths
-    written into the file as `<col width>` by openpyxl, 19 cases each, at the six measured
+28. **The column model (2026-10-28; suites `column_file9` to `column_file16`, 137 widths
+    written into the file as `<col width>` by openpyxl and a column without one, 19 cases each, at the six measured
     sizes; `column_default_base10_11`, `column_default_base10_14`, `column_default_dcw12_11`,
     `column_default_dcw843_14`, a column without `<col>` under those `<sheetFormatPr>`
     settings; `column_narrow11`, `column_narrow14`, dialog widths below one unit set by the
@@ -565,7 +565,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
 31. **Default alignment (2026-10-28; `capture/alignment.py`, `tests/captures/alignment.layout.tsv`,
     196 rows).** Neither `horizontal alignment` (which reports `general`) nor `string value`
     says where Excel puts a value, so this uses Excel's PDF export, the method of sheetpeek's
-    layout capture: one case per row in a column 40 file units wide (240 points at Calibri 11),
+    [`capture/layout.py`](https://github.com/sheetmill/sheetpeek/blob/main/capture/layout.py): one case per row in a column 40 file units wide (240 points at Calibri 11),
     gridlines printed, 100 % scale, so a PDF point is a sheet point; pdfminer.six (the
     `capture` dependency group, never a package dependency) gives each row's characters, and
     the run's place between the gridlines gives the alignment: left when it starts within 6
@@ -742,8 +742,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     the autofit of ten of them is 101 points. Decisions do not use that tenth: in a 111-point column
     (budget 106) ten `W` and a digit show, where 101 + 6 would overflow, and `*W0` holds ten `W`,
     not nine. Every row matches the sum of the floored advances; only autofit keeps the tenth. Excel
-    draws them whole as well, 10 points apart in a PDF export at Calibri 11 (sheetpeek's layout
-    capture). Character mode skips these suites: the glyphs are wider than digits.
+    draws them whole as well, 10 points apart in a PDF export at Calibri 11 (the `WWWWWWWWWWWW` rows of
+    sheetpeek's [`tests/captures/layout.tsv`](https://github.com/sheetmill/sheetpeek/blob/main/tests/captures/layout.tsv)). Character mode skips these suites: the glyphs are wider than digits.
 
 42. **A point and zeros after a date or time code (2026-11-03; `capture/elapsed_forms.py`, 74 forms
     one workbook each, 18 refused; suite `elapsed_decimals`, 59 forms under 13 values, width-less
@@ -808,7 +808,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
 
 44. **Row heights (2026-11-14; `capture/row_heights.py`, 48 workbooks, one per Normal font:
     Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16 points in four styles, 147 rows each,
-    7,056 heights and 48 standard heights in `row_height.layout.tsv`, 7,488 since (below); five minutes;
+    7,056 heights and 48 standard heights in `row_height.layout.tsv.gz`, 7,488 since (below); five minutes;
     Excel 16.115 under Microsoft 365, restarted first).** Excel fits each row when it opens the file.
     - **The font height** F of a face, the height of a row in that Normal font, does not depend on
       bold or italic: Calibri 9 to 16 give 12, 14, 15, 16, 19 and 21 points, Aptos Narrow 13, 14,

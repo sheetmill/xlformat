@@ -401,9 +401,9 @@ at Calibri 14 with no change to the model.
 `column_file<size>`, `column_default_*`, `column_narrow11`, `column_narrow14`, `limits`;
 `CAPTURING.md` §2 item 28). A file's `<col width>` of `w` is
 `trunc((256 · w' + trunc(128 / MDW)) / 256 · MDW)` points with `w' = trunc(256 · w) / 256`: the
-pixel formula of ECMA-376 Part 1 §18.3.1.13 with MDW in points, exact for 138 widths at each of
-the nine measured sizes but one (10.7109 at a digit width of 12 is 129 points, a known deviation in
-`QUIRKS.md`). A column without `<col>` is `defaultColWidth` as a file width when the
+pixel formula of ECMA-376 Part 1 §18.3.1.13 with MDW in points, exact for all 137 widths of each
+`column_file` suite at every one of the nine measured sizes, with one exception: 10.7109 at a digit
+width of 12 is 129 points, a known deviation in `QUIRKS.md`. A column without `<col>` is `defaultColWidth` as a file width when the
 sheet has one, else `baseColWidth · MDW + P` points (53 at Calibri 11, 8.0 in the dialog). The
 dialog shows `(points − P) / MDW`, below one unit `points / (MDW + P)`, to two decimals half up;
 `ColumnMetrics.width` is that number exact, so it round-trips through `column_width`. Below one
@@ -598,7 +598,7 @@ and 47 as `mmss.0`; Microsoft's [MS-OI29500] §2.1.712 says Excel defines 14 as 
 `m/d/yy` and 22 as `m/d/yy h:mm`; neither source says an id follows the system's settings, and the
 Mac follows a custom short date for 14 to 16 and 22. The ids whose display follows the viewer's
 system (a custom short date on the Mac; on Windows, the date and time formats Format Cells marks
-with an asterisk, which Microsoft's [Format numbers as dates or times](https://support.microsoft.com/en-us/office/format-numbers-as-dates-or-times-418bd3fe-0577-47c8-8caa-b4d30c528309) says "respond to
+with an asterisk, which Microsoft's [Format numbers as dates or times](https://support.microsoft.com/en-us/excel/format-numbers-as-dates-or-times) says "respond to
 changes in regional date and time settings") keep the en-US string; keyword-only arguments can choose the other
 forms later without changing a call.
 
@@ -701,7 +701,7 @@ src/xlformat/
   _errors.py       FormatError
   _error_values.py ExcelError
 tests/
-  captures/        TSV suites (see CAPTURING.md); *.measure.tsv autofit widths; *.layout.tsv
+  captures/        TSV suites (see CAPTURING.md); *.measure.tsv autofit widths; *.layout.tsv[.gz]
                    alignment, repair, row heights, vertical placement, built-in ids, palette
   test_*.py        unit tests per module, the capture suites, alignment, repair, doc examples
 capture/            generator, capture scripts (not part of the wheel)
@@ -770,8 +770,8 @@ row in every mode, so a change meant to keep the output can show that it did.
 - The clock arithmetic needed the double, not the 15-digit value, and two different paths for
   clock and elapsed fields (section 7). Excel rounds date-only formats to the second too, not to
   the nearest day; rounding them to the day breaks 4,116 rows.
-- The epoch constants were first typed by hand and were two days off; they are now derived
-  from `days_from_civil`, and a round-trip test guards them.
+- Epoch constants come from `days_from_civil`, not from typed numbers, and a round-trip test
+  guards them: a constant typed by hand is easily a day or two off.
 - **openpyxl writes floats with 16 significant digits** (`"%.16g"`), so the captures' constants
   denoted a neighboring double for about half of all floats, and three rules had been fitted
   to the wrong doubles: the 16-digit step of the tie rule, the fraction-first clock nesting and
@@ -818,8 +818,8 @@ row in every mode, so a change meant to keep the output can show that it did.
   `date1904` stays a keyword beside `quirks`, as a workbook property rather than a switchable quirk.
 - The 255-character limit is modeled from `string value` rows; the screen is not yet checked
   (`CAPTURING.md` §2 item 28).
-- `ColumnMetrics` carries the text edges (3 and 2 points) as provisional print-layout values
-  until a screen capture confirms them.
+- `ColumnMetrics` carries the text edges (3 and 2 points) as measured in Excel's print layout at
+  Calibri 11 (`capture/alignment.py`); other sizes and the screen are not captured.
 - The fraction rules ship with zero deviations (`QUIRKS.md`; `CAPTURING.md` §2 item 22).
 - Lower-case `e+` after digits is a `FormatError`, and `e` alone is a year code (`CAPTURING.md`
   §2 item 9).
