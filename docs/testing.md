@@ -63,6 +63,7 @@ before Excel was asked, and every prediction matched.
 | `width_general`, `width_general14`, `width_fill`, `text_overflow`, 72 `space_fill` suites | 18,186 | `General` reduction, fills, overflow, the space of every measured face |
 | `general_points9` to `24`, `general_points_aptos_narrow11`, `general_literals_points`, `general_zero_sign` | 74,662 | `General` at every whole-point column width, among literals, negatives that reduce to zero |
 | `column_file9` to `24`, `column_file_aptos_narrow11`, `18`, `20`, `24`, four `column_default_*`, `column_narrow11`, `column_narrow14`, `limits` | 35,546 | widths written into the file, columns without a width, columns below one unit, the 255-character limit |
+| 16 more `column_default_*` (base widths 6, 10 and 12 at 9 to 24 points), `column_boundary11`, `16`, `24`, `long_fills` | 8,098 | a column without `<col>` under other base widths; file widths on either side of a 1/256 step; fills past 255 characters |
 | `cell_font`, `general_cell_font`, `cell_font_numeric`, `cell_font_styles`, `general_cell_font_styles` | 133,914 | cells whose font differs from the Normal font, in size, style and family |
 | `general_exponent3`, `general_exponent_sweep`, `subnormal` | 68,838 | `General` with long exponents, and doubles below the smallest normal one |
 | `general_text_narrow`, `general_sign_narrow` | 4,026 | a number through `@` or `[Red]General` in narrow columns, and negatives with less than a character beside the sign |
@@ -83,8 +84,8 @@ what Excel's repair does to formats it refuses, and `row_height.layout.tsv.gz` (
 height Excel gives each row for its Normal font, its cell fonts and its wrapped lines, and
 `vertical.layout.tsv` (480 rows, measured in window captures) where the text sits in the row,
 `builtin_formats.layout.tsv` (164 rows) what each built-in number format id stands for, and
-`palette.layout.tsv` (128 rows, from window captures) the colors drawn under a workbook palette. In all, 228 suite files (156 with rows, the
-others autofit measurements) hold 725,870 rows. Every row passes. Fifteen color readings are
+`palette.layout.tsv` (128 rows, from window captures) the colors drawn under a workbook palette. In all, 248 suite files (176 with rows, the
+others autofit measurements) hold 733,968 rows. Every row passes. Fifteen color readings are
 skipped because Excel's scripting interface reports automatic black where the sheet, checked by
 eye, shows the section color, and width-less rows of a Buddhist-year code are compared with the
 plain year, which is what Excel's clipboard gives where the sheet shows the Buddhist year.

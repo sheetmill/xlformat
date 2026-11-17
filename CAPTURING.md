@@ -981,6 +981,16 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     - The capture runner read osascript's output in Python's text mode, which turns CR and CR LF
       into LF. It now decodes the bytes itself. `text_overflow`, recaptured as a control,
       came back with every row unchanged.
+52. **Column-width edges (2026-11-17; 20 suites, 8,098 rows: `column_default_base6_*`,
+    `base10_*` and `base12_*` at 9, 11, 14, 16, 18 and 24 points where not captured before, a column
+    without `<col>` under that `baseColWidth` beside file widths 8, 8.43 and 10; `column_boundary11`,
+    `16` and `24`, 120 file widths each, 50 written to four decimals just below a 1/256 step, 50 just
+    above and 20 on a step; `long_fills`, six fills at widths 40 to 255 in a Calibri 9 workbook;
+    Excel 16.115 under Microsoft 365).** Every row matches the model as it stands: a column without
+    `<col>` is `baseColWidth · MDW + P` points at every base width and size; a file width is
+    truncated to 1/256 before ECMA-376's formula on both sides of a step (the one width that is not,
+    10.7109 at a digit width of 12, stays a known deviation); a fill whose text would pass 255
+    characters shows a `#` run.
 
 ## 3. The pipeline
 
