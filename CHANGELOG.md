@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-16
+
 ### Added
 - `section_rgb(color, palette=None)`: the `RRGGBB` Excel draws a section color in under a
   workbook's own palette: `[ColorN]` takes the palette's entry N + 7, while the eight color names
@@ -203,7 +205,8 @@ First release.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.4.0
 [0.3.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.3.0
 [0.2.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.2.0
 [0.1.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.1.0
