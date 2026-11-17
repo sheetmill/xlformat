@@ -54,7 +54,7 @@ def test_italic_overhang() -> None:
 
 
 def test_column_budget_uses_the_size_digit_width() -> None:
-    # points = MDW * w + 5 at every size (space_fill and width_general14 headers)
+    # points = MDW * w + column_padding(MDW), 5 up to 16 points (space_fill, width_general14)
     assert column_budget(6, ("Calibri", 9)) == 30
     assert column_budget(6, ("Calibri", 14)) == 42
     assert column_budget(20, ("Calibri", 16)) == 160
@@ -180,7 +180,7 @@ def test_column_metrics_round_trip_and_narrow_columns() -> None:
     from xlformat import column_metrics, file_column_metrics
 
     assert column_metrics(8.43).points == 56
-    assert column_metrics(0.09).points == 1  # below one unit: round(w * (MDW + 5))
+    assert column_metrics(0.09).points == 1  # below one unit: round(w * (MDW + padding))
     for w in (0.5, 1.75, 8.43, 13, 255):
         m = file_column_metrics(w, normal_font=("Calibri", 14))
         assert column_metrics(m.width, normal_font=("Calibri", 14)).points == m.points

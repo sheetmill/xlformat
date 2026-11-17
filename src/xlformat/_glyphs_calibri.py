@@ -2,8 +2,9 @@
 
 Written by ``capture/glyph_fit.py`` from ``tests/captures/measure*.measure.tsv``.
 Styles: regular, bold, italic, bold italic. Sizes: 9, 10, 11, 12, 14, 16, 18, 20, 24.
-Each advance is the autofit width of the glyph's run, less the autofit padding (7
-points, more for italic faces); the space comes from the matching ``space_fill`` suites.
+Each advance is the autofit width of the glyph's run, less the autofit padding (the
+column's padding plus 2: 7 points up to a digit width of 8, 9 from 9 to 12; more for
+italic faces); the space comes from the matching ``space_fill`` suites.
 Advances are hinted per size, so the tables differ beyond scale. The overhang table
 (``CALIBRI_OVERHANG``) holds how far an italic face reaches past its advances on each
 side, which a cell's budget loses. Do not edit by hand.

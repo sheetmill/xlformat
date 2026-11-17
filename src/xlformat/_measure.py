@@ -3,10 +3,11 @@
 Character mode measures a text by its length and the budget is the width in characters. Excel
 mode measures a text as the floored sum of glyph advances in points at the cell's font size and
 the budget is the column's text area in points: Excel for Mac stores a column of ``w`` units as
-``round(MDW * w + 5)`` points, MDW being the maximum digit width of the Normal font (5 points for
-Calibri 9 and 10, 6 for 11 and 12, 7 for 14, 8 for 16), and compares text against those points
-less the 5 of padding. Both modes feed
-the same seam in ``_assemble``: fit when ``measure(text) <= budget``, ``#`` and ``*`` counts by
+``round(MDW * w + P)`` points, MDW being the maximum digit width of the Normal font (5 points at 9
+and 10, 6 at 11 and 12, 7 at 14, 8 at 16, 9 at 18, 10 at 20 and 12 at 24, in Calibri and Aptos
+Narrow alike) and ``P`` the padding of :func:`column_padding` (5 points up to a digit width of 8,
+7 from 9 to 12), and compares text against those points less the padding. Both modes feed the
+same seam in ``_assemble``: fit when ``measure(text) <= budget``, ``#`` and ``*`` counts by
 dividing the budget by the glyph's measure (CAPTURING.md section 2 items 24 and 25).
 """
 
@@ -53,7 +54,7 @@ FontSpec = str | tuple[str, float] | Font
 """A font name, a name and a point size, or a :class:`Font`; the name alone means 11 points."""
 
 DEFAULT_FONT = Font("Calibri", 11)
-"""openpyxl's default workbook font; sheetpeek passes the workbook's Normal style."""
+"""openpyxl's default workbook font; a reader of a workbook passes its Normal style instead."""
 
 # family (lower case) -> (display name, style -> size -> advances in points)
 _FONTS: dict[str, tuple[str, dict[str, dict[int, dict[str, float]]]]] = {
@@ -77,8 +78,8 @@ def column_padding(mdw: float) -> float:
     return 2.0 * math.ceil(mdw / 4) + 1.0
 
 
-_LEFT_INSET = 3.0  # where left-aligned text starts (sheetpeek's PDF capture; provisional)
-_RIGHT_INSET = 2.0  # where right-aligned text ends, from the right gridline (provisional)
+_LEFT_INSET = 3.0  # where left-aligned text starts (capture/alignment.py, PDF export)
+_RIGHT_INSET = 2.0  # where right-aligned text ends, from the right gridline (same capture)
 MAX_TEXT = 255  # Excel shows at most 255 characters: a longer filled text is a '#' run
 
 
@@ -189,7 +190,7 @@ def glyph_measure(font: FontSpec | None = None) -> Measure:
 
     A line feed and a tab measure as a space, a carriage return as nothing; other glyphs outside
     the table measure as a digit (the maximum digit width), which is what a column width unit
-    is; the documentation says so.
+    is; ``text_width`` and the ``font`` argument of ``format_value`` state it.
     """
     adv = _table(font)
     digit = adv["0"]
@@ -396,9 +397,10 @@ def file_column_metrics(
     """The column a file describes: ``<col width>``, or ``None`` for a column without one.
 
     A column without ``<col>`` takes ``<sheetFormatPr defaultColWidth>`` as a file width, and
-    without that ``baseColWidth`` characters plus the padding: ``baseColWidth * MDW + 5``
-    points, 53 at Calibri 11 for the ``baseColWidth="8"`` openpyxl writes, which the dialog
-    shows as 8 (not 8.43). ``normal_font`` is the workbook's Normal font (CAPTURING.md section
+    without that ``baseColWidth`` characters plus the padding: ``baseColWidth * MDW + P``
+    points, ``P`` being ``2 * ceil(MDW / 4) + 1`` (5 up to a digit width of 8, 7 from 9 to 12);
+    53 at Calibri 11 for the ``baseColWidth="8"`` openpyxl writes, which the dialog shows as 8
+    (not 8.43). ``normal_font`` is the workbook's Normal font (CAPTURING.md section
     2 item 28); ``font`` is its deprecated name, removed in 1.0, and passing both raises
     ``ValueError``.
     """

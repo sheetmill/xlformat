@@ -5,14 +5,14 @@
     uv run --group capture python -m capture.vertical_pdf read    # read saved exports again
 
 One workbook per Normal font (Calibri 11, Aptos Narrow 11), one case per row in a wide column,
-gridlines printed at 100 % scale, so one PDF point is one sheet point. Each case is the text
-"Hxg" in one face: the 12 regular faces (Calibri and Aptos Narrow at 9, 10, 11, 12, 14 and 16
-points) aligned top, center and bottom in rows of a stated height (the face's font height F,
-F + 10 and 2F); each face in a row Excel fits itself; two and three wrapped lines; and the four
-styles at 11 and 16 points. pdfminer.six gives every character's baseline (the text origin, not
-the font's box) and each row's gridlines; the probe writes, per row, the printed row's top and
-height and each line's baseline below the top, in points, to
-``capture/build/probes/vertical_pdf.tsv``. No clipboard; alerts are off while Excel exports.
+gridlines printed at 100 % scale, so one PDF point is one sheet point. Each case is the text "Hxg"
+in one face: the 18 regular faces (Calibri and Aptos Narrow at the nine measured sizes, ``SIZES``,
+9 to 24 points) aligned top, center and bottom in rows of a stated height (the face's font height
+F, F + 10 and 2F); each face in a row Excel fits itself; two and three wrapped lines; and the four
+styles at 11 and 16 points. pdfminer.six gives every character's baseline (the text origin, not the
+font's box) and each row's gridlines; the probe writes, per row, the printed row's top and height
+and each line's baseline below the top, in points, to ``capture/build/probes/vertical_pdf.tsv``. No
+clipboard; alerts are off while Excel exports.
 """
 
 from __future__ import annotations

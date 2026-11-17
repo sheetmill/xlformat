@@ -109,9 +109,12 @@ def builtin_format(number_format_id: int) -> str:
     The table is Excel for Mac's in en-US (CAPTURING.md section 2 item 49). What a cell shows under
     some ids depends on the viewer's system: Excel for Mac follows a custom short-date format set in
     macOS for ids 14 and 22, and pads the day of 15 and 16 to match, while the region alone changes
-    nothing on the Mac; Excel for Windows is documented to follow the system's date, time and
-    currency settings for ids 5 to 8, 14 to 22 and 37 to 44. Later keyword-only arguments may
-    choose those forms; this call keeps returning the en-US table's string.
+    nothing on the Mac. For Excel on Windows, Microsoft's "Format numbers as dates or times"
+    says that "Date and time formats that begin with an asterisk (*) respond to changes in
+    regional date and time settings that are specified in Control Panel"
+    (https://support.microsoft.com/en-us/office/format-numbers-as-dates-or-times-418bd3fe-0577-47c8-8caa-b4d30c528309).
+    Later keyword-only arguments may choose those forms; this call keeps returning the en-US
+    table's string.
 
     Raises:
         ValueError: ``number_format_id`` is negative or a custom id (164 or more), whose string the

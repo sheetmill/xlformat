@@ -119,10 +119,11 @@ a hidden column counts as 0. `column_metrics_from_points` makes that column:
 
 How Excel measures, as reproduced here:
 
-- A column `w` units wide is `round(MDW · w + 5)` points, MDW being the width of a digit in the
-  Normal font: 5 points for Calibri 9 and 10, 6 for 11 and 12, 7 for 14, 8 for 16. Five of those
-  points are padding; the text gets `MDW · w`. Below one unit a column is `round(w · (MDW + 5))`
-  points.
+- A column `w` units wide is `round(MDW · w + P)` points, MDW being the width of a digit in the
+  Normal font: 5 points at 9 and 10, 6 at 11 and 12, 7 at 14, 8 at 16, 9 at 18, 10 at 20 and 12
+  at 24, in Calibri and Aptos Narrow alike. `P` is the padding, `2 · ceil(MDW / 4) + 1`: 5 points
+  up to a digit width of 8, 7 from 9 to 12. The text gets `MDW · w`. Below one unit a column is
+  `round(w · (MDW + P))` points.
 - A `<col width>` of `w` is `trunc((256 · w + trunc(128 / MDW)) / 256 · MDW)` points, the formula
   of ECMA-376 with the digit width in points and `w` first truncated to 1/256.
 - A text measures the sum of its glyph advances, rounded down. Advances are hinted per size, so

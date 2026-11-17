@@ -357,16 +357,20 @@ bare `General` (`-0.05` at width 3 shows `-0`). `FormattedCell.fill` reports the
 
 **Excel mode** (`_measure.py`, `_glyphs_calibri.py`; suites `measure11`,
 `measure12` and the width suites; `CAPTURING.md` §2 items 24 and 25). Excel for Mac works in whole
-points. A column of `w` units is `round(MDW · w + 5)` points, MDW being the maximum digit width of
-the Normal font: 5 points for Calibri 9 and 10, 6 for 11 and 12 (so 8.43 snaps to 8.5 units, 56
-points), 7 for 14, 8 for 16; text has those points less the 5 of padding: `MDW · w`. A text
+points. A column of `w` units is `round(MDW · w + P)` points, MDW being the maximum digit width of
+the Normal font: 5 points at 9 and 10, 6 at 11 and 12 (so 8.43 snaps to 8.5 units, 56 points at
+Calibri 11), 7 at 14, 8 at 16, 9 at 18, 10 at 20, 12 at 24, in Calibri and Aptos Narrow alike. `P`
+is the padding, `column_padding(MDW) = 2 · ceil(MDW / 4) + 1`: 5 points up to a digit width of 8, 7
+from 9 to 12 (`column_file18` to `24`; `CAPTURING.md` §2 item 48). Text has those points less the
+padding: `MDW · w`. A text
 measures the sum of its whole glyph advances in points at the cell's size; the advances are
 hinted per size (digits are 6 at 11 and 12, `-` is 3 at 11 and 4 at 12, `%` 8 and 9), so the
 bundled table holds every measured size (9, 10, 11, 12, 14, 16, 18, 20, 24) as measured and scales the
 nearest measured table with per-glyph rounding for other sizes. A line feed and a tab measure as a
 space and a carriage return as nothing, so CR LF is one space (`line_breaks`,
-`line_breaks_aptos_narrow`); other glyphs outside the table measure as a digit. The autofit width of a text is the floored sum of its advances plus 7 points at every
-size, which is how the tables were fitted (`capture/glyph_fit.py`, 515 of 515 space-less texts exact
+`line_breaks_aptos_narrow`); other glyphs outside the table measure as a digit. The autofit width
+of an upright text is the floored sum of its advances plus the column's padding plus 2 (7 points up
+to 16 points, 9 from 18), which is how the tables were fitted (`capture/glyph_fit.py`, 515 of 515 space-less texts exact
 per size). Autofit alone counts the tenth a few wide glyphs carry in the tables (`W` is 10.1 at
 Calibri 11, so ten measure 101): fit and fill use whole points, and ten `W` and a digit fit a budget
 of 106 (`advance_tenths11`, `advance_tenths12`; `CAPTURING.md` §2 item 41). The
@@ -402,22 +406,23 @@ at Calibri 14 with no change to the model.
 `CAPTURING.md` §2 item 28). A file's `<col width>` of `w` is
 `trunc((256 · w' + trunc(128 / MDW)) / 256 · MDW)` points with `w' = trunc(256 · w) / 256`: the
 pixel formula of ECMA-376 Part 1 §18.3.1.13 with MDW in points, exact for 138 widths at each of
-the six measured sizes. A column without `<col>` is `defaultColWidth` as a file width when the
-sheet has one, else `baseColWidth · MDW + 5` points (53 at Calibri 11, 8.0 in the dialog). The
-dialog shows `(points − 5) / MDW`, below one unit `points / (MDW + 5)`, to two decimals half up;
+the nine measured sizes but one (10.7109 at a digit width of 12 is 129 points, a known deviation in
+`QUIRKS.md`). A column without `<col>` is `defaultColWidth` as a file width when the
+sheet has one, else `baseColWidth · MDW + P` points (53 at Calibri 11, 8.0 in the dialog). The
+dialog shows `(points − P) / MDW`, below one unit `points / (MDW + P)`, to two decimals half up;
 `ColumnMetrics.width` is that number exact, so it round-trips through `column_width`. Below one
-unit a dialog width is `round(w · (MDW + 5))` points. A `#` run holds as many `#` as fit, none in a
+unit a dialog width is `round(w · (MDW + P))` points. A `#` run holds as many `#` as fit, none in a
 column too narrow for one (the cell shows nothing) except under the plain General format, which
 shows one `#` and keeps a one-character result (`1` in a 1-point column), while a number through
 `@`, `[Red]General` or `General;General` shows nothing there (`general_text_narrow`); at most 255. A number or text
 whose displayed text with its `*` fill would exceed 255 characters shows a `#` run, and a number
 whose text exceeds 255 characters is 255 `#` without a width as well (`1E+300` under `0`).
 `ColumnMetrics` also carries the text edges, 3 points from the left gridline and 2 from the
-right, provisional values from Excel's print layout (sheetpeek's PDF capture at Calibri 11).
+right, from Excel's print layout at Calibri 11 (`capture/alignment.py`).
 
 **Merged cells** (suites `merged11`, `merged14`; `CAPTURING.md` §2 item 40). A cell merged across
-columns formats exactly as one column of the sum of their points, with a single padding of 5: its
-budget is that sum less 5, not less 5 per column, and a hidden column counts as 0.
+columns formats exactly as one column of the sum of their points, with a single padding `P`: its
+budget is that sum less `P`, not less `P` per column, and a hidden column counts as 0.
 `column_metrics_from_points` gives that column.
 
 **Cell font and Normal font** (`_render.resolve_width`; suites `cell_font`, `general_cell_font`,
@@ -436,12 +441,12 @@ shows `0` (`[Red]General` with -0.05 at 1.5 units, where plain General shows `-0
 `cell_font_styles`, `general_cell_font_styles`, `column_file_aptos_narrow11`,
 `general_points_aptos_narrow11`, `numeric_core_width_aptos_narrow11`; `CAPTURING.md` §2 item 30).
 A table per family, style and size, measured as the regular Calibri tables were, with the Normal
-style the regular face of the family at the size and the cells styled. Every one of the 48 faces
-fits its 515 space-less autofit texts exactly and its 160 fill rows with a single space advance.
-Bold has the regular face's digit width and padding. An italic face autofits with a larger
-padding, 9, 11 or 13 points against 7: its slant reaches `(padding − 7) / 2` points past its
-advances on each side, the overhang (1 point at 9, 2 at 11 to 14, 3 at 16; 1 at 10 for Aptos
-Narrow, 2 for Calibri), and a cell in an italic face has that much less budget, General's
+style the regular face of the family at the size and the cells styled. Every one of the 72 faces
+(two families, four styles, nine sizes) fits its 515 space-less autofit texts exactly and its 160
+fill rows with a single space advance. Bold has the regular face's digit width and padding. An
+italic face autofits with a larger padding than the upright face's (7 up to 16 points, 9 from 18):
+its slant reaches half the excess past its advances on each side, the overhang (1 point at 9, 2 at
+11 to 14, 3 at 16 to 20, 4 at 24; 1 at 10 for Aptos Narrow, 2 for Calibri), and a cell in an italic face has that much less budget, General's
 characters included: an italic Calibri 11 cell holds one fill space fewer than an upright one.
 
 ## 9. Quirks
@@ -584,7 +589,7 @@ default_col_width=None, normal_font=None)` for a column as a file states it and
 cell's sum of its columns' points, all returning a frozen
 `ColumnMetrics(width, points, budget, left_inset, right_inset, digit_width)`; `width` is what
 `column_width` takes, except that a column of no width has a `width` of 0 and `column_width` raises
-`ValueError` for it. `budget` is `points` less 5, and 0 under 5 points. Both still accept the Normal font under its deprecated name `font`, with
+`ValueError` for it. `budget` is `points` less the padding `P`, and 0 under `P` points. Both still accept the Normal font under its deprecated name `font`, with
 a `DeprecationWarning`, until 1.0, and raise `ValueError` when given both. Format functions take no file width:
 callers convert once per column.
 
@@ -596,7 +601,9 @@ and 47 as `mmss.0`; Microsoft's [MS-OI29500] §2.1.712 says Excel defines 14 as 
 `m/d/yyyy h:mm`, 37 to 40 with `_)` and 47 as `mm:ss.0`, for en-US. Excel for Mac reports 14 as
 `m/d/yy` and 22 as `m/d/yy h:mm`; neither source says an id follows the system's settings, and the
 Mac follows a custom short date for 14 to 16 and 22. The ids whose display follows the viewer's
-system (a custom short date on the Mac; dates, times and currency on Windows) keep the en-US string; keyword-only arguments can choose the other
+system (a custom short date on the Mac; on Windows, the date and time formats Format Cells marks
+with an asterisk, which Microsoft's [Format numbers as dates or times](https://support.microsoft.com/en-us/office/format-numbers-as-dates-or-times-418bd3fe-0577-47c8-8caa-b4d30c528309) says "respond to
+changes in regional date and time settings") keep the en-US string; keyword-only arguments can choose the other
 forms later without changing a call.
 
 `section_rgb(color, palette=None) -> str` turns `FormattedCell.color` into `RRGGBB` under a
@@ -740,8 +747,8 @@ row in every mode, so a change meant to keep the output can show that it did.
   locale is one of these as date/time.
 - Excel honors the **last** `*` fill in a section, not the first (`*-0*-` shows `1235` then
   dashes), so `FormattedCell.fill` records the last one.
-- Trailing `#` placeholders in the decimal part count: `0.0#` is not `0.0`, and the 2023 capture
-  has no such format. The renderer keeps them and drops trailing zero digits only over `#` and `?`
+- Trailing `#` placeholders in the decimal part count toward the rendered digits: `0.0#` is not
+  `0.0`, and the 2023 capture has no such format. The renderer keeps them and drops trailing zero digits only over `#` and `?`
   positions (`1.55` → `1.55`, `1` →
   `1.0` under `0.0#`, `1.` under `0.##`); the `numeric_core` suite covers this.
 - `-0.5` under `0` renders `-1` (half-up on the magnitude, sign kept); under `0.00` a value that

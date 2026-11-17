@@ -8,9 +8,10 @@ column, with the column width read back in points. The header names the workbook
 cells are the Normal font.
 
 Model: the autofit width in points is ``floor(sum of glyph advances) + PAD``; PAD comes out of
-the digit runs (``2 * points(5 digits) - points(10 digits)``): 7 for every upright face, 9, 11 or
-13 for an italic one, whose slant reaches ``(PAD - 7) / 2`` points past its advances on each side
-(the overhang, which a cell's budget loses). The advance of a glyph is
+the digit runs (``2 * points(5 digits) - points(10 digits)``): the column's padding plus 2 for an
+upright face (7 up to a digit width of 8, 9 from 9 to 12; ``xlformat._measure.column_padding``),
+more for an italic one, whose slant reaches half the excess past its advances on each side (the
+overhang, which a cell's budget loses). The advance of a glyph is
 ``(points of its ten-run - PAD) / 10`` (digits are whole points, most glyphs are, a few wide ones
 carry a 0.1 fraction). Autofit cannot resolve the space, so its advance is
 chosen by rendering the matching ``space_fill`` suite through ``xlformat`` in Excel mode with each
@@ -208,8 +209,9 @@ def _write(
         "",
         "Written by ``capture/glyph_fit.py`` from ``tests/captures/measure*.measure.tsv``.",
         f"Styles: {', '.join(order)}. Sizes: {', '.join(str(n) for n in sizes)}.",
-        "Each advance is the autofit width of the glyph's run, less the autofit padding (7",
-        "points, more for italic faces); the space comes from the matching ``space_fill`` suites.",
+        "Each advance is the autofit width of the glyph's run, less the autofit padding (the",
+        "column's padding plus 2: 7 points up to a digit width of 8, 9 from 9 to 12; more for",
+        "italic faces); the space comes from the matching ``space_fill`` suites.",
         "Advances are hinted per size, so the tables differ beyond scale. The overhang table",
         f"(``{name}_OVERHANG``) holds how far an italic face reaches past its advances on each",
         "side, which a cell's budget loses. Do not edit by hand.",

@@ -1180,11 +1180,11 @@ _LONE_ZERO_VALUES: tuple[tuple[str, object], ...] = (
 def lone_zero() -> Suite:
     """The re-render model for negatives that round to zero (CAPTURING.md section 2 item 17).
 
-    Hypothesis: Excel renders a negative as its magnitude plus a minus sign; when the magnitude
-    renders as zero it renders the positive magnitude again from section selection onward.
-    Predictions: ``[<=0]0;[>1]0`` with -0.3 shows ``0.3``, ``[<=0.5]0`` shows ``0``,
-    ``[<=0.1]0`` shows ``0.3``, ``[<>0]0`` shows ``0``, ``[=0]"zero";0`` shows ``0``,
-    ``[<=0]0.0`` with -0.04 shows ``0.04``.
+    Excel renders a negative as its magnitude plus a minus sign; when the magnitude renders as
+    zero it renders the positive magnitude again from section selection onward. Captured with
+    -0.3: ``[<=0]0;[>1]0`` shows a ``#`` run (both conditions fail after the re-render),
+    ``[<=0.5]0`` shows ``0``, ``[<=0.1]0`` shows ``0.3``, ``[<>0]0`` and ``[=0]"zero";0`` show
+    ``0``; ``[<=0]0.0`` with -0.04 shows ``0.04``.
     """
     cases = tuple(
         Case("lone_zero", tag, value, fmt)

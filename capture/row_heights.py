@@ -4,8 +4,8 @@
     uv run python -m capture.row_heights run [LABEL]    # capture all, or one Normal font
     uv run python -m capture.row_heights write          # write tests/captures/row_height.layout.tsv
 
-One workbook per Normal font: Calibri and Aptos Narrow at every measured size (9, 10, 11, 12,
-14, 16) in four styles, 48 workbooks. Each holds the same rows (``ROWS``): a number in the
+One workbook per Normal font: Calibri and Aptos Narrow at every measured size (``SIZES``, 9 to
+24 points) in four styles, 72 workbooks. Each holds the same rows (``ROWS``): a number in the
 Normal font, a row without an element, a number in each measured cell font, an empty cell
 styled with a large or small font, two cell fonts in one row, and wrapped text of one to six
 lines (line feeds, wrap on) in the Normal font and in each regular cell font. The sheet keeps
@@ -41,7 +41,7 @@ MAX_LINES = 6
 
 
 def fonts() -> tuple[CellFont, ...]:
-    """Every measured face: both families, six sizes, four styles (48)."""
+    """Every measured face: both families, nine sizes, four styles (72)."""
     return tuple(
         CellFont(family, size, bold, italic)
         for family in FAMILIES

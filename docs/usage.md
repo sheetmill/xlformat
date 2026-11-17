@@ -69,8 +69,10 @@ Ids 0 to 163 are built in (`BUILTIN_FORMATS` holds them all; many are `General`)
 are defined in the file and raise `ValueError`. What some ids show depends on the viewer's system:
 Excel for Mac follows a custom short date set in macOS for ids 14 and 22 (a year-first setting
 shows `2024-01-01`) and pads the day of 15 and 16 to match, while the region alone changes
-nothing on the Mac; Excel for Windows is documented to follow the system for the date, time and
-currency ids. The table is the en-US one.
+nothing on the Mac. For Excel on Windows, Microsoft's [Format numbers as dates or
+times](https://support.microsoft.com/en-us/office/format-numbers-as-dates-or-times-418bd3fe-0577-47c8-8caa-b4d30c528309) says that "Date and time formats that begin with an asterisk (\*) respond to
+changes in regional date and time settings that are specified in Control Panel." The table is the
+en-US one.
 
 ## Sheets that hide zeros
 

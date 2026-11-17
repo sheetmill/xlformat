@@ -2,7 +2,7 @@
 
 Usage: ``uv run --group capture python -m capture.alignment``. Neither AppleScript's
 ``horizontal alignment`` (which reports ``general``) nor ``string value`` tells where Excel puts a
-value, so this reads Excel's PDF export (the method of sheetpeek's layout capture): one case per
+value, so this reads Excel's PDF export: one case per
 row in a wide column with gridlines printed, at 100 % scale, so one PDF point is one sheet point;
 pdfminer.six gives each row's text run, and its place between the two gridlines gives the
 alignment (left text starts 3 points after the left gridline, right text ends 2 points before
