@@ -2,7 +2,7 @@
 
 A cell can name its number format by id alone; Excel writes id 14 for every date typed as a short
 date. The strings are what Excel for Mac reports for each id in en-US (CAPTURING.md section 2 item
-49), which differ from other tables at 14 (``m/d/yy``), 44 and 47.
+49), which differ from openpyxl's built-in table at 14 (``m/d/yy``), 44 and 47.
 """
 
 from __future__ import annotations

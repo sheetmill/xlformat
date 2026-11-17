@@ -2,7 +2,7 @@
 
     uv run python -m capture.row_heights build          # write the workbooks, no Excel
     uv run python -m capture.row_heights run [LABEL]    # capture all, or one Normal font
-    uv run python -m capture.row_heights write          # write tests/captures/row_height.layout.tsv
+    uv run python -m capture.row_heights write          # write the layout file (OUTPUT)
 
 One workbook per Normal font: Calibri and Aptos Narrow at every measured size (``SIZES``, 9 to
 24 points) in four styles, 72 workbooks. Each holds the same rows (``ROWS``): a number in the
@@ -19,6 +19,7 @@ one Normal font can be captured again alone; ``write`` gathers them into the lay
 from __future__ import annotations
 
 import datetime as dt
+import gzip
 import json
 import sys
 from dataclasses import dataclass
@@ -30,7 +31,7 @@ from capture.edition import edition_line, excel_build
 from capture.excel_watch import answers, osascript_or_exit
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "tests" / "captures" / "row_height.layout.tsv"
+OUTPUT = ROOT / "tests" / "captures" / "row_height.layout.tsv.gz"
 SCRIPT = Path(__file__).with_name("row_heights.applescript")
 STATE = BUILD_DIR / "row_heights.json"  # what `run` read so far (capture/build: not committed)
 DIRECTORY = WORKBOOK_DIR / "row_heights"
@@ -200,7 +201,7 @@ def write() -> None:
     if missing:
         sys.exit(f"not captured yet: {missing}")
     cases = rows()
-    with OUTPUT.open("w", encoding="utf-8", newline="") as out:
+    with gzip.open(OUTPUT, "wt", encoding="utf-8", newline="") as out:
         out.write("# suite: row_height (capture.row_heights); Excel for Mac, en_US\n")
         out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         out.write(

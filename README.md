@@ -159,11 +159,6 @@ sphinx-build -n -W docs docs/_build/html
 
 `CONTRIBUTING.md` lists the checks a change must pass and how commits are written.
 
-The documentation's search page uses Pagefind when the site is served over http or https,
-as on Read the Docs or with `python -m http.server -d docs/_build/html`. A copy opened
-straight from disk uses Sphinx's built-in search instead, because browsers do not let a
-`file://` page fetch Pagefind's index.
-
 The expected outputs under `tests/captures/` were captured from Excel for Mac by the scripts in
 `capture/`: each suite is written as a workbook with openpyxl, opened in Excel through
 AppleScript, and read back as displayed text at each column width. Regenerating a suite needs

@@ -174,8 +174,8 @@ def marker(rgb: tuple[int, int, int]) -> str:
     return ""
 
 
-def is_magenta(rgb: tuple[int, int, int]) -> bool:
-    """Either marker color (the name kept from the first layout)."""
+def is_marker(rgb: tuple[int, int, int]) -> bool:
+    """Either marker color, magenta or cyan."""
     return marker(rgb) != ""
 
 
@@ -262,7 +262,7 @@ def _magenta_column(image: Image) -> int:
     sheet holds only a few rows, near the top)."""
     for y in range(image.height):
         for x in range(image.width // 2):
-            if is_magenta(image.rgb(x, y)) and is_magenta(image.rgb(x + 4, y)):
+            if is_marker(image.rgb(x, y)) and is_marker(image.rgb(x + 4, y)):
                 return x + 2
     sys.exit("no magenta column in the capture")
 
@@ -294,7 +294,7 @@ def rows_in_view(image: Image, top: int, heights: list[float]) -> list[tuple[int
 
 
 def _magenta_right(image: Image, y: int, x: int) -> int:
-    while x < image.width and is_magenta(image.rgb(x, y)):
+    while x < image.width and is_marker(image.rgb(x, y)):
         x += 1
     return x
 

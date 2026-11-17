@@ -1783,7 +1783,7 @@ def general_literals_points() -> Suite:
     return Suite(name, cases, widths=(None, *widths))
 
 
-# Cells whose font differs from the workbook's Normal style (0.2; CAPTURING.md section 2 item
+# Cells whose font differs from the workbook's Normal style (CAPTURING.md section 2 item
 # 29). The tag ends in the cell font's label in brackets, "[normal]" for the Normal style; the
 # capture test reads the cell font from it.
 
@@ -1871,7 +1871,7 @@ def general_zero_sign() -> Suite:
     return Suite(name, cases, widths=(None, *_points(6, 11, 50)))
 
 
-# Glyph tables per family, style and size (0.2; CAPTURING.md section 2 item 30). The Normal
+# Glyph tables per family, style and size (CAPTURING.md section 2 item 30). The Normal
 # style is the regular face of the family at the size; the cells carry the style, so autofit and
 # the fills measure the styled face against the regular column (item 29).
 
@@ -1972,7 +1972,7 @@ def numeric_core_width_aptos_narrow11() -> Suite:
     return Suite(name, cases, widths=(6, 10, 14), font_size=11, font_name="Aptos Narrow")
 
 
-# Error values (0.2; CAPTURING.md section 2 item 32). Formulas produce the seven classic codes;
+# Error values (CAPTURING.md section 2 item 32). Formulas produce the seven classic codes;
 # the value is a CellError, written to the TSV with value_type "error".
 
 _ERROR_FORMULAS: tuple[tuple[str, str], ...] = (
@@ -2708,7 +2708,7 @@ def fraction_random(n_random: int = 3000, n_near: int = 300, seed: int = 2026102
     ``n_random`` doubles, log-uniform in magnitude over [1e-3, 1e6] with a random sign, each under
     every format of ``_FIXED_FORMATS``; plus ``n_near`` doubles within ten ulps of a half step of
     a random format (whole part 0 to 999, random numerator), each under that format. The seed
-    fixes the values; the rule was predicted before the first capture.
+    fixes the values; none of them was used to fit the rule.
     """
     import random
 

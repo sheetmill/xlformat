@@ -41,8 +41,8 @@ SUITE_FILES = sorted(
 )
 
 # Rows where Excel's DisplayFormat font color, the capture's source for `expected_color`,
-# reports automatic black although the sheet paints the section color (verified by eye on
-# 2026-10-24: B9 zero under [Red]0 is red, B132 'abc' under [Cyan]@ is cyan, B147 the '#' run
+# reports automatic black although the sheet paints the section color (seen on screen:
+# B9 zero under [Red]0 is red, B132 'abc' under [Cyan]@ is cyan, B147 the '#' run
 # under [Red]m/d/yy is red). Three patterns: a value of exactly zero rendered by section 1 or 2,
 # text or a boolean through a colored text section, and a '#' run. The package is right and the
 # capture is wrong for these rows, so they are skipped, not matched (CAPTURING.md section 2

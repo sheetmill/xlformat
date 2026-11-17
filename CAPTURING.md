@@ -3,11 +3,11 @@
 Section 2 records probe results in the order they were found; a later item that overturns an
 earlier one says so in both places. Section 3 describes the capture pipeline.
 
-## 1. What exists
+## 1. The 2023 capture
 
-`tests/captures/capture2023.tsv.gz` (89,680 rows) is a 2023 clipboard capture made with an earlier,
-unpublished prototype: openpyxl wrote one row per (value, format) pair with the format
-applied to column A as a real number format, columns B and C carry `"<type> <repr>"` and
+`tests/captures/capture2023.tsv.gz` (89,680 rows) is a 2023 clipboard capture made with an earlier
+prototype that is not in this repository: openpyxl wrote one row per (value, format) pair with
+the format applied to column A as a real number format, columns B and C carry `"<type> <repr>"` and
 `repr(format)`; the workbook was opened in Excel for Mac, the cells selected and copied, and the
 clipboard text saved. The clipboard text is the displayed text with padding spaces but without
 column-width effects: `1234567.911` under `General` is in the file although it cannot fit a
@@ -24,7 +24,7 @@ capture needs on `range`:
 | `string value` (read-only, `any`) | "Returns the text for the range": the `Range.Text` equivalent |
 | `value`, `formula`, `number format` | read/write |
 | `column width` | read/write, in characters, per column |
-| `horizontal alignment`, `display format` | alignment and the effective display format object (its font color may reflect number-format colors; to test) |
+| `horizontal alignment`, `display format` | alignment and the effective display format object (its font color reflects number-format colors, item 5) |
 
 and on `workbook`: `date 1904` (read/write). Commands `open workbook`, `close ... saving no`,
 `copy range`, `autofit`.
@@ -114,10 +114,10 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
    tested against these 48 rows and the 1,695 float rows of the 2023 capture under `0`, `0.00`
    and thirty decimals (`capture/rounding_models.py`):
    - correct rounding of the exact binary value to 15 significant digits, ties up: fits every
-     2023 row, fails 8 of today's (all values with 15 or more integer digits);
+     2023 row, fails 8 of the 48 probe rows (all values with 15 or more integer digits);
    - ties down at 15 digits, or truncation: fail both sets;
-   - round the exact value to 16 significant digits, then to 15 with ties down: fits all 48 of
-     today's rows, fails 23 2023 rows such as `0.1234512345123455` (exactly
+   - round the exact value to 16 significant digits, then to 15 with ties down: fits all 48
+     probe rows, fails 23 2023 rows such as `0.1234512345123455` (exactly
      0.12345123451234550626…, which Excel shows as `…346`, so for small values the 16th digit is
      not what decides);
    - **hybrid, fits everything seen**: below 1e14 round the exact value to 15 digits with ties up;
@@ -170,8 +170,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
    literal); `x0` → `x1235`, `-x1` (the sign precedes the literal); `[Red]` alone is kept as
    `[Red]General`; `[>1]` alone is kept as `[>1]General` and shows General for values that pass
    the condition and a `#` run (`#########` at the probe's column width) for values that fail it:
-   a lone condition that fails renders like an invalid value, not as General (the 2023 prototype was
-   wrong here; captured width-less in `numeric_core` as `[>1]`, `[>100]0.00` and `[<0]0.0`).
+   a lone condition that fails renders like an invalid value, not as General (the earlier prototype,
+   not in this repository, rendered General here; captured width-less in `numeric_core` as `[>1]`, `[>100]0.00` and `[<0]0.0`).
 10. **Pipeline validation.** `capture/capture.py capture2023_sample --diff-2023`: 1,993 rows (every
     45th of the 2023 capture, all 152 formats) rebuilt with openpyxl, captured with `copy range`
     plus `pbpaste`: **0 differences**. The clipboard method is reproduced exactly and the 2023
@@ -351,7 +351,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     Scored over 38,904 fixed-denominator rows of every suite: the new rule misses none, the
     tolerance missed 484. `_fraction.py: fixed_numerator` carries the rule; the 32 known
     deviations and `capture/fraction_models.py` are gone. The free search was scored against
-    6,351,456 rows of unpublished 2023 captures: the continued-fraction walk misses none,
+    6,351,456 rows of 2023 captures that are not in this repository: the continued-fraction walk misses none,
     SheetJS's mediant walk and `limit_denominator` miss about three million each.
 23. **Width, character mode (2026-10-24; suites `width_fill`, 1,650 rows at widths 3, 6, 9, 12
     plus the clipboard, and `numeric_core_width`, 32,832 rows at widths 6, 10, 14).** The General

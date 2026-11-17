@@ -125,7 +125,7 @@ their standard colors whatever the palette holds:
 ```
 
 Entries may be `RRGGBB` or `AARRGGBB`. For an index a shorter palette lacks, the default color is
-used; what Excel does with a short palette is not captured.
+used, a choice of this package: what Excel does with a short palette is not captured.
 
 ## Error values
 

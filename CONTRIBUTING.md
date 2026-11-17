@@ -52,6 +52,12 @@ sphinx-build -n -W docs docs/_build/html # the strict documentation build
 per-format sample. The examples in `README.md` and `docs/*.md` run as doctests, so a change of
 behavior shows up there too.
 
+To build the documentation's search index as well, run `npx --yes pagefind@1.5.2 --site
+docs/_build/html` after Sphinx. The documentation's search page uses Pagefind when the site is
+served over http or https, as on Read the Docs or with `python -m http.server -d docs/_build/html`.
+A copy opened straight from disk uses Sphinx's built-in search instead, because browsers do not let
+a `file://` page fetch Pagefind's index.
+
 ## The expected outputs
 
 The TSV files under `tests/captures/` are ground truth: each row is what Excel for Mac displayed

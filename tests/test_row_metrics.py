@@ -1,4 +1,4 @@
-"""``row_metrics`` against ``tests/captures/row_height.layout.tsv`` (CAPTURING.md §2 item 44).
+"""``row_metrics`` against ``tests/captures/row_height.layout.tsv.gz`` (CAPTURING.md §2 item 44).
 
 The capture holds, per Normal font (both families, nine sizes, four styles), the height Excel
 gave each row of a workbook: a row in the Normal font, a row without an element, the sheet's
@@ -10,6 +10,7 @@ says what it held, and the test rebuilds the call from it.
 from __future__ import annotations
 
 import csv
+import gzip
 import re
 from pathlib import Path
 
@@ -17,7 +18,7 @@ import pytest
 
 from xlformat import Font, RowMetrics, row_metrics
 
-LAYOUT = Path(__file__).parent / "captures" / "row_height.layout.tsv"
+LAYOUT = Path(__file__).parent / "captures" / "row_height.layout.tsv.gz"
 _FACE = re.compile(r"(Calibri|Aptos Narrow) (\d+)((?: bold)?)((?: italic)?)")
 
 
@@ -46,7 +47,7 @@ def _call(normal: Font, tag: str) -> RowMetrics:
 
 
 def _rows() -> list[list[str]]:
-    with LAYOUT.open(encoding="utf-8") as f:
+    with gzip.open(LAYOUT, "rt", encoding="utf-8", newline="") as f:
         lines = [line for line in f if not line.startswith("#")]
     return list(csv.reader(lines, dialect="excel-tab"))[1:]
 

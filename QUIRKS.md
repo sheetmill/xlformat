@@ -83,8 +83,8 @@ fixed denominators round the exact product half-up.
 **Evidence** (the `fraction` suite, 2,205 rows; `fraction_ties`, 237 rows at half steps;
 `fraction_threshold`, 710 rows, every value as `repr` text and as a formula pinning the double;
 `fraction_random`, 30,300 rows predicted before capture; the 5,310 fraction rows of the 2023
-capture and of `capture2026`; and 6,351,456 free-denominator rows of unpublished 2023
-captures, `CAPTURING.md` §2 item 22): zero misses in every suite.
+capture and of `capture2026`; and 6,351,456 free-denominator rows of 2023 captures
+that are not in this repository, `CAPTURING.md` §2 item 22): zero misses in every suite.
 
 | value written | format | Excel | strict | note |
 |---|---|---|---|---|
@@ -120,7 +120,7 @@ fails if Excel and the package ever agree there (`CAPTURING.md` §2 item 48).
 No other row is known to differ. Such rows would be listed in `tests/test_captures.py` and here,
 with the evidence, and counted on every run. Fifteen color rows of the `colors` suite are skipped under `tests/test_captures.py:
 DISPLAY_FORMAT_COLOR_MISREPORTS`: Excel's DisplayFormat API reports automatic black where the sheet
-paints the section color (verified by eye); the package is right there (`CAPTURING.md` §2 item 21).
+paints the section color (seen on screen); the package is right there (`CAPTURING.md` §2 item 21).
 
 ## Candidates (evidence needed before they become switches)
 

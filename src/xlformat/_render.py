@@ -130,7 +130,9 @@ def resolve_width(
     measure: Measure | None,
     normal_font: FontSpec | None = None,
 ) -> tuple[float | None, Measure, float | None]:
-    """Budget, measure and column width in units for the ways a caller limits width (§8).
+    """Budget, measure and column width in units for each way a caller limits width.
+
+    ARCHITECTURE.md §8 describes the width model.
 
     The units are ``None`` outside Excel mode, where the budget is the width in the measure's
     own units.
