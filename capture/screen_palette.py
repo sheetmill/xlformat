@@ -30,8 +30,8 @@ from capture.excel_watch import answers, excel_windows
 from capture.screen_vertical import (
     Image,
     _capture,
-    _magenta_column,
-    _magenta_right,
+    _marker_column,
+    _marker_right,
     _request,
     _window_id,
     read_png,
@@ -148,7 +148,7 @@ def _text_color(
 ) -> tuple[tuple[int, int, int], int]:
     """The most frequent pixel color in the cell away from the fill, and its count."""
     y0, y1 = band
-    x0 = _magenta_right(image, (y0 + y1) // 2, _magenta_column(image)) + 4
+    x0 = _marker_right(image, (y0 + y1) // 2, _marker_column(image)) + 4
     fill = _rgb(FILL)
     # column B ends where its fill does: the last fill pixel on the band's top rows
     near = [

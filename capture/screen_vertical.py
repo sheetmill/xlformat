@@ -6,8 +6,8 @@
 
 The cases of ``capture/vertical_pdf.py`` (the text "Hxg" in every measured face, aligned top,
 center and bottom in rows of three heights, rows Excel fits, wrapped lines, the styles), one per
-row in column B, with column A of every row filled magenta: on screen each row's magenta band is
-the row between its gridlines, so no geometry is mapped. Excel opens the workbook at zoom 100,
+row in column B, with column A filled magenta and cyan in turn: on screen each row's marker band
+is the row between its gridlines, so no geometry is mapped. Excel opens the workbook at zoom 100,
 in front; the run scrolls so that each row in turn is at the top, captures Excel's window with
 ``screencapture -l`` (CoreGraphics finds it; the image is at the display's scale), and repeats
 a capture a second later until two are identical, Excel possibly still drawing. Bands are matched
@@ -66,7 +66,7 @@ def _paths(normal: CellFont) -> tuple[str, Path]:
 
 
 def build(normal: CellFont) -> Path:
-    """The cases of the PDF probe in column B, column A filled magenta, in Excel's container."""
+    """The cases of the PDF probe in column B, column A in marker fills, in Excel's container."""
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font, PatternFill
     from openpyxl.utils.indexed_list import IndexedList
@@ -257,19 +257,19 @@ def run_normal(normal: CellFont) -> None:
 # --- measuring ---------------------------------------------------------------------------------
 
 
-def _magenta_column(image: Image) -> int:
+def _marker_column(image: Image) -> int:
     """An x inside column A's marker fill, searched from the image's top (the last view of a
     sheet holds only a few rows, near the top)."""
     for y in range(image.height):
         for x in range(image.width // 2):
             if is_marker(image.rgb(x, y)) and is_marker(image.rgb(x + 4, y)):
                 return x + 2
-    sys.exit("no magenta column in the capture")
+    sys.exit("no marker column in the capture")
 
 
 def _bands(image: Image) -> list[tuple[int, int]]:
     """(first, last) pixel rows of each magenta band, top to bottom."""
-    x = _magenta_column(image)
+    x = _marker_column(image)
     out: list[tuple[int, int]] = []
     start, current = None, ""
     for y in range(image.height + 1):
@@ -293,7 +293,7 @@ def rows_in_view(image: Image, top: int, heights: list[float]) -> list[tuple[int
     return [(r, b) for r, b in pairs if abs(b[1] - b[0] + 1 - heights[r - 1] * scale) <= 3]
 
 
-def _magenta_right(image: Image, y: int, x: int) -> int:
+def _marker_right(image: Image, y: int, x: int) -> int:
     while x < image.width and is_marker(image.rgb(x, y)):
         x += 1
     return x
@@ -331,7 +331,7 @@ def measure(image: Image, band: tuple[int, int]) -> tuple[list[tuple[int, int]],
     """Per line of text in the band: (cap top, baseline) of "H", and the bottom of "g", in pixels
     from the band's first row."""
     y0, y1 = band
-    left = _magenta_right(image, (y0 + y1) // 2, _magenta_column(image)) + 2
+    left = _marker_right(image, (y0 + y1) // 2, _marker_column(image)) + 2
     runs = _glyph_runs(image, left, min(image.width, left + 600), y0, y1)
     if not runs:
         return [], []

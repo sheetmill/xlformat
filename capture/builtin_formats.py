@@ -124,7 +124,9 @@ def _capture(ids: list[int], tag: str, out: dict[int, list[str] | None]) -> None
 
 
 LOCALE_IDS = (*range(5, 9), *range(14, 23), *range(37, 48))
-"""The ids whose format may follow the system's settings: dates, times, currency."""
+"""The ids the locale runs check: dates and times (14 to 22, 45 to 47) and the currency and
+accounting ids (5 to 8, 37 to 44); on the Mac only 14 to 16 and 22 follow a setting (CAPTURING.md
+section 2 item 49)."""
 
 
 def run(label: str = "") -> None:
