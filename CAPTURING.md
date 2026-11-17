@@ -958,7 +958,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     the default palette; one row per color name and per `[Color1]` to `[Color56]`, bold 20-point
     text on a brown fill; window captures converted to sRGB; each cell's text color its most
     frequent pixel away from the fill, at least 2,080 pixels a cell; Excel 16.115 under Microsoft
-    365).** Every measured color is within 3 of one candidate:
+    365).** Every measured color is within 3.2 of one candidate (Euclidean distance in sRGB):
     - **`[ColorN]` is drawn in the workbook's palette entry N + 7**, all 56 of them.
     - **The eight names (`[Black]` to `[Cyan]`) are drawn in their standard colors**, `FF0000` for
       `[Red]` and so on, whatever entries 0 to 7 of the palette hold, as the screen shows where

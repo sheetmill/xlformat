@@ -8,6 +8,7 @@ font color of each cell's display format back from Excel (``CAPTURING.md`` secti
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from types import MappingProxyType
 
 _INDEXED: tuple[str, ...] = (
@@ -34,3 +35,45 @@ DEFAULT_PALETTE = MappingProxyType(
     }
 )
 """Canonical section color name (``FormattedCell.color``) to ``RRGGBB`` in the default palette."""
+
+_NAMES = ("Black", "White", "Red", "Green", "Blue", "Yellow", "Magenta", "Cyan")
+_HEX = frozenset("0123456789ABCDEF")
+
+
+def _entry(value: str) -> str:
+    """``RRGGBB`` from an ``RRGGBB`` or ``AARRGGBB`` palette entry."""
+    text = value.strip().upper()
+    if len(text) == 8:
+        text = text[2:]
+    if len(text) != 6 or not set(text) <= _HEX:
+        msg = f"not an RRGGBB or AARRGGBB color: {value!r}"
+        raise ValueError(msg)
+    return text
+
+
+def section_rgb(color: str, palette: Sequence[str] | None = None) -> str:
+    """The ``RRGGBB`` Excel draws a section color in (CAPTURING.md section 2 item 50).
+
+    Args:
+        color: A canonical section color name, as ``FormattedCell.color`` holds it.
+        palette: The workbook's ``<indexedColors>`` as stored, 64 entries of ``RRGGBB`` or
+            ``AARRGGBB``; ``None`` for the default palette.
+
+    The eight names (``Black`` to ``Cyan``) are drawn in their standard colors whatever the
+    palette holds; ``ColorN`` is the palette's entry N + 7. For an index a shorter palette lacks
+    the default palette's color is used: a choice of this package, as what Excel does with a
+    short palette is not captured.
+
+    Raises:
+        KeyError: ``color`` is not a section color name.
+        ValueError: The palette entry used is not a hex color.
+    """
+    if color in _NAMES:
+        return DEFAULT_PALETTE[color]
+    default = DEFAULT_PALETTE[color]  # raises KeyError for an unknown name
+    if palette is None:
+        return default
+    index = int(color[5:]) + 7
+    if index >= len(palette):
+        return default
+    return _entry(palette[index])

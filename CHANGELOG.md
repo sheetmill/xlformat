@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `section_rgb(color, palette=None)`: the `RRGGBB` Excel draws a section color in under a
+  workbook's own palette: `[ColorN]` takes the palette's entry N + 7, while the eight color names
+  keep their standard colors (captured from Excel's screen).
 - `builtin_format(number_format_id)` and `BUILTIN_FORMATS`: the format string Excel uses for
   each built-in id from 0 to 163, as Excel for Mac reports it in en-US. Id 14, which Excel writes
   for typed dates, is `m/d/yy` (a typed date shows `1/1/24`); openpyxl's table has `mm-dd-yy` there

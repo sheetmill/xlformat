@@ -1,0 +1,133 @@
+# suite: palette (capture.screen_palette); Excel for Mac, en_US
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# captured: 2026-11-16; window captures in sRGB
+palette	tag	measured	pixels	nearest	candidates (rgb:distance)
+custom	Black	000000	2136	default	workbook=141446:75 default=000000:0 standard=000000:0
+custom	White	FFFFFF	2216	default	workbook=1414AA:343 default=FFFFFF:0 standard=FFFFFF:0
+custom	Red	FF0000	2216	default	workbook=1414DC:323 default=FF0000:0 standard=FF0000:0
+custom	Green	03FF00	2216	default	workbook=144646:199 default=00FF00:3 standard=00FF00:3
+custom	Blue	0000FF	2080	default	workbook=1446AA:112 default=0000FF:0 standard=0000FF:0
+custom	Yellow	FFFF00	2216	default	workbook=1446DC:371 default=FFFF00:0 standard=FFFF00:0
+custom	Magenta	FF00FF	2216	default	workbook=147846:322 default=FF00FF:0 standard=FF00FF:0
+custom	Cyan	03FFFF	2216	default	workbook=1478AA:160 default=00FFFF:3 standard=00FFFF:3
+custom	Color1	17AA15	2216	workbook	workbook=14AA14:3 default=000000:173
+custom	Color2	17AA46	2216	workbook	workbook=14AA46:3 default=FFFFFF:309
+custom	Color3	17AAAA	2216	workbook	workbook=14AAAA:3 default=FF0000:334
+custom	Color4	17AADC	2216	workbook	workbook=14AADC:3 default=00FF00:237
+custom	Color5	13DC13	2216	workbook	workbook=14DC14:1 default=0000FF:323
+custom	Color6	13DC45	2216	workbook	workbook=14DC46:1 default=FFFF00:248
+custom	Color7	13DC78	2216	workbook	workbook=14DC78:1 default=FF00FF:350
+custom	Color8	13DCAA	2216	workbook	workbook=14DCAA:1 default=00FFFF:94
+custom	Color9	461414	2176	workbook	workbook=461414:0 default=800000:65
+custom	Color10	461446	2080	workbook	workbook=461446:0 default=008000:147
+custom	Color11	461478	2080	workbook	workbook=461478:0 default=000080:73
+custom	Color12	4614AA	2080	workbook	workbook=4614AA:0 default=808000:210
+custom	Color13	4614DC	2080	workbook	workbook=4614DC:0 default=800080:111
+custom	Color14	464678	2080	workbook	workbook=464678:0 default=008080:91
+custom	Color15	4646DC	2080	workbook	workbook=4646DC:0 default=C0C0C0:175
+custom	Color16	467814	2216	workbook	workbook=467814:0 default=808080:123
+custom	Color17	467846	2216	workbook	workbook=467846:0 default=9999FF:205
+custom	Color18	467878	2216	workbook	workbook=467878:0 default=993366:109
+custom	Color19	4678AA	2216	workbook	workbook=4678AA:0 default=FFFFCC:232
+custom	Color20	4678DC	2216	workbook	workbook=4678DC:0 default=CCFFFF:193
+custom	Color21	46AA15	2216	workbook	workbook=46AA14:1 default=660066:191
+custom	Color22	46AA46	2216	workbook	workbook=46AA46:0 default=FF8080:198
+custom	Color23	46AAAA	2216	workbook	workbook=46AAAA:0 default=0066CC:103
+custom	Color24	46AADC	2216	workbook	workbook=46AADC:0 default=CCCCFF:143
+custom	Color25	46DC15	2216	workbook	workbook=46DC14:1 default=000080:254
+custom	Color26	46DC46	2216	workbook	workbook=46DC46:0 default=FF00FF:342
+custom	Color27	46DC78	2216	workbook	workbook=46DC78:0 default=FFFF00:223
+custom	Color28	46DCAA	2216	workbook	workbook=46DCAA:0 default=00FFFF:116
+custom	Color29	781446	2080	workbook	workbook=781446:0 default=800080:62
+custom	Color30	7814AA	2080	workbook	workbook=7814AA:0 default=800000:171
+custom	Color31	7814DC	2080	workbook	workbook=7814DC:0 default=008080:186
+custom	Color32	784646	2080	workbook	workbook=784646:0 default=0000FF:231
+custom	Color33	784678	2080	workbook	workbook=784678:0 default=00CCFF:225
+custom	Color34	7846AA	2080	workbook	workbook=7846AA:0 default=CCFFFF:220
+custom	Color35	7846DC	2216	workbook	workbook=7846DC:0 default=CCFFCC:204
+custom	Color36	787846	2216	workbook	workbook=787846:0 default=FFFF99:208
+custom	Color37	7878DC	2216	workbook	workbook=7878DC:0 default=99CCFF:97
+custom	Color38	78AA12	2216	workbook	workbook=78AA14:2 default=FF99CC:230
+custom	Color39	78AA46	2216	workbook	workbook=78AA46:0 default=CC99FF:204
+custom	Color40	78AA78	2216	workbook	workbook=78AA78:0 default=FFCC99:143
+custom	Color41	78AAAA	2216	workbook	workbook=78AAAA:0 default=3366FF:129
+custom	Color42	78AADC	2216	workbook	workbook=78AADC:0 default=33CCCC:79
+custom	Color43	78DC13	2216	workbook	workbook=78DC14:1 default=99CC00:41
+custom	Color44	78DC46	2216	workbook	workbook=78DC46:0 default=FFCC00:153
+custom	Color45	78DC78	2216	workbook	workbook=78DC78:0 default=FF9900:193
+custom	Color46	78DCAA	2216	workbook	workbook=78DCAA:0 default=FF6600:247
+custom	Color47	78DCDC	2216	workbook	workbook=78DCDC:0 default=666699:137
+custom	Color48	AA1414	2080	workbook	workbook=AA1414:0 default=969696:185
+custom	Color49	AA1446	2080	workbook	workbook=AA1446:0 default=003366:176
+custom	Color50	AA14AA	2080	workbook	workbook=AA14AA:0 default=339966:191
+custom	Color51	AA14DC	2216	workbook	workbook=AA14DC:0 default=003300:280
+custom	Color52	AA4646	2216	workbook	workbook=AA4646:0 default=333300:139
+custom	Color53	AA46AA	2216	workbook	workbook=AA46AA:0 default=993300:172
+custom	Color54	AA46DC	2216	workbook	workbook=AA46DC:0 default=993366:121
+custom	Color55	A97815	2216	workbook	workbook=AA7814:1 default=333399:190
+custom	Color56	A97846	2216	workbook	workbook=AA7846:1 default=333333:138
+default	Black	000000	2136	workbook	workbook=000000:0 default=000000:0 standard=000000:0
+default	White	FFFFFF	2216	workbook	workbook=FFFFFF:0 default=FFFFFF:0 standard=FFFFFF:0
+default	Red	FF0000	2216	workbook	workbook=FF0000:0 default=FF0000:0 standard=FF0000:0
+default	Green	03FF00	2216	workbook	workbook=00FF00:3 default=00FF00:3 standard=00FF00:3
+default	Blue	0000FF	2080	workbook	workbook=0000FF:0 default=0000FF:0 standard=0000FF:0
+default	Yellow	FFFF00	2216	workbook	workbook=FFFF00:0 default=FFFF00:0 standard=FFFF00:0
+default	Magenta	FF00FF	2216	workbook	workbook=FF00FF:0 default=FF00FF:0 standard=FF00FF:0
+default	Cyan	03FFFF	2216	workbook	workbook=00FFFF:3 default=00FFFF:3 standard=00FFFF:3
+default	Color1	000000	2136	workbook	workbook=000000:0 default=000000:0
+default	Color2	FFFFFF	2216	workbook	workbook=FFFFFF:0 default=FFFFFF:0
+default	Color3	FF0000	2216	workbook	workbook=FF0000:0 default=FF0000:0
+default	Color4	03FF00	2216	workbook	workbook=00FF00:3 default=00FF00:3
+default	Color5	0000FF	2080	workbook	workbook=0000FF:0 default=0000FF:0
+default	Color6	FFFF00	2216	workbook	workbook=FFFF00:0 default=FFFF00:0
+default	Color7	FF00FF	2216	workbook	workbook=FF00FF:0 default=FF00FF:0
+default	Color8	03FFFF	2216	workbook	workbook=00FFFF:3 default=00FFFF:3
+default	Color9	800000	2080	workbook	workbook=800000:0 default=800000:0
+default	Color10	008002	2216	workbook	workbook=008000:2 default=008000:2
+default	Color11	000080	2080	workbook	workbook=000080:0 default=000080:0
+default	Color12	808000	2216	workbook	workbook=808000:0 default=808000:0
+default	Color13	800080	2080	workbook	workbook=800080:0 default=800080:0
+default	Color14	008080	2216	workbook	workbook=008080:0 default=008080:0
+default	Color15	C0C0C0	2216	workbook	workbook=C0C0C0:0 default=C0C0C0:0
+default	Color16	808080	2216	workbook	workbook=808080:0 default=808080:0
+default	Color17	9999FF	2216	workbook	workbook=9999FF:0 default=9999FF:0
+default	Color18	993365	2080	workbook	workbook=993366:1 default=993366:1
+default	Color19	FFFFCC	2216	workbook	workbook=FFFFCC:0 default=FFFFCC:0
+default	Color20	CCFFFF	2216	workbook	workbook=CCFFFF:0 default=CCFFFF:0
+default	Color21	660066	2080	workbook	workbook=660066:0 default=660066:0
+default	Color22	FF8080	2216	workbook	workbook=FF8080:0 default=FF8080:0
+default	Color23	0366CC	2216	workbook	workbook=0066CC:3 default=0066CC:3
+default	Color24	CCCCFF	2216	workbook	workbook=CCCCFF:0 default=CCCCFF:0
+default	Color25	000080	2080	workbook	workbook=000080:0 default=000080:0
+default	Color26	FF00FF	2216	workbook	workbook=FF00FF:0 default=FF00FF:0
+default	Color27	FFFF00	2216	workbook	workbook=FFFF00:0 default=FFFF00:0
+default	Color28	03FFFF	2216	workbook	workbook=00FFFF:3 default=00FFFF:3
+default	Color29	800080	2080	workbook	workbook=800080:0 default=800080:0
+default	Color30	800000	2080	workbook	workbook=800000:0 default=800000:0
+default	Color31	008080	2216	workbook	workbook=008080:0 default=008080:0
+default	Color32	0000FF	2080	workbook	workbook=0000FF:0 default=0000FF:0
+default	Color33	00CCFF	2216	workbook	workbook=00CCFF:0 default=00CCFF:0
+default	Color34	CCFFFF	2216	workbook	workbook=CCFFFF:0 default=CCFFFF:0
+default	Color35	CCFFCC	2216	workbook	workbook=CCFFCC:0 default=CCFFCC:0
+default	Color36	FFFF99	2216	workbook	workbook=FFFF99:0 default=FFFF99:0
+default	Color37	99CCFF	2216	workbook	workbook=99CCFF:0 default=99CCFF:0
+default	Color38	FF99CC	2216	workbook	workbook=FF99CC:0 default=FF99CC:0
+default	Color39	CC99FF	2216	workbook	workbook=CC99FF:0 default=CC99FF:0
+default	Color40	FFCC99	2216	workbook	workbook=FFCC99:0 default=FFCC99:0
+default	Color41	3366FF	2216	workbook	workbook=3366FF:0 default=3366FF:0
+default	Color42	34CCCB	2216	workbook	workbook=33CCCC:1 default=33CCCC:1
+default	Color43	99CC02	2216	workbook	workbook=99CC00:2 default=99CC00:2
+default	Color44	FFCC02	2216	workbook	workbook=FFCC00:2 default=FFCC00:2
+default	Color45	FF9900	2216	workbook	workbook=FF9900:0 default=FF9900:0
+default	Color46	FF6600	2216	workbook	workbook=FF6600:0 default=FF6600:0
+default	Color47	666699	2216	workbook	workbook=666699:0 default=666699:0
+default	Color48	969696	2216	workbook	workbook=969696:0 default=969696:0
+default	Color49	013365	2080	workbook	workbook=003366:1 default=003366:1
+default	Color50	349966	2216	workbook	workbook=339966:1 default=339966:1
+default	Color51	013300	2176	workbook	workbook=003300:1 default=003300:1
+default	Color52	333300	2176	workbook	workbook=333300:0 default=333300:0
+default	Color53	993301	2080	workbook	workbook=993300:1 default=993300:1
+default	Color54	993365	2080	workbook	workbook=993366:1 default=993366:1
+default	Color55	333399	2080	workbook	workbook=333399:0 default=333399:0
+default	Color56	333333	2080	workbook	workbook=333333:0 default=333333:0

@@ -538,7 +538,7 @@ from xlformat import (
     Quirks, FormatError, ExcelError, DEFAULT_PALETTE, Font, ColumnMetrics, column_metrics,
     column_metrics_from_points, file_column_metrics, text_width, glyph_widths, digit_width,
     overhang, measured_fonts, RowMetrics, row_metrics, VerticalMetrics, vertical_metrics,
-    builtin_format, BUILTIN_FORMATS,
+    builtin_format, BUILTIN_FORMATS, section_rgb,
 )
 
 def format_value(value, format_string="General", *, width=None, column_width=None, font=None,
@@ -597,6 +597,11 @@ and 47 as `mmss.0`; Microsoft's [MS-OI29500] §2.1.712 says Excel defines 14 as 
 Mac follows a custom short date for 14 to 16 and 22. The ids whose display follows the viewer's
 system (a custom short date on the Mac; dates, times and currency on Windows) keep the en-US string; keyword-only arguments can choose the other
 forms later without changing a call.
+
+`section_rgb(color, palette=None) -> str` turns `FormattedCell.color` into `RRGGBB` under a
+workbook's `<indexedColors>` (`CAPTURING.md` §2 item 50): `[ColorN]` is entry N + 7, the eight
+names their standard colors always. The format functions keep returning names; the palette is a
+drawing matter, looked up by the caller that draws.
 
 `show_zeros` is a sheet property, passed beside the workbook's `date1904` rather than as a
 quirk: `False` for a sheet with `showZeros="0"`, where a number equal to 0 shows nothing under a

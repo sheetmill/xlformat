@@ -68,6 +68,7 @@ Everything below is importable from `xlformat`.
 .. autoclass:: xlformat.Quirks
    :members: EXCEL, STRICT
 .. autoexception:: xlformat.FormatError
+.. autofunction:: xlformat.section_rgb
 .. py:data:: xlformat.DEFAULT_PALETTE
    :type: ~collections.abc.Mapping[str, str]
 

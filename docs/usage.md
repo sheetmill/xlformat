@@ -110,6 +110,21 @@ color, the default alignment, the position of a `*` fill, whether the value over
 Alignment follows the value: numbers and dates right, text left, booleans centered. A number
 under a format with only a text section, such as `@`, is left-aligned like text, as in Excel.
 
+A workbook can replace Excel's palette (`<indexedColors>`, 64 entries). `section_rgb` gives the
+color Excel draws with it: `[ColorN]` takes the palette's entry N + 7, while the eight names keep
+their standard colors whatever the palette holds:
+
+```python
+>>> from xlformat import section_rgb
+>>> palette = ["FF000000"] * 64
+>>> palette[12] = "FF123456"
+>>> section_rgb("Color5", palette), section_rgb("Red", palette), section_rgb("Color5")
+('123456', 'FF0000', '0000FF')
+```
+
+Entries may be `RRGGBB` or `AARRGGBB`. For an index a shorter palette lacks, the default color is
+used; what Excel does with a short palette is not captured.
+
 ## Error values
 
 A cell holding an error shows the error's text whatever its number format, centered and in the

@@ -30,7 +30,7 @@ from xlformat._measure import (
     text_width,
     vertical_metrics,
 )
-from xlformat._palette import DEFAULT_PALETTE
+from xlformat._palette import DEFAULT_PALETTE, section_rgb
 from xlformat._parser import NumberFormat, Section, SectionKind
 from xlformat._quirks import Quirks
 
@@ -62,6 +62,7 @@ __all__ = [
     "measured_fonts",
     "overhang",
     "row_metrics",
+    "section_rgb",
     "text_function",
     "text_width",
     "vertical_metrics",

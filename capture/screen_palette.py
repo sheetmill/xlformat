@@ -12,7 +12,7 @@ text under ``[<name>]0`` on a brown fill (so white text shows), with column A's 
 fills marking the rows as in ``capture/screen_vertical.py``. The captures are converted to sRGB
 (``sips --matchTo``); a cell's text color is its most frequent pixel away from the fill, matched
 to the nearest of the workbook's palette entry, the default palette's entry and the name's
-standard color. Writes ``capture/build/probes/screen_palette.tsv``; needs the display on, Excel in
+standard color. Writes ``tests/captures/palette.layout.tsv``; needs the display on, Excel in
 front and nobody at the keyboard; no clipboard.
 """
 
@@ -40,7 +40,7 @@ from capture.screen_vertical import (
 from xlformat import DEFAULT_PALETTE
 
 SHOTS = BUILD_DIR / "screen_palette"
-OUTPUT = BUILD_DIR / "probes" / "screen_palette.tsv"
+OUTPUT = BUILD_DIR.parent.parent / "tests" / "captures" / "palette.layout.tsv"
 NAMES = ("Black", "White", "Red", "Green", "Blue", "Yellow", "Magenta", "Cyan")
 TAGS = (*NAMES, *(f"Color{i}" for i in range(1, 57)))
 FILL = "5A3C28"
@@ -209,7 +209,7 @@ def write() -> None:
             )
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT.open("w", encoding="utf-8") as f:
-        f.write("# suite: screen_palette (capture.screen_palette); Excel for Mac, en_US; a probe\n")
+        f.write("# suite: palette (capture.screen_palette); Excel for Mac, en_US\n")
         f.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         f.write(f"# captured: {dt.date.today().isoformat()}; window captures in sRGB\n")
         f.write("palette\ttag\tmeasured\tpixels\tnearest\tcandidates (rgb:distance)\n")
