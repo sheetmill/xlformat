@@ -544,17 +544,17 @@ def row_metrics(
 
 # family (lower case) -> size -> points between a bottom-aligned baseline and the row's bottom
 _BASELINE_FROM_BOTTOM: dict[str, dict[int, float]] = {
-    "calibri": {9: 4.0, 10: 4.0, 11: 4.0, 12: 4.0, 14: 5.0, 16: 5.0, 18: 6.0, 20: 6.0, 24: 7.0},
+    "calibri": {9: 3.0, 10: 3.0, 11: 3.0, 12: 3.0, 14: 4.0, 16: 4.0, 18: 5.0, 20: 5.0, 24: 6.0},
     "aptos narrow": {
-        9: 4.0,
-        10: 4.0,
-        11: 4.0,
-        12: 4.0,
-        14: 5.0,
-        16: 6.0,
-        18: 6.0,
-        20: 7.0,
-        24: 8.0,
+        9: 3.0,
+        10: 3.0,
+        11: 3.0,
+        12: 3.0,
+        14: 4.0,
+        16: 5.0,
+        18: 5.0,
+        20: 6.0,
+        24: 7.0,
     },
 }
 # family (lower case) -> size -> (cap height, descender): the ink of "H" above the baseline and of
@@ -581,7 +581,8 @@ class VerticalMetrics:
 
     Attributes:
         baseline_from_top: The baseline's distance below the row's top for top-aligned text: the
-            face's size in points.
+            face's size in points plus 1. A row's top is the top of the gridline above it, which
+            the row's own fill covers.
         baseline_from_bottom: The baseline's distance above the row's bottom for bottom-aligned
             text (Excel's default). Centered text sits midway between the two placements, to half
             a point.
@@ -622,7 +623,7 @@ def vertical_metrics(font: FontSpec | None = None) -> VerticalMetrics:
     height = _FONT_HEIGHT[key][size]
     cap, descender = _INK[key][size]
     return VerticalMetrics(
-        baseline_from_top=float(size),
+        baseline_from_top=float(size) + 1.0,
         baseline_from_bottom=_BASELINE_FROM_BOTTOM[key][size],
         font_height=height,
         line_height=height + 1.0,

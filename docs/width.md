@@ -168,13 +168,15 @@ the screen shows it:
 >>> from xlformat import vertical_metrics
 >>> m = vertical_metrics(("Calibri", 11))
 >>> m.baseline_from_top, m.baseline_from_bottom, m.cap_height, m.descender
-(11.0, 4.0, 7.0, 2.0)
+(12.0, 3.0, 7.0, 2.0)
 >>> m.line_pitch, m.line_height
 (15.0, 16.0)
 ```
 
 Bottom-aligned text, Excel's default, has its baseline `baseline_from_bottom` above the row's
-bottom; top-aligned text has it `baseline_from_top` below the row's top; centered text sits midway
+bottom; top-aligned text has it `baseline_from_top` below the row's top (a row runs from the top
+of the gridline above it, which the row's own fill covers, to the top of the next); centered text
+sits midway
 between the two. Wrapped lines are `line_pitch` apart, the last placed as bottom-aligned text. Bold
 and italic place as the regular face, and the workbook's Normal font moves nothing, except that
 wrapped text in a face with a smaller `line_inset` than the row's other fonts sits that difference

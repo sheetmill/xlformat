@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   font was not one: the file held 10.7109375, which the expected outputs recorded with six digits.
   Excel converts it as ECMA-376's formula does, and so does the package. Expected-output files now
   record such widths in full.
+- `vertical_metrics` placed text 1 point too low: `baseline_from_top` is the face's size plus 1
+  (12 points for Calibri 11, was 11) and `baseline_from_bottom` is one point less (3, was 4). The
+  screen capture had taken each row's top 2 pixels below the top of the gridline above it, which
+  is where a row begins.
 
 ## [0.4.0] - 2026-11-16
 

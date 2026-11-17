@@ -19,6 +19,11 @@ from xlformat import Font, VerticalMetrics, vertical_metrics
 
 LAYOUT = Path(__file__).parent / "captures" / "vertical.layout.tsv"
 PIXELS_PER_POINT = 2
+# The file's distances run from each row's top as computed from the view's first marker band, which
+# starts below the column header's separator; every other band starts on its own top gridline, 2 px
+# higher (band_shift -2). So each row's own top is 2 px above the file's origin (CAPTURING.md
+# section 2 item 54).
+FRAME_PX = 2
 _FACE = re.compile(r"(Calibri|Aptos Narrow) (\d+)((?: bold)?)((?: italic)?)$")
 
 
@@ -60,7 +65,7 @@ def test_every_captured_placement() -> None:
         face = vertical_metrics(_font(tag))
         ink = [tuple(int(v) for v in line.split("-")) for line in h_ink.split()]
         tails = [int(v) for v in g_ink.split()]
-        got = [(bottom + 1) / PIXELS_PER_POINT for _, bottom in ink]
+        got = [(bottom + 1 + FRAME_PX) / PIXELS_PER_POINT for _, bottom in ink]
         want = _baselines(normal, face, tag, float(height))
         if len(got) != len(want) or any(abs(a - b) > 0.5 for a, b in zip(got, want, strict=False)):
             misses.append((normal_label, tag, got, want))
@@ -75,8 +80,8 @@ def test_every_captured_placement() -> None:
 def test_fields() -> None:
     m = vertical_metrics()
     assert m == VerticalMetrics(
-        baseline_from_top=11.0,
-        baseline_from_bottom=4.0,
+        baseline_from_top=12.0,
+        baseline_from_bottom=3.0,
         font_height=15.0,
         line_height=16.0,
         line_pitch=15.0,

@@ -877,7 +877,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     pixels; the images stay in `capture/build/`).** Measured from each
     row's top in sheet points, the baseline being the bottom of "H":
     - **Top-aligned text has its baseline the face's size below the row's top** (Calibri 9 at 9
-      points, Aptos Narrow 16 at 16), at every row height.
+      points, Aptos Narrow 16 at 16), at every row height. Item 54 corrects this and the gap G
+      below by 1 point: the origin used here was 2 pixels below each row's own top.
     - **Bottom-aligned text has its baseline a gap G above the row's bottom:** Calibri 9 to 16 4,
       4, 4, 4, 5, 5; Aptos Narrow 4, 4, 4, 4, 5, 6. G is F - size except at Calibri 9 (4, where
       F - size is 3), and the row model's p is F - size - 3 for every face.
@@ -1000,6 +1001,20 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     `widths: exact`), and for older suite files the test takes the 1/256 step whose six-digit text
     the row holds. The three `column_boundary` suites, whose widths just off a step could share a
     six-digit text with the step itself, were recaptured with exact texts.
+54. **The row's top on screen (2026-11-17; no new capture: item 47's images and
+    `vertical.layout.tsv`, and the window images of sheetpeek's
+    [`text_style`](https://github.com/sheetmill/sheetpeek/blob/main/tests/captures/text_style.tsv)
+    capture, group `align`: top- and bottom-aligned "Hxg" in 60-point rows; both Excel 16.115).** Item 47 took each row's top from the view's first marker band
+    plus the row heights. That band starts below the column header's separator, while every other
+    band starts on the top pixel of its own top gridline (the file's `band_shift` is -2 pixels for
+    all 464 such rows): a row's fill covers the gridline above it, so a row runs from the top of that
+    gridline to the top of the next. Measured against the gridline pixels directly in sheetpeek's
+    images, top-aligned Calibri 11 has its baseline 12 points below that top and bottom-aligned 3
+    above the bottom; item 47's frame was 1 point low throughout. Corrected: top-aligned text has
+    its baseline the face's size plus 1 below the row's top, and the gap G is one less (Calibri 9 to
+    24: 3, 3, 3, 3, 4, 4, 5, 5, 6; Aptos Narrow 3, 3, 3, 3, 4, 5, 5, 6, 7). Line pitch, centering,
+    cap height, descender and the Normal-font exception are distances within a row and stay. The
+    test applies the 2-pixel origin to the file's rows; all 480 placements match.
 
 ## 3. The pipeline
 
