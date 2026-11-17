@@ -31,6 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Excel).
 
 ### Changed
+- A line feed and a tab in text measure as a space, and a carriage return as nothing (CR LF
+  is one space), as Excel fits and fills them; they measured as a digit before. Fits, `#`
+  counts and fill counts of texts holding them change (captured from Excel).
 - A column's padding grows with the Normal font's digit width: 5 points up to a digit width
   of 8 (Calibri 16) and 7 from 9 to 12 (Calibri 18 to 24), `2 * ceil(MDW / 4) + 1`. Columns,
   budgets and General's reduction in workbooks with a Normal font of 18 points or more change;

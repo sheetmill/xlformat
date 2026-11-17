@@ -964,6 +964,23 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       `[Red]` and so on, whatever entries 0 to 7 of the palette hold, as the screen shows where
       Excel's scripting reports the palette's color.
     - With the default palette every cell is the default color.
+51. **Line breaks and tabs in text (2026-11-16; suites `line_breaks` and `line_breaks_aptos_narrow`:
+    `first`/`second`, `0`/`0` and `ab`/`cd` joined by 1, 2, 5 or 10 carriage returns, line feeds,
+    CR LF pairs or tabs, as formula cells so that each character is the one intended (the XML
+    parser turns a stored CR into LF), beside the joined text and a stored LF; under `@`, `@* `
+    and `@*0` at widths 8, 12, 20 and 30, with each case's autofit width; Calibri 11 and Aptos
+    Narrow 12 workbooks; Excel 16.115 under Microsoft 365).**
+    - **A line feed and a tab take the space's advance; a carriage return takes none.** So CR LF
+      measures one space. Every fill count and every `#` in the 1,296 rows matches that, where
+      measuring them as a digit failed 335 rows in Aptos Narrow alone.
+    - Autofit agrees: in Calibri 11 `firstsecond` fits 57 points and each added LF, CR LF or tab
+      adds about 2.4 (81 for ten); in Aptos Narrow 12, 61 points and about 2.2 for each (83 for
+      ten). Any number of CRs leaves Aptos Narrow's autofit at 61. In Calibri 11 it is one point
+      narrower than the joined text (56, for every count). No decision uses autofit, so this is not
+      modeled.
+    - The capture runner read osascript's output in Python's text mode, which turns CR and CR LF
+      into LF. It now decodes the bytes itself. `text_overflow`, recaptured as a control,
+      came back with every row unchanged.
 
 ## 3. The pipeline
 

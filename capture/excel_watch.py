@@ -386,13 +386,15 @@ def osascript(
     preflight()
     keep_awake()
     try:
-        result = subprocess.run(
-            ["osascript", *arguments], capture_output=True, text=True, timeout=seconds
-        )
+        raw = subprocess.run(["osascript", *arguments], capture_output=True, timeout=seconds)
     except subprocess.TimeoutExpired:
         what = f"{Path(arguments[0]).name} past {seconds:.0f} s"
         record, answered, ended = collect(what, arguments, seconds, end_allowed)
         raise ExcelTimeoutError(what, answered, record, ended) from None
+    # decoded without newline translation: a cell's CR and CR LF come back as they are
+    result = subprocess.CompletedProcess(
+        raw.args, raw.returncode, raw.stdout.decode("utf-8"), raw.stderr.decode("utf-8")
+    )
     if result.returncode and APPLE_EVENT_TIMEOUT in result.stderr:
         what = f"{Path(arguments[0]).name}: AppleEvent timed out (-1712)"
         record, answered, ended = collect(what, arguments, seconds, end_allowed)

@@ -140,9 +140,13 @@ def _whole_advances(name: str, size: float, style: str) -> dict[str, float]:
 
     A tenth (``W`` is 10.1 at Calibri 11) is real only in autofit, where ten ``W`` measure 101;
     ten ``W`` and a digit fit a budget of 106, and ``*W0`` holds 10 of them there
-    (CAPTURING.md section 2 item 41).
+    (CAPTURING.md section 2 item 41). A line feed and a tab take the space's advance and a
+    carriage return none, so CR LF measures one space (item 51).
     """
-    return {c: float(math.floor(a + 1e-9)) for c, a in _advances(name, size, style).items()}
+    whole = {c: float(math.floor(a + 1e-9)) for c, a in _advances(name, size, style).items()}
+    whole["\n"] = whole["\t"] = whole[" "]
+    whole["\r"] = 0.0
+    return whole
 
 
 @lru_cache(maxsize=64)
@@ -183,8 +187,9 @@ def _overhang(name: str, size: float, style: str) -> float:
 def glyph_measure(font: FontSpec | None = None) -> Measure:
     """Excel mode: the sum of whole glyph advances in points at the font's size.
 
-    Glyphs outside the table measure as a digit (the maximum digit width), which is what a
-    column width unit is; the documentation says so.
+    A line feed and a tab measure as a space, a carriage return as nothing; other glyphs outside
+    the table measure as a digit (the maximum digit width), which is what a column width unit
+    is; the documentation says so.
     """
     adv = _table(font)
     digit = adv["0"]
@@ -199,7 +204,8 @@ def text_width(text: str, font: FontSpec | None = None) -> float:
     """The width of ``text`` in points as Excel for Mac measures it in ``font``.
 
     The sum of the whole glyph advances, the measure every Excel-mode decision uses (fit, ``#``
-    count, fill count); glyphs outside the table measure as a digit. Like reportlab's
+    count, fill count); a line feed and a tab measure as a space, a carriage return as nothing,
+    and other glyphs outside the table as a digit. Like reportlab's
     ``stringWidth``, but whole points as Excel hints them. Excel's autofit alone counts a tenth
     on a few wide glyphs.
 

@@ -73,6 +73,7 @@ before Excel was asked, and every prediction matched.
 | `letters`, `letters_upper`, `letters1904` | 6,584 | what a bare letter means in a format, and the Buddhist-year code |
 | `elapsed_decimals`, `huge_values`, `empty_text`, `fraction_percent` | 3,678 | fractions of a second after any date or time code, values too large for fraction and elapsed arithmetic, the empty text, a numerator's limits |
 | `hidden_zeros`, `hidden_zeros_control` | 1,700 | a sheet that hides zeros (`show_zeros=False`) and the same cases on one that shows them: exact zeros, values rounding to zero, zero sections |
+| `line_breaks`, `line_breaks_aptos_narrow` | 648, 648 | carriage returns, line feeds, CR LF and tabs in text under fills of spaces and digits, at four widths, with autofit widths beside |
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
 | `measure9` to `measure16` and 66 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri and Aptos Narrow, four styles, nine sizes |
 
@@ -82,8 +83,8 @@ what Excel's repair does to formats it refuses, and `row_height.layout.tsv` (15,
 height Excel gives each row for its Normal font, its cell fonts and its wrapped lines, and
 `vertical.layout.tsv` (480 rows, measured in window captures) where the text sits in the row,
 `builtin_formats.layout.tsv` (164 rows) what each built-in number format id stands for, and
-`palette.layout.tsv` (128 rows, from window captures) the colors drawn under a workbook palette. In all, 226 suite files (154 with rows, the
-others autofit measurements) hold 724,574 rows. Every row passes. Fifteen color readings are
+`palette.layout.tsv` (128 rows, from window captures) the colors drawn under a workbook palette. In all, 228 suite files (156 with rows, the
+others autofit measurements) hold 725,870 rows. Every row passes. Fifteen color readings are
 skipped because Excel's scripting interface reports automatic black where the sheet, checked by
 eye, shows the section color, and width-less rows of a Buddhist-year code are compared with the
 plain year, which is what Excel's clipboard gives where the sheet shows the Buddhist year.

@@ -98,7 +98,8 @@ def format_value(
             default ``("Calibri", 11)``, openpyxl's workbook default. The text is measured in
             it. Calibri and Aptos Narrow are measured in four styles at 9, 10, 11, 12, 14, 16,
             18, 20 and 24 points and scaled from the nearest measured size elsewhere; other
-            fonts raise ``LookupError``. Glyphs outside the table measure as a digit.
+            fonts raise ``LookupError``. A line feed and a tab measure as a space and a
+            carriage return as nothing; other glyphs outside the table measure as a digit.
         normal_font: The workbook's Normal font for Excel mode, whose digit width sets the
             column (one unit of ``column_width``); default ``font``.
         measure: A custom text measure for ``width``, whose units then also apply to ``width``.

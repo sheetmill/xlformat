@@ -363,8 +363,9 @@ points), 7 for 14, 8 for 16; text has those points less the 5 of padding: `MDW Â
 measures the sum of its whole glyph advances in points at the cell's size; the advances are
 hinted per size (digits are 6 at 11 and 12, `-` is 3 at 11 and 4 at 12, `%` 8 and 9), so the
 bundled table holds every measured size (9, 10, 11, 12, 14, 16, 18, 20, 24) as measured and scales the
-nearest measured table with per-glyph rounding for other sizes; glyphs outside the table measure
-as a digit. The autofit width of a text is the floored sum of its advances plus 7 points at every
+nearest measured table with per-glyph rounding for other sizes. A line feed and a tab measure as a
+space and a carriage return as nothing, so CR LF is one space (`line_breaks`,
+`line_breaks_aptos_narrow`); other glyphs outside the table measure as a digit. The autofit width of a text is the floored sum of its advances plus 7 points at every
 size, which is how the tables were fitted (`capture/glyph_fit.py`, 515 of 515 space-less texts exact
 per size). Autofit alone counts the tenth a few wide glyphs carry in the tables (`W` is 10.1 at
 Calibri 11, so ten measure 101): fit and fill use whole points, and ten `W` and a digit fit a budget
@@ -729,7 +730,7 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 Âµs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`, 226 suite files, 724,574 rows in all modes | 12.0 s |
+| `pytest`, 228 suite files, 725,870 rows in all modes | 12.0 s |
 | `pytest --tier=fast` | 3.2 s |
 
 ## 14. What the code taught

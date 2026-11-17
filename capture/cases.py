@@ -2892,9 +2892,60 @@ for _size in (18, 20, 24):
 SUITES["hidden_zeros_control"] = hidden_zeros_control
 
 
+_LINE_BREAKS: tuple[tuple[str, str], ...] = (
+    ("\n", "CHAR(10)"),
+    ("\r", "CHAR(13)"),
+    ("\r\n", "CHAR(13)&CHAR(10)"),
+    ("\t", "CHAR(9)"),
+)
+_LINE_BREAK_PAIRS: tuple[tuple[str, str], ...] = (("first", "second"), ("0", "0"), ("ab", "cd"))
+_LINE_BREAK_FORMATS: tuple[str, ...] = ("@", "@* ", "@*0")
+
+
+def _line_break_cases(name: str) -> tuple[Case, ...]:
+    """Texts holding CR, LF, CR LF or a tab between two words, repeated 1, 2, 5 and 10 times so
+    the break's advance shows as many digits; formula cells pin each character (the XML parser
+    turns a stored CR into LF), and the plain texts without a break and one stored LF are the
+    controls."""
+    cases: list[Case] = []
+    for fmt in _LINE_BREAK_FORMATS:
+        for left, right in _LINE_BREAK_PAIRS:
+            cases.append(Case(name, f"plain:{left}{right}", f"{left}{right}", fmt))
+            cases.append(Case(name, f"stored-lf:{left}", f"{left}\n{right}", fmt))
+            for char, excel in _LINE_BREAKS:
+                for k in (1, 2, 5, 10):
+                    sep = excel if k == 1 else f"REPT({excel},{k})"
+                    formula = f'="{left}"&{sep}&"{right}"'
+                    tag = f"formula:{formula}"
+                    cases.append(Case(name, tag, f"{left}{char * k}{right}", fmt, formula=formula))
+    return tuple(cases)
+
+
+def line_breaks() -> Suite:
+    """The advance Excel gives CR, LF, CR LF and a tab in text, by autofit and by fills
+    of spaces and digits, in a Calibri 11 workbook."""
+    return Suite(
+        "line_breaks", _line_break_cases("line_breaks"), widths=(8, 12, 20, 30), measure=True
+    )  # fmt: skip
+
+
+def line_breaks_aptos_narrow() -> Suite:
+    """The line-break suite in an Aptos Narrow 12 workbook (Excel's standard font)."""
+    name = "line_breaks_aptos_narrow"
+    return Suite(
+        name, _line_break_cases(name), widths=(8, 12, 20, 30), measure=True, font_size=12,
+        font_name="Aptos Narrow",
+    )  # fmt: skip
+
+
+SUITES["line_breaks"] = line_breaks
+SUITES["line_breaks_aptos_narrow"] = line_breaks_aptos_narrow
+
+
 def distinct_measure_cases(cases: Iterable[Case]) -> list[Case]:
     """The first case of each distinct (value, format, cell font), for the measure sheet."""
-    seen: dict[tuple[str, str, str, CellFont | None], Case] = {}
+    seen: dict[tuple[str, str, str, CellFont | None, str | None], Case] = {}
     for case in cases:
-        seen.setdefault((case.value_type, case.value_repr, case.format, case.font), case)
+        key = (case.value_type, case.value_repr, case.format, case.font, case.formula)
+        seen.setdefault(key, case)
     return list(seen.values())

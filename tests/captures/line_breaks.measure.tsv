@@ -1,0 +1,164 @@
+# autofit column width (Excel units) per distinct (value, format); font: Calibri 11
+value_type	value_repr	format	autofit_width	autofit_points
+str	'firstsecond'	'@'	8.67	57.0
+str	'first\nsecond'	'@'	9.0	59.0
+str	'first\nsecond'	'@'	9.0	59.0
+str	'first\n\nsecond'	'@'	9.33	61.0
+str	'first\n\n\n\n\nsecond'	'@'	10.67	69.0
+str	'first\n\n\n\n\n\n\n\n\n\nsecond'	'@'	12.67	81.0
+str	'first\rsecond'	'@'	8.5	56.0
+str	'first\r\rsecond'	'@'	8.5	56.0
+str	'first\r\r\r\r\rsecond'	'@'	8.5	56.0
+str	'first\r\r\r\r\r\r\r\r\r\rsecond'	'@'	8.5	56.0
+str	'first\r\nsecond'	'@'	9.0	59.0
+str	'first\r\n\r\nsecond'	'@'	9.33	61.0
+str	'first\r\n\r\n\r\n\r\n\r\nsecond'	'@'	10.67	69.0
+str	'first\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nsecond'	'@'	12.67	81.0
+str	'first\tsecond'	'@'	9.0	59.0
+str	'first\t\tsecond'	'@'	9.33	61.0
+str	'first\t\t\t\t\tsecond'	'@'	10.67	69.0
+str	'first\t\t\t\t\t\t\t\t\t\tsecond'	'@'	12.67	81.0
+str	'00'	'@'	2.33	19.0
+str	'0\n0'	'@'	2.67	21.0
+str	'0\n0'	'@'	2.67	21.0
+str	'0\n\n0'	'@'	3.0	23.0
+str	'0\n\n\n\n\n0'	'@'	4.33	31.0
+str	'0\n\n\n\n\n\n\n\n\n\n0'	'@'	6.33	43.0
+str	'0\r0'	'@'	2.17	18.0
+str	'0\r\r0'	'@'	2.17	18.0
+str	'0\r\r\r\r\r0'	'@'	2.17	18.0
+str	'0\r\r\r\r\r\r\r\r\r\r0'	'@'	2.17	18.0
+str	'0\r\n0'	'@'	2.67	21.0
+str	'0\r\n\r\n0'	'@'	3.0	23.0
+str	'0\r\n\r\n\r\n\r\n\r\n0'	'@'	4.33	31.0
+str	'0\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n0'	'@'	6.33	43.0
+str	'0\t0'	'@'	2.67	21.0
+str	'0\t\t0'	'@'	3.0	23.0
+str	'0\t\t\t\t\t0'	'@'	4.33	31.0
+str	'0\t\t\t\t\t\t\t\t\t\t0'	'@'	6.33	43.0
+str	'abcd'	'@'	4.0	29.0
+str	'ab\ncd'	'@'	4.33	31.0
+str	'ab\ncd'	'@'	4.33	31.0
+str	'ab\n\ncd'	'@'	4.67	33.0
+str	'ab\n\n\n\n\ncd'	'@'	6.0	41.0
+str	'ab\n\n\n\n\n\n\n\n\n\ncd'	'@'	8.0	53.0
+str	'ab\rcd'	'@'	3.83	28.0
+str	'ab\r\rcd'	'@'	3.83	28.0
+str	'ab\r\r\r\r\rcd'	'@'	3.83	28.0
+str	'ab\r\r\r\r\r\r\r\r\r\rcd'	'@'	3.83	28.0
+str	'ab\r\ncd'	'@'	4.33	31.0
+str	'ab\r\n\r\ncd'	'@'	4.67	33.0
+str	'ab\r\n\r\n\r\n\r\n\r\ncd'	'@'	6.0	41.0
+str	'ab\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\ncd'	'@'	8.0	53.0
+str	'ab\tcd'	'@'	4.33	31.0
+str	'ab\t\tcd'	'@'	4.67	33.0
+str	'ab\t\t\t\t\tcd'	'@'	6.0	41.0
+str	'ab\t\t\t\t\t\t\t\t\t\tcd'	'@'	8.0	53.0
+str	'firstsecond'	'@* '	8.67	57.0
+str	'first\nsecond'	'@* '	9.0	59.0
+str	'first\nsecond'	'@* '	9.0	59.0
+str	'first\n\nsecond'	'@* '	9.33	61.0
+str	'first\n\n\n\n\nsecond'	'@* '	10.67	69.0
+str	'first\n\n\n\n\n\n\n\n\n\nsecond'	'@* '	12.67	81.0
+str	'first\rsecond'	'@* '	8.5	56.0
+str	'first\r\rsecond'	'@* '	8.5	56.0
+str	'first\r\r\r\r\rsecond'	'@* '	8.5	56.0
+str	'first\r\r\r\r\r\r\r\r\r\rsecond'	'@* '	8.5	56.0
+str	'first\r\nsecond'	'@* '	9.0	59.0
+str	'first\r\n\r\nsecond'	'@* '	9.33	61.0
+str	'first\r\n\r\n\r\n\r\n\r\nsecond'	'@* '	10.67	69.0
+str	'first\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nsecond'	'@* '	12.67	81.0
+str	'first\tsecond'	'@* '	9.0	59.0
+str	'first\t\tsecond'	'@* '	9.33	61.0
+str	'first\t\t\t\t\tsecond'	'@* '	10.67	69.0
+str	'first\t\t\t\t\t\t\t\t\t\tsecond'	'@* '	12.67	81.0
+str	'00'	'@* '	2.33	19.0
+str	'0\n0'	'@* '	2.67	21.0
+str	'0\n0'	'@* '	2.67	21.0
+str	'0\n\n0'	'@* '	3.0	23.0
+str	'0\n\n\n\n\n0'	'@* '	4.33	31.0
+str	'0\n\n\n\n\n\n\n\n\n\n0'	'@* '	6.33	43.0
+str	'0\r0'	'@* '	2.17	18.0
+str	'0\r\r0'	'@* '	2.17	18.0
+str	'0\r\r\r\r\r0'	'@* '	2.17	18.0
+str	'0\r\r\r\r\r\r\r\r\r\r0'	'@* '	2.17	18.0
+str	'0\r\n0'	'@* '	2.67	21.0
+str	'0\r\n\r\n0'	'@* '	3.0	23.0
+str	'0\r\n\r\n\r\n\r\n\r\n0'	'@* '	4.33	31.0
+str	'0\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n0'	'@* '	6.33	43.0
+str	'0\t0'	'@* '	2.67	21.0
+str	'0\t\t0'	'@* '	3.0	23.0
+str	'0\t\t\t\t\t0'	'@* '	4.33	31.0
+str	'0\t\t\t\t\t\t\t\t\t\t0'	'@* '	6.33	43.0
+str	'abcd'	'@* '	4.0	29.0
+str	'ab\ncd'	'@* '	4.33	31.0
+str	'ab\ncd'	'@* '	4.33	31.0
+str	'ab\n\ncd'	'@* '	4.67	33.0
+str	'ab\n\n\n\n\ncd'	'@* '	6.0	41.0
+str	'ab\n\n\n\n\n\n\n\n\n\ncd'	'@* '	8.0	53.0
+str	'ab\rcd'	'@* '	3.83	28.0
+str	'ab\r\rcd'	'@* '	3.83	28.0
+str	'ab\r\r\r\r\rcd'	'@* '	3.83	28.0
+str	'ab\r\r\r\r\r\r\r\r\r\rcd'	'@* '	3.83	28.0
+str	'ab\r\ncd'	'@* '	4.33	31.0
+str	'ab\r\n\r\ncd'	'@* '	4.67	33.0
+str	'ab\r\n\r\n\r\n\r\n\r\ncd'	'@* '	6.0	41.0
+str	'ab\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\ncd'	'@* '	8.0	53.0
+str	'ab\tcd'	'@* '	4.33	31.0
+str	'ab\t\tcd'	'@* '	4.67	33.0
+str	'ab\t\t\t\t\tcd'	'@* '	6.0	41.0
+str	'ab\t\t\t\t\t\t\t\t\t\tcd'	'@* '	8.0	53.0
+str	'firstsecond'	'@*0'	8.67	57.0
+str	'first\nsecond'	'@*0'	9.0	59.0
+str	'first\nsecond'	'@*0'	9.0	59.0
+str	'first\n\nsecond'	'@*0'	9.33	61.0
+str	'first\n\n\n\n\nsecond'	'@*0'	10.67	69.0
+str	'first\n\n\n\n\n\n\n\n\n\nsecond'	'@*0'	12.67	81.0
+str	'first\rsecond'	'@*0'	8.5	56.0
+str	'first\r\rsecond'	'@*0'	8.5	56.0
+str	'first\r\r\r\r\rsecond'	'@*0'	8.5	56.0
+str	'first\r\r\r\r\r\r\r\r\r\rsecond'	'@*0'	8.5	56.0
+str	'first\r\nsecond'	'@*0'	9.0	59.0
+str	'first\r\n\r\nsecond'	'@*0'	9.33	61.0
+str	'first\r\n\r\n\r\n\r\n\r\nsecond'	'@*0'	10.67	69.0
+str	'first\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nsecond'	'@*0'	12.67	81.0
+str	'first\tsecond'	'@*0'	9.0	59.0
+str	'first\t\tsecond'	'@*0'	9.33	61.0
+str	'first\t\t\t\t\tsecond'	'@*0'	10.67	69.0
+str	'first\t\t\t\t\t\t\t\t\t\tsecond'	'@*0'	12.67	81.0
+str	'00'	'@*0'	2.33	19.0
+str	'0\n0'	'@*0'	2.67	21.0
+str	'0\n0'	'@*0'	2.67	21.0
+str	'0\n\n0'	'@*0'	3.0	23.0
+str	'0\n\n\n\n\n0'	'@*0'	4.33	31.0
+str	'0\n\n\n\n\n\n\n\n\n\n0'	'@*0'	6.33	43.0
+str	'0\r0'	'@*0'	2.17	18.0
+str	'0\r\r0'	'@*0'	2.17	18.0
+str	'0\r\r\r\r\r0'	'@*0'	2.17	18.0
+str	'0\r\r\r\r\r\r\r\r\r\r0'	'@*0'	2.17	18.0
+str	'0\r\n0'	'@*0'	2.67	21.0
+str	'0\r\n\r\n0'	'@*0'	3.0	23.0
+str	'0\r\n\r\n\r\n\r\n\r\n0'	'@*0'	4.33	31.0
+str	'0\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n0'	'@*0'	6.33	43.0
+str	'0\t0'	'@*0'	2.67	21.0
+str	'0\t\t0'	'@*0'	3.0	23.0
+str	'0\t\t\t\t\t0'	'@*0'	4.33	31.0
+str	'0\t\t\t\t\t\t\t\t\t\t0'	'@*0'	6.33	43.0
+str	'abcd'	'@*0'	4.0	29.0
+str	'ab\ncd'	'@*0'	4.33	31.0
+str	'ab\ncd'	'@*0'	4.33	31.0
+str	'ab\n\ncd'	'@*0'	4.67	33.0
+str	'ab\n\n\n\n\ncd'	'@*0'	6.0	41.0
+str	'ab\n\n\n\n\n\n\n\n\n\ncd'	'@*0'	8.0	53.0
+str	'ab\rcd'	'@*0'	3.83	28.0
+str	'ab\r\rcd'	'@*0'	3.83	28.0
+str	'ab\r\r\r\r\rcd'	'@*0'	3.83	28.0
+str	'ab\r\r\r\r\r\r\r\r\r\rcd'	'@*0'	3.83	28.0
+str	'ab\r\ncd'	'@*0'	4.33	31.0
+str	'ab\r\n\r\ncd'	'@*0'	4.67	33.0
+str	'ab\r\n\r\n\r\n\r\n\r\ncd'	'@*0'	6.0	41.0
+str	'ab\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\ncd'	'@*0'	8.0	53.0
+str	'ab\tcd'	'@*0'	4.33	31.0
+str	'ab\t\tcd'	'@*0'	4.67	33.0
+str	'ab\t\t\t\t\tcd'	'@*0'	6.0	41.0
+str	'ab\t\t\t\t\t\t\t\t\t\tcd'	'@*0'	8.0	53.0

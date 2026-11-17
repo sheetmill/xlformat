@@ -165,7 +165,7 @@ def build(suite: Suite) -> Manifest:
     if suite.measure:
         ms = wb.create_sheet("measure")
         for k, case in enumerate(distinct_measure_cases(suite.cases), 1):
-            _set_value(ms, 1, k, case.value, case.format)
+            _set_value(ms, 1, k, case.value, case.format, case.formula, case.written)
             if case.font is not None:
                 ms.cell(row=1, column=k).font = _font(case.font)
             measure_cells.append(f"{get_column_letter(k)}1")
