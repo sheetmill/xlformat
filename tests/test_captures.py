@@ -68,11 +68,21 @@ DISPLAY_FORMAT_COLOR_MISREPORTS: dict[tuple[str, str], str] = {
     ("'[Red][h]:mm'", "-1234.5"): _HASH,
 }
 
-# A file width Excel converts to one point more than ECMA-376's formula gives, at one digit width
-# only (CAPTURING.md section 2 item 48): 10.7109 at a maximum digit width of 12 points (Calibri
-# and Aptos Narrow 24) is 129 points in Excel, 128 by the formula, which every other width of the
-# 137 at that size, and every width at the other sizes, follows. Rows at it are skipped.
-FILE_WIDTH_DEVIATIONS: frozenset[tuple[str, float]] = frozenset({("10.7109", 12.0)})
+# File widths Excel converts otherwise than ECMA-376's formula, as (width text, digit width); rows
+# at them are skipped, and a listed width that matches fails. None is known (CAPTURING.md section 2
+# item 53: the width once listed was 10.7109375, recorded with six digits).
+FILE_WIDTH_DEVIATIONS: frozenset[tuple[str, float]] = frozenset()
+
+
+def _written_width(row: Row, header: dict[str, str]) -> float | None:
+    """The file width the workbook held. Suites captured before the ``widths: exact`` header
+    recorded it with six significant digits, so a 1/256 step such as 10.7109375 reads as
+    "10.7109"; the step whose short text the row holds is the width written."""
+    width = row.width_value
+    if width is None or header.get("widths") == "exact":
+        return width
+    step = round(width * 256) / 256
+    return step if f"{step:g}" == row.width else width
 
 
 def _excel_value(row: Row, header: dict[str, str]) -> object:
@@ -246,7 +256,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
             continue
         if file_widths:
             metrics = file_column_metrics(
-                row.width_value,
+                _written_width(row, header),
                 base_col_width=float(sheet_format.get("baseColWidth", 8)),
                 default_col_width=(
                     float(sheet_format["defaultColWidth"])

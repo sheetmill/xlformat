@@ -402,8 +402,8 @@ at Calibri 14 with no change to the model.
 `CAPTURING.md` §2 item 28). A file's `<col width>` of `w` is
 `trunc((256 · w' + trunc(128 / MDW)) / 256 · MDW)` points with `w' = trunc(256 · w) / 256`: the
 pixel formula of ECMA-376 Part 1 §18.3.1.13 with MDW in points, exact for all 137 widths of each
-`column_file` suite at every one of the nine measured sizes, with one exception: 10.7109 at a digit
-width of 12 is 129 points, a known deviation in `QUIRKS.md`. A column without `<col>` is `defaultColWidth` as a file width when the
+`column_file` suite at every one of the nine measured sizes, and for widths on either side of a
+1/256 step (`column_boundary11`, `16`, `24`). A column without `<col>` is `defaultColWidth` as a file width when the
 sheet has one, else `baseColWidth · MDW + P` points (53 at Calibri 11, 8.0 in the dialog). The
 dialog shows `(points − P) / MDW`, below one unit `points / (MDW + P)`, to two decimals half up;
 `ColumnMetrics.width` is that number exact, so it round-trips through `column_width`. Below one

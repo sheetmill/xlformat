@@ -916,7 +916,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     - **One file width** converts to a point more than ECMA-376's formula gives: 10.7109 at a digit
       width of 12 is 129 points, 128 by the formula; the 136 other widths at 24 points follow it, and
       rounding the width to 1/256 or `128 / MDW` instead of truncating breaks other rows. A known
-      deviation (`QUIRKS.md`).
+      deviation (`QUIRKS.md`). Overturned by item 53: the width written was 10.7109375, which the
+      formula converts to 129 points as Excel does; the suite file recorded it as "10.7109".
     - Two faults of the fitting script surfaced: it wrote an italic face's overhang only when not
       zero, so a style listing only the new sizes made the sizes below scale from them; it now writes
       every measured size. And it took the autofit padding beyond 7 as overhang, which held only
@@ -988,9 +989,17 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     above and 20 on a step; `long_fills`, six fills at widths 40 to 255 in a Calibri 9 workbook;
     Excel 16.115 under Microsoft 365).** Every row matches the model as it stands: a column without
     `<col>` is `baseColWidth · MDW + P` points at every base width and size; a file width is
-    truncated to 1/256 before ECMA-376's formula on both sides of a step (the one width that is not,
-    10.7109 at a digit width of 12, stays a known deviation); a fill whose text would pass 255
-    characters shows a `#` run.
+    truncated to 1/256 before ECMA-376's formula on both sides of a step; a fill whose text would pass
+    255 characters shows a `#` run.
+53. **The width that was not a deviation (2026-11-17; `column_boundary11`, `16` and `24` recaptured,
+    every expected text and read-back width unchanged).** The capture wrote a width's text with six
+    significant digits (`f"{width:g}"`), so a file width of 10.7109375 (a 1/256 step) was recorded
+    as "10.7109", and the test converted that text: 128 points at a digit width of 12, where Excel's
+    129 is what ECMA-376's formula gives for the width written. The known deviation of item 48 was
+    this, not Excel. Width texts are now exact (`repr` where six digits lose the value; header
+    `widths: exact`), and for older suite files the test takes the 1/256 step whose six-digit text
+    the row holds. The three `column_boundary` suites, whose widths just off a step could share a
+    six-digit text with the step itself, were recaptured with exact texts.
 
 ## 3. The pipeline
 

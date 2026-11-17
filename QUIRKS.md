@@ -99,7 +99,7 @@ that are not in this repository, `CAPTURING.md` §2 item 22): zero misses in eve
 
 ## Known deviations
 
-Three. The first concerns the clipboard only: a Buddhist-year code (`b`, `bbbb`) renders the Buddhist year without a
+Two. The first concerns the clipboard only: a Buddhist-year code (`b`, `bbbb`) renders the Buddhist year without a
 width, as the sheet and `TEXT` do at every width, while Excel's clipboard gives the plain year:
 `03` where the sheet shows `46` (`letters`, `letters_upper`, `letters1904`; `CAPTURING.md` §2 item
 35). The package follows the sheet and does not model that medium; `full_text` says so, and the
@@ -109,13 +109,6 @@ The second: an elapsed code after a date code is not modeled: `d [s].00` with ha
 in Excel, numbers no rule here explains, and the package shows the elapsed count (`0 0.50`). A
 capture batch stopped on a workbook with `[s]*-.00`, so that form has no capture (`CAPTURING.md` §2
 item 42).
-
-The third: one column width written in a file converts to one point more in Excel than ECMA-376's
-formula gives. `<col width="10.7109">` at a maximum digit width of 12 points (Calibri and Aptos
-Narrow 24) is 129 points in Excel and 128 by the formula; the other 136 widths at that size, and
-every width at the other sizes, follow the formula, and rounding instead of truncating breaks
-others. Rows at that width are skipped under `tests/test_captures.py: FILE_WIDTH_DEVIATIONS`, which
-fails if Excel and the package ever agree there (`CAPTURING.md` §2 item 48).
 
 No other row is known to differ. Such rows would be listed in `tests/test_captures.py` and here,
 with the evidence, and counted on every run. Fifteen color rows of the `colors` suite are skipped under `tests/test_captures.py:

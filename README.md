@@ -120,10 +120,9 @@ evidence for each.
   `"#N/A"` is text.
 - **Conditional formatting** and cell styles beyond the format string are out of scope.
 
-Every captured row passes. Three known deviations are listed in `QUIRKS.md`: a Buddhist-year code
+Every captured row passes. Two known deviations are listed in `QUIRKS.md`: a Buddhist-year code
 shows the Buddhist year without a width, as the sheet does, where Excel's clipboard gives the plain
-year; an elapsed code after a date code (`d [s].00`) is not modeled; and one column width written in
-a file (10.7109 at a 24-point Normal font) converts to a point less than Excel makes it. Fifteen color readings in the Excel captures are skipped because Excel's
+year; and an elapsed code after a date code (`d [s].00`) is not modeled. Fifteen color readings in the Excel captures are skipped because Excel's
 scripting interface misreports them; the sheet itself shows the color the package returns.
 
 ## Related packages

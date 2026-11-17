@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- The known deviation listed in 0.4.0 for a file column width of 10.7109 at a 24-point Normal
+  font was not one: the file held 10.7109375, which the expected outputs recorded with six digits.
+  Excel converts it as ECMA-376's formula does, and so does the package. Expected-output files now
+  record such widths in full.
+
 ## [0.4.0] - 2026-11-16
 
 ### Added

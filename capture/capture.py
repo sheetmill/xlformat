@@ -140,6 +140,14 @@ def parse_output(
     return meta, columns, measure, colors
 
 
+def _width_text(width: float | None) -> str:
+    """The width as text: short when that denotes it exactly, else ``repr`` (10.7109375)."""
+    if width is None:
+        return ""
+    short = f"{width:g}"
+    return short if float(short) == width else repr(width)
+
+
 def make_rows(
     cases: tuple[Case, ...],
     manifest: Manifest,
@@ -161,7 +169,7 @@ def make_rows(
                     value_type=case.value_type,
                     value_repr=case.value_repr,
                     format=repr(case.format),
-                    width="" if spec.width is None else f"{spec.width:g}",
+                    width=_width_text(spec.width),
                     actual_width=actual,
                     date1904="1" if case.date1904 else "0",
                     expected_text=text,
@@ -222,6 +230,7 @@ def capture(suite_name: str) -> tuple[Path, dict[str, str]]:
         )
         + ("; colors=display format font color per cell" if manifest.colors else ""),
         "numbers": "repr",  # float texts are repr(value); absent in older suites ("%.16g")
+        "widths": "exact",  # width texts denote the width written; older suites kept 6 digits
         "column_points": " ".join(
             f"{c.letter}={meta[f'points_{c.letter}']}"
             for c in manifest.columns
