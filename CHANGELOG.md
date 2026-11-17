@@ -7,15 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-11-17
+
 ### Fixed
+- `vertical_metrics` placed text one point too low. `baseline_from_top` is now the face's size
+  plus 1 (Calibri 11: 12 points, was 11) and `baseline_from_bottom` one point less at every size
+  (Calibri 11: 3 points, was 4). The other fields are unchanged. The screen capture had taken each
+  row's top 2 pixels below the top of the gridline above it, which is where a row begins.
 - The known deviation listed in 0.4.0 for a file column width of 10.7109 at a 24-point Normal
-  font was not one: the file held 10.7109375, which the expected outputs recorded with six digits.
-  Excel converts it as ECMA-376's formula does, and so does the package. Expected-output files now
-  record such widths in full.
-- `vertical_metrics` placed text 1 point too low: `baseline_from_top` is the face's size plus 1
-  (12 points for Calibri 11, was 11) and `baseline_from_bottom` is one point less (3, was 4). The
-  screen capture had taken each row's top 2 pixels below the top of the gridline above it, which
-  is where a row begins.
+  font is gone: the file held 10.7109375, which the expected outputs recorded with six digits, and
+  Excel converts it as ECMA-376's formula does, as the package always has. No rendering changes.
+  Expected-output files now record such widths in full, and new suites check file widths on
+  either side of a 1/256 step, columns without a width under other base widths, and fills past
+  255 characters.
+- Documentation: the column padding and the digit widths are stated for all nine measured sizes;
+  the text edges are described as measured in Excel's print layout at Calibri 11 (not as
+  provisional); Microsoft's page on regional date and time formats is cited at its current
+  address.
 
 ## [0.4.0] - 2026-11-16
 
@@ -215,7 +223,8 @@ First release.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/sheetmill/xlformat/releases/tag/v0.4.1
 [0.4.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.4.0
 [0.3.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.3.0
 [0.2.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.2.0
