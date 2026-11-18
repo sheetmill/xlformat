@@ -1,7 +1,7 @@
 # Capturing Excel's output: regenerating and extending the suites
 
 Section 2 records probe results in the order they were found; a later item that overturns an
-earlier one says so in both places. Section 3 describes the capture pipeline.
+earlier one notes it in both places. Section 3 describes the capture pipeline.
 
 ## 1. The 2023 capture
 
@@ -794,7 +794,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     - **The repair dialog** comes up after an AppleScript open has returned, so the workbook is
       not there to read until a person has answered, and a request sent while a person answers
       a dialog can crash Excel. `capture/repair.py` therefore opens each case through Launch
-      Services and exits; after the person has answered Yes and said so, it finds the workbook
+      Services and exits; once the dialog is answered (Yes) and `read` is run, it finds the workbook
       by name (a repaired workbook keeps its file's name, its window's caption ending
       "- Repaired") and reads it. A second open and read of the same case gave the same cells.
       Excel was restarted before this capture, since one capture can leave Excel altered for the next.

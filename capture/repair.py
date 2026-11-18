@@ -13,11 +13,11 @@ repair treats it the same alone.
 ``open`` checks that Excel answers, holds no workbook and has alerts on, writes the case into
 Excel's container and opens it through Launch Services, as a person opening the file does, then
 exits: nothing is sent to Excel while its dialog may be open (a request sent while a person
-answers a dialog has crashed Excel). The person answers the repair dialog ("Yes"), closes the
-repair report and says so. ``read`` then finds the workbook by the names Excel reports (a
+answers a dialog has crashed Excel). Answer the repair dialog ("Yes") and close the repair
+report, then run ``read``, which finds the workbook by the names Excel reports (a
 repaired workbook keeps its file's name; its window's caption says "Repaired"), reads every case
 cell's displayed text and number format, closes it without saving and checks that Excel holds no
-workbook and has alerts on. If no workbook matches it says so and leaves Excel as it is. The
+workbook and has alerts on. If no workbook matches it prints that and leaves Excel as it is. The
 repair report's text, which no script can read, may be given with ``--report``; only its records
 are kept, paths removed. ``write`` gathers both cases into the TSV (CAPTURING.md section 2
 item 33). No clipboard.
@@ -100,7 +100,7 @@ def _ask(script: str) -> str:
 
 
 def _clean() -> str:
-    """Whether Excel holds no workbook and has alerts on, as a line for the person."""
+    """Whether Excel holds no workbook and has alerts on, as a line to print."""
     count, alerts = _ask("get {count of workbooks, display alerts}").split(", ")
     state = "clean" if count == "0" and alerts == "true" else "NOT clean"
     return f"Excel is {state}: {count} workbooks, display alerts {alerts}"
@@ -122,7 +122,7 @@ def open_case(case: str) -> None:
     print(
         f"{case}: opened {name} through Launch Services. Excel asks whether to recover the "
         "workbook's contents: answer Yes, close the repair report (copy its text if wanted), "
-        f"then say so; then run `read {case}`."
+        f"then run `read {case}`."
     )
 
 

@@ -1,5 +1,5 @@
 -- Read a workbook Excel has repaired, found by name (argument 1), then close it without saving.
--- capture/repair.py runs it only after the person has answered Excel's repair dialog and said so:
+-- capture/repair.py runs it only once Excel's repair dialog has been answered and `read` is run:
 -- nothing is sent to Excel while that dialog may be open. Alerts are left as they are (on).
 --
 -- Output: one line per row, fields separated by ASCII 31: row, then per value column the
