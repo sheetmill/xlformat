@@ -4,7 +4,8 @@ Usage: ``uv run python -m capture.invalid``. Builds one workbook per candidate (
 into Excel's container, runs ``capture/probe_file_many.applescript`` on the directory, and prints
 one line per candidate: ``refused`` or the five displayed texts. Results are recorded by hand in
 ``CAPTURING.md`` section 2 item 9; refused strings become unit tests in ``tests/test_parser.py``
-and rendered ones go into the ``odd_formats`` suite in ``capture/cases.py``.
+and rendered ones become cases of a capture suite in ``capture/cases.py`` (``numeric_core`` holds
+the lone conditions).
 """
 
 from __future__ import annotations

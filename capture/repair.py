@@ -1,7 +1,7 @@
 """What Excel's repair does to a cell whose number format Excel refuses in a file.
 
     uv run python -m capture.repair open all|single     # build the case, open it as a person does
-    uv run python -m capture.repair read all|single [--report TEXT]   # after the dialog is answered
+    uv run python -m capture.repair read all|single [--caption TEXT] [--report TEXT]
     uv run python -m capture.repair write              # write tests/captures/repair.layout.tsv
 
 The one capture that needs a person at Excel. Excel refuses a file holding such a format
@@ -18,7 +18,9 @@ report, then run ``read``, which finds the workbook by the names Excel reports (
 repaired workbook keeps its file's name; its window's caption says "Repaired"), reads every case
 cell's displayed text and number format, closes it without saving and checks that Excel holds no
 workbook and has alerts on. If no workbook matches it prints that and leaves Excel as it is. The
-repair report's text, which no script can read, may be given with ``--report``; only its records
+window's caption, when the lookup finds none, may be given with ``--caption`` (before
+``--report``) and is recorded as the caption the person saw. The repair report's text, which no
+script can read, may be given with ``--report``; only its records
 are kept, paths removed. ``write`` gathers both cases into the TSV (CAPTURING.md section 2
 item 33). No clipboard.
 """
@@ -137,7 +139,7 @@ def records(report: str) -> str:
     return " ".join(re.sub(r"/Users/[^'\s<]*", "<path>", text).split())
 
 
-def read_case(case: str, report: str) -> None:
+def read_case(case: str, report: str, caption: str = "") -> None:
     """Find the repaired workbook by name, read and close it, and record the case."""
     name, rows = CASES[case]
     answer = _ask("get name of every workbook")  # "missing value" when none is open
@@ -157,6 +159,8 @@ def read_case(case: str, report: str) -> None:
         sys.exit(f"reading {workbook} failed: {proc.stderr.strip()[:200]}")
     lines = proc.stdout.rstrip("\n").split("\n")
     windows = lines[0].split(US)[1:]
+    if not windows and caption:  # the window lookup found none; record what the screen showed
+        windows = [f"{caption} (the caption as a person saw it)"]
     cells = [line.split(US)[1:] for line in lines[1:]]
     if len(cells) != len(rows()):
         sys.exit(f"{case}: expected {len(rows())} rows, read {len(cells)}")
@@ -217,12 +221,16 @@ def main(argv: list[str]) -> None:
     if "--report" in rest:
         i = rest.index("--report")
         rest, report = rest[:i], " ".join(rest[i + 1 :])
+    caption = ""
+    if "--caption" in rest:
+        i = rest.index("--caption")
+        rest, caption = rest[:i], " ".join(rest[i + 1 :])
     if len(rest) != 1 or rest[0] not in CASES:
         sys.exit(f"name a case: {' or '.join(CASES)}")
     if command == "open":
         open_case(rest[0])
     else:
-        read_case(rest[0], report)
+        read_case(rest[0], report, caption)
 
 
 if __name__ == "__main__":
