@@ -144,7 +144,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
    significant digits with ties down, zero misses on every numeric row. `QUIRKS.md` carries the
    settled table.
 9. **Formats Excel refuses in a file.** 21 formats the dialog rejects were each written
-   with openpyxl into their own workbook and opened with alerts off. Sixteen made Excel refuse
+   with openpyxl into their own workbook and opened with alerts off. Seventeen made Excel refuse
    to open the file (`open workbook` fails with "Parameter error (-50)"): `0.00e+00`,
    `0.00e-00`, `##0.0e+0`, `0.00E+00;0.00e+00`, `0;0;0;0;0`, `[Red`, `0.00"`, `[Red][Blue]0`,
    `[>1][<5]0`, `@;@`, `0;@;0`, `yyyy 0`, `0 yyyy`, `0.00E+`, `# ?/`, `[hh]:mm:[ss]`,
@@ -152,7 +152,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
    double-clicking one of these workbooks brought up the repair dialog ("We found a problem
    with some content in 'inv_01.xlsx'. Do you want us to try to recover as much as we can?"),
    so `-50` is Excel refusing the file with the dialog suppressed. What the recovered cell shows
-   was observed later: General, the other cells keeping their formats (item 33). Five opened
+   was observed later: General, the other cells keeping their formats (item 33). Four opened
    and rendered, so they are formats to match, not errors: `*-0*-` (two fills; the second one fills: `1235` then dashes), `e+` (`e`
    is a year code: `1234.5678` → `1903+`, `0` → `1900+`, `-0.5` → `#` run), `0.0.0` (the second
    point is a literal inside the decimal digits: `1234.5678` → `1234.5.7`), `0%E+0` (`%` is a

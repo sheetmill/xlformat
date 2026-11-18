@@ -664,10 +664,10 @@ Behavioral contract:
 - `FormatError` is raised only when Excel itself has no rendering for the format string **as it
   appears in a file**. "What the Format Cells dialog refuses" is the wrong test for a library
   that mostly reads files: of 21 dialog-rejected strings written with openpyxl, Excel refused to
-  open the file for 16 (lower-case `e+` after digits, five sections, unclosed `[` or `"`, two
+  open the file for 17 (lower-case `e+` after digits, five sections, unclosed `[` or `"`, two
   colors, two conditions, `@` in two sections or a middle section, date and digit codes mixed,
   `E+` without digits, `/` without denominator, two elapsed codes, two `General`) and rendered
-  the other five (`*-0*-`, `e+`, `0.0.0`, `0%E+0`; `CAPTURING.md` §2 item 9; the refusal is Excel's
+  the other four (`*-0*-`, `e+`, `0.0.0`, `0%E+0`; `CAPTURING.md` §2 item 9; the refusal is Excel's
   repair dialog, confirmed by hand). The first group is `FormatError`; the second is behavior to
   match. Consumers catch `FormatError` and fall back to `General`, which is what Excel's recovery
   does to the cell. Invalid-format strings are captured rows.
