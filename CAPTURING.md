@@ -14,7 +14,7 @@ column-width effects: `1234567.911` under `General` is in the file although it c
 column of the default width. So the clipboard is not `Range.Text`, and width needs a different
 capture.
 
-## 2. Driving Excel for Mac with AppleScript
+## 2. Driving Excel for Mac with AppleScript, and what each probe found
 
 Excel 16.113.4's scripting dictionary (`sdef "/Applications/Microsoft Excel.app"`) has what the
 capture needs on `range`:
@@ -264,7 +264,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     is nothing to re-render. One new fact: when both conditioned sections of a two-section
     format fail (`[<=0]0;[>1]0` with 0.3, or with -0.3 after the re-render), Excel shows a `#`
     run, not General; a lone failing condition still falls to General. The narrow
-    `_lone_zero_admitting` rule is replaced by the general re-render step in `_render.py`.
+    `_lone_zero_admitting` rule (since removed) is replaced by the general re-render step in `_render.py`.
 18. **Fraction rules against exact texts (2026-10-24, `fraction` recaptured: 0 of 2,205 texts
     changed).** With every fraction row (2,205 plus the 5,310 of the 2023 capture) scored, the
     15-digit rounding of the value before the denominator search changes nothing and was removed.
@@ -350,7 +350,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     ulps of a half step; the texts were predicted before the capture and matched on every row).
     Scored over 38,904 fixed-denominator rows of every suite: the new rule misses none, the
     tolerance missed 484. `_fraction.py: fixed_numerator` carries the rule; the 32 known
-    deviations and `capture/fraction_models.py` are gone. The free search was scored against
+    deviations and `capture/fraction_models.py` (since removed) are gone. The free search was scored against
     6,351,456 rows of 2023 captures that are not in this repository: the continued-fraction walk misses none,
     SheetJS's mediant walk and `limit_denominator` miss about three million each.
 23. **Width, character mode (2026-10-24; suites `width_fill`, 1,650 rows at widths 3, 6, 9, 12
@@ -1004,7 +1004,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
 54. **The row's top on screen (2026-11-17; no new capture: item 47's images and
     `vertical.layout.tsv`, and the window images of sheetpeek's
     [`text_style`](https://github.com/sheetmill/sheetpeek/blob/main/tests/captures/text_style.tsv)
-    capture, group `align`: top- and bottom-aligned "Hxg" in 60-point rows; both Excel 16.115).** Item 47 took each row's top from the view's first marker band
+    capture, group `align`: top- and bottom-aligned "Hxg" in 60-point rows; both Excel 16.115; the
+    window images are in neither repository, and this file's `band_shift` column carries the
+    result).** Item 47 took each row's top from the view's first marker band
     plus the row heights. That band starts below the column header's separator, while every other
     band starts on the top pixel of its own top gridline (the file's `band_shift` is -2 pixels for
     all 464 such rows): a row's fill covers the gridline above it, so a row runs from the top of that

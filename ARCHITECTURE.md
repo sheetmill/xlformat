@@ -189,12 +189,11 @@ search and the fixed-denominator rounding in double arithmetic, which is what re
   `10^digits - 1` with the epsilon from ExcelNumberFormat, which the Excel captures confirm for the
   2023 cases; `fraction_denominators` off uses `Fraction.limit_denominator`. Zero fraction: `?`
   numerators show spaces (the bar too), `#` show nothing, `0` show `0/1`; a whole value of zero
-  shows `0` even under `#`; a numerator above 32767 with a fixed denominator (`3276.7` under `?/10`
-shows and `3276.8` is `#`), or from 2147483647 with a free one, shows a `#` run (`fraction_percent`);
-`%` scales, and scaling past the largest double leaves zero (`?/?%` with
-1.7976931348623157e308 shows `0/1%`). A whole part prints digits past 15 as zeros. A decimal point
-before the bar is a `FormatError`
-  (Excel refuses the file). All 5,310 rows of 2023 pass.
+  shows `0` even under `#`; a numerator above 32767 with a fixed denominator (`3276.7` under
+  `?/10` shows its fraction and `3276.8` shows a `#` run), or from 2147483647 with a free one,
+  shows a `#` run (`fraction_percent`); `%` scales, and scaling past the largest double leaves
+  zero (`?/?%` with 1.7976931348623157e308 shows `0/1%`). A whole part prints digits past 15 as
+  zeros. A decimal point before the bar is a `FormatError` (Excel refuses the file). All 5,310 rows of 2023 pass.
 
 **Fixed-denominator numerator** (`fraction_ties`, `fraction_threshold`,
 `fraction_random`; `CAPTURING.md` §2 item 22). The nudge by one relative epsilon on the
@@ -349,7 +348,7 @@ from the suites: text does overflow to `#` when its section carries a `*` fill (
 `Hello World` at width 6), and a negative whose `General` reduces to zero at the width drops its
 sign when the section has literals (`General"x"` shows `0x`) but keeps it when the section is a
 bare `General` (`-0.05` at width 3 shows `-0`). `FormattedCell.fill` reports the position in
-`text`. Renders with a width measure under 7 µs.
+`text`. Section 13 gives the timings.
 
 **Excel mode** (`_measure.py`, `_glyphs_calibri.py`; suites `measure11`,
 `measure12` and the width suites; `CAPTURING.md` §2 items 24 and 25). Excel for Mac works in whole
@@ -394,7 +393,7 @@ at whole widths did not show them (`general_points<size>`, `general_literals_poi
 27). Text overflows only through a
 section whose `*` fill follows it (`@*-` shows `#`, `*-@` shows the text). Every width row of
 every suite passes in Excel mode, the 2,251 glyph-slack rows included; character mode is
-unchanged. Renders in Excel mode measure 3.6 to 8.7 µs. `width_general14` passes
+unchanged (timings in section 13). `width_general14` passes
 at Calibri 14 with no change to the model.
 
 **The column model** (`_measure.column_points`, `file_points`, `file_column_metrics`; suites
