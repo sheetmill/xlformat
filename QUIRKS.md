@@ -25,7 +25,7 @@ numeric captured rows in all):
 | 12345123451234.75 | exact | `0.0` | 12345123451234.7 | same |
 | 12345123451234.55 | ….55078125 | `0.0` | 12345123451234.6 | above the tie rounds up |
 | 123451234512345.5 | exact | `0` | 123451234512345 | 15 integer digits: tie down |
-| 123451234512345.52 | ….515625 | `0` | 123451234512346 | above the tie (was `…345` for the 16-digit text `….5`) |
+| 123451234512345.52 | ….515625 | `0` | 123451234512346 | above the tie |
 | 123451234512345.56 | ….5625 | `0` | 123451234512346 | above the tie |
 | 1234512345123455.25 | exact | `0` | 1234512345123460 | ….455.25 is above the tie at the 16th digit |
 | 1234512345123454.5 | exact | `0` | 1234512345123450 | ….454.5 is below it |
@@ -56,7 +56,7 @@ differ from Excel by one day, which is the price of a correct calendar.
 | 123456 | Wednesday, January 3, 2238 |
 | 44927 | Sunday, January 1, 2023 |
 
-Serials 59 to 62 come from the `datetime` suite (2026-10-23); the rest from the 2023 capture.
+Serials 59 to 62 come from the `datetime` suite; the rest from the 2023 capture.
 Under the 1904 system (`date1904` suite) serial 0 is Friday, January 1, 1904 and there is no
 leap quirk; negative serials render as a minus sign followed by the magnitude's date or time.
 
@@ -106,9 +106,8 @@ width, as the sheet and `TEXT` do at every width, while Excel's clipboard gives 
 capture test compares these rows with the plain year code, so a change on either side fails it.
 
 The second: an elapsed code after a date code is not modeled: `d [s].00` with half a second shows `0 4363200.50`
-in Excel, numbers no rule here explains, and the package shows the elapsed count (`0 0.50`). A
-capture batch stopped on a workbook with `[s]*-.00`, so that form has no capture (`CAPTURING.md` §2
-item 42).
+in Excel, numbers no rule here explains, and the package shows the elapsed count (`0 0.50`).
+`[s]*-.00` has no capture (`CAPTURING.md` §2 item 42).
 
 No other row is known to differ. Such rows would be listed in `tests/test_captures.py` and here,
 with the evidence, and counted on every run. Fifteen color rows of the `colors` suite are skipped under `tests/test_captures.py:

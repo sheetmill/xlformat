@@ -63,7 +63,10 @@ def test_the_testing_page_table_accounts_for_every_row() -> None:
 
 
 def test_user_facing_pages_state_the_current_rule() -> None:
-    superseded = re.compile(r"earlier version|An earlier|were removed on")
+    # superseded values and dated remarks belong in CAPTURING.md and the changelog
+    superseded = re.compile(
+        r"earlier version|An earlier|were removed on|\(was |\(20\d\d-\d\d-\d\d\)"
+    )
     hits = [
         f"{path.relative_to(ROOT)}: {match[0]}"
         for path in CURRENT_ONLY
