@@ -51,9 +51,9 @@ def _baselines(
     lines = int(tag.split()[1]) if kind == "wrapped" else 1
     # wrapped text in a face with a smaller line inset sits higher by the difference
     lift = max(0.0, normal.line_inset - face.line_inset) if kind == "wrapped" else 0.0
-    # bottom-aligned text sits at least the Normal font's distance up (Arial 9 to 11 in a Calibri
-    # 11 workbook: 3 points, their own 2 in an Arial 10 one)
-    last = height - max(face.baseline_from_bottom, normal.baseline_from_bottom) - lift
+    # face is measured with the workbook's Normal font passed, so its baseline_from_bottom
+    # already holds the Normal font's floor
+    last = height - face.baseline_from_bottom - lift
     bottom = [last - (lines - 1 - i) * face.line_pitch for i in range(lines)]
     if kind == "top":
         return [face.baseline_from_top]
@@ -76,7 +76,7 @@ def test_every_captured_placement() -> None:
         if (normal_label, tag) in SCREEN_EDGE_MISREADS:
             continue
         normal = vertical_metrics(_font(normal_label))
-        face = vertical_metrics(_font(tag))
+        face = vertical_metrics(_font(tag), normal_font=_font(normal_label))
         ink = [tuple(int(v) for v in line.split("-")) for line in h_ink.split()]
         tails = [int(v) for v in g_ink.split()]
         got = [(bottom + 1 + FRAME_PX) / PIXELS_PER_POINT for _, bottom in ink]
@@ -120,3 +120,23 @@ def test_unmeasured_faces() -> None:
         vertical_metrics(("Calibri", 22))
     with pytest.raises(LookupError, match="Times New Roman"):
         vertical_metrics("Times New Roman")
+
+
+def test_the_normal_font_floors_a_bottom_aligned_baseline() -> None:
+    # Calibri 9 and Arial 9 to 11 sit 2 points up of their own and 3 under a Calibri 11 Normal
+    # font, 2 under Arial 10 (vertical.layout.tsv, CAPTURING.md section 2 item 55)
+    assert vertical_metrics(("Calibri", 9)).baseline_from_bottom == 2.0
+    assert vertical_metrics(("Calibri", 9), normal_font=("Calibri", 11)).baseline_from_bottom == 3.0
+    assert vertical_metrics(("Calibri", 9), normal_font=("Arial", 10)).baseline_from_bottom == 2.0
+    assert (
+        vertical_metrics(("Arial", 11), normal_font=("Aptos Narrow", 11)).baseline_from_bottom
+        == 3.0
+    )
+    # a face that sits higher than the Normal font keeps its own
+    assert vertical_metrics(("Calibri", 24), normal_font=("Arial", 10)).baseline_from_bottom == 6.0
+    # the default is the cell's own font
+    assert vertical_metrics(("Calibri", 11)) == vertical_metrics(
+        ("Calibri", 11), normal_font=("Calibri", 11)
+    )
+    with pytest.raises(LookupError, match="Times New Roman"):
+        vertical_metrics(("Calibri", 11), normal_font="Times New Roman")

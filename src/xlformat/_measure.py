@@ -648,9 +648,10 @@ class VerticalMetrics:
             face's size in points plus 1. A row's top is the top of the gridline above it, which
             the row's own fill covers.
         baseline_from_bottom: The baseline's distance above the row's bottom for bottom-aligned
-            text (Excel's default), at least the Normal font's own: Calibri 9 and Arial 9 to 11
-            have 2 points, and sit 3 points up in a Calibri 11 or Aptos Narrow 11 workbook, 2 in
-            an Arial 10 one.
+            text (Excel's default). It is at least the Normal font's own, and includes that
+            when :func:`vertical_metrics` is given ``normal_font``: Calibri 9 and Arial 9 to 11
+            have 2 points of their own and sit 3 up in a Calibri 11 or Aptos Narrow 11
+            workbook, 2 in an Arial 10 one.
             Centered text sits midway between the two placements, to half a point.
         font_height: The height of a row in this face alone (no stored height).
         line_height: What each wrapped line in this face adds to a row: ``font_height`` plus 1.
@@ -675,14 +676,25 @@ class VerticalMetrics:
     descender: float
 
 
-def vertical_metrics(font: FontSpec | None = None) -> VerticalMetrics:
-    """Where Excel draws text in ``font`` within a cell (CAPTURING.md section 2 item 47).
+def vertical_metrics(
+    font: FontSpec | None = None, *, normal_font: FontSpec | None = None
+) -> VerticalMetrics:
+    """Where Excel draws text in ``font`` within a cell (CAPTURING.md section 2 items 47 and 55).
 
     Bold and italic place as the regular face does. The workbook's Normal font moves text in two
-    cases: bottom-aligned text sits at least the Normal font's ``baseline_from_bottom`` up, and
-    wrapped text in a face with a smaller ``line_inset`` sits higher (see
-    :class:`VerticalMetrics`). Measured: Calibri, Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16,
-    18, 20 and 24 points; any other face raises ``LookupError`` ("this font isn't measured").
+    cases. Bottom-aligned text sits at least the Normal font's own ``baseline_from_bottom`` up:
+    with ``normal_font`` given, ``baseline_from_bottom`` already includes this (Calibri 9 has 2
+    points of its own and 3 under a Calibri 11 Normal font). Wrapped text in a face with a smaller
+    ``line_inset`` than the row's other fonts sits that difference higher; that is left to the
+    caller, because it depends on every unwrapped font in the row, not only the Normal font, and
+    applies to wrapped text alone (see :class:`VerticalMetrics` and :func:`row_metrics`).
+    Measured: Calibri, Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; any
+    other face raises ``LookupError`` ("this font isn't measured").
+
+    Args:
+        font: The cell's font; default ``("Calibri", 11)``.
+        normal_font: The workbook's Normal font; default ``None``, the cell's own font, which
+            gives the face's own placement (a cell in the Normal font).
 
     Raises:
         LookupError: A font or size not measured.
@@ -690,9 +702,13 @@ def vertical_metrics(font: FontSpec | None = None) -> VerticalMetrics:
     key, size = _row_face(font)
     height = _FONT_HEIGHT[key][size]
     cap, descender = _INK[key][size]
+    from_bottom = _BASELINE_FROM_BOTTOM[key][size]
+    if normal_font is not None:
+        normal_key, normal_size = _row_face(normal_font)
+        from_bottom = max(from_bottom, _BASELINE_FROM_BOTTOM[normal_key][normal_size])
     return VerticalMetrics(
         baseline_from_top=float(size) + 1.0,
-        baseline_from_bottom=_BASELINE_FROM_BOTTOM[key][size],
+        baseline_from_bottom=from_bottom,
         font_height=height,
         line_height=height + 1.0,
         line_pitch=height,

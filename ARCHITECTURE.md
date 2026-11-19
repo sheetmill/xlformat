@@ -630,16 +630,19 @@ measured face carry the model, the font height, the descent (quarter points, fit
 of faces and nearest the font's own descent) and the line inset, and a face without them raises
 `LookupError` rather than being scaled.
 
-`vertical_metrics(font=None)` returns a frozen `VerticalMetrics(baseline_from_top,
+`vertical_metrics(font=None, *, normal_font=None)` returns a frozen `VerticalMetrics(baseline_from_top,
 baseline_from_bottom, font_height, line_height, line_pitch, line_inset, cap_height, descender)`:
 where Excel draws a face's text in a cell, measured on screen (`CAPTURING.md` §2 item 47). They
 are facts, as the column's insets are; the caller aligns the text, as it does horizontally. The
 fields are the distances the screen shows: the top inset and the ascent appear only as their sum,
 and no split by convention is made. `line_inset` is the row model's per-face constant. The
-Normal font moves two placements, both stated with the fields: bottom-aligned text sits at least
-the Normal font's `baseline_from_bottom` up (Calibri 9 and Arial 9 to 11 have 2 points of their
-own and sit 3 up in a Calibri 11 workbook; `CAPTURING.md` §2 item 55), and wrapped text in a face
-with a smaller inset sits higher.
+Normal font moves two placements. Bottom-aligned text sits at least the Normal font's
+`baseline_from_bottom` up (Calibri 9 and Arial 9 to 11 have 2 points of their own and sit 3 up in
+a Calibri 11 workbook; `CAPTURING.md` §2 item 55); given `normal_font`, the function applies this
+itself, as `row_metrics` takes the Normal font, and `None` means the cell's own font. Wrapped
+text in a face with a smaller inset than the row's unwrapped fonts sits that difference higher;
+the caller applies that one, since it depends on every unwrapped font in the row and has no field
+of its own.
 
 **Error values.** `ExcelError` is a `StrEnum` of every error text current Excel documents (the
 seven classic codes of ECMA-376 and ERROR.TYPE 1 to 7; `#GETTING_DATA`, ERROR.TYPE 8; the error

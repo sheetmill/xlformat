@@ -171,9 +171,13 @@ the screen shows it:
 
 ```python
 >>> from xlformat import vertical_metrics
->>> m = vertical_metrics(("Calibri", 11))
+>>> m = vertical_metrics(("Calibri", 11), normal_font=("Calibri", 11))
 >>> m.baseline_from_top, m.baseline_from_bottom, m.cap_height, m.descender
 (12.0, 3.0, 7.0, 2.0)
+>>> vertical_metrics(("Calibri", 9)).baseline_from_bottom  # its own: a Calibri 9 Normal font
+2.0
+>>> vertical_metrics(("Calibri", 9), normal_font=("Calibri", 11)).baseline_from_bottom
+3.0
 >>> m.line_pitch, m.line_height
 (15.0, 16.0)
 ```
@@ -183,10 +187,13 @@ bottom; top-aligned text has it `baseline_from_top` below the row's top (a row r
 of the gridline above it, which the row's own fill covers, to the top of the next); centered text
 sits midway
 between the two. Wrapped lines are `line_pitch` apart, the last placed as bottom-aligned text. Bold
-and italic place as the regular face. The workbook's Normal font moves text in two ways:
-bottom-aligned text sits at least the Normal font's `baseline_from_bottom` up (Calibri 9 and Arial 9
-to 11 have 2 points of their own and sit 3 up in a Calibri 11 workbook), and wrapped text in a face
-with a smaller `line_inset` than the row's other fonts sits that difference higher, the extra height `row_metrics` gives the row lying below the text. The fields are the
+and italic place as the regular face. The workbook's Normal font moves text in two ways.
+Bottom-aligned text sits at least the Normal font's `baseline_from_bottom` up (Calibri 9 and Arial
+9 to 11 have 2 points of their own and sit 3 up in a Calibri 11 workbook); pass the workbook's
+Normal font as `normal_font` and `baseline_from_bottom` includes this. Wrapped text in a face with
+a smaller `line_inset` than the row's other unwrapped fonts sits that difference higher, the extra
+height `row_metrics` gives the row lying below the text; that one is the caller's to apply, since
+it depends on every font in the row. The fields are the
 distances Excel shows; the ascent and the descent are not split from the cell's insets.
 
 ## Measuring text yourself
