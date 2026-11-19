@@ -1736,10 +1736,12 @@ def limits() -> Suite:
 # units at Calibri 11), so these read the General budget at every point.
 
 
-def _general_points(name: str, font_size: int | None, mdw: int) -> Suite:
+def _general_points(
+    name: str, font_size: int | None, mdw: int, font_name: str = "Calibri"
+) -> Suite:
     widths = tuple(round((p - 5) / mdw, 2) for p in range(mdw + 5, 101))
     cases = tuple(Case(name, c.tag, c.value, c.format) for c in width_general().cases)
-    return Suite(name, cases, widths=(None, *widths), font_size=font_size)
+    return Suite(name, cases, widths=(None, *widths), font_size=font_size, font_name=font_name)
 
 
 def general_points9() -> Suite:
@@ -1875,7 +1877,7 @@ def general_zero_sign() -> Suite:
 # style is the regular face of the family at the size; the cells carry the style, so autofit and
 # the fills measure the styled face against the regular column (item 29).
 
-_FAMILIES: tuple[str, ...] = ("Calibri", "Aptos Narrow")
+_FAMILIES: tuple[str, ...] = ("Calibri", "Aptos Narrow", "Arial")
 _STYLES: tuple[tuple[bool, bool], ...] = (
     (False, False),
     (True, False),
@@ -1970,6 +1972,36 @@ def numeric_core_width_aptos_narrow11() -> Suite:
     name = "numeric_core_width_aptos_narrow11"
     cases = tuple(Case(name, c.tag, c.value, c.format) for c in numeric_core().cases)
     return Suite(name, cases, widths=(6, 10, 14), font_size=11, font_name="Aptos Narrow")
+
+
+_ARIAL_CELL_FONTS: tuple[CellFont | None, ...] = (
+    CellFont("Arial", 10),
+    CellFont("Arial", 11),
+    CellFont("Arial", 14),
+    CellFont("Arial", 10, bold=True),
+    CellFont("Arial", 11, bold=True),
+    CellFont("Arial", 11, italic=True),
+)
+
+
+def cell_font_arial() -> Suite:
+    """Arial cells in a Calibri 11 workbook, at every point: fit, fills, General, dates."""
+    cases = _cell_font_cases("cell_font_arial", _ARIAL_CELL_FONTS, _CELL_FONT_VALUES)
+    return Suite("cell_font_arial", cases, widths=(None, *_points(6)))
+
+
+def general_cell_font_arial() -> Suite:
+    """The ``width_general`` values in Arial 10, 11 and bold 11 cells of a Calibri 11 workbook."""
+    fonts = (CellFont("Arial", 10), CellFont("Arial", 11), CellFont("Arial", 11, bold=True))
+    cases = _cell_font_cases("general_cell_font_arial", fonts, _general_values())
+    return Suite("general_cell_font_arial", cases, widths=(None, *_points(6)))
+
+
+def numeric_core_width_arial10() -> Suite:
+    """Every ``numeric_core`` case at widths 6, 10 and 14, Normal style Arial 10."""
+    name = "numeric_core_width_arial10"
+    cases = tuple(Case(name, c.tag, c.value, c.format) for c in numeric_core().cases)
+    return Suite(name, cases, widths=(6, 10, 14), font_size=10, font_name="Arial")
 
 
 # Error values (CAPTURING.md section 2 item 32). Formulas produce the seven classic codes;
@@ -2872,6 +2904,9 @@ SUITES: dict[str, Callable[[], Suite]] = {
     "general_points_aptos_narrow11": general_points_aptos_narrow11,
     "numeric_core_width_aptos_narrow11": numeric_core_width_aptos_narrow11,
     "error_width": error_width,
+    "cell_font_arial": cell_font_arial,
+    "general_cell_font_arial": general_cell_font_arial,
+    "numeric_core_width_arial10": numeric_core_width_arial10,
 }
 
 
@@ -2890,6 +2925,15 @@ for _size in (18, 20, 24):
         f"general_points{s}", s, s // 2
     )
 SUITES["hidden_zeros_control"] = hidden_zeros_control
+# Arial as the Normal font: the column conversion at every table size, General against points
+for _size in _TABLE_SIZES:
+    SUITES[f"column_file_arial{_size}"] = lambda s=_size: _column_file(
+        f"column_file_arial{s}", s, font_name="Arial"
+    )
+for _size in (10, 11):
+    SUITES[f"general_points_arial{_size}"] = lambda s=_size: _general_points(
+        f"general_points_arial{s}", s, s // 2, font_name="Arial"
+    )
 
 
 _LINE_BREAKS: tuple[tuple[str, str], ...] = (

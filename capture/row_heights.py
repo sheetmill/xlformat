@@ -4,16 +4,16 @@
     uv run python -m capture.row_heights run [LABEL]    # capture all, or one Normal font
     uv run python -m capture.row_heights write          # write the layout file (OUTPUT)
 
-One workbook per Normal font: Calibri and Aptos Narrow at every measured size (``SIZES``, 9 to
-24 points) in four styles, 72 workbooks. Each holds the same rows (``ROWS``): a number in the
-Normal font, a row without an element, a number in each measured cell font, an empty cell
+One workbook per Normal font: Calibri, Aptos Narrow and Arial at every measured size (``SIZES``,
+9 to 24 points) in four styles, 108 workbooks. Each holds the same rows (``ROWS``): a number in
+the Normal font, a row without an element, a number in each measured cell font, an empty cell
 styled with a large or small font, two cell fonts in one row, and wrapped text of one to six
 lines (line feeds, wrap on) in the Normal font and in each regular cell font. The sheet keeps
 openpyxl's ``<sheetFormatPr>``, without ``customHeight``, as files written by openpyxl have it.
-Excel fits every row to its cells when it opens the file; the script reads each row's height
-and the sheet's standard height in points, closes the workbook without saving and restores
-alerts. No clipboard. ``run`` keeps what it read in ``capture/build/row_heights.json`` so that
-one Normal font can be captured again alone; ``write`` gathers them into the layout file.
+Excel fits every row to its cells when it opens the file; the script reads each row's height and
+the sheet's standard height in points, closes the workbook without saving and restores alerts.
+No clipboard. ``run`` keeps what it read in ``capture/build/row_heights.json`` so that one
+Normal font can be captured again alone; ``write`` gathers them into the layout file.
 """
 
 from __future__ import annotations
@@ -35,14 +35,14 @@ OUTPUT = ROOT / "tests" / "captures" / "row_height.layout.tsv.gz"
 SCRIPT = Path(__file__).with_name("row_heights.applescript")
 STATE = BUILD_DIR / "row_heights.json"  # what `run` read so far (capture/build: not committed)
 DIRECTORY = WORKBOOK_DIR / "row_heights"
-FAMILIES = ("Calibri", "Aptos Narrow")
+FAMILIES = ("Calibri", "Aptos Narrow", "Arial")
 SIZES = (9, 10, 11, 12, 14, 16, 18, 20, 24)
 STYLES = ((False, False), (True, False), (False, True), (True, True))
 MAX_LINES = 6
 
 
 def fonts() -> tuple[CellFont, ...]:
-    """Every measured face: both families, nine sizes, four styles (72)."""
+    """Every measured face: three families, nine sizes, four styles (108)."""
     return tuple(
         CellFont(family, size, bold, italic)
         for family in FAMILIES
@@ -112,6 +112,8 @@ def rows() -> tuple[RowCase, ...]:
         (CellFont("Calibri", 9), 3, CellFont("Calibri", 14)),
         (CellFont("Calibri", 14), 2, CellFont("Calibri", 16)),
         (CellFont("Aptos Narrow", 9), 2, CellFont("Aptos Narrow", 16)),
+        (None, 2, CellFont("Arial", 16)),
+        (CellFont("Arial", 9), 2, CellFont("Arial", 16)),
     ):
         label = "normal" if wrap_font is None else wrap_font.label
         out.append(
