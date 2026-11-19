@@ -56,15 +56,15 @@ before Excel was asked, and every prediction matched.
 | suite | rows | what it covers |
 |---|---|---|
 | `capture2023`, `capture2026`, `capture2023_sample` | 89,680, 89,680, 1,993 | 152 formats across 584 values, captured in 2023 and again in 2026; no differences |
-| `numeric_core`, `numeric_core_width`, `numeric_core_width_aptos_narrow11` | 76,608 | number sections, conditions, grouping, scaling, at three widths, in Calibri and Aptos Narrow |
+| `numeric_core`, `numeric_core_width`, `numeric_core_width_aptos_narrow11`, `numeric_core_width_arial10` | 109,440 | number sections, conditions, grouping, scaling, at three widths, in Calibri, Aptos Narrow and Arial |
 | `fraction`, `fraction_ties`, `fraction_threshold`, `fraction_random` | 33,452 | denominators, half steps, the nudge's bounds, random doubles |
 | `datetime`, `date1904`, `clock_boundaries`, `clock_formulas` | 4,794 | date codes, the 1904 system, rounding at second boundaries |
 | `scientific`, `rounding_15digit`, `parser_check` | 1,695 | exponents, the fifteen-digit rule, the parser |
-| `width_general`, `width_general14`, `width_fill`, `text_overflow`, 72 `space_fill` suites | 18,186 | `General` reduction, fills, overflow, the space of every measured face |
-| `general_points9` to `24`, `general_points_aptos_narrow11`, `general_literals_points`, `general_zero_sign` | 74,662 | `General` at every whole-point column width, among literals, negatives that reduce to zero |
-| `column_file9` to `24`, `column_file_aptos_narrow11`, `18`, `20`, `24`, four `column_default_*`, `column_narrow11`, `column_narrow14`, `limits` | 35,546 | widths written into the file, columns without a width, columns below one unit, the 255-character limit |
+| `width_general`, `width_general14`, `width_fill`, `text_overflow`, 108 `space_fill` suites | 25,386 | `General` reduction, fills, overflow, the space of every measured face |
+| `general_points9` to `24`, `general_points_aptos_narrow11`, `general_points_arial10`, `11`, `general_literals_points`, `general_zero_sign` | 85,334 | `General` at every whole-point column width, among literals, negatives that reduce to zero |
+| `column_file9` to `24`, `column_file_aptos_narrow11`, `18`, `20`, `24`, `column_file_arial9` to `24`, four `column_default_*`, `column_narrow11`, `column_narrow14`, `limits` | 59,144 | widths written into the file, columns without a width, columns below one unit, the 255-character limit |
 | 16 more `column_default_*` (base widths 6, 10 and 12 at 9 to 24 points), `column_boundary11`, `16`, `24`, `long_fills` | 8,098 | a column without `<col>` under other base widths; file widths on either side of a 1/256 step; fills past 255 characters |
-| `cell_font`, `general_cell_font`, `cell_font_numeric`, `cell_font_styles`, `general_cell_font_styles` | 133,914 | cells whose font differs from the Normal font, in size, style and family |
+| `cell_font`, `general_cell_font`, `cell_font_numeric`, `cell_font_styles`, `general_cell_font_styles`, `cell_font_arial`, `general_cell_font_arial` | 161,760 | cells whose font differs from the Normal font, in size, style and family |
 | `general_exponent3`, `general_exponent_sweep`, `subnormal` | 68,838 | `General` with long exponents, and doubles below the smallest normal one |
 | `general_text_narrow`, `general_sign_narrow` | 4,026 | a number through `@` or `[Red]General` in narrow columns, and negatives with less than a character beside the sign |
 | `merged11`, `merged14` | 5,940 | cells merged across columns, in Calibri 11 and 14 |
@@ -76,16 +76,16 @@ before Excel was asked, and every prediction matched.
 | `hidden_zeros`, `hidden_zeros_control` | 1,700 | a sheet that hides zeros (`show_zeros=False`) and the same cases on one that shows them: exact zeros, values rounding to zero, zero sections |
 | `line_breaks`, `line_breaks_aptos_narrow` | 648, 648 | carriage returns, line feeds, CR LF and tabs in text under fills of spaces and digits, at four widths, with autofit widths beside |
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
-| `measure9` to `measure16` and 66 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri and Aptos Narrow, four styles, nine sizes |
+| `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri, Aptos Narrow and Arial, four styles, nine sizes |
 
 Six further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
 from Excel's PDF export) holds where Excel places each value, `repair.layout.tsv` (248 rows)
-what Excel's repair does to formats it refuses, and `row_height.layout.tsv.gz` (15,984 rows) the
+what Excel's repair does to formats it refuses, and `row_height.layout.tsv.gz` (35,100 rows) the
 height Excel gives each row for its Normal font, its cell fonts and its wrapped lines, and
 `vertical.layout.tsv` (480 rows, measured in window captures) where the text sits in the row,
 `builtin_formats.layout.tsv` (164 rows) what each built-in number format id stands for, and
-`palette.layout.tsv` (128 rows, from window captures) the colors drawn under a workbook palette. In all, 248 suite files (176 with rows, the
-others autofit measurements) hold 733,968 rows. Every row passes. Fifteen color readings are
+`palette.layout.tsv` (128 rows, from window captures) the colors drawn under a workbook palette. In all, 334 suite files (226 with rows, the
+others autofit measurements) hold 836,116 rows. Every row passes. Fifteen color readings are
 skipped because Excel's scripting interface reports automatic black where the sheet, checked by
 eye, shows the section color, and width-less rows of a Buddhist-year code are compared with the
 plain year, which is what Excel's clipboard gives where the sheet shows the Buddhist year.

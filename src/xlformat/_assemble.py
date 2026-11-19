@@ -135,6 +135,7 @@ def assemble(
     if width is None:
         return FormattedCell(full_text, full_text, color, align, fill, False)
     general: str | None = None
+    one_kept = False  # the General format kept one character with less than one left
     has_general = general_value is not None and any(k == "general" for k, _ in pieces)
     if has_general:
         assert general_value is not None
@@ -152,6 +153,7 @@ def assemble(
             # '1' in a 1-point column, 12 and -1 are '#' (column_narrow); a value below 0.0001
             # gets no form (1E-05 in a Calibri 14 cell at width 1 is '#', general_cell_font)
             budget = 1.0
+            one_kept = True
         cost = general_cost(measure("-") / digit)
         if budget < 1:
             # not one character left: zero or nothing, by the magnitude (general_sign_narrow)
@@ -190,8 +192,9 @@ def assemble(
                 return overflow(color, width, full_text, measure, general=general_format)
         else:
             fill = None
-    # General among literals too must fit by glyph width ('0 units' at width 1 is '#'); the
-    # General format alone fits by characters ('1' shows in a 1-point column)
-    if overflows and not (has_general and general_format) and measure(text) > width:
+    # Every General text must fit by glyph width too ('0 units' at width 1 is '#'; 1E+06 in
+    # Arial 10 at 5 units is 31 points of 30, '#####', column_file_arial10), except the one
+    # character the General format keeps ('1' shows in a 1-point column)
+    if overflows and not (has_general and one_kept) and measure(text) > width:
         return overflow(color, width, full_text, measure, general=general_format)
     return FormattedCell(text, full_text, color, align, fill, False)

@@ -209,8 +209,11 @@ def test_public_measurement() -> None:
     assert text_width("1,000.0") == int(sum(widths))
     assert glyph_widths("€") == (6.0,)  # outside the table: a digit
     fonts = measured_fonts()
-    assert set(fonts) == {"Calibri", "Aptos Narrow"}
+    assert set(fonts) == {"Calibri", "Aptos Narrow", "Arial"}
     assert fonts["Aptos Narrow"]["bold italic"] == MEASURED_SIZES
+    assert fonts["Arial"]["italic"] == MEASURED_SIZES
+    # Arial's digit is wider than Calibri's from 10 points (column_file_arial<size>)
+    assert [digit_width(("Arial", s)) for s in MEASURED_SIZES] == [5, 6, 6, 7, 8, 9, 10, 11, 13]
     with pytest.raises(LookupError):
         text_width("x", "Comic Sans")
 

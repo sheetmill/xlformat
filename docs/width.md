@@ -51,7 +51,7 @@ character for character, including the number of `#` and fill characters.
 ```
 
 `font` is the cell's font: a name, a `(name, size)` pair or a `Font`; the default is
-`("Calibri", 11)`, the Normal style openpyxl writes. Calibri and Aptos Narrow are measured in
+`("Calibri", 11)`, the Normal style openpyxl writes. Calibri, Aptos Narrow and Arial are measured in
 regular, bold, italic and bold italic at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; other sizes scale the
 nearest measured table and may differ from Excel by a character at the edge of a column. Another
 font raises `LookupError`. An italic face's slant reaches past its glyphs, so a cell in italic
@@ -121,8 +121,8 @@ How Excel measures, as reproduced here:
 
 - A column `w` units wide is `round(MDW · w + P)` points, MDW being the width of a digit in the
   Normal font: 5 points at 9 and 10, 6 at 11 and 12, 7 at 14, 8 at 16, 9 at 18, 10 at 20 and 12
-  at 24, in Calibri and Aptos Narrow alike. `P` is the padding, `2 · ceil(MDW / 4) + 1`: 5 points
-  up to a digit width of 8, 7 from 9 to 12. The text gets `MDW · w`. Below one unit a column is
+  at 24, in Calibri and Aptos Narrow alike (Arial: 5, 6, 6, 7, 8, 9, 10, 11 and 13). `P` is the
+  padding, `2 · ceil(MDW / 4) + 1`: 5 points up to a digit width of 8, 7 from 9 to 12, 9 at 13. The text gets `MDW · w`. Below one unit a column is
   `round(w · (MDW + P))` points.
 - A `<col width>` of `w` is `trunc((256 · w + trunc(128 / MDW)) / 256 · MDW)` points, the formula
   of ECMA-376 with the digit width in points and `w` first truncated to 1/256.
@@ -154,15 +154,18 @@ RowMetrics(height=15.0, font_height=15.0, line_height=16.0)
 28.0
 ```
 
-A row is as tall as its tallest font, and bold or italic changes nothing. Each wrapped line takes
+A row holds the largest ascent and the largest descent of its fonts, and bold or italic changes
+nothing. Faces of one family split their heights alike, so such a row is as tall as its tallest
+font; Arial's descent is smaller, so Arial 11 beside Calibri 10, both 14 points, makes 15. Each wrapped line takes
 its font's height plus one point, so a single wrapped line makes a Calibri 11 row 16 points; when
 the Normal font or another cell's font in the row is larger, a smaller font's wrapped text takes up
-to a few points more. The caller breaks the lines. Calibri and Aptos Narrow at 9, 10, 11, 12, 14,
-16, 18, 20 and 24 points are measured; any other face raises `LookupError`. Several cells with wrapped text in
+to a few points more. The caller breaks the lines. Calibri, Aptos Narrow and Arial at 9, 10, 11,
+12, 14, 16, 18, 20 and 24 points are measured; any other face raises `LookupError`. Several cells with wrapped text in
 one row are a combination not yet captured: the row takes the tallest of them.
 
 `vertical_metrics` gives where Excel draws a face's text within the row, in sheet points, as
-the screen shows it:
+the screen shows it, for Calibri and Aptos Narrow; Arial's placement is not measured yet and raises
+`LookupError`:
 
 ```python
 >>> from xlformat import vertical_metrics

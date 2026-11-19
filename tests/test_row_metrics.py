@@ -1,6 +1,6 @@
 """``row_metrics`` against ``tests/captures/row_height.layout.tsv.gz`` (CAPTURING.md §2 item 44).
 
-The capture holds, per Normal font (both families, nine sizes, four styles), the height Excel
+The capture holds, per Normal font (three families, nine sizes, four styles), the height Excel
 gave each row of a workbook: a row in the Normal font, a row without an element, the sheet's
 standard height, a number in each measured cell font, styled empty cells, two fonts in one row,
 and one to six wrapped lines in the Normal font and in each regular cell font. Each row's tag
@@ -19,7 +19,7 @@ import pytest
 from xlformat import Font, RowMetrics, row_metrics
 
 LAYOUT = Path(__file__).parent / "captures" / "row_height.layout.tsv.gz"
-_FACE = re.compile(r"(Calibri|Aptos Narrow) (\d+)((?: bold)?)((?: italic)?)")
+_FACE = re.compile(r"(Calibri|Aptos Narrow|Arial) (\d+)((?: bold)?)((?: italic)?)")
 
 
 def _font(label: str) -> Font:
@@ -57,7 +57,7 @@ def test_every_captured_row_height() -> None:
     per_font: dict[str, list[str]] = {}
     for normal, _, tag, _ in rows:
         per_font.setdefault(normal, []).append(tag)
-    assert len(per_font) == 72  # two families, nine sizes, four styles
+    assert len(per_font) == 108  # three families, nine sizes, four styles
     assert len({tuple(tags) for tags in per_font.values()}) == 1  # the same rows in every workbook
     misses = [
         (normal, tag, height, got)
@@ -78,7 +78,15 @@ def test_unmeasured_faces_and_bad_lines() -> None:
         row_metrics(("Calibri", 13))
     with pytest.raises(LookupError, match="no row heights for Calibri 22"):
         row_metrics(cell_fonts=[("Calibri", 22)])
-    with pytest.raises(LookupError):
-        row_metrics("Arial")
+    with pytest.raises(LookupError, match="no glyph table for font 'Times New Roman'"):
+        row_metrics("Times New Roman")
+
+
+def test_faces_of_two_families() -> None:
+    # Arial 11 and Calibri 10 are both 14 points tall; Arial's descent is smaller, so the row
+    # holds Arial's ascent and Calibri's descent: 15 points (row_height.layout.tsv.gz)
+    assert row_metrics(("Arial", 11), cell_fonts=[("Calibri", 10)]).height == 15.0
+    assert row_metrics(("Calibri", 11), cell_fonts=[("Arial", 11)]).height == 15.0
+    assert row_metrics(("Arial", 10)).font_height == 13.0
     with pytest.raises(ValueError, match="at least one line"):
         row_metrics(wrapped=[(None, 0)])

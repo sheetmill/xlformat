@@ -37,7 +37,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CAPTURE_DIR = ROOT / "tests" / "captures"
 SPACE_CANDIDATES = [tenths / 10 for tenths in range(10, 81)]
 _LABEL = re.compile(r"(.+?) (\d+(?:\.\d+)?)((?: bold)?)((?: italic)?)$")
-MODULES = {"Calibri": "CALIBRI", "Aptos Narrow": "APTOS_NARROW"}
+MODULES = {"Calibri": "CALIBRI", "Aptos Narrow": "APTOS_NARROW", "Arial": "ARIAL"}
 
 
 def _font(label: str) -> Font:

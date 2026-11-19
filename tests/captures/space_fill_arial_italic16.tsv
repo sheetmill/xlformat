@@ -1,0 +1,217 @@
+# suite: space_fill_arial_italic16
+# excel_version: 16.115
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# display: display kept awake: yes (caffeinate -d, pid 17414); display at the start of the run, last change: 2026-11-19 10:57:54 -0800 Notification Display is turned on
+# standard_font: Aptos Narrow 12.0
+# workbook_font: Arial 16
+# locale: en_US
+# captured: 2026-11-19
+# generator: capture.cases.space_fill_arial_italic16
+# method: width none=clipboard; width 6=string_value; width 10=string_value; width 14=string_value; width 20=string_value
+# numbers: repr
+# widths: exact
+# column_points: C=61.0 D=97.0 E=133.0 F=187.0
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 -   		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1.00 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 (1.00)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 12.00 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1,234.50 		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 (1,234.50)		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 0.50 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1,234,567.89 		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 TRUE 		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $- 		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $(1)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $12 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1,235 		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $(1,235)		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1,234,568 		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 TRUE 		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'0* '			0	0		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'0* '			0	1		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'0* '			0	-1		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'0* '			0	12		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'0* '			0	1235		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'0* '			0	-1235		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'0* '			0	1		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'0* '			0	1234568		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'0* '			0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'0* '			0	TRUE		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'* 0'			0	0		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'* 0'			0	1		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'* 0'			0	-1		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'* 0'			0	12		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'* 0'			0	1235		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'* 0'			0	-1235		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'* 0'			0	1		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'* 0'			0	1234568		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'* 0'			0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'* 0'			0	TRUE		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	        -   		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	    1.00 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	  (1.00)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	  12.00 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	    0.50 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $       - 		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $      1 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $     (1)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $    12 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $      1 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'0* '	6	6.0	0	0          		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'0* '	6	6.0	0	1          		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'0* '	6	6.0	0	-1         		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'0* '	6	6.0	0	12        		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'0* '	6	6.0	0	1235    		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'0* '	6	6.0	0	-1235  		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'0* '	6	6.0	0	1          		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'0* '	6	6.0	0	#####		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'0* '	6	6.0	0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'0* '	6	6.0	0	TRUE		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'* 0'	6	6.0	0	          0		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'* 0'	6	6.0	0	          1		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'* 0'	6	6.0	0	-         1		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'* 0'	6	6.0	0	        12		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'* 0'	6	6.0	0	    1235		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'* 0'	6	6.0	0	-  1235		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'* 0'	6	6.0	0	          1		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'* 0'	6	6.0	0	#####		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'* 0'	6	6.0	0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'* 0'	6	6.0	0	TRUE		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	                 -   		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	             1.00 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	           (1.00)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	           12.00 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	     1,234.50 		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	    (1,234.50)		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	             0.50 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	#########		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	 TRUE 		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $                - 		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $               1 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $              (1)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $             12 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $       1,235 		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $      (1,235)		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $               1 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $1,234,568 		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 TRUE 		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'0* '	10	10.0	0	0                   		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'0* '	10	10.0	0	1                   		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'0* '	10	10.0	0	-1                  		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'0* '	10	10.0	0	12                 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'0* '	10	10.0	0	1235             		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'0* '	10	10.0	0	-1235           		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'0* '	10	10.0	0	1                   		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'0* '	10	10.0	0	1234568      		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'0* '	10	10.0	0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'0* '	10	10.0	0	TRUE		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'* 0'	10	10.0	0	                   0		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'* 0'	10	10.0	0	                   1		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'* 0'	10	10.0	0	-                  1		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'* 0'	10	10.0	0	                 12		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'* 0'	10	10.0	0	             1235		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'* 0'	10	10.0	0	-           1235		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'* 0'	10	10.0	0	                   1		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'* 0'	10	10.0	0	      1234568		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'* 0'	10	10.0	0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'* 0'	10	10.0	0	TRUE		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                          -   		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                      1.00 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                    (1.00)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                    12.00 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	              1,234.50 		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	             (1,234.50)		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                      0.50 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	      1,234,567.89 		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	 TRUE 		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                         - 		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                        1 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                       (1)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                      12 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                1,235 		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $               (1,235)		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                        1 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $         1,234,568 		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 TRUE 		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'0* '	14	14.0	0	0                            		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'0* '	14	14.0	0	1                            		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'0* '	14	14.0	0	-1                           		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'0* '	14	14.0	0	12                          		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'0* '	14	14.0	0	1235                      		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'0* '	14	14.0	0	-1235                    		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'0* '	14	14.0	0	1                            		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'0* '	14	14.0	0	1234568               		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'0* '	14	14.0	0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'0* '	14	14.0	0	TRUE		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'* 0'	14	14.0	0	                            0		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'* 0'	14	14.0	0	                            1		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'* 0'	14	14.0	0	-                           1		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'* 0'	14	14.0	0	                          12		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'* 0'	14	14.0	0	                      1235		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'* 0'	14	14.0	0	-                    1235		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'* 0'	14	14.0	0	                            1		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'* 0'	14	14.0	0	               1234568		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'* 0'	14	14.0	0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'* 0'	14	14.0	0	TRUE		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                        -   		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                   1.00 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                  (1.00)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                 12.00 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                            1,234.50 		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                          (1,234.50)		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                   0.50 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                    1,234,567.89 		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	 TRUE 		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                       - 		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                      1 		fast
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                    (1)		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                   12 		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                              1,235 		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                            (1,235)		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                      1 		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                      1,234,568 		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 abc 		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 TRUE 		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'0* '	20	20.0	0	0                                          		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'0* '	20	20.0	0	1                                          		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'0* '	20	20.0	0	-1                                         		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'0* '	20	20.0	0	12                                        		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'0* '	20	20.0	0	1235                                   		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'0* '	20	20.0	0	-1235                                  		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'0* '	20	20.0	0	1                                          		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'0* '	20	20.0	0	1234568                            		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'0* '	20	20.0	0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'0* '	20	20.0	0	TRUE		fast
+space_fill_arial_italic16	zero [Arial 16 italic]	int	0	'* 0'	20	20.0	0	                                          0		fast
+space_fill_arial_italic16	one [Arial 16 italic]	int	1	'* 0'	20	20.0	0	                                          1		full
+space_fill_arial_italic16	neg-one [Arial 16 italic]	int	-1	'* 0'	20	20.0	0	-                                         1		fast
+space_fill_arial_italic16	twelve [Arial 16 italic]	int	12	'* 0'	20	20.0	0	                                        12		fast
+space_fill_arial_italic16	1234.5 [Arial 16 italic]	float	1234.5	'* 0'	20	20.0	0	                                   1235		fast
+space_fill_arial_italic16	neg-1234.5 [Arial 16 italic]	float	-1234.5	'* 0'	20	20.0	0	-                                  1235		fast
+space_fill_arial_italic16	half [Arial 16 italic]	float	0.5	'* 0'	20	20.0	0	                                          1		full
+space_fill_arial_italic16	million [Arial 16 italic]	float	1234567.891	'* 0'	20	20.0	0	                            1234568		fast
+space_fill_arial_italic16	text [Arial 16 italic]	str	'abc'	'* 0'	20	20.0	0	abc		fast
+space_fill_arial_italic16	bool [Arial 16 italic]	bool	True	'* 0'	20	20.0	0	TRUE		fast

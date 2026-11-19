@@ -354,9 +354,10 @@ bare `General` (`-0.05` at width 3 shows `-0`). `FormattedCell.fill` reports the
 `measure12` and the width suites; `CAPTURING.md` §2 items 24 and 25). Excel for Mac works in whole
 points. A column of `w` units is `round(MDW · w + P)` points, MDW being the maximum digit width of
 the Normal font: 5 points at 9 and 10, 6 at 11 and 12 (so 8.43 snaps to 8.5 units, 56 points at
-Calibri 11), 7 at 14, 8 at 16, 9 at 18, 10 at 20, 12 at 24, in Calibri and Aptos Narrow alike. `P`
-is the padding, `column_padding(MDW) = 2 · ceil(MDW / 4) + 1`: 5 points up to a digit width of 8, 7
-from 9 to 12 (`column_file18` to `24`; `CAPTURING.md` §2 item 48). Text has those points less the
+Calibri 11), 7 at 14, 8 at 16, 9 at 18, 10 at 20, 12 at 24, in Calibri and Aptos Narrow alike;
+Arial's digit is 5, 6, 6, 7, 8, 9, 10, 11 and 13 from 9 to 24. `P` is the padding,
+`column_padding(MDW) = 2 · ceil(MDW / 4) + 1`: 5 points up to a digit width of 8, 7 from 9 to 12, 9
+at 13 (`column_file18` to `24`, `column_file_arial24`; `CAPTURING.md` §2 items 48 and 55). Text has those points less the
 padding: `MDW · w`. A text
 measures the sum of its whole glyph advances in points at the cell's size; the advances are
 hinted per size (digits are 6 at 11 and 12, `-` is 3 at 11 and 4 at 12, `%` 8 and 9), so the
@@ -388,7 +389,9 @@ under 0.5 and from 1 to under 10,000 with a leading digit under 5 (`( 0 )` for -
 and otherwise nothing fits (-5 and -0.5 are `#` there; `general_sign_narrow`). Among literals a General that reduced to
 zero drops the sign and a `-` literal just before it (`0x`, and `0` under `General;-General`);
 bare General keeps `-0`. Every General text also passes the glyph test (`0 units` at width 1 is
-`#`). At whole widths these rules agree with the character count alone, which is why the suites
+`#`; `1E+06` in Arial 10 at 5 units is 31 points against 30 and shows `#####`, since Arial's `E` and
+`+` are wider than its digit, `column_file_arial10`), except the one character the General format
+keeps with less than one left. At whole widths these rules agree with the character count alone, which is why the suites
 at whole widths did not show them (`general_points<size>`, `general_literals_points`; `CAPTURING.md` §2 item
 27). Text overflows only through a
 section whose `*` fill follows it (`@*-` shows `#`, `*-@` shows the text). Every width row of
@@ -567,7 +570,7 @@ characters; `column_width: float | None` is Excel mode in Column Width dialog un
 the glyph table of `font`; passing both raises `ValueError`. `font: str | tuple[str, float] | None`
 names the font and size, default `("Calibri", 11)` (openpyxl's workbook default; sheetpeek passes
 the workbook's Normal style); a font without a bundled table raises `LookupError` naming the
-measured fonts (Calibri and Aptos Narrow in four styles, measured at 9, 10, 11, 12, 14, 16, 18, 20 and 24
+measured fonts (Calibri, Aptos Narrow and Arial in four styles, measured at 9, 10, 11, 12, 14, 16, 18, 20 and 24
 points and scaled from the nearest measured size elsewhere). `measure:
 Callable[[str], float] | None` is the hook for special cases and is used with `width` as the budget
 in the measure's own units. `DEFAULT_PALETTE` maps color names to `RRGGBB`.
@@ -613,11 +616,16 @@ value is known to be a number, before section selection.
 
 The row model is public too: `row_metrics(normal_font=None, *, cell_fonts=(), wrapped=())`
 returns a frozen `RowMetrics(height, font_height, line_height)`, the height Excel fits a row
-without a stored height to (`CAPTURING.md` §2 item 44). `wrapped` holds one `(font, lines)` per
+without a stored height to (`CAPTURING.md` §2 items 44 and 55): the largest ascent plus the
+largest descent of the row's fonts, wrapped cells' fonts included, rounded up, or the wrapped lines
+if taller. Faces of one family split their heights alike, so such a row is as tall as its tallest
+face; Arial's descent is smaller than Calibri's or Aptos Narrow's, so a row of Arial 11 and Calibri
+10 (14 points each) is 15. `wrapped` holds one `(font, lines)` per
 cell with wrapped text, `None` for the Normal font; one argument with one kind of item leaves room
-to take whole cells later. Lines are the caller's: xlformat does not break text. Two whole-point
-tables per measured face carry the model, the font height and the line inset, and a face without
-them raises `LookupError` rather than being scaled.
+to take whole cells later. Lines are the caller's: xlformat does not break text. Three tables per
+measured face carry the model, the font height, the descent (quarter points, fitted to every pair
+of faces and nearest the font's own descent) and the line inset, and a face without them raises
+`LookupError` rather than being scaled.
 
 `vertical_metrics(font=None)` returns a frozen `VerticalMetrics(baseline_from_top,
 baseline_from_bottom, font_height, line_height, line_pitch, line_inset, cap_height, descender)`:
@@ -735,8 +743,8 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`, 248 suite files, 733,968 rows in all modes | 12.0 s |
-| `pytest --tier=fast` | 3.2 s |
+| `pytest`, 334 suite files, 836,116 rows in all modes | 16.5 s |
+| `pytest --tier=fast` | 5.8 s |
 
 ## 14. What the code taught
 

@@ -1018,6 +1018,44 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     cap height, descender and the Normal-font exception are distances within a row and stay. The
     test applies the 2-pixel origin to the file's rows; all 480 placements match.
 
+55. **Arial (2026-11-19; 72 `measure_arial[_<style>]<size>` and `space_fill_...` suites in four
+    styles at 9, 10, 11, 12, 14, 16, 18, 20 and 24; `column_file_arial9` to `24`,
+    `general_points_arial10` and `11`, `numeric_core_width_arial10` in Arial workbooks;
+    `cell_font_arial` and `general_cell_font_arial`, Arial cells in a Calibri 11 workbook at every
+    point from 11 to 100; `row_height.layout.tsv.gz` recaptured with Arial as a third family, 108
+    workbooks of 324 rows; 121,000 cells and 35,000 heights in 32 minutes; Excel 16.115 under
+    Microsoft 365, which bundles Arial's four faces).** The Normal style is written without the
+    theme scheme, as for Aptos Narrow (item 30), and the headers read Arial back.
+    - **Widths:** every face fits its 515 space-less texts with `floor(sum) + PAD` and all 160
+      fill rows with one space advance, as Calibri's and Aptos Narrow's do. The digit is 5, 6, 6,
+      7, 8, 9, 10, 11 and 13 points from 9 to 24 (wider than Calibri's from 10), the space 3, 3, 3,
+      3, 4, 4, 5, 6, 7, and the italic overhang 1, 1, 2, 2, 2, 2, 3, 3, 4. A digit of 13 gives
+      a column padding of 9, as `2 * ceil(MDW / 4) + 1` predicts: the default column of an Arial
+      24 workbook is 8 digits plus 9.
+    - **General by glyphs:** Arial's `E` (7 at 10 points) and `+` (6) are at least a digit wide,
+      where Calibri's are narrower. A General form that fits by characters can then overflow by
+      glyphs: `1234567.891` in an Arial 10 file column of 5.875 (5 units, 30 points of text)
+      shows `#####`, where `1E+06` measures 31; also at 5.75 and 5.875 in Arial 24, and `1E+100` at
+      width 6 in `numeric_core_width_arial10`. So the glyph test applies to the General format as
+      well, except for the one character it keeps with less than one left (`'1'` in a 1-point
+      column, `column_narrow`). Every earlier suite agrees with this.
+    - **Row heights:** the Arial faces are 12, 13, 14, 16, 18, 20, 23, 25 and 30 points from 9 to
+      24, in every style. All 15,984 heights of the earlier capture came back unchanged. Of the
+      rows holding two families, 11 pairs of faces, each Arial with a Calibri or Aptos Narrow face
+      just under it, are a point taller than the taller face (Arial 11 with Calibri 10, 14 points
+      each: 15; Arial 24 with Aptos Narrow 20: 31); Calibri with Aptos Narrow never is. A row takes
+      its fonts' largest ascent plus largest descent, rounded up, where a face's ascent is its
+      height less its descent. With the fonts' own `hhea` descents rounded every way, 60 rows or
+      more miss; a descent per face in quarter points matches every row, and the table kept is the
+      one nearest the fonts' descents (Arial 2 to 5.5 points from 9 to 24, within 0.71 of
+      `434 / 2048` of the size). A wrapped cell's font counts too: one wrapped line of Aptos
+      Narrow 9 under Arial 11 is 15 points. Arial's line insets are 0, 0, 0, 1, 1, 1, 2, 2, 3.
+    - Accepted against sheetpeek's own captures: its 12 Arial 11 cells in a Calibri 11
+      workbook (six `##` at 22 points, 15-point rows) and its Arial 10 workbook (53-point default
+      column, 13-point rows).
+    - Not measured yet: where Arial's text sits in the row (`vertical_metrics`, item 47's screen
+      route).
+
 ## 3. The pipeline
 
 ```

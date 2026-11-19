@@ -1,14 +1,15 @@
 """Measure functions and the column model for the width decision (``ARCHITECTURE.md`` §8).
 
-Character mode measures a text by its length and the budget is the width in characters. Excel
-mode measures a text as the floored sum of glyph advances in points at the cell's font size and
-the budget is the column's text area in points: Excel for Mac stores a column of ``w`` units as
+Character mode measures a text by its length and the budget is the width in characters. Excel mode
+measures a text as the floored sum of glyph advances in points at the cell's font size and the
+budget is the column's text area in points: Excel for Mac stores a column of ``w`` units as
 ``round(MDW * w + P)`` points, MDW being the maximum digit width of the Normal font (5 points at 9
 and 10, 6 at 11 and 12, 7 at 14, 8 at 16, 9 at 18, 10 at 20 and 12 at 24, in Calibri and Aptos
-Narrow alike) and ``P`` the padding of :func:`column_padding` (5 points up to a digit width of 8,
-7 from 9 to 12), and compares text against those points less the padding. Both modes feed the
-same seam in ``_assemble``: fit when ``measure(text) <= budget``, ``#`` and ``*`` counts by
-dividing the budget by the glyph's measure (CAPTURING.md section 2 items 24 and 25).
+Narrow alike; Arial 5, 6, 6, 7, 8, 9, 10, 11 and 13) and ``P`` the padding of :func:`column_padding`
+(5 points up to a digit width of 8, 7 from 9 to 12, 9 at 13), and compares text against those points
+less the padding. Both modes feed the same seam in ``_assemble``: fit when ``measure(text) <=
+budget``, ``#`` and ``*`` counts by dividing the budget by the glyph's measure (CAPTURING.md section
+2 items 24 and 25).
 """
 
 from __future__ import annotations
@@ -20,6 +21,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
+from xlformat._glyphs_arial import ARIAL, ARIAL_OVERHANG
 from xlformat._glyphs_calibri import CALIBRI, CALIBRI_OVERHANG
 
 Measure = Callable[[str], float]
@@ -60,20 +62,22 @@ DEFAULT_FONT = Font("Calibri", 11)
 _FONTS: dict[str, tuple[str, dict[str, dict[int, dict[str, float]]]]] = {
     "calibri": ("Calibri", CALIBRI),
     "aptos narrow": ("Aptos Narrow", APTOS_NARROW),
+    "arial": ("Arial", ARIAL),
 }
 # family (lower case) -> style -> size -> points an italic face's text reaches past its advances
 # on each side: the cell's budget is that much smaller (CAPTURING.md section 2 item 30)
 _OVERHANG: dict[str, dict[str, dict[int, float]]] = {
     "calibri": CALIBRI_OVERHANG,
     "aptos narrow": APTOS_NARROW_OVERHANG,
+    "arial": ARIAL_OVERHANG,
 }
 
 
 def column_padding(mdw: float) -> float:
     """Points Excel adds to ``MDW * width`` for a column, not available to text.
 
-    ``2 * ceil(MDW / 4) + 1``: 5 for a maximum digit width of 5 to 8 points, 7 for 9 to 12
-    (CAPTURING.md section 2 item 48).
+    ``2 * ceil(MDW / 4) + 1``: 5 for a maximum digit width of 5 to 8 points, 7 for 9 to 12, 9
+    for 13 (Arial 24; CAPTURING.md section 2 items 48 and 55).
     """
     return 2.0 * math.ceil(mdw / 4) + 1.0
 
@@ -444,6 +448,46 @@ _FONT_HEIGHT: dict[str, dict[int, float]] = {
         20: 27.0,
         24: 32.0,
     },
+    "arial": {
+        9: 12.0,
+        10: 13.0,
+        11: 14.0,
+        12: 16.0,
+        14: 18.0,
+        16: 20.0,
+        18: 23.0,
+        20: 25.0,
+        24: 30.0,
+    },
+}
+# family (lower case) -> size -> the face's descent in points: a row of several faces is
+# ceil(largest ascent + largest descent), where a face's ascent is its height less its descent
+# (CAPTURING.md section 2 item 55: fitted to every pair of faces, each value the one nearest the
+# font's own descent; Arial's smaller descent makes a row of Arial 11 and Calibri 10 15 points)
+_DESCENT: dict[str, dict[int, float]] = {
+    "calibri": {
+        9: 2.0,
+        10: 2.75,
+        11: 3.0,
+        12: 3.25,
+        14: 3.75,
+        16: 4.25,
+        18: 4.75,
+        20: 5.25,
+        24: 6.5,
+    },
+    "aptos narrow": {
+        9: 2.5,
+        10: 2.75,
+        11: 3.0,
+        12: 3.25,
+        14: 3.75,
+        16: 4.5,
+        18: 4.75,
+        20: 5.75,
+        24: 6.75,
+    },
+    "arial": {9: 2.0, 10: 2.0, 11: 2.25, 12: 3.25, 14: 3.25, 16: 3.5, 18: 4.25, 20: 4.25, 24: 5.5},
 }
 # family (lower case) -> size -> points of the Normal font's line that wrapped text in a smaller
 # face does not fill: k wrapped lines in face f add max(0, inset(normal) - inset(f))
@@ -460,6 +504,7 @@ _LINE_INSET: dict[str, dict[int, float]] = {
         20: 4.0,
         24: 5.0,
     },
+    "arial": {9: 0.0, 10: 0.0, 11: 0.0, 12: 1.0, 14: 1.0, 16: 1.0, 18: 2.0, 20: 2.0, 24: 3.0},
 }
 
 
@@ -501,13 +546,15 @@ def row_metrics(
 ) -> RowMetrics:
     """The height Excel gives a row without a stored height, in the workbook's Normal font.
 
-    A row is as tall as its tallest font: the Normal font's height or that of any cell's font in
-    the row, an empty cell styled with a font included. Wrapped text of ``lines`` lines in a face
-    takes ``lines * (height + 1)`` points of that face, plus, when the Normal font or another
-    cell's font in the row has a larger line inset, the difference of the insets (CAPTURING.md
-    section 2 item 44). Bold and italic change nothing. Measured: Calibri and Aptos Narrow at 9,
-    10, 11, 12, 14, 16, 18, 20 and 24 points; the row model raises ``LookupError`` for any other
-    face rather than scaling one.
+    A row holds its fonts' largest ascent and largest descent, rounded up: the Normal font and every
+    cell's font in the row, an empty cell styled with a font included. Faces of one family split
+    their heights alike, so the row is as tall as its tallest font; Arial's descent is smaller, so
+    Arial 11 (14 points) beside Calibri 10 (14 points) makes a row of 15. Wrapped text of ``lines``
+    lines in a face takes ``lines * (height + 1)`` points of that face, plus, when the Normal font
+    or another cell's font in the row has a larger line inset, the difference of the insets
+    (CAPTURING.md section 2 items 44 and 55). Bold and italic change nothing. Measured: Calibri,
+    Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; the row model raises
+    ``LookupError`` for any other face ("this font isn't measured") rather than scaling one.
 
     Several cells with wrapped text in one row are each computed this way and the row takes the
     tallest; that combination has not been captured.
@@ -524,17 +571,29 @@ def row_metrics(
     """
     normal = _row_face(normal_font)
     font_height = _FONT_HEIGHT[normal[0]][normal[1]]
-    height = font_height
+    descent = _DESCENT[normal[0]][normal[1]]
+    ascent = font_height - descent
     top_inset = _LINE_INSET[normal[0]][normal[1]]  # the largest inset of the row's unwrapped fonts
     for font in cell_fonts:
         key, size = _row_face(font)
-        height = max(height, _FONT_HEIGHT[key][size])
+        face_descent = _DESCENT[key][size]
+        ascent = max(ascent, _FONT_HEIGHT[key][size] - face_descent)
+        descent = max(descent, face_descent)
         top_inset = max(top_inset, _LINE_INSET[key][size])
+    wraps = []
     for wrap_font, lines in wrapped:
         if lines < 1:
             msg = f"wrapped text has at least one line, not {lines!r}"
             raise ValueError(msg)
         key, size = normal if wrap_font is None else _row_face(wrap_font)
+        wraps.append((key, size, lines))
+        # the wrapped cell's font is in the row too: one line of Aptos Narrow 9 under Arial 11
+        # makes the row 15 points, as the two faces unwrapped do
+        face_descent = _DESCENT[key][size]
+        ascent = max(ascent, _FONT_HEIGHT[key][size] - face_descent)
+        descent = max(descent, face_descent)
+    height = float(math.ceil(ascent + descent))
+    for key, size, lines in wraps:
         inset = max(0.0, top_inset - _LINE_INSET[key][size])
         height = max(height, lines * (_FONT_HEIGHT[key][size] + 1.0) + inset)
     return RowMetrics(height=height, font_height=font_height, line_height=font_height + 1.0)
@@ -614,7 +673,8 @@ def vertical_metrics(font: FontSpec | None = None) -> VerticalMetrics:
     Bold and italic place as the regular face does, and the workbook's Normal font moves nothing,
     except for wrapped text in a face with a smaller ``line_inset`` (see
     :class:`VerticalMetrics`). Measured: Calibri and Aptos Narrow at 9, 10, 11, 12, 14, 16, 18,
-    20 and 24 points; any other face raises ``LookupError``.
+    20 and 24 points; any other face raises ``LookupError`` ("this font isn't measured"),
+    Arial included: its widths and row heights are measured, its placement in the row not yet.
 
     Raises:
         LookupError: A font or size not measured.

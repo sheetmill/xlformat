@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Arial is measured: glyph tables for regular, bold, italic and bold italic at 9, 10, 11, 12, 14,
+  16, 18, 20 and 24 points, so Excel mode, `text_width`, `column_metrics` and
+  `file_column_metrics` take an Arial Normal font or cell font, and `row_metrics` gives Arial
+  row heights (Arial 10: 13 points; its default column is 53 points). `vertical_metrics` still
+  raises `LookupError` for Arial: where its text sits in the row is not measured yet.
+
+### Changed
+- `row_metrics` takes a row of several faces as the largest ascent plus the largest descent,
+  rounded up, rather than the tallest face. Faces of one family give the same heights as before;
+  a row mixing Arial with Calibri or Aptos Narrow can be a point taller than its tallest face
+  (Arial 11 beside Calibri 10: 15 points, where each alone is 14).
+
+### Fixed
+- `General` in a column too narrow for it by glyph width now shows the `#` run, as Excel does,
+  where it had shown a form that fit by character count alone. Calibri and Aptos Narrow never
+  reach this case; in Arial, whose `E` and `+` are wider than a digit, `1234567.891` at 5 units
+  (Arial 10) is `#####`, not `1E+06`.
+
 ## [0.4.1] - 2026-11-17
 
 ### Fixed
