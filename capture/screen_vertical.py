@@ -248,7 +248,10 @@ def run_normal(normal: CellFont) -> None:
                 sys.exit(f"{shot.name}: row {top} not found whole at the top")
             if len(rows) < 3 and rows[-1][0] < n:
                 sys.exit(f"{shot.name}: only {len(rows)} rows recognized in a view: stopping")
-            top = rows[-1][0] + 1
+            # the view's last row can lie under the sheet-tab bar at the window's bottom edge, so
+            # the next view starts at it: every row is also captured above the edge
+            last = rows[-1][0]
+            top = last if last > top and last < n else last + 1
     finally:
         _request("close", name)
     print(f"{normal.label}: captured {len(list(folder.glob('*.png')))} views")
@@ -364,6 +367,7 @@ def read_normal(normal: CellFont) -> list[Measured]:
     heights = [float(h) for h in (folder / "heights.txt").read_text().strip().split(",")]
     all_cases = cases()
     found: dict[int, Measured] = {}
+    at_edge: set[int] = set()  # rows measured only as a view's last band so far
     for shot in sorted(folder.glob("top_*.png")):
         top = int(shot.stem.split("_")[1])
         image = read_png(shot)
@@ -373,8 +377,9 @@ def read_normal(normal: CellFont) -> list[Measured]:
         first_row, first_band = rows[0]
         ratios = sorted((b[1] - b[0] + 1) / heights[r - 1] for r, b in rows)
         scale = round(ratios[len(ratios) // 2])  # whole pixels a point (2 on a 2x display)
-        for row, band in rows:
-            if row in found:
+        for k, (row, band) in enumerate(rows):
+            edge = k == len(rows) - 1 and row < len(all_cases)
+            if row in found and (row not in at_edge or edge):
                 continue
             # boundaries between filled cells are sometimes drawn a pixel row or two off, so
             # distances are taken from the row's top computed from the view's first band
@@ -384,6 +389,10 @@ def read_normal(normal: CellFont) -> list[Measured]:
             found[row] = Measured(
                 all_cases[row - 1], heights[row - 1], band, h_lines, g_bottoms, band[0] - top_px
             )
+            if edge:
+                at_edge.add(row)
+            else:
+                at_edge.discard(row)
     missing = [r for r in range(1, len(all_cases) + 1) if r not in found]
     if missing:
         sys.exit(f"{normal.label}: rows never measured: {missing[:10]}")

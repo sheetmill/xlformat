@@ -11,10 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Arial is measured: glyph tables for regular, bold, italic and bold italic at 9, 10, 11, 12, 14,
   16, 18, 20 and 24 points, so Excel mode, `text_width`, `column_metrics` and
   `file_column_metrics` take an Arial Normal font or cell font, and `row_metrics` gives Arial
-  row heights (Arial 10: 13 points; its default column is 53 points). `vertical_metrics` still
-  raises `LookupError` for Arial: where its text sits in the row is not measured yet.
+  row heights (Arial 10: 13 points; its default column is 53 points), and `vertical_metrics`
+  where its text sits in the row.
+- Documentation: text turned to an angle shows the width-less rendering (its `_x` padding, no fill,
+  never `#`), measured from the rows Excel fits.
 
 ### Changed
+- `vertical_metrics(("Calibri", 9)).baseline_from_bottom` is 2 points, was 3. Bottom-aligned text
+  sits at least the Normal font's distance up, so in a Calibri 11 or Aptos Narrow 11 workbook
+  Calibri 9 still sits 3 points up, as before; in an Arial 10 workbook it sits 2 up, as Excel shows.
+  The docstring states this rule, which every earlier capture also follows.
 - `row_metrics` takes a row of several faces as the largest ascent plus the largest descent,
   rounded up, rather than the tallest face. Faces of one family give the same heights as before;
   a row mixing Arial with Calibri or Aptos Narrow can be a point taller than its tallest face

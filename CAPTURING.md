@@ -1053,8 +1053,30 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     - Accepted against sheetpeek's own captures: its 12 Arial 11 cells in a Calibri 11
       workbook (six `##` at 22 points, 15-point rows) and its Arial 10 workbook (53-point default
       column, 13-point rows).
-    - Not measured yet: where Arial's text sits in the row (`vertical_metrics`, item 47's screen
-      route).
+    - **Placement** (2026-11-19, `capture/screen_vertical.py` with Arial 10 as a third Normal font
+      and Arial among the faces, 1,080 rows; the 480 earlier rows reproduced exactly, the band
+      columns aside): top-aligned Arial has its baseline the size plus 1 below the row's top, as
+      the other families do. Bottom-aligned, Arial 9 to 24 sit 2, 2, 2, 3, 3, 3, 4, 4, 5 points
+      up, but Arial 9 to 11 sit 3 up in the Calibri 11 and Aptos Narrow 11 workbooks: a
+      bottom-aligned baseline is at least the Normal font's distance up. Calibri 9 shows the same
+      in the Arial 10 workbook (2 points, where every earlier workbook's Normal font gave 3, so
+      item 54's 3 for Calibri 9 was Calibri 11's floor). The ink of "H" and "g" is 6.5/2, 7.5/2,
+      8/2.5, 9/2.5, 10/3, 11.5/3, 13/4, 14.5/4, 17.5/5; at 11 and 16 points the descender is half a
+      point shorter or longer by the alignment (the baseline's pixel position), in every workbook.
+      Four rows were read where a view's last row lay under the sheet-tab bar; the script now
+      starts each view at the previous view's last row, and the test lists the four.
+
+56. **Padding and fills in angled text (2026-11-19; `capture/angled_formats.py`, a probe: 16
+    formats of "Total", 1234.5 and 12345678901, with `_)` padding, `*` fills of spaces and dashes,
+    the built-in accounting format or neither, turned 45 and 90 degrees in Calibri 11 at the
+    default width; 32 rows Excel fits on opening, heights read through AppleScript; the result in
+    `capture/build/probes/angled_formats.tsv`).** A fitted row of angled text grows with the text's
+    width (`W·|sin θ| + S·|cos θ| + 7`), so the rows show which text Excel turns. At 90 degrees
+    every row is exactly the width-less text's width plus 7: `_)` adds its space (`0.0_)` 42
+    points, `0.0` 40), a fill adds nothing (`0.0* `, `* 0.0` and `0.0*-` are all 40, where a fill
+    expanded to the column would make 54), and 12345678901, a `#` run upright in the 53-point
+    column, is turned whole (73). At 45 degrees every row is within 3 points of the same model.
+    So angled text is the width-less rendering, as `format_value` gives it without a width.
 
 ## 3. The pipeline
 

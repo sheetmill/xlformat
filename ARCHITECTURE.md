@@ -314,7 +314,10 @@ What the width logic does, and why a caller cannot do it afterwards from the pla
 uses the 11-character rule, and a value a datetime section cannot show gives 255 `#`. That is
 Excel's clipboard text; `Range.Text` gives as many `#` as the column holds (30 at width 30), and
 255 is the widest column Excel allows, so the two agree at the limit (`CAPTURING.md` §2 items 1
-and 2). sheetpeek always passes a width, so the 255 case is for callers without a layout.
+and 2). sheetpeek always passes a width, so the 255 case is for callers without a layout. Angled
+text (a cell turned 1 to 90 degrees either way) is also the width-less rendering: Excel turns the
+text with its `_x` padding, no fill and no `#` run, whatever the column (`CAPTURING.md` §2 item
+56).
 
 Observed in the `width_general` capture (`CAPTURING.md` §2 item 11): General drops decimals one at
 a time, rounding, until the text fits (`999.9999999` becomes `1000` as soon as one decimal goes);
@@ -632,8 +635,11 @@ baseline_from_bottom, font_height, line_height, line_pitch, line_inset, cap_heig
 where Excel draws a face's text in a cell, measured on screen (`CAPTURING.md` §2 item 47). They
 are facts, as the column's insets are; the caller aligns the text, as it does horizontally. The
 fields are the distances the screen shows: the top inset and the ascent appear only as their sum,
-and no split by convention is made. `line_inset` is the row model's per-face constant; the one
-placement the Normal font moves (wrapped text in a face with a smaller inset) is stated with it.
+and no split by convention is made. `line_inset` is the row model's per-face constant. The
+Normal font moves two placements, both stated with the fields: bottom-aligned text sits at least
+the Normal font's `baseline_from_bottom` up (Calibri 9 and Arial 9 to 11 have 2 points of their
+own and sit 3 up in a Calibri 11 workbook; `CAPTURING.md` §2 item 55), and wrapped text in a face
+with a smaller inset sits higher.
 
 **Error values.** `ExcelError` is a `StrEnum` of every error text current Excel documents (the
 seven classic codes of ECMA-376 and ERROR.TYPE 1 to 7; `#GETTING_DATA`, ERROR.TYPE 8; the error

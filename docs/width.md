@@ -163,9 +163,11 @@ to a few points more. The caller breaks the lines. Calibri, Aptos Narrow and Ari
 12, 14, 16, 18, 20 and 24 points are measured; any other face raises `LookupError`. Several cells with wrapped text in
 one row are a combination not yet captured: the row takes the tallest of them.
 
+Text turned to an angle is not fitted to the column: Excel shows the width-less rendering, with its
+`_x` padding, without fills and never as `#`, so a caller formats angled cells without a width.
+
 `vertical_metrics` gives where Excel draws a face's text within the row, in sheet points, as
-the screen shows it, for Calibri and Aptos Narrow; Arial's placement is not measured yet and raises
-`LookupError`:
+the screen shows it:
 
 ```python
 >>> from xlformat import vertical_metrics
@@ -181,9 +183,10 @@ bottom; top-aligned text has it `baseline_from_top` below the row's top (a row r
 of the gridline above it, which the row's own fill covers, to the top of the next); centered text
 sits midway
 between the two. Wrapped lines are `line_pitch` apart, the last placed as bottom-aligned text. Bold
-and italic place as the regular face, and the workbook's Normal font moves nothing, except that
-wrapped text in a face with a smaller `line_inset` than the row's other fonts sits that difference
-higher, the extra height `row_metrics` gives the row lying below the text. The fields are the
+and italic place as the regular face. The workbook's Normal font moves text in two ways:
+bottom-aligned text sits at least the Normal font's `baseline_from_bottom` up (Calibri 9 and Arial 9
+to 11 have 2 points of their own and sit 3 up in a Calibri 11 workbook), and wrapped text in a face
+with a smaller `line_inset` than the row's other fonts sits that difference higher, the extra height `row_metrics` gives the row lying below the text. The fields are the
 distances Excel shows; the ascent and the descent are not split from the cell's insets.
 
 ## Measuring text yourself

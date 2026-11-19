@@ -603,7 +603,7 @@ def row_metrics(
 
 # family (lower case) -> size -> points between a bottom-aligned baseline and the row's bottom
 _BASELINE_FROM_BOTTOM: dict[str, dict[int, float]] = {
-    "calibri": {9: 3.0, 10: 3.0, 11: 3.0, 12: 3.0, 14: 4.0, 16: 4.0, 18: 5.0, 20: 5.0, 24: 6.0},
+    "calibri": {9: 2.0, 10: 3.0, 11: 3.0, 12: 3.0, 14: 4.0, 16: 4.0, 18: 5.0, 20: 5.0, 24: 6.0},
     "aptos narrow": {
         9: 3.0,
         10: 3.0,
@@ -615,6 +615,7 @@ _BASELINE_FROM_BOTTOM: dict[str, dict[int, float]] = {
         20: 6.0,
         24: 7.0,
     },
+    "arial": {9: 2.0, 10: 2.0, 11: 2.0, 12: 3.0, 14: 3.0, 16: 3.0, 18: 4.0, 20: 4.0, 24: 5.0},
 }
 # family (lower case) -> size -> (cap height, descender): the ink of "H" above the baseline and of
 # "g" below it, as Excel draws them at zoom 100 on a 2x display (half points)
@@ -626,6 +627,10 @@ _INK: dict[str, dict[int, tuple[float, float]]] = {
     "aptos narrow": {
         9: (6.0, 1.5), 10: (6.5, 2.0), 11: (7.5, 2.0), 12: (8.0, 2.0), 14: (9.5, 2.5),
         16: (10.5, 3.0), 18: (12.0, 3.5), 20: (13.5, 3.5), 24: (16.0, 4.5),
+    },
+    "arial": {
+        9: (6.5, 2.0), 10: (7.5, 2.0), 11: (8.0, 2.5), 12: (9.0, 2.5), 14: (10.0, 3.0),
+        16: (11.5, 3.0), 18: (13.0, 4.0), 20: (14.5, 4.0), 24: (17.5, 5.0),
     },
 }  # fmt: skip
 
@@ -643,8 +648,10 @@ class VerticalMetrics:
             face's size in points plus 1. A row's top is the top of the gridline above it, which
             the row's own fill covers.
         baseline_from_bottom: The baseline's distance above the row's bottom for bottom-aligned
-            text (Excel's default). Centered text sits midway between the two placements, to half
-            a point.
+            text (Excel's default), at least the Normal font's own: Calibri 9 and Arial 9 to 11
+            have 2 points, and sit 3 points up in a Calibri 11 or Aptos Narrow 11 workbook, 2 in
+            an Arial 10 one.
+            Centered text sits midway between the two placements, to half a point.
         font_height: The height of a row in this face alone (no stored height).
         line_height: What each wrapped line in this face adds to a row: ``font_height`` plus 1.
         line_pitch: The distance between the baselines of wrapped lines: ``font_height``; the
@@ -654,7 +661,8 @@ class VerticalMetrics:
             that difference more height (``row_metrics``) and sits that much higher, the extra
             lying below its last line.
         cap_height: The ink of "H" above the baseline, to half a point.
-        descender: The ink of "g" below the baseline, to half a point.
+        descender: The ink of "g" below the baseline, to half a point. Arial 11 and 16 draw it
+            half a point longer or shorter by where the baseline falls on the display's pixels.
     """
 
     baseline_from_top: float
@@ -670,11 +678,11 @@ class VerticalMetrics:
 def vertical_metrics(font: FontSpec | None = None) -> VerticalMetrics:
     """Where Excel draws text in ``font`` within a cell (CAPTURING.md section 2 item 47).
 
-    Bold and italic place as the regular face does, and the workbook's Normal font moves nothing,
-    except for wrapped text in a face with a smaller ``line_inset`` (see
-    :class:`VerticalMetrics`). Measured: Calibri and Aptos Narrow at 9, 10, 11, 12, 14, 16, 18,
-    20 and 24 points; any other face raises ``LookupError`` ("this font isn't measured"),
-    Arial included: its widths and row heights are measured, its placement in the row not yet.
+    Bold and italic place as the regular face does. The workbook's Normal font moves text in two
+    cases: bottom-aligned text sits at least the Normal font's ``baseline_from_bottom`` up, and
+    wrapped text in a face with a smaller ``line_inset`` sits higher (see
+    :class:`VerticalMetrics`). Measured: Calibri, Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16,
+    18, 20 and 24 points; any other face raises ``LookupError`` ("this font isn't measured").
 
     Raises:
         LookupError: A font or size not measured.
