@@ -204,8 +204,12 @@ def render(
         section = fmt.text_section
         is_text = v.kind is Kind.TEXT  # booleans overflow like numbers, text never does...
         if section is None:
+            # a format of one General section colors text as is ('[Blue]General' shows 'Total'
+            # in blue); a numeric section's color, or several sections', leaves it black
+            # (rules.layout.tsv, CAPTURING.md section 2 item 60)
+            color = fmt.sections[0].color if is_text and fmt.is_general else None
             return assemble(
-                [("lit", text)], None, align, width=budget, measure=measure, overflows=not is_text
+                [("lit", text)], color, align, width=budget, measure=measure, overflows=not is_text
             )
         pieces = render_text_section(section, text, None)
         # ...except through a section whose '*' fill comes after the text, which shows '#' when

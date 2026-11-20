@@ -24,17 +24,12 @@ PIXELS_PER_POINT = 2
 # higher (band_shift -2). So each row's own top is 2 px above the file's origin (CAPTURING.md
 # section 2 item 54).
 FRAME_PX = 2
-# Rows the reader measured only as the last row of a view, where the sheet-tab bar at the window's
-# bottom edge cuts them: its pixels read as an extra or merged ink line (a crop of "center 2F
-# Aptos Narrow 16" under Arial 10 shows one clean "Hxg" above the bar). The capture script now
-# starts each view at the previous view's last row, so a new run measures them clear of the edge.
-SCREEN_EDGE_MISREADS = {
-    ("Calibri 11", "center 2F Arial 14"),
-    ("Aptos Narrow 11", "center 2F Arial 14"),
-    ("Arial 10", "center 2F Aptos Narrow 11"),
-    ("Arial 10", "center 2F Aptos Narrow 16"),
-}
 _FAMILIES = "Calibri|Aptos Narrow|Arial|Times New Roman|Courier New|Georgia"
+PHASE_DESCENDERS = {
+    ("Arial", "11"), ("Arial", "16"),
+    ("Times New Roman", "11"), ("Times New Roman", "16"), ("Times New Roman", "20"),
+    ("Georgia", "11"), ("Georgia", "20"),
+}  # fmt: skip
 _FACE = re.compile(rf"({_FAMILIES}) (\d+)((?: bold)?)((?: italic)?)$")
 
 
@@ -71,11 +66,9 @@ def _rows() -> list[list[str]]:
 
 def test_every_captured_placement() -> None:
     rows = _rows()
-    assert len(rows) == 1080
+    assert len(rows) == 2340
     misses = []
     for normal_label, tag, _, height, _, _, h_ink, g_ink in rows:
-        if (normal_label, tag) in SCREEN_EDGE_MISREADS:
-            continue
         normal = vertical_metrics(_font(normal_label))
         face = vertical_metrics(_font(tag), normal_font=_font(normal_label))
         ink = [tuple(int(v) for v in line.split("-")) for line in h_ink.split()]
@@ -87,15 +80,11 @@ def test_every_captured_placement() -> None:
         for (top, bottom), tail in zip(ink, tails, strict=True):
             cap = (bottom + 1 - top) / PIXELS_PER_POINT
             descender = (tail - bottom) / PIXELS_PER_POINT
-            # Arial 11 and 16 draw the descender half a point either way by the baseline's pixel
+            # these faces draw the descender half a point either way by the baseline's pixel
             # position (the same in all three workbooks, by alignment)
-            slack = (
-                0.5
-                if (face_key := _FACE.search(tag))
-                and face_key.group(1) == "Arial"
-                and face_key.group(2) in ("11", "16")
-                else 0.0
-            )
+            face_key = _FACE.search(tag)
+            assert face_key, tag
+            slack = 0.5 if (face_key[1], face_key[2]) in PHASE_DESCENDERS else 0.0
             ink = ink_metrics(_font(tag))
             if cap != ink.cap_height or abs(descender - ink.descender) > slack:
                 misses.append((normal_label, tag, (cap, descender)))
@@ -129,8 +118,8 @@ def test_the_ink_fields_of_vertical_metrics_are_deprecated() -> None:
 
 
 def test_unmeasured_faces() -> None:
-    with pytest.raises(LookupError, match="no ink measured for Calibri 22"):
-        ink_metrics(("Calibri", 22))
+    with pytest.raises(LookupError, match="no ink measured for Calibri 21"):
+        ink_metrics(("Calibri", 21))
     with pytest.raises(LookupError, match="no row heights for Calibri 73"):
         vertical_metrics(("Calibri", 73))
     with pytest.raises(LookupError, match="Comic Sans"):

@@ -1123,6 +1123,44 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       faces in one workbook, every row from 1,406 on read 16, the default height of a row Excel
       had not fitted. Each face now has a workbook of its own.
 
+59. **Placement of more faces and sizes (2026-11-19; `capture/screen_vertical.py` with Times New
+    Roman, Courier New and Georgia at 9 to 24 points, and Calibri and Aptos Narrow at 13, 15, 17
+    and 22, appended to item 55's cases: 780 rows a Normal font, 2,340 in `vertical.layout.tsv`).**
+    The 1,080 earlier rows reproduce; the four item 55 lists as read under the sheet-tab bar now
+    read clean, since each view starts at the previous view's last row. Every one of the 1,260
+    new rows matches the placement predicted before the run from the row model (top baseline
+    `ceil(S) + 1`, bottom `B = F − ceil(S) − 1`, at least the Normal font's, line inset `B − 2`).
+    The ink, per face and size (the same in every row of it): Times New Roman 6/2, 7/2, 7.5/2.5,
+    8/2.5, 9.5/3, 11/3, 12/4, 13.5/4, 16/5 from 9 to 24; Courier New 5.5/1.5, 6/2, 6.5/2, 7/2.5,
+    8/2.5, 9.5/3, 10.5/3.5, 11.5/4, 14/4.5; Georgia 6.5/2, 7/2, 8/2.5, 8.5/2.5, 10/3, 11.5/3.5,
+    12.5/4, 14/4, 17/5; Calibri 8.5/2.5, 9.5/2.5, 11/3, 14/4 and Aptos Narrow 8.5/2.5, 10/3,
+    11.5/3, 14.5/4 at 13, 15, 17 and 22. The descender is half a point either way by alignment at
+    Times New Roman 11, 16 and 20 and Georgia 11 and 20, as at Arial 11 and 16.
+
+60. **Rules and text color on screen (2026-11-19; `capture/screen_rules.py`: "HHHH" in the six
+    faces at 9, 11, 14, 20 and 36 points without a rule and under each underline and a
+    strikethrough, at zoom 100 and 200; "Total" and 12 in Calibri 11 under nine formats; 396 rows
+    in `rules.layout.tsv`; predictions written before the run in `capture/build/`).** Positions
+    are in screen points at the screen size `P = S · zoom / 100`, from the font's tables:
+    - **Thickness:** an underline's is `max(1, floor(P · post.underlineThickness / unitsPerEm))`
+      (119 of 119 single and accounting rules, where `round`, predicted, gave a thicker line at
+      zoom 200), a strikethrough's `max(1, round(P · OS/2.yStrikeoutSize / unitsPerEm))` (58 of
+      60; the two others are a one-pixel read at the top of a 36-point row at zoom 200, the strike
+      itself measured as predicted below it).
+    - **Position:** the single underline's top `floor(P · −underlinePosition / unitsPerEm)` below
+      the baseline in 51 of 59 rows (six of the misses are Courier New's, whose underline sits
+      higher than its table says); the strikethrough's top `round(P · yStrikeoutPosition /
+      unitsPerEm)` above it in 57 of 60 (one real miss, Calibri 9 at zoom 200); the accounting
+      rule's top `round(P · usWinDescent / unitsPerEm)` below it in 58 of 60 (Aptos Narrow 9 and 20
+      at zoom 100, a point lower).
+    - **Doubles:** the second line lies two thicknesses below the first in 100 of 120 rows, and
+      the first line of a double underline sits higher than a single one's in 24 of 60. Not settled.
+    - **Text color:** text under `[Blue]General` shows blue and under `[Blue]@` blue, through a
+      four-section format's `[Red]@` red; under `[Red]0.0`, two or three numeric sections, a fourth
+      section `@` without a color, or a condition, text stays black. The numbers' colors match the
+      package's in all nine formats. The `colors` suite's read-back gave black for text under
+      `[Red]General`: one of the read-back's known misreports of colored text.
+
 ## 3. The pipeline
 
 ```

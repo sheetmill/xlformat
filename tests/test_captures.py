@@ -62,6 +62,11 @@ DISPLAY_FORMAT_COLOR_MISREPORTS: dict[tuple[str, str], str] = {
     ("'[Red][<0]0;[Blue]0'", "0"): _ZERO,
     ("'[Green][=0]\"zero\";[Red]0'", "0"): _ZERO,
     ("'0;-0;0;[Magenta]@'", "'abc'"): _TEXT,
+    # the screen shows text under a one-section colored General in that color (rules.layout.tsv,
+    # "'Total' [Blue]General" blue; CAPTURING.md section 2 item 60); a bare color section parses
+    # as that General, unverified on screen
+    ("'[Red]General'", "'abc'"): _TEXT,
+    ("'[Red]'", "'abc'"): _TEXT,
     ("'0;-0;0;[Magenta]@'", "True"): _TEXT,
     ("'[Cyan]@'", "'abc'"): _TEXT,
     ("'[Red]m/d/yy'", "-1234.5"): _HASH,

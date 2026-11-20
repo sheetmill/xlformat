@@ -630,16 +630,30 @@ def row_metrics(
 # "g" below it, as Excel draws them at zoom 100 on a 2x display (half points)
 _INK: dict[str, dict[int, tuple[float, float]]] = {
     "calibri": {
-        9: (6.0, 1.5), 10: (6.5, 2.0), 11: (7.0, 2.0), 12: (8.0, 2.0), 14: (9.0, 2.5),
-        16: (10.5, 3.0), 18: (11.5, 3.0), 20: (13.0, 3.5), 24: (15.5, 4.5),
+        9: (6.0, 1.5), 10: (6.5, 2.0), 11: (7.0, 2.0), 12: (8.0, 2.0), 13: (8.5, 2.5),
+        14: (9.0, 2.5), 15: (9.5, 2.5), 16: (10.5, 3.0), 17: (11.0, 3.0), 18: (11.5, 3.0),
+        20: (13.0, 3.5), 22: (14.0, 4.0), 24: (15.5, 4.5),
     },
     "aptos narrow": {
-        9: (6.0, 1.5), 10: (6.5, 2.0), 11: (7.5, 2.0), 12: (8.0, 2.0), 14: (9.5, 2.5),
-        16: (10.5, 3.0), 18: (12.0, 3.5), 20: (13.5, 3.5), 24: (16.0, 4.5),
+        9: (6.0, 1.5), 10: (6.5, 2.0), 11: (7.5, 2.0), 12: (8.0, 2.0), 13: (8.5, 2.5),
+        14: (9.5, 2.5), 15: (10.0, 3.0), 16: (10.5, 3.0), 17: (11.5, 3.0), 18: (12.0, 3.5),
+        20: (13.5, 3.5), 22: (14.5, 4.0), 24: (16.0, 4.5),
     },
     "arial": {
         9: (6.5, 2.0), 10: (7.5, 2.0), 11: (8.0, 2.5), 12: (9.0, 2.5), 14: (10.0, 3.0),
         16: (11.5, 3.0), 18: (13.0, 4.0), 20: (14.5, 4.0), 24: (17.5, 5.0),
+    },
+    "times new roman": {
+        9: (6.0, 2.0), 10: (7.0, 2.0), 11: (7.5, 2.5), 12: (8.0, 2.5), 14: (9.5, 3.0),
+        16: (11.0, 3.0), 18: (12.0, 4.0), 20: (13.5, 4.0), 24: (16.0, 5.0),
+    },
+    "courier new": {
+        9: (5.5, 1.5), 10: (6.0, 2.0), 11: (6.5, 2.0), 12: (7.0, 2.5), 14: (8.0, 2.5),
+        16: (9.5, 3.0), 18: (10.5, 3.5), 20: (11.5, 4.0), 24: (14.0, 4.5),
+    },
+    "georgia": {
+        9: (6.5, 2.0), 10: (7.0, 2.0), 11: (8.0, 2.5), 12: (8.5, 2.5), 14: (10.0, 3.0),
+        16: (11.5, 3.5), 18: (12.5, 4.0), 20: (14.0, 4.0), 24: (17.0, 5.0),
     },
 }  # fmt: skip
 
@@ -709,8 +723,9 @@ class InkMetrics:
 
     Attributes:
         cap_height: The ink of "H" above the baseline, to half a point.
-        descender: The ink of "g" below the baseline, to half a point. Arial 11 and 16 draw it
-            half a point longer or shorter by where the baseline falls on the display's pixels.
+        descender: The ink of "g" below the baseline, to half a point. Arial 11 and 16, Times
+            New Roman 11, 16 and 20 and Georgia 11 and 20 draw it half a point longer or shorter
+            by where the baseline falls on the display's pixels.
     """
 
     cap_height: float
@@ -720,8 +735,9 @@ class InkMetrics:
 def ink_metrics(font: FontSpec | None = None) -> InkMetrics:
     """The measured ink of ``font``'s "H" and "g" (CAPTURING.md section 2 items 47 and 55).
 
-    Measured: Calibri, Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points, in
-    every style alike.
+    Measured: Calibri, Aptos Narrow, Arial, Times New Roman, Courier New and Georgia at 9, 10, 11,
+    12, 14, 16, 18, 20 and 24 points, and Calibri and Aptos Narrow at 13, 15, 17 and 22, in every
+    style alike (styles captured for the first three).
 
     Raises:
         LookupError: A face or size not measured.
@@ -730,8 +746,8 @@ def ink_metrics(font: FontSpec | None = None) -> InkMetrics:
     ink = _INK.get(key, {}).get(int(size)) if size == int(size) else None
     if ink is None:
         msg = (
-            f"no ink measured for {_DISPLAY[key]} {size:g}; measured: Calibri, Aptos Narrow and "
-            "Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24"
+            f"no ink measured for {_DISPLAY[key]} {size:g}; measured: the six faces at 9, 10, "
+            "11, 12, 14, 16, 18, 20 and 24, and Calibri and Aptos Narrow at 13, 15, 17 and 22"
         )
         raise LookupError(msg)
     return InkMetrics(cap_height=ink[0], descender=ink[1])

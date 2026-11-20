@@ -47,8 +47,8 @@ Calibri 11	center F Calibri 12	16	16	32	-2	8-23	27
 Calibri 11	center F+10 Calibri 12	26	26	52	-2	18-33	37
 Calibri 11	center 2F Calibri 12	32	32	64	-2	24-39	43
 Calibri 11	bottom F Calibri 12	16	16	32	-2	8-23	27
-Calibri 11	bottom F+10 Calibri 12	26	26	52	-2	28-43	47
-Calibri 11	bottom 2F Calibri 12	32	32	62	0	40-55	59
+Calibri 11	bottom F+10 Calibri 12	26	26	50	0	28-43	47
+Calibri 11	bottom 2F Calibri 12	32	32	64	-2	40-55	59
 Calibri 11	wrapped 2 Calibri 12		34	68	-2	12-27 44-59	31 63
 Calibri 11	wrapped 3 Calibri 12		51	102	-2	14-29 46-61 78-93	33 65 97
 Calibri 11	natural Calibri 14		19	38	-2	10-27	32
@@ -78,9 +78,9 @@ Calibri 11	wrapped 3 Calibri 16		66	132	-2	17-37 59-79 101-121	43 85 127
 Calibri 11	natural Calibri 18		24	48	-2	13-35	41
 Calibri 11	top F Calibri 18	24	24	48	-2	13-35	41
 Calibri 11	top F+10 Calibri 18	34	34	68	-2	13-35	41
-Calibri 11	top 2F Calibri 18	48	48	96	-2	13-35	41
+Calibri 11	top 2F Calibri 18	48	48	94	0	13-35	41
 Calibri 11	center F Calibri 18	24	24	48	-2	13-35	41
-Calibri 11	center F+10 Calibri 18	34	34	66	0	23-45	51
+Calibri 11	center F+10 Calibri 18	34	34	68	-2	23-45	51
 Calibri 11	center 2F Calibri 18	48	48	96	-2	37-59	65
 Calibri 11	bottom F Calibri 18	24	24	48	-2	13-35	41
 Calibri 11	bottom F+10 Calibri 18	34	34	68	-2	33-55	61
@@ -102,10 +102,10 @@ Calibri 11	wrapped 3 Calibri 20		81	162	-2	20-45 72-97 124-149	52 104 156
 Calibri 11	natural Calibri 24		31	62	-2	17-47	56
 Calibri 11	top F Calibri 24	31	31	62	-2	17-47	56
 Calibri 11	top F+10 Calibri 24	41	41	82	-2	17-47	56
-Calibri 11	top 2F Calibri 24	62	62	124	-2	17-47	56
+Calibri 11	top 2F Calibri 24	62	62	122	0	17-47	56
 Calibri 11	center F Calibri 24	31	31	62	-2	17-47	56
 Calibri 11	center F+10 Calibri 24	41	41	82	-2	27-57	66
-Calibri 11	center 2F Calibri 24	62	62	122	0	47-77	86
+Calibri 11	center 2F Calibri 24	62	62	124	-2	47-77	86
 Calibri 11	bottom F Calibri 24	31	31	62	-2	17-47	56
 Calibri 11	bottom F+10 Calibri 24	41	41	82	-2	37-67	76
 Calibri 11	bottom 2F Calibri 24	62	62	124	-2	79-109	118
@@ -135,13 +135,13 @@ Calibri 11	bottom F+10 Aptos Narrow 10	24	24	48	-2	27-39	43
 Calibri 11	bottom 2F Aptos Narrow 10	28	28	56	-2	35-47	51
 Calibri 11	wrapped 2 Aptos Narrow 10		30	60	-2	11-23 39-51	27 55
 Calibri 11	wrapped 3 Aptos Narrow 10		45	90	-2	13-25 41-53 69-81	29 57 85
-Calibri 11	natural Aptos Narrow 11		15	30	-2	7-21	25
+Calibri 11	natural Aptos Narrow 11		15	28	0	7-21	25
 Calibri 11	top F Aptos Narrow 11	15	15	30	-2	7-21	25
 Calibri 11	top F+10 Aptos Narrow 11	25	25	50	-2	7-21	25
 Calibri 11	top 2F Aptos Narrow 11	30	30	60	-2	7-21	25
 Calibri 11	center F Aptos Narrow 11	15	15	30	-2	7-21	25
 Calibri 11	center F+10 Aptos Narrow 11	25	25	50	-2	17-31	35
-Calibri 11	center 2F Aptos Narrow 11	30	30	58	0	21-35	39
+Calibri 11	center 2F Aptos Narrow 11	30	30	60	-2	21-35	39
 Calibri 11	bottom F Aptos Narrow 11	15	15	30	-2	7-21	25
 Calibri 11	bottom F+10 Aptos Narrow 11	25	25	50	-2	27-41	45
 Calibri 11	bottom 2F Aptos Narrow 11	30	30	60	-2	37-51	55
@@ -172,12 +172,12 @@ Calibri 11	bottom 2F Aptos Narrow 14	38	38	76	-2	47-65	70
 Calibri 11	wrapped 2 Aptos Narrow 14		40	80	-2	13-31 51-69	36 74
 Calibri 11	wrapped 3 Aptos Narrow 14		60	120	-2	15-33 53-71 91-109	38 76 114
 Calibri 11	natural Aptos Narrow 16		22	44	-2	11-31	37
-Calibri 11	top F Aptos Narrow 16	22	22	44	-2	11-31	37
+Calibri 11	top F Aptos Narrow 16	22	22	42	0	11-31	37
 Calibri 11	top F+10 Aptos Narrow 16	32	32	64	-2	11-31	37
 Calibri 11	top 2F Aptos Narrow 16	44	44	88	-2	11-31	37
 Calibri 11	center F Aptos Narrow 16	22	22	44	-2	11-31	37
 Calibri 11	center F+10 Aptos Narrow 16	32	32	64	-2	21-41	47
-Calibri 11	center 2F Aptos Narrow 16	44	44	86	0	33-53	59
+Calibri 11	center 2F Aptos Narrow 16	44	44	88	-2	33-53	59
 Calibri 11	bottom F Aptos Narrow 16	22	22	44	-2	11-31	37
 Calibri 11	bottom F+10 Aptos Narrow 16	32	32	64	-2	31-51	57
 Calibri 11	bottom 2F Aptos Narrow 16	44	44	88	-2	55-75	81
@@ -199,12 +199,12 @@ Calibri 11	natural Aptos Narrow 20		27	54	-2	13-39	46
 Calibri 11	top F Aptos Narrow 20	27	27	54	-2	13-39	46
 Calibri 11	top F+10 Aptos Narrow 20	37	37	74	-2	13-39	46
 Calibri 11	top 2F Aptos Narrow 20	54	54	108	-2	13-39	46
-Calibri 11	center F Aptos Narrow 20	27	27	54	-2	13-39	46
+Calibri 11	center F Aptos Narrow 20	27	27	52	0	13-39	46
 Calibri 11	center F+10 Aptos Narrow 20	37	37	74	-2	23-49	56
 Calibri 11	center 2F Aptos Narrow 20	54	54	108	-2	39-65	72
 Calibri 11	bottom F Aptos Narrow 20	27	27	54	-2	13-39	46
 Calibri 11	bottom F+10 Aptos Narrow 20	37	37	74	-2	33-59	66
-Calibri 11	bottom 2F Aptos Narrow 20	54	54	106	0	67-93	100
+Calibri 11	bottom 2F Aptos Narrow 20	54	54	108	-2	67-93	100
 Calibri 11	wrapped 2 Aptos Narrow 20		56	112	-2	17-43 71-97	50 104
 Calibri 11	wrapped 3 Aptos Narrow 20		84	168	-2	19-45 73-99 127-153	52 106 160
 Calibri 11	natural Aptos Narrow 24		32	64	-2	16-47	56
@@ -222,7 +222,7 @@ Calibri 11	wrapped 3 Aptos Narrow 24		99	198	-2	22-53 86-117 150-181	62 126 190
 Calibri 11	natural Arial 9		15	30	-2	9-21	25
 Calibri 11	top F Arial 9	12	12	24	-2	5-17	21
 Calibri 11	top F+10 Arial 9	22	22	44	-2	5-17	21
-Calibri 11	top 2F Arial 9	24	24	48	-2	5-17	21
+Calibri 11	top 2F Arial 9	24	24	46	0	5-17	21
 Calibri 11	center F Arial 9	12	12	24	-2	5-17	21
 Calibri 11	center F+10 Arial 9	22	22	44	-2	15-27	31
 Calibri 11	center 2F Arial 9	24	24	48	-2	17-29	33
@@ -231,7 +231,7 @@ Calibri 11	bottom F+10 Arial 9	22	22	44	-2	23-35	39
 Calibri 11	bottom 2F Arial 9	24	24	48	-2	27-39	43
 Calibri 11	wrapped 2 Arial 9		27	54	-2	7-19 31-43	23 47
 Calibri 11	wrapped 3 Arial 9		40	80	-2	9-21 33-45 57-69	25 49 73
-Calibri 11	natural Arial 10		15	28	0	7-21	25
+Calibri 11	natural Arial 10		15	30	-2	7-21	25
 Calibri 11	top F Arial 10	13	13	26	-2	5-19	23
 Calibri 11	top F+10 Arial 10	23	23	46	-2	5-19	23
 Calibri 11	top 2F Arial 10	26	26	52	-2	5-19	23
@@ -265,7 +265,7 @@ Calibri 11	center 2F Arial 12	32	32	64	-2	22-39	44
 Calibri 11	bottom F Arial 12	16	16	32	-2	6-23	28
 Calibri 11	bottom F+10 Arial 12	26	26	52	-2	26-43	48
 Calibri 11	bottom 2F Arial 12	32	32	64	-2	38-55	60
-Calibri 11	wrapped 2 Arial 12		34	68	-2	10-27 42-59	32 64
+Calibri 11	wrapped 2 Arial 12		34	66	0	10-27 42-59	32 64
 Calibri 11	wrapped 3 Arial 12		51	102	-2	12-29 44-61 76-93	34 66 98
 Calibri 11	natural Arial 14		18	36	-2	8-27	33
 Calibri 11	top F Arial 14	18	18	36	-2	8-27	33
@@ -273,8 +273,8 @@ Calibri 11	top F+10 Arial 14	28	28	56	-2	8-27	33
 Calibri 11	top 2F Arial 14	36	36	72	-2	8-27	33
 Calibri 11	center F Arial 14	18	18	36	-2	8-27	33
 Calibri 11	center F+10 Arial 14	28	28	56	-2	18-37	43
-Calibri 11	center 2F Arial 14	36	36	72	-2	26-45 70-71	51
-Calibri 11	bottom F Arial 14	18	18	34	0	8-27	33
+Calibri 11	center 2F Arial 14	36	36	72	-2	26-45	51
+Calibri 11	bottom F Arial 14	18	18	36	-2	8-27	33
 Calibri 11	bottom F+10 Arial 14	28	28	56	-2	28-47	53
 Calibri 11	bottom 2F Arial 14	36	36	72	-2	44-63	69
 Calibri 11	wrapped 2 Arial 14		38	76	-2	12-31 48-67	37 73
@@ -297,14 +297,14 @@ Calibri 11	top F+10 Arial 18	33	33	66	-2	10-35	43
 Calibri 11	top 2F Arial 18	46	46	92	-2	10-35	43
 Calibri 11	center F Arial 18	23	23	46	-2	10-35	43
 Calibri 11	center F+10 Arial 18	33	33	66	-2	20-45	53
-Calibri 11	center 2F Arial 18	46	46	92	-2	32-57	65
+Calibri 11	center 2F Arial 18	46	46	90	0	32-57	65
 Calibri 11	bottom F Arial 18	23	23	46	-2	10-35	43
 Calibri 11	bottom F+10 Arial 18	33	33	66	-2	30-55	63
 Calibri 11	bottom 2F Arial 18	46	46	92	-2	56-81	89
 Calibri 11	wrapped 2 Arial 18		48	96	-2	14-39 60-85	47 93
 Calibri 11	wrapped 3 Arial 18		72	144	-2	16-41 62-87 108-133	49 95 141
 Calibri 11	natural Arial 20		25	50	-2	11-39	47
-Calibri 11	top F Arial 20	25	25	48	0	11-39	47
+Calibri 11	top F Arial 20	25	25	50	-2	11-39	47
 Calibri 11	top F+10 Arial 20	35	35	70	-2	11-39	47
 Calibri 11	top 2F Arial 20	50	50	100	-2	11-39	47
 Calibri 11	center F Arial 20	25	25	50	-2	11-39	47
@@ -321,14 +321,14 @@ Calibri 11	top F+10 Arial 24	40	40	80	-2	13-47	57
 Calibri 11	top 2F Arial 24	60	60	120	-2	13-47	57
 Calibri 11	center F Arial 24	30	30	60	-2	13-47	57
 Calibri 11	center F+10 Arial 24	40	40	80	-2	23-57	67
-Calibri 11	center 2F Arial 24	60	60	120	-2	43-77	87
+Calibri 11	center 2F Arial 24	60	60	118	0	43-77	87
 Calibri 11	bottom F Arial 24	30	30	60	-2	13-47	57
 Calibri 11	bottom F+10 Arial 24	40	40	80	-2	33-67	77
 Calibri 11	bottom 2F Arial 24	60	60	120	-2	73-107	117
 Calibri 11	wrapped 2 Arial 24		62	124	-2	17-51 77-111	61 121
 Calibri 11	wrapped 3 Arial 24		93	186	-2	19-53 79-113 139-173	63 123 183
 Calibri 11	natural Calibri 11 bold		15	30	-2	8-21	25
-Calibri 11	bottom F+10 Calibri 11 bold	25	25	48	0	28-41	45
+Calibri 11	bottom F+10 Calibri 11 bold	25	25	50	-2	28-41	45
 Calibri 11	natural Calibri 11 italic		15	30	-2	8-21	25
 Calibri 11	bottom F+10 Calibri 11 italic	25	25	50	-2	28-41	45
 Calibri 11	natural Calibri 11 bold italic		15	30	-2	8-21	25
@@ -357,12 +357,432 @@ Calibri 11	natural Arial 11 italic		15	30	-2	6-21	26
 Calibri 11	bottom F+10 Arial 11 italic	24	24	48	-2	24-39	44
 Calibri 11	natural Arial 11 bold italic		15	30	-2	6-21	26
 Calibri 11	bottom F+10 Arial 11 bold italic	24	24	48	-2	24-39	44
-Calibri 11	natural Arial 16 bold		20	40	-2	9-31	37
+Calibri 11	natural Arial 16 bold		20	38	0	9-31	37
 Calibri 11	bottom F+10 Arial 16 bold	30	30	60	-2	29-51	57
 Calibri 11	natural Arial 16 italic		20	40	-2	9-31	37
 Calibri 11	bottom F+10 Arial 16 italic	30	30	60	-2	29-51	57
 Calibri 11	natural Arial 16 bold italic		20	40	-2	9-31	37
-Calibri 11	bottom F+10 Arial 16 bold italic	30	30	62	-2	29-51	57
+Calibri 11	bottom F+10 Arial 16 bold italic	30	30	60	-2	29-51	57
+Calibri 11	natural Times New Roman 9		15	30	-2	10-21	25
+Calibri 11	top F Times New Roman 9	12	12	24	-2	6-17	21
+Calibri 11	top F+10 Times New Roman 9	22	22	44	-2	6-17	21
+Calibri 11	top 2F Times New Roman 9	24	24	48	-2	6-17	21
+Calibri 11	center F Times New Roman 9	12	12	24	-2	6-17	21
+Calibri 11	center F+10 Times New Roman 9	22	22	44	-2	16-27	31
+Calibri 11	center 2F Times New Roman 9	24	24	48	-2	18-29	33
+Calibri 11	bottom F Times New Roman 9	12	12	24	-2	4-15	19
+Calibri 11	bottom F+10 Times New Roman 9	22	22	44	-2	24-35	39
+Calibri 11	bottom 2F Times New Roman 9	24	24	48	-2	28-39	43
+Calibri 11	wrapped 2 Times New Roman 9		27	54	-2	8-19 32-43	23 47
+Calibri 11	wrapped 3 Times New Roman 9		40	80	-2	10-21 34-45 58-69	25 49 73
+Calibri 11	natural Times New Roman 10		15	30	-2	8-21	25
+Calibri 11	top F Times New Roman 10	13	13	26	-2	6-19	23
+Calibri 11	top F+10 Times New Roman 10	23	23	46	-2	6-19	23
+Calibri 11	top 2F Times New Roman 10	26	26	52	-2	6-19	23
+Calibri 11	center F Times New Roman 10	13	13	26	-2	6-19	23
+Calibri 11	center F+10 Times New Roman 10	23	23	46	-2	16-29	33
+Calibri 11	center 2F Times New Roman 10	26	26	52	-2	18-31	35
+Calibri 11	bottom F Times New Roman 10	13	13	26	-2	4-17	21
+Calibri 11	bottom F+10 Times New Roman 10	23	23	46	-2	24-37	41
+Calibri 11	bottom 2F Times New Roman 10	26	26	52	-2	30-43	47
+Calibri 11	wrapped 2 Times New Roman 10		29	58	-2	8-21 34-47	25 51
+Calibri 11	wrapped 3 Times New Roman 10		43	86	-2	10-23 36-49 62-75	27 53 79
+Calibri 11	natural Times New Roman 11		15	30	-2	7-21	26
+Calibri 11	top F Times New Roman 11	14	14	28	-2	7-21	25
+Calibri 11	top F+10 Times New Roman 11	24	24	48	-2	7-21	26
+Calibri 11	top 2F Times New Roman 11	28	28	56	-2	7-21	26
+Calibri 11	center F Times New Roman 11	14	14	28	-2	7-21	25
+Calibri 11	center F+10 Times New Roman 11	24	24	48	-2	17-31	36
+Calibri 11	center 2F Times New Roman 11	28	28	56	-2	21-35	40
+Calibri 11	bottom F Times New Roman 11	14	14	28	-2	5-19	24
+Calibri 11	bottom F+10 Times New Roman 11	24	24	48	-2	25-39	44
+Calibri 11	bottom 2F Times New Roman 11	28	28	56	-2	33-47	52
+Calibri 11	wrapped 2 Times New Roman 11		31	62	-2	9-23 37-51	28 56
+Calibri 11	wrapped 3 Times New Roman 11		46	92	-2	11-25 39-53 67-81	30 58 86
+Calibri 11	natural Times New Roman 12		16	32	-2	8-23	28
+Calibri 11	top F Times New Roman 12	16	16	32	-2	8-23	28
+Calibri 11	top F+10 Times New Roman 12	26	26	52	-2	8-23	28
+Calibri 11	top 2F Times New Roman 12	32	32	62	0	8-23	28
+Calibri 11	center F Times New Roman 12	16	16	32	-2	8-23	28
+Calibri 11	center F+10 Times New Roman 12	26	26	52	-2	18-33	38
+Calibri 11	center 2F Times New Roman 12	32	32	64	-2	24-39	44
+Calibri 11	bottom F Times New Roman 12	16	16	32	-2	8-23	28
+Calibri 11	bottom F+10 Times New Roman 12	26	26	52	-2	28-43	48
+Calibri 11	bottom 2F Times New Roman 12	32	32	64	-2	40-55	60
+Calibri 11	wrapped 2 Times New Roman 12		34	68	-2	12-27 44-59	32 64
+Calibri 11	wrapped 3 Times New Roman 12		51	102	-2	14-29 46-61 78-93	34 66 98
+Calibri 11	natural Times New Roman 14		18	36	-2	9-27	33
+Calibri 11	top F Times New Roman 14	18	18	36	-2	9-27	33
+Calibri 11	top F+10 Times New Roman 14	28	28	56	-2	9-27	33
+Calibri 11	top 2F Times New Roman 14	36	36	72	-2	9-27	33
+Calibri 11	center F Times New Roman 14	18	18	36	-2	9-27	33
+Calibri 11	center F+10 Times New Roman 14	28	28	56	-2	19-37	43
+Calibri 11	center 2F Times New Roman 14	36	36	72	-2	27-45	51
+Calibri 11	bottom F Times New Roman 14	18	18	36	-2	9-27	33
+Calibri 11	bottom F+10 Times New Roman 14	28	28	56	-2	29-47	53
+Calibri 11	bottom 2F Times New Roman 14	36	36	72	-2	45-63	69
+Calibri 11	wrapped 2 Times New Roman 14		38	76	-2	13-31 49-67	37 73
+Calibri 11	wrapped 3 Times New Roman 14		57	114	-2	15-33 51-69 87-105	39 75 111
+Calibri 11	natural Times New Roman 16		20	40	-2	10-31	37
+Calibri 11	top F Times New Roman 16	20	20	40	-2	10-31	37
+Calibri 11	top F+10 Times New Roman 16	30	30	60	-2	10-31	38
+Calibri 11	top 2F Times New Roman 16	40	40	80	-2	10-31	38
+Calibri 11	center F Times New Roman 16	20	20	40	-2	10-31	37
+Calibri 11	center F+10 Times New Roman 16	30	30	60	-2	20-41	48
+Calibri 11	center 2F Times New Roman 16	40	40	80	-2	30-51	58
+Calibri 11	bottom F Times New Roman 16	20	20	40	-2	10-31	37
+Calibri 11	bottom F+10 Times New Roman 16	30	30	60	-2	30-51	57
+Calibri 11	bottom 2F Times New Roman 16	40	40	80	-2	50-71	77
+Calibri 11	wrapped 2 Times New Roman 16		42	84	-2	14-35 54-75	42 81
+Calibri 11	wrapped 3 Times New Roman 16		63	126	-2	16-37 56-77 96-117	44 84 123
+Calibri 11	natural Times New Roman 18		23	46	-2	12-35	43
+Calibri 11	top F Times New Roman 18	23	23	44	0	12-35	43
+Calibri 11	top F+10 Times New Roman 18	33	33	66	-2	12-35	43
+Calibri 11	top 2F Times New Roman 18	46	46	92	-2	12-35	43
+Calibri 11	center F Times New Roman 18	23	23	46	-2	12-35	43
+Calibri 11	center F+10 Times New Roman 18	33	33	66	-2	22-45	53
+Calibri 11	center 2F Times New Roman 18	46	46	92	-2	34-57	65
+Calibri 11	bottom F Times New Roman 18	23	23	46	-2	12-35	43
+Calibri 11	bottom F+10 Times New Roman 18	33	33	66	-2	32-55	63
+Calibri 11	bottom 2F Times New Roman 18	46	46	92	-2	58-81	89
+Calibri 11	wrapped 2 Times New Roman 18		48	96	-2	16-39 62-85	47 93
+Calibri 11	wrapped 3 Times New Roman 18		72	144	-2	18-41 64-87 110-133	49 95 141
+Calibri 11	natural Times New Roman 20		25	50	-2	13-39	47
+Calibri 11	top F Times New Roman 20	25	25	50	-2	13-39	47
+Calibri 11	top F+10 Times New Roman 20	35	35	70	-2	13-39	48
+Calibri 11	top 2F Times New Roman 20	50	50	100	-2	13-39	48
+Calibri 11	center F Times New Roman 20	25	25	50	-2	13-39	47
+Calibri 11	center F+10 Times New Roman 20	35	35	70	-2	23-49	58
+Calibri 11	center 2F Times New Roman 20	50	50	100	-2	37-63	72
+Calibri 11	bottom F Times New Roman 20	25	25	50	-2	13-39	47
+Calibri 11	bottom F+10 Times New Roman 20	35	35	70	-2	33-59	67
+Calibri 11	bottom 2F Times New Roman 20	50	50	100	-2	63-89	97
+Calibri 11	wrapped 2 Times New Roman 20		52	104	-2	17-43 67-93	52 101
+Calibri 11	wrapped 3 Times New Roman 20		78	156	-2	19-45 69-95 119-145	54 104 153
+Calibri 11	natural Times New Roman 24		30	60	-2	16-47	57
+Calibri 11	top F Times New Roman 24	30	30	60	-2	16-47	57
+Calibri 11	top F+10 Times New Roman 24	40	40	78	0	16-47	57
+Calibri 11	top 2F Times New Roman 24	60	60	120	-2	16-47	57
+Calibri 11	center F Times New Roman 24	30	30	60	-2	16-47	57
+Calibri 11	center F+10 Times New Roman 24	40	40	80	-2	26-57	67
+Calibri 11	center 2F Times New Roman 24	60	60	120	-2	46-77	87
+Calibri 11	bottom F Times New Roman 24	30	30	60	-2	16-47	57
+Calibri 11	bottom F+10 Times New Roman 24	40	40	80	-2	36-67	77
+Calibri 11	bottom 2F Times New Roman 24	60	60	120	-2	76-107	117
+Calibri 11	wrapped 2 Times New Roman 24		62	124	-2	20-51 80-111	61 121
+Calibri 11	wrapped 3 Times New Roman 24		93	186	-2	22-53 82-113 142-173	63 123 183
+Calibri 11	natural Courier New 9		15	30	-2	11-21	24
+Calibri 11	top F Courier New 9	13	13	26	-2	7-17	20
+Calibri 11	top F+10 Courier New 9	23	23	46	-2	7-17	20
+Calibri 11	top 2F Courier New 9	26	26	52	-2	7-17	20
+Calibri 11	center F Courier New 9	13	13	26	-2	7-17	20
+Calibri 11	center F+10 Courier New 9	23	23	46	-2	17-27	30
+Calibri 11	center 2F Courier New 9	26	26	52	-2	19-29	32
+Calibri 11	bottom F Courier New 9	13	13	26	-2	7-17	20
+Calibri 11	bottom F+10 Courier New 9	23	23	46	-2	27-37	40
+Calibri 11	bottom 2F Courier New 9	26	26	52	-2	33-43	46
+Calibri 11	wrapped 2 Courier New 9		28	56	-2	11-21 37-47	24 50
+Calibri 11	wrapped 3 Courier New 9		42	84	-2	13-23 39-49 65-75	26 52 78
+Calibri 11	natural Courier New 10		15	30	-2	10-21	25
+Calibri 11	top F Courier New 10	14	14	28	-2	8-19	23
+Calibri 11	top F+10 Courier New 10	24	24	48	-2	8-19	23
+Calibri 11	top 2F Courier New 10	28	28	56	-2	8-19	23
+Calibri 11	center F Courier New 10	14	14	28	-2	8-19	23
+Calibri 11	center F+10 Courier New 10	24	24	48	-2	18-29	33
+Calibri 11	center 2F Courier New 10	28	28	56	-2	22-33	37
+Calibri 11	bottom F Courier New 10	14	14	28	-2	8-19	23
+Calibri 11	bottom F+10 Courier New 10	24	24	48	-2	28-39	43
+Calibri 11	bottom 2F Courier New 10	28	28	56	-2	36-47	51
+Calibri 11	wrapped 2 Courier New 10		30	58	0	12-23 40-51	27 55
+Calibri 11	wrapped 3 Courier New 10		45	90	-2	14-25 42-53 70-81	29 57 85
+Calibri 11	natural Courier New 11		15	30	-2	9-21	25
+Calibri 11	top F Courier New 11	15	15	30	-2	9-21	25
+Calibri 11	top F+10 Courier New 11	25	25	50	-2	9-21	25
+Calibri 11	top 2F Courier New 11	30	30	60	-2	9-21	25
+Calibri 11	center F Courier New 11	15	15	30	-2	9-21	25
+Calibri 11	center F+10 Courier New 11	25	25	50	-2	19-31	35
+Calibri 11	center 2F Courier New 11	30	30	60	-2	23-35	39
+Calibri 11	bottom F Courier New 11	15	15	30	-2	9-21	25
+Calibri 11	bottom F+10 Courier New 11	25	25	50	-2	29-41	45
+Calibri 11	bottom 2F Courier New 11	30	30	60	-2	39-51	55
+Calibri 11	wrapped 2 Courier New 11		32	64	-2	13-25 43-55	29 59
+Calibri 11	wrapped 3 Courier New 11		48	96	-2	15-27 45-57 75-87	31 61 91
+Calibri 11	natural Courier New 12		17	34	-2	10-23	28
+Calibri 11	top F Courier New 12	17	17	34	-2	10-23	28
+Calibri 11	top F+10 Courier New 12	27	27	54	-2	10-23	28
+Calibri 11	top 2F Courier New 12	34	34	68	-2	10-23	28
+Calibri 11	center F Courier New 12	17	17	34	-2	10-23	28
+Calibri 11	center F+10 Courier New 12	27	27	54	-2	20-33	38
+Calibri 11	center 2F Courier New 12	34	34	68	-2	26-39	44
+Calibri 11	bottom F Courier New 12	17	17	34	-2	10-23	28
+Calibri 11	bottom F+10 Courier New 12	27	27	54	-2	30-43	48
+Calibri 11	bottom 2F Courier New 12	34	34	68	-2	44-57	62
+Calibri 11	wrapped 2 Courier New 12		36	72	-2	14-27 48-61	32 66
+Calibri 11	wrapped 3 Courier New 12		54	108	-2	16-29 50-63 84-97	34 68 102
+Calibri 11	natural Courier New 14		19	38	-2	12-27	32
+Calibri 11	top F Courier New 14	19	19	38	-2	12-27	32
+Calibri 11	top F+10 Courier New 14	29	29	58	-2	12-27	32
+Calibri 11	top 2F Courier New 14	38	38	76	-2	12-27	32
+Calibri 11	center F Courier New 14	19	19	38	-2	12-27	32
+Calibri 11	center F+10 Courier New 14	29	29	58	-2	22-37	42
+Calibri 11	center 2F Courier New 14	38	38	76	-2	30-45	50
+Calibri 11	bottom F Courier New 14	19	19	38	-2	12-27	32
+Calibri 11	bottom F+10 Courier New 14	29	29	58	-2	32-47	52
+Calibri 11	bottom 2F Courier New 14	38	38	76	-2	50-65	70
+Calibri 11	wrapped 2 Courier New 14		40	78	0	16-31 54-69	36 74
+Calibri 11	wrapped 3 Courier New 14		60	120	-2	18-33 56-71 94-109	38 76 114
+Calibri 11	natural Courier New 16		22	44	-2	13-31	37
+Calibri 11	top F Courier New 16	22	22	44	-2	13-31	37
+Calibri 11	top F+10 Courier New 16	32	32	64	-2	13-31	37
+Calibri 11	top 2F Courier New 16	44	44	88	-2	13-31	37
+Calibri 11	center F Courier New 16	22	22	44	-2	13-31	37
+Calibri 11	center F+10 Courier New 16	32	32	64	-2	23-41	47
+Calibri 11	center 2F Courier New 16	44	44	88	-2	35-53	59
+Calibri 11	bottom F Courier New 16	22	22	44	-2	13-31	37
+Calibri 11	bottom F+10 Courier New 16	32	32	64	-2	33-51	57
+Calibri 11	bottom 2F Courier New 16	44	44	88	-2	57-75	81
+Calibri 11	wrapped 2 Courier New 16		46	92	-2	17-35 61-79	41 85
+Calibri 11	wrapped 3 Courier New 16		69	138	-2	19-37 63-81 107-125	43 87 131
+Calibri 11	natural Courier New 18		24	48	-2	15-35	42
+Calibri 11	top F Courier New 18	24	24	48	-2	15-35	42
+Calibri 11	top F+10 Courier New 18	34	34	68	-2	15-35	42
+Calibri 11	top 2F Courier New 18	48	48	96	-2	15-35	42
+Calibri 11	center F Courier New 18	24	24	48	-2	15-35	42
+Calibri 11	center F+10 Courier New 18	34	34	68	-2	25-45	52
+Calibri 11	center 2F Courier New 18	48	48	96	-2	39-59	66
+Calibri 11	bottom F Courier New 18	24	24	48	-2	15-35	42
+Calibri 11	bottom F+10 Courier New 18	34	34	68	-2	35-55	62
+Calibri 11	bottom 2F Courier New 18	48	48	96	-2	63-83	90
+Calibri 11	wrapped 2 Courier New 18		50	100	-2	19-39 67-87	46 94
+Calibri 11	wrapped 3 Courier New 18		75	150	-2	21-41 69-89 117-137	48 96 144
+Calibri 11	natural Courier New 20		27	54	-2	17-39	47
+Calibri 11	top F Courier New 20	27	27	52	0	17-39	47
+Calibri 11	top F+10 Courier New 20	37	37	74	-2	17-39	47
+Calibri 11	top 2F Courier New 20	54	54	108	-2	17-39	47
+Calibri 11	center F Courier New 20	27	27	54	-2	17-39	47
+Calibri 11	center F+10 Courier New 20	37	37	74	-2	27-49	57
+Calibri 11	center 2F Courier New 20	54	54	108	-2	43-65	73
+Calibri 11	bottom F Courier New 20	27	27	54	-2	17-39	47
+Calibri 11	bottom F+10 Courier New 20	37	37	74	-2	37-59	67
+Calibri 11	bottom 2F Courier New 20	54	54	108	-2	71-93	101
+Calibri 11	wrapped 2 Courier New 20		56	112	-2	21-43 75-97	51 105
+Calibri 11	wrapped 3 Courier New 20		84	168	-2	23-45 77-99 131-153	53 107 161
+Calibri 11	natural Courier New 24		32	64	-2	20-47	56
+Calibri 11	top F Courier New 24	32	32	64	-2	20-47	56
+Calibri 11	top F+10 Courier New 24	42	42	84	-2	20-47	56
+Calibri 11	top 2F Courier New 24	64	64	128	-2	20-47	56
+Calibri 11	center F Courier New 24	32	32	64	-2	20-47	56
+Calibri 11	center F+10 Courier New 24	42	42	84	-2	30-57	66
+Calibri 11	center 2F Courier New 24	64	64	128	-2	52-79	88
+Calibri 11	bottom F Courier New 24	32	32	64	-2	20-47	56
+Calibri 11	bottom F+10 Courier New 24	42	42	84	-2	40-67	76
+Calibri 11	bottom 2F Courier New 24	64	64	128	-2	84-111	120
+Calibri 11	wrapped 2 Courier New 24		66	130	0	24-51 88-115	60 124
+Calibri 11	wrapped 3 Courier New 24		99	198	-2	26-53 90-117 154-181	62 126 190
+Calibri 11	natural Georgia 9		15	30	-2	9-21	25
+Calibri 11	top F Georgia 9	12	12	24	-2	5-17	21
+Calibri 11	top F+10 Georgia 9	22	22	44	-2	5-17	21
+Calibri 11	top 2F Georgia 9	24	24	48	-2	5-17	21
+Calibri 11	center F Georgia 9	12	12	24	-2	5-17	21
+Calibri 11	center F+10 Georgia 9	22	22	44	-2	15-27	31
+Calibri 11	center 2F Georgia 9	24	24	48	-2	17-29	33
+Calibri 11	bottom F Georgia 9	12	12	24	-2	3-15	19
+Calibri 11	bottom F+10 Georgia 9	22	22	44	-2	23-35	39
+Calibri 11	bottom 2F Georgia 9	24	24	48	-2	27-39	43
+Calibri 11	wrapped 2 Georgia 9		27	54	-2	7-19 31-43	23 47
+Calibri 11	wrapped 3 Georgia 9		40	80	-2	9-21 33-45 57-69	25 49 73
+Calibri 11	natural Georgia 10		15	30	-2	8-21	25
+Calibri 11	top F Georgia 10	13	13	26	-2	6-19	23
+Calibri 11	top F+10 Georgia 10	23	23	46	-2	6-19	23
+Calibri 11	top 2F Georgia 10	26	26	52	-2	6-19	23
+Calibri 11	center F Georgia 10	13	13	26	-2	6-19	23
+Calibri 11	center F+10 Georgia 10	23	23	46	-2	16-29	33
+Calibri 11	center 2F Georgia 10	26	26	52	-2	18-31	35
+Calibri 11	bottom F Georgia 10	13	13	26	-2	4-17	21
+Calibri 11	bottom F+10 Georgia 10	23	23	46	-2	24-37	41
+Calibri 11	bottom 2F Georgia 10	26	26	52	-2	30-43	47
+Calibri 11	wrapped 2 Georgia 10		29	58	-2	8-21 34-47	25 51
+Calibri 11	wrapped 3 Georgia 10		43	86	-2	10-23 36-49 62-75	27 53 79
+Calibri 11	natural Georgia 11		15	30	-2	6-21	26
+Calibri 11	top F Georgia 11	14	14	28	-2	6-21	25
+Calibri 11	top F+10 Georgia 11	24	24	48	-2	6-21	26
+Calibri 11	top 2F Georgia 11	28	28	56	-2	6-21	26
+Calibri 11	center F Georgia 11	14	14	28	-2	6-21	25
+Calibri 11	center F+10 Georgia 11	24	24	48	-2	16-31	36
+Calibri 11	center 2F Georgia 11	28	28	56	-2	20-35	40
+Calibri 11	bottom F Georgia 11	14	14	28	-2	4-19	24
+Calibri 11	bottom F+10 Georgia 11	24	24	48	-2	24-39	44
+Calibri 11	bottom 2F Georgia 11	28	28	56	-2	32-47	52
+Calibri 11	wrapped 2 Georgia 11		31	62	-2	8-23 36-51	28 56
+Calibri 11	wrapped 3 Georgia 11		46	92	-2	10-25 38-53 66-81	30 58 86
+Calibri 11	natural Georgia 12		16	32	-2	7-23	28
+Calibri 11	top F Georgia 12	16	16	32	-2	7-23	28
+Calibri 11	top F+10 Georgia 12	26	26	50	0	7-23	28
+Calibri 11	top 2F Georgia 12	32	32	64	-2	7-23	28
+Calibri 11	center F Georgia 12	16	16	32	-2	7-23	28
+Calibri 11	center F+10 Georgia 12	26	26	52	-2	17-33	38
+Calibri 11	center 2F Georgia 12	32	32	64	-2	23-39	44
+Calibri 11	bottom F Georgia 12	16	16	32	-2	7-23	28
+Calibri 11	bottom F+10 Georgia 12	26	26	52	-2	27-43	48
+Calibri 11	bottom 2F Georgia 12	32	32	64	-2	39-55	60
+Calibri 11	wrapped 2 Georgia 12		34	68	-2	11-27 43-59	32 64
+Calibri 11	wrapped 3 Georgia 12		51	102	-2	13-29 45-61 77-93	34 66 98
+Calibri 11	natural Georgia 14		18	36	-2	8-27	33
+Calibri 11	top F Georgia 14	18	18	36	-2	8-27	33
+Calibri 11	top F+10 Georgia 14	28	28	56	-2	8-27	33
+Calibri 11	top 2F Georgia 14	36	36	72	-2	8-27	33
+Calibri 11	center F Georgia 14	18	18	36	-2	8-27	33
+Calibri 11	center F+10 Georgia 14	28	28	56	-2	18-37	43
+Calibri 11	center 2F Georgia 14	36	36	72	-2	26-45	51
+Calibri 11	bottom F Georgia 14	18	18	36	-2	8-27	33
+Calibri 11	bottom F+10 Georgia 14	28	28	56	-2	28-47	53
+Calibri 11	bottom 2F Georgia 14	36	36	72	-2	44-63	69
+Calibri 11	wrapped 2 Georgia 14		38	76	-2	12-31 48-67	37 73
+Calibri 11	wrapped 3 Georgia 14		57	114	-2	14-33 50-69 86-105	39 75 111
+Calibri 11	natural Georgia 16		21	42	-2	9-31	38
+Calibri 11	top F Georgia 16	21	21	42	-2	9-31	38
+Calibri 11	top F+10 Georgia 16	31	31	62	-2	9-31	38
+Calibri 11	top 2F Georgia 16	42	42	84	-2	9-31	38
+Calibri 11	center F Georgia 16	21	21	42	-2	9-31	38
+Calibri 11	center F+10 Georgia 16	31	31	62	-2	19-41	48
+Calibri 11	center 2F Georgia 16	42	42	84	-2	29-51	58
+Calibri 11	bottom F Georgia 16	21	21	42	-2	9-31	38
+Calibri 11	bottom F+10 Georgia 16	31	31	62	-2	29-51	58
+Calibri 11	bottom 2F Georgia 16	42	42	84	-2	51-73	80
+Calibri 11	wrapped 2 Georgia 16		44	88	-2	13-35 55-77	42 84
+Calibri 11	wrapped 3 Georgia 16		66	130	0	15-37 57-79 99-121	44 86 128
+Calibri 11	natural Georgia 18		23	46	-2	11-35	43
+Calibri 11	top F Georgia 18	23	23	46	-2	11-35	43
+Calibri 11	top F+10 Georgia 18	33	33	66	-2	11-35	43
+Calibri 11	top 2F Georgia 18	46	46	92	-2	11-35	43
+Calibri 11	center F Georgia 18	23	23	46	-2	11-35	43
+Calibri 11	center F+10 Georgia 18	33	33	66	-2	21-45	53
+Calibri 11	center 2F Georgia 18	46	46	92	-2	33-57	65
+Calibri 11	bottom F Georgia 18	23	23	46	-2	11-35	43
+Calibri 11	bottom F+10 Georgia 18	33	33	66	-2	31-55	63
+Calibri 11	bottom 2F Georgia 18	46	46	92	-2	57-81	89
+Calibri 11	wrapped 2 Georgia 18		48	96	-2	15-39 61-85	47 93
+Calibri 11	wrapped 3 Georgia 18		72	144	-2	17-41 63-87 109-133	49 95 141
+Calibri 11	natural Georgia 20		25	50	-2	12-39	47
+Calibri 11	top F Georgia 20	25	25	50	-2	12-39	47
+Calibri 11	top F+10 Georgia 20	35	35	70	-2	12-39	48
+Calibri 11	top 2F Georgia 20	50	50	100	-2	12-39	48
+Calibri 11	center F Georgia 20	25	25	50	-2	12-39	47
+Calibri 11	center F+10 Georgia 20	35	35	70	-2	22-49	58
+Calibri 11	center 2F Georgia 20	50	50	100	-2	36-63	72
+Calibri 11	bottom F Georgia 20	25	25	50	-2	12-39	47
+Calibri 11	bottom F+10 Georgia 20	35	35	70	-2	32-59	67
+Calibri 11	bottom 2F Georgia 20	50	50	100	-2	62-89	97
+Calibri 11	wrapped 2 Georgia 20		52	104	-2	16-43 66-93	52 101
+Calibri 11	wrapped 3 Georgia 20		78	156	-2	18-45 68-95 118-145	54 104 153
+Calibri 11	natural Georgia 24		30	60	-2	14-47	57
+Calibri 11	top F Georgia 24	30	30	58	0	14-47	57
+Calibri 11	top F+10 Georgia 24	40	40	80	-2	14-47	57
+Calibri 11	top 2F Georgia 24	60	60	120	-2	14-47	57
+Calibri 11	center F Georgia 24	30	30	60	-2	14-47	57
+Calibri 11	center F+10 Georgia 24	40	40	80	-2	24-57	67
+Calibri 11	center 2F Georgia 24	60	60	120	-2	44-77	87
+Calibri 11	bottom F Georgia 24	30	30	60	-2	14-47	57
+Calibri 11	bottom F+10 Georgia 24	40	40	80	-2	34-67	77
+Calibri 11	bottom 2F Georgia 24	60	60	120	-2	74-107	117
+Calibri 11	wrapped 2 Georgia 24		62	124	-2	18-51 78-111	61 121
+Calibri 11	wrapped 3 Georgia 24		93	186	-2	20-53 80-113 140-173	63 123 183
+Calibri 11	natural Calibri 13		17	34	-2	9-25	30
+Calibri 11	top F Calibri 13	17	17	34	-2	9-25	30
+Calibri 11	top F+10 Calibri 13	27	27	54	-2	9-25	30
+Calibri 11	top 2F Calibri 13	34	34	68	-2	9-25	30
+Calibri 11	center F Calibri 13	17	17	34	-2	9-25	30
+Calibri 11	center F+10 Calibri 13	27	27	54	-2	19-35	40
+Calibri 11	center 2F Calibri 13	34	34	68	-2	25-41	46
+Calibri 11	bottom F Calibri 13	17	17	34	-2	9-25	30
+Calibri 11	bottom F+10 Calibri 13	27	27	54	-2	29-45	50
+Calibri 11	bottom 2F Calibri 13	34	34	68	-2	43-59	64
+Calibri 11	wrapped 2 Calibri 13		36	72	-2	13-29 47-63	34 68
+Calibri 11	wrapped 3 Calibri 13		54	108	-2	15-31 49-65 83-99	36 70 104
+Calibri 11	natural Calibri 15		20	40	-2	11-29	34
+Calibri 11	top F Calibri 15	20	20	40	-2	11-29	34
+Calibri 11	top F+10 Calibri 15	30	30	60	-2	11-29	34
+Calibri 11	top 2F Calibri 15	40	40	80	-2	11-29	34
+Calibri 11	center F Calibri 15	20	20	40	-2	11-29	34
+Calibri 11	center F+10 Calibri 15	30	30	58	0	21-39	44
+Calibri 11	center 2F Calibri 15	40	40	80	-2	31-49	54
+Calibri 11	bottom F Calibri 15	20	20	40	-2	11-29	34
+Calibri 11	bottom F+10 Calibri 15	30	30	60	-2	31-49	54
+Calibri 11	bottom 2F Calibri 15	40	40	80	-2	51-69	74
+Calibri 11	wrapped 2 Calibri 15		42	84	-2	15-33 55-73	38 78
+Calibri 11	wrapped 3 Calibri 15		63	126	-2	17-35 57-75 97-115	40 80 120
+Calibri 11	natural Calibri 17		23	46	-2	12-33	39
+Calibri 11	top F Calibri 17	23	23	46	-2	12-33	39
+Calibri 11	top F+10 Calibri 17	33	33	66	-2	12-33	39
+Calibri 11	top 2F Calibri 17	46	46	92	-2	12-33	39
+Calibri 11	center F Calibri 17	23	23	46	-2	12-33	39
+Calibri 11	center F+10 Calibri 17	33	33	66	-2	22-43	49
+Calibri 11	center 2F Calibri 17	46	46	92	-2	34-55	61
+Calibri 11	bottom F Calibri 17	23	23	46	-2	12-33	39
+Calibri 11	bottom F+10 Calibri 17	33	33	66	-2	32-53	59
+Calibri 11	bottom 2F Calibri 17	46	46	92	-2	58-79	85
+Calibri 11	wrapped 2 Calibri 17		48	96	-2	16-37 62-83	43 89
+Calibri 11	wrapped 3 Calibri 17		72	144	-2	18-39 64-85 110-131	45 91 137
+Calibri 11	natural Calibri 22		29	58	-2	16-43	51
+Calibri 11	top F Calibri 22	29	29	58	-2	16-43	51
+Calibri 11	top F+10 Calibri 22	39	39	78	-2	16-43	51
+Calibri 11	top 2F Calibri 22	58	58	116	-2	16-43	51
+Calibri 11	center F Calibri 22	29	29	58	-2	16-43	51
+Calibri 11	center F+10 Calibri 22	39	39	78	-2	26-53	61
+Calibri 11	center 2F Calibri 22	58	58	116	-2	44-71	79
+Calibri 11	bottom F Calibri 22	29	29	58	-2	16-43	51
+Calibri 11	bottom F+10 Calibri 22	39	39	76	0	36-63	71
+Calibri 11	bottom 2F Calibri 22	58	58	116	-2	74-101	109
+Calibri 11	wrapped 2 Calibri 22		60	120	-2	20-47 78-105	55 113
+Calibri 11	wrapped 3 Calibri 22		90	180	-2	22-49 80-107 138-165	57 115 173
+Calibri 11	natural Aptos Narrow 13		18	36	-2	9-25	30
+Calibri 11	top F Aptos Narrow 13	18	18	36	-2	9-25	30
+Calibri 11	top F+10 Aptos Narrow 13	28	28	56	-2	9-25	30
+Calibri 11	top 2F Aptos Narrow 13	36	36	72	-2	9-25	30
+Calibri 11	center F Aptos Narrow 13	18	18	36	-2	9-25	30
+Calibri 11	center F+10 Aptos Narrow 13	28	28	56	-2	19-35	40
+Calibri 11	center 2F Aptos Narrow 13	36	36	72	-2	27-43	48
+Calibri 11	bottom F Aptos Narrow 13	18	18	36	-2	9-25	30
+Calibri 11	bottom F+10 Aptos Narrow 13	28	28	56	-2	29-45	50
+Calibri 11	bottom 2F Aptos Narrow 13	36	36	72	-2	45-61	66
+Calibri 11	wrapped 2 Aptos Narrow 13		38	76	-2	13-29 49-65	34 70
+Calibri 11	wrapped 3 Aptos Narrow 13		57	114	-2	15-31 51-67 87-103	36 72 108
+Calibri 11	natural Aptos Narrow 15		20	40	-2	10-29	35
+Calibri 11	top F Aptos Narrow 15	20	20	40	-2	10-29	35
+Calibri 11	top F+10 Aptos Narrow 15	30	30	60	-2	10-29	35
+Calibri 11	top 2F Aptos Narrow 15	40	40	80	-2	10-29	35
+Calibri 11	center F Aptos Narrow 15	20	20	40	-2	10-29	35
+Calibri 11	center F+10 Aptos Narrow 15	30	30	60	-2	20-39	45
+Calibri 11	center 2F Aptos Narrow 15	40	40	80	-2	30-49	55
+Calibri 11	bottom F Aptos Narrow 15	20	20	40	-2	10-29	35
+Calibri 11	bottom F+10 Aptos Narrow 15	30	30	60	-2	30-49	55
+Calibri 11	bottom 2F Aptos Narrow 15	40	40	80	-2	50-69	75
+Calibri 11	wrapped 2 Aptos Narrow 15		42	84	-2	14-33 54-73	39 79
+Calibri 11	wrapped 3 Aptos Narrow 15		63	126	-2	16-35 56-75 96-115	41 81 121
+Calibri 11	natural Aptos Narrow 17		23	46	-2	11-33	39
+Calibri 11	top F Aptos Narrow 17	23	23	44	0	11-33	39
+Calibri 11	top F+10 Aptos Narrow 17	33	33	66	-2	11-33	39
+Calibri 11	top 2F Aptos Narrow 17	46	46	92	-2	11-33	39
+Calibri 11	center F Aptos Narrow 17	23	23	46	-2	11-33	39
+Calibri 11	center F+10 Aptos Narrow 17	33	33	66	-2	21-43	49
+Calibri 11	center 2F Aptos Narrow 17	46	46	92	-2	33-55	61
+Calibri 11	bottom F Aptos Narrow 17	23	23	46	-2	11-33	39
+Calibri 11	bottom F+10 Aptos Narrow 17	33	33	66	-2	31-53	59
+Calibri 11	bottom 2F Aptos Narrow 17	46	46	92	-2	57-79	85
+Calibri 11	wrapped 2 Aptos Narrow 17		48	96	-2	15-37 61-83	43 89
+Calibri 11	wrapped 3 Aptos Narrow 17		72	144	-2	17-39 63-85 109-131	45 91 137
+Calibri 11	natural Aptos Narrow 22		29	58	-2	15-43	51
+Calibri 11	top F Aptos Narrow 22	29	29	58	-2	15-43	51
+Calibri 11	top F+10 Aptos Narrow 22	39	39	78	-2	15-43	51
+Calibri 11	top 2F Aptos Narrow 22	58	58	116	-2	15-43	51
+Calibri 11	center F Aptos Narrow 22	29	29	58	-2	15-43	51
+Calibri 11	center F+10 Aptos Narrow 22	39	39	78	-2	25-53	61
+Calibri 11	center 2F Aptos Narrow 22	58	58	116	-2	43-71	79
+Calibri 11	bottom F Aptos Narrow 22	29	29	58	-2	15-43	51
+Calibri 11	bottom F+10 Aptos Narrow 22	39	39	78	-2	35-63	71
+Calibri 11	bottom 2F Aptos Narrow 22	58	58	116	-2	73-101	109
+Calibri 11	wrapped 2 Aptos Narrow 22		60	120	-2	19-47 77-105	55 113
+Calibri 11	wrapped 3 Aptos Narrow 22		90	182	-2	21-49 79-107 137-165	57 115 173
 Aptos Narrow 11	natural Calibri 9		15	28	0	10-21	24
 Aptos Narrow 11	top F Calibri 9	12	12	24	-2	6-17	20
 Aptos Narrow 11	top F+10 Calibri 9	22	22	44	-2	6-17	20
@@ -407,8 +827,8 @@ Aptos Narrow 11	center F Calibri 12	16	16	32	-2	8-23	27
 Aptos Narrow 11	center F+10 Calibri 12	26	26	52	-2	18-33	37
 Aptos Narrow 11	center 2F Calibri 12	32	32	64	-2	24-39	43
 Aptos Narrow 11	bottom F Calibri 12	16	16	32	-2	8-23	27
-Aptos Narrow 11	bottom F+10 Calibri 12	26	26	52	-2	28-43	47
-Aptos Narrow 11	bottom 2F Calibri 12	32	32	62	0	40-55	59
+Aptos Narrow 11	bottom F+10 Calibri 12	26	26	50	0	28-43	47
+Aptos Narrow 11	bottom 2F Calibri 12	32	32	64	-2	40-55	59
 Aptos Narrow 11	wrapped 2 Calibri 12		34	68	-2	12-27 44-59	31 63
 Aptos Narrow 11	wrapped 3 Calibri 12		51	102	-2	14-29 46-61 78-93	33 65 97
 Aptos Narrow 11	natural Calibri 14		19	38	-2	10-27	32
@@ -438,9 +858,9 @@ Aptos Narrow 11	wrapped 3 Calibri 16		66	132	-2	17-37 59-79 101-121	43 85 127
 Aptos Narrow 11	natural Calibri 18		24	48	-2	13-35	41
 Aptos Narrow 11	top F Calibri 18	24	24	48	-2	13-35	41
 Aptos Narrow 11	top F+10 Calibri 18	34	34	68	-2	13-35	41
-Aptos Narrow 11	top 2F Calibri 18	48	48	96	-2	13-35	41
+Aptos Narrow 11	top 2F Calibri 18	48	48	94	0	13-35	41
 Aptos Narrow 11	center F Calibri 18	24	24	48	-2	13-35	41
-Aptos Narrow 11	center F+10 Calibri 18	34	34	66	0	23-45	51
+Aptos Narrow 11	center F+10 Calibri 18	34	34	68	-2	23-45	51
 Aptos Narrow 11	center 2F Calibri 18	48	48	96	-2	37-59	65
 Aptos Narrow 11	bottom F Calibri 18	24	24	48	-2	13-35	41
 Aptos Narrow 11	bottom F+10 Calibri 18	34	34	68	-2	33-55	61
@@ -462,10 +882,10 @@ Aptos Narrow 11	wrapped 3 Calibri 20		81	162	-2	20-45 72-97 124-149	52 104 156
 Aptos Narrow 11	natural Calibri 24		31	62	-2	17-47	56
 Aptos Narrow 11	top F Calibri 24	31	31	62	-2	17-47	56
 Aptos Narrow 11	top F+10 Calibri 24	41	41	82	-2	17-47	56
-Aptos Narrow 11	top 2F Calibri 24	62	62	124	-2	17-47	56
+Aptos Narrow 11	top 2F Calibri 24	62	62	122	0	17-47	56
 Aptos Narrow 11	center F Calibri 24	31	31	62	-2	17-47	56
 Aptos Narrow 11	center F+10 Calibri 24	41	41	82	-2	27-57	66
-Aptos Narrow 11	center 2F Calibri 24	62	62	122	0	47-77	86
+Aptos Narrow 11	center 2F Calibri 24	62	62	124	-2	47-77	86
 Aptos Narrow 11	bottom F Calibri 24	31	31	62	-2	17-47	56
 Aptos Narrow 11	bottom F+10 Calibri 24	41	41	82	-2	37-67	76
 Aptos Narrow 11	bottom 2F Calibri 24	62	62	124	-2	79-109	118
@@ -495,13 +915,13 @@ Aptos Narrow 11	bottom F+10 Aptos Narrow 10	24	24	48	-2	27-39	43
 Aptos Narrow 11	bottom 2F Aptos Narrow 10	28	28	56	-2	35-47	51
 Aptos Narrow 11	wrapped 2 Aptos Narrow 10		30	60	-2	11-23 39-51	27 55
 Aptos Narrow 11	wrapped 3 Aptos Narrow 10		45	90	-2	13-25 41-53 69-81	29 57 85
-Aptos Narrow 11	natural Aptos Narrow 11		15	30	-2	7-21	25
+Aptos Narrow 11	natural Aptos Narrow 11		15	28	0	7-21	25
 Aptos Narrow 11	top F Aptos Narrow 11	15	15	30	-2	7-21	25
 Aptos Narrow 11	top F+10 Aptos Narrow 11	25	25	50	-2	7-21	25
 Aptos Narrow 11	top 2F Aptos Narrow 11	30	30	60	-2	7-21	25
 Aptos Narrow 11	center F Aptos Narrow 11	15	15	30	-2	7-21	25
 Aptos Narrow 11	center F+10 Aptos Narrow 11	25	25	50	-2	17-31	35
-Aptos Narrow 11	center 2F Aptos Narrow 11	30	30	58	0	21-35	39
+Aptos Narrow 11	center 2F Aptos Narrow 11	30	30	60	-2	21-35	39
 Aptos Narrow 11	bottom F Aptos Narrow 11	15	15	30	-2	7-21	25
 Aptos Narrow 11	bottom F+10 Aptos Narrow 11	25	25	50	-2	27-41	45
 Aptos Narrow 11	bottom 2F Aptos Narrow 11	30	30	60	-2	37-51	55
@@ -532,12 +952,12 @@ Aptos Narrow 11	bottom 2F Aptos Narrow 14	38	38	76	-2	47-65	70
 Aptos Narrow 11	wrapped 2 Aptos Narrow 14		40	80	-2	13-31 51-69	36 74
 Aptos Narrow 11	wrapped 3 Aptos Narrow 14		60	120	-2	15-33 53-71 91-109	38 76 114
 Aptos Narrow 11	natural Aptos Narrow 16		22	44	-2	11-31	37
-Aptos Narrow 11	top F Aptos Narrow 16	22	22	44	-2	11-31	37
+Aptos Narrow 11	top F Aptos Narrow 16	22	22	42	0	11-31	37
 Aptos Narrow 11	top F+10 Aptos Narrow 16	32	32	64	-2	11-31	37
 Aptos Narrow 11	top 2F Aptos Narrow 16	44	44	88	-2	11-31	37
 Aptos Narrow 11	center F Aptos Narrow 16	22	22	44	-2	11-31	37
 Aptos Narrow 11	center F+10 Aptos Narrow 16	32	32	64	-2	21-41	47
-Aptos Narrow 11	center 2F Aptos Narrow 16	44	44	86	0	33-53	59
+Aptos Narrow 11	center 2F Aptos Narrow 16	44	44	88	-2	33-53	59
 Aptos Narrow 11	bottom F Aptos Narrow 16	22	22	44	-2	11-31	37
 Aptos Narrow 11	bottom F+10 Aptos Narrow 16	32	32	64	-2	31-51	57
 Aptos Narrow 11	bottom 2F Aptos Narrow 16	44	44	88	-2	55-75	81
@@ -559,12 +979,12 @@ Aptos Narrow 11	natural Aptos Narrow 20		27	54	-2	13-39	46
 Aptos Narrow 11	top F Aptos Narrow 20	27	27	54	-2	13-39	46
 Aptos Narrow 11	top F+10 Aptos Narrow 20	37	37	74	-2	13-39	46
 Aptos Narrow 11	top 2F Aptos Narrow 20	54	54	108	-2	13-39	46
-Aptos Narrow 11	center F Aptos Narrow 20	27	27	54	-2	13-39	46
+Aptos Narrow 11	center F Aptos Narrow 20	27	27	52	0	13-39	46
 Aptos Narrow 11	center F+10 Aptos Narrow 20	37	37	74	-2	23-49	56
 Aptos Narrow 11	center 2F Aptos Narrow 20	54	54	108	-2	39-65	72
 Aptos Narrow 11	bottom F Aptos Narrow 20	27	27	54	-2	13-39	46
 Aptos Narrow 11	bottom F+10 Aptos Narrow 20	37	37	74	-2	33-59	66
-Aptos Narrow 11	bottom 2F Aptos Narrow 20	54	54	106	0	67-93	100
+Aptos Narrow 11	bottom 2F Aptos Narrow 20	54	54	108	-2	67-93	100
 Aptos Narrow 11	wrapped 2 Aptos Narrow 20		56	112	-2	17-43 71-97	50 104
 Aptos Narrow 11	wrapped 3 Aptos Narrow 20		84	168	-2	19-45 73-99 127-153	52 106 160
 Aptos Narrow 11	natural Aptos Narrow 24		32	64	-2	16-47	56
@@ -582,7 +1002,7 @@ Aptos Narrow 11	wrapped 3 Aptos Narrow 24		99	198	-2	22-53 86-117 150-181	62 126
 Aptos Narrow 11	natural Arial 9		15	30	-2	9-21	25
 Aptos Narrow 11	top F Arial 9	12	12	24	-2	5-17	21
 Aptos Narrow 11	top F+10 Arial 9	22	22	44	-2	5-17	21
-Aptos Narrow 11	top 2F Arial 9	24	24	48	-2	5-17	21
+Aptos Narrow 11	top 2F Arial 9	24	24	46	0	5-17	21
 Aptos Narrow 11	center F Arial 9	12	12	24	-2	5-17	21
 Aptos Narrow 11	center F+10 Arial 9	22	22	44	-2	15-27	31
 Aptos Narrow 11	center 2F Arial 9	24	24	48	-2	17-29	33
@@ -591,7 +1011,7 @@ Aptos Narrow 11	bottom F+10 Arial 9	22	22	44	-2	23-35	39
 Aptos Narrow 11	bottom 2F Arial 9	24	24	48	-2	27-39	43
 Aptos Narrow 11	wrapped 2 Arial 9		27	54	-2	7-19 31-43	23 47
 Aptos Narrow 11	wrapped 3 Arial 9		40	80	-2	9-21 33-45 57-69	25 49 73
-Aptos Narrow 11	natural Arial 10		15	28	0	7-21	25
+Aptos Narrow 11	natural Arial 10		15	30	-2	7-21	25
 Aptos Narrow 11	top F Arial 10	13	13	26	-2	5-19	23
 Aptos Narrow 11	top F+10 Arial 10	23	23	46	-2	5-19	23
 Aptos Narrow 11	top 2F Arial 10	26	26	52	-2	5-19	23
@@ -625,7 +1045,7 @@ Aptos Narrow 11	center 2F Arial 12	32	32	64	-2	22-39	44
 Aptos Narrow 11	bottom F Arial 12	16	16	32	-2	6-23	28
 Aptos Narrow 11	bottom F+10 Arial 12	26	26	52	-2	26-43	48
 Aptos Narrow 11	bottom 2F Arial 12	32	32	64	-2	38-55	60
-Aptos Narrow 11	wrapped 2 Arial 12		34	68	-2	10-27 42-59	32 64
+Aptos Narrow 11	wrapped 2 Arial 12		34	66	0	10-27 42-59	32 64
 Aptos Narrow 11	wrapped 3 Arial 12		51	102	-2	12-29 44-61 76-93	34 66 98
 Aptos Narrow 11	natural Arial 14		18	36	-2	8-27	33
 Aptos Narrow 11	top F Arial 14	18	18	36	-2	8-27	33
@@ -633,8 +1053,8 @@ Aptos Narrow 11	top F+10 Arial 14	28	28	56	-2	8-27	33
 Aptos Narrow 11	top 2F Arial 14	36	36	72	-2	8-27	33
 Aptos Narrow 11	center F Arial 14	18	18	36	-2	8-27	33
 Aptos Narrow 11	center F+10 Arial 14	28	28	56	-2	18-37	43
-Aptos Narrow 11	center 2F Arial 14	36	36	72	-2	26-45 70-71	51
-Aptos Narrow 11	bottom F Arial 14	18	18	34	0	8-27	33
+Aptos Narrow 11	center 2F Arial 14	36	36	72	-2	26-45	51
+Aptos Narrow 11	bottom F Arial 14	18	18	36	-2	8-27	33
 Aptos Narrow 11	bottom F+10 Arial 14	28	28	56	-2	28-47	53
 Aptos Narrow 11	bottom 2F Arial 14	36	36	72	-2	44-63	69
 Aptos Narrow 11	wrapped 2 Arial 14		38	76	-2	12-31 48-67	37 73
@@ -657,14 +1077,14 @@ Aptos Narrow 11	top F+10 Arial 18	33	33	66	-2	10-35	43
 Aptos Narrow 11	top 2F Arial 18	46	46	92	-2	10-35	43
 Aptos Narrow 11	center F Arial 18	23	23	46	-2	10-35	43
 Aptos Narrow 11	center F+10 Arial 18	33	33	66	-2	20-45	53
-Aptos Narrow 11	center 2F Arial 18	46	46	92	-2	32-57	65
+Aptos Narrow 11	center 2F Arial 18	46	46	90	0	32-57	65
 Aptos Narrow 11	bottom F Arial 18	23	23	46	-2	10-35	43
 Aptos Narrow 11	bottom F+10 Arial 18	33	33	66	-2	30-55	63
 Aptos Narrow 11	bottom 2F Arial 18	46	46	92	-2	56-81	89
 Aptos Narrow 11	wrapped 2 Arial 18		48	96	-2	14-39 60-85	47 93
 Aptos Narrow 11	wrapped 3 Arial 18		72	144	-2	16-41 62-87 108-133	49 95 141
 Aptos Narrow 11	natural Arial 20		25	50	-2	11-39	47
-Aptos Narrow 11	top F Arial 20	25	25	48	0	11-39	47
+Aptos Narrow 11	top F Arial 20	25	25	50	-2	11-39	47
 Aptos Narrow 11	top F+10 Arial 20	35	35	70	-2	11-39	47
 Aptos Narrow 11	top 2F Arial 20	50	50	100	-2	11-39	47
 Aptos Narrow 11	center F Arial 20	25	25	50	-2	11-39	47
@@ -681,14 +1101,14 @@ Aptos Narrow 11	top F+10 Arial 24	40	40	80	-2	13-47	57
 Aptos Narrow 11	top 2F Arial 24	60	60	120	-2	13-47	57
 Aptos Narrow 11	center F Arial 24	30	30	60	-2	13-47	57
 Aptos Narrow 11	center F+10 Arial 24	40	40	80	-2	23-57	67
-Aptos Narrow 11	center 2F Arial 24	60	60	120	-2	43-77	87
+Aptos Narrow 11	center 2F Arial 24	60	60	118	0	43-77	87
 Aptos Narrow 11	bottom F Arial 24	30	30	60	-2	13-47	57
 Aptos Narrow 11	bottom F+10 Arial 24	40	40	80	-2	33-67	77
 Aptos Narrow 11	bottom 2F Arial 24	60	60	120	-2	73-107	117
 Aptos Narrow 11	wrapped 2 Arial 24		62	124	-2	17-51 77-111	61 121
 Aptos Narrow 11	wrapped 3 Arial 24		93	186	-2	19-53 79-113 139-173	63 123 183
 Aptos Narrow 11	natural Calibri 11 bold		15	30	-2	8-21	25
-Aptos Narrow 11	bottom F+10 Calibri 11 bold	25	25	48	0	28-41	45
+Aptos Narrow 11	bottom F+10 Calibri 11 bold	25	25	50	-2	28-41	45
 Aptos Narrow 11	natural Calibri 11 italic		15	30	-2	8-21	25
 Aptos Narrow 11	bottom F+10 Calibri 11 italic	25	25	50	-2	28-41	45
 Aptos Narrow 11	natural Calibri 11 bold italic		15	30	-2	8-21	25
@@ -717,12 +1137,432 @@ Aptos Narrow 11	natural Arial 11 italic		15	30	-2	6-21	26
 Aptos Narrow 11	bottom F+10 Arial 11 italic	24	24	48	-2	24-39	44
 Aptos Narrow 11	natural Arial 11 bold italic		15	30	-2	6-21	26
 Aptos Narrow 11	bottom F+10 Arial 11 bold italic	24	24	48	-2	24-39	44
-Aptos Narrow 11	natural Arial 16 bold		20	40	-2	9-31	37
+Aptos Narrow 11	natural Arial 16 bold		20	38	0	9-31	37
 Aptos Narrow 11	bottom F+10 Arial 16 bold	30	30	60	-2	29-51	57
 Aptos Narrow 11	natural Arial 16 italic		20	40	-2	9-31	37
 Aptos Narrow 11	bottom F+10 Arial 16 italic	30	30	60	-2	29-51	57
 Aptos Narrow 11	natural Arial 16 bold italic		20	40	-2	9-31	37
-Aptos Narrow 11	bottom F+10 Arial 16 bold italic	30	30	62	-2	29-51	57
+Aptos Narrow 11	bottom F+10 Arial 16 bold italic	30	30	60	-2	29-51	57
+Aptos Narrow 11	natural Times New Roman 9		15	30	-2	10-21	25
+Aptos Narrow 11	top F Times New Roman 9	12	12	24	-2	6-17	21
+Aptos Narrow 11	top F+10 Times New Roman 9	22	22	44	-2	6-17	21
+Aptos Narrow 11	top 2F Times New Roman 9	24	24	48	-2	6-17	21
+Aptos Narrow 11	center F Times New Roman 9	12	12	24	-2	6-17	21
+Aptos Narrow 11	center F+10 Times New Roman 9	22	22	44	-2	16-27	31
+Aptos Narrow 11	center 2F Times New Roman 9	24	24	48	-2	18-29	33
+Aptos Narrow 11	bottom F Times New Roman 9	12	12	24	-2	4-15	19
+Aptos Narrow 11	bottom F+10 Times New Roman 9	22	22	44	-2	24-35	39
+Aptos Narrow 11	bottom 2F Times New Roman 9	24	24	48	-2	28-39	43
+Aptos Narrow 11	wrapped 2 Times New Roman 9		27	54	-2	8-19 32-43	23 47
+Aptos Narrow 11	wrapped 3 Times New Roman 9		40	80	-2	10-21 34-45 58-69	25 49 73
+Aptos Narrow 11	natural Times New Roman 10		15	30	-2	8-21	25
+Aptos Narrow 11	top F Times New Roman 10	13	13	26	-2	6-19	23
+Aptos Narrow 11	top F+10 Times New Roman 10	23	23	46	-2	6-19	23
+Aptos Narrow 11	top 2F Times New Roman 10	26	26	52	-2	6-19	23
+Aptos Narrow 11	center F Times New Roman 10	13	13	26	-2	6-19	23
+Aptos Narrow 11	center F+10 Times New Roman 10	23	23	46	-2	16-29	33
+Aptos Narrow 11	center 2F Times New Roman 10	26	26	52	-2	18-31	35
+Aptos Narrow 11	bottom F Times New Roman 10	13	13	26	-2	4-17	21
+Aptos Narrow 11	bottom F+10 Times New Roman 10	23	23	46	-2	24-37	41
+Aptos Narrow 11	bottom 2F Times New Roman 10	26	26	52	-2	30-43	47
+Aptos Narrow 11	wrapped 2 Times New Roman 10		29	58	-2	8-21 34-47	25 51
+Aptos Narrow 11	wrapped 3 Times New Roman 10		43	86	-2	10-23 36-49 62-75	27 53 79
+Aptos Narrow 11	natural Times New Roman 11		15	30	-2	7-21	26
+Aptos Narrow 11	top F Times New Roman 11	14	14	28	-2	7-21	25
+Aptos Narrow 11	top F+10 Times New Roman 11	24	24	48	-2	7-21	26
+Aptos Narrow 11	top 2F Times New Roman 11	28	28	56	-2	7-21	26
+Aptos Narrow 11	center F Times New Roman 11	14	14	28	-2	7-21	25
+Aptos Narrow 11	center F+10 Times New Roman 11	24	24	48	-2	17-31	36
+Aptos Narrow 11	center 2F Times New Roman 11	28	28	56	-2	21-35	40
+Aptos Narrow 11	bottom F Times New Roman 11	14	14	28	-2	5-19	24
+Aptos Narrow 11	bottom F+10 Times New Roman 11	24	24	48	-2	25-39	44
+Aptos Narrow 11	bottom 2F Times New Roman 11	28	28	56	-2	33-47	52
+Aptos Narrow 11	wrapped 2 Times New Roman 11		31	62	-2	9-23 37-51	28 56
+Aptos Narrow 11	wrapped 3 Times New Roman 11		46	92	-2	11-25 39-53 67-81	30 58 86
+Aptos Narrow 11	natural Times New Roman 12		16	32	-2	8-23	28
+Aptos Narrow 11	top F Times New Roman 12	16	16	32	-2	8-23	28
+Aptos Narrow 11	top F+10 Times New Roman 12	26	26	52	-2	8-23	28
+Aptos Narrow 11	top 2F Times New Roman 12	32	32	62	0	8-23	28
+Aptos Narrow 11	center F Times New Roman 12	16	16	32	-2	8-23	28
+Aptos Narrow 11	center F+10 Times New Roman 12	26	26	52	-2	18-33	38
+Aptos Narrow 11	center 2F Times New Roman 12	32	32	64	-2	24-39	44
+Aptos Narrow 11	bottom F Times New Roman 12	16	16	32	-2	8-23	28
+Aptos Narrow 11	bottom F+10 Times New Roman 12	26	26	52	-2	28-43	48
+Aptos Narrow 11	bottom 2F Times New Roman 12	32	32	64	-2	40-55	60
+Aptos Narrow 11	wrapped 2 Times New Roman 12		34	68	-2	12-27 44-59	32 64
+Aptos Narrow 11	wrapped 3 Times New Roman 12		51	102	-2	14-29 46-61 78-93	34 66 98
+Aptos Narrow 11	natural Times New Roman 14		18	36	-2	9-27	33
+Aptos Narrow 11	top F Times New Roman 14	18	18	36	-2	9-27	33
+Aptos Narrow 11	top F+10 Times New Roman 14	28	28	56	-2	9-27	33
+Aptos Narrow 11	top 2F Times New Roman 14	36	36	72	-2	9-27	33
+Aptos Narrow 11	center F Times New Roman 14	18	18	36	-2	9-27	33
+Aptos Narrow 11	center F+10 Times New Roman 14	28	28	56	-2	19-37	43
+Aptos Narrow 11	center 2F Times New Roman 14	36	36	72	-2	27-45	51
+Aptos Narrow 11	bottom F Times New Roman 14	18	18	36	-2	9-27	33
+Aptos Narrow 11	bottom F+10 Times New Roman 14	28	28	56	-2	29-47	53
+Aptos Narrow 11	bottom 2F Times New Roman 14	36	36	72	-2	45-63	69
+Aptos Narrow 11	wrapped 2 Times New Roman 14		38	76	-2	13-31 49-67	37 73
+Aptos Narrow 11	wrapped 3 Times New Roman 14		57	114	-2	15-33 51-69 87-105	39 75 111
+Aptos Narrow 11	natural Times New Roman 16		20	40	-2	10-31	37
+Aptos Narrow 11	top F Times New Roman 16	20	20	40	-2	10-31	37
+Aptos Narrow 11	top F+10 Times New Roman 16	30	30	60	-2	10-31	38
+Aptos Narrow 11	top 2F Times New Roman 16	40	40	80	-2	10-31	38
+Aptos Narrow 11	center F Times New Roman 16	20	20	40	-2	10-31	37
+Aptos Narrow 11	center F+10 Times New Roman 16	30	30	60	-2	20-41	48
+Aptos Narrow 11	center 2F Times New Roman 16	40	40	80	-2	30-51	58
+Aptos Narrow 11	bottom F Times New Roman 16	20	20	40	-2	10-31	37
+Aptos Narrow 11	bottom F+10 Times New Roman 16	30	30	60	-2	30-51	57
+Aptos Narrow 11	bottom 2F Times New Roman 16	40	40	80	-2	50-71	77
+Aptos Narrow 11	wrapped 2 Times New Roman 16		42	84	-2	14-35 54-75	42 81
+Aptos Narrow 11	wrapped 3 Times New Roman 16		63	126	-2	16-37 56-77 96-117	44 84 123
+Aptos Narrow 11	natural Times New Roman 18		23	46	-2	12-35	43
+Aptos Narrow 11	top F Times New Roman 18	23	23	44	0	12-35	43
+Aptos Narrow 11	top F+10 Times New Roman 18	33	33	66	-2	12-35	43
+Aptos Narrow 11	top 2F Times New Roman 18	46	46	92	-2	12-35	43
+Aptos Narrow 11	center F Times New Roman 18	23	23	46	-2	12-35	43
+Aptos Narrow 11	center F+10 Times New Roman 18	33	33	66	-2	22-45	53
+Aptos Narrow 11	center 2F Times New Roman 18	46	46	92	-2	34-57	65
+Aptos Narrow 11	bottom F Times New Roman 18	23	23	46	-2	12-35	43
+Aptos Narrow 11	bottom F+10 Times New Roman 18	33	33	66	-2	32-55	63
+Aptos Narrow 11	bottom 2F Times New Roman 18	46	46	92	-2	58-81	89
+Aptos Narrow 11	wrapped 2 Times New Roman 18		48	96	-2	16-39 62-85	47 93
+Aptos Narrow 11	wrapped 3 Times New Roman 18		72	144	-2	18-41 64-87 110-133	49 95 141
+Aptos Narrow 11	natural Times New Roman 20		25	50	-2	13-39	47
+Aptos Narrow 11	top F Times New Roman 20	25	25	50	-2	13-39	47
+Aptos Narrow 11	top F+10 Times New Roman 20	35	35	70	-2	13-39	48
+Aptos Narrow 11	top 2F Times New Roman 20	50	50	100	-2	13-39	48
+Aptos Narrow 11	center F Times New Roman 20	25	25	50	-2	13-39	47
+Aptos Narrow 11	center F+10 Times New Roman 20	35	35	70	-2	23-49	58
+Aptos Narrow 11	center 2F Times New Roman 20	50	50	100	-2	37-63	72
+Aptos Narrow 11	bottom F Times New Roman 20	25	25	50	-2	13-39	47
+Aptos Narrow 11	bottom F+10 Times New Roman 20	35	35	70	-2	33-59	67
+Aptos Narrow 11	bottom 2F Times New Roman 20	50	50	100	-2	63-89	97
+Aptos Narrow 11	wrapped 2 Times New Roman 20		52	104	-2	17-43 67-93	52 101
+Aptos Narrow 11	wrapped 3 Times New Roman 20		78	156	-2	19-45 69-95 119-145	54 104 153
+Aptos Narrow 11	natural Times New Roman 24		30	60	-2	16-47	57
+Aptos Narrow 11	top F Times New Roman 24	30	30	60	-2	16-47	57
+Aptos Narrow 11	top F+10 Times New Roman 24	40	40	78	0	16-47	57
+Aptos Narrow 11	top 2F Times New Roman 24	60	60	120	-2	16-47	57
+Aptos Narrow 11	center F Times New Roman 24	30	30	60	-2	16-47	57
+Aptos Narrow 11	center F+10 Times New Roman 24	40	40	80	-2	26-57	67
+Aptos Narrow 11	center 2F Times New Roman 24	60	60	120	-2	46-77	87
+Aptos Narrow 11	bottom F Times New Roman 24	30	30	60	-2	16-47	57
+Aptos Narrow 11	bottom F+10 Times New Roman 24	40	40	80	-2	36-67	77
+Aptos Narrow 11	bottom 2F Times New Roman 24	60	60	120	-2	76-107	117
+Aptos Narrow 11	wrapped 2 Times New Roman 24		62	124	-2	20-51 80-111	61 121
+Aptos Narrow 11	wrapped 3 Times New Roman 24		93	186	-2	22-53 82-113 142-173	63 123 183
+Aptos Narrow 11	natural Courier New 9		15	30	-2	11-21	24
+Aptos Narrow 11	top F Courier New 9	13	13	26	-2	7-17	20
+Aptos Narrow 11	top F+10 Courier New 9	23	23	46	-2	7-17	20
+Aptos Narrow 11	top 2F Courier New 9	26	26	52	-2	7-17	20
+Aptos Narrow 11	center F Courier New 9	13	13	26	-2	7-17	20
+Aptos Narrow 11	center F+10 Courier New 9	23	23	46	-2	17-27	30
+Aptos Narrow 11	center 2F Courier New 9	26	26	52	-2	19-29	32
+Aptos Narrow 11	bottom F Courier New 9	13	13	26	-2	7-17	20
+Aptos Narrow 11	bottom F+10 Courier New 9	23	23	46	-2	27-37	40
+Aptos Narrow 11	bottom 2F Courier New 9	26	26	52	-2	33-43	46
+Aptos Narrow 11	wrapped 2 Courier New 9		28	56	-2	11-21 37-47	24 50
+Aptos Narrow 11	wrapped 3 Courier New 9		42	84	-2	13-23 39-49 65-75	26 52 78
+Aptos Narrow 11	natural Courier New 10		15	30	-2	10-21	25
+Aptos Narrow 11	top F Courier New 10	14	14	28	-2	8-19	23
+Aptos Narrow 11	top F+10 Courier New 10	24	24	48	-2	8-19	23
+Aptos Narrow 11	top 2F Courier New 10	28	28	56	-2	8-19	23
+Aptos Narrow 11	center F Courier New 10	14	14	28	-2	8-19	23
+Aptos Narrow 11	center F+10 Courier New 10	24	24	48	-2	18-29	33
+Aptos Narrow 11	center 2F Courier New 10	28	28	56	-2	22-33	37
+Aptos Narrow 11	bottom F Courier New 10	14	14	28	-2	8-19	23
+Aptos Narrow 11	bottom F+10 Courier New 10	24	24	48	-2	28-39	43
+Aptos Narrow 11	bottom 2F Courier New 10	28	28	56	-2	36-47	51
+Aptos Narrow 11	wrapped 2 Courier New 10		30	58	0	12-23 40-51	27 55
+Aptos Narrow 11	wrapped 3 Courier New 10		45	90	-2	14-25 42-53 70-81	29 57 85
+Aptos Narrow 11	natural Courier New 11		15	30	-2	9-21	25
+Aptos Narrow 11	top F Courier New 11	15	15	30	-2	9-21	25
+Aptos Narrow 11	top F+10 Courier New 11	25	25	50	-2	9-21	25
+Aptos Narrow 11	top 2F Courier New 11	30	30	60	-2	9-21	25
+Aptos Narrow 11	center F Courier New 11	15	15	30	-2	9-21	25
+Aptos Narrow 11	center F+10 Courier New 11	25	25	50	-2	19-31	35
+Aptos Narrow 11	center 2F Courier New 11	30	30	60	-2	23-35	39
+Aptos Narrow 11	bottom F Courier New 11	15	15	30	-2	9-21	25
+Aptos Narrow 11	bottom F+10 Courier New 11	25	25	50	-2	29-41	45
+Aptos Narrow 11	bottom 2F Courier New 11	30	30	60	-2	39-51	55
+Aptos Narrow 11	wrapped 2 Courier New 11		32	64	-2	13-25 43-55	29 59
+Aptos Narrow 11	wrapped 3 Courier New 11		48	96	-2	15-27 45-57 75-87	31 61 91
+Aptos Narrow 11	natural Courier New 12		17	34	-2	10-23	28
+Aptos Narrow 11	top F Courier New 12	17	17	34	-2	10-23	28
+Aptos Narrow 11	top F+10 Courier New 12	27	27	54	-2	10-23	28
+Aptos Narrow 11	top 2F Courier New 12	34	34	68	-2	10-23	28
+Aptos Narrow 11	center F Courier New 12	17	17	34	-2	10-23	28
+Aptos Narrow 11	center F+10 Courier New 12	27	27	54	-2	20-33	38
+Aptos Narrow 11	center 2F Courier New 12	34	34	68	-2	26-39	44
+Aptos Narrow 11	bottom F Courier New 12	17	17	34	-2	10-23	28
+Aptos Narrow 11	bottom F+10 Courier New 12	27	27	54	-2	30-43	48
+Aptos Narrow 11	bottom 2F Courier New 12	34	34	68	-2	44-57	62
+Aptos Narrow 11	wrapped 2 Courier New 12		36	72	-2	14-27 48-61	32 66
+Aptos Narrow 11	wrapped 3 Courier New 12		54	108	-2	16-29 50-63 84-97	34 68 102
+Aptos Narrow 11	natural Courier New 14		19	38	-2	12-27	32
+Aptos Narrow 11	top F Courier New 14	19	19	38	-2	12-27	32
+Aptos Narrow 11	top F+10 Courier New 14	29	29	58	-2	12-27	32
+Aptos Narrow 11	top 2F Courier New 14	38	38	76	-2	12-27	32
+Aptos Narrow 11	center F Courier New 14	19	19	38	-2	12-27	32
+Aptos Narrow 11	center F+10 Courier New 14	29	29	58	-2	22-37	42
+Aptos Narrow 11	center 2F Courier New 14	38	38	76	-2	30-45	50
+Aptos Narrow 11	bottom F Courier New 14	19	19	38	-2	12-27	32
+Aptos Narrow 11	bottom F+10 Courier New 14	29	29	58	-2	32-47	52
+Aptos Narrow 11	bottom 2F Courier New 14	38	38	76	-2	50-65	70
+Aptos Narrow 11	wrapped 2 Courier New 14		40	78	0	16-31 54-69	36 74
+Aptos Narrow 11	wrapped 3 Courier New 14		60	120	-2	18-33 56-71 94-109	38 76 114
+Aptos Narrow 11	natural Courier New 16		22	44	-2	13-31	37
+Aptos Narrow 11	top F Courier New 16	22	22	44	-2	13-31	37
+Aptos Narrow 11	top F+10 Courier New 16	32	32	64	-2	13-31	37
+Aptos Narrow 11	top 2F Courier New 16	44	44	88	-2	13-31	37
+Aptos Narrow 11	center F Courier New 16	22	22	44	-2	13-31	37
+Aptos Narrow 11	center F+10 Courier New 16	32	32	64	-2	23-41	47
+Aptos Narrow 11	center 2F Courier New 16	44	44	88	-2	35-53	59
+Aptos Narrow 11	bottom F Courier New 16	22	22	44	-2	13-31	37
+Aptos Narrow 11	bottom F+10 Courier New 16	32	32	64	-2	33-51	57
+Aptos Narrow 11	bottom 2F Courier New 16	44	44	88	-2	57-75	81
+Aptos Narrow 11	wrapped 2 Courier New 16		46	92	-2	17-35 61-79	41 85
+Aptos Narrow 11	wrapped 3 Courier New 16		69	138	-2	19-37 63-81 107-125	43 87 131
+Aptos Narrow 11	natural Courier New 18		24	48	-2	15-35	42
+Aptos Narrow 11	top F Courier New 18	24	24	48	-2	15-35	42
+Aptos Narrow 11	top F+10 Courier New 18	34	34	68	-2	15-35	42
+Aptos Narrow 11	top 2F Courier New 18	48	48	96	-2	15-35	42
+Aptos Narrow 11	center F Courier New 18	24	24	48	-2	15-35	42
+Aptos Narrow 11	center F+10 Courier New 18	34	34	68	-2	25-45	52
+Aptos Narrow 11	center 2F Courier New 18	48	48	96	-2	39-59	66
+Aptos Narrow 11	bottom F Courier New 18	24	24	48	-2	15-35	42
+Aptos Narrow 11	bottom F+10 Courier New 18	34	34	68	-2	35-55	62
+Aptos Narrow 11	bottom 2F Courier New 18	48	48	96	-2	63-83	90
+Aptos Narrow 11	wrapped 2 Courier New 18		50	100	-2	19-39 67-87	46 94
+Aptos Narrow 11	wrapped 3 Courier New 18		75	150	-2	21-41 69-89 117-137	48 96 144
+Aptos Narrow 11	natural Courier New 20		27	54	-2	17-39	47
+Aptos Narrow 11	top F Courier New 20	27	27	52	0	17-39	47
+Aptos Narrow 11	top F+10 Courier New 20	37	37	74	-2	17-39	47
+Aptos Narrow 11	top 2F Courier New 20	54	54	108	-2	17-39	47
+Aptos Narrow 11	center F Courier New 20	27	27	54	-2	17-39	47
+Aptos Narrow 11	center F+10 Courier New 20	37	37	74	-2	27-49	57
+Aptos Narrow 11	center 2F Courier New 20	54	54	108	-2	43-65	73
+Aptos Narrow 11	bottom F Courier New 20	27	27	54	-2	17-39	47
+Aptos Narrow 11	bottom F+10 Courier New 20	37	37	74	-2	37-59	67
+Aptos Narrow 11	bottom 2F Courier New 20	54	54	108	-2	71-93	101
+Aptos Narrow 11	wrapped 2 Courier New 20		56	112	-2	21-43 75-97	51 105
+Aptos Narrow 11	wrapped 3 Courier New 20		84	168	-2	23-45 77-99 131-153	53 107 161
+Aptos Narrow 11	natural Courier New 24		32	64	-2	20-47	56
+Aptos Narrow 11	top F Courier New 24	32	32	64	-2	20-47	56
+Aptos Narrow 11	top F+10 Courier New 24	42	42	84	-2	20-47	56
+Aptos Narrow 11	top 2F Courier New 24	64	64	128	-2	20-47	56
+Aptos Narrow 11	center F Courier New 24	32	32	64	-2	20-47	56
+Aptos Narrow 11	center F+10 Courier New 24	42	42	84	-2	30-57	66
+Aptos Narrow 11	center 2F Courier New 24	64	64	128	-2	52-79	88
+Aptos Narrow 11	bottom F Courier New 24	32	32	64	-2	20-47	56
+Aptos Narrow 11	bottom F+10 Courier New 24	42	42	84	-2	40-67	76
+Aptos Narrow 11	bottom 2F Courier New 24	64	64	128	-2	84-111	120
+Aptos Narrow 11	wrapped 2 Courier New 24		66	130	0	24-51 88-115	60 124
+Aptos Narrow 11	wrapped 3 Courier New 24		99	198	-2	26-53 90-117 154-181	62 126 190
+Aptos Narrow 11	natural Georgia 9		15	30	-2	9-21	25
+Aptos Narrow 11	top F Georgia 9	12	12	24	-2	5-17	21
+Aptos Narrow 11	top F+10 Georgia 9	22	22	44	-2	5-17	21
+Aptos Narrow 11	top 2F Georgia 9	24	24	48	-2	5-17	21
+Aptos Narrow 11	center F Georgia 9	12	12	24	-2	5-17	21
+Aptos Narrow 11	center F+10 Georgia 9	22	22	44	-2	15-27	31
+Aptos Narrow 11	center 2F Georgia 9	24	24	48	-2	17-29	33
+Aptos Narrow 11	bottom F Georgia 9	12	12	24	-2	3-15	19
+Aptos Narrow 11	bottom F+10 Georgia 9	22	22	44	-2	23-35	39
+Aptos Narrow 11	bottom 2F Georgia 9	24	24	48	-2	27-39	43
+Aptos Narrow 11	wrapped 2 Georgia 9		27	54	-2	7-19 31-43	23 47
+Aptos Narrow 11	wrapped 3 Georgia 9		40	80	-2	9-21 33-45 57-69	25 49 73
+Aptos Narrow 11	natural Georgia 10		15	30	-2	8-21	25
+Aptos Narrow 11	top F Georgia 10	13	13	26	-2	6-19	23
+Aptos Narrow 11	top F+10 Georgia 10	23	23	46	-2	6-19	23
+Aptos Narrow 11	top 2F Georgia 10	26	26	52	-2	6-19	23
+Aptos Narrow 11	center F Georgia 10	13	13	26	-2	6-19	23
+Aptos Narrow 11	center F+10 Georgia 10	23	23	46	-2	16-29	33
+Aptos Narrow 11	center 2F Georgia 10	26	26	52	-2	18-31	35
+Aptos Narrow 11	bottom F Georgia 10	13	13	26	-2	4-17	21
+Aptos Narrow 11	bottom F+10 Georgia 10	23	23	46	-2	24-37	41
+Aptos Narrow 11	bottom 2F Georgia 10	26	26	52	-2	30-43	47
+Aptos Narrow 11	wrapped 2 Georgia 10		29	58	-2	8-21 34-47	25 51
+Aptos Narrow 11	wrapped 3 Georgia 10		43	86	-2	10-23 36-49 62-75	27 53 79
+Aptos Narrow 11	natural Georgia 11		15	30	-2	6-21	26
+Aptos Narrow 11	top F Georgia 11	14	14	28	-2	6-21	25
+Aptos Narrow 11	top F+10 Georgia 11	24	24	48	-2	6-21	26
+Aptos Narrow 11	top 2F Georgia 11	28	28	56	-2	6-21	26
+Aptos Narrow 11	center F Georgia 11	14	14	28	-2	6-21	25
+Aptos Narrow 11	center F+10 Georgia 11	24	24	48	-2	16-31	36
+Aptos Narrow 11	center 2F Georgia 11	28	28	56	-2	20-35	40
+Aptos Narrow 11	bottom F Georgia 11	14	14	28	-2	4-19	24
+Aptos Narrow 11	bottom F+10 Georgia 11	24	24	48	-2	24-39	44
+Aptos Narrow 11	bottom 2F Georgia 11	28	28	56	-2	32-47	52
+Aptos Narrow 11	wrapped 2 Georgia 11		31	62	-2	8-23 36-51	28 56
+Aptos Narrow 11	wrapped 3 Georgia 11		46	92	-2	10-25 38-53 66-81	30 58 86
+Aptos Narrow 11	natural Georgia 12		16	32	-2	7-23	28
+Aptos Narrow 11	top F Georgia 12	16	16	32	-2	7-23	28
+Aptos Narrow 11	top F+10 Georgia 12	26	26	50	0	7-23	28
+Aptos Narrow 11	top 2F Georgia 12	32	32	64	-2	7-23	28
+Aptos Narrow 11	center F Georgia 12	16	16	32	-2	7-23	28
+Aptos Narrow 11	center F+10 Georgia 12	26	26	52	-2	17-33	38
+Aptos Narrow 11	center 2F Georgia 12	32	32	64	-2	23-39	44
+Aptos Narrow 11	bottom F Georgia 12	16	16	32	-2	7-23	28
+Aptos Narrow 11	bottom F+10 Georgia 12	26	26	52	-2	27-43	48
+Aptos Narrow 11	bottom 2F Georgia 12	32	32	64	-2	39-55	60
+Aptos Narrow 11	wrapped 2 Georgia 12		34	68	-2	11-27 43-59	32 64
+Aptos Narrow 11	wrapped 3 Georgia 12		51	102	-2	13-29 45-61 77-93	34 66 98
+Aptos Narrow 11	natural Georgia 14		18	36	-2	8-27	33
+Aptos Narrow 11	top F Georgia 14	18	18	36	-2	8-27	33
+Aptos Narrow 11	top F+10 Georgia 14	28	28	56	-2	8-27	33
+Aptos Narrow 11	top 2F Georgia 14	36	36	72	-2	8-27	33
+Aptos Narrow 11	center F Georgia 14	18	18	36	-2	8-27	33
+Aptos Narrow 11	center F+10 Georgia 14	28	28	56	-2	18-37	43
+Aptos Narrow 11	center 2F Georgia 14	36	36	72	-2	26-45	51
+Aptos Narrow 11	bottom F Georgia 14	18	18	36	-2	8-27	33
+Aptos Narrow 11	bottom F+10 Georgia 14	28	28	56	-2	28-47	53
+Aptos Narrow 11	bottom 2F Georgia 14	36	36	72	-2	44-63	69
+Aptos Narrow 11	wrapped 2 Georgia 14		38	76	-2	12-31 48-67	37 73
+Aptos Narrow 11	wrapped 3 Georgia 14		57	114	-2	14-33 50-69 86-105	39 75 111
+Aptos Narrow 11	natural Georgia 16		21	42	-2	9-31	38
+Aptos Narrow 11	top F Georgia 16	21	21	42	-2	9-31	38
+Aptos Narrow 11	top F+10 Georgia 16	31	31	62	-2	9-31	38
+Aptos Narrow 11	top 2F Georgia 16	42	42	84	-2	9-31	38
+Aptos Narrow 11	center F Georgia 16	21	21	42	-2	9-31	38
+Aptos Narrow 11	center F+10 Georgia 16	31	31	62	-2	19-41	48
+Aptos Narrow 11	center 2F Georgia 16	42	42	84	-2	29-51	58
+Aptos Narrow 11	bottom F Georgia 16	21	21	42	-2	9-31	38
+Aptos Narrow 11	bottom F+10 Georgia 16	31	31	62	-2	29-51	58
+Aptos Narrow 11	bottom 2F Georgia 16	42	42	84	-2	51-73	80
+Aptos Narrow 11	wrapped 2 Georgia 16		44	88	-2	13-35 55-77	42 84
+Aptos Narrow 11	wrapped 3 Georgia 16		66	130	0	15-37 57-79 99-121	44 86 128
+Aptos Narrow 11	natural Georgia 18		23	46	-2	11-35	43
+Aptos Narrow 11	top F Georgia 18	23	23	46	-2	11-35	43
+Aptos Narrow 11	top F+10 Georgia 18	33	33	66	-2	11-35	43
+Aptos Narrow 11	top 2F Georgia 18	46	46	92	-2	11-35	43
+Aptos Narrow 11	center F Georgia 18	23	23	46	-2	11-35	43
+Aptos Narrow 11	center F+10 Georgia 18	33	33	66	-2	21-45	53
+Aptos Narrow 11	center 2F Georgia 18	46	46	92	-2	33-57	65
+Aptos Narrow 11	bottom F Georgia 18	23	23	46	-2	11-35	43
+Aptos Narrow 11	bottom F+10 Georgia 18	33	33	66	-2	31-55	63
+Aptos Narrow 11	bottom 2F Georgia 18	46	46	92	-2	57-81	89
+Aptos Narrow 11	wrapped 2 Georgia 18		48	96	-2	15-39 61-85	47 93
+Aptos Narrow 11	wrapped 3 Georgia 18		72	144	-2	17-41 63-87 109-133	49 95 141
+Aptos Narrow 11	natural Georgia 20		25	50	-2	12-39	47
+Aptos Narrow 11	top F Georgia 20	25	25	50	-2	12-39	47
+Aptos Narrow 11	top F+10 Georgia 20	35	35	70	-2	12-39	48
+Aptos Narrow 11	top 2F Georgia 20	50	50	100	-2	12-39	48
+Aptos Narrow 11	center F Georgia 20	25	25	50	-2	12-39	47
+Aptos Narrow 11	center F+10 Georgia 20	35	35	70	-2	22-49	58
+Aptos Narrow 11	center 2F Georgia 20	50	50	100	-2	36-63	72
+Aptos Narrow 11	bottom F Georgia 20	25	25	50	-2	12-39	47
+Aptos Narrow 11	bottom F+10 Georgia 20	35	35	70	-2	32-59	67
+Aptos Narrow 11	bottom 2F Georgia 20	50	50	100	-2	62-89	97
+Aptos Narrow 11	wrapped 2 Georgia 20		52	104	-2	16-43 66-93	52 101
+Aptos Narrow 11	wrapped 3 Georgia 20		78	156	-2	18-45 68-95 118-145	54 104 153
+Aptos Narrow 11	natural Georgia 24		30	60	-2	14-47	57
+Aptos Narrow 11	top F Georgia 24	30	30	58	0	14-47	57
+Aptos Narrow 11	top F+10 Georgia 24	40	40	80	-2	14-47	57
+Aptos Narrow 11	top 2F Georgia 24	60	60	120	-2	14-47	57
+Aptos Narrow 11	center F Georgia 24	30	30	60	-2	14-47	57
+Aptos Narrow 11	center F+10 Georgia 24	40	40	80	-2	24-57	67
+Aptos Narrow 11	center 2F Georgia 24	60	60	120	-2	44-77	87
+Aptos Narrow 11	bottom F Georgia 24	30	30	60	-2	14-47	57
+Aptos Narrow 11	bottom F+10 Georgia 24	40	40	80	-2	34-67	77
+Aptos Narrow 11	bottom 2F Georgia 24	60	60	120	-2	74-107	117
+Aptos Narrow 11	wrapped 2 Georgia 24		62	124	-2	18-51 78-111	61 121
+Aptos Narrow 11	wrapped 3 Georgia 24		93	186	-2	20-53 80-113 140-173	63 123 183
+Aptos Narrow 11	natural Calibri 13		17	34	-2	9-25	30
+Aptos Narrow 11	top F Calibri 13	17	17	34	-2	9-25	30
+Aptos Narrow 11	top F+10 Calibri 13	27	27	54	-2	9-25	30
+Aptos Narrow 11	top 2F Calibri 13	34	34	68	-2	9-25	30
+Aptos Narrow 11	center F Calibri 13	17	17	34	-2	9-25	30
+Aptos Narrow 11	center F+10 Calibri 13	27	27	54	-2	19-35	40
+Aptos Narrow 11	center 2F Calibri 13	34	34	68	-2	25-41	46
+Aptos Narrow 11	bottom F Calibri 13	17	17	34	-2	9-25	30
+Aptos Narrow 11	bottom F+10 Calibri 13	27	27	54	-2	29-45	50
+Aptos Narrow 11	bottom 2F Calibri 13	34	34	68	-2	43-59	64
+Aptos Narrow 11	wrapped 2 Calibri 13		36	72	-2	13-29 47-63	34 68
+Aptos Narrow 11	wrapped 3 Calibri 13		54	108	-2	15-31 49-65 83-99	36 70 104
+Aptos Narrow 11	natural Calibri 15		20	40	-2	11-29	34
+Aptos Narrow 11	top F Calibri 15	20	20	40	-2	11-29	34
+Aptos Narrow 11	top F+10 Calibri 15	30	30	60	-2	11-29	34
+Aptos Narrow 11	top 2F Calibri 15	40	40	80	-2	11-29	34
+Aptos Narrow 11	center F Calibri 15	20	20	40	-2	11-29	34
+Aptos Narrow 11	center F+10 Calibri 15	30	30	58	0	21-39	44
+Aptos Narrow 11	center 2F Calibri 15	40	40	80	-2	31-49	54
+Aptos Narrow 11	bottom F Calibri 15	20	20	40	-2	11-29	34
+Aptos Narrow 11	bottom F+10 Calibri 15	30	30	60	-2	31-49	54
+Aptos Narrow 11	bottom 2F Calibri 15	40	40	80	-2	51-69	74
+Aptos Narrow 11	wrapped 2 Calibri 15		42	84	-2	15-33 55-73	38 78
+Aptos Narrow 11	wrapped 3 Calibri 15		63	126	-2	17-35 57-75 97-115	40 80 120
+Aptos Narrow 11	natural Calibri 17		23	46	-2	12-33	39
+Aptos Narrow 11	top F Calibri 17	23	23	46	-2	12-33	39
+Aptos Narrow 11	top F+10 Calibri 17	33	33	66	-2	12-33	39
+Aptos Narrow 11	top 2F Calibri 17	46	46	92	-2	12-33	39
+Aptos Narrow 11	center F Calibri 17	23	23	46	-2	12-33	39
+Aptos Narrow 11	center F+10 Calibri 17	33	33	66	-2	22-43	49
+Aptos Narrow 11	center 2F Calibri 17	46	46	92	-2	34-55	61
+Aptos Narrow 11	bottom F Calibri 17	23	23	46	-2	12-33	39
+Aptos Narrow 11	bottom F+10 Calibri 17	33	33	66	-2	32-53	59
+Aptos Narrow 11	bottom 2F Calibri 17	46	46	92	-2	58-79	85
+Aptos Narrow 11	wrapped 2 Calibri 17		48	96	-2	16-37 62-83	43 89
+Aptos Narrow 11	wrapped 3 Calibri 17		72	144	-2	18-39 64-85 110-131	45 91 137
+Aptos Narrow 11	natural Calibri 22		29	58	-2	16-43	51
+Aptos Narrow 11	top F Calibri 22	29	29	58	-2	16-43	51
+Aptos Narrow 11	top F+10 Calibri 22	39	39	78	-2	16-43	51
+Aptos Narrow 11	top 2F Calibri 22	58	58	116	-2	16-43	51
+Aptos Narrow 11	center F Calibri 22	29	29	58	-2	16-43	51
+Aptos Narrow 11	center F+10 Calibri 22	39	39	78	-2	26-53	61
+Aptos Narrow 11	center 2F Calibri 22	58	58	116	-2	44-71	79
+Aptos Narrow 11	bottom F Calibri 22	29	29	58	-2	16-43	51
+Aptos Narrow 11	bottom F+10 Calibri 22	39	39	76	0	36-63	71
+Aptos Narrow 11	bottom 2F Calibri 22	58	58	116	-2	74-101	109
+Aptos Narrow 11	wrapped 2 Calibri 22		60	120	-2	20-47 78-105	55 113
+Aptos Narrow 11	wrapped 3 Calibri 22		90	180	-2	22-49 80-107 138-165	57 115 173
+Aptos Narrow 11	natural Aptos Narrow 13		18	36	-2	9-25	30
+Aptos Narrow 11	top F Aptos Narrow 13	18	18	36	-2	9-25	30
+Aptos Narrow 11	top F+10 Aptos Narrow 13	28	28	56	-2	9-25	30
+Aptos Narrow 11	top 2F Aptos Narrow 13	36	36	72	-2	9-25	30
+Aptos Narrow 11	center F Aptos Narrow 13	18	18	36	-2	9-25	30
+Aptos Narrow 11	center F+10 Aptos Narrow 13	28	28	56	-2	19-35	40
+Aptos Narrow 11	center 2F Aptos Narrow 13	36	36	72	-2	27-43	48
+Aptos Narrow 11	bottom F Aptos Narrow 13	18	18	36	-2	9-25	30
+Aptos Narrow 11	bottom F+10 Aptos Narrow 13	28	28	56	-2	29-45	50
+Aptos Narrow 11	bottom 2F Aptos Narrow 13	36	36	72	-2	45-61	66
+Aptos Narrow 11	wrapped 2 Aptos Narrow 13		38	76	-2	13-29 49-65	34 70
+Aptos Narrow 11	wrapped 3 Aptos Narrow 13		57	114	-2	15-31 51-67 87-103	36 72 108
+Aptos Narrow 11	natural Aptos Narrow 15		20	40	-2	10-29	35
+Aptos Narrow 11	top F Aptos Narrow 15	20	20	40	-2	10-29	35
+Aptos Narrow 11	top F+10 Aptos Narrow 15	30	30	60	-2	10-29	35
+Aptos Narrow 11	top 2F Aptos Narrow 15	40	40	80	-2	10-29	35
+Aptos Narrow 11	center F Aptos Narrow 15	20	20	40	-2	10-29	35
+Aptos Narrow 11	center F+10 Aptos Narrow 15	30	30	60	-2	20-39	45
+Aptos Narrow 11	center 2F Aptos Narrow 15	40	40	80	-2	30-49	55
+Aptos Narrow 11	bottom F Aptos Narrow 15	20	20	40	-2	10-29	35
+Aptos Narrow 11	bottom F+10 Aptos Narrow 15	30	30	60	-2	30-49	55
+Aptos Narrow 11	bottom 2F Aptos Narrow 15	40	40	80	-2	50-69	75
+Aptos Narrow 11	wrapped 2 Aptos Narrow 15		42	84	-2	14-33 54-73	39 79
+Aptos Narrow 11	wrapped 3 Aptos Narrow 15		63	126	-2	16-35 56-75 96-115	41 81 121
+Aptos Narrow 11	natural Aptos Narrow 17		23	46	-2	11-33	39
+Aptos Narrow 11	top F Aptos Narrow 17	23	23	44	0	11-33	39
+Aptos Narrow 11	top F+10 Aptos Narrow 17	33	33	66	-2	11-33	39
+Aptos Narrow 11	top 2F Aptos Narrow 17	46	46	92	-2	11-33	39
+Aptos Narrow 11	center F Aptos Narrow 17	23	23	46	-2	11-33	39
+Aptos Narrow 11	center F+10 Aptos Narrow 17	33	33	66	-2	21-43	49
+Aptos Narrow 11	center 2F Aptos Narrow 17	46	46	92	-2	33-55	61
+Aptos Narrow 11	bottom F Aptos Narrow 17	23	23	46	-2	11-33	39
+Aptos Narrow 11	bottom F+10 Aptos Narrow 17	33	33	66	-2	31-53	59
+Aptos Narrow 11	bottom 2F Aptos Narrow 17	46	46	92	-2	57-79	85
+Aptos Narrow 11	wrapped 2 Aptos Narrow 17		48	96	-2	15-37 61-83	43 89
+Aptos Narrow 11	wrapped 3 Aptos Narrow 17		72	144	-2	17-39 63-85 109-131	45 91 137
+Aptos Narrow 11	natural Aptos Narrow 22		29	58	-2	15-43	51
+Aptos Narrow 11	top F Aptos Narrow 22	29	29	58	-2	15-43	51
+Aptos Narrow 11	top F+10 Aptos Narrow 22	39	39	78	-2	15-43	51
+Aptos Narrow 11	top 2F Aptos Narrow 22	58	58	116	-2	15-43	51
+Aptos Narrow 11	center F Aptos Narrow 22	29	29	58	-2	15-43	51
+Aptos Narrow 11	center F+10 Aptos Narrow 22	39	39	78	-2	25-53	61
+Aptos Narrow 11	center 2F Aptos Narrow 22	58	58	116	-2	43-71	79
+Aptos Narrow 11	bottom F Aptos Narrow 22	29	29	58	-2	15-43	51
+Aptos Narrow 11	bottom F+10 Aptos Narrow 22	39	39	78	-2	35-63	71
+Aptos Narrow 11	bottom 2F Aptos Narrow 22	58	58	116	-2	73-101	109
+Aptos Narrow 11	wrapped 2 Aptos Narrow 22		60	120	-2	19-47 77-105	55 113
+Aptos Narrow 11	wrapped 3 Aptos Narrow 22		90	182	-2	21-49 79-107 137-165	57 115 173
 Arial 10	natural Calibri 9		13	24	0	8-19	22
 Arial 10	top F Calibri 9	12	12	24	-2	6-17	20
 Arial 10	top F+10 Calibri 9	22	22	44	-2	6-17	20
@@ -767,8 +1607,8 @@ Arial 10	center F Calibri 12	16	16	32	-2	8-23	27
 Arial 10	center F+10 Calibri 12	26	26	52	-2	18-33	37
 Arial 10	center 2F Calibri 12	32	32	64	-2	24-39	43
 Arial 10	bottom F Calibri 12	16	16	32	-2	8-23	27
-Arial 10	bottom F+10 Calibri 12	26	26	52	-2	28-43	47
-Arial 10	bottom 2F Calibri 12	32	32	62	0	40-55	59
+Arial 10	bottom F+10 Calibri 12	26	26	50	0	28-43	47
+Arial 10	bottom 2F Calibri 12	32	32	64	-2	40-55	59
 Arial 10	wrapped 2 Calibri 12		34	68	-2	12-27 44-59	31 63
 Arial 10	wrapped 3 Calibri 12		51	102	-2	14-29 46-61 78-93	33 65 97
 Arial 10	natural Calibri 14		19	38	-2	10-27	32
@@ -798,9 +1638,9 @@ Arial 10	wrapped 3 Calibri 16		66	132	-2	17-37 59-79 101-121	43 85 127
 Arial 10	natural Calibri 18		24	48	-2	13-35	41
 Arial 10	top F Calibri 18	24	24	48	-2	13-35	41
 Arial 10	top F+10 Calibri 18	34	34	68	-2	13-35	41
-Arial 10	top 2F Calibri 18	48	48	96	-2	13-35	41
+Arial 10	top 2F Calibri 18	48	48	94	0	13-35	41
 Arial 10	center F Calibri 18	24	24	48	-2	13-35	41
-Arial 10	center F+10 Calibri 18	34	34	66	0	23-45	51
+Arial 10	center F+10 Calibri 18	34	34	68	-2	23-45	51
 Arial 10	center 2F Calibri 18	48	48	96	-2	37-59	65
 Arial 10	bottom F Calibri 18	24	24	48	-2	13-35	41
 Arial 10	bottom F+10 Calibri 18	34	34	68	-2	33-55	61
@@ -822,10 +1662,10 @@ Arial 10	wrapped 3 Calibri 20		81	162	-2	20-45 72-97 124-149	52 104 156
 Arial 10	natural Calibri 24		31	62	-2	17-47	56
 Arial 10	top F Calibri 24	31	31	62	-2	17-47	56
 Arial 10	top F+10 Calibri 24	41	41	82	-2	17-47	56
-Arial 10	top 2F Calibri 24	62	62	124	-2	17-47	56
+Arial 10	top 2F Calibri 24	62	62	122	0	17-47	56
 Arial 10	center F Calibri 24	31	31	62	-2	17-47	56
 Arial 10	center F+10 Calibri 24	41	41	82	-2	27-57	66
-Arial 10	center 2F Calibri 24	62	62	122	0	47-77	86
+Arial 10	center 2F Calibri 24	62	62	124	-2	47-77	86
 Arial 10	bottom F Calibri 24	31	31	62	-2	17-47	56
 Arial 10	bottom F+10 Calibri 24	41	41	82	-2	37-67	76
 Arial 10	bottom 2F Calibri 24	62	62	124	-2	79-109	118
@@ -855,14 +1695,14 @@ Arial 10	bottom F+10 Aptos Narrow 10	24	24	48	-2	27-39	43
 Arial 10	bottom 2F Aptos Narrow 10	28	28	56	-2	35-47	51
 Arial 10	wrapped 2 Aptos Narrow 10		30	60	-2	11-23 39-51	27 55
 Arial 10	wrapped 3 Aptos Narrow 10		45	90	-2	13-25 41-53 69-81	29 57 85
-Arial 10	natural Aptos Narrow 11		15	30	-2	7-21	25
+Arial 10	natural Aptos Narrow 11		15	28	0	7-21	25
 Arial 10	top F Aptos Narrow 11	15	15	30	-2	7-21	25
 Arial 10	top F+10 Aptos Narrow 11	25	25	50	-2	7-21	25
 Arial 10	top 2F Aptos Narrow 11	30	30	60	-2	7-21	25
 Arial 10	center F Aptos Narrow 11	15	15	30	-2	7-21	25
 Arial 10	center F+10 Aptos Narrow 11	25	25	50	-2	17-31	35
-Arial 10	center 2F Aptos Narrow 11	30	30	60	-2	21-59	39 59
-Arial 10	bottom F Aptos Narrow 11	15	15	28	0	7-21	25
+Arial 10	center 2F Aptos Narrow 11	30	30	60	-2	21-35	39
+Arial 10	bottom F Aptos Narrow 11	15	15	30	-2	7-21	25
 Arial 10	bottom F+10 Aptos Narrow 11	25	25	50	-2	27-41	45
 Arial 10	bottom 2F Aptos Narrow 11	30	30	60	-2	37-51	55
 Arial 10	wrapped 2 Aptos Narrow 11		32	64	-2	11-25 41-55	29 59
@@ -892,13 +1732,13 @@ Arial 10	bottom 2F Aptos Narrow 14	38	38	76	-2	47-65	70
 Arial 10	wrapped 2 Aptos Narrow 14		40	80	-2	13-31 51-69	36 74
 Arial 10	wrapped 3 Aptos Narrow 14		60	120	-2	15-33 53-71 91-109	38 76 114
 Arial 10	natural Aptos Narrow 16		22	44	-2	11-31	37
-Arial 10	top F Aptos Narrow 16	22	22	44	-2	11-31	37
+Arial 10	top F Aptos Narrow 16	22	22	42	0	11-31	37
 Arial 10	top F+10 Aptos Narrow 16	32	32	64	-2	11-31	37
 Arial 10	top 2F Aptos Narrow 16	44	44	88	-2	11-31	37
 Arial 10	center F Aptos Narrow 16	22	22	44	-2	11-31	37
 Arial 10	center F+10 Aptos Narrow 16	32	32	64	-2	21-41	47
-Arial 10	center 2F Aptos Narrow 16	44	44	88	-2	33-87	59 87
-Arial 10	bottom F Aptos Narrow 16	22	22	42	0	11-31	37
+Arial 10	center 2F Aptos Narrow 16	44	44	88	-2	33-53	59
+Arial 10	bottom F Aptos Narrow 16	22	22	44	-2	11-31	37
 Arial 10	bottom F+10 Aptos Narrow 16	32	32	64	-2	31-51	57
 Arial 10	bottom 2F Aptos Narrow 16	44	44	88	-2	55-75	81
 Arial 10	wrapped 2 Aptos Narrow 16		46	92	-2	15-35 59-79	41 85
@@ -919,13 +1759,13 @@ Arial 10	natural Aptos Narrow 20		27	54	-2	13-39	46
 Arial 10	top F Aptos Narrow 20	27	27	54	-2	13-39	46
 Arial 10	top F+10 Aptos Narrow 20	37	37	74	-2	13-39	46
 Arial 10	top 2F Aptos Narrow 20	54	54	108	-2	13-39	46
-Arial 10	center F Aptos Narrow 20	27	27	54	-2	13-39	46
+Arial 10	center F Aptos Narrow 20	27	27	52	0	13-39	46
 Arial 10	center F+10 Aptos Narrow 20	37	37	74	-2	23-49	56
 Arial 10	center 2F Aptos Narrow 20	54	54	108	-2	39-65	72
 Arial 10	bottom F Aptos Narrow 20	27	27	54	-2	13-39	46
 Arial 10	bottom F+10 Aptos Narrow 20	37	37	74	-2	33-59	66
 Arial 10	bottom 2F Aptos Narrow 20	54	54	108	-2	67-93	100
-Arial 10	wrapped 2 Aptos Narrow 20		56	110	0	17-43 71-97	50 104
+Arial 10	wrapped 2 Aptos Narrow 20		56	112	-2	17-43 71-97	50 104
 Arial 10	wrapped 3 Aptos Narrow 20		84	168	-2	19-45 73-99 127-153	52 106 160
 Arial 10	natural Aptos Narrow 24		32	64	-2	16-47	56
 Arial 10	top F Aptos Narrow 24	32	32	64	-2	16-47	56
@@ -942,7 +1782,7 @@ Arial 10	wrapped 3 Aptos Narrow 24		99	198	-2	22-53 86-117 150-181	62 126 190
 Arial 10	natural Arial 9		13	26	-2	7-19	23
 Arial 10	top F Arial 9	12	12	24	-2	5-17	21
 Arial 10	top F+10 Arial 9	22	22	44	-2	5-17	21
-Arial 10	top 2F Arial 9	24	24	48	-2	5-17	21
+Arial 10	top 2F Arial 9	24	24	46	0	5-17	21
 Arial 10	center F Arial 9	12	12	24	-2	5-17	21
 Arial 10	center F+10 Arial 9	22	22	44	-2	15-27	31
 Arial 10	center 2F Arial 9	24	24	48	-2	17-29	33
@@ -954,7 +1794,7 @@ Arial 10	wrapped 3 Arial 9		39	78	-2	11-23 35-47 59-71	27 51 75
 Arial 10	natural Arial 10		13	26	-2	5-19	23
 Arial 10	top F Arial 10	13	13	26	-2	5-19	23
 Arial 10	top F+10 Arial 10	23	23	46	-2	5-19	23
-Arial 10	top 2F Arial 10	26	26	50	0	5-19	23
+Arial 10	top 2F Arial 10	26	26	52	-2	5-19	23
 Arial 10	center F Arial 10	13	13	26	-2	5-19	23
 Arial 10	center F+10 Arial 10	23	23	46	-2	15-29	33
 Arial 10	center 2F Arial 10	26	26	52	-2	17-31	35
@@ -985,7 +1825,7 @@ Arial 10	center 2F Arial 12	32	32	64	-2	22-39	44
 Arial 10	bottom F Arial 12	16	16	32	-2	6-23	28
 Arial 10	bottom F+10 Arial 12	26	26	52	-2	26-43	48
 Arial 10	bottom 2F Arial 12	32	32	64	-2	38-55	60
-Arial 10	wrapped 2 Arial 12		34	68	-2	10-27 42-59	32 64
+Arial 10	wrapped 2 Arial 12		34	66	0	10-27 42-59	32 64
 Arial 10	wrapped 3 Arial 12		51	102	-2	12-29 44-61 76-93	34 66 98
 Arial 10	natural Arial 14		18	36	-2	8-27	33
 Arial 10	top F Arial 14	18	18	36	-2	8-27	33
@@ -996,7 +1836,7 @@ Arial 10	center F+10 Arial 14	28	28	56	-2	18-37	43
 Arial 10	center 2F Arial 14	36	36	72	-2	26-45	51
 Arial 10	bottom F Arial 14	18	18	36	-2	8-27	33
 Arial 10	bottom F+10 Arial 14	28	28	56	-2	28-47	53
-Arial 10	bottom 2F Arial 14	36	36	70	0	44-63	69
+Arial 10	bottom 2F Arial 14	36	36	72	-2	44-63	69
 Arial 10	wrapped 2 Arial 14		38	76	-2	12-31 48-67	37 73
 Arial 10	wrapped 3 Arial 14		57	114	-2	14-33 50-69 86-105	39 75 111
 Arial 10	natural Arial 16		20	40	-2	9-31	37
@@ -1017,7 +1857,7 @@ Arial 10	top F+10 Arial 18	33	33	66	-2	10-35	43
 Arial 10	top 2F Arial 18	46	46	92	-2	10-35	43
 Arial 10	center F Arial 18	23	23	46	-2	10-35	43
 Arial 10	center F+10 Arial 18	33	33	66	-2	20-45	53
-Arial 10	center 2F Arial 18	46	46	92	-2	32-57	65
+Arial 10	center 2F Arial 18	46	46	90	0	32-57	65
 Arial 10	bottom F Arial 18	23	23	46	-2	10-35	43
 Arial 10	bottom F+10 Arial 18	33	33	66	-2	30-55	63
 Arial 10	bottom 2F Arial 18	46	46	92	-2	56-81	89
@@ -1026,7 +1866,7 @@ Arial 10	wrapped 3 Arial 18		72	144	-2	16-41 62-87 108-133	49 95 141
 Arial 10	natural Arial 20		25	50	-2	11-39	47
 Arial 10	top F Arial 20	25	25	50	-2	11-39	47
 Arial 10	top F+10 Arial 20	35	35	70	-2	11-39	47
-Arial 10	top 2F Arial 20	50	50	98	0	11-39	47
+Arial 10	top 2F Arial 20	50	50	100	-2	11-39	47
 Arial 10	center F Arial 20	25	25	50	-2	11-39	47
 Arial 10	center F+10 Arial 20	35	35	70	-2	21-49	57
 Arial 10	center 2F Arial 20	50	50	100	-2	35-63	71
@@ -1041,7 +1881,7 @@ Arial 10	top F+10 Arial 24	40	40	80	-2	13-47	57
 Arial 10	top 2F Arial 24	60	60	120	-2	13-47	57
 Arial 10	center F Arial 24	30	30	60	-2	13-47	57
 Arial 10	center F+10 Arial 24	40	40	80	-2	23-57	67
-Arial 10	center 2F Arial 24	60	60	120	-2	43-77	87
+Arial 10	center 2F Arial 24	60	60	118	0	43-77	87
 Arial 10	bottom F Arial 24	30	30	60	-2	13-47	57
 Arial 10	bottom F+10 Arial 24	40	40	80	-2	33-67	77
 Arial 10	bottom 2F Arial 24	60	60	120	-2	73-107	117
@@ -1051,7 +1891,7 @@ Arial 10	natural Calibri 11 bold		15	30	-2	8-21	25
 Arial 10	bottom F+10 Calibri 11 bold	25	25	50	-2	28-41	45
 Arial 10	natural Calibri 11 italic		15	30	-2	8-21	25
 Arial 10	bottom F+10 Calibri 11 italic	25	25	50	-2	28-41	45
-Arial 10	natural Calibri 11 bold italic		15	28	0	8-21	25
+Arial 10	natural Calibri 11 bold italic		15	30	-2	8-21	25
 Arial 10	bottom F+10 Calibri 11 bold italic	25	25	50	-2	28-41	45
 Arial 10	natural Calibri 16 bold		21	42	-2	11-31	37
 Arial 10	bottom F+10 Calibri 16 bold	31	31	62	-2	31-51	57
@@ -1078,8 +1918,428 @@ Arial 10	bottom F+10 Arial 11 italic	24	24	48	-2	26-41	45
 Arial 10	natural Arial 11 bold italic		14	28	-2	6-21	25
 Arial 10	bottom F+10 Arial 11 bold italic	24	24	48	-2	26-41	45
 Arial 10	natural Arial 16 bold		20	40	-2	9-31	37
-Arial 10	bottom F+10 Arial 16 bold	30	30	60	-2	29-51	57
+Arial 10	bottom F+10 Arial 16 bold	30	30	58	0	29-51	57
 Arial 10	natural Arial 16 italic		20	40	-2	9-31	37
 Arial 10	bottom F+10 Arial 16 italic	30	30	60	-2	29-51	57
 Arial 10	natural Arial 16 bold italic		20	40	-2	9-31	37
-Arial 10	bottom F+10 Arial 16 bold italic	30	30	62	-2	29-51	57
+Arial 10	bottom F+10 Arial 16 bold italic	30	30	60	-2	29-51	57
+Arial 10	natural Times New Roman 9		13	26	-2	8-19	23
+Arial 10	top F Times New Roman 9	12	12	24	-2	6-17	21
+Arial 10	top F+10 Times New Roman 9	22	22	44	-2	6-17	21
+Arial 10	top 2F Times New Roman 9	24	24	48	-2	6-17	21
+Arial 10	center F Times New Roman 9	12	12	24	-2	6-17	21
+Arial 10	center F+10 Times New Roman 9	22	22	44	-2	16-27	31
+Arial 10	center 2F Times New Roman 9	24	24	48	-2	18-29	33
+Arial 10	bottom F Times New Roman 9	12	12	24	-2	6-17	21
+Arial 10	bottom F+10 Times New Roman 9	22	22	44	-2	26-37	41
+Arial 10	bottom 2F Times New Roman 9	24	24	48	-2	30-41	45
+Arial 10	wrapped 2 Times New Roman 9		26	52	-2	10-21 34-45	25 49
+Arial 10	wrapped 3 Times New Roman 9		39	78	-2	12-23 36-47 60-71	27 51 75
+Arial 10	natural Times New Roman 10		13	26	-2	6-19	23
+Arial 10	top F Times New Roman 10	13	13	26	-2	6-19	23
+Arial 10	top F+10 Times New Roman 10	23	23	46	-2	6-19	23
+Arial 10	top 2F Times New Roman 10	26	26	52	-2	6-19	23
+Arial 10	center F Times New Roman 10	13	13	26	-2	6-19	23
+Arial 10	center F+10 Times New Roman 10	23	23	46	-2	16-29	33
+Arial 10	center 2F Times New Roman 10	26	26	52	-2	18-31	35
+Arial 10	bottom F Times New Roman 10	13	13	26	-2	6-19	23
+Arial 10	bottom F+10 Times New Roman 10	23	23	46	-2	26-39	43
+Arial 10	bottom 2F Times New Roman 10	26	26	52	-2	32-45	49
+Arial 10	wrapped 2 Times New Roman 10		28	56	-2	10-23 36-49	27 53
+Arial 10	wrapped 3 Times New Roman 10		42	84	-2	12-25 38-51 64-77	29 55 81
+Arial 10	natural Times New Roman 11		14	28	-2	7-21	25
+Arial 10	top F Times New Roman 11	14	14	28	-2	7-21	25
+Arial 10	top F+10 Times New Roman 11	24	24	48	-2	7-21	26
+Arial 10	top 2F Times New Roman 11	28	28	56	-2	7-21	26
+Arial 10	center F Times New Roman 11	14	14	28	-2	7-21	25
+Arial 10	center F+10 Times New Roman 11	24	24	48	-2	17-31	36
+Arial 10	center 2F Times New Roman 11	28	28	56	-2	21-35	40
+Arial 10	bottom F Times New Roman 11	14	14	28	-2	7-21	25
+Arial 10	bottom F+10 Times New Roman 11	24	24	48	-2	27-41	45
+Arial 10	bottom 2F Times New Roman 11	28	28	56	-2	35-49	53
+Arial 10	wrapped 2 Times New Roman 11		30	60	-2	11-25 39-53	30 57
+Arial 10	wrapped 3 Times New Roman 11		45	90	-2	13-27 41-55 69-83	32 60 87
+Arial 10	natural Times New Roman 12		16	32	-2	8-23	28
+Arial 10	top F Times New Roman 12	16	16	32	-2	8-23	28
+Arial 10	top F+10 Times New Roman 12	26	26	52	-2	8-23	28
+Arial 10	top 2F Times New Roman 12	32	32	64	-2	8-23	28
+Arial 10	center F Times New Roman 12	16	16	30	0	8-23	28
+Arial 10	center F+10 Times New Roman 12	26	26	52	-2	18-33	38
+Arial 10	center 2F Times New Roman 12	32	32	64	-2	24-39	44
+Arial 10	bottom F Times New Roman 12	16	16	32	-2	8-23	28
+Arial 10	bottom F+10 Times New Roman 12	26	26	52	-2	28-43	48
+Arial 10	bottom 2F Times New Roman 12	32	32	64	-2	40-55	60
+Arial 10	wrapped 2 Times New Roman 12		34	68	-2	12-27 44-59	32 64
+Arial 10	wrapped 3 Times New Roman 12		51	102	-2	14-29 46-61 78-93	34 66 98
+Arial 10	natural Times New Roman 14		18	36	-2	9-27	33
+Arial 10	top F Times New Roman 14	18	18	36	-2	9-27	33
+Arial 10	top F+10 Times New Roman 14	28	28	56	-2	9-27	33
+Arial 10	top 2F Times New Roman 14	36	36	72	-2	9-27	33
+Arial 10	center F Times New Roman 14	18	18	36	-2	9-27	33
+Arial 10	center F+10 Times New Roman 14	28	28	56	-2	19-37	43
+Arial 10	center 2F Times New Roman 14	36	36	72	-2	27-45	51
+Arial 10	bottom F Times New Roman 14	18	18	36	-2	9-27	33
+Arial 10	bottom F+10 Times New Roman 14	28	28	56	-2	29-47	53
+Arial 10	bottom 2F Times New Roman 14	36	36	72	-2	45-63	69
+Arial 10	wrapped 2 Times New Roman 14		38	76	-2	13-31 49-67	37 73
+Arial 10	wrapped 3 Times New Roman 14		57	114	-2	15-33 51-69 87-105	39 75 111
+Arial 10	natural Times New Roman 16		20	40	-2	10-31	37
+Arial 10	top F Times New Roman 16	20	20	40	-2	10-31	37
+Arial 10	top F+10 Times New Roman 16	30	30	60	-2	10-31	38
+Arial 10	top 2F Times New Roman 16	40	40	80	-2	10-31	38
+Arial 10	center F Times New Roman 16	20	20	40	-2	10-31	37
+Arial 10	center F+10 Times New Roman 16	30	30	60	-2	20-41	48
+Arial 10	center 2F Times New Roman 16	40	40	80	-2	30-51	58
+Arial 10	bottom F Times New Roman 16	20	20	40	-2	10-31	37
+Arial 10	bottom F+10 Times New Roman 16	30	30	60	-2	30-51	57
+Arial 10	bottom 2F Times New Roman 16	40	40	80	-2	50-71	77
+Arial 10	wrapped 2 Times New Roman 16		42	84	-2	14-35 54-75	42 81
+Arial 10	wrapped 3 Times New Roman 16		63	126	-2	16-37 56-77 96-117	44 84 123
+Arial 10	natural Times New Roman 18		23	46	-2	12-35	43
+Arial 10	top F Times New Roman 18	23	23	46	-2	12-35	43
+Arial 10	top F+10 Times New Roman 18	33	33	64	0	12-35	43
+Arial 10	top 2F Times New Roman 18	46	46	92	-2	12-35	43
+Arial 10	center F Times New Roman 18	23	23	46	-2	12-35	43
+Arial 10	center F+10 Times New Roman 18	33	33	66	-2	22-45	53
+Arial 10	center 2F Times New Roman 18	46	46	92	-2	34-57	65
+Arial 10	bottom F Times New Roman 18	23	23	46	-2	12-35	43
+Arial 10	bottom F+10 Times New Roman 18	33	33	66	-2	32-55	63
+Arial 10	bottom 2F Times New Roman 18	46	46	92	-2	58-81	89
+Arial 10	wrapped 2 Times New Roman 18		48	96	-2	16-39 62-85	47 93
+Arial 10	wrapped 3 Times New Roman 18		72	144	-2	18-41 64-87 110-133	49 95 141
+Arial 10	natural Times New Roman 20		25	50	-2	13-39	47
+Arial 10	top F Times New Roman 20	25	25	50	-2	13-39	47
+Arial 10	top F+10 Times New Roman 20	35	35	70	-2	13-39	48
+Arial 10	top 2F Times New Roman 20	50	50	100	-2	13-39	48
+Arial 10	center F Times New Roman 20	25	25	50	-2	13-39	47
+Arial 10	center F+10 Times New Roman 20	35	35	70	-2	23-49	58
+Arial 10	center 2F Times New Roman 20	50	50	100	-2	37-63	72
+Arial 10	bottom F Times New Roman 20	25	25	50	-2	13-39	47
+Arial 10	bottom F+10 Times New Roman 20	35	35	70	-2	33-59	67
+Arial 10	bottom 2F Times New Roman 20	50	50	100	-2	63-89	97
+Arial 10	wrapped 2 Times New Roman 20		52	104	-2	17-43 67-93	52 101
+Arial 10	wrapped 3 Times New Roman 20		78	156	-2	19-45 69-95 119-145	54 104 153
+Arial 10	natural Times New Roman 24		30	60	-2	16-47	57
+Arial 10	top F Times New Roman 24	30	30	60	-2	16-47	57
+Arial 10	top F+10 Times New Roman 24	40	40	80	-2	16-47	57
+Arial 10	top 2F Times New Roman 24	60	60	118	0	16-47	57
+Arial 10	center F Times New Roman 24	30	30	60	-2	16-47	57
+Arial 10	center F+10 Times New Roman 24	40	40	80	-2	26-57	67
+Arial 10	center 2F Times New Roman 24	60	60	120	-2	46-77	87
+Arial 10	bottom F Times New Roman 24	30	30	60	-2	16-47	57
+Arial 10	bottom F+10 Times New Roman 24	40	40	80	-2	36-67	77
+Arial 10	bottom 2F Times New Roman 24	60	60	120	-2	76-107	117
+Arial 10	wrapped 2 Times New Roman 24		62	124	-2	20-51 80-111	61 121
+Arial 10	wrapped 3 Times New Roman 24		93	186	-2	22-53 82-113 142-173	63 123 183
+Arial 10	natural Courier New 9		14	28	-2	9-19	22
+Arial 10	top F Courier New 9	13	13	26	-2	7-17	20
+Arial 10	top F+10 Courier New 9	23	23	46	-2	7-17	20
+Arial 10	top 2F Courier New 9	26	26	52	-2	7-17	20
+Arial 10	center F Courier New 9	13	13	26	-2	7-17	20
+Arial 10	center F+10 Courier New 9	23	23	46	-2	17-27	30
+Arial 10	center 2F Courier New 9	26	26	52	-2	19-29	32
+Arial 10	bottom F Courier New 9	13	13	26	-2	7-17	20
+Arial 10	bottom F+10 Courier New 9	23	23	46	-2	27-37	40
+Arial 10	bottom 2F Courier New 9	26	26	52	-2	33-43	46
+Arial 10	wrapped 2 Courier New 9		28	56	-2	11-21 37-47	24 50
+Arial 10	wrapped 3 Courier New 9		42	84	-2	13-23 39-49 65-75	26 52 78
+Arial 10	natural Courier New 10		14	28	-2	8-19	23
+Arial 10	top F Courier New 10	14	14	28	-2	8-19	23
+Arial 10	top F+10 Courier New 10	24	24	48	-2	8-19	23
+Arial 10	top 2F Courier New 10	28	28	56	-2	8-19	23
+Arial 10	center F Courier New 10	14	14	28	-2	8-19	23
+Arial 10	center F+10 Courier New 10	24	24	48	-2	18-29	33
+Arial 10	center 2F Courier New 10	28	28	56	-2	22-33	37
+Arial 10	bottom F Courier New 10	14	14	28	-2	8-19	23
+Arial 10	bottom F+10 Courier New 10	24	24	48	-2	28-39	43
+Arial 10	bottom 2F Courier New 10	28	28	56	-2	36-47	51
+Arial 10	wrapped 2 Courier New 10		30	60	-2	12-23 40-51	27 55
+Arial 10	wrapped 3 Courier New 10		45	90	-2	14-25 42-53 70-81	29 57 85
+Arial 10	natural Courier New 11		15	30	-2	9-21	25
+Arial 10	top F Courier New 11	15	15	28	0	9-21	25
+Arial 10	top F+10 Courier New 11	25	25	50	-2	9-21	25
+Arial 10	top 2F Courier New 11	30	30	60	-2	9-21	25
+Arial 10	center F Courier New 11	15	15	30	-2	9-21	25
+Arial 10	center F+10 Courier New 11	25	25	50	-2	19-31	35
+Arial 10	center 2F Courier New 11	30	30	60	-2	23-35	39
+Arial 10	bottom F Courier New 11	15	15	30	-2	9-21	25
+Arial 10	bottom F+10 Courier New 11	25	25	50	-2	29-41	45
+Arial 10	bottom 2F Courier New 11	30	30	60	-2	39-51	55
+Arial 10	wrapped 2 Courier New 11		32	64	-2	13-25 43-55	29 59
+Arial 10	wrapped 3 Courier New 11		48	96	-2	15-27 45-57 75-87	31 61 91
+Arial 10	natural Courier New 12		17	34	-2	10-23	28
+Arial 10	top F Courier New 12	17	17	34	-2	10-23	28
+Arial 10	top F+10 Courier New 12	27	27	54	-2	10-23	28
+Arial 10	top 2F Courier New 12	34	34	68	-2	10-23	28
+Arial 10	center F Courier New 12	17	17	34	-2	10-23	28
+Arial 10	center F+10 Courier New 12	27	27	54	-2	20-33	38
+Arial 10	center 2F Courier New 12	34	34	68	-2	26-39	44
+Arial 10	bottom F Courier New 12	17	17	34	-2	10-23	28
+Arial 10	bottom F+10 Courier New 12	27	27	54	-2	30-43	48
+Arial 10	bottom 2F Courier New 12	34	34	68	-2	44-57	62
+Arial 10	wrapped 2 Courier New 12		36	72	-2	14-27 48-61	32 66
+Arial 10	wrapped 3 Courier New 12		54	108	-2	16-29 50-63 84-97	34 68 102
+Arial 10	natural Courier New 14		19	38	-2	12-27	32
+Arial 10	top F Courier New 14	19	19	38	-2	12-27	32
+Arial 10	top F+10 Courier New 14	29	29	58	-2	12-27	32
+Arial 10	top 2F Courier New 14	38	38	76	-2	12-27	32
+Arial 10	center F Courier New 14	19	19	38	-2	12-27	32
+Arial 10	center F+10 Courier New 14	29	29	58	-2	22-37	42
+Arial 10	center 2F Courier New 14	38	38	76	-2	30-45	50
+Arial 10	bottom F Courier New 14	19	19	38	-2	12-27	32
+Arial 10	bottom F+10 Courier New 14	29	29	58	-2	32-47	52
+Arial 10	bottom 2F Courier New 14	38	38	76	-2	50-65	70
+Arial 10	wrapped 2 Courier New 14		40	80	-2	16-31 54-69	36 74
+Arial 10	wrapped 3 Courier New 14		60	120	-2	18-33 56-71 94-109	38 76 114
+Arial 10	natural Courier New 16		22	44	-2	13-31	37
+Arial 10	top F Courier New 16	22	22	42	0	13-31	37
+Arial 10	top F+10 Courier New 16	32	32	64	-2	13-31	37
+Arial 10	top 2F Courier New 16	44	44	88	-2	13-31	37
+Arial 10	center F Courier New 16	22	22	44	-2	13-31	37
+Arial 10	center F+10 Courier New 16	32	32	64	-2	23-41	47
+Arial 10	center 2F Courier New 16	44	44	88	-2	35-53	59
+Arial 10	bottom F Courier New 16	22	22	44	-2	13-31	37
+Arial 10	bottom F+10 Courier New 16	32	32	64	-2	33-51	57
+Arial 10	bottom 2F Courier New 16	44	44	88	-2	57-75	81
+Arial 10	wrapped 2 Courier New 16		46	92	-2	17-35 61-79	41 85
+Arial 10	wrapped 3 Courier New 16		69	138	-2	19-37 63-81 107-125	43 87 131
+Arial 10	natural Courier New 18		24	48	-2	15-35	42
+Arial 10	top F Courier New 18	24	24	48	-2	15-35	42
+Arial 10	top F+10 Courier New 18	34	34	68	-2	15-35	42
+Arial 10	top 2F Courier New 18	48	48	96	-2	15-35	42
+Arial 10	center F Courier New 18	24	24	48	-2	15-35	42
+Arial 10	center F+10 Courier New 18	34	34	68	-2	25-45	52
+Arial 10	center 2F Courier New 18	48	48	96	-2	39-59	66
+Arial 10	bottom F Courier New 18	24	24	48	-2	15-35	42
+Arial 10	bottom F+10 Courier New 18	34	34	68	-2	35-55	62
+Arial 10	bottom 2F Courier New 18	48	48	96	-2	63-83	90
+Arial 10	wrapped 2 Courier New 18		50	100	-2	19-39 67-87	46 94
+Arial 10	wrapped 3 Courier New 18		75	150	-2	21-41 69-89 117-137	48 96 144
+Arial 10	natural Courier New 20		27	54	-2	17-39	47
+Arial 10	top F Courier New 20	27	27	54	-2	17-39	47
+Arial 10	top F+10 Courier New 20	37	37	74	-2	17-39	47
+Arial 10	top 2F Courier New 20	54	54	108	-2	17-39	47
+Arial 10	center F Courier New 20	27	27	52	0	17-39	47
+Arial 10	center F+10 Courier New 20	37	37	74	-2	27-49	57
+Arial 10	center 2F Courier New 20	54	54	108	-2	43-65	73
+Arial 10	bottom F Courier New 20	27	27	54	-2	17-39	47
+Arial 10	bottom F+10 Courier New 20	37	37	74	-2	37-59	67
+Arial 10	bottom 2F Courier New 20	54	54	108	-2	71-93	101
+Arial 10	wrapped 2 Courier New 20		56	112	-2	21-43 75-97	51 105
+Arial 10	wrapped 3 Courier New 20		84	168	-2	23-45 77-99 131-153	53 107 161
+Arial 10	natural Courier New 24		32	64	-2	20-47	56
+Arial 10	top F Courier New 24	32	32	64	-2	20-47	56
+Arial 10	top F+10 Courier New 24	42	42	84	-2	20-47	56
+Arial 10	top 2F Courier New 24	64	64	128	-2	20-47	56
+Arial 10	center F Courier New 24	32	32	64	-2	20-47	56
+Arial 10	center F+10 Courier New 24	42	42	84	-2	30-57	66
+Arial 10	center 2F Courier New 24	64	64	128	-2	52-79	88
+Arial 10	bottom F Courier New 24	32	32	64	-2	20-47	56
+Arial 10	bottom F+10 Courier New 24	42	42	84	-2	40-67	76
+Arial 10	bottom 2F Courier New 24	64	64	128	-2	84-111	120
+Arial 10	wrapped 2 Courier New 24		66	132	-2	24-51 88-115	60 124
+Arial 10	wrapped 3 Courier New 24		99	198	-2	26-53 90-117 154-181	62 126 190
+Arial 10	natural Georgia 9		13	26	-2	7-19	23
+Arial 10	top F Georgia 9	12	12	24	-2	5-17	21
+Arial 10	top F+10 Georgia 9	22	22	44	-2	5-17	21
+Arial 10	top 2F Georgia 9	24	24	46	0	5-17	21
+Arial 10	center F Georgia 9	12	12	24	-2	5-17	21
+Arial 10	center F+10 Georgia 9	22	22	44	-2	15-27	31
+Arial 10	center 2F Georgia 9	24	24	48	-2	17-29	33
+Arial 10	bottom F Georgia 9	12	12	24	-2	5-17	21
+Arial 10	bottom F+10 Georgia 9	22	22	44	-2	25-37	41
+Arial 10	bottom 2F Georgia 9	24	24	48	-2	29-41	45
+Arial 10	wrapped 2 Georgia 9		26	52	-2	9-21 33-45	25 49
+Arial 10	wrapped 3 Georgia 9		39	78	-2	11-23 35-47 59-71	27 51 75
+Arial 10	natural Georgia 10		13	26	-2	6-19	23
+Arial 10	top F Georgia 10	13	13	26	-2	6-19	23
+Arial 10	top F+10 Georgia 10	23	23	46	-2	6-19	23
+Arial 10	top 2F Georgia 10	26	26	52	-2	6-19	23
+Arial 10	center F Georgia 10	13	13	26	-2	6-19	23
+Arial 10	center F+10 Georgia 10	23	23	46	-2	16-29	33
+Arial 10	center 2F Georgia 10	26	26	52	-2	18-31	35
+Arial 10	bottom F Georgia 10	13	13	26	-2	6-19	23
+Arial 10	bottom F+10 Georgia 10	23	23	46	-2	26-39	43
+Arial 10	bottom 2F Georgia 10	26	26	52	-2	32-45	49
+Arial 10	wrapped 2 Georgia 10		28	56	-2	10-23 36-49	27 53
+Arial 10	wrapped 3 Georgia 10		42	84	-2	12-25 38-51 64-77	29 55 81
+Arial 10	natural Georgia 11		14	28	-2	6-21	25
+Arial 10	top F Georgia 11	14	14	28	-2	6-21	25
+Arial 10	top F+10 Georgia 11	24	24	48	-2	6-21	26
+Arial 10	top 2F Georgia 11	28	28	56	-2	6-21	26
+Arial 10	center F Georgia 11	14	14	28	-2	6-21	25
+Arial 10	center F+10 Georgia 11	24	24	48	-2	16-31	36
+Arial 10	center 2F Georgia 11	28	28	56	-2	20-35	40
+Arial 10	bottom F Georgia 11	14	14	28	-2	6-21	25
+Arial 10	bottom F+10 Georgia 11	24	24	48	-2	26-41	45
+Arial 10	bottom 2F Georgia 11	28	28	56	-2	34-49	53
+Arial 10	wrapped 2 Georgia 11		30	60	-2	10-25 38-53	30 57
+Arial 10	wrapped 3 Georgia 11		45	90	-2	12-27 40-55 68-83	32 60 87
+Arial 10	natural Georgia 12		16	32	-2	7-23	28
+Arial 10	top F Georgia 12	16	16	32	-2	7-23	28
+Arial 10	top F+10 Georgia 12	26	26	52	-2	7-23	28
+Arial 10	top 2F Georgia 12	32	32	64	-2	7-23	28
+Arial 10	center F Georgia 12	16	16	32	-2	7-23	28
+Arial 10	center F+10 Georgia 12	26	26	52	-2	17-33	38
+Arial 10	center 2F Georgia 12	32	32	64	-2	23-39	44
+Arial 10	bottom F Georgia 12	16	16	32	-2	7-23	28
+Arial 10	bottom F+10 Georgia 12	26	26	52	-2	27-43	48
+Arial 10	bottom 2F Georgia 12	32	32	64	-2	39-55	60
+Arial 10	wrapped 2 Georgia 12		34	66	0	11-27 43-59	32 64
+Arial 10	wrapped 3 Georgia 12		51	102	-2	13-29 45-61 77-93	34 66 98
+Arial 10	natural Georgia 14		18	36	-2	8-27	33
+Arial 10	top F Georgia 14	18	18	36	-2	8-27	33
+Arial 10	top F+10 Georgia 14	28	28	56	-2	8-27	33
+Arial 10	top 2F Georgia 14	36	36	72	-2	8-27	33
+Arial 10	center F Georgia 14	18	18	36	-2	8-27	33
+Arial 10	center F+10 Georgia 14	28	28	56	-2	18-37	43
+Arial 10	center 2F Georgia 14	36	36	72	-2	26-45	51
+Arial 10	bottom F Georgia 14	18	18	36	-2	8-27	33
+Arial 10	bottom F+10 Georgia 14	28	28	56	-2	28-47	53
+Arial 10	bottom 2F Georgia 14	36	36	72	-2	44-63	69
+Arial 10	wrapped 2 Georgia 14		38	76	-2	12-31 48-67	37 73
+Arial 10	wrapped 3 Georgia 14		57	114	-2	14-33 50-69 86-105	39 75 111
+Arial 10	natural Georgia 16		21	42	-2	9-31	38
+Arial 10	top F Georgia 16	21	21	42	-2	9-31	38
+Arial 10	top F+10 Georgia 16	31	31	62	-2	9-31	38
+Arial 10	top 2F Georgia 16	42	42	84	-2	9-31	38
+Arial 10	center F Georgia 16	21	21	42	-2	9-31	38
+Arial 10	center F+10 Georgia 16	31	31	62	-2	19-41	48
+Arial 10	center 2F Georgia 16	42	42	84	-2	29-51	58
+Arial 10	bottom F Georgia 16	21	21	42	-2	9-31	38
+Arial 10	bottom F+10 Georgia 16	31	31	62	-2	29-51	58
+Arial 10	bottom 2F Georgia 16	42	42	84	-2	51-73	80
+Arial 10	wrapped 2 Georgia 16		44	88	-2	13-35 55-77	42 84
+Arial 10	wrapped 3 Georgia 16		66	132	-2	15-37 57-79 99-121	44 86 128
+Arial 10	natural Georgia 18		23	46	-2	11-35	43
+Arial 10	top F Georgia 18	23	23	46	-2	11-35	43
+Arial 10	top F+10 Georgia 18	33	33	66	-2	11-35	43
+Arial 10	top 2F Georgia 18	46	46	92	-2	11-35	43
+Arial 10	center F Georgia 18	23	23	46	-2	11-35	43
+Arial 10	center F+10 Georgia 18	33	33	64	0	21-45	53
+Arial 10	center 2F Georgia 18	46	46	92	-2	33-57	65
+Arial 10	bottom F Georgia 18	23	23	46	-2	11-35	43
+Arial 10	bottom F+10 Georgia 18	33	33	66	-2	31-55	63
+Arial 10	bottom 2F Georgia 18	46	46	92	-2	57-81	89
+Arial 10	wrapped 2 Georgia 18		48	96	-2	15-39 61-85	47 93
+Arial 10	wrapped 3 Georgia 18		72	144	-2	17-41 63-87 109-133	49 95 141
+Arial 10	natural Georgia 20		25	50	-2	12-39	47
+Arial 10	top F Georgia 20	25	25	50	-2	12-39	47
+Arial 10	top F+10 Georgia 20	35	35	70	-2	12-39	48
+Arial 10	top 2F Georgia 20	50	50	100	-2	12-39	48
+Arial 10	center F Georgia 20	25	25	50	-2	12-39	47
+Arial 10	center F+10 Georgia 20	35	35	70	-2	22-49	58
+Arial 10	center 2F Georgia 20	50	50	100	-2	36-63	72
+Arial 10	bottom F Georgia 20	25	25	50	-2	12-39	47
+Arial 10	bottom F+10 Georgia 20	35	35	70	-2	32-59	67
+Arial 10	bottom 2F Georgia 20	50	50	100	-2	62-89	97
+Arial 10	wrapped 2 Georgia 20		52	104	-2	16-43 66-93	52 101
+Arial 10	wrapped 3 Georgia 20		78	156	-2	18-45 68-95 118-145	54 104 153
+Arial 10	natural Georgia 24		30	60	-2	14-47	57
+Arial 10	top F Georgia 24	30	30	60	-2	14-47	57
+Arial 10	top F+10 Georgia 24	40	40	80	-2	14-47	57
+Arial 10	top 2F Georgia 24	60	60	120	-2	14-47	57
+Arial 10	center F Georgia 24	30	30	60	-2	14-47	57
+Arial 10	center F+10 Georgia 24	40	40	78	0	24-57	67
+Arial 10	center 2F Georgia 24	60	60	120	-2	44-77	87
+Arial 10	bottom F Georgia 24	30	30	60	-2	14-47	57
+Arial 10	bottom F+10 Georgia 24	40	40	80	-2	34-67	77
+Arial 10	bottom 2F Georgia 24	60	60	120	-2	74-107	117
+Arial 10	wrapped 2 Georgia 24		62	124	-2	18-51 78-111	61 121
+Arial 10	wrapped 3 Georgia 24		93	186	-2	20-53 80-113 140-173	63 123 183
+Arial 10	natural Calibri 13		17	34	-2	9-25	30
+Arial 10	top F Calibri 13	17	17	34	-2	9-25	30
+Arial 10	top F+10 Calibri 13	27	27	54	-2	9-25	30
+Arial 10	top 2F Calibri 13	34	34	68	-2	9-25	30
+Arial 10	center F Calibri 13	17	17	34	-2	9-25	30
+Arial 10	center F+10 Calibri 13	27	27	54	-2	19-35	40
+Arial 10	center 2F Calibri 13	34	34	68	-2	25-41	46
+Arial 10	bottom F Calibri 13	17	17	34	-2	9-25	30
+Arial 10	bottom F+10 Calibri 13	27	27	54	-2	29-45	50
+Arial 10	bottom 2F Calibri 13	34	34	68	-2	43-59	64
+Arial 10	wrapped 2 Calibri 13		36	72	-2	13-29 47-63	34 68
+Arial 10	wrapped 3 Calibri 13		54	108	-2	15-31 49-65 83-99	36 70 104
+Arial 10	natural Calibri 15		20	40	-2	11-29	34
+Arial 10	top F Calibri 15	20	20	40	-2	11-29	34
+Arial 10	top F+10 Calibri 15	30	30	60	-2	11-29	34
+Arial 10	top 2F Calibri 15	40	40	80	-2	11-29	34
+Arial 10	center F Calibri 15	20	20	40	-2	11-29	34
+Arial 10	center F+10 Calibri 15	30	30	60	-2	21-39	44
+Arial 10	center 2F Calibri 15	40	40	80	-2	31-49	54
+Arial 10	bottom F Calibri 15	20	20	40	-2	11-29	34
+Arial 10	bottom F+10 Calibri 15	30	30	60	-2	31-49	54
+Arial 10	bottom 2F Calibri 15	40	40	80	-2	51-69	74
+Arial 10	wrapped 2 Calibri 15		42	82	0	15-33 55-73	38 78
+Arial 10	wrapped 3 Calibri 15		63	126	-2	17-35 57-75 97-115	40 80 120
+Arial 10	natural Calibri 17		23	46	-2	12-33	39
+Arial 10	top F Calibri 17	23	23	46	-2	12-33	39
+Arial 10	top F+10 Calibri 17	33	33	66	-2	12-33	39
+Arial 10	top 2F Calibri 17	46	46	92	-2	12-33	39
+Arial 10	center F Calibri 17	23	23	46	-2	12-33	39
+Arial 10	center F+10 Calibri 17	33	33	66	-2	22-43	49
+Arial 10	center 2F Calibri 17	46	46	92	-2	34-55	61
+Arial 10	bottom F Calibri 17	23	23	46	-2	12-33	39
+Arial 10	bottom F+10 Calibri 17	33	33	66	-2	32-53	59
+Arial 10	bottom 2F Calibri 17	46	46	92	-2	58-79	85
+Arial 10	wrapped 2 Calibri 17		48	96	-2	16-37 62-83	43 89
+Arial 10	wrapped 3 Calibri 17		72	144	-2	18-39 64-85 110-131	45 91 137
+Arial 10	natural Calibri 22		29	58	-2	16-43	51
+Arial 10	top F Calibri 22	29	29	58	-2	16-43	51
+Arial 10	top F+10 Calibri 22	39	39	78	-2	16-43	51
+Arial 10	top 2F Calibri 22	58	58	116	-2	16-43	51
+Arial 10	center F Calibri 22	29	29	58	-2	16-43	51
+Arial 10	center F+10 Calibri 22	39	39	78	-2	26-53	61
+Arial 10	center 2F Calibri 22	58	58	116	-2	44-71	79
+Arial 10	bottom F Calibri 22	29	29	58	-2	16-43	51
+Arial 10	bottom F+10 Calibri 22	39	39	78	-2	36-63	71
+Arial 10	bottom 2F Calibri 22	58	58	116	-2	74-101	109
+Arial 10	wrapped 2 Calibri 22		60	118	0	20-47 78-105	55 113
+Arial 10	wrapped 3 Calibri 22		90	180	-2	22-49 80-107 138-165	57 115 173
+Arial 10	natural Aptos Narrow 13		18	36	-2	9-25	30
+Arial 10	top F Aptos Narrow 13	18	18	36	-2	9-25	30
+Arial 10	top F+10 Aptos Narrow 13	28	28	56	-2	9-25	30
+Arial 10	top 2F Aptos Narrow 13	36	36	72	-2	9-25	30
+Arial 10	center F Aptos Narrow 13	18	18	36	-2	9-25	30
+Arial 10	center F+10 Aptos Narrow 13	28	28	56	-2	19-35	40
+Arial 10	center 2F Aptos Narrow 13	36	36	72	-2	27-43	48
+Arial 10	bottom F Aptos Narrow 13	18	18	36	-2	9-25	30
+Arial 10	bottom F+10 Aptos Narrow 13	28	28	56	-2	29-45	50
+Arial 10	bottom 2F Aptos Narrow 13	36	36	72	-2	45-61	66
+Arial 10	wrapped 2 Aptos Narrow 13		38	76	-2	13-29 49-65	34 70
+Arial 10	wrapped 3 Aptos Narrow 13		57	114	-2	15-31 51-67 87-103	36 72 108
+Arial 10	natural Aptos Narrow 15		20	40	-2	10-29	35
+Arial 10	top F Aptos Narrow 15	20	20	40	-2	10-29	35
+Arial 10	top F+10 Aptos Narrow 15	30	30	60	-2	10-29	35
+Arial 10	top 2F Aptos Narrow 15	40	40	80	-2	10-29	35
+Arial 10	center F Aptos Narrow 15	20	20	40	-2	10-29	35
+Arial 10	center F+10 Aptos Narrow 15	30	30	60	-2	20-39	45
+Arial 10	center 2F Aptos Narrow 15	40	40	80	-2	30-49	55
+Arial 10	bottom F Aptos Narrow 15	20	20	40	-2	10-29	35
+Arial 10	bottom F+10 Aptos Narrow 15	30	30	60	-2	30-49	55
+Arial 10	bottom 2F Aptos Narrow 15	40	40	80	-2	50-69	75
+Arial 10	wrapped 2 Aptos Narrow 15		42	84	-2	14-33 54-73	39 79
+Arial 10	wrapped 3 Aptos Narrow 15		63	126	-2	16-35 56-75 96-115	41 81 121
+Arial 10	natural Aptos Narrow 17		23	46	-2	11-33	39
+Arial 10	top F Aptos Narrow 17	23	23	46	-2	11-33	39
+Arial 10	top F+10 Aptos Narrow 17	33	33	66	-2	11-33	39
+Arial 10	top 2F Aptos Narrow 17	46	46	92	-2	11-33	39
+Arial 10	center F Aptos Narrow 17	23	23	44	0	11-33	39
+Arial 10	center F+10 Aptos Narrow 17	33	33	66	-2	21-43	49
+Arial 10	center 2F Aptos Narrow 17	46	46	92	-2	33-55	61
+Arial 10	bottom F Aptos Narrow 17	23	23	46	-2	11-33	39
+Arial 10	bottom F+10 Aptos Narrow 17	33	33	66	-2	31-53	59
+Arial 10	bottom 2F Aptos Narrow 17	46	46	92	-2	57-79	85
+Arial 10	wrapped 2 Aptos Narrow 17		48	96	-2	15-37 61-83	43 89
+Arial 10	wrapped 3 Aptos Narrow 17		72	144	-2	17-39 63-85 109-131	45 91 137
+Arial 10	natural Aptos Narrow 22		29	58	-2	15-43	51
+Arial 10	top F Aptos Narrow 22	29	29	58	-2	15-43	51
+Arial 10	top F+10 Aptos Narrow 22	39	39	78	-2	15-43	51
+Arial 10	top 2F Aptos Narrow 22	58	58	116	-2	15-43	51
+Arial 10	center F Aptos Narrow 22	29	29	58	-2	15-43	51
+Arial 10	center F+10 Aptos Narrow 22	39	39	78	-2	25-53	61
+Arial 10	center 2F Aptos Narrow 22	58	58	116	-2	43-71	79
+Arial 10	bottom F Aptos Narrow 22	29	29	58	-2	15-43	51
+Arial 10	bottom F+10 Aptos Narrow 22	39	39	78	-2	35-63	71
+Arial 10	bottom 2F Aptos Narrow 22	58	58	116	-2	73-101	109
+Arial 10	wrapped 2 Aptos Narrow 22		60	120	-2	19-47 77-105	55 113
+Arial 10	wrapped 3 Aptos Narrow 22		90	182	-2	21-49 79-107 137-165	57 115 173

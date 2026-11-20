@@ -197,8 +197,9 @@ def run() -> None:
             for old in folder.glob("*.png"):
                 old.unlink()
             (folder / "heights.txt").write_text(heights + "\n")
-            if _request("zoom", NAME, str(zoom)) != str(zoom):
-                sys.exit(f"zoom {zoom} not set")
+            reported = _request("zoom", NAME, str(zoom))
+            if float(reported) != zoom:
+                sys.exit(f"zoom {zoom} not set: Excel reports {reported!r}")
             top = 1
             while top <= n:
                 if _request("scroll", NAME, str(top)) != str(top):

@@ -1,0 +1,401 @@
+# suite: rules (capture.screen_rules); Excel for Mac, en_US
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# captured: 2026-11-19; window captures at zoom 100 and 200 on a display of scale 2; pixels from the row's top: the H stems' last ink row, each rule's first and last row; color: the mean of the text's colored ink, or black
+zoom	tag	row_height	pixels_per_point	baseline_px	measured
+100	Calibri 9 none	15	2	29	
+100	Calibri 9 single	15	2	25	
+100	Calibri 9 double	15	2	19	20-21 24-25
+100	Calibri 9 singleAccounting	17	2	21	26-27
+100	Calibri 9 doubleAccounting	17	2	21	26-27 30-31
+100	Calibri 9 strike	15	2	21	18-19
+100	Calibri 11 none	15	2	21	
+100	Calibri 11 single	15	2	21	24-25
+100	Calibri 11 double	15	2	21	22-23 26-27
+100	Calibri 11 singleAccounting	18	2	21	28-29
+100	Calibri 11 doubleAccounting	18	2	21	28-29 32-33
+100	Calibri 11 strike	15	2	21	16-17
+100	Calibri 14 none	19	2	27	
+100	Calibri 14 single	19	2	27	30-31
+100	Calibri 14 double	19	2	27	30-31 34-35
+100	Calibri 14 singleAccounting	22	2	27	36-37
+100	Calibri 14 doubleAccounting	22	2	27	36-37 40-41
+100	Calibri 14 strike	19	2	27	20-21
+100	Calibri 20 none	26	2	39	
+100	Calibri 20 single	26	2	39	44-45
+100	Calibri 20 double	26	2	39	44-45 48-49
+100	Calibri 20 singleAccounting	29	2	39	50-51
+100	Calibri 20 doubleAccounting	29	2	39	50-51 54-55
+100	Calibri 20 strike	26	2	39	30-31
+100	Calibri 36 none	47	2	71	
+100	Calibri 36 single	47	2	71	80-83
+100	Calibri 36 double	47	2	71	80-83 88-91
+100	Calibri 36 singleAccounting	53	2	71	92-95
+100	Calibri 36 doubleAccounting	53	2	71	92-95 100-103
+100	Calibri 36 strike	47	2	71	54-57
+100	Arial 9 none	15	2	21	
+100	Arial 9 single	15	2	21	22-23
+100	Arial 9 double	15	2	19	20-21 24-25
+100	Arial 9 singleAccounting	17	2	21	26-27
+100	Arial 9 doubleAccounting	17	2	21	26-27 30-31
+100	Arial 9 strike	15	2	21	18-19
+100	Arial 11 none	15	2	21	
+100	Arial 11 single	15	2	21	24-25
+100	Arial 11 double	15	2	19	20-21 24-25
+100	Arial 11 singleAccounting	17	2	21	26-27
+100	Arial 11 doubleAccounting	17	2	21	26-27 30-31
+100	Arial 11 strike	15	2	21	16-17
+100	Arial 14 none	18	2	27	
+100	Arial 14 single	18	2	27	30-31
+100	Arial 14 double	18	2	27	28-29 32-33
+100	Arial 14 singleAccounting	21	2	27	34-35
+100	Arial 14 doubleAccounting	21	2	27	34-35 38-39
+100	Arial 14 strike	18	2	27	20-21
+100	Arial 20 none	25	2	39	
+100	Arial 20 single	25	2	39	44-45
+100	Arial 20 double	25	2	39	42-43 46-47
+100	Arial 20 singleAccounting	28	2	39	48-49
+100	Arial 20 doubleAccounting	28	2	39	48-49 52-53
+100	Arial 20 strike	25	2	39	30-31
+100	Arial 36 none	45	2	71	
+100	Arial 36 single	45	2	71	78-81
+100	Arial 36 double	45	2	71	74-77 82-85
+100	Arial 36 singleAccounting	51	2	71	88-91
+100	Arial 36 doubleAccounting	51	2	71	88-91 96-99
+100	Arial 36 strike	45	2	71	54-57
+100	Aptos Narrow 9 none	15	2	21	
+100	Aptos Narrow 9 single	15	2	21	22-23
+100	Aptos Narrow 9 double	15	2	21	22-23 26-27
+100	Aptos Narrow 9 singleAccounting	18	2	21	28-29
+100	Aptos Narrow 9 doubleAccounting	18	2	21	28-29 32-33
+100	Aptos Narrow 9 strike	15	2	21	16-17
+100	Aptos Narrow 11 none	15	2	21	
+100	Aptos Narrow 11 single	15	2	21	22-23
+100	Aptos Narrow 11 double	15	2	21	22-23 26-27
+100	Aptos Narrow 11 singleAccounting	18	2	21	28-29
+100	Aptos Narrow 11 doubleAccounting	18	2	21	28-29 32-33
+100	Aptos Narrow 11 strike	15	2	21	14-15
+100	Aptos Narrow 14 none	19	2	27	
+100	Aptos Narrow 14 single	19	2	27	28-29
+100	Aptos Narrow 14 double	19	2	27	28-29 32-33
+100	Aptos Narrow 14 singleAccounting	22	2	27	36-37
+100	Aptos Narrow 14 doubleAccounting	22	2	27	36-37 40-41
+100	Aptos Narrow 14 strike	19	2	27	18-19
+100	Aptos Narrow 20 none	27	2	39	
+100	Aptos Narrow 20 single	27	2	39	40-41
+100	Aptos Narrow 20 double	27	2	39	40-41 44-45
+100	Aptos Narrow 20 singleAccounting	30	2	39	52-53
+100	Aptos Narrow 20 doubleAccounting	30	2	39	52-53 56-57
+100	Aptos Narrow 20 strike	27	2	39	26-27
+100	Aptos Narrow 36 none	47	2	71	
+100	Aptos Narrow 36 single	47	2	71	74-75
+100	Aptos Narrow 36 double	47	2	71	74-75 78-79
+100	Aptos Narrow 36 singleAccounting	50	2	71	92-93
+100	Aptos Narrow 36 doubleAccounting	50	2	71	92-93 96-97
+100	Aptos Narrow 36 strike	47	2	71	46-49
+100	Times New Roman 9 none	15	2	21	
+100	Times New Roman 9 single	15	2	21	22-23
+100	Times New Roman 9 double	15	2	19	20-21 24-25
+100	Times New Roman 9 singleAccounting	17	2	21	26-27
+100	Times New Roman 9 doubleAccounting	17	2	21	26-27 30-31
+100	Times New Roman 9 strike	15	2	21	18-19
+100	Times New Roman 11 none	15	2	21	
+100	Times New Roman 11 single	15	2	21	24-25
+100	Times New Roman 11 double	15	2	19	20-21 24-25
+100	Times New Roman 11 singleAccounting	17	2	21	26-27
+100	Times New Roman 11 doubleAccounting	17	2	21	26-27 30-31
+100	Times New Roman 11 strike	15	2	21	16-17
+100	Times New Roman 14 none	18	2	27	
+100	Times New Roman 14 single	18	2	27	30-31
+100	Times New Roman 14 double	18	2	27	28-29 32-33
+100	Times New Roman 14 singleAccounting	21	2	27	34-35
+100	Times New Roman 14 doubleAccounting	21	2	27	34-35 38-39
+100	Times New Roman 14 strike	18	2	27	20-21
+100	Times New Roman 20 none	25	2	39	
+100	Times New Roman 20 single	25	2	39	44-45
+100	Times New Roman 20 double	25	2	39	42-43 46-47
+100	Times New Roman 20 singleAccounting	28	2	39	48-49
+100	Times New Roman 20 doubleAccounting	28	2	39	48-49 52-53
+100	Times New Roman 20 strike	25	2	39	30-31
+100	Times New Roman 36 none	45	2	71	
+100	Times New Roman 36 single	45	2	71	78-79
+100	Times New Roman 36 double	45	2	71	78-79 82-83
+100	Times New Roman 36 singleAccounting	48	2	71	88-89
+100	Times New Roman 36 doubleAccounting	48	2	71	88-89 92-93
+100	Times New Roman 36 strike	45	2	71	54-57
+100	Courier New 9 none	15	2	21	
+100	Courier New 9 single	15	2	21	26-27
+100	Courier New 9 double	15	2	21	22-23 26-27
+100	Courier New 9 singleAccounting	18	2	21	28-29
+100	Courier New 9 doubleAccounting	18	2	21	28-29 32-33
+100	Courier New 9 strike	15	2	21	18-19
+100	Courier New 11 none	15	2	21	
+100	Courier New 11 single	15	2	21	26-27
+100	Courier New 11 double	15	2	21	22-23 26-27
+100	Courier New 11 singleAccounting	18	2	21	28-29
+100	Courier New 11 doubleAccounting	18	2	21	28-29 32-33
+100	Courier New 11 strike	15	2	21	16-17
+100	Courier New 14 none	19	2	27	
+100	Courier New 14 single	19	2	27	34-35
+100	Courier New 14 double	19	2	27	30-31 34-35
+100	Courier New 14 singleAccounting	22	2	27	36-37
+100	Courier New 14 doubleAccounting	22	2	27	36-37 40-41
+100	Courier New 14 strike	19	2	27	20-21
+100	Courier New 20 none	27	2	39	
+100	Courier New 20 single	27	2	39	42-43
+100	Courier New 20 double	27	2	39	42-43 48-49
+100	Courier New 20 singleAccounting	31	2	39	52-53
+100	Courier New 20 doubleAccounting	31	2	39	52-53 58-59
+100	Courier New 20 strike	27	2	39	30-31
+100	Courier New 36 none	48	2	71	
+100	Courier New 36 single	48	2	71	78-79
+100	Courier New 36 double	48	2	71	78-79 88-89
+100	Courier New 36 singleAccounting	54	2	71	94-95
+100	Courier New 36 doubleAccounting	54	2	71	94-95 104-105
+100	Courier New 36 strike	48	2	71	54-57
+100	Georgia 9 none	15	2	21	
+100	Georgia 9 single	15	2	21	22-23
+100	Georgia 9 double	15	2	19	20-21 24-25
+100	Georgia 9 singleAccounting	17	2	21	26-27
+100	Georgia 9 doubleAccounting	17	2	21	26-27 30-31
+100	Georgia 9 strike	15	2	21	16-17
+100	Georgia 11 none	15	2	21	
+100	Georgia 11 single	15	2	21	22-23
+100	Georgia 11 double	15	2	19	20-21 24-25
+100	Georgia 11 singleAccounting	17	2	21	26-27
+100	Georgia 11 doubleAccounting	17	2	21	26-27 30-31
+100	Georgia 11 strike	15	2	21	16-17
+100	Georgia 14 none	18	2	27	
+100	Georgia 14 single	18	2	27	30-31
+100	Georgia 14 double	18	2	27	28-29 32-33
+100	Georgia 14 singleAccounting	21	2	27	34-35
+100	Georgia 14 doubleAccounting	21	2	27	34-35 38-39
+100	Georgia 14 strike	18	2	27	20-21
+100	Georgia 20 none	25	2	39	
+100	Georgia 20 single	25	2	39	42-43
+100	Georgia 20 double	25	2	39	42-43 46-47
+100	Georgia 20 singleAccounting	28	2	39	48-49
+100	Georgia 20 doubleAccounting	28	2	39	48-49 52-53
+100	Georgia 20 strike	25	2	39	28-29
+100	Georgia 36 none	45	2	71	
+100	Georgia 36 single	45	2	71	78-79
+100	Georgia 36 double	45	2	71	78-79 82-83
+100	Georgia 36 singleAccounting	48	2	71	88-89
+100	Georgia 36 doubleAccounting	48	2	71	88-89 92-93
+100	Georgia 36 strike	45	2	71	52-55
+100	'Total' General	15	2		black
+100	12 General	15	2		black
+100	'Total' [Blue]General	15	2		50 50 246
+100	12 [Blue]General	15	2		33 33 245
+100	'Total' [Red]0.0	15	2		black
+100	12 [Red]0.0	15	2		235 70 57
+100	'Total' [Blue]@	15	2		50 50 246
+100	12 [Blue]@	15	2		black
+100	'Total' [Blue]0;[Red]0	15	2		black
+100	12 [Blue]0;[Red]0	15	2		33 33 245
+100	'Total' [Blue]0;[Red]0;[Magenta]0	15	2		black
+100	12 [Blue]0;[Red]0;[Magenta]0	15	2		33 33 245
+100	'Total' [Blue]0;[Red]0;[Magenta]0;@	15	2		black
+100	12 [Blue]0;[Red]0;[Magenta]0;@	15	2		33 33 245
+100	'Total' [Blue]0;[Red]0;[Magenta]0;[Red]@	15	2		235 77 65
+100	12 [Blue]0;[Red]0;[Magenta]0;[Red]@	15	2		33 33 245
+100	'Total' [Red][<0]0;[Blue]0	15	2		black
+100	12 [Red][<0]0;[Blue]0	15	2		33 33 245
+200	Calibri 9 none	15	4	43	
+200	Calibri 9 single	15	4	43	48-49
+200	Calibri 9 double	15	4	43	48-49 52-53
+200	Calibri 9 singleAccounting	17	4	43	54-55
+200	Calibri 9 doubleAccounting	17	4	43	54-55 58-59
+200	Calibri 9 strike	15	4	43	34-35
+200	Calibri 11 none	15	4	43	
+200	Calibri 11 single	15	4	43	48-49
+200	Calibri 11 double	15	4	43	48-49 52-53
+200	Calibri 11 singleAccounting	18	4	43	56-57
+200	Calibri 11 doubleAccounting	18	4	43	56-57 60-61
+200	Calibri 11 strike	15	4	43	32-33
+200	Calibri 14 none	19	4	55	
+200	Calibri 14 single	19	4	55	62-63
+200	Calibri 14 double	19	4	55	62-63 66-67
+200	Calibri 14 singleAccounting	22	4	55	72-73
+200	Calibri 14 doubleAccounting	22	4	55	72-73 76-77
+200	Calibri 14 strike	19	4	55	42-45
+200	Calibri 20 none	26	4	79	
+200	Calibri 20 single	26	4	79	88-91
+200	Calibri 20 double	26	4	79	88-91 96-99
+200	Calibri 20 singleAccounting	29	4	79	102-105
+200	Calibri 20 doubleAccounting	29	4	79	102-105 110-113
+200	Calibri 20 strike	26	4	79	60-65
+200	Calibri 36 none	47	4	143	
+200	Calibri 36 single	47	4	143	160-167
+200	Calibri 36 double	47	4	143	152-159 168-175
+200	Calibri 36 singleAccounting	53	4	143	182-189
+200	Calibri 36 doubleAccounting	53	4	143	182-189 198-205
+200	Calibri 36 strike	47	4	143	108-117
+200	Arial 9 none	15	4	43	
+200	Arial 9 single	15	4	43	46-47
+200	Arial 9 double	15	4	43	46-47 50-51
+200	Arial 9 singleAccounting	17	4	43	52-53
+200	Arial 9 doubleAccounting	17	4	43	52-53 56-57
+200	Arial 9 strike	15	4	43	34-35
+200	Arial 11 none	15	4	43	
+200	Arial 11 single	15	4	43	48-49
+200	Arial 11 double	15	4	43	48-49 52-53
+200	Arial 11 singleAccounting	17	4	43	54-55
+200	Arial 11 doubleAccounting	17	4	43	54-55 58-59
+200	Arial 11 strike	15	4	43	32-33
+200	Arial 14 none	18	4	55	
+200	Arial 14 single	18	4	55	60-63
+200	Arial 14 double	18	4	55	60-61 64-65
+200	Arial 14 singleAccounting	21	4	55	68-71
+200	Arial 14 doubleAccounting	21	4	55	68-69 72-73
+200	Arial 14 strike	18	4	55	42-43
+200	Arial 20 none	25	4	79	
+200	Arial 20 single	25	4	79	88-91
+200	Arial 20 double	25	4	79	82-85 90-93
+200	Arial 20 singleAccounting	28	4	79	96-99
+200	Arial 20 doubleAccounting	28	4	79	96-99 104-107
+200	Arial 20 strike	25	4	79	60-63
+200	Arial 36 none	45	4	143	
+200	Arial 36 single	45	4	143	158-167
+200	Arial 36 double	45	4	143	150-155 162-167
+200	Arial 36 singleAccounting	51	4	143	174-183
+200	Arial 36 doubleAccounting	51	4	143	174-179 186-191
+200	Arial 36 strike	45	4	143	106-113
+200	Aptos Narrow 9 none	15	4	43	
+200	Aptos Narrow 9 single	15	4	43	44-45
+200	Aptos Narrow 9 double	15	4	43	44-45 48-49
+200	Aptos Narrow 9 singleAccounting	18	4	43	54-55
+200	Aptos Narrow 9 doubleAccounting	18	4	43	54-55 58-59
+200	Aptos Narrow 9 strike	15	4	43	32-33
+200	Aptos Narrow 11 none	15	4	43	
+200	Aptos Narrow 11 single	15	4	43	46-47
+200	Aptos Narrow 11 double	15	4	43	46-47 50-51
+200	Aptos Narrow 11 singleAccounting	18	4	43	56-57
+200	Aptos Narrow 11 doubleAccounting	18	4	43	56-57 60-61
+200	Aptos Narrow 11 strike	15	4	43	28-29
+200	Aptos Narrow 14 none	19	4	55	
+200	Aptos Narrow 14 single	19	4	55	58-59
+200	Aptos Narrow 14 double	19	4	55	58-59 62-63
+200	Aptos Narrow 14 singleAccounting	22	4	55	72-73
+200	Aptos Narrow 14 doubleAccounting	22	4	55	72-73 76-77
+200	Aptos Narrow 14 strike	19	4	55	36-37
+200	Aptos Narrow 20 none	27	4	79	
+200	Aptos Narrow 20 single	27	4	79	82-83
+200	Aptos Narrow 20 double	27	4	79	82-83 86-87
+200	Aptos Narrow 20 singleAccounting	30	4	79	102-103
+200	Aptos Narrow 20 doubleAccounting	30	4	79	102-103 106-107
+200	Aptos Narrow 20 strike	27	4	79	52-55
+200	Aptos Narrow 36 none	47	4	143	
+200	Aptos Narrow 36 single	47	4	143	150-151
+200	Aptos Narrow 36 double	47	4	143	150-151 154-155
+200	Aptos Narrow 36 singleAccounting	50	4	143	184-185
+200	Aptos Narrow 36 doubleAccounting	50	4	143	184-185 188-189
+200	Aptos Narrow 36 strike	47	4	143	92-99
+200	Times New Roman 9 none	15	4	43	
+200	Times New Roman 9 single	15	4	43	46-47
+200	Times New Roman 9 double	15	4	43	46-47 50-51
+200	Times New Roman 9 singleAccounting	17	4	43	52-53
+200	Times New Roman 9 doubleAccounting	17	4	43	52-53 56-57
+200	Times New Roman 9 strike	15	4	43	34-35
+200	Times New Roman 11 none	15	4	43	
+200	Times New Roman 11 single	15	4	43	48-49
+200	Times New Roman 11 double	15	4	43	48-49 52-53
+200	Times New Roman 11 singleAccounting	17	4	43	54-55
+200	Times New Roman 11 doubleAccounting	17	4	43	54-55 58-59
+200	Times New Roman 11 strike	15	4	43	32-33
+200	Times New Roman 14 none	18	4	55	
+200	Times New Roman 14 single	18	4	55	62-63
+200	Times New Roman 14 double	18	4	55	62-63 66-67
+200	Times New Roman 14 singleAccounting	21	4	55	68-69
+200	Times New Roman 14 doubleAccounting	21	4	55	68-69 72-73
+200	Times New Roman 14 strike	18	4	55	42-43
+200	Times New Roman 20 none	25	4	79	
+200	Times New Roman 20 single	25	4	79	82-83
+200	Times New Roman 20 double	25	4	79	82-83 88-89
+200	Times New Roman 20 singleAccounting	28	4	79	98-99
+200	Times New Roman 20 doubleAccounting	28	4	79	98-99 104-105
+200	Times New Roman 20 strike	25	4	79	60-63
+200	Times New Roman 36 none	45	4	143	
+200	Times New Roman 36 single	45	4	143	158-163
+200	Times New Roman 36 double	45	4	143	158-163 170-175
+200	Times New Roman 36 singleAccounting	48	4	143	176-181
+200	Times New Roman 36 doubleAccounting	48	4	143	176-181 188-189
+200	Times New Roman 36 strike	45	4	143	0-1 106-113
+200	Courier New 9 none	15	4	43	
+200	Courier New 9 single	15	4	43	46-47
+200	Courier New 9 double	15	4	43	46-47 52-53
+200	Courier New 9 singleAccounting	18	4	43	54-55
+200	Courier New 9 doubleAccounting	18	4	43	54-55 60-61
+200	Courier New 9 strike	15	4	43	34-35
+200	Courier New 11 none	15	4	43	
+200	Courier New 11 single	15	4	43	48-49
+200	Courier New 11 double	15	4	43	48-49 54-55
+200	Courier New 11 singleAccounting	18	4	43	58-59
+200	Courier New 11 doubleAccounting	18	4	43	58-59 64-65
+200	Courier New 11 strike	15	4	43	32-33
+200	Courier New 14 none	19	4	55	
+200	Courier New 14 single	19	4	55	60-61
+200	Courier New 14 double	19	4	55	60-61 68-69
+200	Courier New 14 singleAccounting	22	4	55	72-73
+200	Courier New 14 doubleAccounting	22	4	55	72-73 80-81
+200	Courier New 14 strike	19	4	55	42-43
+200	Courier New 20 none	27	4	79	
+200	Courier New 20 single	27	4	79	88-89
+200	Courier New 20 double	27	4	79	88-89 98-99
+200	Courier New 20 singleAccounting	31	4	79	104-105
+200	Courier New 20 doubleAccounting	31	4	79	104-105 114-115
+200	Courier New 20 strike	27	4	79	60-63
+200	Courier New 36 none	48	4	143	
+200	Courier New 36 single	48	4	143	158-161
+200	Courier New 36 double	48	4	143	158-161 176-179
+200	Courier New 36 singleAccounting	54	4	143	188-191
+200	Courier New 36 doubleAccounting	54	4	143	188-191 206-209
+200	Courier New 36 strike	48	4	143	106-113
+200	Georgia 9 none	15	4	43	
+200	Georgia 9 single	15	4	43	46-47
+200	Georgia 9 double	15	4	43	46-47 50-51
+200	Georgia 9 singleAccounting	17	4	43	52-53
+200	Georgia 9 doubleAccounting	17	4	43	52-53 56-57
+200	Georgia 9 strike	15	4	43	34-35
+200	Georgia 11 none	15	4	43	
+200	Georgia 11 single	15	4	43	46-47
+200	Georgia 11 double	15	4	43	46-47 50-51
+200	Georgia 11 singleAccounting	17	4	43	54-55
+200	Georgia 11 doubleAccounting	17	4	43	54-55 58-59
+200	Georgia 11 strike	15	4	43	32-33
+200	Georgia 14 none	18	4	55	
+200	Georgia 14 single	18	4	55	60-61
+200	Georgia 14 double	18	4	55	60-61 64-65
+200	Georgia 14 singleAccounting	21	4	55	68-69
+200	Georgia 14 doubleAccounting	21	4	55	68-69 72-73
+200	Georgia 14 strike	18	4	55	40-41
+200	Georgia 20 none	25	4	79	
+200	Georgia 20 single	25	4	79	86-87
+200	Georgia 20 double	25	4	79	86-87 90-91
+200	Georgia 20 singleAccounting	28	4	79	98-99
+200	Georgia 20 doubleAccounting	28	4	79	98-99 102-103
+200	Georgia 20 strike	25	4	79	56-59
+200	Georgia 36 none	45	4	143	
+200	Georgia 36 single	45	4	143	156-161
+200	Georgia 36 double	45	4	143	156-161 168-173
+200	Georgia 36 singleAccounting	48	4	143	176-181
+200	Georgia 36 doubleAccounting	48	4	143	176-181 188-189
+200	Georgia 36 strike	45	4	143	0-1 102-109
+200	'Total' General	15	4		black
+200	12 General	15	4		black
+200	'Total' [Blue]General	15	4		19 19 245
+200	12 [Blue]General	15	4		30 30 245
+200	'Total' [Red]0.0	15	4		black
+200	12 [Red]0.0	15	4		235 66 52
+200	'Total' [Blue]@	15	4		19 19 245
+200	12 [Blue]@	15	4		black
+200	'Total' [Blue]0;[Red]0	15	4		black
+200	12 [Blue]0;[Red]0	15	4		30 30 245
+200	'Total' [Blue]0;[Red]0;[Magenta]0	15	4		black
+200	12 [Blue]0;[Red]0;[Magenta]0	15	4		30 30 245
+200	'Total' [Blue]0;[Red]0;[Magenta]0;@	15	4		black
+200	12 [Blue]0;[Red]0;[Magenta]0;@	15	4		30 30 245
+200	'Total' [Blue]0;[Red]0;[Magenta]0;[Red]@	15	4		235 64 50
+200	12 [Blue]0;[Red]0;[Magenta]0;[Red]@	15	4		30 30 245
+200	'Total' [Red][<0]0;[Blue]0	15	4		black
+200	12 [Red][<0]0;[Blue]0	15	4		30 30 245

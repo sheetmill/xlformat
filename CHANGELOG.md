@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `ink_metrics(font)` returning `InkMetrics(cap_height, descender)`: the measured ink of a face's
-  "H" and "g", which raises `LookupError` for a face or size not measured.
+  "H" and "g", which raises `LookupError` for a face or size not measured. Measured: the six faces
+  at 9 to 24 points, and Calibri and Aptos Narrow at 13, 15, 17 and 22.
 - `Font(..., underline=None)` takes a file's underline name (`"single"`, `"double"`,
   `"singleAccounting"`, `"doubleAccounting"`). `row_metrics` reads it: an accounting underline
   adds `3 · max(1, floor(size · underline thickness))` points to the row and to each wrapped line.
@@ -25,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `row_metrics` takes a row of several fonts as the largest `size + 1` plus the largest
   `height − size − 1`, the rule behind the earlier tables, which every captured row height follows;
   its results for the faces and sizes measured before are unchanged.
+
+### Fixed
+- Text under a format of one colored General section, such as `[Blue]General`, takes that color,
+  as Excel shows it; `FormattedCell.color` was `None`.
 
 ### Deprecated
 - `VerticalMetrics.cap_height` and `.descender` warn and forward to `ink_metrics`; they are removed
