@@ -76,7 +76,30 @@ def cases() -> list[Case]:
                 out.append(Case(f"natural {f.label}", f))
                 fh = FONT_HEIGHT[family][size] + 10
                 out.append(Case(f"bottom F+10 {f.label}", f, "bottom", float(fh)))
+    # appended later, so that the rows above keep their places: the faces without glyph tables
+    # at the table sizes, and Calibri and Aptos Narrow at sizes between them
+    extra = [(family, size) for family in EXTRA_FAMILIES for size in SIZES]
+    extra += [(family, size) for family in ("Calibri", "Aptos Narrow") for size in EXTRA_SIZES]
+    for family, size in extra:
+        f = CellFont(family, size)
+        fh = _height(family, size)
+        out.append(Case(f"natural {f.label}", f))
+        for vertical in ("top", "center", "bottom"):
+            for label, h in (("F", fh), ("F+10", fh + 10), ("2F", 2 * fh)):
+                out.append(Case(f"{vertical} {label} {f.label}", f, vertical, float(h)))
+        out.extend(Case(f"wrapped {lines} {f.label}", f, "bottom", None, lines) for lines in (2, 3))
     return out
+
+
+EXTRA_FAMILIES = ("Times New Roman", "Courier New", "Georgia")
+EXTRA_SIZES = (13, 15, 17, 22)
+
+
+def _height(family: str, size: int) -> int:
+    """The face's height by the row model (CAPTURING.md section 2 item 57)."""
+    from xlformat import row_metrics
+
+    return int(row_metrics((family, float(size))).font_height)
 
 
 def _paths(normal: CellFont) -> tuple[Path, Path]:

@@ -2,6 +2,7 @@
 --   open PATH NAME     open the workbook (alerts off only while opening), bring Excel to the front,
 --                      zoom 100, select a cell outside the cases; returns the workbook's name
 --   heights NAME N     the height in points of rows 1 to N, separated by commas
+--   zoom NAME Z        set the active window's zoom to Z percent; returns the zoom Excel reports
 --   scroll NAME ROW    make ROW the top visible row; returns the scroll row Excel reports
 --   close NAME         close the workbook without saving and turn alerts on
 -- Opens only the workbook it is given, by path, inside Excel's container, and finds it by name;
@@ -35,6 +36,9 @@ on run argv
 			set xlText to xlOut as text
 			set AppleScript's text item delimiters to ""
 			return xlText
+		else if xlCommand is "zoom" then
+			set zoom of active window to ((item 3 of argv) as integer)
+			return (zoom of active window) as text
 		else if xlCommand is "scroll" then
 			set scroll row of active window to ((item 3 of argv) as integer)
 			return (scroll row of active window) as text

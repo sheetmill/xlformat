@@ -34,7 +34,8 @@ SCREEN_EDGE_MISREADS = {
     ("Arial 10", "center 2F Aptos Narrow 11"),
     ("Arial 10", "center 2F Aptos Narrow 16"),
 }
-_FACE = re.compile(r"(Calibri|Aptos Narrow|Arial) (\d+)((?: bold)?)((?: italic)?)$")
+_FAMILIES = "Calibri|Aptos Narrow|Arial|Times New Roman|Courier New|Georgia"
+_FACE = re.compile(rf"({_FAMILIES}) (\d+)((?: bold)?)((?: italic)?)$")
 
 
 def _font(label: str) -> Font:
