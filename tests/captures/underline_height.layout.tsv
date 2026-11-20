@@ -1,0 +1,2819 @@
+# suite: underline_height (capture.font_heights underlines); Excel for Mac
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# captured: 2026-11-19; Normal style Calibri 1; 'H' a line in column A, wrap on for three lines; rows fitted by Excel on opening
+tag	row_height
+Calibri 6 none 1	9.0
+Calibri 6 none 3	30.0
+Calibri 6 single 1	9.0
+Calibri 6 double 1	9.0
+Calibri 6 singleAccounting 1	12.0
+Calibri 6 singleAccounting 3	39.0
+Calibri 6 doubleAccounting 1	12.0
+Calibri 7 none 1	10.0
+Calibri 7 none 3	33.0
+Calibri 7 single 1	10.0
+Calibri 7 double 1	10.0
+Calibri 7 singleAccounting 1	13.0
+Calibri 7 singleAccounting 3	42.0
+Calibri 7 doubleAccounting 1	13.0
+Calibri 8 none 1	11.0
+Calibri 8 none 3	36.0
+Calibri 8 single 1	11.0
+Calibri 8 double 1	11.0
+Calibri 8 singleAccounting 1	14.0
+Calibri 8 singleAccounting 3	45.0
+Calibri 8 doubleAccounting 1	14.0
+Calibri 9 none 1	12.0
+Calibri 9 none 3	39.0
+Calibri 9 single 1	12.0
+Calibri 9 double 1	12.0
+Calibri 9 singleAccounting 1	15.0
+Calibri 9 singleAccounting 3	48.0
+Calibri 9 doubleAccounting 1	15.0
+Calibri 10 none 1	14.0
+Calibri 10 none 3	45.0
+Calibri 10 single 1	14.0
+Calibri 10 double 1	14.0
+Calibri 10 singleAccounting 1	17.0
+Calibri 10 singleAccounting 3	54.0
+Calibri 10 doubleAccounting 1	17.0
+Calibri 11 none 1	15.0
+Calibri 11 none 3	48.0
+Calibri 11 single 1	15.0
+Calibri 11 double 1	15.0
+Calibri 11 singleAccounting 1	18.0
+Calibri 11 singleAccounting 3	57.0
+Calibri 11 doubleAccounting 1	18.0
+Calibri 12 none 1	16.0
+Calibri 12 none 3	51.0
+Calibri 12 single 1	16.0
+Calibri 12 double 1	16.0
+Calibri 12 singleAccounting 1	19.0
+Calibri 12 singleAccounting 3	60.0
+Calibri 12 doubleAccounting 1	19.0
+Calibri 13 none 1	17.0
+Calibri 13 none 3	54.0
+Calibri 13 single 1	17.0
+Calibri 13 double 1	17.0
+Calibri 13 singleAccounting 1	20.0
+Calibri 13 singleAccounting 3	63.0
+Calibri 13 doubleAccounting 1	20.0
+Calibri 14 none 1	19.0
+Calibri 14 none 3	60.0
+Calibri 14 single 1	19.0
+Calibri 14 double 1	19.0
+Calibri 14 singleAccounting 1	22.0
+Calibri 14 singleAccounting 3	69.0
+Calibri 14 doubleAccounting 1	22.0
+Calibri 15 none 1	20.0
+Calibri 15 none 3	63.0
+Calibri 15 single 1	20.0
+Calibri 15 double 1	20.0
+Calibri 15 singleAccounting 1	23.0
+Calibri 15 singleAccounting 3	72.0
+Calibri 15 doubleAccounting 1	23.0
+Calibri 16 none 1	21.0
+Calibri 16 none 3	66.0
+Calibri 16 single 1	21.0
+Calibri 16 double 1	21.0
+Calibri 16 singleAccounting 1	24.0
+Calibri 16 singleAccounting 3	75.0
+Calibri 16 doubleAccounting 1	24.0
+Calibri 17 none 1	23.0
+Calibri 17 none 3	72.0
+Calibri 17 single 1	23.0
+Calibri 17 double 1	23.0
+Calibri 17 singleAccounting 1	26.0
+Calibri 17 singleAccounting 3	81.0
+Calibri 17 doubleAccounting 1	26.0
+Calibri 18 none 1	24.0
+Calibri 18 none 3	75.0
+Calibri 18 single 1	24.0
+Calibri 18 double 1	24.0
+Calibri 18 singleAccounting 1	27.0
+Calibri 18 singleAccounting 3	84.0
+Calibri 18 doubleAccounting 1	27.0
+Calibri 19 none 1	25.0
+Calibri 19 none 3	78.0
+Calibri 19 single 1	25.0
+Calibri 19 double 1	25.0
+Calibri 19 singleAccounting 1	28.0
+Calibri 19 singleAccounting 3	87.0
+Calibri 19 doubleAccounting 1	28.0
+Calibri 20 none 1	26.0
+Calibri 20 none 3	81.0
+Calibri 20 single 1	26.0
+Calibri 20 double 1	26.0
+Calibri 20 singleAccounting 1	29.0
+Calibri 20 singleAccounting 3	90.0
+Calibri 20 doubleAccounting 1	29.0
+Calibri 21 none 1	28.0
+Calibri 21 none 3	87.0
+Calibri 21 single 1	28.0
+Calibri 21 double 1	28.0
+Calibri 21 singleAccounting 1	31.0
+Calibri 21 singleAccounting 3	96.0
+Calibri 21 doubleAccounting 1	31.0
+Calibri 22 none 1	29.0
+Calibri 22 none 3	90.0
+Calibri 22 single 1	29.0
+Calibri 22 double 1	29.0
+Calibri 22 singleAccounting 1	32.0
+Calibri 22 singleAccounting 3	99.0
+Calibri 22 doubleAccounting 1	32.0
+Calibri 23 none 1	30.0
+Calibri 23 none 3	93.0
+Calibri 23 single 1	30.0
+Calibri 23 double 1	30.0
+Calibri 23 singleAccounting 1	33.0
+Calibri 23 singleAccounting 3	102.0
+Calibri 23 doubleAccounting 1	33.0
+Calibri 24 none 1	31.0
+Calibri 24 none 3	96.0
+Calibri 24 single 1	31.0
+Calibri 24 double 1	31.0
+Calibri 24 singleAccounting 1	34.0
+Calibri 24 singleAccounting 3	105.0
+Calibri 24 doubleAccounting 1	34.0
+Calibri 25 none 1	33.0
+Calibri 25 none 3	102.0
+Calibri 25 single 1	33.0
+Calibri 25 double 1	33.0
+Calibri 25 singleAccounting 1	36.0
+Calibri 25 singleAccounting 3	111.0
+Calibri 25 doubleAccounting 1	36.0
+Calibri 26 none 1	34.0
+Calibri 26 none 3	105.0
+Calibri 26 single 1	34.0
+Calibri 26 double 1	34.0
+Calibri 26 singleAccounting 1	37.0
+Calibri 26 singleAccounting 3	114.0
+Calibri 26 doubleAccounting 1	37.0
+Calibri 27 none 1	35.0
+Calibri 27 none 3	108.0
+Calibri 27 single 1	35.0
+Calibri 27 double 1	35.0
+Calibri 27 singleAccounting 1	38.0
+Calibri 27 singleAccounting 3	117.0
+Calibri 27 doubleAccounting 1	38.0
+Calibri 28 none 1	37.0
+Calibri 28 none 3	114.0
+Calibri 28 single 1	37.0
+Calibri 28 double 1	37.0
+Calibri 28 singleAccounting 1	40.0
+Calibri 28 singleAccounting 3	123.0
+Calibri 28 doubleAccounting 1	40.0
+Calibri 29 none 1	38.0
+Calibri 29 none 3	117.0
+Calibri 29 single 1	38.0
+Calibri 29 double 1	38.0
+Calibri 29 singleAccounting 1	41.0
+Calibri 29 singleAccounting 3	126.0
+Calibri 29 doubleAccounting 1	41.0
+Calibri 30 none 1	39.0
+Calibri 30 none 3	120.0
+Calibri 30 single 1	39.0
+Calibri 30 double 1	39.0
+Calibri 30 singleAccounting 1	42.0
+Calibri 30 singleAccounting 3	129.0
+Calibri 30 doubleAccounting 1	42.0
+Calibri 31 none 1	40.0
+Calibri 31 none 3	123.0
+Calibri 31 single 1	40.0
+Calibri 31 double 1	40.0
+Calibri 31 singleAccounting 1	46.0
+Calibri 31 singleAccounting 3	141.0
+Calibri 31 doubleAccounting 1	46.0
+Calibri 32 none 1	42.0
+Calibri 32 none 3	129.0
+Calibri 32 single 1	42.0
+Calibri 32 double 1	42.0
+Calibri 32 singleAccounting 1	48.0
+Calibri 32 singleAccounting 3	147.0
+Calibri 32 doubleAccounting 1	48.0
+Calibri 33 none 1	43.0
+Calibri 33 none 3	132.0
+Calibri 33 single 1	43.0
+Calibri 33 double 1	43.0
+Calibri 33 singleAccounting 1	49.0
+Calibri 33 singleAccounting 3	150.0
+Calibri 33 doubleAccounting 1	49.0
+Calibri 34 none 1	44.0
+Calibri 34 none 3	135.0
+Calibri 34 single 1	44.0
+Calibri 34 double 1	44.0
+Calibri 34 singleAccounting 1	50.0
+Calibri 34 singleAccounting 3	153.0
+Calibri 34 doubleAccounting 1	50.0
+Calibri 35 none 1	45.0
+Calibri 35 none 3	138.0
+Calibri 35 single 1	45.0
+Calibri 35 double 1	45.0
+Calibri 35 singleAccounting 1	51.0
+Calibri 35 singleAccounting 3	156.0
+Calibri 35 doubleAccounting 1	51.0
+Calibri 36 none 1	47.0
+Calibri 36 none 3	144.0
+Calibri 36 single 1	47.0
+Calibri 36 double 1	47.0
+Calibri 36 singleAccounting 1	53.0
+Calibri 36 singleAccounting 3	162.0
+Calibri 36 doubleAccounting 1	53.0
+Calibri 37 none 1	48.0
+Calibri 37 none 3	147.0
+Calibri 37 single 1	48.0
+Calibri 37 double 1	48.0
+Calibri 37 singleAccounting 1	54.0
+Calibri 37 singleAccounting 3	165.0
+Calibri 37 doubleAccounting 1	54.0
+Calibri 38 none 1	49.0
+Calibri 38 none 3	150.0
+Calibri 38 single 1	49.0
+Calibri 38 double 1	49.0
+Calibri 38 singleAccounting 1	55.0
+Calibri 38 singleAccounting 3	168.0
+Calibri 38 doubleAccounting 1	55.0
+Calibri 39 none 1	50.0
+Calibri 39 none 3	153.0
+Calibri 39 single 1	50.0
+Calibri 39 double 1	50.0
+Calibri 39 singleAccounting 1	56.0
+Calibri 39 singleAccounting 3	171.0
+Calibri 39 doubleAccounting 1	56.0
+Calibri 40 none 1	52.0
+Calibri 40 none 3	159.0
+Calibri 40 single 1	52.0
+Calibri 40 double 1	52.0
+Calibri 40 singleAccounting 1	58.0
+Calibri 40 singleAccounting 3	177.0
+Calibri 40 doubleAccounting 1	58.0
+Calibri 41 none 1	53.0
+Calibri 41 none 3	162.0
+Calibri 41 single 1	53.0
+Calibri 41 double 1	53.0
+Calibri 41 singleAccounting 1	59.0
+Calibri 41 singleAccounting 3	180.0
+Calibri 41 doubleAccounting 1	59.0
+Calibri 42 none 1	54.0
+Calibri 42 none 3	165.0
+Calibri 42 single 1	54.0
+Calibri 42 double 1	54.0
+Calibri 42 singleAccounting 1	60.0
+Calibri 42 singleAccounting 3	183.0
+Calibri 42 doubleAccounting 1	60.0
+Calibri 43 none 1	56.0
+Calibri 43 none 3	171.0
+Calibri 43 single 1	56.0
+Calibri 43 double 1	56.0
+Calibri 43 singleAccounting 1	62.0
+Calibri 43 singleAccounting 3	189.0
+Calibri 43 doubleAccounting 1	62.0
+Calibri 44 none 1	57.0
+Calibri 44 none 3	174.0
+Calibri 44 single 1	57.0
+Calibri 44 double 1	57.0
+Calibri 44 singleAccounting 1	63.0
+Calibri 44 singleAccounting 3	192.0
+Calibri 44 doubleAccounting 1	63.0
+Calibri 45 none 1	58.0
+Calibri 45 none 3	177.0
+Calibri 45 single 1	58.0
+Calibri 45 double 1	58.0
+Calibri 45 singleAccounting 1	64.0
+Calibri 45 singleAccounting 3	195.0
+Calibri 45 doubleAccounting 1	64.0
+Calibri 46 none 1	59.0
+Calibri 46 none 3	180.0
+Calibri 46 single 1	59.0
+Calibri 46 double 1	59.0
+Calibri 46 singleAccounting 1	68.0
+Calibri 46 singleAccounting 3	207.0
+Calibri 46 doubleAccounting 1	68.0
+Calibri 47 none 1	61.0
+Calibri 47 none 3	186.0
+Calibri 47 single 1	61.0
+Calibri 47 double 1	61.0
+Calibri 47 singleAccounting 1	70.0
+Calibri 47 singleAccounting 3	213.0
+Calibri 47 doubleAccounting 1	70.0
+Calibri 48 none 1	62.0
+Calibri 48 none 3	189.0
+Calibri 48 single 1	62.0
+Calibri 48 double 1	62.0
+Calibri 48 singleAccounting 1	71.0
+Calibri 48 singleAccounting 3	216.0
+Calibri 48 doubleAccounting 1	71.0
+Calibri 49 none 1	63.0
+Calibri 49 none 3	192.0
+Calibri 49 single 1	63.0
+Calibri 49 double 1	63.0
+Calibri 49 singleAccounting 1	72.0
+Calibri 49 singleAccounting 3	219.0
+Calibri 49 doubleAccounting 1	72.0
+Calibri 50 none 1	64.0
+Calibri 50 none 3	195.0
+Calibri 50 single 1	64.0
+Calibri 50 double 1	64.0
+Calibri 50 singleAccounting 1	73.0
+Calibri 50 singleAccounting 3	222.0
+Calibri 50 doubleAccounting 1	73.0
+Calibri 51 none 1	66.0
+Calibri 51 none 3	201.0
+Calibri 51 single 1	66.0
+Calibri 51 double 1	66.0
+Calibri 51 singleAccounting 1	75.0
+Calibri 51 singleAccounting 3	228.0
+Calibri 51 doubleAccounting 1	75.0
+Calibri 52 none 1	67.0
+Calibri 52 none 3	204.0
+Calibri 52 single 1	67.0
+Calibri 52 double 1	67.0
+Calibri 52 singleAccounting 1	76.0
+Calibri 52 singleAccounting 3	231.0
+Calibri 52 doubleAccounting 1	76.0
+Calibri 53 none 1	68.0
+Calibri 53 none 3	207.0
+Calibri 53 single 1	68.0
+Calibri 53 double 1	68.0
+Calibri 53 singleAccounting 1	77.0
+Calibri 53 singleAccounting 3	234.0
+Calibri 53 doubleAccounting 1	77.0
+Calibri 54 none 1	70.0
+Calibri 54 none 3	213.0
+Calibri 54 single 1	70.0
+Calibri 54 double 1	70.0
+Calibri 54 singleAccounting 1	79.0
+Calibri 54 singleAccounting 3	240.0
+Calibri 54 doubleAccounting 1	79.0
+Calibri 55 none 1	71.0
+Calibri 55 none 3	216.0
+Calibri 55 single 1	71.0
+Calibri 55 double 1	71.0
+Calibri 55 singleAccounting 1	80.0
+Calibri 55 singleAccounting 3	243.0
+Calibri 55 doubleAccounting 1	80.0
+Calibri 56 none 1	72.0
+Calibri 56 none 3	219.0
+Calibri 56 single 1	72.0
+Calibri 56 double 1	72.0
+Calibri 56 singleAccounting 1	81.0
+Calibri 56 singleAccounting 3	246.0
+Calibri 56 doubleAccounting 1	81.0
+Calibri 57 none 1	73.0
+Calibri 57 none 3	222.0
+Calibri 57 single 1	73.0
+Calibri 57 double 1	73.0
+Calibri 57 singleAccounting 1	82.0
+Calibri 57 singleAccounting 3	249.0
+Calibri 57 doubleAccounting 1	82.0
+Calibri 58 none 1	75.0
+Calibri 58 none 3	228.0
+Calibri 58 single 1	75.0
+Calibri 58 double 1	75.0
+Calibri 58 singleAccounting 1	84.0
+Calibri 58 singleAccounting 3	255.0
+Calibri 58 doubleAccounting 1	84.0
+Calibri 59 none 1	76.0
+Calibri 59 none 3	231.0
+Calibri 59 single 1	76.0
+Calibri 59 double 1	76.0
+Calibri 59 singleAccounting 1	85.0
+Calibri 59 singleAccounting 3	258.0
+Calibri 59 doubleAccounting 1	85.0
+Calibri 60 none 1	77.0
+Calibri 60 none 3	234.0
+Calibri 60 single 1	77.0
+Calibri 60 double 1	77.0
+Calibri 60 singleAccounting 1	86.0
+Calibri 60 singleAccounting 3	261.0
+Calibri 60 doubleAccounting 1	86.0
+Calibri 61 none 1	78.0
+Calibri 61 none 3	237.0
+Calibri 61 single 1	78.0
+Calibri 61 double 1	78.0
+Calibri 61 singleAccounting 1	87.0
+Calibri 61 singleAccounting 3	264.0
+Calibri 61 doubleAccounting 1	87.0
+Calibri 62 none 1	80.0
+Calibri 62 none 3	243.0
+Calibri 62 single 1	80.0
+Calibri 62 double 1	80.0
+Calibri 62 singleAccounting 1	92.0
+Calibri 62 singleAccounting 3	279.0
+Calibri 62 doubleAccounting 1	92.0
+Calibri 63 none 1	81.0
+Calibri 63 none 3	246.0
+Calibri 63 single 1	81.0
+Calibri 63 double 1	81.0
+Calibri 63 singleAccounting 1	93.0
+Calibri 63 singleAccounting 3	282.0
+Calibri 63 doubleAccounting 1	93.0
+Calibri 64 none 1	82.0
+Calibri 64 none 3	249.0
+Calibri 64 single 1	82.0
+Calibri 64 double 1	82.0
+Calibri 64 singleAccounting 1	94.0
+Calibri 64 singleAccounting 3	285.0
+Calibri 64 doubleAccounting 1	94.0
+Calibri 65 none 1	83.0
+Calibri 65 none 3	252.0
+Calibri 65 single 1	83.0
+Calibri 65 double 1	83.0
+Calibri 65 singleAccounting 1	95.0
+Calibri 65 singleAccounting 3	288.0
+Calibri 65 doubleAccounting 1	95.0
+Calibri 66 none 1	85.0
+Calibri 66 none 3	258.0
+Calibri 66 single 1	85.0
+Calibri 66 double 1	85.0
+Calibri 66 singleAccounting 1	97.0
+Calibri 66 singleAccounting 3	294.0
+Calibri 66 doubleAccounting 1	97.0
+Calibri 67 none 1	86.0
+Calibri 67 none 3	261.0
+Calibri 67 single 1	86.0
+Calibri 67 double 1	86.0
+Calibri 67 singleAccounting 1	98.0
+Calibri 67 singleAccounting 3	297.0
+Calibri 67 doubleAccounting 1	98.0
+Calibri 68 none 1	87.0
+Calibri 68 none 3	264.0
+Calibri 68 single 1	87.0
+Calibri 68 double 1	87.0
+Calibri 68 singleAccounting 1	99.0
+Calibri 68 singleAccounting 3	300.0
+Calibri 68 doubleAccounting 1	99.0
+Calibri 69 none 1	89.0
+Calibri 69 none 3	270.0
+Calibri 69 single 1	89.0
+Calibri 69 double 1	89.0
+Calibri 69 singleAccounting 1	101.0
+Calibri 69 singleAccounting 3	306.0
+Calibri 69 doubleAccounting 1	101.0
+Calibri 70 none 1	90.0
+Calibri 70 none 3	273.0
+Calibri 70 single 1	90.0
+Calibri 70 double 1	90.0
+Calibri 70 singleAccounting 1	102.0
+Calibri 70 singleAccounting 3	309.0
+Calibri 70 doubleAccounting 1	102.0
+Calibri 71 none 1	91.0
+Calibri 71 none 3	276.0
+Calibri 71 single 1	91.0
+Calibri 71 double 1	91.0
+Calibri 71 singleAccounting 1	103.0
+Calibri 71 singleAccounting 3	312.0
+Calibri 71 doubleAccounting 1	103.0
+Calibri 72 none 1	92.0
+Calibri 72 none 3	279.0
+Calibri 72 single 1	92.0
+Calibri 72 double 1	92.0
+Calibri 72 singleAccounting 1	104.0
+Calibri 72 singleAccounting 3	315.0
+Calibri 72 doubleAccounting 1	104.0
+Arial 6 none 1	10.0
+Arial 6 none 3	33.0
+Arial 6 single 1	10.0
+Arial 6 double 1	10.0
+Arial 6 singleAccounting 1	13.0
+Arial 6 singleAccounting 3	42.0
+Arial 6 doubleAccounting 1	13.0
+Arial 7 none 1	11.0
+Arial 7 none 3	36.0
+Arial 7 single 1	11.0
+Arial 7 double 1	11.0
+Arial 7 singleAccounting 1	14.0
+Arial 7 singleAccounting 3	45.0
+Arial 7 doubleAccounting 1	14.0
+Arial 8 none 1	11.0
+Arial 8 none 3	36.0
+Arial 8 single 1	11.0
+Arial 8 double 1	11.0
+Arial 8 singleAccounting 1	14.0
+Arial 8 singleAccounting 3	45.0
+Arial 8 doubleAccounting 1	14.0
+Arial 9 none 1	12.0
+Arial 9 none 3	39.0
+Arial 9 single 1	12.0
+Arial 9 double 1	12.0
+Arial 9 singleAccounting 1	15.0
+Arial 9 singleAccounting 3	48.0
+Arial 9 doubleAccounting 1	15.0
+Arial 10 none 1	13.0
+Arial 10 none 3	42.0
+Arial 10 single 1	13.0
+Arial 10 double 1	13.0
+Arial 10 singleAccounting 1	16.0
+Arial 10 singleAccounting 3	51.0
+Arial 10 doubleAccounting 1	16.0
+Arial 11 none 1	14.0
+Arial 11 none 3	45.0
+Arial 11 single 1	14.0
+Arial 11 double 1	14.0
+Arial 11 singleAccounting 1	17.0
+Arial 11 singleAccounting 3	54.0
+Arial 11 doubleAccounting 1	17.0
+Arial 12 none 1	16.0
+Arial 12 none 3	51.0
+Arial 12 single 1	16.0
+Arial 12 double 1	16.0
+Arial 12 singleAccounting 1	19.0
+Arial 12 singleAccounting 3	60.0
+Arial 12 doubleAccounting 1	19.0
+Arial 13 none 1	17.0
+Arial 13 none 3	54.0
+Arial 13 single 1	17.0
+Arial 13 double 1	17.0
+Arial 13 singleAccounting 1	20.0
+Arial 13 singleAccounting 3	63.0
+Arial 13 doubleAccounting 1	20.0
+Arial 14 none 1	18.0
+Arial 14 none 3	57.0
+Arial 14 single 1	18.0
+Arial 14 double 1	18.0
+Arial 14 singleAccounting 1	21.0
+Arial 14 singleAccounting 3	66.0
+Arial 14 doubleAccounting 1	21.0
+Arial 15 none 1	19.0
+Arial 15 none 3	60.0
+Arial 15 single 1	19.0
+Arial 15 double 1	19.0
+Arial 15 singleAccounting 1	22.0
+Arial 15 singleAccounting 3	69.0
+Arial 15 doubleAccounting 1	22.0
+Arial 16 none 1	20.0
+Arial 16 none 3	63.0
+Arial 16 single 1	20.0
+Arial 16 double 1	20.0
+Arial 16 singleAccounting 1	23.0
+Arial 16 singleAccounting 3	72.0
+Arial 16 doubleAccounting 1	23.0
+Arial 17 none 1	22.0
+Arial 17 none 3	69.0
+Arial 17 single 1	22.0
+Arial 17 double 1	22.0
+Arial 17 singleAccounting 1	25.0
+Arial 17 singleAccounting 3	78.0
+Arial 17 doubleAccounting 1	25.0
+Arial 18 none 1	23.0
+Arial 18 none 3	72.0
+Arial 18 single 1	23.0
+Arial 18 double 1	23.0
+Arial 18 singleAccounting 1	26.0
+Arial 18 singleAccounting 3	81.0
+Arial 18 doubleAccounting 1	26.0
+Arial 19 none 1	24.0
+Arial 19 none 3	75.0
+Arial 19 single 1	24.0
+Arial 19 double 1	24.0
+Arial 19 singleAccounting 1	27.0
+Arial 19 singleAccounting 3	84.0
+Arial 19 doubleAccounting 1	27.0
+Arial 20 none 1	25.0
+Arial 20 none 3	78.0
+Arial 20 single 1	25.0
+Arial 20 double 1	25.0
+Arial 20 singleAccounting 1	28.0
+Arial 20 singleAccounting 3	87.0
+Arial 20 doubleAccounting 1	28.0
+Arial 21 none 1	26.0
+Arial 21 none 3	81.0
+Arial 21 single 1	26.0
+Arial 21 double 1	26.0
+Arial 21 singleAccounting 1	29.0
+Arial 21 singleAccounting 3	90.0
+Arial 21 doubleAccounting 1	29.0
+Arial 22 none 1	28.0
+Arial 22 none 3	87.0
+Arial 22 single 1	28.0
+Arial 22 double 1	28.0
+Arial 22 singleAccounting 1	31.0
+Arial 22 singleAccounting 3	96.0
+Arial 22 doubleAccounting 1	31.0
+Arial 23 none 1	29.0
+Arial 23 none 3	90.0
+Arial 23 single 1	29.0
+Arial 23 double 1	29.0
+Arial 23 singleAccounting 1	32.0
+Arial 23 singleAccounting 3	99.0
+Arial 23 doubleAccounting 1	32.0
+Arial 24 none 1	30.0
+Arial 24 none 3	93.0
+Arial 24 single 1	30.0
+Arial 24 double 1	30.0
+Arial 24 singleAccounting 1	33.0
+Arial 24 singleAccounting 3	102.0
+Arial 24 doubleAccounting 1	33.0
+Arial 25 none 1	31.0
+Arial 25 none 3	96.0
+Arial 25 single 1	31.0
+Arial 25 double 1	31.0
+Arial 25 singleAccounting 1	34.0
+Arial 25 singleAccounting 3	105.0
+Arial 25 doubleAccounting 1	34.0
+Arial 26 none 1	33.0
+Arial 26 none 3	102.0
+Arial 26 single 1	33.0
+Arial 26 double 1	33.0
+Arial 26 singleAccounting 1	36.0
+Arial 26 singleAccounting 3	111.0
+Arial 26 doubleAccounting 1	36.0
+Arial 27 none 1	34.0
+Arial 27 none 3	105.0
+Arial 27 single 1	34.0
+Arial 27 double 1	34.0
+Arial 27 singleAccounting 1	37.0
+Arial 27 singleAccounting 3	114.0
+Arial 27 doubleAccounting 1	37.0
+Arial 28 none 1	35.0
+Arial 28 none 3	108.0
+Arial 28 single 1	35.0
+Arial 28 double 1	35.0
+Arial 28 singleAccounting 1	41.0
+Arial 28 singleAccounting 3	126.0
+Arial 28 doubleAccounting 1	38.0
+Arial 29 none 1	36.0
+Arial 29 none 3	111.0
+Arial 29 single 1	36.0
+Arial 29 double 1	36.0
+Arial 29 singleAccounting 1	42.0
+Arial 29 singleAccounting 3	129.0
+Arial 29 doubleAccounting 1	39.0
+Arial 30 none 1	37.0
+Arial 30 none 3	114.0
+Arial 30 single 1	37.0
+Arial 30 double 1	37.0
+Arial 30 singleAccounting 1	43.0
+Arial 30 singleAccounting 3	132.0
+Arial 30 doubleAccounting 1	40.0
+Arial 31 none 1	39.0
+Arial 31 none 3	120.0
+Arial 31 single 1	39.0
+Arial 31 double 1	39.0
+Arial 31 singleAccounting 1	45.0
+Arial 31 singleAccounting 3	138.0
+Arial 31 doubleAccounting 1	42.0
+Arial 32 none 1	40.0
+Arial 32 none 3	123.0
+Arial 32 single 1	40.0
+Arial 32 double 1	40.0
+Arial 32 singleAccounting 1	46.0
+Arial 32 singleAccounting 3	141.0
+Arial 32 doubleAccounting 1	43.0
+Arial 33 none 1	41.0
+Arial 33 none 3	126.0
+Arial 33 single 1	41.0
+Arial 33 double 1	41.0
+Arial 33 singleAccounting 1	47.0
+Arial 33 singleAccounting 3	144.0
+Arial 33 doubleAccounting 1	44.0
+Arial 34 none 1	42.0
+Arial 34 none 3	129.0
+Arial 34 single 1	42.0
+Arial 34 double 1	42.0
+Arial 34 singleAccounting 1	48.0
+Arial 34 singleAccounting 3	147.0
+Arial 34 doubleAccounting 1	45.0
+Arial 35 none 1	43.0
+Arial 35 none 3	132.0
+Arial 35 single 1	43.0
+Arial 35 double 1	43.0
+Arial 35 singleAccounting 1	49.0
+Arial 35 singleAccounting 3	150.0
+Arial 35 doubleAccounting 1	46.0
+Arial 36 none 1	45.0
+Arial 36 none 3	138.0
+Arial 36 single 1	45.0
+Arial 36 double 1	45.0
+Arial 36 singleAccounting 1	51.0
+Arial 36 singleAccounting 3	156.0
+Arial 36 doubleAccounting 1	51.0
+Arial 37 none 1	46.0
+Arial 37 none 3	141.0
+Arial 37 single 1	46.0
+Arial 37 double 1	46.0
+Arial 37 singleAccounting 1	52.0
+Arial 37 singleAccounting 3	159.0
+Arial 37 doubleAccounting 1	52.0
+Arial 38 none 1	47.0
+Arial 38 none 3	144.0
+Arial 38 single 1	47.0
+Arial 38 double 1	47.0
+Arial 38 singleAccounting 1	53.0
+Arial 38 singleAccounting 3	162.0
+Arial 38 doubleAccounting 1	53.0
+Arial 39 none 1	48.0
+Arial 39 none 3	147.0
+Arial 39 single 1	48.0
+Arial 39 double 1	48.0
+Arial 39 singleAccounting 1	54.0
+Arial 39 singleAccounting 3	165.0
+Arial 39 doubleAccounting 1	54.0
+Arial 40 none 1	49.0
+Arial 40 none 3	150.0
+Arial 40 single 1	49.0
+Arial 40 double 1	49.0
+Arial 40 singleAccounting 1	55.0
+Arial 40 singleAccounting 3	168.0
+Arial 40 doubleAccounting 1	55.0
+Arial 41 none 1	51.0
+Arial 41 none 3	156.0
+Arial 41 single 1	51.0
+Arial 41 double 1	51.0
+Arial 41 singleAccounting 1	60.0
+Arial 41 singleAccounting 3	183.0
+Arial 41 doubleAccounting 1	57.0
+Arial 42 none 1	52.0
+Arial 42 none 3	159.0
+Arial 42 single 1	52.0
+Arial 42 double 1	52.0
+Arial 42 singleAccounting 1	61.0
+Arial 42 singleAccounting 3	186.0
+Arial 42 doubleAccounting 1	58.0
+Arial 43 none 1	53.0
+Arial 43 none 3	162.0
+Arial 43 single 1	53.0
+Arial 43 double 1	53.0
+Arial 43 singleAccounting 1	62.0
+Arial 43 singleAccounting 3	189.0
+Arial 43 doubleAccounting 1	59.0
+Arial 44 none 1	54.0
+Arial 44 none 3	165.0
+Arial 44 single 1	54.0
+Arial 44 double 1	54.0
+Arial 44 singleAccounting 1	63.0
+Arial 44 singleAccounting 3	192.0
+Arial 44 doubleAccounting 1	60.0
+Arial 45 none 1	56.0
+Arial 45 none 3	171.0
+Arial 45 single 1	56.0
+Arial 45 double 1	56.0
+Arial 45 singleAccounting 1	65.0
+Arial 45 singleAccounting 3	198.0
+Arial 45 doubleAccounting 1	62.0
+Arial 46 none 1	57.0
+Arial 46 none 3	174.0
+Arial 46 single 1	57.0
+Arial 46 double 1	57.0
+Arial 46 singleAccounting 1	66.0
+Arial 46 singleAccounting 3	201.0
+Arial 46 doubleAccounting 1	63.0
+Arial 47 none 1	58.0
+Arial 47 none 3	177.0
+Arial 47 single 1	58.0
+Arial 47 double 1	58.0
+Arial 47 singleAccounting 1	67.0
+Arial 47 singleAccounting 3	204.0
+Arial 47 doubleAccounting 1	64.0
+Arial 48 none 1	59.0
+Arial 48 none 3	180.0
+Arial 48 single 1	59.0
+Arial 48 double 1	59.0
+Arial 48 singleAccounting 1	68.0
+Arial 48 singleAccounting 3	207.0
+Arial 48 doubleAccounting 1	65.0
+Arial 49 none 1	60.0
+Arial 49 none 3	183.0
+Arial 49 single 1	60.0
+Arial 49 double 1	60.0
+Arial 49 singleAccounting 1	69.0
+Arial 49 singleAccounting 3	210.0
+Arial 49 doubleAccounting 1	66.0
+Arial 50 none 1	62.0
+Arial 50 none 3	189.0
+Arial 50 single 1	62.0
+Arial 50 double 1	62.0
+Arial 50 singleAccounting 1	71.0
+Arial 50 singleAccounting 3	216.0
+Arial 50 doubleAccounting 1	68.0
+Arial 51 none 1	63.0
+Arial 51 none 3	192.0
+Arial 51 single 1	63.0
+Arial 51 double 1	63.0
+Arial 51 singleAccounting 1	72.0
+Arial 51 singleAccounting 3	219.0
+Arial 51 doubleAccounting 1	69.0
+Arial 52 none 1	64.0
+Arial 52 none 3	195.0
+Arial 52 single 1	64.0
+Arial 52 double 1	64.0
+Arial 52 singleAccounting 1	73.0
+Arial 52 singleAccounting 3	222.0
+Arial 52 doubleAccounting 1	70.0
+Arial 53 none 1	65.0
+Arial 53 none 3	198.0
+Arial 53 single 1	65.0
+Arial 53 double 1	65.0
+Arial 53 singleAccounting 1	74.0
+Arial 53 singleAccounting 3	225.0
+Arial 53 doubleAccounting 1	71.0
+Arial 54 none 1	66.0
+Arial 54 none 3	201.0
+Arial 54 single 1	66.0
+Arial 54 double 1	66.0
+Arial 54 singleAccounting 1	75.0
+Arial 54 singleAccounting 3	228.0
+Arial 54 doubleAccounting 1	72.0
+Arial 55 none 1	68.0
+Arial 55 none 3	207.0
+Arial 55 single 1	68.0
+Arial 55 double 1	68.0
+Arial 55 singleAccounting 1	80.0
+Arial 55 singleAccounting 3	243.0
+Arial 55 doubleAccounting 1	77.0
+Arial 56 none 1	69.0
+Arial 56 none 3	210.0
+Arial 56 single 1	69.0
+Arial 56 double 1	69.0
+Arial 56 singleAccounting 1	81.0
+Arial 56 singleAccounting 3	246.0
+Arial 56 doubleAccounting 1	78.0
+Arial 57 none 1	70.0
+Arial 57 none 3	213.0
+Arial 57 single 1	70.0
+Arial 57 double 1	70.0
+Arial 57 singleAccounting 1	82.0
+Arial 57 singleAccounting 3	249.0
+Arial 57 doubleAccounting 1	79.0
+Arial 58 none 1	71.0
+Arial 58 none 3	216.0
+Arial 58 single 1	71.0
+Arial 58 double 1	71.0
+Arial 58 singleAccounting 1	83.0
+Arial 58 singleAccounting 3	252.0
+Arial 58 doubleAccounting 1	80.0
+Arial 59 none 1	73.0
+Arial 59 none 3	222.0
+Arial 59 single 1	73.0
+Arial 59 double 1	73.0
+Arial 59 singleAccounting 1	85.0
+Arial 59 singleAccounting 3	258.0
+Arial 59 doubleAccounting 1	82.0
+Arial 60 none 1	74.0
+Arial 60 none 3	225.0
+Arial 60 single 1	74.0
+Arial 60 double 1	74.0
+Arial 60 singleAccounting 1	86.0
+Arial 60 singleAccounting 3	261.0
+Arial 60 doubleAccounting 1	83.0
+Arial 61 none 1	75.0
+Arial 61 none 3	228.0
+Arial 61 single 1	75.0
+Arial 61 double 1	75.0
+Arial 61 singleAccounting 1	87.0
+Arial 61 singleAccounting 3	264.0
+Arial 61 doubleAccounting 1	84.0
+Arial 62 none 1	76.0
+Arial 62 none 3	231.0
+Arial 62 single 1	76.0
+Arial 62 double 1	76.0
+Arial 62 singleAccounting 1	88.0
+Arial 62 singleAccounting 3	267.0
+Arial 62 doubleAccounting 1	85.0
+Arial 63 none 1	77.0
+Arial 63 none 3	234.0
+Arial 63 single 1	77.0
+Arial 63 double 1	77.0
+Arial 63 singleAccounting 1	89.0
+Arial 63 singleAccounting 3	270.0
+Arial 63 doubleAccounting 1	86.0
+Arial 64 none 1	79.0
+Arial 64 none 3	240.0
+Arial 64 single 1	79.0
+Arial 64 double 1	79.0
+Arial 64 singleAccounting 1	91.0
+Arial 64 singleAccounting 3	276.0
+Arial 64 doubleAccounting 1	88.0
+Arial 65 none 1	80.0
+Arial 65 none 3	243.0
+Arial 65 single 1	80.0
+Arial 65 double 1	80.0
+Arial 65 singleAccounting 1	92.0
+Arial 65 singleAccounting 3	279.0
+Arial 65 doubleAccounting 1	89.0
+Arial 66 none 1	81.0
+Arial 66 none 3	246.0
+Arial 66 single 1	81.0
+Arial 66 double 1	81.0
+Arial 66 singleAccounting 1	93.0
+Arial 66 singleAccounting 3	282.0
+Arial 66 doubleAccounting 1	90.0
+Arial 67 none 1	82.0
+Arial 67 none 3	249.0
+Arial 67 single 1	82.0
+Arial 67 double 1	82.0
+Arial 67 singleAccounting 1	94.0
+Arial 67 singleAccounting 3	285.0
+Arial 67 doubleAccounting 1	91.0
+Arial 68 none 1	83.0
+Arial 68 none 3	252.0
+Arial 68 single 1	83.0
+Arial 68 double 1	83.0
+Arial 68 singleAccounting 1	95.0
+Arial 68 singleAccounting 3	288.0
+Arial 68 doubleAccounting 1	92.0
+Arial 69 none 1	85.0
+Arial 69 none 3	258.0
+Arial 69 single 1	85.0
+Arial 69 double 1	85.0
+Arial 69 singleAccounting 1	100.0
+Arial 69 singleAccounting 3	303.0
+Arial 69 doubleAccounting 1	94.0
+Arial 70 none 1	86.0
+Arial 70 none 3	261.0
+Arial 70 single 1	86.0
+Arial 70 double 1	86.0
+Arial 70 singleAccounting 1	101.0
+Arial 70 singleAccounting 3	306.0
+Arial 70 doubleAccounting 1	95.0
+Arial 71 none 1	87.0
+Arial 71 none 3	264.0
+Arial 71 single 1	87.0
+Arial 71 double 1	87.0
+Arial 71 singleAccounting 1	102.0
+Arial 71 singleAccounting 3	309.0
+Arial 71 doubleAccounting 1	96.0
+Arial 72 none 1	88.0
+Arial 72 none 3	267.0
+Arial 72 single 1	88.0
+Arial 72 double 1	88.0
+Arial 72 singleAccounting 1	103.0
+Arial 72 singleAccounting 3	312.0
+Arial 72 doubleAccounting 1	97.0
+Aptos Narrow 6 none 1	9.0
+Aptos Narrow 6 none 3	30.0
+Aptos Narrow 6 single 1	9.0
+Aptos Narrow 6 double 1	9.0
+Aptos Narrow 6 singleAccounting 1	12.0
+Aptos Narrow 6 singleAccounting 3	39.0
+Aptos Narrow 6 doubleAccounting 1	12.0
+Aptos Narrow 7 none 1	10.0
+Aptos Narrow 7 none 3	33.0
+Aptos Narrow 7 single 1	10.0
+Aptos Narrow 7 double 1	10.0
+Aptos Narrow 7 singleAccounting 1	13.0
+Aptos Narrow 7 singleAccounting 3	42.0
+Aptos Narrow 7 doubleAccounting 1	13.0
+Aptos Narrow 8 none 1	11.0
+Aptos Narrow 8 none 3	36.0
+Aptos Narrow 8 single 1	11.0
+Aptos Narrow 8 double 1	11.0
+Aptos Narrow 8 singleAccounting 1	14.0
+Aptos Narrow 8 singleAccounting 3	45.0
+Aptos Narrow 8 doubleAccounting 1	14.0
+Aptos Narrow 9 none 1	13.0
+Aptos Narrow 9 none 3	42.0
+Aptos Narrow 9 single 1	13.0
+Aptos Narrow 9 double 1	13.0
+Aptos Narrow 9 singleAccounting 1	16.0
+Aptos Narrow 9 singleAccounting 3	51.0
+Aptos Narrow 9 doubleAccounting 1	16.0
+Aptos Narrow 10 none 1	14.0
+Aptos Narrow 10 none 3	45.0
+Aptos Narrow 10 single 1	14.0
+Aptos Narrow 10 double 1	14.0
+Aptos Narrow 10 singleAccounting 1	17.0
+Aptos Narrow 10 singleAccounting 3	54.0
+Aptos Narrow 10 doubleAccounting 1	17.0
+Aptos Narrow 11 none 1	15.0
+Aptos Narrow 11 none 3	48.0
+Aptos Narrow 11 single 1	15.0
+Aptos Narrow 11 double 1	15.0
+Aptos Narrow 11 singleAccounting 1	18.0
+Aptos Narrow 11 singleAccounting 3	57.0
+Aptos Narrow 11 doubleAccounting 1	18.0
+Aptos Narrow 12 none 1	16.0
+Aptos Narrow 12 none 3	51.0
+Aptos Narrow 12 single 1	16.0
+Aptos Narrow 12 double 1	16.0
+Aptos Narrow 12 singleAccounting 1	19.0
+Aptos Narrow 12 singleAccounting 3	60.0
+Aptos Narrow 12 doubleAccounting 1	19.0
+Aptos Narrow 13 none 1	18.0
+Aptos Narrow 13 none 3	57.0
+Aptos Narrow 13 single 1	18.0
+Aptos Narrow 13 double 1	18.0
+Aptos Narrow 13 singleAccounting 1	21.0
+Aptos Narrow 13 singleAccounting 3	66.0
+Aptos Narrow 13 doubleAccounting 1	21.0
+Aptos Narrow 14 none 1	19.0
+Aptos Narrow 14 none 3	60.0
+Aptos Narrow 14 single 1	19.0
+Aptos Narrow 14 double 1	19.0
+Aptos Narrow 14 singleAccounting 1	22.0
+Aptos Narrow 14 singleAccounting 3	69.0
+Aptos Narrow 14 doubleAccounting 1	22.0
+Aptos Narrow 15 none 1	20.0
+Aptos Narrow 15 none 3	63.0
+Aptos Narrow 15 single 1	20.0
+Aptos Narrow 15 double 1	20.0
+Aptos Narrow 15 singleAccounting 1	23.0
+Aptos Narrow 15 singleAccounting 3	72.0
+Aptos Narrow 15 doubleAccounting 1	23.0
+Aptos Narrow 16 none 1	22.0
+Aptos Narrow 16 none 3	69.0
+Aptos Narrow 16 single 1	22.0
+Aptos Narrow 16 double 1	22.0
+Aptos Narrow 16 singleAccounting 1	25.0
+Aptos Narrow 16 singleAccounting 3	78.0
+Aptos Narrow 16 doubleAccounting 1	25.0
+Aptos Narrow 17 none 1	23.0
+Aptos Narrow 17 none 3	72.0
+Aptos Narrow 17 single 1	23.0
+Aptos Narrow 17 double 1	23.0
+Aptos Narrow 17 singleAccounting 1	26.0
+Aptos Narrow 17 singleAccounting 3	81.0
+Aptos Narrow 17 doubleAccounting 1	26.0
+Aptos Narrow 18 none 1	24.0
+Aptos Narrow 18 none 3	75.0
+Aptos Narrow 18 single 1	24.0
+Aptos Narrow 18 double 1	24.0
+Aptos Narrow 18 singleAccounting 1	27.0
+Aptos Narrow 18 singleAccounting 3	84.0
+Aptos Narrow 18 doubleAccounting 1	27.0
+Aptos Narrow 19 none 1	25.0
+Aptos Narrow 19 none 3	78.0
+Aptos Narrow 19 single 1	25.0
+Aptos Narrow 19 double 1	25.0
+Aptos Narrow 19 singleAccounting 1	28.0
+Aptos Narrow 19 singleAccounting 3	87.0
+Aptos Narrow 19 doubleAccounting 1	28.0
+Aptos Narrow 20 none 1	27.0
+Aptos Narrow 20 none 3	84.0
+Aptos Narrow 20 single 1	27.0
+Aptos Narrow 20 double 1	27.0
+Aptos Narrow 20 singleAccounting 1	30.0
+Aptos Narrow 20 singleAccounting 3	93.0
+Aptos Narrow 20 doubleAccounting 1	30.0
+Aptos Narrow 21 none 1	28.0
+Aptos Narrow 21 none 3	87.0
+Aptos Narrow 21 single 1	28.0
+Aptos Narrow 21 double 1	28.0
+Aptos Narrow 21 singleAccounting 1	31.0
+Aptos Narrow 21 singleAccounting 3	96.0
+Aptos Narrow 21 doubleAccounting 1	31.0
+Aptos Narrow 22 none 1	29.0
+Aptos Narrow 22 none 3	90.0
+Aptos Narrow 22 single 1	29.0
+Aptos Narrow 22 double 1	29.0
+Aptos Narrow 22 singleAccounting 1	32.0
+Aptos Narrow 22 singleAccounting 3	99.0
+Aptos Narrow 22 doubleAccounting 1	32.0
+Aptos Narrow 23 none 1	30.0
+Aptos Narrow 23 none 3	93.0
+Aptos Narrow 23 single 1	30.0
+Aptos Narrow 23 double 1	30.0
+Aptos Narrow 23 singleAccounting 1	33.0
+Aptos Narrow 23 singleAccounting 3	102.0
+Aptos Narrow 23 doubleAccounting 1	33.0
+Aptos Narrow 24 none 1	32.0
+Aptos Narrow 24 none 3	99.0
+Aptos Narrow 24 single 1	32.0
+Aptos Narrow 24 double 1	32.0
+Aptos Narrow 24 singleAccounting 1	35.0
+Aptos Narrow 24 singleAccounting 3	108.0
+Aptos Narrow 24 doubleAccounting 1	35.0
+Aptos Narrow 25 none 1	33.0
+Aptos Narrow 25 none 3	102.0
+Aptos Narrow 25 single 1	33.0
+Aptos Narrow 25 double 1	33.0
+Aptos Narrow 25 singleAccounting 1	36.0
+Aptos Narrow 25 singleAccounting 3	111.0
+Aptos Narrow 25 doubleAccounting 1	36.0
+Aptos Narrow 26 none 1	34.0
+Aptos Narrow 26 none 3	105.0
+Aptos Narrow 26 single 1	34.0
+Aptos Narrow 26 double 1	34.0
+Aptos Narrow 26 singleAccounting 1	37.0
+Aptos Narrow 26 singleAccounting 3	114.0
+Aptos Narrow 26 doubleAccounting 1	37.0
+Aptos Narrow 27 none 1	36.0
+Aptos Narrow 27 none 3	111.0
+Aptos Narrow 27 single 1	36.0
+Aptos Narrow 27 double 1	36.0
+Aptos Narrow 27 singleAccounting 1	39.0
+Aptos Narrow 27 singleAccounting 3	120.0
+Aptos Narrow 27 doubleAccounting 1	39.0
+Aptos Narrow 28 none 1	37.0
+Aptos Narrow 28 none 3	114.0
+Aptos Narrow 28 single 1	37.0
+Aptos Narrow 28 double 1	37.0
+Aptos Narrow 28 singleAccounting 1	40.0
+Aptos Narrow 28 singleAccounting 3	123.0
+Aptos Narrow 28 doubleAccounting 1	40.0
+Aptos Narrow 29 none 1	38.0
+Aptos Narrow 29 none 3	117.0
+Aptos Narrow 29 single 1	38.0
+Aptos Narrow 29 double 1	38.0
+Aptos Narrow 29 singleAccounting 1	41.0
+Aptos Narrow 29 singleAccounting 3	126.0
+Aptos Narrow 29 doubleAccounting 1	41.0
+Aptos Narrow 30 none 1	39.0
+Aptos Narrow 30 none 3	120.0
+Aptos Narrow 30 single 1	39.0
+Aptos Narrow 30 double 1	39.0
+Aptos Narrow 30 singleAccounting 1	42.0
+Aptos Narrow 30 singleAccounting 3	129.0
+Aptos Narrow 30 doubleAccounting 1	42.0
+Aptos Narrow 31 none 1	41.0
+Aptos Narrow 31 none 3	126.0
+Aptos Narrow 31 single 1	41.0
+Aptos Narrow 31 double 1	41.0
+Aptos Narrow 31 singleAccounting 1	44.0
+Aptos Narrow 31 singleAccounting 3	135.0
+Aptos Narrow 31 doubleAccounting 1	44.0
+Aptos Narrow 32 none 1	42.0
+Aptos Narrow 32 none 3	129.0
+Aptos Narrow 32 single 1	42.0
+Aptos Narrow 32 double 1	42.0
+Aptos Narrow 32 singleAccounting 1	45.0
+Aptos Narrow 32 singleAccounting 3	138.0
+Aptos Narrow 32 doubleAccounting 1	45.0
+Aptos Narrow 33 none 1	43.0
+Aptos Narrow 33 none 3	132.0
+Aptos Narrow 33 single 1	43.0
+Aptos Narrow 33 double 1	43.0
+Aptos Narrow 33 singleAccounting 1	46.0
+Aptos Narrow 33 singleAccounting 3	141.0
+Aptos Narrow 33 doubleAccounting 1	46.0
+Aptos Narrow 34 none 1	45.0
+Aptos Narrow 34 none 3	138.0
+Aptos Narrow 34 single 1	45.0
+Aptos Narrow 34 double 1	45.0
+Aptos Narrow 34 singleAccounting 1	48.0
+Aptos Narrow 34 singleAccounting 3	147.0
+Aptos Narrow 34 doubleAccounting 1	48.0
+Aptos Narrow 35 none 1	46.0
+Aptos Narrow 35 none 3	141.0
+Aptos Narrow 35 single 1	46.0
+Aptos Narrow 35 double 1	46.0
+Aptos Narrow 35 singleAccounting 1	49.0
+Aptos Narrow 35 singleAccounting 3	150.0
+Aptos Narrow 35 doubleAccounting 1	49.0
+Aptos Narrow 36 none 1	47.0
+Aptos Narrow 36 none 3	144.0
+Aptos Narrow 36 single 1	47.0
+Aptos Narrow 36 double 1	47.0
+Aptos Narrow 36 singleAccounting 1	50.0
+Aptos Narrow 36 singleAccounting 3	153.0
+Aptos Narrow 36 doubleAccounting 1	50.0
+Aptos Narrow 37 none 1	48.0
+Aptos Narrow 37 none 3	147.0
+Aptos Narrow 37 single 1	48.0
+Aptos Narrow 37 double 1	48.0
+Aptos Narrow 37 singleAccounting 1	51.0
+Aptos Narrow 37 singleAccounting 3	156.0
+Aptos Narrow 37 doubleAccounting 1	51.0
+Aptos Narrow 38 none 1	50.0
+Aptos Narrow 38 none 3	153.0
+Aptos Narrow 38 single 1	50.0
+Aptos Narrow 38 double 1	50.0
+Aptos Narrow 38 singleAccounting 1	53.0
+Aptos Narrow 38 singleAccounting 3	162.0
+Aptos Narrow 38 doubleAccounting 1	53.0
+Aptos Narrow 39 none 1	51.0
+Aptos Narrow 39 none 3	156.0
+Aptos Narrow 39 single 1	51.0
+Aptos Narrow 39 double 1	51.0
+Aptos Narrow 39 singleAccounting 1	54.0
+Aptos Narrow 39 singleAccounting 3	165.0
+Aptos Narrow 39 doubleAccounting 1	54.0
+Aptos Narrow 40 none 1	52.0
+Aptos Narrow 40 none 3	159.0
+Aptos Narrow 40 single 1	52.0
+Aptos Narrow 40 double 1	52.0
+Aptos Narrow 40 singleAccounting 1	55.0
+Aptos Narrow 40 singleAccounting 3	168.0
+Aptos Narrow 40 doubleAccounting 1	55.0
+Aptos Narrow 41 none 1	54.0
+Aptos Narrow 41 none 3	165.0
+Aptos Narrow 41 single 1	54.0
+Aptos Narrow 41 double 1	54.0
+Aptos Narrow 41 singleAccounting 1	57.0
+Aptos Narrow 41 singleAccounting 3	174.0
+Aptos Narrow 41 doubleAccounting 1	57.0
+Aptos Narrow 42 none 1	55.0
+Aptos Narrow 42 none 3	168.0
+Aptos Narrow 42 single 1	55.0
+Aptos Narrow 42 double 1	55.0
+Aptos Narrow 42 singleAccounting 1	58.0
+Aptos Narrow 42 singleAccounting 3	177.0
+Aptos Narrow 42 doubleAccounting 1	58.0
+Aptos Narrow 43 none 1	56.0
+Aptos Narrow 43 none 3	171.0
+Aptos Narrow 43 single 1	56.0
+Aptos Narrow 43 double 1	56.0
+Aptos Narrow 43 singleAccounting 1	59.0
+Aptos Narrow 43 singleAccounting 3	180.0
+Aptos Narrow 43 doubleAccounting 1	59.0
+Aptos Narrow 44 none 1	57.0
+Aptos Narrow 44 none 3	174.0
+Aptos Narrow 44 single 1	57.0
+Aptos Narrow 44 double 1	57.0
+Aptos Narrow 44 singleAccounting 1	60.0
+Aptos Narrow 44 singleAccounting 3	183.0
+Aptos Narrow 44 doubleAccounting 1	60.0
+Aptos Narrow 45 none 1	59.0
+Aptos Narrow 45 none 3	180.0
+Aptos Narrow 45 single 1	59.0
+Aptos Narrow 45 double 1	59.0
+Aptos Narrow 45 singleAccounting 1	62.0
+Aptos Narrow 45 singleAccounting 3	189.0
+Aptos Narrow 45 doubleAccounting 1	62.0
+Aptos Narrow 46 none 1	60.0
+Aptos Narrow 46 none 3	183.0
+Aptos Narrow 46 single 1	60.0
+Aptos Narrow 46 double 1	60.0
+Aptos Narrow 46 singleAccounting 1	63.0
+Aptos Narrow 46 singleAccounting 3	192.0
+Aptos Narrow 46 doubleAccounting 1	63.0
+Aptos Narrow 47 none 1	61.0
+Aptos Narrow 47 none 3	186.0
+Aptos Narrow 47 single 1	61.0
+Aptos Narrow 47 double 1	61.0
+Aptos Narrow 47 singleAccounting 1	64.0
+Aptos Narrow 47 singleAccounting 3	195.0
+Aptos Narrow 47 doubleAccounting 1	64.0
+Aptos Narrow 48 none 1	63.0
+Aptos Narrow 48 none 3	192.0
+Aptos Narrow 48 single 1	63.0
+Aptos Narrow 48 double 1	63.0
+Aptos Narrow 48 singleAccounting 1	66.0
+Aptos Narrow 48 singleAccounting 3	201.0
+Aptos Narrow 48 doubleAccounting 1	66.0
+Aptos Narrow 49 none 1	64.0
+Aptos Narrow 49 none 3	195.0
+Aptos Narrow 49 single 1	64.0
+Aptos Narrow 49 double 1	64.0
+Aptos Narrow 49 singleAccounting 1	67.0
+Aptos Narrow 49 singleAccounting 3	204.0
+Aptos Narrow 49 doubleAccounting 1	67.0
+Aptos Narrow 50 none 1	65.0
+Aptos Narrow 50 none 3	198.0
+Aptos Narrow 50 single 1	65.0
+Aptos Narrow 50 double 1	65.0
+Aptos Narrow 50 singleAccounting 1	68.0
+Aptos Narrow 50 singleAccounting 3	207.0
+Aptos Narrow 50 doubleAccounting 1	68.0
+Aptos Narrow 51 none 1	66.0
+Aptos Narrow 51 none 3	201.0
+Aptos Narrow 51 single 1	66.0
+Aptos Narrow 51 double 1	66.0
+Aptos Narrow 51 singleAccounting 1	69.0
+Aptos Narrow 51 singleAccounting 3	210.0
+Aptos Narrow 51 doubleAccounting 1	69.0
+Aptos Narrow 52 none 1	68.0
+Aptos Narrow 52 none 3	207.0
+Aptos Narrow 52 single 1	68.0
+Aptos Narrow 52 double 1	68.0
+Aptos Narrow 52 singleAccounting 1	71.0
+Aptos Narrow 52 singleAccounting 3	216.0
+Aptos Narrow 52 doubleAccounting 1	71.0
+Aptos Narrow 53 none 1	69.0
+Aptos Narrow 53 none 3	210.0
+Aptos Narrow 53 single 1	69.0
+Aptos Narrow 53 double 1	69.0
+Aptos Narrow 53 singleAccounting 1	72.0
+Aptos Narrow 53 singleAccounting 3	219.0
+Aptos Narrow 53 doubleAccounting 1	72.0
+Aptos Narrow 54 none 1	70.0
+Aptos Narrow 54 none 3	213.0
+Aptos Narrow 54 single 1	70.0
+Aptos Narrow 54 double 1	70.0
+Aptos Narrow 54 singleAccounting 1	73.0
+Aptos Narrow 54 singleAccounting 3	222.0
+Aptos Narrow 54 doubleAccounting 1	73.0
+Aptos Narrow 55 none 1	71.0
+Aptos Narrow 55 none 3	216.0
+Aptos Narrow 55 single 1	71.0
+Aptos Narrow 55 double 1	71.0
+Aptos Narrow 55 singleAccounting 1	74.0
+Aptos Narrow 55 singleAccounting 3	225.0
+Aptos Narrow 55 doubleAccounting 1	74.0
+Aptos Narrow 56 none 1	73.0
+Aptos Narrow 56 none 3	222.0
+Aptos Narrow 56 single 1	73.0
+Aptos Narrow 56 double 1	73.0
+Aptos Narrow 56 singleAccounting 1	76.0
+Aptos Narrow 56 singleAccounting 3	231.0
+Aptos Narrow 56 doubleAccounting 1	76.0
+Aptos Narrow 57 none 1	74.0
+Aptos Narrow 57 none 3	225.0
+Aptos Narrow 57 single 1	74.0
+Aptos Narrow 57 double 1	74.0
+Aptos Narrow 57 singleAccounting 1	77.0
+Aptos Narrow 57 singleAccounting 3	234.0
+Aptos Narrow 57 doubleAccounting 1	77.0
+Aptos Narrow 58 none 1	75.0
+Aptos Narrow 58 none 3	228.0
+Aptos Narrow 58 single 1	75.0
+Aptos Narrow 58 double 1	75.0
+Aptos Narrow 58 singleAccounting 1	78.0
+Aptos Narrow 58 singleAccounting 3	237.0
+Aptos Narrow 58 doubleAccounting 1	78.0
+Aptos Narrow 59 none 1	77.0
+Aptos Narrow 59 none 3	234.0
+Aptos Narrow 59 single 1	77.0
+Aptos Narrow 59 double 1	77.0
+Aptos Narrow 59 singleAccounting 1	80.0
+Aptos Narrow 59 singleAccounting 3	243.0
+Aptos Narrow 59 doubleAccounting 1	80.0
+Aptos Narrow 60 none 1	78.0
+Aptos Narrow 60 none 3	237.0
+Aptos Narrow 60 single 1	78.0
+Aptos Narrow 60 double 1	78.0
+Aptos Narrow 60 singleAccounting 1	81.0
+Aptos Narrow 60 singleAccounting 3	246.0
+Aptos Narrow 60 doubleAccounting 1	81.0
+Aptos Narrow 61 none 1	79.0
+Aptos Narrow 61 none 3	240.0
+Aptos Narrow 61 single 1	79.0
+Aptos Narrow 61 double 1	79.0
+Aptos Narrow 61 singleAccounting 1	82.0
+Aptos Narrow 61 singleAccounting 3	249.0
+Aptos Narrow 61 doubleAccounting 1	82.0
+Aptos Narrow 62 none 1	80.0
+Aptos Narrow 62 none 3	243.0
+Aptos Narrow 62 single 1	80.0
+Aptos Narrow 62 double 1	80.0
+Aptos Narrow 62 singleAccounting 1	83.0
+Aptos Narrow 62 singleAccounting 3	252.0
+Aptos Narrow 62 doubleAccounting 1	83.0
+Aptos Narrow 63 none 1	82.0
+Aptos Narrow 63 none 3	249.0
+Aptos Narrow 63 single 1	82.0
+Aptos Narrow 63 double 1	82.0
+Aptos Narrow 63 singleAccounting 1	85.0
+Aptos Narrow 63 singleAccounting 3	258.0
+Aptos Narrow 63 doubleAccounting 1	85.0
+Aptos Narrow 64 none 1	83.0
+Aptos Narrow 64 none 3	252.0
+Aptos Narrow 64 single 1	83.0
+Aptos Narrow 64 double 1	83.0
+Aptos Narrow 64 singleAccounting 1	86.0
+Aptos Narrow 64 singleAccounting 3	261.0
+Aptos Narrow 64 doubleAccounting 1	86.0
+Aptos Narrow 65 none 1	84.0
+Aptos Narrow 65 none 3	255.0
+Aptos Narrow 65 single 1	84.0
+Aptos Narrow 65 double 1	84.0
+Aptos Narrow 65 singleAccounting 1	87.0
+Aptos Narrow 65 singleAccounting 3	264.0
+Aptos Narrow 65 doubleAccounting 1	87.0
+Aptos Narrow 66 none 1	86.0
+Aptos Narrow 66 none 3	261.0
+Aptos Narrow 66 single 1	86.0
+Aptos Narrow 66 double 1	86.0
+Aptos Narrow 66 singleAccounting 1	89.0
+Aptos Narrow 66 singleAccounting 3	270.0
+Aptos Narrow 66 doubleAccounting 1	89.0
+Aptos Narrow 67 none 1	87.0
+Aptos Narrow 67 none 3	264.0
+Aptos Narrow 67 single 1	87.0
+Aptos Narrow 67 double 1	87.0
+Aptos Narrow 67 singleAccounting 1	90.0
+Aptos Narrow 67 singleAccounting 3	273.0
+Aptos Narrow 67 doubleAccounting 1	90.0
+Aptos Narrow 68 none 1	88.0
+Aptos Narrow 68 none 3	267.0
+Aptos Narrow 68 single 1	88.0
+Aptos Narrow 68 double 1	88.0
+Aptos Narrow 68 singleAccounting 1	91.0
+Aptos Narrow 68 singleAccounting 3	276.0
+Aptos Narrow 68 doubleAccounting 1	91.0
+Aptos Narrow 69 none 1	89.0
+Aptos Narrow 69 none 3	270.0
+Aptos Narrow 69 single 1	89.0
+Aptos Narrow 69 double 1	89.0
+Aptos Narrow 69 singleAccounting 1	92.0
+Aptos Narrow 69 singleAccounting 3	279.0
+Aptos Narrow 69 doubleAccounting 1	92.0
+Aptos Narrow 70 none 1	91.0
+Aptos Narrow 70 none 3	276.0
+Aptos Narrow 70 single 1	91.0
+Aptos Narrow 70 double 1	91.0
+Aptos Narrow 70 singleAccounting 1	94.0
+Aptos Narrow 70 singleAccounting 3	285.0
+Aptos Narrow 70 doubleAccounting 1	94.0
+Aptos Narrow 71 none 1	92.0
+Aptos Narrow 71 none 3	279.0
+Aptos Narrow 71 single 1	92.0
+Aptos Narrow 71 double 1	92.0
+Aptos Narrow 71 singleAccounting 1	95.0
+Aptos Narrow 71 singleAccounting 3	288.0
+Aptos Narrow 71 doubleAccounting 1	95.0
+Aptos Narrow 72 none 1	93.0
+Aptos Narrow 72 none 3	282.0
+Aptos Narrow 72 single 1	93.0
+Aptos Narrow 72 double 1	93.0
+Aptos Narrow 72 singleAccounting 1	96.0
+Aptos Narrow 72 singleAccounting 3	291.0
+Aptos Narrow 72 doubleAccounting 1	96.0
+Times New Roman 6 none 1	10.0
+Times New Roman 6 none 3	33.0
+Times New Roman 6 single 1	10.0
+Times New Roman 6 double 1	10.0
+Times New Roman 6 singleAccounting 1	13.0
+Times New Roman 6 singleAccounting 3	42.0
+Times New Roman 6 doubleAccounting 1	13.0
+Times New Roman 7 none 1	10.0
+Times New Roman 7 none 3	33.0
+Times New Roman 7 single 1	10.0
+Times New Roman 7 double 1	10.0
+Times New Roman 7 singleAccounting 1	13.0
+Times New Roman 7 singleAccounting 3	42.0
+Times New Roman 7 doubleAccounting 1	13.0
+Times New Roman 8 none 1	11.0
+Times New Roman 8 none 3	36.0
+Times New Roman 8 single 1	11.0
+Times New Roman 8 double 1	11.0
+Times New Roman 8 singleAccounting 1	14.0
+Times New Roman 8 singleAccounting 3	45.0
+Times New Roman 8 doubleAccounting 1	14.0
+Times New Roman 9 none 1	12.0
+Times New Roman 9 none 3	39.0
+Times New Roman 9 single 1	12.0
+Times New Roman 9 double 1	12.0
+Times New Roman 9 singleAccounting 1	15.0
+Times New Roman 9 singleAccounting 3	48.0
+Times New Roman 9 doubleAccounting 1	15.0
+Times New Roman 10 none 1	13.0
+Times New Roman 10 none 3	42.0
+Times New Roman 10 single 1	13.0
+Times New Roman 10 double 1	13.0
+Times New Roman 10 singleAccounting 1	16.0
+Times New Roman 10 singleAccounting 3	51.0
+Times New Roman 10 doubleAccounting 1	16.0
+Times New Roman 11 none 1	14.0
+Times New Roman 11 none 3	45.0
+Times New Roman 11 single 1	14.0
+Times New Roman 11 double 1	14.0
+Times New Roman 11 singleAccounting 1	17.0
+Times New Roman 11 singleAccounting 3	54.0
+Times New Roman 11 doubleAccounting 1	17.0
+Times New Roman 12 none 1	16.0
+Times New Roman 12 none 3	51.0
+Times New Roman 12 single 1	16.0
+Times New Roman 12 double 1	16.0
+Times New Roman 12 singleAccounting 1	19.0
+Times New Roman 12 singleAccounting 3	60.0
+Times New Roman 12 doubleAccounting 1	19.0
+Times New Roman 13 none 1	17.0
+Times New Roman 13 none 3	54.0
+Times New Roman 13 single 1	17.0
+Times New Roman 13 double 1	17.0
+Times New Roman 13 singleAccounting 1	20.0
+Times New Roman 13 singleAccounting 3	63.0
+Times New Roman 13 doubleAccounting 1	20.0
+Times New Roman 14 none 1	18.0
+Times New Roman 14 none 3	57.0
+Times New Roman 14 single 1	18.0
+Times New Roman 14 double 1	18.0
+Times New Roman 14 singleAccounting 1	21.0
+Times New Roman 14 singleAccounting 3	66.0
+Times New Roman 14 doubleAccounting 1	21.0
+Times New Roman 15 none 1	19.0
+Times New Roman 15 none 3	60.0
+Times New Roman 15 single 1	19.0
+Times New Roman 15 double 1	19.0
+Times New Roman 15 singleAccounting 1	22.0
+Times New Roman 15 singleAccounting 3	69.0
+Times New Roman 15 doubleAccounting 1	22.0
+Times New Roman 16 none 1	20.0
+Times New Roman 16 none 3	63.0
+Times New Roman 16 single 1	20.0
+Times New Roman 16 double 1	20.0
+Times New Roman 16 singleAccounting 1	23.0
+Times New Roman 16 singleAccounting 3	72.0
+Times New Roman 16 doubleAccounting 1	23.0
+Times New Roman 17 none 1	22.0
+Times New Roman 17 none 3	69.0
+Times New Roman 17 single 1	22.0
+Times New Roman 17 double 1	22.0
+Times New Roman 17 singleAccounting 1	25.0
+Times New Roman 17 singleAccounting 3	78.0
+Times New Roman 17 doubleAccounting 1	25.0
+Times New Roman 18 none 1	23.0
+Times New Roman 18 none 3	72.0
+Times New Roman 18 single 1	23.0
+Times New Roman 18 double 1	23.0
+Times New Roman 18 singleAccounting 1	26.0
+Times New Roman 18 singleAccounting 3	81.0
+Times New Roman 18 doubleAccounting 1	26.0
+Times New Roman 19 none 1	24.0
+Times New Roman 19 none 3	75.0
+Times New Roman 19 single 1	24.0
+Times New Roman 19 double 1	24.0
+Times New Roman 19 singleAccounting 1	27.0
+Times New Roman 19 singleAccounting 3	84.0
+Times New Roman 19 doubleAccounting 1	27.0
+Times New Roman 20 none 1	25.0
+Times New Roman 20 none 3	78.0
+Times New Roman 20 single 1	25.0
+Times New Roman 20 double 1	25.0
+Times New Roman 20 singleAccounting 1	28.0
+Times New Roman 20 singleAccounting 3	87.0
+Times New Roman 20 doubleAccounting 1	28.0
+Times New Roman 21 none 1	27.0
+Times New Roman 21 none 3	84.0
+Times New Roman 21 single 1	27.0
+Times New Roman 21 double 1	27.0
+Times New Roman 21 singleAccounting 1	30.0
+Times New Roman 21 singleAccounting 3	93.0
+Times New Roman 21 doubleAccounting 1	30.0
+Times New Roman 22 none 1	28.0
+Times New Roman 22 none 3	87.0
+Times New Roman 22 single 1	28.0
+Times New Roman 22 double 1	28.0
+Times New Roman 22 singleAccounting 1	31.0
+Times New Roman 22 singleAccounting 3	96.0
+Times New Roman 22 doubleAccounting 1	31.0
+Times New Roman 23 none 1	29.0
+Times New Roman 23 none 3	90.0
+Times New Roman 23 single 1	29.0
+Times New Roman 23 double 1	29.0
+Times New Roman 23 singleAccounting 1	32.0
+Times New Roman 23 singleAccounting 3	99.0
+Times New Roman 23 doubleAccounting 1	32.0
+Times New Roman 24 none 1	30.0
+Times New Roman 24 none 3	93.0
+Times New Roman 24 single 1	30.0
+Times New Roman 24 double 1	30.0
+Times New Roman 24 singleAccounting 1	33.0
+Times New Roman 24 singleAccounting 3	102.0
+Times New Roman 24 doubleAccounting 1	33.0
+Times New Roman 25 none 1	31.0
+Times New Roman 25 none 3	96.0
+Times New Roman 25 single 1	31.0
+Times New Roman 25 double 1	31.0
+Times New Roman 25 singleAccounting 1	34.0
+Times New Roman 25 singleAccounting 3	105.0
+Times New Roman 25 doubleAccounting 1	34.0
+Times New Roman 26 none 1	33.0
+Times New Roman 26 none 3	102.0
+Times New Roman 26 single 1	33.0
+Times New Roman 26 double 1	33.0
+Times New Roman 26 singleAccounting 1	36.0
+Times New Roman 26 singleAccounting 3	111.0
+Times New Roman 26 doubleAccounting 1	36.0
+Times New Roman 27 none 1	34.0
+Times New Roman 27 none 3	105.0
+Times New Roman 27 single 1	34.0
+Times New Roman 27 double 1	34.0
+Times New Roman 27 singleAccounting 1	37.0
+Times New Roman 27 singleAccounting 3	114.0
+Times New Roman 27 doubleAccounting 1	37.0
+Times New Roman 28 none 1	35.0
+Times New Roman 28 none 3	108.0
+Times New Roman 28 single 1	35.0
+Times New Roman 28 double 1	35.0
+Times New Roman 28 singleAccounting 1	38.0
+Times New Roman 28 singleAccounting 3	117.0
+Times New Roman 28 doubleAccounting 1	38.0
+Times New Roman 29 none 1	36.0
+Times New Roman 29 none 3	111.0
+Times New Roman 29 single 1	36.0
+Times New Roman 29 double 1	36.0
+Times New Roman 29 singleAccounting 1	39.0
+Times New Roman 29 singleAccounting 3	120.0
+Times New Roman 29 doubleAccounting 1	39.0
+Times New Roman 30 none 1	37.0
+Times New Roman 30 none 3	114.0
+Times New Roman 30 single 1	37.0
+Times New Roman 30 double 1	37.0
+Times New Roman 30 singleAccounting 1	40.0
+Times New Roman 30 singleAccounting 3	123.0
+Times New Roman 30 doubleAccounting 1	40.0
+Times New Roman 31 none 1	39.0
+Times New Roman 31 none 3	120.0
+Times New Roman 31 single 1	39.0
+Times New Roman 31 double 1	39.0
+Times New Roman 31 singleAccounting 1	42.0
+Times New Roman 31 singleAccounting 3	129.0
+Times New Roman 31 doubleAccounting 1	42.0
+Times New Roman 32 none 1	40.0
+Times New Roman 32 none 3	123.0
+Times New Roman 32 single 1	40.0
+Times New Roman 32 double 1	40.0
+Times New Roman 32 singleAccounting 1	43.0
+Times New Roman 32 singleAccounting 3	132.0
+Times New Roman 32 doubleAccounting 1	43.0
+Times New Roman 33 none 1	41.0
+Times New Roman 33 none 3	126.0
+Times New Roman 33 single 1	41.0
+Times New Roman 33 double 1	41.0
+Times New Roman 33 singleAccounting 1	44.0
+Times New Roman 33 singleAccounting 3	135.0
+Times New Roman 33 doubleAccounting 1	44.0
+Times New Roman 34 none 1	42.0
+Times New Roman 34 none 3	129.0
+Times New Roman 34 single 1	42.0
+Times New Roman 34 double 1	42.0
+Times New Roman 34 singleAccounting 1	45.0
+Times New Roman 34 singleAccounting 3	138.0
+Times New Roman 34 doubleAccounting 1	45.0
+Times New Roman 35 none 1	44.0
+Times New Roman 35 none 3	135.0
+Times New Roman 35 single 1	44.0
+Times New Roman 35 double 1	44.0
+Times New Roman 35 singleAccounting 1	47.0
+Times New Roman 35 singleAccounting 3	144.0
+Times New Roman 35 doubleAccounting 1	47.0
+Times New Roman 36 none 1	45.0
+Times New Roman 36 none 3	138.0
+Times New Roman 36 single 1	45.0
+Times New Roman 36 double 1	45.0
+Times New Roman 36 singleAccounting 1	48.0
+Times New Roman 36 singleAccounting 3	147.0
+Times New Roman 36 doubleAccounting 1	48.0
+Times New Roman 37 none 1	46.0
+Times New Roman 37 none 3	141.0
+Times New Roman 37 single 1	46.0
+Times New Roman 37 double 1	46.0
+Times New Roman 37 singleAccounting 1	50.0
+Times New Roman 37 singleAccounting 3	153.0
+Times New Roman 37 doubleAccounting 1	50.0
+Times New Roman 38 none 1	47.0
+Times New Roman 38 none 3	144.0
+Times New Roman 38 single 1	47.0
+Times New Roman 38 double 1	47.0
+Times New Roman 38 singleAccounting 1	51.0
+Times New Roman 38 singleAccounting 3	156.0
+Times New Roman 38 doubleAccounting 1	51.0
+Times New Roman 39 none 1	48.0
+Times New Roman 39 none 3	147.0
+Times New Roman 39 single 1	48.0
+Times New Roman 39 double 1	48.0
+Times New Roman 39 singleAccounting 1	52.0
+Times New Roman 39 singleAccounting 3	159.0
+Times New Roman 39 doubleAccounting 1	52.0
+Times New Roman 40 none 1	50.0
+Times New Roman 40 none 3	153.0
+Times New Roman 40 single 1	50.0
+Times New Roman 40 double 1	50.0
+Times New Roman 40 singleAccounting 1	54.0
+Times New Roman 40 singleAccounting 3	165.0
+Times New Roman 40 doubleAccounting 1	54.0
+Times New Roman 41 none 1	51.0
+Times New Roman 41 none 3	156.0
+Times New Roman 41 single 1	51.0
+Times New Roman 41 double 1	51.0
+Times New Roman 41 singleAccounting 1	57.0
+Times New Roman 41 singleAccounting 3	174.0
+Times New Roman 41 doubleAccounting 1	57.0
+Times New Roman 42 none 1	52.0
+Times New Roman 42 none 3	159.0
+Times New Roman 42 single 1	52.0
+Times New Roman 42 double 1	52.0
+Times New Roman 42 singleAccounting 1	58.0
+Times New Roman 42 singleAccounting 3	177.0
+Times New Roman 42 doubleAccounting 1	58.0
+Times New Roman 43 none 1	53.0
+Times New Roman 43 none 3	162.0
+Times New Roman 43 single 1	53.0
+Times New Roman 43 double 1	53.0
+Times New Roman 43 singleAccounting 1	59.0
+Times New Roman 43 singleAccounting 3	180.0
+Times New Roman 43 doubleAccounting 1	59.0
+Times New Roman 44 none 1	55.0
+Times New Roman 44 none 3	168.0
+Times New Roman 44 single 1	55.0
+Times New Roman 44 double 1	55.0
+Times New Roman 44 singleAccounting 1	61.0
+Times New Roman 44 singleAccounting 3	186.0
+Times New Roman 44 doubleAccounting 1	61.0
+Times New Roman 45 none 1	56.0
+Times New Roman 45 none 3	171.0
+Times New Roman 45 single 1	56.0
+Times New Roman 45 double 1	56.0
+Times New Roman 45 singleAccounting 1	62.0
+Times New Roman 45 singleAccounting 3	189.0
+Times New Roman 45 doubleAccounting 1	62.0
+Times New Roman 46 none 1	57.0
+Times New Roman 46 none 3	174.0
+Times New Roman 46 single 1	57.0
+Times New Roman 46 double 1	57.0
+Times New Roman 46 singleAccounting 1	63.0
+Times New Roman 46 singleAccounting 3	192.0
+Times New Roman 46 doubleAccounting 1	63.0
+Times New Roman 47 none 1	58.0
+Times New Roman 47 none 3	177.0
+Times New Roman 47 single 1	58.0
+Times New Roman 47 double 1	58.0
+Times New Roman 47 singleAccounting 1	64.0
+Times New Roman 47 singleAccounting 3	195.0
+Times New Roman 47 doubleAccounting 1	64.0
+Times New Roman 48 none 1	59.0
+Times New Roman 48 none 3	180.0
+Times New Roman 48 single 1	59.0
+Times New Roman 48 double 1	59.0
+Times New Roman 48 singleAccounting 1	65.0
+Times New Roman 48 singleAccounting 3	198.0
+Times New Roman 48 doubleAccounting 1	65.0
+Times New Roman 49 none 1	61.0
+Times New Roman 49 none 3	186.0
+Times New Roman 49 single 1	61.0
+Times New Roman 49 double 1	61.0
+Times New Roman 49 singleAccounting 1	67.0
+Times New Roman 49 singleAccounting 3	204.0
+Times New Roman 49 doubleAccounting 1	67.0
+Times New Roman 50 none 1	62.0
+Times New Roman 50 none 3	189.0
+Times New Roman 50 single 1	62.0
+Times New Roman 50 double 1	62.0
+Times New Roman 50 singleAccounting 1	68.0
+Times New Roman 50 singleAccounting 3	207.0
+Times New Roman 50 doubleAccounting 1	68.0
+Times New Roman 51 none 1	63.0
+Times New Roman 51 none 3	192.0
+Times New Roman 51 single 1	63.0
+Times New Roman 51 double 1	63.0
+Times New Roman 51 singleAccounting 1	69.0
+Times New Roman 51 singleAccounting 3	210.0
+Times New Roman 51 doubleAccounting 1	69.0
+Times New Roman 52 none 1	64.0
+Times New Roman 52 none 3	195.0
+Times New Roman 52 single 1	64.0
+Times New Roman 52 double 1	64.0
+Times New Roman 52 singleAccounting 1	70.0
+Times New Roman 52 singleAccounting 3	213.0
+Times New Roman 52 doubleAccounting 1	70.0
+Times New Roman 53 none 1	65.0
+Times New Roman 53 none 3	198.0
+Times New Roman 53 single 1	65.0
+Times New Roman 53 double 1	65.0
+Times New Roman 53 singleAccounting 1	71.0
+Times New Roman 53 singleAccounting 3	216.0
+Times New Roman 53 doubleAccounting 1	71.0
+Times New Roman 54 none 1	67.0
+Times New Roman 54 none 3	204.0
+Times New Roman 54 single 1	67.0
+Times New Roman 54 double 1	67.0
+Times New Roman 54 singleAccounting 1	73.0
+Times New Roman 54 singleAccounting 3	222.0
+Times New Roman 54 doubleAccounting 1	73.0
+Times New Roman 55 none 1	68.0
+Times New Roman 55 none 3	207.0
+Times New Roman 55 single 1	68.0
+Times New Roman 55 double 1	68.0
+Times New Roman 55 singleAccounting 1	74.0
+Times New Roman 55 singleAccounting 3	225.0
+Times New Roman 55 doubleAccounting 1	74.0
+Times New Roman 56 none 1	69.0
+Times New Roman 56 none 3	210.0
+Times New Roman 56 single 1	69.0
+Times New Roman 56 double 1	69.0
+Times New Roman 56 singleAccounting 1	75.0
+Times New Roman 56 singleAccounting 3	228.0
+Times New Roman 56 doubleAccounting 1	75.0
+Times New Roman 57 none 1	70.0
+Times New Roman 57 none 3	213.0
+Times New Roman 57 single 1	70.0
+Times New Roman 57 double 1	70.0
+Times New Roman 57 singleAccounting 1	76.0
+Times New Roman 57 singleAccounting 3	231.0
+Times New Roman 57 doubleAccounting 1	76.0
+Times New Roman 58 none 1	72.0
+Times New Roman 58 none 3	219.0
+Times New Roman 58 single 1	72.0
+Times New Roman 58 double 1	72.0
+Times New Roman 58 singleAccounting 1	78.0
+Times New Roman 58 singleAccounting 3	237.0
+Times New Roman 58 doubleAccounting 1	78.0
+Times New Roman 59 none 1	73.0
+Times New Roman 59 none 3	222.0
+Times New Roman 59 single 1	73.0
+Times New Roman 59 double 1	73.0
+Times New Roman 59 singleAccounting 1	79.0
+Times New Roman 59 singleAccounting 3	240.0
+Times New Roman 59 doubleAccounting 1	79.0
+Times New Roman 60 none 1	74.0
+Times New Roman 60 none 3	225.0
+Times New Roman 60 single 1	74.0
+Times New Roman 60 double 1	74.0
+Times New Roman 60 singleAccounting 1	80.0
+Times New Roman 60 singleAccounting 3	243.0
+Times New Roman 60 doubleAccounting 1	80.0
+Times New Roman 61 none 1	75.0
+Times New Roman 61 none 3	228.0
+Times New Roman 61 single 1	75.0
+Times New Roman 61 double 1	75.0
+Times New Roman 61 singleAccounting 1	81.0
+Times New Roman 61 singleAccounting 3	246.0
+Times New Roman 61 doubleAccounting 1	81.0
+Times New Roman 62 none 1	76.0
+Times New Roman 62 none 3	231.0
+Times New Roman 62 single 1	76.0
+Times New Roman 62 double 1	76.0
+Times New Roman 62 singleAccounting 1	85.0
+Times New Roman 62 singleAccounting 3	258.0
+Times New Roman 62 doubleAccounting 1	85.0
+Times New Roman 63 none 1	78.0
+Times New Roman 63 none 3	237.0
+Times New Roman 63 single 1	78.0
+Times New Roman 63 double 1	78.0
+Times New Roman 63 singleAccounting 1	87.0
+Times New Roman 63 singleAccounting 3	264.0
+Times New Roman 63 doubleAccounting 1	87.0
+Times New Roman 64 none 1	79.0
+Times New Roman 64 none 3	240.0
+Times New Roman 64 single 1	79.0
+Times New Roman 64 double 1	79.0
+Times New Roman 64 singleAccounting 1	88.0
+Times New Roman 64 singleAccounting 3	267.0
+Times New Roman 64 doubleAccounting 1	88.0
+Times New Roman 65 none 1	80.0
+Times New Roman 65 none 3	243.0
+Times New Roman 65 single 1	80.0
+Times New Roman 65 double 1	80.0
+Times New Roman 65 singleAccounting 1	89.0
+Times New Roman 65 singleAccounting 3	270.0
+Times New Roman 65 doubleAccounting 1	89.0
+Times New Roman 66 none 1	81.0
+Times New Roman 66 none 3	246.0
+Times New Roman 66 single 1	81.0
+Times New Roman 66 double 1	81.0
+Times New Roman 66 singleAccounting 1	90.0
+Times New Roman 66 singleAccounting 3	273.0
+Times New Roman 66 doubleAccounting 1	90.0
+Times New Roman 67 none 1	82.0
+Times New Roman 67 none 3	249.0
+Times New Roman 67 single 1	82.0
+Times New Roman 67 double 1	82.0
+Times New Roman 67 singleAccounting 1	91.0
+Times New Roman 67 singleAccounting 3	276.0
+Times New Roman 67 doubleAccounting 1	91.0
+Times New Roman 68 none 1	84.0
+Times New Roman 68 none 3	255.0
+Times New Roman 68 single 1	84.0
+Times New Roman 68 double 1	84.0
+Times New Roman 68 singleAccounting 1	93.0
+Times New Roman 68 singleAccounting 3	282.0
+Times New Roman 68 doubleAccounting 1	93.0
+Times New Roman 69 none 1	85.0
+Times New Roman 69 none 3	258.0
+Times New Roman 69 single 1	85.0
+Times New Roman 69 double 1	85.0
+Times New Roman 69 singleAccounting 1	94.0
+Times New Roman 69 singleAccounting 3	285.0
+Times New Roman 69 doubleAccounting 1	94.0
+Times New Roman 70 none 1	86.0
+Times New Roman 70 none 3	261.0
+Times New Roman 70 single 1	86.0
+Times New Roman 70 double 1	86.0
+Times New Roman 70 singleAccounting 1	95.0
+Times New Roman 70 singleAccounting 3	288.0
+Times New Roman 70 doubleAccounting 1	95.0
+Times New Roman 71 none 1	87.0
+Times New Roman 71 none 3	264.0
+Times New Roman 71 single 1	87.0
+Times New Roman 71 double 1	87.0
+Times New Roman 71 singleAccounting 1	96.0
+Times New Roman 71 singleAccounting 3	291.0
+Times New Roman 71 doubleAccounting 1	96.0
+Times New Roman 72 none 1	89.0
+Times New Roman 72 none 3	270.0
+Times New Roman 72 single 1	89.0
+Times New Roman 72 double 1	89.0
+Times New Roman 72 singleAccounting 1	98.0
+Times New Roman 72 singleAccounting 3	297.0
+Times New Roman 72 doubleAccounting 1	98.0
+Courier New 6 none 1	9.0
+Courier New 6 none 3	30.0
+Courier New 6 single 1	9.0
+Courier New 6 double 1	9.0
+Courier New 6 singleAccounting 1	12.0
+Courier New 6 singleAccounting 3	39.0
+Courier New 6 doubleAccounting 1	12.0
+Courier New 7 none 1	10.0
+Courier New 7 none 3	33.0
+Courier New 7 single 1	10.0
+Courier New 7 double 1	10.0
+Courier New 7 singleAccounting 1	13.0
+Courier New 7 singleAccounting 3	42.0
+Courier New 7 doubleAccounting 1	13.0
+Courier New 8 none 1	11.0
+Courier New 8 none 3	36.0
+Courier New 8 single 1	11.0
+Courier New 8 double 1	11.0
+Courier New 8 singleAccounting 1	14.0
+Courier New 8 singleAccounting 3	45.0
+Courier New 8 doubleAccounting 1	14.0
+Courier New 9 none 1	13.0
+Courier New 9 none 3	42.0
+Courier New 9 single 1	13.0
+Courier New 9 double 1	13.0
+Courier New 9 singleAccounting 1	16.0
+Courier New 9 singleAccounting 3	51.0
+Courier New 9 doubleAccounting 1	16.0
+Courier New 10 none 1	14.0
+Courier New 10 none 3	45.0
+Courier New 10 single 1	14.0
+Courier New 10 double 1	14.0
+Courier New 10 singleAccounting 1	17.0
+Courier New 10 singleAccounting 3	54.0
+Courier New 10 doubleAccounting 1	17.0
+Courier New 11 none 1	15.0
+Courier New 11 none 3	48.0
+Courier New 11 single 1	15.0
+Courier New 11 double 1	15.0
+Courier New 11 singleAccounting 1	18.0
+Courier New 11 singleAccounting 3	57.0
+Courier New 11 doubleAccounting 1	18.0
+Courier New 12 none 1	17.0
+Courier New 12 none 3	54.0
+Courier New 12 single 1	17.0
+Courier New 12 double 1	17.0
+Courier New 12 singleAccounting 1	20.0
+Courier New 12 singleAccounting 3	63.0
+Courier New 12 doubleAccounting 1	20.0
+Courier New 13 none 1	18.0
+Courier New 13 none 3	57.0
+Courier New 13 single 1	18.0
+Courier New 13 double 1	18.0
+Courier New 13 singleAccounting 1	21.0
+Courier New 13 singleAccounting 3	66.0
+Courier New 13 doubleAccounting 1	21.0
+Courier New 14 none 1	19.0
+Courier New 14 none 3	60.0
+Courier New 14 single 1	19.0
+Courier New 14 double 1	19.0
+Courier New 14 singleAccounting 1	22.0
+Courier New 14 singleAccounting 3	69.0
+Courier New 14 doubleAccounting 1	22.0
+Courier New 15 none 1	21.0
+Courier New 15 none 3	66.0
+Courier New 15 single 1	21.0
+Courier New 15 double 1	21.0
+Courier New 15 singleAccounting 1	24.0
+Courier New 15 singleAccounting 3	75.0
+Courier New 15 doubleAccounting 1	24.0
+Courier New 16 none 1	22.0
+Courier New 16 none 3	69.0
+Courier New 16 single 1	22.0
+Courier New 16 double 1	22.0
+Courier New 16 singleAccounting 1	25.0
+Courier New 16 singleAccounting 3	78.0
+Courier New 16 doubleAccounting 1	25.0
+Courier New 17 none 1	23.0
+Courier New 17 none 3	72.0
+Courier New 17 single 1	23.0
+Courier New 17 double 1	23.0
+Courier New 17 singleAccounting 1	26.0
+Courier New 17 singleAccounting 3	81.0
+Courier New 17 doubleAccounting 1	26.0
+Courier New 18 none 1	24.0
+Courier New 18 none 3	75.0
+Courier New 18 single 1	24.0
+Courier New 18 double 1	24.0
+Courier New 18 singleAccounting 1	28.0
+Courier New 18 singleAccounting 3	87.0
+Courier New 18 doubleAccounting 1	28.0
+Courier New 19 none 1	26.0
+Courier New 19 none 3	81.0
+Courier New 19 single 1	26.0
+Courier New 19 double 1	26.0
+Courier New 19 singleAccounting 1	30.0
+Courier New 19 singleAccounting 3	93.0
+Courier New 19 doubleAccounting 1	30.0
+Courier New 20 none 1	27.0
+Courier New 20 none 3	84.0
+Courier New 20 single 1	27.0
+Courier New 20 double 1	27.0
+Courier New 20 singleAccounting 1	31.0
+Courier New 20 singleAccounting 3	96.0
+Courier New 20 doubleAccounting 1	31.0
+Courier New 21 none 1	28.0
+Courier New 21 none 3	87.0
+Courier New 21 single 1	28.0
+Courier New 21 double 1	28.0
+Courier New 21 singleAccounting 1	32.0
+Courier New 21 singleAccounting 3	99.0
+Courier New 21 doubleAccounting 1	32.0
+Courier New 22 none 1	30.0
+Courier New 22 none 3	93.0
+Courier New 22 single 1	30.0
+Courier New 22 double 1	30.0
+Courier New 22 singleAccounting 1	34.0
+Courier New 22 singleAccounting 3	105.0
+Courier New 22 doubleAccounting 1	34.0
+Courier New 23 none 1	31.0
+Courier New 23 none 3	96.0
+Courier New 23 single 1	31.0
+Courier New 23 double 1	31.0
+Courier New 23 singleAccounting 1	35.0
+Courier New 23 singleAccounting 3	108.0
+Courier New 23 doubleAccounting 1	35.0
+Courier New 24 none 1	32.0
+Courier New 24 none 3	99.0
+Courier New 24 single 1	32.0
+Courier New 24 double 1	32.0
+Courier New 24 singleAccounting 1	36.0
+Courier New 24 singleAccounting 3	111.0
+Courier New 24 doubleAccounting 1	36.0
+Courier New 25 none 1	34.0
+Courier New 25 none 3	105.0
+Courier New 25 single 1	34.0
+Courier New 25 double 1	34.0
+Courier New 25 singleAccounting 1	38.0
+Courier New 25 singleAccounting 3	117.0
+Courier New 25 doubleAccounting 1	38.0
+Courier New 26 none 1	35.0
+Courier New 26 none 3	108.0
+Courier New 26 single 1	35.0
+Courier New 26 double 1	35.0
+Courier New 26 singleAccounting 1	40.0
+Courier New 26 singleAccounting 3	123.0
+Courier New 26 doubleAccounting 1	40.0
+Courier New 27 none 1	36.0
+Courier New 27 none 3	111.0
+Courier New 27 single 1	36.0
+Courier New 27 double 1	36.0
+Courier New 27 singleAccounting 1	41.0
+Courier New 27 singleAccounting 3	126.0
+Courier New 27 doubleAccounting 1	41.0
+Courier New 28 none 1	37.0
+Courier New 28 none 3	114.0
+Courier New 28 single 1	37.0
+Courier New 28 double 1	37.0
+Courier New 28 singleAccounting 1	42.0
+Courier New 28 singleAccounting 3	129.0
+Courier New 28 doubleAccounting 1	42.0
+Courier New 29 none 1	39.0
+Courier New 29 none 3	120.0
+Courier New 29 single 1	39.0
+Courier New 29 double 1	39.0
+Courier New 29 singleAccounting 1	44.0
+Courier New 29 singleAccounting 3	135.0
+Courier New 29 doubleAccounting 1	44.0
+Courier New 30 none 1	40.0
+Courier New 30 none 3	123.0
+Courier New 30 single 1	40.0
+Courier New 30 double 1	40.0
+Courier New 30 singleAccounting 1	45.0
+Courier New 30 singleAccounting 3	138.0
+Courier New 30 doubleAccounting 1	45.0
+Courier New 31 none 1	41.0
+Courier New 31 none 3	126.0
+Courier New 31 single 1	41.0
+Courier New 31 double 1	41.0
+Courier New 31 singleAccounting 1	46.0
+Courier New 31 singleAccounting 3	141.0
+Courier New 31 doubleAccounting 1	46.0
+Courier New 32 none 1	43.0
+Courier New 32 none 3	132.0
+Courier New 32 single 1	43.0
+Courier New 32 double 1	43.0
+Courier New 32 singleAccounting 1	48.0
+Courier New 32 singleAccounting 3	147.0
+Courier New 32 doubleAccounting 1	48.0
+Courier New 33 none 1	44.0
+Courier New 33 none 3	135.0
+Courier New 33 single 1	44.0
+Courier New 33 double 1	44.0
+Courier New 33 singleAccounting 1	49.0
+Courier New 33 singleAccounting 3	150.0
+Courier New 33 doubleAccounting 1	49.0
+Courier New 34 none 1	45.0
+Courier New 34 none 3	138.0
+Courier New 34 single 1	45.0
+Courier New 34 double 1	45.0
+Courier New 34 singleAccounting 1	50.0
+Courier New 34 singleAccounting 3	153.0
+Courier New 34 doubleAccounting 1	50.0
+Courier New 35 none 1	47.0
+Courier New 35 none 3	144.0
+Courier New 35 single 1	47.0
+Courier New 35 double 1	47.0
+Courier New 35 singleAccounting 1	53.0
+Courier New 35 singleAccounting 3	162.0
+Courier New 35 doubleAccounting 1	53.0
+Courier New 36 none 1	48.0
+Courier New 36 none 3	147.0
+Courier New 36 single 1	48.0
+Courier New 36 double 1	48.0
+Courier New 36 singleAccounting 1	54.0
+Courier New 36 singleAccounting 3	165.0
+Courier New 36 doubleAccounting 1	54.0
+Courier New 37 none 1	49.0
+Courier New 37 none 3	150.0
+Courier New 37 single 1	49.0
+Courier New 37 double 1	49.0
+Courier New 37 singleAccounting 1	55.0
+Courier New 37 singleAccounting 3	168.0
+Courier New 37 doubleAccounting 1	55.0
+Courier New 38 none 1	50.0
+Courier New 38 none 3	153.0
+Courier New 38 single 1	50.0
+Courier New 38 double 1	50.0
+Courier New 38 singleAccounting 1	56.0
+Courier New 38 singleAccounting 3	171.0
+Courier New 38 doubleAccounting 1	56.0
+Courier New 39 none 1	52.0
+Courier New 39 none 3	159.0
+Courier New 39 single 1	52.0
+Courier New 39 double 1	52.0
+Courier New 39 singleAccounting 1	58.0
+Courier New 39 singleAccounting 3	177.0
+Courier New 39 doubleAccounting 1	58.0
+Courier New 40 none 1	53.0
+Courier New 40 none 3	162.0
+Courier New 40 single 1	53.0
+Courier New 40 double 1	53.0
+Courier New 40 singleAccounting 1	59.0
+Courier New 40 singleAccounting 3	180.0
+Courier New 40 doubleAccounting 1	59.0
+Courier New 41 none 1	54.0
+Courier New 41 none 3	165.0
+Courier New 41 single 1	54.0
+Courier New 41 double 1	54.0
+Courier New 41 singleAccounting 1	60.0
+Courier New 41 singleAccounting 3	183.0
+Courier New 41 doubleAccounting 1	60.0
+Courier New 42 none 1	56.0
+Courier New 42 none 3	171.0
+Courier New 42 single 1	56.0
+Courier New 42 double 1	56.0
+Courier New 42 singleAccounting 1	62.0
+Courier New 42 singleAccounting 3	189.0
+Courier New 42 doubleAccounting 1	62.0
+Courier New 43 none 1	57.0
+Courier New 43 none 3	174.0
+Courier New 43 single 1	57.0
+Courier New 43 double 1	57.0
+Courier New 43 singleAccounting 1	64.0
+Courier New 43 singleAccounting 3	195.0
+Courier New 43 doubleAccounting 1	64.0
+Courier New 44 none 1	58.0
+Courier New 44 none 3	177.0
+Courier New 44 single 1	58.0
+Courier New 44 double 1	58.0
+Courier New 44 singleAccounting 1	65.0
+Courier New 44 singleAccounting 3	198.0
+Courier New 44 doubleAccounting 1	65.0
+Courier New 45 none 1	60.0
+Courier New 45 none 3	183.0
+Courier New 45 single 1	60.0
+Courier New 45 double 1	60.0
+Courier New 45 singleAccounting 1	67.0
+Courier New 45 singleAccounting 3	204.0
+Courier New 45 doubleAccounting 1	67.0
+Courier New 46 none 1	61.0
+Courier New 46 none 3	186.0
+Courier New 46 single 1	61.0
+Courier New 46 double 1	61.0
+Courier New 46 singleAccounting 1	68.0
+Courier New 46 singleAccounting 3	207.0
+Courier New 46 doubleAccounting 1	68.0
+Courier New 47 none 1	62.0
+Courier New 47 none 3	189.0
+Courier New 47 single 1	62.0
+Courier New 47 double 1	62.0
+Courier New 47 singleAccounting 1	69.0
+Courier New 47 singleAccounting 3	210.0
+Courier New 47 doubleAccounting 1	69.0
+Courier New 48 none 1	63.0
+Courier New 48 none 3	192.0
+Courier New 48 single 1	63.0
+Courier New 48 double 1	63.0
+Courier New 48 singleAccounting 1	70.0
+Courier New 48 singleAccounting 3	213.0
+Courier New 48 doubleAccounting 1	70.0
+Courier New 49 none 1	65.0
+Courier New 49 none 3	198.0
+Courier New 49 single 1	65.0
+Courier New 49 double 1	65.0
+Courier New 49 singleAccounting 1	74.0
+Courier New 49 singleAccounting 3	225.0
+Courier New 49 doubleAccounting 1	74.0
+Courier New 50 none 1	66.0
+Courier New 50 none 3	201.0
+Courier New 50 single 1	66.0
+Courier New 50 double 1	66.0
+Courier New 50 singleAccounting 1	75.0
+Courier New 50 singleAccounting 3	228.0
+Courier New 50 doubleAccounting 1	75.0
+Courier New 51 none 1	67.0
+Courier New 51 none 3	204.0
+Courier New 51 single 1	67.0
+Courier New 51 double 1	67.0
+Courier New 51 singleAccounting 1	76.0
+Courier New 51 singleAccounting 3	231.0
+Courier New 51 doubleAccounting 1	76.0
+Courier New 52 none 1	69.0
+Courier New 52 none 3	210.0
+Courier New 52 single 1	69.0
+Courier New 52 double 1	69.0
+Courier New 52 singleAccounting 1	78.0
+Courier New 52 singleAccounting 3	237.0
+Courier New 52 doubleAccounting 1	78.0
+Courier New 53 none 1	70.0
+Courier New 53 none 3	213.0
+Courier New 53 single 1	70.0
+Courier New 53 double 1	70.0
+Courier New 53 singleAccounting 1	79.0
+Courier New 53 singleAccounting 3	240.0
+Courier New 53 doubleAccounting 1	79.0
+Courier New 54 none 1	71.0
+Courier New 54 none 3	216.0
+Courier New 54 single 1	71.0
+Courier New 54 double 1	71.0
+Courier New 54 singleAccounting 1	80.0
+Courier New 54 singleAccounting 3	243.0
+Courier New 54 doubleAccounting 1	80.0
+Courier New 55 none 1	73.0
+Courier New 55 none 3	222.0
+Courier New 55 single 1	73.0
+Courier New 55 double 1	73.0
+Courier New 55 singleAccounting 1	82.0
+Courier New 55 singleAccounting 3	249.0
+Courier New 55 doubleAccounting 1	82.0
+Courier New 56 none 1	74.0
+Courier New 56 none 3	225.0
+Courier New 56 single 1	74.0
+Courier New 56 double 1	74.0
+Courier New 56 singleAccounting 1	84.0
+Courier New 56 singleAccounting 3	255.0
+Courier New 56 doubleAccounting 1	84.0
+Courier New 57 none 1	75.0
+Courier New 57 none 3	228.0
+Courier New 57 single 1	75.0
+Courier New 57 double 1	75.0
+Courier New 57 singleAccounting 1	85.0
+Courier New 57 singleAccounting 3	258.0
+Courier New 57 doubleAccounting 1	85.0
+Courier New 58 none 1	76.0
+Courier New 58 none 3	231.0
+Courier New 58 single 1	76.0
+Courier New 58 double 1	76.0
+Courier New 58 singleAccounting 1	86.0
+Courier New 58 singleAccounting 3	261.0
+Courier New 58 doubleAccounting 1	86.0
+Courier New 59 none 1	78.0
+Courier New 59 none 3	237.0
+Courier New 59 single 1	78.0
+Courier New 59 double 1	78.0
+Courier New 59 singleAccounting 1	88.0
+Courier New 59 singleAccounting 3	267.0
+Courier New 59 doubleAccounting 1	88.0
+Courier New 60 none 1	79.0
+Courier New 60 none 3	240.0
+Courier New 60 single 1	79.0
+Courier New 60 double 1	79.0
+Courier New 60 singleAccounting 1	89.0
+Courier New 60 singleAccounting 3	270.0
+Courier New 60 doubleAccounting 1	89.0
+Courier New 61 none 1	80.0
+Courier New 61 none 3	243.0
+Courier New 61 single 1	80.0
+Courier New 61 double 1	80.0
+Courier New 61 singleAccounting 1	90.0
+Courier New 61 singleAccounting 3	273.0
+Courier New 61 doubleAccounting 1	90.0
+Courier New 62 none 1	82.0
+Courier New 62 none 3	249.0
+Courier New 62 single 1	82.0
+Courier New 62 double 1	82.0
+Courier New 62 singleAccounting 1	92.0
+Courier New 62 singleAccounting 3	279.0
+Courier New 62 doubleAccounting 1	92.0
+Courier New 63 none 1	83.0
+Courier New 63 none 3	252.0
+Courier New 63 single 1	83.0
+Courier New 63 double 1	83.0
+Courier New 63 singleAccounting 1	93.0
+Courier New 63 singleAccounting 3	282.0
+Courier New 63 doubleAccounting 1	93.0
+Courier New 64 none 1	84.0
+Courier New 64 none 3	255.0
+Courier New 64 single 1	84.0
+Courier New 64 double 1	84.0
+Courier New 64 singleAccounting 1	94.0
+Courier New 64 singleAccounting 3	285.0
+Courier New 64 doubleAccounting 1	94.0
+Courier New 65 none 1	86.0
+Courier New 65 none 3	261.0
+Courier New 65 single 1	86.0
+Courier New 65 double 1	86.0
+Courier New 65 singleAccounting 1	97.0
+Courier New 65 singleAccounting 3	294.0
+Courier New 65 doubleAccounting 1	97.0
+Courier New 66 none 1	87.0
+Courier New 66 none 3	264.0
+Courier New 66 single 1	87.0
+Courier New 66 double 1	87.0
+Courier New 66 singleAccounting 1	98.0
+Courier New 66 singleAccounting 3	297.0
+Courier New 66 doubleAccounting 1	98.0
+Courier New 67 none 1	88.0
+Courier New 67 none 3	267.0
+Courier New 67 single 1	88.0
+Courier New 67 double 1	88.0
+Courier New 67 singleAccounting 1	99.0
+Courier New 67 singleAccounting 3	300.0
+Courier New 67 doubleAccounting 1	99.0
+Courier New 68 none 1	89.0
+Courier New 68 none 3	270.0
+Courier New 68 single 1	89.0
+Courier New 68 double 1	89.0
+Courier New 68 singleAccounting 1	100.0
+Courier New 68 singleAccounting 3	303.0
+Courier New 68 doubleAccounting 1	100.0
+Courier New 69 none 1	91.0
+Courier New 69 none 3	276.0
+Courier New 69 single 1	91.0
+Courier New 69 double 1	91.0
+Courier New 69 singleAccounting 1	102.0
+Courier New 69 singleAccounting 3	309.0
+Courier New 69 doubleAccounting 1	102.0
+Courier New 70 none 1	92.0
+Courier New 70 none 3	279.0
+Courier New 70 single 1	92.0
+Courier New 70 double 1	92.0
+Courier New 70 singleAccounting 1	103.0
+Courier New 70 singleAccounting 3	312.0
+Courier New 70 doubleAccounting 1	103.0
+Courier New 71 none 1	93.0
+Courier New 71 none 3	282.0
+Courier New 71 single 1	93.0
+Courier New 71 double 1	93.0
+Courier New 71 singleAccounting 1	104.0
+Courier New 71 singleAccounting 3	315.0
+Courier New 71 doubleAccounting 1	104.0
+Courier New 72 none 1	95.0
+Courier New 72 none 3	288.0
+Courier New 72 single 1	95.0
+Courier New 72 double 1	95.0
+Courier New 72 singleAccounting 1	106.0
+Courier New 72 singleAccounting 3	321.0
+Courier New 72 doubleAccounting 1	106.0
+Georgia 6 none 1	10.0
+Georgia 6 none 3	33.0
+Georgia 6 single 1	10.0
+Georgia 6 double 1	10.0
+Georgia 6 singleAccounting 1	13.0
+Georgia 6 singleAccounting 3	42.0
+Georgia 6 doubleAccounting 1	13.0
+Georgia 7 none 1	10.0
+Georgia 7 none 3	33.0
+Georgia 7 single 1	10.0
+Georgia 7 double 1	10.0
+Georgia 7 singleAccounting 1	13.0
+Georgia 7 singleAccounting 3	42.0
+Georgia 7 doubleAccounting 1	13.0
+Georgia 8 none 1	11.0
+Georgia 8 none 3	36.0
+Georgia 8 single 1	11.0
+Georgia 8 double 1	11.0
+Georgia 8 singleAccounting 1	14.0
+Georgia 8 singleAccounting 3	45.0
+Georgia 8 doubleAccounting 1	14.0
+Georgia 9 none 1	12.0
+Georgia 9 none 3	39.0
+Georgia 9 single 1	12.0
+Georgia 9 double 1	12.0
+Georgia 9 singleAccounting 1	15.0
+Georgia 9 singleAccounting 3	48.0
+Georgia 9 doubleAccounting 1	15.0
+Georgia 10 none 1	13.0
+Georgia 10 none 3	42.0
+Georgia 10 single 1	13.0
+Georgia 10 double 1	13.0
+Georgia 10 singleAccounting 1	16.0
+Georgia 10 singleAccounting 3	51.0
+Georgia 10 doubleAccounting 1	16.0
+Georgia 11 none 1	14.0
+Georgia 11 none 3	45.0
+Georgia 11 single 1	14.0
+Georgia 11 double 1	14.0
+Georgia 11 singleAccounting 1	17.0
+Georgia 11 singleAccounting 3	54.0
+Georgia 11 doubleAccounting 1	17.0
+Georgia 12 none 1	16.0
+Georgia 12 none 3	51.0
+Georgia 12 single 1	16.0
+Georgia 12 double 1	16.0
+Georgia 12 singleAccounting 1	19.0
+Georgia 12 singleAccounting 3	60.0
+Georgia 12 doubleAccounting 1	19.0
+Georgia 13 none 1	17.0
+Georgia 13 none 3	54.0
+Georgia 13 single 1	17.0
+Georgia 13 double 1	17.0
+Georgia 13 singleAccounting 1	20.0
+Georgia 13 singleAccounting 3	63.0
+Georgia 13 doubleAccounting 1	20.0
+Georgia 14 none 1	18.0
+Georgia 14 none 3	57.0
+Georgia 14 single 1	18.0
+Georgia 14 double 1	18.0
+Georgia 14 singleAccounting 1	21.0
+Georgia 14 singleAccounting 3	66.0
+Georgia 14 doubleAccounting 1	21.0
+Georgia 15 none 1	19.0
+Georgia 15 none 3	60.0
+Georgia 15 single 1	19.0
+Georgia 15 double 1	19.0
+Georgia 15 singleAccounting 1	22.0
+Georgia 15 singleAccounting 3	69.0
+Georgia 15 doubleAccounting 1	22.0
+Georgia 16 none 1	21.0
+Georgia 16 none 3	66.0
+Georgia 16 single 1	21.0
+Georgia 16 double 1	21.0
+Georgia 16 singleAccounting 1	24.0
+Georgia 16 singleAccounting 3	75.0
+Georgia 16 doubleAccounting 1	24.0
+Georgia 17 none 1	22.0
+Georgia 17 none 3	69.0
+Georgia 17 single 1	22.0
+Georgia 17 double 1	22.0
+Georgia 17 singleAccounting 1	25.0
+Georgia 17 singleAccounting 3	78.0
+Georgia 17 doubleAccounting 1	25.0
+Georgia 18 none 1	23.0
+Georgia 18 none 3	72.0
+Georgia 18 single 1	23.0
+Georgia 18 double 1	23.0
+Georgia 18 singleAccounting 1	26.0
+Georgia 18 singleAccounting 3	81.0
+Georgia 18 doubleAccounting 1	26.0
+Georgia 19 none 1	24.0
+Georgia 19 none 3	75.0
+Georgia 19 single 1	24.0
+Georgia 19 double 1	24.0
+Georgia 19 singleAccounting 1	27.0
+Georgia 19 singleAccounting 3	84.0
+Georgia 19 doubleAccounting 1	27.0
+Georgia 20 none 1	25.0
+Georgia 20 none 3	78.0
+Georgia 20 single 1	25.0
+Georgia 20 double 1	25.0
+Georgia 20 singleAccounting 1	28.0
+Georgia 20 singleAccounting 3	87.0
+Georgia 20 doubleAccounting 1	28.0
+Georgia 21 none 1	27.0
+Georgia 21 none 3	84.0
+Georgia 21 single 1	27.0
+Georgia 21 double 1	27.0
+Georgia 21 singleAccounting 1	30.0
+Georgia 21 singleAccounting 3	93.0
+Georgia 21 doubleAccounting 1	30.0
+Georgia 22 none 1	28.0
+Georgia 22 none 3	87.0
+Georgia 22 single 1	28.0
+Georgia 22 double 1	28.0
+Georgia 22 singleAccounting 1	31.0
+Georgia 22 singleAccounting 3	96.0
+Georgia 22 doubleAccounting 1	31.0
+Georgia 23 none 1	29.0
+Georgia 23 none 3	90.0
+Georgia 23 single 1	29.0
+Georgia 23 double 1	29.0
+Georgia 23 singleAccounting 1	32.0
+Georgia 23 singleAccounting 3	99.0
+Georgia 23 doubleAccounting 1	32.0
+Georgia 24 none 1	30.0
+Georgia 24 none 3	93.0
+Georgia 24 single 1	30.0
+Georgia 24 double 1	30.0
+Georgia 24 singleAccounting 1	33.0
+Georgia 24 singleAccounting 3	102.0
+Georgia 24 doubleAccounting 1	33.0
+Georgia 25 none 1	31.0
+Georgia 25 none 3	96.0
+Georgia 25 single 1	31.0
+Georgia 25 double 1	31.0
+Georgia 25 singleAccounting 1	34.0
+Georgia 25 singleAccounting 3	105.0
+Georgia 25 doubleAccounting 1	34.0
+Georgia 26 none 1	33.0
+Georgia 26 none 3	102.0
+Georgia 26 single 1	33.0
+Georgia 26 double 1	33.0
+Georgia 26 singleAccounting 1	36.0
+Georgia 26 singleAccounting 3	111.0
+Georgia 26 doubleAccounting 1	36.0
+Georgia 27 none 1	34.0
+Georgia 27 none 3	105.0
+Georgia 27 single 1	34.0
+Georgia 27 double 1	34.0
+Georgia 27 singleAccounting 1	37.0
+Georgia 27 singleAccounting 3	114.0
+Georgia 27 doubleAccounting 1	37.0
+Georgia 28 none 1	35.0
+Georgia 28 none 3	108.0
+Georgia 28 single 1	35.0
+Georgia 28 double 1	35.0
+Georgia 28 singleAccounting 1	38.0
+Georgia 28 singleAccounting 3	117.0
+Georgia 28 doubleAccounting 1	38.0
+Georgia 29 none 1	36.0
+Georgia 29 none 3	111.0
+Georgia 29 single 1	36.0
+Georgia 29 double 1	36.0
+Georgia 29 singleAccounting 1	39.0
+Georgia 29 singleAccounting 3	120.0
+Georgia 29 doubleAccounting 1	39.0
+Georgia 30 none 1	38.0
+Georgia 30 none 3	117.0
+Georgia 30 single 1	38.0
+Georgia 30 double 1	38.0
+Georgia 30 singleAccounting 1	41.0
+Georgia 30 singleAccounting 3	126.0
+Georgia 30 doubleAccounting 1	41.0
+Georgia 31 none 1	39.0
+Georgia 31 none 3	120.0
+Georgia 31 single 1	39.0
+Georgia 31 double 1	39.0
+Georgia 31 singleAccounting 1	42.0
+Georgia 31 singleAccounting 3	129.0
+Georgia 31 doubleAccounting 1	42.0
+Georgia 32 none 1	40.0
+Georgia 32 none 3	123.0
+Georgia 32 single 1	40.0
+Georgia 32 double 1	40.0
+Georgia 32 singleAccounting 1	43.0
+Georgia 32 singleAccounting 3	132.0
+Georgia 32 doubleAccounting 1	43.0
+Georgia 33 none 1	41.0
+Georgia 33 none 3	126.0
+Georgia 33 single 1	41.0
+Georgia 33 double 1	41.0
+Georgia 33 singleAccounting 1	44.0
+Georgia 33 singleAccounting 3	135.0
+Georgia 33 doubleAccounting 1	44.0
+Georgia 34 none 1	42.0
+Georgia 34 none 3	129.0
+Georgia 34 single 1	42.0
+Georgia 34 double 1	42.0
+Georgia 34 singleAccounting 1	45.0
+Georgia 34 singleAccounting 3	138.0
+Georgia 34 doubleAccounting 1	45.0
+Georgia 35 none 1	44.0
+Georgia 35 none 3	135.0
+Georgia 35 single 1	44.0
+Georgia 35 double 1	44.0
+Georgia 35 singleAccounting 1	47.0
+Georgia 35 singleAccounting 3	144.0
+Georgia 35 doubleAccounting 1	47.0
+Georgia 36 none 1	45.0
+Georgia 36 none 3	138.0
+Georgia 36 single 1	45.0
+Georgia 36 double 1	45.0
+Georgia 36 singleAccounting 1	48.0
+Georgia 36 singleAccounting 3	147.0
+Georgia 36 doubleAccounting 1	48.0
+Georgia 37 none 1	46.0
+Georgia 37 none 3	141.0
+Georgia 37 single 1	46.0
+Georgia 37 double 1	46.0
+Georgia 37 singleAccounting 1	49.0
+Georgia 37 singleAccounting 3	150.0
+Georgia 37 doubleAccounting 1	49.0
+Georgia 38 none 1	47.0
+Georgia 38 none 3	144.0
+Georgia 38 single 1	47.0
+Georgia 38 double 1	47.0
+Georgia 38 singleAccounting 1	50.0
+Georgia 38 singleAccounting 3	153.0
+Georgia 38 doubleAccounting 1	50.0
+Georgia 39 none 1	49.0
+Georgia 39 none 3	150.0
+Georgia 39 single 1	49.0
+Georgia 39 double 1	49.0
+Georgia 39 singleAccounting 1	52.0
+Georgia 39 singleAccounting 3	159.0
+Georgia 39 doubleAccounting 1	52.0
+Georgia 40 none 1	50.0
+Georgia 40 none 3	153.0
+Georgia 40 single 1	50.0
+Georgia 40 double 1	50.0
+Georgia 40 singleAccounting 1	53.0
+Georgia 40 singleAccounting 3	162.0
+Georgia 40 doubleAccounting 1	53.0
+Georgia 41 none 1	51.0
+Georgia 41 none 3	156.0
+Georgia 41 single 1	51.0
+Georgia 41 double 1	51.0
+Georgia 41 singleAccounting 1	57.0
+Georgia 41 singleAccounting 3	174.0
+Georgia 41 doubleAccounting 1	57.0
+Georgia 42 none 1	52.0
+Georgia 42 none 3	159.0
+Georgia 42 single 1	52.0
+Georgia 42 double 1	52.0
+Georgia 42 singleAccounting 1	58.0
+Georgia 42 singleAccounting 3	177.0
+Georgia 42 doubleAccounting 1	58.0
+Georgia 43 none 1	53.0
+Georgia 43 none 3	162.0
+Georgia 43 single 1	53.0
+Georgia 43 double 1	53.0
+Georgia 43 singleAccounting 1	59.0
+Georgia 43 singleAccounting 3	180.0
+Georgia 43 doubleAccounting 1	59.0
+Georgia 44 none 1	55.0
+Georgia 44 none 3	168.0
+Georgia 44 single 1	55.0
+Georgia 44 double 1	55.0
+Georgia 44 singleAccounting 1	61.0
+Georgia 44 singleAccounting 3	186.0
+Georgia 44 doubleAccounting 1	61.0
+Georgia 45 none 1	56.0
+Georgia 45 none 3	171.0
+Georgia 45 single 1	56.0
+Georgia 45 double 1	56.0
+Georgia 45 singleAccounting 1	62.0
+Georgia 45 singleAccounting 3	189.0
+Georgia 45 doubleAccounting 1	62.0
+Georgia 46 none 1	57.0
+Georgia 46 none 3	174.0
+Georgia 46 single 1	57.0
+Georgia 46 double 1	57.0
+Georgia 46 singleAccounting 1	63.0
+Georgia 46 singleAccounting 3	192.0
+Georgia 46 doubleAccounting 1	63.0
+Georgia 47 none 1	58.0
+Georgia 47 none 3	177.0
+Georgia 47 single 1	58.0
+Georgia 47 double 1	58.0
+Georgia 47 singleAccounting 1	64.0
+Georgia 47 singleAccounting 3	195.0
+Georgia 47 doubleAccounting 1	64.0
+Georgia 48 none 1	60.0
+Georgia 48 none 3	183.0
+Georgia 48 single 1	60.0
+Georgia 48 double 1	60.0
+Georgia 48 singleAccounting 1	66.0
+Georgia 48 singleAccounting 3	201.0
+Georgia 48 doubleAccounting 1	66.0
+Georgia 49 none 1	61.0
+Georgia 49 none 3	186.0
+Georgia 49 single 1	61.0
+Georgia 49 double 1	61.0
+Georgia 49 singleAccounting 1	67.0
+Georgia 49 singleAccounting 3	204.0
+Georgia 49 doubleAccounting 1	67.0
+Georgia 50 none 1	62.0
+Georgia 50 none 3	189.0
+Georgia 50 single 1	62.0
+Georgia 50 double 1	62.0
+Georgia 50 singleAccounting 1	68.0
+Georgia 50 singleAccounting 3	207.0
+Georgia 50 doubleAccounting 1	68.0
+Georgia 51 none 1	63.0
+Georgia 51 none 3	192.0
+Georgia 51 single 1	63.0
+Georgia 51 double 1	63.0
+Georgia 51 singleAccounting 1	69.0
+Georgia 51 singleAccounting 3	210.0
+Georgia 51 doubleAccounting 1	69.0
+Georgia 52 none 1	64.0
+Georgia 52 none 3	195.0
+Georgia 52 single 1	64.0
+Georgia 52 double 1	64.0
+Georgia 52 singleAccounting 1	70.0
+Georgia 52 singleAccounting 3	213.0
+Georgia 52 doubleAccounting 1	70.0
+Georgia 53 none 1	66.0
+Georgia 53 none 3	201.0
+Georgia 53 single 1	66.0
+Georgia 53 double 1	66.0
+Georgia 53 singleAccounting 1	72.0
+Georgia 53 singleAccounting 3	219.0
+Georgia 53 doubleAccounting 1	72.0
+Georgia 54 none 1	67.0
+Georgia 54 none 3	204.0
+Georgia 54 single 1	67.0
+Georgia 54 double 1	67.0
+Georgia 54 singleAccounting 1	73.0
+Georgia 54 singleAccounting 3	222.0
+Georgia 54 doubleAccounting 1	73.0
+Georgia 55 none 1	68.0
+Georgia 55 none 3	207.0
+Georgia 55 single 1	68.0
+Georgia 55 double 1	68.0
+Georgia 55 singleAccounting 1	74.0
+Georgia 55 singleAccounting 3	225.0
+Georgia 55 doubleAccounting 1	74.0
+Georgia 56 none 1	69.0
+Georgia 56 none 3	210.0
+Georgia 56 single 1	69.0
+Georgia 56 double 1	69.0
+Georgia 56 singleAccounting 1	75.0
+Georgia 56 singleAccounting 3	228.0
+Georgia 56 doubleAccounting 1	75.0
+Georgia 57 none 1	70.0
+Georgia 57 none 3	213.0
+Georgia 57 single 1	70.0
+Georgia 57 double 1	70.0
+Georgia 57 singleAccounting 1	76.0
+Georgia 57 singleAccounting 3	231.0
+Georgia 57 doubleAccounting 1	76.0
+Georgia 58 none 1	72.0
+Georgia 58 none 3	219.0
+Georgia 58 single 1	72.0
+Georgia 58 double 1	72.0
+Georgia 58 singleAccounting 1	78.0
+Georgia 58 singleAccounting 3	237.0
+Georgia 58 doubleAccounting 1	78.0
+Georgia 59 none 1	73.0
+Georgia 59 none 3	222.0
+Georgia 59 single 1	73.0
+Georgia 59 double 1	73.0
+Georgia 59 singleAccounting 1	79.0
+Georgia 59 singleAccounting 3	240.0
+Georgia 59 doubleAccounting 1	79.0
+Georgia 60 none 1	74.0
+Georgia 60 none 3	225.0
+Georgia 60 single 1	74.0
+Georgia 60 double 1	74.0
+Georgia 60 singleAccounting 1	80.0
+Georgia 60 singleAccounting 3	243.0
+Georgia 60 doubleAccounting 1	80.0
+Georgia 61 none 1	75.0
+Georgia 61 none 3	228.0
+Georgia 61 single 1	75.0
+Georgia 61 double 1	75.0
+Georgia 61 singleAccounting 1	84.0
+Georgia 61 singleAccounting 3	255.0
+Georgia 61 doubleAccounting 1	84.0
+Georgia 62 none 1	77.0
+Georgia 62 none 3	234.0
+Georgia 62 single 1	77.0
+Georgia 62 double 1	77.0
+Georgia 62 singleAccounting 1	86.0
+Georgia 62 singleAccounting 3	261.0
+Georgia 62 doubleAccounting 1	86.0
+Georgia 63 none 1	78.0
+Georgia 63 none 3	237.0
+Georgia 63 single 1	78.0
+Georgia 63 double 1	78.0
+Georgia 63 singleAccounting 1	87.0
+Georgia 63 singleAccounting 3	264.0
+Georgia 63 doubleAccounting 1	87.0
+Georgia 64 none 1	79.0
+Georgia 64 none 3	240.0
+Georgia 64 single 1	79.0
+Georgia 64 double 1	79.0
+Georgia 64 singleAccounting 1	88.0
+Georgia 64 singleAccounting 3	267.0
+Georgia 64 doubleAccounting 1	88.0
+Georgia 65 none 1	80.0
+Georgia 65 none 3	243.0
+Georgia 65 single 1	80.0
+Georgia 65 double 1	80.0
+Georgia 65 singleAccounting 1	89.0
+Georgia 65 singleAccounting 3	270.0
+Georgia 65 doubleAccounting 1	89.0
+Georgia 66 none 1	81.0
+Georgia 66 none 3	246.0
+Georgia 66 single 1	81.0
+Georgia 66 double 1	81.0
+Georgia 66 singleAccounting 1	90.0
+Georgia 66 singleAccounting 3	273.0
+Georgia 66 doubleAccounting 1	90.0
+Georgia 67 none 1	83.0
+Georgia 67 none 3	252.0
+Georgia 67 single 1	83.0
+Georgia 67 double 1	83.0
+Georgia 67 singleAccounting 1	92.0
+Georgia 67 singleAccounting 3	279.0
+Georgia 67 doubleAccounting 1	92.0
+Georgia 68 none 1	84.0
+Georgia 68 none 3	255.0
+Georgia 68 single 1	84.0
+Georgia 68 double 1	84.0
+Georgia 68 singleAccounting 1	93.0
+Georgia 68 singleAccounting 3	282.0
+Georgia 68 doubleAccounting 1	93.0
+Georgia 69 none 1	85.0
+Georgia 69 none 3	258.0
+Georgia 69 single 1	85.0
+Georgia 69 double 1	85.0
+Georgia 69 singleAccounting 1	94.0
+Georgia 69 singleAccounting 3	285.0
+Georgia 69 doubleAccounting 1	94.0
+Georgia 70 none 1	86.0
+Georgia 70 none 3	261.0
+Georgia 70 single 1	86.0
+Georgia 70 double 1	86.0
+Georgia 70 singleAccounting 1	95.0
+Georgia 70 singleAccounting 3	288.0
+Georgia 70 doubleAccounting 1	95.0
+Georgia 71 none 1	88.0
+Georgia 71 none 3	267.0
+Georgia 71 single 1	88.0
+Georgia 71 double 1	88.0
+Georgia 71 singleAccounting 1	97.0
+Georgia 71 singleAccounting 3	294.0
+Georgia 71 doubleAccounting 1	97.0
+Georgia 72 none 1	89.0
+Georgia 72 none 3	270.0
+Georgia 72 single 1	89.0
+Georgia 72 double 1	89.0
+Georgia 72 singleAccounting 1	98.0
+Georgia 72 singleAccounting 3	297.0
+Georgia 72 doubleAccounting 1	98.0

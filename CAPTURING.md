@@ -1102,6 +1102,27 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       new face sits higher by `3 − (B − 2)` where that is positive: all 144 wrapped rows predicted
       before the run.
 
+58. **Underlined rows (2026-11-19; `capture/font_heights.py underlines`: one workbook per face, its
+    Normal style Calibri at 1 point, the face at every whole size from 6 to 72 under no underline,
+    single, double, single accounting and double accounting, one line, and three wrapped lines of
+    "H" with no underline and with single accounting; 2,814 rows in `underline_height.layout.tsv`;
+    font numbers read by `capture/font_tables.py`).** The prediction written before the first run,
+    that an accounting underline adds 3 points to a row and to each wrapped line, held only up to
+    about 30 points.
+    - **Single and double underlines change no row**, wrapped or not, in any face (1,206 rows).
+    - **An accounting underline adds `E` points to the row and to each wrapped line** (402 of 402
+      wrapped rows add `E` a line). For Calibri, Arial, Aptos Narrow and Georgia,
+      `E = 3 · max(1, floor(S · underlineThickness / unitsPerEm))` at every size (268 of 268; the
+      thickness from the font's `post` table: Calibri 134, Arial 150, Aptos Narrow 50, Georgia 101
+      of 2048). Times New Roman follows it except at 37 to 40 points (4, not 3); Courier New grows
+      by single points (3 at 6 to 17, then 4, 5, 6, 7, 9, 10, 11 at 72), which a term from the
+      accounting line's position (`round(S · usWinDescent / unitsPerEm)`) does not reproduce
+      either. Double accounting adds what single does, except in Arial at 28 to 35 and from 41
+      points, where it adds 3 less, and 6 less from 69 (9 at 72, where single adds 15).
+    - **A workbook may hold no more than about 1,400 rows** for this route: in a first run with all
+      faces in one workbook, every row from 1,406 on read 16, the default height of a row Excel
+      had not fitted. Each face now has a workbook of its own.
+
 ## 3. The pipeline
 
 ```

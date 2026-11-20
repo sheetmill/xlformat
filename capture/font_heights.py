@@ -4,6 +4,7 @@
     uv run python -m capture.font_heights predict    # write the predictions, before a run
     uv run python -m capture.font_heights run        # capture every face, write the layout file
     uv run python -m capture.font_heights wrapped    # predict, then capture the wrapped rows
+    uv run python -m capture.font_heights underlines # predict, then capture the underlined rows
 
 One workbook per face (``FACES``) whose Normal style is that face at 1 point, so that no row is
 held up by the Normal font. Rows: a number in the face at every size from 1 to 72 points in half
@@ -16,6 +17,11 @@ the workbook without saving and restores alerts. No clipboard. Writes
 ``wrapped``: two workbooks, Normal style Calibri 20 and Calibri 9, each holding every face at 9,
 11, 14 and 20 points with one to three wrapped lines ("x" a line); it writes its predictions to
 ``capture/build/`` first, then ``tests/captures/wrapped_height.layout.tsv``.
+
+``underlines``: one workbook per face, Normal style Calibri at 1 point, holding the face at
+every whole size from 6 to 72 points under each underline style (none, single, double, single
+and double accounting), one line, and three wrapped lines of "H" without and with a single
+accounting underline; predictions first, then ``tests/captures/underline_height.layout.tsv``.
 """
 
 from __future__ import annotations
@@ -231,6 +237,85 @@ def wrapped() -> None:
     print(f"wrote {WRAPPED_OUTPUT}: {len(lines)} rows")
 
 
+UNDERLINE_OUTPUT = OUTPUT.with_name("underline_height.layout.tsv")
+UNDERLINES = ("none", "single", "double", "singleAccounting", "doubleAccounting")
+
+
+def underline_rows() -> list[tuple[str, str, float, str, int]]:
+    """(tag, face, size, underline, lines) for each row of the underline workbook."""
+    return [
+        (f"{face} {s} {u} {n}", face, float(s), u, n)
+        for face in FACES
+        for s in range(6, 73)
+        for u in UNDERLINES
+        for n in ((1, 3) if u in ("none", "singleAccounting") else (1,))
+    ]
+
+
+def predict_underline(face: str, size: float, underline: str, n: int) -> int | None:
+    """The proposed row: an accounting underline adds 3 points a line, the others nothing."""
+    f = height(face, size)
+    if f is None:
+        return None
+    extra = 3 if "Accounting" in underline else 0
+    return f + extra if n == 1 else n * (f + 1 + extra)
+
+
+def underlines() -> None:
+    from openpyxl import Workbook
+    from openpyxl.styles import Alignment, Font
+    from openpyxl.utils.indexed_list import IndexedList
+
+    if not answers():
+        sys.exit("Excel does not answer: nothing run")
+    predictions = BUILD_DIR / "underline_heights.predictions.tsv"
+    with predictions.open("w", encoding="utf-8") as out:
+        out.write(f"# predicted {dt.datetime.now().isoformat(timespec='seconds')}\n")
+        for tag, face, size, u, n in underline_rows():
+            p = predict_underline(face, size, u, n)
+            out.write(f"{tag}\t{'' if p is None else p}\n")
+    # one workbook per face: Excel fits only about the first 1,400 rows of a workbook it opens
+    # (later rows read 16, the default height), so no workbook may hold more
+    lines = []
+    for face in FACES:
+        rows = [r for r in underline_rows() if r[1] == face]
+        wb = Workbook()
+        base = Font(name="Calibri", sz=1, family=2, scheme="minor")
+        wb._fonts = IndexedList([base])
+        for style in wb._named_styles:
+            if style.name == "Normal":
+                style.font = base
+        ws = wb.active
+        for r, (_, _, size, u, n) in enumerate(rows, 1):
+            # one character a line: no line wraps again in the narrow column of a 1-point Normal
+            cell = ws.cell(row=r, column=1, value="\n".join(["H"] * n))
+            cell.data_type = "s"
+            cell.font = Font(name=face, sz=size, family=2, u=None if u == "none" else u)
+            if n > 1:
+                cell.alignment = Alignment(wrap_text=True)
+        DIRECTORY.mkdir(parents=True, exist_ok=True)
+        path = (DIRECTORY / f"fh_underlines_{face.replace(' ', '_').lower()}.xlsx").resolve()
+        wb.save(path)
+        proc = osascript_or_exit(str(SCRIPT), str(path), str(len(rows)), path.name, seconds=180.0)
+        if proc.returncode != 0:
+            sys.exit(f"{face}: {proc.stderr.strip()[:200]}")
+        fields = proc.stdout.strip().split("\x1f")
+        if fields[0] != "standard" or len(fields) != len(rows) + 2:
+            sys.exit(f"{face}: expected {len(rows)} heights, got {len(fields) - 2}")
+        lines.extend(f"{r[0]}\t{h}" for r, h in zip(rows, fields[2:], strict=True))
+        print(f"{face}: {len(rows)} rows")
+    with UNDERLINE_OUTPUT.open("w", encoding="utf-8") as out:
+        out.write("# suite: underline_height (capture.font_heights underlines); Excel for Mac\n")
+        out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
+        out.write(
+            f"# captured: {dt.date.today().isoformat()}; Normal style Calibri 1; 'H' a line in "
+            "column A, wrap on for three lines; rows fitted by Excel on opening\n"
+        )
+        out.write("tag\trow_height\n")
+        out.write("\n".join(lines) + "\n")
+    print(f"wrote {UNDERLINE_OUTPUT}: {len(lines)} rows")
+
+
 def main(argv: list[str]) -> None:
     """Command-line entry point."""
     command = argv[0] if argv else ""
@@ -243,6 +328,8 @@ def main(argv: list[str]) -> None:
         run()
     elif command == "wrapped":
         wrapped()
+    elif command == "underlines":
+        underlines()
     else:
         sys.exit(__doc__)
 

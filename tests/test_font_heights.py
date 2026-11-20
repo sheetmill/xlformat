@@ -60,3 +60,24 @@ def test_wrapped_lines_of_every_face() -> None:
         if got != float(height):
             misses.append((normal, tag, height, got))
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
+
+
+def test_underlines_other_than_accounting_change_no_row() -> None:
+    # underline_height.layout.tsv: every face at every whole size from 6 to 72 under each
+    # underline style; plain, single and double rows are the face's height, wrapped lines too
+    rows = _rows("underline_height.layout.tsv")
+    assert len(rows) == 2814
+    misses = []
+    for tag, height in rows:
+        m = re.fullmatch(r"(.+?) (\d+) (\w+) (\d)", tag)
+        assert m, tag
+        face, size, underline, lines = m[1], float(m[2]), m[3], int(m[4])
+        if underline not in ("none", "single", "double"):
+            continue
+        if lines == 1:
+            want = row_metrics(("Calibri", 1.0), cell_fonts=[(face, size)]).height
+        else:
+            want = row_metrics(("Calibri", 1.0), wrapped=[((face, size), lines)]).height
+        if want != float(height):
+            misses.append((tag, height, want))
+    assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
