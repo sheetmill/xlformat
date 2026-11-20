@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-19
+
 ### Added
 - Arial is measured: glyph tables for regular, bold, italic and bold italic at 9, 10, 11, 12, 14,
   16, 18, 20 and 24 points, so Excel mode, `text_width`, `column_metrics` and
@@ -251,7 +253,8 @@ First release.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.5.0
 [0.4.1]: https://github.com/sheetmill/xlformat/releases/tag/v0.4.1
 [0.4.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.4.0
 [0.3.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.3.0
