@@ -1,15 +1,15 @@
 """Measure functions and the column model for the width decision (``ARCHITECTURE.md`` §8).
 
-Character mode measures a text by its length and the budget is the width in characters. Excel mode
-measures a text as the floored sum of glyph advances in points at the cell's font size and the
-budget is the column's text area in points: Excel for Mac stores a column of ``w`` units as
-``round(MDW * w + P)`` points, MDW being the maximum digit width of the Normal font (5 points at 9
-and 10, 6 at 11 and 12, 7 at 14, 8 at 16, 9 at 18, 10 at 20 and 12 at 24, in Calibri and Aptos
-Narrow alike; Arial 5, 6, 6, 7, 8, 9, 10, 11 and 13) and ``P`` the padding of :func:`column_padding`
-(5 points up to a digit width of 8, 7 from 9 to 12, 9 at 13), and compares text against those points
-less the padding. Both modes feed the same seam in ``_assemble``: fit when ``measure(text) <=
-budget``, ``#`` and ``*`` counts by dividing the budget by the glyph's measure (CAPTURING.md section
-2 items 24 and 25).
+Character mode measures a text by its length and the budget is the width in characters. Excel
+mode measures a text as the floored sum of glyph advances in points at the cell's font size and
+the budget is the column's text area in points: Excel for Mac stores a column of ``w`` units as
+``round(MDW * w + P)`` points, MDW being the maximum digit width of the Normal font (5 points at
+9 and 10, 6 at 11 and 12, 7 at 14, 8 at 16, 9 at 18, 10 at 20 and 12 at 24, in Calibri and Aptos
+Narrow alike; Arial 5, 6, 6, 7, 8, 9, 10, 11 and 13) and ``P`` the padding of
+:func:`column_padding` (5 points for a digit width up to 8, 7 for 9 to 12, 9 for 13), and
+compares text against those points less the padding. Both modes feed the same seam in
+``_assemble``: fit when ``measure(text) <= budget``, ``#`` and ``*`` counts by dividing the
+budget by the glyph's measure (CAPTURING.md section 2 items 24 and 25).
 """
 
 from __future__ import annotations
@@ -303,7 +303,8 @@ class ColumnMetrics:
             column of no width, which ``column_width`` refuses with ``ValueError``).
         points: The column's width in points (53 for an openpyxl column without a width).
         budget: Points a number or date may take before it becomes a ``#`` run: ``points``
-            less the column padding (5 points up to a digit width of 8, 7 from 9 to 12), and 0
+            less the column padding (5 points for a digit width up to 8, 7 for 9 to 12, 9 for
+            13), and 0
             for a column narrower than that.
         left_inset: Where left-aligned text starts, in points from the left gridline.
         right_inset: Where right-aligned text ends, in points from the right gridline.
@@ -403,7 +404,8 @@ def file_column_metrics(
 
     A column without ``<col>`` takes ``<sheetFormatPr defaultColWidth>`` as a file width, and
     without that ``baseColWidth`` characters plus the padding: ``baseColWidth * MDW + P``
-    points, ``P`` being ``2 * ceil(MDW / 4) + 1`` (5 up to a digit width of 8, 7 from 9 to 12);
+    points, ``P`` being ``2 * ceil(MDW / 4) + 1`` (5 for a digit width up to 8, 7 for 9 to 12, 9
+    for 13);
     53 at Calibri 11 for the ``baseColWidth="8"`` openpyxl writes, which the dialog shows as 8
     (not 8.43). ``normal_font`` is the workbook's Normal font (CAPTURING.md section
     2 item 28); ``font`` is its deprecated name, removed in 1.0, and passing both raises
@@ -554,7 +556,7 @@ def row_metrics(
     or another cell's font in the row has a larger line inset, the difference of the insets
     (CAPTURING.md section 2 items 44 and 55). Bold and italic change nothing. Measured: Calibri,
     Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; the row model raises
-    ``LookupError`` for any other face ("this font isn't measured") rather than scaling one.
+    ``LookupError`` for any other face rather than scaling one.
 
     Several cells with wrapped text in one row are each computed this way and the row takes the
     tallest; that combination has not been captured.
@@ -689,7 +691,7 @@ def vertical_metrics(
     caller, because it depends on every unwrapped font in the row, not only the Normal font, and
     applies to wrapped text alone (see :class:`VerticalMetrics` and :func:`row_metrics`).
     Measured: Calibri, Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; any
-    other face raises ``LookupError`` ("this font isn't measured").
+    other face raises ``LookupError``.
 
     Args:
         font: The cell's font; default ``("Calibri", 11)``.

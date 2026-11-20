@@ -79,3 +79,12 @@ def test_no_labels_without_a_target() -> None:
     label = re.compile(r"\(point [a-z]\)")
     hits = [str(path.relative_to(ROOT)) for path in MARKDOWN if label.search(path.read_text())]
     assert not hits
+
+
+def test_the_module_layout_lists_every_module() -> None:
+    # ARCHITECTURE.md section 12 names each module of src/xlformat with a line of its own
+    text = (ROOT / "ARCHITECTURE.md").read_text(encoding="utf-8")
+    section = text[text.index("## 12. Module layout") : text.index("## 13.")]
+    listed = set(re.findall(r"^  (_?\w+\.py) ", section, flags=re.MULTILINE))
+    modules = {p.name for p in (ROOT / "src" / "xlformat").glob("*.py")}
+    assert listed == modules, (sorted(modules - listed), sorted(listed - modules))

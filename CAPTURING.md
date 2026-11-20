@@ -1041,7 +1041,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       column, `column_narrow`). Every earlier suite agrees with this.
     - **Row heights:** the Arial faces are 12, 13, 14, 16, 18, 20, 23, 25 and 30 points from 9 to
       24, in every style. All 15,984 heights of the earlier capture came back unchanged. Of the
-      rows holding two families, 11 pairs of faces, each Arial with a Calibri or Aptos Narrow face
+      rows mixing families, 11 pairs of faces, each Arial with a Calibri or Aptos Narrow face
       just under it, are a point taller than the taller face (Arial 11 with Calibri 10, 14 points
       each: 15; Arial 24 with Aptos Narrow 20: 31); Calibri with Aptos Narrow never is. A row takes
       its fonts' largest ascent plus largest descent, rounded up, where a face's ascent is its
@@ -1050,9 +1050,6 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       one nearest the fonts' descents (Arial 2 to 5.5 points from 9 to 24, within 0.71 of
       `434 / 2048` of the size). A wrapped cell's font counts too: one wrapped line of Aptos
       Narrow 9 under Arial 11 is 15 points. Arial's line insets are 0, 0, 0, 1, 1, 1, 2, 2, 3.
-    - Accepted against sheetpeek's own captures: its 12 Arial 11 cells in a Calibri 11
-      workbook (six `##` at 22 points, 15-point rows) and its Arial 10 workbook (53-point default
-      column, 13-point rows).
     - **Placement** (2026-11-19, `capture/screen_vertical.py` with Arial 10 as a third Normal font
       and Arial among the faces, 1,080 rows; the 480 earlier rows reproduced exactly, the band
       columns aside): top-aligned Arial has its baseline the size plus 1 below the row's top, as
@@ -1066,17 +1063,19 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       Four rows were read where a view's last row lay under the sheet-tab bar; the script now
       starts each view at the previous view's last row, and the test lists the four.
 
-56. **Padding and fills in angled text (2026-11-19; `capture/angled_formats.py`, a probe: 16
-    formats of "Total", 1234.5 and 12345678901, with `_)` padding, `*` fills of spaces and dashes,
-    the built-in accounting format or neither, turned 45 and 90 degrees in Calibri 11 at the
-    default width; 32 rows Excel fits on opening, heights read through AppleScript; the result in
-    `capture/build/probes/angled_formats.tsv`).** A fitted row of angled text grows with the text's
-    width (`W·|sin θ| + S·|cos θ| + 7`), so the rows show which text Excel turns. At 90 degrees
-    every row is exactly the width-less text's width plus 7: `_)` adds its space (`0.0_)` 42
-    points, `0.0` 40), a fill adds nothing (`0.0* `, `* 0.0` and `0.0*-` are all 40, where a fill
-    expanded to the column would make 54), and 12345678901, a `#` run upright in the 53-point
-    column, is turned whole (73). At 45 degrees every row is within 3 points of the same model.
-    So angled text is the width-less rendering, as `format_value` gives it without a width.
+56. **Padding and fills in angled text (2026-11-19; `capture/angled_formats.py`: 16 formats of
+    "Total", 1234.5 and 12345678901, with `_)` padding, `*` fills of spaces and dashes, the
+    built-in accounting format or neither, turned 15, 30, 45, 60, 75 and 90 degrees and -45 and
+    -90, in Calibri 11 at the default width; 128 rows Excel fits on opening, heights read through
+    AppleScript, in `angled_formats.layout.tsv`).** A fitted row of angled text grows with the
+    text's width (`W·|sin θ| + S·|cos θ| + 7`), so the rows show which text Excel turns. At every
+    angle, formats whose width-less texts are equally wide get the same row, and the rows rise
+    with that width only: `_)` adds its space, a fill adds nothing (`0.0* `, `* 0.0` and `0.0*-`
+    fit as `0.0` does, where a fill expanded to the 53-point column would be far wider), and
+    12345678901, a `#` run upright in that column, is turned whole. At 90 and -90 degrees every
+    row is exactly the width-less text's width plus 7 (`0.0` 40 points, `0.0_)` 42), and each
+    negative angle fits as its positive one. So angled text is the width-less rendering, as
+    `format_value` gives it without a width (`tests/test_angled_formats.py`).
 
 ## 3. The pipeline
 

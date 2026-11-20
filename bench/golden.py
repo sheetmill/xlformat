@@ -1,7 +1,7 @@
 """Render every captured row in every mode and write the outputs, for byte-for-byte comparison.
 
 Usage: ``uv run python -m bench.golden [OUT]``. For each row of every suite under
-``tests/captures`` (and the two layout files' inputs): ``format_cell`` width-less, at the
+``tests/captures``: ``format_cell`` width-less, at the
 character width when the row has a whole width, and in Excel mode with the row's column width,
 cell font and Normal font, as ``tests/test_captures.py`` renders it. Every field of each
 ``FormattedCell`` (or the exception) goes on one line. Prints the SHA-256 of the whole output;

@@ -5,8 +5,9 @@ Usage: ``uv run python -m capture.formula_diff [suite]`` (default ``clock_formul
 Rows are paired on (format, value_repr): the constant row has a descriptive tag, the formula
 row a ``formula:`` tag. For each pair the script prints whether Excel showed the same text for
 both, and what ``format_value`` gives for the Python double. The summary counts tell whether
-the file-constant path and the IEEE-formula path disagree (the parser hypothesis) and which
-path the package reproduces.
+the file-constant path and the IEEE-formula path disagree (whether Excel reads a constant written
+in the file as a different double than the formula computes; CAPTURING.md section 2 item 15) and
+which path the package reproduces.
 """
 
 from __future__ import annotations

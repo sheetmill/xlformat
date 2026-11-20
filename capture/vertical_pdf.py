@@ -1,7 +1,7 @@
 """Where Excel puts text vertically in a cell, from its PDF export (a probe).
 
     uv run --group capture python -m capture.vertical_pdf build   # the workbooks, no Excel
-    uv run --group capture python -m capture.vertical_pdf run     # export both and read them
+    uv run --group capture python -m capture.vertical_pdf run     # export each and read them
     uv run --group capture python -m capture.vertical_pdf read    # read saved exports again
 
 One workbook per Normal font (Calibri 11, Aptos Narrow 11, Arial 10), one case per row in a wide
@@ -179,7 +179,7 @@ def export(normal: CellFont) -> None:
 
 
 def write() -> None:
-    """Read both saved exports and write the probe's TSV."""
+    """Read every saved export and write the probe's TSV."""
     rows = []
     for normal in NORMALS:
         printed = read(BUILD_DIR / _paths(normal)[1].name)

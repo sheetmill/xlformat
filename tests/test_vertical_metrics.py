@@ -1,10 +1,10 @@
-"""``vertical_metrics`` against ``tests/captures/vertical.layout.tsv`` (CAPTURING.md §2 item 47).
+"""``vertical_metrics`` against ``tests/captures/vertical.layout.tsv`` (CAPTURING.md items 47, 55).
 
-The capture holds, per Normal font (Calibri 11, Aptos Narrow 11), each row's height and, in
-image pixels from the row's top at 2 a point, the top and the bottom of the ink of "H" per line
-(the bottom being the baseline) and the bottom of "g". Each row's tag names its alignment and
-face; the test rebuilds every baseline from the face's metrics and the row's height, to half a
-point, and the ink exactly.
+The capture holds, per Normal font (Calibri 11, Aptos Narrow 11, Arial 10), each row's height
+and, in image pixels from the row's top at 2 a point, the top and the bottom of the ink of "H"
+per line (the bottom being the baseline) and the bottom of "g". Each row's tag names its
+alignment and face; the test rebuilds every baseline from the face's metrics and the row's
+height, to half a point, and the ink exactly.
 """
 
 from __future__ import annotations

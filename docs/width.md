@@ -122,7 +122,7 @@ How Excel measures, as reproduced here:
 - A column `w` units wide is `round(MDW · w + P)` points, MDW being the width of a digit in the
   Normal font: 5 points at 9 and 10, 6 at 11 and 12, 7 at 14, 8 at 16, 9 at 18, 10 at 20 and 12
   at 24, in Calibri and Aptos Narrow alike (Arial: 5, 6, 6, 7, 8, 9, 10, 11 and 13). `P` is the
-  padding, `2 · ceil(MDW / 4) + 1`: 5 points up to a digit width of 8, 7 from 9 to 12, 9 at 13. The text gets `MDW · w`. Below one unit a column is
+  padding, `2 · ceil(MDW / 4) + 1`: 5 points for a digit width up to 8, 7 for 9 to 12, 9 for 13. The text gets `MDW · w`. Below one unit a column is
   `round(w · (MDW + P))` points.
 - A `<col width>` of `w` is `trunc((256 · w + trunc(128 / MDW)) / 256 · MDW)` points, the formula
   of ECMA-376 with the digit width in points and `w` first truncated to 1/256.
@@ -165,6 +165,7 @@ one row are a combination not yet captured: the row takes the tallest of them.
 
 Text turned to an angle is not fitted to the column: Excel shows the width-less rendering, with its
 `_x` padding, without fills and never as `#`, so a caller formats angled cells without a width.
+Captured at 15, 30, 45, 60, 75 and 90 degrees and at -45 and -90.
 
 `vertical_metrics` gives where Excel draws a face's text within the row, in sheet points, as
 the screen shows it:

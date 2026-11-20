@@ -94,7 +94,7 @@ units.
 ### Quirks
 
 Three Excel behaviors are reproduced by default and can be switched off with
-`quirks=Quirks.STRICT` or by passing `Quirks` with individual fields set. `QUIRKS.md` has the
+`quirks=Quirks.STRICT` or by passing `Quirks` with individual fields set. [QUIRKS.md](https://github.com/sheetmill/xlformat/blob/main/QUIRKS.md) has the
 evidence for each.
 
 | quirk | Excel | strict |
@@ -120,7 +120,7 @@ evidence for each.
   `"#N/A"` is text.
 - **Conditional formatting** and cell styles beyond the format string are out of scope.
 
-Every captured row passes. Two known deviations are listed in `QUIRKS.md`: a Buddhist-year code
+Every captured row passes. Two known deviations are listed in [QUIRKS.md](https://github.com/sheetmill/xlformat/blob/main/QUIRKS.md): a Buddhist-year code
 shows the Buddhist year without a width, as the sheet does, where Excel's clipboard gives the plain
 year; and an elapsed code after a date code (`d [s].00`) is not modeled. Fifteen color readings in the Excel captures are skipped because Excel's
 scripting interface misreports them; the sheet itself shows the color the package returns.
@@ -139,7 +139,7 @@ With uv, which installs the exact versions pinned in `uv.lock`:
 
 ```bash
 uv sync --group docs
-uv run pytest                 # unit tests and every captured Excel row, about twelve seconds
+uv run pytest                 # unit tests and every captured Excel row
 uv run pytest --tier=fast     # a per-format sample of the Excel captures
 uv run ruff check . && uv run ruff format --check . && uv run mypy
 uv run --group docs sphinx-build -n -W docs docs/_build/html
@@ -156,19 +156,19 @@ pytest && ruff check . && ruff format --check . && mypy
 sphinx-build -n -W docs docs/_build/html
 ```
 
-`CONTRIBUTING.md` lists the checks a change must pass and how commits are written.
+[CONTRIBUTING.md](https://github.com/sheetmill/xlformat/blob/main/CONTRIBUTING.md) lists the checks a change must pass and how commits are written.
 
 The expected outputs under `tests/captures/` were captured from Excel for Mac by the scripts in
 `capture/`: each suite is written as a workbook with openpyxl, opened in Excel through
 AppleScript, and read back as displayed text at each column width. Regenerating a suite needs
-Excel for Mac and is described in `CAPTURING.md`:
+Excel for Mac and is described in [CAPTURING.md](https://github.com/sheetmill/xlformat/blob/main/CAPTURING.md):
 
 ```bash
 uv run python -m capture numeric_core
 ```
 
 Most of the code is written with Claude Code, reviewed before each commit and tested against
-output captured from Excel; see `CONTRIBUTING.md`.
+output captured from Excel; see [CONTRIBUTING.md](https://github.com/sheetmill/xlformat/blob/main/CONTRIBUTING.md).
 
 ## License
 

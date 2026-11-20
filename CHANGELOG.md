@@ -17,7 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `baseline_from_bottom` includes Excel's rule that bottom-aligned text sits at least the Normal
   font's distance up. `None`, the default, means the cell's own font.
 - Documentation: text turned to an angle shows the width-less rendering (its `_x` padding, no fill,
-  never `#`), measured from the rows Excel fits.
+  never `#`), captured at 15 to 90 degrees and -45 and -90 from the rows Excel fits
+  (`angled_formats.layout.tsv`).
 
 ### Changed
 - `vertical_metrics(("Calibri", 9)).baseline_from_bottom` without `normal_font` is 2 points, was 3:
