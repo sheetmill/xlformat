@@ -116,7 +116,7 @@ def test_fields() -> None:
 
 
 def test_unmeasured_faces() -> None:
-    with pytest.raises(LookupError, match="no row heights for Calibri 22"):
+    with pytest.raises(LookupError, match="no placement for Calibri 22"):
         vertical_metrics(("Calibri", 22))
     with pytest.raises(LookupError, match="Times New Roman"):
         vertical_metrics("Times New Roman")
@@ -138,5 +138,5 @@ def test_the_normal_font_floors_a_bottom_aligned_baseline() -> None:
     assert vertical_metrics(("Calibri", 11)) == vertical_metrics(
         ("Calibri", 11), normal_font=("Calibri", 11)
     )
-    with pytest.raises(LookupError, match="Times New Roman"):
-        vertical_metrics(("Calibri", 11), normal_font="Times New Roman")
+    with pytest.raises(LookupError, match="Comic Sans"):
+        vertical_metrics(("Calibri", 11), normal_font="Comic Sans")

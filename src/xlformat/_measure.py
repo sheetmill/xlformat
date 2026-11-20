@@ -423,91 +423,54 @@ def file_column_metrics(
     return _metrics(file_points(file_width, normal_font), normal_font)
 
 
-# --- the row model (CAPTURING.md section 2 item 44) ----------------------------------------------
+# --- the row model (CAPTURING.md section 2 items 44, 55 and 57) --------------------------------
 
-# family (lower case) -> size -> the face's font height in points: the height Excel gives a row in
-# that font, the same for every style
-_FONT_HEIGHT: dict[str, dict[int, float]] = {
-    "calibri": {
-        9: 12.0,
-        10: 14.0,
-        11: 15.0,
-        12: 16.0,
-        14: 19.0,
-        16: 21.0,
-        18: 24.0,
-        20: 26.0,
-        24: 31.0,
-    },
-    "aptos narrow": {
-        9: 13.0,
-        10: 14.0,
-        11: 15.0,
-        12: 16.0,
-        14: 19.0,
-        16: 22.0,
-        18: 24.0,
-        20: 27.0,
-        24: 32.0,
-    },
-    "arial": {
-        9: 12.0,
-        10: 13.0,
-        11: 14.0,
-        12: 16.0,
-        14: 18.0,
-        16: 20.0,
-        18: 23.0,
-        20: 25.0,
-        24: 30.0,
-    },
+# family (lower case) -> a: from 7.5 points a face's height (the row Excel fits to it alone, in
+# any style) is floor(a * ceil(size) + 1.5); each slope is the middle of the window that every
+# captured size from 7.5 to 72 allows (font_height.layout.tsv)
+_SLOPE: dict[str, float] = {
+    "calibri": 1.2689,
+    "aptos narrow": 1.2815,
+    "arial": 1.2122,
+    "times new roman": 1.2162,
+    "courier new": 1.3007,
+    "georgia": 1.2190,
 }
-# family (lower case) -> size -> the face's descent in points: a row of several faces is
-# ceil(largest ascent + largest descent), where a face's ascent is its height less its descent
-# (CAPTURING.md section 2 item 55: fitted to every pair of faces, each value the one nearest the
-# font's own descent; Arial's smaller descent makes a row of Arial 11 and Calibri 10 15 points)
-_DESCENT: dict[str, dict[int, float]] = {
-    "calibri": {
-        9: 2.0,
-        10: 2.75,
-        11: 3.0,
-        12: 3.25,
-        14: 3.75,
-        16: 4.25,
-        18: 4.75,
-        20: 5.25,
-        24: 6.5,
-    },
-    "aptos narrow": {
-        9: 2.5,
-        10: 2.75,
-        11: 3.0,
-        12: 3.25,
-        14: 3.75,
-        16: 4.5,
-        18: 4.75,
-        20: 5.75,
-        24: 6.75,
-    },
-    "arial": {9: 2.0, 10: 2.0, 11: 2.25, 12: 3.25, 14: 3.25, 16: 3.5, 18: 4.25, 20: 4.25, 24: 5.5},
+_DISPLAY = {
+    "calibri": "Calibri",
+    "aptos narrow": "Aptos Narrow",
+    "arial": "Arial",
+    "times new roman": "Times New Roman",
+    "courier new": "Courier New",
+    "georgia": "Georgia",
 }
-# family (lower case) -> size -> points of the Normal font's line that wrapped text in a smaller
-# face does not fill: k wrapped lines in face f add max(0, inset(normal) - inset(f))
-_LINE_INSET: dict[str, dict[int, float]] = {
-    "calibri": {9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 14: 2.0, 16: 2.0, 18: 3.0, 20: 3.0, 24: 4.0},
-    "aptos narrow": {
-        9: 1.0,
-        10: 1.0,
-        11: 1.0,
-        12: 1.0,
-        14: 2.0,
-        16: 3.0,
-        18: 3.0,
-        20: 4.0,
-        24: 5.0,
-    },
-    "arial": {9: 0.0, 10: 0.0, 11: 0.0, 12: 1.0, 14: 1.0, 16: 1.0, 18: 2.0, 20: 2.0, 24: 3.0},
+_SMALL = 7.5  # below this size the heights follow no slope: the captured ones, per half point
+# 1 to 5.5 points alike in every face captured; 6, 6.5 and 7 per face
+_SMALL_COMMON: dict[float, float] = {
+    1: 4, 1.5: 7, 2: 7, 2.5: 7, 3: 7, 3.5: 8, 4: 8, 4.5: 9, 5: 9, 5.5: 10,
+}  # fmt: skip
+_SMALL_HEIGHT: dict[str, dict[float, float]] = {
+    "calibri": {6: 9, 6.5: 10, 7: 10},
+    "aptos narrow": {6: 9, 6.5: 10, 7: 10},
+    "arial": {6: 10, 6.5: 11, 7: 11},
+    "times new roman": {6: 10, 6.5: 10, 7: 10},
+    "courier new": {6: 9, 6.5: 10, 7: 10},
+    "georgia": {6: 10, 6.5: 10, 7: 10},
 }
+_LARGEST = 72.0  # the largest size captured
+
+
+def _font_height(key: str, size: float) -> float:
+    """The face's height: the row Excel fits to it alone."""
+    if size < _SMALL:
+        half = math.ceil(size * 2) / 2
+        return float(_SMALL_HEIGHT[key].get(half, _SMALL_COMMON.get(half, 0.0)))
+    return float(math.floor(_SLOPE[key] * math.ceil(size) + 1.5))
+
+
+def _bottom(key: str, size: float) -> float:
+    """B, the face's descent: its height less its ascent, ceil(size) + 1 points."""
+    return _font_height(key, size) - math.ceil(size) - 1.0
 
 
 @dataclass(frozen=True, slots=True)
@@ -528,16 +491,25 @@ class RowMetrics:
     line_height: float
 
 
-def _row_face(font: FontSpec | None) -> tuple[str, int]:
+def _row_face(font: FontSpec | None) -> tuple[str, float]:
     """(family key, size) of a face the row model has measured; LookupError otherwise."""
-    f = resolve_font(font)
+    if font is None:
+        f = DEFAULT_FONT
+    elif isinstance(font, str):
+        f = Font(font, 11.0)
+    elif isinstance(font, Font):
+        f = font
+    else:
+        f = Font(font[0], float(font[1]))
     key = f.name.lower()
-    sizes = _FONT_HEIGHT.get(key, {})
-    if f.size not in sizes:
-        measured = ", ".join(f"{size:g}" for size in sizes)
-        msg = f"no row heights for {f.name} {f.size:g}; measured sizes: {measured}"
+    if key not in _SLOPE:
+        measured = ", ".join(_DISPLAY.values())
+        msg = f"no row heights for font {f.name!r}; measured: {measured}"
         raise LookupError(msg)
-    return key, int(f.size)
+    if not 1.0 <= f.size <= _LARGEST:
+        msg = f"no row heights for {_DISPLAY[key]} {f.size:g}; measured sizes: 1 to 72"
+        raise LookupError(msg)
+    return key, float(f.size)
 
 
 def row_metrics(
@@ -554,9 +526,11 @@ def row_metrics(
     Arial 11 (14 points) beside Calibri 10 (14 points) makes a row of 15. Wrapped text of ``lines``
     lines in a face takes ``lines * (height + 1)`` points of that face, plus, when the Normal font
     or another cell's font in the row has a larger line inset, the difference of the insets
-    (CAPTURING.md section 2 items 44 and 55). Bold and italic change nothing. Measured: Calibri,
-    Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; the row model raises
-    ``LookupError`` for any other face rather than scaling one.
+    (CAPTURING.md section 2 items 44, 55 and 57). A face's height is ``floor(a * ceil(size) +
+    1.5)`` from 7.5 points, ``a`` its slope, and captured below that; its ascent is ``ceil(size) +
+    1``, its descent and line inset follow from the two. Bold and italic change nothing.
+    Measured: Calibri, Aptos Narrow, Arial, Times New Roman, Courier New and Georgia from 1 to 72
+    points; any other face or size raises ``LookupError``.
 
     Several cells with wrapped text in one row are each computed this way and the row takes the
     tallest; that combination has not been captured.
@@ -572,16 +546,17 @@ def row_metrics(
         ValueError: A number of lines below 1.
     """
     normal = _row_face(normal_font)
-    font_height = _FONT_HEIGHT[normal[0]][normal[1]]
-    descent = _DESCENT[normal[0]][normal[1]]
-    ascent = font_height - descent
-    top_inset = _LINE_INSET[normal[0]][normal[1]]  # the largest inset of the row's unwrapped fonts
+    font_height = _font_height(*normal)
+    # a row holds its fonts' largest ascent (size + 1) and largest descent B; the largest line
+    # inset (B - 2) of its unwrapped fonts lifts wrapped text in a face with a smaller one
+    ascent = math.ceil(normal[1]) + 1.0
+    descent = _bottom(*normal)
+    top_inset = descent - 2.0
     for font in cell_fonts:
         key, size = _row_face(font)
-        face_descent = _DESCENT[key][size]
-        ascent = max(ascent, _FONT_HEIGHT[key][size] - face_descent)
-        descent = max(descent, face_descent)
-        top_inset = max(top_inset, _LINE_INSET[key][size])
+        ascent = max(ascent, math.ceil(size) + 1.0)
+        descent = max(descent, _bottom(key, size))
+        top_inset = max(top_inset, _bottom(key, size) - 2.0)
     wraps = []
     for wrap_font, lines in wrapped:
         if lines < 1:
@@ -591,34 +566,17 @@ def row_metrics(
         wraps.append((key, size, lines))
         # the wrapped cell's font is in the row too: one line of Aptos Narrow 9 under Arial 11
         # makes the row 15 points, as the two faces unwrapped do
-        face_descent = _DESCENT[key][size]
-        ascent = max(ascent, _FONT_HEIGHT[key][size] - face_descent)
-        descent = max(descent, face_descent)
-    height = float(math.ceil(ascent + descent))
+        ascent = max(ascent, math.ceil(size) + 1.0)
+        descent = max(descent, _bottom(key, size))
+    height = ascent + descent
     for key, size, lines in wraps:
-        inset = max(0.0, top_inset - _LINE_INSET[key][size])
-        height = max(height, lines * (_FONT_HEIGHT[key][size] + 1.0) + inset)
+        inset = max(0.0, top_inset - (_bottom(key, size) - 2.0))
+        height = max(height, lines * (_font_height(key, size) + 1.0) + inset)
     return RowMetrics(height=height, font_height=font_height, line_height=font_height + 1.0)
 
 
 # --- vertical placement (CAPTURING.md section 2 item 47) ----------------------------------------
 
-# family (lower case) -> size -> points between a bottom-aligned baseline and the row's bottom
-_BASELINE_FROM_BOTTOM: dict[str, dict[int, float]] = {
-    "calibri": {9: 2.0, 10: 3.0, 11: 3.0, 12: 3.0, 14: 4.0, 16: 4.0, 18: 5.0, 20: 5.0, 24: 6.0},
-    "aptos narrow": {
-        9: 3.0,
-        10: 3.0,
-        11: 3.0,
-        12: 3.0,
-        14: 4.0,
-        16: 5.0,
-        18: 5.0,
-        20: 6.0,
-        24: 7.0,
-    },
-    "arial": {9: 2.0, 10: 2.0, 11: 2.0, 12: 3.0, 14: 3.0, 16: 3.0, 18: 4.0, 20: 4.0, 24: 5.0},
-}
 # family (lower case) -> size -> (cap height, descender): the ink of "H" above the baseline and of
 # "g" below it, as Excel draws them at zoom 100 on a 2x display (half points)
 _INK: dict[str, dict[int, tuple[float, float]]] = {
@@ -702,19 +660,25 @@ def vertical_metrics(
         LookupError: A font or size not measured.
     """
     key, size = _row_face(font)
-    height = _FONT_HEIGHT[key][size]
-    cap, descender = _INK[key][size]
-    from_bottom = _BASELINE_FROM_BOTTOM[key][size]
+    ink = _INK.get(key, {}).get(int(size)) if size == int(size) else None
+    if ink is None:
+        msg = (
+            f"no placement for {_DISPLAY[key]} {size:g}; measured: Calibri, Aptos Narrow and "
+            "Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24"
+        )
+        raise LookupError(msg)
+    cap, descender = ink
+    height = _font_height(key, size)
+    from_bottom = _bottom(key, size)
     if normal_font is not None:
-        normal_key, normal_size = _row_face(normal_font)
-        from_bottom = max(from_bottom, _BASELINE_FROM_BOTTOM[normal_key][normal_size])
+        from_bottom = max(from_bottom, _bottom(*_row_face(normal_font)))
     return VerticalMetrics(
         baseline_from_top=float(size) + 1.0,
         baseline_from_bottom=from_bottom,
         font_height=height,
         line_height=height + 1.0,
         line_pitch=height,
-        line_inset=_LINE_INSET[key][size],
+        line_inset=_bottom(key, size) - 2.0,
         cap_height=cap,
         descender=descender,
     )

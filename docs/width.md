@@ -152,6 +152,8 @@ RowMetrics(height=15.0, font_height=15.0, line_height=16.0)
 48.0
 >>> row_metrics(("Calibri", 14), wrapped=[(("Calibri", 9), 2)]).height
 28.0
+>>> row_metrics(("Times New Roman", 12.5)).height  # a half size takes the next whole one
+17.0
 ```
 
 A row holds the largest ascent and the largest descent of its fonts, and bold or italic changes
@@ -159,8 +161,9 @@ nothing. Faces of one family split their heights alike, so such a row is as tall
 font; Arial's descent is smaller, so Arial 11 beside Calibri 10, both 14 points, makes 15. Each wrapped line takes
 its font's height plus one point, so a single wrapped line makes a Calibri 11 row 16 points; when
 the Normal font or another cell's font in the row is larger, a smaller font's wrapped text takes up
-to a few points more. The caller breaks the lines. Calibri, Aptos Narrow and Arial at 9, 10, 11,
-12, 14, 16, 18, 20 and 24 points are measured; any other face raises `LookupError`. Several cells with wrapped text in
+to a few points more. The caller breaks the lines. Calibri, Aptos Narrow, Arial, Times New Roman,
+Courier New and Georgia are measured at every size from 1 to 72 points, half sizes included; any
+other face or size raises `LookupError`. Several cells with wrapped text in
 one row are a combination not yet captured: the row takes the tallest of them.
 
 Text turned to an angle is not fitted to the column: Excel shows the width-less rendering, with its

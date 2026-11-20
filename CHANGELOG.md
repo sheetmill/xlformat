@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `row_metrics` covers every size from 1 to 72 points, half sizes included, and three more faces:
+  Times New Roman, Courier New and Georgia. A face's height is `floor(a · ceil(size) + 1.5)` with
+  a slope per face from 7.5 points, and the captured heights below that.
+
+### Changed
+- `row_metrics` takes a row of several fonts as the largest `size + 1` plus the largest
+  `height − size − 1`, the rule behind the earlier tables, which every captured row height follows;
+  its results for the faces and sizes measured before are unchanged.
+
 ## [0.5.0] - 2026-11-19
 
 ### Added

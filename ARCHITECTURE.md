@@ -623,23 +623,28 @@ value is known to be a number, before section selection.
 
 The row model is public too: `row_metrics(normal_font=None, *, cell_fonts=(), wrapped=())`
 returns a frozen `RowMetrics(height, font_height, line_height)`, the height Excel fits a row
-without a stored height to (`CAPTURING.md` §2 items 44 and 55): the largest ascent plus the
-largest descent of the row's fonts, wrapped cells' fonts included, rounded up, or the wrapped lines
-if taller. Faces of one family split their heights alike, so such a row is as tall as its tallest
-face; Arial's descent is smaller than Calibri's or Aptos Narrow's, so a row of Arial 11 and Calibri
-10 (14 points each) is 15. `wrapped` holds one `(font, lines)` per
+without a stored height to (`CAPTURING.md` §2 items 44, 55 and 57). A face of size `S` has the
+height `F = floor(a · ceil(S) + 1.5)` from 7.5 points (Calibri 1.2689, Aptos Narrow 1.2815, Arial
+1.2122, Times New Roman 1.2162, Courier New 1.3007, Georgia 1.2190), and the captured heights
+below that; its ascent is `ceil(S) + 1` and its descent `B = F − ceil(S) − 1`. A row is the largest
+ascent plus the largest descent of its fonts, wrapped cells' fonts included, or its wrapped lines if
+taller: `lines · (F + 1)` plus the amount by which the largest line inset `B − 2` of its unwrapped
+fonts exceeds the wrapped face's. Faces of one family split their heights alike, so such a row is
+as tall as its tallest face; Arial's descent is smaller, so a row of Arial 11 and Calibri 10 (14
+points each) is 15. `wrapped` holds one `(font, lines)` per
 cell with wrapped text, `None` for the Normal font; one argument with one kind of item leaves room
-to take whole cells later. Lines are the caller's: xlformat does not break text. Three tables per
-measured face carry the model, the font height, the descent (quarter points, fitted to every pair
-of faces and nearest the font's own descent) and the line inset, and a face without them raises
-`LookupError` rather than being scaled.
+to take whole cells later. Lines are the caller's: xlformat does not break text. One slope per face
+carries the model (with a few captured heights below 7.5 points), so it covers every size from 1 to
+72 points of the six measured faces; another face, or a size outside that range, raises
+`LookupError`. The slope is per face and comes from captures: it is not the font's ascent plus
+descent.
 
 `vertical_metrics(font=None, *, normal_font=None)` returns a frozen `VerticalMetrics(baseline_from_top,
 baseline_from_bottom, font_height, line_height, line_pitch, line_inset, cap_height, descender)`:
 where Excel draws a face's text in a cell, measured on screen (`CAPTURING.md` §2 item 47). They
 are facts, as the column's insets are; the caller aligns the text, as it does horizontally. The
 fields are the distances the screen shows: the top inset and the ascent appear only as their sum,
-and no split by convention is made. `line_inset` is the row model's per-face constant. The
+and no split by convention is made. `line_inset` is the row model's `B − 2`. The
 Normal font moves two placements. Bottom-aligned text sits at least the Normal font's
 `baseline_from_bottom` up (Calibri 9 and Arial 9 to 11 have 2 points of their own and sit 3 up in
 a Calibri 11 workbook; `CAPTURING.md` §2 item 55); given `normal_font`, the function applies this

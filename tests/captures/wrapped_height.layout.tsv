@@ -1,0 +1,149 @@
+# suite: wrapped_height (capture.font_heights wrapped); Excel for Mac, en_US
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# captured: 2026-11-19; Normal style Calibri 20 or 9; one cell a row in column A, wrap on, 'x' a line; rows fitted by Excel on opening
+normal_font	tag	row_height
+Calibri 20	Calibri 9 wrapped 1	26.0
+Calibri 20	Calibri 9 wrapped 2	29.0
+Calibri 20	Calibri 9 wrapped 3	42.0
+Calibri 20	Calibri 11 wrapped 1	26.0
+Calibri 20	Calibri 11 wrapped 2	34.0
+Calibri 20	Calibri 11 wrapped 3	50.0
+Calibri 20	Calibri 14 wrapped 1	26.0
+Calibri 20	Calibri 14 wrapped 2	41.0
+Calibri 20	Calibri 14 wrapped 3	61.0
+Calibri 20	Calibri 20 wrapped 1	27.0
+Calibri 20	Calibri 20 wrapped 2	54.0
+Calibri 20	Calibri 20 wrapped 3	81.0
+Calibri 20	Arial 9 wrapped 1	26.0
+Calibri 20	Arial 9 wrapped 2	29.0
+Calibri 20	Arial 9 wrapped 3	42.0
+Calibri 20	Arial 11 wrapped 1	26.0
+Calibri 20	Arial 11 wrapped 2	33.0
+Calibri 20	Arial 11 wrapped 3	48.0
+Calibri 20	Arial 14 wrapped 1	26.0
+Calibri 20	Arial 14 wrapped 2	40.0
+Calibri 20	Arial 14 wrapped 3	59.0
+Calibri 20	Arial 20 wrapped 1	27.0
+Calibri 20	Arial 20 wrapped 2	53.0
+Calibri 20	Arial 20 wrapped 3	79.0
+Calibri 20	Aptos Narrow 9 wrapped 1	26.0
+Calibri 20	Aptos Narrow 9 wrapped 2	30.0
+Calibri 20	Aptos Narrow 9 wrapped 3	44.0
+Calibri 20	Aptos Narrow 11 wrapped 1	26.0
+Calibri 20	Aptos Narrow 11 wrapped 2	34.0
+Calibri 20	Aptos Narrow 11 wrapped 3	50.0
+Calibri 20	Aptos Narrow 14 wrapped 1	26.0
+Calibri 20	Aptos Narrow 14 wrapped 2	41.0
+Calibri 20	Aptos Narrow 14 wrapped 3	61.0
+Calibri 20	Aptos Narrow 20 wrapped 1	28.0
+Calibri 20	Aptos Narrow 20 wrapped 2	56.0
+Calibri 20	Aptos Narrow 20 wrapped 3	84.0
+Calibri 20	Times New Roman 9 wrapped 1	26.0
+Calibri 20	Times New Roman 9 wrapped 2	29.0
+Calibri 20	Times New Roman 9 wrapped 3	42.0
+Calibri 20	Times New Roman 11 wrapped 1	26.0
+Calibri 20	Times New Roman 11 wrapped 2	33.0
+Calibri 20	Times New Roman 11 wrapped 3	48.0
+Calibri 20	Times New Roman 14 wrapped 1	26.0
+Calibri 20	Times New Roman 14 wrapped 2	40.0
+Calibri 20	Times New Roman 14 wrapped 3	59.0
+Calibri 20	Times New Roman 20 wrapped 1	27.0
+Calibri 20	Times New Roman 20 wrapped 2	53.0
+Calibri 20	Times New Roman 20 wrapped 3	79.0
+Calibri 20	Courier New 9 wrapped 1	26.0
+Calibri 20	Courier New 9 wrapped 2	30.0
+Calibri 20	Courier New 9 wrapped 3	44.0
+Calibri 20	Courier New 11 wrapped 1	26.0
+Calibri 20	Courier New 11 wrapped 2	34.0
+Calibri 20	Courier New 11 wrapped 3	50.0
+Calibri 20	Courier New 14 wrapped 1	26.0
+Calibri 20	Courier New 14 wrapped 2	41.0
+Calibri 20	Courier New 14 wrapped 3	61.0
+Calibri 20	Courier New 20 wrapped 1	28.0
+Calibri 20	Courier New 20 wrapped 2	56.0
+Calibri 20	Courier New 20 wrapped 3	84.0
+Calibri 20	Georgia 9 wrapped 1	26.0
+Calibri 20	Georgia 9 wrapped 2	29.0
+Calibri 20	Georgia 9 wrapped 3	42.0
+Calibri 20	Georgia 11 wrapped 1	26.0
+Calibri 20	Georgia 11 wrapped 2	33.0
+Calibri 20	Georgia 11 wrapped 3	48.0
+Calibri 20	Georgia 14 wrapped 1	26.0
+Calibri 20	Georgia 14 wrapped 2	40.0
+Calibri 20	Georgia 14 wrapped 3	59.0
+Calibri 20	Georgia 20 wrapped 1	27.0
+Calibri 20	Georgia 20 wrapped 2	53.0
+Calibri 20	Georgia 20 wrapped 3	79.0
+Calibri 9	Calibri 9 wrapped 1	13.0
+Calibri 9	Calibri 9 wrapped 2	26.0
+Calibri 9	Calibri 9 wrapped 3	39.0
+Calibri 9	Calibri 11 wrapped 1	16.0
+Calibri 9	Calibri 11 wrapped 2	32.0
+Calibri 9	Calibri 11 wrapped 3	48.0
+Calibri 9	Calibri 14 wrapped 1	20.0
+Calibri 9	Calibri 14 wrapped 2	40.0
+Calibri 9	Calibri 14 wrapped 3	60.0
+Calibri 9	Calibri 20 wrapped 1	27.0
+Calibri 9	Calibri 20 wrapped 2	54.0
+Calibri 9	Calibri 20 wrapped 3	81.0
+Calibri 9	Arial 9 wrapped 1	13.0
+Calibri 9	Arial 9 wrapped 2	26.0
+Calibri 9	Arial 9 wrapped 3	39.0
+Calibri 9	Arial 11 wrapped 1	15.0
+Calibri 9	Arial 11 wrapped 2	30.0
+Calibri 9	Arial 11 wrapped 3	45.0
+Calibri 9	Arial 14 wrapped 1	19.0
+Calibri 9	Arial 14 wrapped 2	38.0
+Calibri 9	Arial 14 wrapped 3	57.0
+Calibri 9	Arial 20 wrapped 1	26.0
+Calibri 9	Arial 20 wrapped 2	52.0
+Calibri 9	Arial 20 wrapped 3	78.0
+Calibri 9	Aptos Narrow 9 wrapped 1	14.0
+Calibri 9	Aptos Narrow 9 wrapped 2	28.0
+Calibri 9	Aptos Narrow 9 wrapped 3	42.0
+Calibri 9	Aptos Narrow 11 wrapped 1	16.0
+Calibri 9	Aptos Narrow 11 wrapped 2	32.0
+Calibri 9	Aptos Narrow 11 wrapped 3	48.0
+Calibri 9	Aptos Narrow 14 wrapped 1	20.0
+Calibri 9	Aptos Narrow 14 wrapped 2	40.0
+Calibri 9	Aptos Narrow 14 wrapped 3	60.0
+Calibri 9	Aptos Narrow 20 wrapped 1	28.0
+Calibri 9	Aptos Narrow 20 wrapped 2	56.0
+Calibri 9	Aptos Narrow 20 wrapped 3	84.0
+Calibri 9	Times New Roman 9 wrapped 1	13.0
+Calibri 9	Times New Roman 9 wrapped 2	26.0
+Calibri 9	Times New Roman 9 wrapped 3	39.0
+Calibri 9	Times New Roman 11 wrapped 1	15.0
+Calibri 9	Times New Roman 11 wrapped 2	30.0
+Calibri 9	Times New Roman 11 wrapped 3	45.0
+Calibri 9	Times New Roman 14 wrapped 1	19.0
+Calibri 9	Times New Roman 14 wrapped 2	38.0
+Calibri 9	Times New Roman 14 wrapped 3	57.0
+Calibri 9	Times New Roman 20 wrapped 1	26.0
+Calibri 9	Times New Roman 20 wrapped 2	52.0
+Calibri 9	Times New Roman 20 wrapped 3	78.0
+Calibri 9	Courier New 9 wrapped 1	14.0
+Calibri 9	Courier New 9 wrapped 2	28.0
+Calibri 9	Courier New 9 wrapped 3	42.0
+Calibri 9	Courier New 11 wrapped 1	16.0
+Calibri 9	Courier New 11 wrapped 2	32.0
+Calibri 9	Courier New 11 wrapped 3	48.0
+Calibri 9	Courier New 14 wrapped 1	20.0
+Calibri 9	Courier New 14 wrapped 2	40.0
+Calibri 9	Courier New 14 wrapped 3	60.0
+Calibri 9	Courier New 20 wrapped 1	28.0
+Calibri 9	Courier New 20 wrapped 2	56.0
+Calibri 9	Courier New 20 wrapped 3	84.0
+Calibri 9	Georgia 9 wrapped 1	13.0
+Calibri 9	Georgia 9 wrapped 2	26.0
+Calibri 9	Georgia 9 wrapped 3	39.0
+Calibri 9	Georgia 11 wrapped 1	15.0
+Calibri 9	Georgia 11 wrapped 2	30.0
+Calibri 9	Georgia 11 wrapped 3	45.0
+Calibri 9	Georgia 14 wrapped 1	19.0
+Calibri 9	Georgia 14 wrapped 2	38.0
+Calibri 9	Georgia 14 wrapped 3	57.0
+Calibri 9	Georgia 20 wrapped 1	26.0
+Calibri 9	Georgia 20 wrapped 2	52.0
+Calibri 9	Georgia 20 wrapped 3	78.0

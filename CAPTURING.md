@@ -1077,6 +1077,31 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     negative angle fits as its positive one. So angled text is the width-less rendering, as
     `format_value` gives it without a width (`tests/test_angled_formats.py`).
 
+57. **A face's height at any size (2026-11-19; `capture/font_heights.py`: one workbook per face,
+    Calibri, Arial, Aptos Narrow, Times New Roman, Courier New and Georgia, its Normal style the face
+    at 1 point; a number in the face at every size from 1 to 72 in half steps, and the face at 9,
+    11, 14 and 20 beside Calibri at 9 to 24; 1,074 rows in `font_height.layout.tsv`; then `wrapped`:
+    one to three wrapped lines of every face at 9, 11, 14 and 20 under a Calibri 20 and a Calibri 9
+    Normal font, 144 rows in `wrapped_height.layout.tsv`; both read through AppleScript, Excel
+    16.115).** The rule tested, `F(S) = floor(a · ceil(S) + 1.5)` with a slope `a` per face, was
+    written down with its predictions before the run (slopes Calibri 1.2689, Arial 1.2120, Aptos
+    Narrow 1.2820, Times New Roman 1.2155, Courier New 1.3013).
+    - **From 7.5 to 72 points** every face fits one slope at every whole and half size, a half size
+      taking the next whole one. The windows the rows allow: Calibri 1.2685–1.2692, Aptos Narrow
+      1.2812–1.2818, Arial 1.2119–1.2125, Times New Roman 1.2159–1.2164 (three rows refuted the
+      predicted 1.2155), Courier New 1.3000–1.3014, Georgia 1.2188–1.2192 (no prediction). The
+      package takes each window's middle. The slope is not the font's ascent plus descent.
+    - **Below 7.5 points** no slope fits: 1 point gives 4, 1.5 to 3 give 7, 3.5 and 4 give 8, 4.5
+      and 5 give 9, 5.5 gives 10, in every face; 6 to 7 differ by face (Calibri 9, 10, 10; Arial
+      10, 11, 11). The package keeps these captured heights.
+    - **Rows mixing faces:** a row is the largest ascent `ceil(S) + 1` plus the largest descent
+      `B = F − ceil(S) − 1` of its fonts: all 144 rows beside Calibri predicted before the run, and
+      all 35,100 rows of `row_height.layout.tsv` with it, replacing the descent per face that item
+      55 fitted. `B` is item 55's bottom offset (`vertical_metrics`), and the line inset is `B − 2`
+      at all 27 faces measured before; under a Calibri 20 Normal font (inset 3) wrapped text in each
+      new face sits higher by `3 − (B − 2)` where that is positive: all 144 wrapped rows predicted
+      before the run.
+
 ## 3. The pipeline
 
 ```

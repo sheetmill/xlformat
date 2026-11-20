@@ -74,12 +74,14 @@ def test_font_and_line_height() -> None:
 
 
 def test_unmeasured_faces_and_bad_lines() -> None:
-    with pytest.raises(LookupError, match="no row heights for Calibri 13"):
-        row_metrics(("Calibri", 13))
-    with pytest.raises(LookupError, match="no row heights for Calibri 22"):
-        row_metrics(cell_fonts=[("Calibri", 22)])
-    with pytest.raises(LookupError, match="no glyph table for font 'Times New Roman'"):
-        row_metrics("Times New Roman")
+    with pytest.raises(LookupError, match="no row heights for Calibri 73"):
+        row_metrics(("Calibri", 73))
+    with pytest.raises(LookupError, match="no row heights for font 'Comic Sans'"):
+        row_metrics(cell_fonts=[("Comic Sans", 11)])
+    # sizes and faces between the tables follow the slope model (font_height.layout.tsv)
+    assert row_metrics(("Calibri", 13)).font_height == 17.0
+    assert row_metrics(("Calibri", 12.5)).font_height == 17.0
+    assert row_metrics(("Times New Roman", 11)).font_height == 14.0
 
 
 def test_faces_of_two_families() -> None:
