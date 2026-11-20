@@ -203,6 +203,18 @@ height `row_metrics` gives the row lying below the text; that one is the caller'
 it depends on every font in the row. The fields are the
 distances Excel shows; the ascent and the descent are not split from the cell's insets.
 
+`rule_metrics` gives where Excel draws a face's underlines and strikethrough, in sheet points from
+the baseline, at a zoom (positions move in steps of a screen point):
+
+```python
+>>> from xlformat import rule_metrics
+>>> r = rule_metrics(("Calibri", 11))
+>>> r.underline_top, r.underline_thickness, r.accounting_top, r.strikethrough_top
+(1.0, 1.0, 3.0, 3.0)
+>>> rule_metrics(("Calibri", 36), zoom=200).underline_thickness
+2.0
+```
+
 ## Measuring text yourself
 
 The measure behind Excel mode is public, for layout that has to agree with it: spilling text

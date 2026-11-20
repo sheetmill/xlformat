@@ -549,7 +549,7 @@ from xlformat import (
     Quirks, FormatError, ExcelError, DEFAULT_PALETTE, Font, ColumnMetrics, column_metrics,
     column_metrics_from_points, file_column_metrics, text_width, glyph_widths, digit_width,
     overhang, measured_fonts, RowMetrics, row_metrics, VerticalMetrics, vertical_metrics,
-    InkMetrics, ink_metrics,
+    InkMetrics, ink_metrics, RuleMetrics, rule_metrics,
     builtin_format, BUILTIN_FORMATS, section_rgb,
 )
 
@@ -649,7 +649,12 @@ from the face's height by rule, so it covers every face and size the row model d
 the text is measured and partial, so it is a separate function, `ink_metrics(font=None)` returning
 `InkMetrics(cap_height, descender)`, which raises `LookupError` for a face or size not measured, as
 the glyph-table functions do. `VerticalMetrics.cap_height` and `.descender` remain until 1.0 as
-deprecated properties that warn and forward to `ink_metrics`. They
+deprecated properties that warn and forward to `ink_metrics`. `rule_metrics(font=None, *,
+zoom=100)` returns `RuleMetrics(underline_top, underline_thickness, double_gap, accounting_top,
+strikethrough_top, strikethrough_thickness)`, in sheet points from the baseline: each computed from
+the font's `post` and `OS/2` numbers at the screen size `size · zoom / 100` in whole screen points
+and divided back (`CAPTURING.md` §2 item 60). Five faces carry those numbers; Courier New, which
+draws its underline elsewhere than its tables say, raises `LookupError`. They
 are facts, as the column's insets are; the caller aligns the text, as it does horizontally. The
 fields are the distances the screen shows: the top inset and the ascent appear only as their sum,
 and no split by convention is made. `line_inset` is the row model's `B − 2`. The
