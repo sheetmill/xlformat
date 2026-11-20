@@ -8,14 +8,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `ink_metrics(font)` returning `InkMetrics(cap_height, descender)`: the measured ink of a face's
+  "H" and "g", which raises `LookupError` for a face or size not measured.
+- `Font(..., underline=None)` takes a file's underline name (`"single"`, `"double"`,
+  `"singleAccounting"`, `"doubleAccounting"`). `row_metrics` reads it: an accounting underline
+  adds `3 · max(1, floor(size · underline thickness))` points to the row and to each wrapped line.
+  Courier New's accounting rows, and Times New Roman's at 37 to 40 points, raise `LookupError`.
 - `row_metrics` covers every size from 1 to 72 points, half sizes included, and three more faces:
   Times New Roman, Courier New and Georgia. A face's height is `floor(a · ceil(size) + 1.5)` with
   a slope per face from 7.5 points, and the captured heights below that.
 
 ### Changed
+- `vertical_metrics` returns placement only (baselines, font height, line height, line pitch, line
+  inset), by rule for every face and size `row_metrics` supports: six faces from 1 to 72 points.
+  The ink fields moved to `ink_metrics`.
 - `row_metrics` takes a row of several fonts as the largest `size + 1` plus the largest
   `height − size − 1`, the rule behind the earlier tables, which every captured row height follows;
   its results for the faces and sizes measured before are unchanged.
+
+### Deprecated
+- `VerticalMetrics.cap_height` and `.descender` warn and forward to `ink_metrics`; they are removed
+  in 1.0.
 
 ## [0.5.0] - 2026-11-19
 

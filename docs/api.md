@@ -60,6 +60,9 @@ Everything below is importable from `xlformat`.
 .. autofunction:: xlformat.vertical_metrics
 .. autoclass:: xlformat.VerticalMetrics
    :members:
+.. autofunction:: xlformat.ink_metrics
+.. autoclass:: xlformat.InkMetrics
+   :members:
 ```
 
 ## Settings, errors and colors

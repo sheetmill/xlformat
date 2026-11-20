@@ -17,7 +17,7 @@ from __future__ import annotations
 import math
 import warnings
 from collections.abc import Callable, Iterable
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from functools import lru_cache
 
 from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
@@ -37,12 +37,22 @@ class Font:
         size: The size in points.
         bold: Bold.
         italic: Italic.
+        underline: The underline as a file names it: ``None``, ``"single"``, ``"double"``,
+            ``"singleAccounting"`` or ``"doubleAccounting"``. Only :func:`row_metrics` reads
+            it: an accounting underline makes a row taller.
     """
 
     name: str
     size: float = 11
     bold: bool = False
     italic: bool = False
+    underline: str | None = None
+
+    def __post_init__(self) -> None:
+        if self.underline not in _UNDERLINES:
+            names = ", ".join(repr(u) for u in _UNDERLINES)
+            msg = f"underline must be one of {names}, not {self.underline!r}"
+            raise ValueError(msg)
 
     @property
     def style(self) -> str:
@@ -52,6 +62,7 @@ class Font:
         return "bold" if self.bold else ("italic" if self.italic else "regular")
 
 
+_UNDERLINES = (None, "single", "double", "singleAccounting", "doubleAccounting")
 FontSpec = str | tuple[str, float] | Font
 """A font name, a name and a point size, or a :class:`Font`; the name alone means 11 points."""
 
@@ -131,7 +142,7 @@ def resolve_font(font: FontSpec | None) -> Font:
     if font.style not in styles:
         msg = f"no glyph table for {display} {font.style}; measured: {', '.join(styles)}"
         raise LookupError(msg)
-    return Font(display, float(font.size), font.bold, font.italic)
+    return Font(display, float(font.size), font.bold, font.italic, font.underline)
 
 
 def _table(font: FontSpec | None) -> dict[str, float]:
@@ -468,6 +479,38 @@ def _font_height(key: str, size: float) -> float:
     return float(math.floor(_SLOPE[key] * math.ceil(size) + 1.5))
 
 
+# family (lower case) -> post.underlineThickness / unitsPerEm: an accounting underline adds
+# 3 * max(1, floor(size * this)) points to the row and to each wrapped line (CAPTURING.md section 2
+# item 58); Courier New follows another rule, not known
+_ACCOUNTING_THICKNESS: dict[str, float] = {
+    "calibri": 134 / 2048,
+    "aptos narrow": 50 / 2048,
+    "arial": 150 / 2048,
+    "times new roman": 100 / 2048,
+    "georgia": 101 / 2048,
+}
+# Arial's double accounting adds 3 up to 35 points, then 6, then 9 from 55 (captured)
+_ARIAL_DOUBLE_ACCOUNTING = ((55, 9.0), (36, 6.0), (0, 3.0))
+
+
+def _accounting(key: str, size: float, underline: str | None) -> float:
+    """Points an accounting underline adds to each line of the face; LookupError if not known."""
+    if underline not in ("singleAccounting", "doubleAccounting"):
+        return 0.0
+    whole = math.ceil(size)
+    known = (
+        key in _ACCOUNTING_THICKNESS
+        and 6 <= whole <= _LARGEST
+        and not (key == "times new roman" and 37 <= whole <= 40)
+    )
+    if not known:
+        msg = f"no accounting underline rows for {_DISPLAY[key]} {size:g}"
+        raise LookupError(msg)
+    if key == "arial" and underline == "doubleAccounting":
+        return next(e for start, e in _ARIAL_DOUBLE_ACCOUNTING if whole >= start)
+    return 3.0 * max(1, math.floor(whole * _ACCOUNTING_THICKNESS[key]))
+
+
 def _bottom(key: str, size: float) -> float:
     """B, the face's descent: its height less its ascent, ceil(size) + 1 points."""
     return _font_height(key, size) - math.ceil(size) - 1.0
@@ -547,15 +590,19 @@ def row_metrics(
     """
     normal = _row_face(normal_font)
     font_height = _font_height(*normal)
+
+    def underline(font: FontSpec | None) -> str | None:
+        return font.underline if isinstance(font, Font) else None
+
     # a row holds its fonts' largest ascent (size + 1) and largest descent B; the largest line
     # inset (B - 2) of its unwrapped fonts lifts wrapped text in a face with a smaller one
     ascent = math.ceil(normal[1]) + 1.0
-    descent = _bottom(*normal)
-    top_inset = descent - 2.0
+    descent = _bottom(*normal) + _accounting(*normal, underline(normal_font))
+    top_inset = _bottom(*normal) - 2.0
     for font in cell_fonts:
         key, size = _row_face(font)
         ascent = max(ascent, math.ceil(size) + 1.0)
-        descent = max(descent, _bottom(key, size))
+        descent = max(descent, _bottom(key, size) + _accounting(key, size, underline(font)))
         top_inset = max(top_inset, _bottom(key, size) - 2.0)
     wraps = []
     for wrap_font, lines in wrapped:
@@ -563,15 +610,17 @@ def row_metrics(
             msg = f"wrapped text has at least one line, not {lines!r}"
             raise ValueError(msg)
         key, size = normal if wrap_font is None else _row_face(wrap_font)
-        wraps.append((key, size, lines))
+        extra = _accounting(key, size, underline(normal_font if wrap_font is None else wrap_font))
+        wraps.append((key, size, lines, extra))
         # the wrapped cell's font is in the row too: one line of Aptos Narrow 9 under Arial 11
         # makes the row 15 points, as the two faces unwrapped do
         ascent = max(ascent, math.ceil(size) + 1.0)
-        descent = max(descent, _bottom(key, size))
+        descent = max(descent, _bottom(key, size) + extra)
     height = ascent + descent
-    for key, size, lines in wraps:
+    for key, size, lines, extra in wraps:
+        # an accounting underline adds its points to every wrapped line
         inset = max(0.0, top_inset - (_bottom(key, size) - 2.0))
-        height = max(height, lines * (_font_height(key, size) + 1.0) + inset)
+        height = max(height, lines * (_font_height(key, size) + 1.0 + extra) + inset)
     return RowMetrics(height=height, font_height=font_height, line_height=font_height + 1.0)
 
 
@@ -621,9 +670,9 @@ class VerticalMetrics:
             in a row whose Normal font or other cell fonts have a larger ``line_inset``, takes
             that difference more height (``row_metrics``) and sits that much higher, the extra
             lying below its last line.
-        cap_height: The ink of "H" above the baseline, to half a point.
-        descender: The ink of "g" below the baseline, to half a point. Arial 11 and 16 draw it
-            half a point longer or shorter by where the baseline falls on the display's pixels.
+
+    The ink of the text, which is measured rather than given by a rule, is
+    :func:`ink_metrics`'s; ``cap_height`` and ``descender`` here are deprecated and forward to it.
     """
 
     baseline_from_top: float
@@ -632,8 +681,60 @@ class VerticalMetrics:
     line_height: float
     line_pitch: float
     line_inset: float
+    _font: Font | None = field(default=None, repr=False, compare=False)
+
+    @property
+    def cap_height(self) -> float:
+        """Deprecated (removed in 1.0); use ``ink_metrics(font).cap_height``."""
+        return self._ink("cap_height").cap_height
+
+    @property
+    def descender(self) -> float:
+        """Deprecated (removed in 1.0); use ``ink_metrics(font).descender``."""
+        return self._ink("descender").descender
+
+    def _ink(self, name: str) -> InkMetrics:
+        warnings.warn(
+            f"VerticalMetrics.{name} is deprecated and will be removed in 1.0: use "
+            f"ink_metrics(font).{name}",
+            DeprecationWarning,
+            stacklevel=3,
+        )
+        return ink_metrics(self._font)
+
+
+@dataclass(frozen=True, slots=True)
+class InkMetrics:
+    """The ink Excel for Mac draws for a face at zoom 100 on a 2x display, in sheet points.
+
+    Attributes:
+        cap_height: The ink of "H" above the baseline, to half a point.
+        descender: The ink of "g" below the baseline, to half a point. Arial 11 and 16 draw it
+            half a point longer or shorter by where the baseline falls on the display's pixels.
+    """
+
     cap_height: float
     descender: float
+
+
+def ink_metrics(font: FontSpec | None = None) -> InkMetrics:
+    """The measured ink of ``font``'s "H" and "g" (CAPTURING.md section 2 items 47 and 55).
+
+    Measured: Calibri, Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points, in
+    every style alike.
+
+    Raises:
+        LookupError: A face or size not measured.
+    """
+    key, size = _row_face(font)
+    ink = _INK.get(key, {}).get(int(size)) if size == int(size) else None
+    if ink is None:
+        msg = (
+            f"no ink measured for {_DISPLAY[key]} {size:g}; measured: Calibri, Aptos Narrow and "
+            "Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24"
+        )
+        raise LookupError(msg)
+    return InkMetrics(cap_height=ink[0], descender=ink[1])
 
 
 def vertical_metrics(
@@ -648,8 +749,11 @@ def vertical_metrics(
     ``line_inset`` than the row's other fonts sits that difference higher; that is left to the
     caller, because it depends on every unwrapped font in the row, not only the Normal font, and
     applies to wrapped text alone (see :class:`VerticalMetrics` and :func:`row_metrics`).
-    Measured: Calibri, Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; any
-    other face raises ``LookupError``.
+    The placement follows from the face's height (:func:`row_metrics`): top-aligned text has its
+    baseline ``ceil(size) + 1`` below the row's top and bottom-aligned text ``B = height -
+    ceil(size) - 1`` above its bottom, and the line inset is ``B - 2``. Supported: Calibri, Aptos
+    Narrow, Arial, Times New Roman, Courier New and Georgia from 1 to 72 points; any other face
+    or size raises ``LookupError``.
 
     Args:
         font: The cell's font; default ``("Calibri", 11)``.
@@ -660,25 +764,16 @@ def vertical_metrics(
         LookupError: A font or size not measured.
     """
     key, size = _row_face(font)
-    ink = _INK.get(key, {}).get(int(size)) if size == int(size) else None
-    if ink is None:
-        msg = (
-            f"no placement for {_DISPLAY[key]} {size:g}; measured: Calibri, Aptos Narrow and "
-            "Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24"
-        )
-        raise LookupError(msg)
-    cap, descender = ink
     height = _font_height(key, size)
     from_bottom = _bottom(key, size)
     if normal_font is not None:
         from_bottom = max(from_bottom, _bottom(*_row_face(normal_font)))
     return VerticalMetrics(
-        baseline_from_top=float(size) + 1.0,
+        baseline_from_top=math.ceil(size) + 1.0,
         baseline_from_bottom=from_bottom,
         font_height=height,
         line_height=height + 1.0,
         line_pitch=height,
         line_inset=_bottom(key, size) - 2.0,
-        cap_height=cap,
-        descender=descender,
+        _font=Font(_DISPLAY[key], size),
     )

@@ -12,7 +12,9 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from xlformat import row_metrics
+import pytest
+
+from xlformat import Font, row_metrics
 
 CAPTURES = Path(__file__).parent / "captures"
 _FACE = re.compile(r"(.+?) (\d+(?:\.5)?)")
@@ -62,22 +64,34 @@ def test_wrapped_lines_of_every_face() -> None:
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
 
 
-def test_underlines_other_than_accounting_change_no_row() -> None:
+def test_every_underlined_row() -> None:
     # underline_height.layout.tsv: every face at every whole size from 6 to 72 under each
-    # underline style; plain, single and double rows are the face's height, wrapped lines too
+    # underline style; Courier New's accounting rows and Times New Roman's at 37 to 40 points
+    # follow no known rule and raise
     rows = _rows("underline_height.layout.tsv")
     assert len(rows) == 2814
-    misses = []
+    misses, raised = [], 0
     for tag, height in rows:
         m = re.fullmatch(r"(.+?) (\d+) (\w+) (\d)", tag)
         assert m, tag
         face, size, underline, lines = m[1], float(m[2]), m[3], int(m[4])
-        if underline not in ("none", "single", "double"):
+        font = Font(face, size, underline=None if underline == "none" else underline)
+        try:
+            if lines == 1:
+                got = row_metrics(("Calibri", 1.0), cell_fonts=[font]).height
+            else:
+                got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)]).height
+        except LookupError:
+            assert "Accounting" in underline, tag
+            assert face == "Courier New" or (face == "Times New Roman" and 37 <= size <= 40), tag
+            raised += 1
             continue
-        if lines == 1:
-            want = row_metrics(("Calibri", 1.0), cell_fonts=[(face, size)]).height
-        else:
-            want = row_metrics(("Calibri", 1.0), wrapped=[((face, size), lines)]).height
-        if want != float(height):
-            misses.append((tag, height, want))
+        if got != float(height):
+            misses.append((tag, height, got))
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
+    assert raised == 67 * 3 + 4 * 3
+
+
+def test_underline_names() -> None:
+    with pytest.raises(ValueError, match="underline must be one of"):
+        Font("Calibri", 11, underline="accounting")

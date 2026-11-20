@@ -174,10 +174,13 @@ Captured at 15, 30, 45, 60, 75 and 90 degrees and at -45 and -90.
 the screen shows it:
 
 ```python
->>> from xlformat import vertical_metrics
+>>> from xlformat import ink_metrics, vertical_metrics
 >>> m = vertical_metrics(("Calibri", 11), normal_font=("Calibri", 11))
->>> m.baseline_from_top, m.baseline_from_bottom, m.cap_height, m.descender
-(12.0, 3.0, 7.0, 2.0)
+>>> m.baseline_from_top, m.baseline_from_bottom
+(12.0, 3.0)
+>>> ink = ink_metrics(("Calibri", 11))  # measured: the ink of "H" above and "g" below
+>>> ink.cap_height, ink.descender
+(7.0, 2.0)
 >>> vertical_metrics(("Calibri", 9)).baseline_from_bottom  # its own: a Calibri 9 Normal font
 2.0
 >>> vertical_metrics(("Calibri", 9), normal_font=("Calibri", 11)).baseline_from_bottom

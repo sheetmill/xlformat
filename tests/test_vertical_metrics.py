@@ -15,7 +15,7 @@ from pathlib import Path
 
 import pytest
 
-from xlformat import Font, VerticalMetrics, vertical_metrics
+from xlformat import Font, InkMetrics, VerticalMetrics, ink_metrics, vertical_metrics
 
 LAYOUT = Path(__file__).parent / "captures" / "vertical.layout.tsv"
 PIXELS_PER_POINT = 2
@@ -95,7 +95,8 @@ def test_every_captured_placement() -> None:
                 and face_key.group(2) in ("11", "16")
                 else 0.0
             )
-            if cap != face.cap_height or abs(descender - face.descender) > slack:
+            ink = ink_metrics(_font(tag))
+            if cap != ink.cap_height or abs(descender - ink.descender) > slack:
                 misses.append((normal_label, tag, (cap, descender)))
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
 
@@ -109,17 +110,30 @@ def test_fields() -> None:
         line_height=16.0,
         line_pitch=15.0,
         line_inset=1.0,
-        cap_height=7.0,
-        descender=2.0,
     )
     assert vertical_metrics(Font("Calibri", 16, italic=True)) == vertical_metrics(("Calibri", 16))
+    assert ink_metrics() == InkMetrics(cap_height=7.0, descender=2.0)
+
+
+def test_the_ink_fields_of_vertical_metrics_are_deprecated() -> None:
+    m = vertical_metrics(("Arial", 14))
+    with pytest.warns(DeprecationWarning, match="ink_metrics"):
+        assert m.cap_height == ink_metrics(("Arial", 14)).cap_height
+    with pytest.warns(DeprecationWarning, match="ink_metrics"):
+        assert m.descender == ink_metrics(("Arial", 14)).descender
+    # placement covers every supported size; ink only what was measured
+    assert vertical_metrics(("Times New Roman", 13)).baseline_from_top == 14.0
+    with pytest.raises(LookupError, match="no ink measured for Times New Roman 13"):
+        ink_metrics(("Times New Roman", 13))
 
 
 def test_unmeasured_faces() -> None:
-    with pytest.raises(LookupError, match="no placement for Calibri 22"):
-        vertical_metrics(("Calibri", 22))
-    with pytest.raises(LookupError, match="Times New Roman"):
-        vertical_metrics("Times New Roman")
+    with pytest.raises(LookupError, match="no ink measured for Calibri 22"):
+        ink_metrics(("Calibri", 22))
+    with pytest.raises(LookupError, match="no row heights for Calibri 73"):
+        vertical_metrics(("Calibri", 73))
+    with pytest.raises(LookupError, match="Comic Sans"):
+        vertical_metrics("Comic Sans")
 
 
 def test_the_normal_font_floors_a_bottom_aligned_baseline() -> None:

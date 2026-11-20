@@ -549,6 +549,7 @@ from xlformat import (
     Quirks, FormatError, ExcelError, DEFAULT_PALETTE, Font, ColumnMetrics, column_metrics,
     column_metrics_from_points, file_column_metrics, text_width, glyph_widths, digit_width,
     overhang, measured_fonts, RowMetrics, row_metrics, VerticalMetrics, vertical_metrics,
+    InkMetrics, ink_metrics,
     builtin_format, BUILTIN_FORMATS, section_rgb,
 )
 
@@ -583,7 +584,9 @@ Callable[[str], float] | None` is the hook for special cases and is used with `w
 in the measure's own units. `DEFAULT_PALETTE` maps color names to `RRGGBB`.
 
 `font` and `normal_font` take a `FontSpec`: a name, `(name, size)` or the frozen
-`Font(name, size=11, bold=False, italic=False)`. `font` is the cell's font, the one the text is
+`Font(name, size=11, bold=False, italic=False, underline=None)`, `underline` a file's name for
+it (`"single"`, `"double"`, `"singleAccounting"`, `"doubleAccounting"`), read only by `row_metrics`.
+`font` is the cell's font, the one the text is
 measured in; `normal_font` is the workbook's Normal font, whose digit width sets the column, and
 defaults to `font`, so a caller with one font passes only `font`.
 
@@ -640,8 +643,13 @@ carries the model (with a few captured heights below 7.5 points), so it covers e
 descent.
 
 `vertical_metrics(font=None, *, normal_font=None)` returns a frozen `VerticalMetrics(baseline_from_top,
-baseline_from_bottom, font_height, line_height, line_pitch, line_inset, cap_height, descender)`:
-where Excel draws a face's text in a cell, measured on screen (`CAPTURING.md` §2 item 47). They
+baseline_from_bottom, font_height, line_height, line_pitch, line_inset)`: where Excel places a
+face's text in a cell, measured on screen (`CAPTURING.md` §2 items 47 and 55). Placement follows
+from the face's height by rule, so it covers every face and size the row model does; the ink of
+the text is measured and partial, so it is a separate function, `ink_metrics(font=None)` returning
+`InkMetrics(cap_height, descender)`, which raises `LookupError` for a face or size not measured, as
+the glyph-table functions do. `VerticalMetrics.cap_height` and `.descender` remain until 1.0 as
+deprecated properties that warn and forward to `ink_metrics`. They
 are facts, as the column's insets are; the caller aligns the text, as it does horizontally. The
 fields are the distances the screen shows: the top inset and the ascent appear only as their sum,
 and no split by convention is made. `line_inset` is the row model's `B − 2`. The
