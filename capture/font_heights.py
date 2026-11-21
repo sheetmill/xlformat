@@ -5,6 +5,7 @@
     uv run python -m capture.font_heights run        # capture every face, write the layout file
     uv run python -m capture.font_heights wrapped    # predict, then capture the wrapped rows
     uv run python -m capture.font_heights underlines # predict, then capture the underlined rows
+    uv run python -m capture.font_heights accounting # Times New Roman and Georgia, 36 to 41 points
 
 One workbook per face (``FACES``) whose Normal style is that face at 1 point, so that no row is
 held up by the Normal font. Rows: a number in the face at every size from 1 to 72 points in half
@@ -316,6 +317,67 @@ def underlines() -> None:
     print(f"wrote {UNDERLINE_OUTPUT}: {len(lines)} rows")
 
 
+ACCOUNTING_OUTPUT = OUTPUT.with_name("accounting_height.layout.tsv")
+ACCOUNTING_FACES = ("Times New Roman", "Georgia")
+
+
+def accounting_rows() -> list[tuple[str, str, float, str, int]]:
+    """Times New Roman around its four exceptional sizes, Georgia beside it, every half point."""
+    return [
+        (f"{face} {s / 2:g} {u} {n}", face, s / 2, u, n)
+        for face in ACCOUNTING_FACES
+        for s in range(72, 83)
+        for u in ("none", "singleAccounting", "doubleAccounting")
+        for n in (1, 3)
+    ]
+
+
+def accounting() -> None:
+    """Capture ``accounting_rows`` in a workbook per face, as ``underlines`` does."""
+    from openpyxl import Workbook
+    from openpyxl.styles import Alignment, Font
+    from openpyxl.utils.indexed_list import IndexedList
+
+    if not answers():
+        sys.exit("Excel does not answer: nothing run")
+    lines = []
+    for face in ACCOUNTING_FACES:
+        rows = [r for r in accounting_rows() if r[1] == face]
+        wb = Workbook()
+        base = Font(name="Calibri", sz=1, family=2, scheme="minor")
+        wb._fonts = IndexedList([base])
+        for style in wb._named_styles:
+            if style.name == "Normal":
+                style.font = base
+        ws = wb.active
+        for r, (_, _, size, u, n) in enumerate(rows, 1):
+            cell = ws.cell(row=r, column=1, value="\n".join(["H"] * n))
+            cell.data_type = "s"
+            cell.font = Font(name=face, sz=size, family=2, u=None if u == "none" else u)
+            if n > 1:
+                cell.alignment = Alignment(wrap_text=True)
+        DIRECTORY.mkdir(parents=True, exist_ok=True)
+        path = (DIRECTORY / f"fh_accounting_{face.replace(' ', '_').lower()}.xlsx").resolve()
+        wb.save(path)
+        proc = osascript_or_exit(str(SCRIPT), str(path), str(len(rows)), path.name, seconds=180.0)
+        if proc.returncode != 0:
+            sys.exit(f"{face}: {proc.stderr.strip()[:200]}")
+        fields = proc.stdout.strip().split("\x1f")
+        if fields[0] != "standard" or len(fields) != len(rows) + 2:
+            sys.exit(f"{face}: expected {len(rows)} heights, got {len(fields) - 2}")
+        lines.extend(f"{r[0]}\t{h}" for r, h in zip(rows, fields[2:], strict=True))
+    with ACCOUNTING_OUTPUT.open("w", encoding="utf-8") as out:
+        out.write("# suite: accounting_height (capture.font_heights accounting); Excel for Mac\n")
+        out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
+        out.write(
+            f"# captured: {dt.date.today().isoformat()}; Normal style Calibri 1; 'H' a line in "
+            "column A, wrap on for three lines; rows fitted by Excel on opening\n"
+        )
+        out.write("tag\trow_height\n")
+        out.write("\n".join(lines) + "\n")
+    print(f"wrote {ACCOUNTING_OUTPUT}: {len(lines)} rows")
+
+
 def main(argv: list[str]) -> None:
     """Command-line entry point."""
     command = argv[0] if argv else ""
@@ -330,6 +392,8 @@ def main(argv: list[str]) -> None:
         wrapped()
     elif command == "underlines":
         underlines()
+    elif command == "accounting":
+        accounting()
     else:
         sys.exit(__doc__)
 
