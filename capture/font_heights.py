@@ -110,6 +110,7 @@ def predict_row(cells: tuple[tuple[str, float], ...]) -> int | None:
 
 
 def predict() -> None:
+    PREDICTIONS.parent.mkdir(parents=True, exist_ok=True)
     with PREDICTIONS.open("w", encoding="utf-8") as out:
         out.write(f"# predicted {dt.datetime.now().isoformat(timespec='seconds')} from SLOPES\n")
         out.write("face\ttag\tpredicted\n")
@@ -208,6 +209,7 @@ def wrapped() -> None:
     if not answers():
         sys.exit("Excel does not answer: nothing run")
     predictions = BUILD_DIR / "wrapped_heights.predictions.tsv"
+    predictions.parent.mkdir(parents=True, exist_ok=True)  # capture/build is not tracked
     with predictions.open("w", encoding="utf-8") as out:
         out.write(f"# predicted {dt.datetime.now().isoformat(timespec='seconds')}\n")
         for normal in WRAPPED_NORMALS:
@@ -270,6 +272,7 @@ def underlines() -> None:
     if not answers():
         sys.exit("Excel does not answer: nothing run")
     predictions = BUILD_DIR / "underline_heights.predictions.tsv"
+    predictions.parent.mkdir(parents=True, exist_ok=True)  # capture/build is not tracked
     with predictions.open("w", encoding="utf-8") as out:
         out.write(f"# predicted {dt.datetime.now().isoformat(timespec='seconds')}\n")
         for tag, face, size, u, n in underline_rows():
