@@ -78,7 +78,7 @@ before Excel was asked, and every prediction matched.
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
 | `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri, Aptos Narrow and Arial, four styles, nine sizes |
 
-Eleven further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
+Twelve further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
 from Excel's PDF export) holds where Excel places each value, `repair.layout.tsv` (248 rows)
 what Excel's repair does to formats it refuses, and `row_height.layout.tsv.gz` (35,100 rows) the
 height Excel gives each row for its Normal font, its cell fonts and its wrapped lines, and
@@ -87,6 +87,8 @@ height Excel gives each row for its Normal font, its cell fonts and its wrapped 
 `font_height.layout.tsv` (1,074 rows) and `wrapped_height.layout.tsv` (144 rows) the rows Excel fits
 for six faces at every size from 1 to 72 points, beside Calibri and wrapped,
 `underline_height.layout.tsv` (2,814 rows) the same under each underline style,
+`accounting_height.layout.tsv` (132 rows) Times New Roman and Georgia under accounting underlines
+at every half point from 36 to 41,
 `rules.layout.tsv` (396 rows, from window captures) where underlines and strikethrough are drawn
 and what color text takes,
 `builtin_formats.layout.tsv` (164 rows) what each built-in number format id stands for, and

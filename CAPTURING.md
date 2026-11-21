@@ -1161,6 +1161,20 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       package's in all nine formats. The `colors` suite's read-back gave black for text under
       `[Red]General`: one of the read-back's known misreports of colored text.
 
+61. **Times New Roman's accounting rows at 36 to 41 points (2026-11-21; `capture/font_heights.py
+    accounting`, Times New Roman and Georgia at every half point from 36 to 41, plain and under
+    single and double accounting, one line and three wrapped, 132 rows in
+    `accounting_height.layout.tsv`; the first capture of this repository run in a macOS virtual
+    machine with Excel 16.115 (26110837), after the `wrapped` part of item 57 reran there with
+    all 144 data lines identical to its committed capture).** All 132 rows were predicted before
+    the run: Times New Roman's accounting underline adds 4 points from 36.5 to 40, single and
+    double alike and per wrapped line, where item 58's rule gives 3, and 6 from 40.5 as the rule
+    says; Georgia, with nearly the same thickness (101 of 2048 against 100), follows the rule. A
+    half size takes the next whole one. No rule explains the 4: in both faces the accounting line's
+    top (`round(S · usWinDescent / unitsPerEm)`) equals the face's descent `B` at every size from 7
+    to 72, so its position adds nothing there, and the thickness does not tell the two faces apart.
+    The package keeps the four sizes as captured.
+
 ## 3. The pipeline
 
 ```

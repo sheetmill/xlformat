@@ -491,6 +491,10 @@ _ACCOUNTING_THICKNESS: dict[str, float] = {
 }
 # Arial's double accounting adds 3 up to 35 points, then 6, then 9 from 55 (captured)
 _ARIAL_DOUBLE_ACCOUNTING = ((55, 9.0), (36, 6.0), (0, 3.0))
+# Times New Roman adds 4 from 36.5 to 40 points, single and double alike, where the rule gives 3:
+# captured at every half point from 36 to 41 (accounting_height.layout.tsv, CAPTURING.md section
+# 2 item 61); no rule found
+_TIMES_ACCOUNTING = {37: 4.0, 38: 4.0, 39: 4.0, 40: 4.0}
 
 
 def _accounting(key: str, size: float, underline: str | None) -> float:
@@ -498,14 +502,12 @@ def _accounting(key: str, size: float, underline: str | None) -> float:
     if underline not in ("singleAccounting", "doubleAccounting"):
         return 0.0
     whole = math.ceil(size)
-    known = (
-        key in _ACCOUNTING_THICKNESS
-        and 6 <= whole <= _LARGEST
-        and not (key == "times new roman" and 37 <= whole <= 40)
-    )
+    known = key in _ACCOUNTING_THICKNESS and 6 <= whole <= _LARGEST
     if not known:
         msg = f"no accounting underline rows for {_DISPLAY[key]} {size:g}"
         raise LookupError(msg)
+    if key == "times new roman" and whole in _TIMES_ACCOUNTING:
+        return _TIMES_ACCOUNTING[whole]
     if key == "arial" and underline == "doubleAccounting":
         return next(e for start, e in _ARIAL_DOUBLE_ACCOUNTING if whole >= start)
     return 3.0 * max(1, math.floor(whole * _ACCOUNTING_THICKNESS[key]))

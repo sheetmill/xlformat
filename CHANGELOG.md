@@ -14,7 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Font(..., underline=None)` takes a file's underline name (`"single"`, `"double"`,
   `"singleAccounting"`, `"doubleAccounting"`). `row_metrics` reads it: an accounting underline
   adds `3 · max(1, floor(size · underline thickness))` points to the row and to each wrapped line.
-  Courier New's accounting rows, and Times New Roman's at 37 to 40 points, raise `LookupError`.
+  Times New Roman adds 4 points from 36.5 to 40 (captured); Courier New's accounting rows raise
+  `LookupError`.
 - `row_metrics` covers every size from 1 to 72 points, half sizes included, and three more faces:
   Times New Roman, Courier New and Georgia. A face's height is `floor(a · ceil(size) + 1.5)` with
   a slope per face from 7.5 points, and the captured heights below that.
