@@ -19,7 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `row_metrics` covers every size from 1 to 72 points, half sizes included, and three more faces:
   Times New Roman, Courier New and Georgia. A face's height is `floor(a · ceil(size) + 1.5)` with
   a slope per face from 7.5 points, and the captured heights below that.
-
 - `rule_metrics(font, *, zoom=100)` returning `RuleMetrics`: where Excel draws underlines,
   accounting underlines and a strikethrough, from the font's own tables at the screen size, for
   Calibri, Aptos Narrow, Arial, Times New Roman and Georgia (Courier New raises). A double
