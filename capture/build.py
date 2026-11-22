@@ -99,8 +99,9 @@ def _method(suite: Suite, width: float | None) -> str:
     return "clipboard" if width is None else "string_value"
 
 
-def build(suite: Suite) -> Manifest:
-    """Write ``capture/build/<suite>.xlsx`` and its manifest; return the manifest."""
+def build(suite: Suite, directory: Path | None = None) -> Manifest:
+    """Write ``<directory>/<suite>.xlsx`` (Excel's container by default) and its manifest in
+    ``capture/build/``; return the manifest."""
     BUILTIN_FORMATS_REVERSE.clear()  # keep format strings verbatim, no built-in ids
     wb = Workbook()
     wb.calculation.fullCalcOnLoad = True  # formula cells have no cached value; Excel computes
@@ -170,8 +171,9 @@ def build(suite: Suite) -> Manifest:
                 ms.cell(row=1, column=k).font = _font(case.font)
             measure_cells.append(f"{get_column_letter(k)}1")
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
-    WORKBOOK_DIR.mkdir(parents=True, exist_ok=True)
-    path = (WORKBOOK_DIR / f"{suite.name}.xlsx").resolve()
+    directory = WORKBOOK_DIR if directory is None else directory
+    directory.mkdir(parents=True, exist_ok=True)
+    path = (directory / f"{suite.name}.xlsx").resolve()
     wb.save(path)
     manifest = Manifest(
         suite=suite.name,
