@@ -406,6 +406,18 @@ def read_zoom(zoom: int, suite: str = "rules") -> list[str]:
     return [found[r] for r in sorted(found)]
 
 
+def display_profile(suite: str) -> str:
+    """The color profile of the display the views were captured on, read from the first view:
+    colors on a wide-gamut display (Display P3) are converted and read a few units off."""
+    import subprocess
+
+    first = min((shots(suite) / f"zoom{ZOOMS[0]}").glob("top_*.png"))
+    out = subprocess.run(
+        ["sips", "-g", "profile", str(first)], check=True, capture_output=True, text=True
+    ).stdout
+    return out.rsplit("profile:", 1)[1].strip()
+
+
 def write(suite: str = "rules") -> None:
     lines = [line for zoom in ZOOMS for line in read_zoom(zoom, suite)]
     if suite == "rules_double":
@@ -421,6 +433,7 @@ def write(suite: str = "rules") -> None:
             "display of scale 2; pixels from the row's top: the H stems' last ink row, each "
             f"rule's first and last row{color}\n"
         )
+        out.write(f"# display_profile: {display_profile(suite)}\n")
         out.write("zoom\ttag\trow_height\tpixels_per_point\tbaseline_px\tmeasured\n")
         out.write("\n".join(lines) + "\n")
     print(f"wrote {target}: {len(lines)} rows")
