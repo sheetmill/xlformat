@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `platform=` on every function whose result can differ by platform, and `regional_settings=` on
+  those that format or resolve built-in formats, with the frozen `Platform` (presets
+  `Platform.MAC` and `Platform.WINDOWS`) and `RegionalSettings` (presets
+  `RegionalSettings.EN_US_MAC` and `RegionalSettings.EN_US_WINDOWS`) and `DEFAULT_PLATFORM`.
+  `None` means the Mac and its en-US settings, so a call without them returns what it did. Every
+  function raises `LookupError` for Excel for Windows until its Windows evidence is captured.
+  `builtin_format` gives ids 14 and 22 from the regional settings' short date; only en-US is
+  supported.
 - `rule_metrics` covers Courier New at screen sizes from 6 to 144 and raises `LookupError` outside
   them, where it raised for every size. Its double underline hangs up from the single
   underline's position, its gap captured at every screen size (no rule gives it), and its single

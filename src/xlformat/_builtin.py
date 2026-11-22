@@ -10,6 +10,8 @@ from __future__ import annotations
 from collections.abc import Mapping
 from types import MappingProxyType
 
+from xlformat._platform import Platform, RegionalSettings, check_platform, check_regional
+
 _EXPLICIT: dict[int, str] = {
     0: "General",
     1: "0",
@@ -103,7 +105,12 @@ BUILTIN_FORMATS: Mapping[int, str] = MappingProxyType(
 """Every built-in id, 0 to 163, and the format string Excel for Mac uses for it in en-US."""
 
 
-def builtin_format(number_format_id: int) -> str:
+def builtin_format(
+    number_format_id: int,
+    *,
+    platform: str | Platform | None = None,
+    regional_settings: RegionalSettings | None = None,
+) -> str:
     """The format string Excel uses for the built-in ``numFmtId`` ``number_format_id``.
 
     The table is Excel for Mac's in en-US (CAPTURING.md section 2 item 49). What a cell shows under
@@ -113,17 +120,23 @@ def builtin_format(number_format_id: int) -> str:
     says that "Date and time formats that begin with an asterisk (*) respond to changes in
     regional date and time settings that are specified in Control Panel"
     (https://support.microsoft.com/en-us/excel/format-numbers-as-dates-or-times).
-    Later keyword-only arguments may choose those forms; this call keeps returning the en-US
-    table's string.
+    ``regional_settings`` chooses the short date of ids 14 and 22 (``short_date``; the
+    default is the platform's en-US preset, ``m/d/yy`` on the Mac); every other id is the
+    en-US table's string.
 
     Raises:
         ValueError: ``number_format_id`` is negative or a custom id (164 or more), whose string the
             file itself holds.
     """
+    regional = check_regional(regional_settings, check_platform(platform, "builtin_format"))
     if not 0 <= number_format_id < CUSTOM_FORMAT_START:
         msg = (
             f"{number_format_id!r} is not a built-in number format id (0 to "
             f"{CUSTOM_FORMAT_START - 1}); custom ids are defined in the file"
         )
         raise ValueError(msg)
+    if number_format_id == 14:
+        return regional.short_date
+    if number_format_id == 22:
+        return f"{regional.short_date} h:mm"
     return BUILTIN_FORMATS[number_format_id]

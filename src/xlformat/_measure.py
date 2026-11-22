@@ -23,6 +23,7 @@ from functools import lru_cache
 from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
 from xlformat._glyphs_arial import ARIAL, ARIAL_OVERHANG
 from xlformat._glyphs_calibri import CALIBRI, CALIBRI_OVERHANG
+from xlformat._platform import Platform, check_platform
 from xlformat._rules_drawn import COURIER_GAP, DRAWN
 
 Measure = Callable[[str], float]
@@ -179,13 +180,14 @@ def _advances(name: str, size: float, style: str = "regular") -> dict[str, float
     return {ch: float(round(adv * size / nearest)) for ch, adv in base.items()}
 
 
-def overhang(font: FontSpec | None = None) -> float:
+def overhang(font: FontSpec | None = None, *, platform: str | Platform | None = None) -> float:
     """Points an italic face reaches past its advances on each side; 0 for upright faces.
 
     The text area of a cell in that font is this much smaller: an italic Calibri 11 cell holds
     one fill space fewer than a regular one. An unmeasured size scales the nearest measured
     overhang to whole points.
     """
+    _platform = check_platform(platform, "overhang")
     f = resolve_font(font)
     return _overhang(f.name, f.size, f.style)
 
@@ -217,7 +219,9 @@ def glyph_measure(font: FontSpec | None = None) -> Measure:
     return measure
 
 
-def text_width(text: str, font: FontSpec | None = None) -> float:
+def text_width(
+    text: str, font: FontSpec | None = None, *, platform: str | Platform | None = None
+) -> float:
     """The width of ``text`` in points as Excel for Mac measures it in ``font``.
 
     The sum of the whole glyph advances, the measure every Excel-mode decision uses (fit, ``#``
@@ -229,35 +233,43 @@ def text_width(text: str, font: FontSpec | None = None) -> float:
     Raises:
         LookupError: ``font`` has no measured table.
     """
+    _platform = check_platform(platform, "text_width")
     return glyph_measure(font)(text)
 
 
-def glyph_widths(text: str, font: FontSpec | None = None) -> tuple[float, ...]:
+def glyph_widths(
+    text: str, font: FontSpec | None = None, *, platform: str | Platform | None = None
+) -> tuple[float, ...]:
     """The advance of each character of ``text`` in whole points.
 
     For measuring runs of a text (words, spaces): ``text_width`` of a run is
     ``sum(glyph_widths(run))``.
     """
+    _platform = check_platform(platform, "glyph_widths")
     adv = _table(font)
     digit = adv["0"]
     return tuple(float(adv.get(c, digit)) for c in text)
 
 
-def digit_width(font: FontSpec | None = None) -> float:
+def digit_width(font: FontSpec | None = None, *, platform: str | Platform | None = None) -> float:
     """The maximum digit width (MDW) of ``font`` in points.
 
     One column unit of a workbook whose Normal font is ``font``, and one indent level.
     """
+    _platform = check_platform(platform, "digit_width")
     return _mdw(font)
 
 
-def measured_fonts() -> dict[str, dict[str, tuple[int, ...]]]:
+def measured_fonts(
+    *, platform: str | Platform | None = None
+) -> dict[str, dict[str, tuple[int, ...]]]:
     """The glyph tables xlformat bundles: family, then style, then the measured sizes.
 
     Other sizes of a measured family and style scale the nearest measured table; anything else
     raises ``LookupError``. A caller can test a workbook's fonts against this before choosing
     Excel mode.
     """
+    _platform = check_platform(platform, "measured_fonts")
     return {
         display: {style: tuple(sorted(sizes)) for style, sizes in styles.items()}
         for display, styles in _FONTS.values()
@@ -370,6 +382,7 @@ def column_metrics(
     normal_font: FontSpec | None = None,
     *,
     font: FontSpec | None = None,
+    platform: str | Platform | None = None,
 ) -> ColumnMetrics:
     """The column of ``column_width`` dialog units in the workbook's Normal font.
 
@@ -377,10 +390,14 @@ def column_metrics(
         column_width: The width in Column Width dialog units.
         normal_font: The workbook's Normal font, whose digit width sets the column's units.
         font: Deprecated name of ``normal_font``, removed in 1.0.
+        platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
+            ``None`` means the default, ``"mac"``. A platform without captured evidence for
+            this function raises ``LookupError``; so far that is every platform but the Mac.
 
     Raises:
         ValueError: ``column_width`` is not positive, or both font arguments were passed.
     """
+    _platform = check_platform(platform, "column_metrics")
     normal_font = _normal_font_argument(normal_font, font)
     if column_width <= 0:
         msg = f"column_width must be positive, not {column_width!r}"
@@ -388,7 +405,9 @@ def column_metrics(
     return _metrics(column_points(column_width, normal_font), normal_font)
 
 
-def column_metrics_from_points(points: float, normal_font: FontSpec | None = None) -> ColumnMetrics:
+def column_metrics_from_points(
+    points: float, normal_font: FontSpec | None = None, *, platform: str | Platform | None = None
+) -> ColumnMetrics:
     """The column ``points`` wide, in the workbook's Normal font.
 
     For a merged cell, pass the sum of its columns' ``points``: Excel formats it as one column of
@@ -398,6 +417,7 @@ def column_metrics_from_points(points: float, normal_font: FontSpec | None = Non
     Raises:
         ValueError: ``points`` is negative.
     """
+    _platform = check_platform(platform, "column_metrics_from_points")
     if points < 0:
         msg = f"points must not be negative, not {points!r}"
         raise ValueError(msg)
@@ -411,6 +431,7 @@ def file_column_metrics(
     default_col_width: float | None = None,
     normal_font: FontSpec | None = None,
     font: FontSpec | None = None,
+    platform: str | Platform | None = None,
 ) -> ColumnMetrics:
     """The column a file describes: ``<col width>``, or ``None`` for a column without one.
 
@@ -423,6 +444,7 @@ def file_column_metrics(
     2 item 28); ``font`` is its deprecated name, removed in 1.0, and passing both raises
     ``ValueError``.
     """
+    _platform = check_platform(platform, "file_column_metrics")
     normal_font = _normal_font_argument(normal_font, font)
     if file_width is None:
         if default_col_width is None:
@@ -563,6 +585,7 @@ def row_metrics(
     *,
     cell_fonts: Iterable[FontSpec] = (),
     wrapped: Iterable[tuple[FontSpec | None, int]] = (),
+    platform: str | Platform | None = None,
 ) -> RowMetrics:
     """The height Excel gives a row without a stored height, in the workbook's Normal font.
 
@@ -593,11 +616,15 @@ def row_metrics(
         cell_fonts: The fonts of the row's cells that are not the Normal font and do not wrap.
         wrapped: One ``(font, lines)`` per cell with wrapped text: its font (``None`` for the
             Normal font) and its number of lines, as the caller broke them.
+        platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
+            ``None`` means the default, ``"mac"``. A platform without captured evidence for
+            this function raises ``LookupError``; so far that is every platform but the Mac.
 
     Raises:
         LookupError: A font or size the row model has not measured.
         ValueError: A number of lines below 1.
     """
+    _platform = check_platform(platform, "row_metrics")
     normal = _row_face(normal_font)
     font_height = _font_height(*normal)
 
@@ -768,7 +795,9 @@ class InkMetrics:
     descender: float
 
 
-def ink_metrics(font: FontSpec | None = None) -> InkMetrics:
+def ink_metrics(
+    font: FontSpec | None = None, *, platform: str | Platform | None = None
+) -> InkMetrics:
     """The measured ink of ``font``'s "H" and "g" (CAPTURING.md section 2 items 47, 55 and 59).
 
     Measured: Calibri, Aptos Narrow, Arial, Times New Roman, Courier New and Georgia at 9, 10, 11,
@@ -779,6 +808,7 @@ def ink_metrics(font: FontSpec | None = None) -> InkMetrics:
     Raises:
         LookupError: A face or size not measured.
     """
+    _platform = check_platform(platform, "ink_metrics")
     key, size = _row_face(font)
     ink = _INK.get(key, {}).get(int(size)) if size == int(size) else None
     if ink is None:
@@ -791,7 +821,10 @@ def ink_metrics(font: FontSpec | None = None) -> InkMetrics:
 
 
 def vertical_metrics(
-    font: FontSpec | None = None, *, normal_font: FontSpec | None = None
+    font: FontSpec | None = None,
+    *,
+    normal_font: FontSpec | None = None,
+    platform: str | Platform | None = None,
 ) -> VerticalMetrics:
     """Where Excel draws text in ``font`` within a cell (CAPTURING.md section 2 items 47 and 55).
 
@@ -812,10 +845,14 @@ def vertical_metrics(
         font: The cell's font; default ``("Calibri", 11)``.
         normal_font: The workbook's Normal font; default ``None``, the cell's own font, which
             gives the face's own placement (a cell in the Normal font).
+        platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
+            ``None`` means the default, ``"mac"``. A platform without captured evidence for
+            this function raises ``LookupError``; so far that is every platform but the Mac.
 
     Raises:
         LookupError: A font or size not measured.
     """
+    _platform = check_platform(platform, "vertical_metrics")
     key, size = _row_face(font)
     height = _font_height(key, size)
     from_bottom = _bottom(key, size)
@@ -902,7 +939,9 @@ def _courier_rule(q: int) -> tuple[int, ...]:
     return (single, line, first, line, g, accounting, *strike)
 
 
-def rule_metrics(font: FontSpec | None = None, *, zoom: float = 100) -> RuleMetrics:
+def rule_metrics(
+    font: FontSpec | None = None, *, zoom: float = 100, platform: str | Platform | None = None
+) -> RuleMetrics:
     """Where Excel draws underlines and a strikethrough in ``font`` at ``zoom`` percent.
 
     Excel draws the lines at the nearest whole screen size, ``P = round(size * zoom / 100)``
@@ -936,6 +975,7 @@ def rule_metrics(font: FontSpec | None = None, *, zoom: float = 100) -> RuleMetr
         LookupError: A face without its rule, a size outside 1 to 72, or Courier New at a
             screen size outside 6 to 144, where its gap is not measured.
     """
+    _platform = check_platform(platform, "rule_metrics")
     key, size = _row_face(font)
     if key not in _RULE_TABLES:
         msg = (

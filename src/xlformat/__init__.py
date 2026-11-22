@@ -36,6 +36,13 @@ from xlformat._measure import (
 )
 from xlformat._palette import DEFAULT_PALETTE, section_rgb
 from xlformat._parser import NumberFormat, Section, SectionKind
+from xlformat._platform import (
+    DEFAULT_PLATFORM,
+    Platform,
+    RegionalSettings,
+    check_platform,
+    check_regional,
+)
 from xlformat._quirks import Quirks
 
 __version__ = "0.6.0"
@@ -43,6 +50,7 @@ __version__ = "0.6.0"
 __all__ = [
     "BUILTIN_FORMATS",
     "DEFAULT_PALETTE",
+    "DEFAULT_PLATFORM",
     "ColumnMetrics",
     "ExcelError",
     "Font",
@@ -50,7 +58,9 @@ __all__ = [
     "FormattedCell",
     "InkMetrics",
     "NumberFormat",
+    "Platform",
     "Quirks",
+    "RegionalSettings",
     "RowMetrics",
     "RuleMetrics",
     "Section",
@@ -89,6 +99,8 @@ def format_value(
     date1904: bool = False,
     show_zeros: bool = True,
     quirks: Quirks | None = None,
+    platform: str | Platform | None = None,
+    regional_settings: RegionalSettings | None = None,
 ) -> str:
     """Return the text Excel displays for ``value`` under ``format_string``.
 
@@ -118,12 +130,18 @@ def format_value(
             with a zero section shows it as usual, and so does a value that only rounds to 0.
             Pass the value as stored.
         quirks: Which Excel quirks to reproduce; ``None`` means ``Quirks.EXCEL``.
+        platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
+            ``None`` means the default, ``"mac"``. A platform without captured evidence for
+            this function raises ``LookupError``; so far that is every platform but the Mac.
+        regional_settings: The viewer's :class:`RegionalSettings`; ``None`` means the
+            platform's en-US preset.
 
     Raises:
         FormatError: The format string is one Excel refuses to open from a file.
         TypeError: ``value`` has an unsupported type.
         ValueError: ``value`` is NaN or infinite.
     """
+    check_regional(regional_settings, check_platform(platform, "format_value"))
     return NumberFormat.parse(format_string).format(
         value,
         width=width,
@@ -134,6 +152,8 @@ def format_value(
         date1904=date1904,
         show_zeros=show_zeros,
         quirks=quirks,
+        platform=platform,
+        regional_settings=regional_settings,
     )
 
 
@@ -143,6 +163,8 @@ def text_function(
     *,
     date1904: bool = False,
     quirks: Quirks | None = None,
+    platform: str | Platform | None = None,
+    regional_settings: RegionalSettings | None = None,
 ) -> str | ExcelError:
     """Return what Excel's ``TEXT`` function returns for ``value`` under ``format_string``.
 
@@ -160,10 +182,16 @@ def text_function(
         format_string: An Excel number format.
         date1904: The workbook uses the 1904 date system.
         quirks: The quirk settings; ``None`` means ``Quirks.EXCEL``.
+        platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
+            ``None`` means the default, ``"mac"``. A platform without captured evidence for
+            this function raises ``LookupError``; so far that is every platform but the Mac.
+        regional_settings: The viewer's :class:`RegionalSettings`; ``None`` means the
+            platform's en-US preset.
 
     Returns:
         The text as a ``str``, or an :class:`ExcelError` (itself a ``str``).
     """
+    check_regional(regional_settings, check_platform(platform, "text_function"))
     if isinstance(value, ExcelError):
         return value
     if format_string == "":
@@ -172,7 +200,13 @@ def text_function(
         fmt = NumberFormat.parse(format_string)
     except FormatError:
         return ExcelError.VALUE
-    return fmt.text_function(value, date1904=date1904, quirks=quirks)
+    return fmt.text_function(
+        value,
+        date1904=date1904,
+        quirks=quirks,
+        platform=platform,
+        regional_settings=regional_settings,
+    )
 
 
 def format_cell(
@@ -187,8 +221,11 @@ def format_cell(
     date1904: bool = False,
     show_zeros: bool = True,
     quirks: Quirks | None = None,
+    platform: str | Platform | None = None,
+    regional_settings: RegionalSettings | None = None,
 ) -> FormattedCell:
     """Like :func:`format_value` but return a :class:`FormattedCell` with display details."""
+    check_regional(regional_settings, check_platform(platform, "format_cell"))
     return NumberFormat.parse(format_string).format_cell(
         value,
         width=width,
@@ -199,4 +236,6 @@ def format_cell(
         date1904=date1904,
         show_zeros=show_zeros,
         quirks=quirks,
+        platform=platform,
+        regional_settings=regional_settings,
     )

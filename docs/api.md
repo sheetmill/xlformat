@@ -83,4 +83,9 @@ Everything below is importable from `xlformat`.
    ``Color1`` to ``Color56``, the names ``FormattedCell.color`` uses. Several indices share
    one color (``Color25`` and ``Color11`` are both navy), so compare colors, not names. The
    mapping is read-only.
+.. autoclass:: xlformat.Platform
+   :members: MAC, WINDOWS
+.. autoclass:: xlformat.RegionalSettings
+   :members: EN_US_MAC, EN_US_WINDOWS
+.. autodata:: xlformat.DEFAULT_PLATFORM
 ```

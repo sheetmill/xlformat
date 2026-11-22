@@ -15,6 +15,7 @@ from functools import lru_cache
 from typing import TYPE_CHECKING
 
 from xlformat._errors import FormatError
+from xlformat._platform import Platform, RegionalSettings, check_platform, check_regional
 
 if TYPE_CHECKING:
     from xlformat._assemble import FormattedCell
@@ -834,11 +835,15 @@ class NumberFormat:
         date1904: bool = False,
         show_zeros: bool = True,
         quirks: Quirks | None = None,
+        platform: str | Platform | None = None,
+        regional_settings: RegionalSettings | None = None,
     ) -> str:
         """The text Excel displays for ``value`` under this format.
 
         Takes the same keyword arguments as :func:`xlformat.format_value`, which calls it.
         """
+        _platform = check_platform(platform, "NumberFormat.format")
+        _regional = check_regional(regional_settings, _platform)
         from xlformat._render import render
 
         return render(
@@ -866,12 +871,16 @@ class NumberFormat:
         date1904: bool = False,
         show_zeros: bool = True,
         quirks: Quirks | None = None,
+        platform: str | Platform | None = None,
+        regional_settings: RegionalSettings | None = None,
     ) -> FormattedCell:
         """Text plus color, alignment, fill and overflow information.
 
         Takes the same keyword arguments as :func:`xlformat.format_value`; returns a
         :class:`xlformat.FormattedCell`, as :func:`xlformat.format_cell` does.
         """
+        _platform = check_platform(platform, "NumberFormat.format_cell")
+        _regional = check_regional(regional_settings, _platform)
         from xlformat._render import render
 
         return render(
@@ -893,6 +902,8 @@ class NumberFormat:
         *,
         date1904: bool = False,
         quirks: Quirks | None = None,
+        platform: str | Platform | None = None,
+        regional_settings: RegionalSettings | None = None,
     ) -> str | ExcelError:
         """What Excel's ``TEXT`` returns for ``value`` under this format.
 
@@ -900,6 +911,8 @@ class NumberFormat:
         with one difference: ``NumberFormat.parse("")`` is the format ``General``, so the empty
         format of ``TEXT`` is reached through the function only.
         """
+        _platform = check_platform(platform, "NumberFormat.text_function")
+        _regional = check_regional(regional_settings, _platform)
         from xlformat._render import text_function
 
         return text_function(self, value, date1904=date1904, quirks=quirks)
