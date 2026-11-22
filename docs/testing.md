@@ -64,7 +64,7 @@ before Excel was asked, and every prediction matched.
 | `general_points9` to `24`, `general_points_aptos_narrow11`, `general_points_arial10`, `11`, `general_literals_points`, `general_zero_sign` | 85,334 | `General` at every whole-point column width, among literals, negatives that reduce to zero |
 | `column_file9` to `24`, `column_file_aptos_narrow11`, `18`, `20`, `24`, `column_file_arial9` to `24`, four `column_default_*`, `column_narrow11`, `column_narrow14`, `limits` | 59,144 | widths written into the file, columns without a width, columns below one unit, the 255-character limit |
 | 16 more `column_default_*` (base widths 6, 10 and 12 at 9 to 24 points), `column_boundary11`, `16`, `24`, `long_fills` | 8,098 | a column without `<col>` under other base widths; file widths on either side of a 1/256 step; fills past 255 characters |
-| `cell_font`, `general_cell_font`, `cell_font_numeric`, `cell_font_styles`, `general_cell_font_styles`, `cell_font_arial`, `general_cell_font_arial` | 161,760 | cells whose font differs from the Normal font, in size, style and family |
+| `cell_font`, `general_cell_font`, `cell_font_numeric`, `cell_font_styles`, `general_cell_font_styles`, `cell_font_arial`, `general_cell_font_arial`, `cell_font_large` | 187,786 | cells whose font differs from the Normal font, in size, style and family, up to 24 points |
 | `general_exponent3`, `general_exponent_sweep`, `subnormal` | 68,838 | `General` with long exponents, and doubles below the smallest normal one |
 | `general_text_narrow`, `general_sign_narrow` | 4,026 | a number through `@` or `[Red]General` in narrow columns, and negatives with less than a character beside the sign |
 | `merged11`, `merged14` | 5,940 | cells merged across columns, in Calibri 11 and 14 |
@@ -103,7 +103,7 @@ Fifteen further files are not suites of the common schema:
 - `builtin_formats.layout.tsv` (164 rows): what each built-in number format id stands for.
 - `palette.layout.tsv` (128 rows, from window captures): the colors drawn under a workbook palette.
 
-In all, 334 suite files (226 with rows, the others autofit measurements) hold 836,116 rows. Every
+In all, 335 suite files (227 with rows, the others autofit measurements) hold 862,142 rows. Every
 row passes. Seventeen color readings are skipped because Excel's scripting interface reports
 automatic black for them; where the sheet was checked by eye, it shows the section color, as the
 package does. Two cases have not been seen on screen: text under `[Red]General` and text under a

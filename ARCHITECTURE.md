@@ -152,7 +152,7 @@ keyword-only `platform: str | Platform | None = None`, a name (`"mac"`, `"window
 `Platform`, as `csv` takes a dialect's name or a `Dialect`; `None` means `DEFAULT_PLATFORM`, `"mac"`
 until the family's packages switch to `"windows"` together. `Platform` holds what is a rule rather
 than a table: `name` (the Mac measures in points, Windows in device pixels at `size · dpi / 72`),
-`dpi` (Windows only), `default_column_step`, `long_fill` and `cell_font_padding`; presets
+`dpi` (Windows only), `default_column_step` and `long_fill`; presets
 `Platform.MAC` and `Platform.WINDOWS`, fields overridden with `dataclasses.replace`. A function
 raises `LookupError` for a platform it has no captured evidence for, which so far is every platform
 but `Platform.MAC`. The viewer's regional settings are separate (`RegionalSettings`, presets
@@ -448,7 +448,10 @@ workbook's Normal font (`normal_font`, default `font`): its digit width sets the
 budget. The text is measured in the cell's font (`font`): fit, `#` count and fill count. General
 counts characters against the budget in the cell font's digits, a leading minus by the cell font's
 own advance. Measuring everything in either one font fails 111 to 172 rows per size; the split
-matches every row. Only the plain General format (no color, no other section, not reached through
+matches every row. A cell font whose column padding `2·ceil(MDW/4)+1` passes the Normal font's
+(a digit of 9 points or more in a Calibri 11 column) loses the difference from its budget, and
+General loses it in the cell font's digits, beside an italic overhang (suite `cell_font_large`,
+`CAPTURING.md` §2 item 64: 3,906 of 3,906 rows that tell the two apart). Only the plain General format (no color, no other section, not reached through
 a text format or a failed condition) keeps `-0` and charges its minus inside the General text;
 any other General renders the magnitude after a sign piece, as among literals, so a reduced zero
 shows `0` (`[Red]General` with -0.05 at 1.5 units, where plain General shows `-0`).
@@ -810,7 +813,7 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`, 334 suite files, 836,116 rows in all modes | 17.2 s |
+| `pytest`, 335 suite files, 862,142 rows in all modes | 18.5 s |
 | `pytest --tier=fast` | 5.9 s |
 
 ## 14. What the code taught

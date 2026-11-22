@@ -15,6 +15,7 @@ from xlformat._measure import (
     Measure,
     character_measure,
     column_budget,
+    column_padding,
     column_units,
     glyph_measure,
     overhang,
@@ -171,8 +172,11 @@ def _excel_width(
     if normal_font is not None:
         units *= glyph_measure(normal)("0") / cell("0")  # in the cell font's digits
     # an italic face reaches past its advances: its cell holds that much less, General's
-    # characters included (1E-04 shows 0 in a Calibri 11 italic cell at width 5)
+    # characters included (1E-04 shows 0 in a Calibri 11 italic cell at width 5); a cell font
+    # whose column padding passes the Normal font's loses the difference too (cell_font_large)
     lost = overhang(font)
+    if normal_font is not None:
+        lost += max(0.0, column_padding(cell("0")) - column_padding(glyph_measure(normal)("0")))
     if lost:
         units -= lost / cell("0")
     return column_budget(column_width, normal) - lost, cell, units

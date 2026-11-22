@@ -1286,6 +1286,20 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       rows read identically both times. The scorer's cut of a line at the row's bottom, from the
       row's height, was corrected after the run for the same rounding: equal lines had counted as
       different.
+64. **A cell font whose padding passes the Normal font's (2026-11-22; `capture/cases.py
+    cell_font_large`: the cell-font values in Calibri 16, 18, 20, 24, Aptos Narrow 18, 20, 24
+    and Arial 14, 16, 18, 20, 24 cells of a Calibri 11 workbook, at every point from 11 to 100,
+    26,026 rows, in a macOS virtual machine).** A column's padding is `2·ceil(MDW/4)+1`, 5
+    points up to a digit of 8, so no earlier suite had a cell font whose padding differed from
+    the Normal font's. Predictions and their scorer were committed before the run
+    (`capture/padding_predict.py`, `capture/predictions/cell_font_large.tsv.gz`) with two
+    candidates: the cell's budget the column's (the model then), and the budget less
+    `max(0, P(cell) − P(normal))` points, General's units less that over the cell font's digit.
+    They differ on 3,906 of the 25,740 rows with a width; the Normal font's rows and the digit-8
+    controls (Calibri 16, Arial 14) are not among them. The second candidate fits 25,740 of
+    25,740 rows; the first misses all 3,906 where they differ (a cell one character short:
+    `###` where Excel shows `##`). Calibri and Aptos Narrow from 18 points and Arial from 16
+    lose 2 points, Arial 24 (digit 13, padding 9) 4.
 
 ## 3. The pipeline
 

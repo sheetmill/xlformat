@@ -26,6 +26,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   accounting rows, which are unchanged.
 
 ### Changed
+- A cell font whose column padding `2·ceil(MDW/4)+1` is larger than the Normal font's (a digit
+  of 9 points or more in a column of a smaller Normal font, such as Calibri 18 or Arial 16 cells
+  in a Calibri 11 workbook) now loses the difference from its cell's budget in Excel mode, as
+  Excel shows it: one `#` or one character fewer at some widths.
+- `Platform` has no `cell_font_padding` field: that rule holds on both platforms.
 - `rule_metrics` at a screen size that is not whole (a half size, or a zoom such as 150) gives
   the lines at the nearest whole screen size, a half rounding up, as Excel draws them in most
   rows captured; 0.6.0 fed the fraction to the font's formulas, so values at such sizes can

@@ -33,15 +33,12 @@ class Platform:
             1 on the Mac, 8 pixels on Windows.
         long_fill: A ``*`` fill that would pass 255 characters: ``"hash"`` shows a ``#`` run
             (the Mac), ``"cap"`` stops the text at 255 characters (Windows).
-        cell_font_padding: Whether a cell font whose padding exceeds the Normal font's takes
-            the difference from the cell's budget (Windows).
     """
 
     name: PlatformName = "mac"
     dpi: int | None = None
     default_column_step: int = 1
     long_fill: Literal["hash", "cap"] = "hash"
-    cell_font_padding: bool = False
 
     MAC: ClassVar[Platform]
     WINDOWS: ClassVar[Platform]
@@ -60,9 +57,7 @@ class Platform:
 
 Platform.MAC = Platform()
 _MAC = Platform.MAC
-Platform.WINDOWS = Platform(
-    "windows", dpi=96, default_column_step=8, long_fill="cap", cell_font_padding=True
-)
+Platform.WINDOWS = Platform("windows", dpi=96, default_column_step=8, long_fill="cap")
 
 
 @dataclass(frozen=True, slots=True)
