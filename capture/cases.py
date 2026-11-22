@@ -1997,6 +1997,25 @@ def general_cell_font_arial() -> Suite:
     return Suite("general_cell_font_arial", cases, widths=(None, *_points(6)))
 
 
+_LARGE_CELL_FONTS: tuple[CellFont | None, ...] = (
+    None,
+    *(CellFont("Calibri", s) for s in (16, 18, 20, 24)),
+    *(CellFont("Aptos Narrow", s) for s in (18, 20, 24)),
+    *(CellFont("Arial", s) for s in (14, 16, 18, 20, 24)),
+)
+
+
+def cell_font_large() -> Suite:
+    """Cell fonts whose digit is past 8 points in a Calibri 11 workbook, at every point.
+
+    A digit width of 9 or more gives a padding of 7 points or more, against the Normal font's 5:
+    the suite decides whether the cell loses the difference. Calibri 16 and Arial 14 (digit 8,
+    padding 5) are controls.
+    """
+    cases = _cell_font_cases("cell_font_large", _LARGE_CELL_FONTS, _CELL_FONT_VALUES)
+    return Suite("cell_font_large", cases, widths=(None, *_points(6)))
+
+
 def numeric_core_width_arial10() -> Suite:
     """Every ``numeric_core`` case at widths 6, 10 and 14, Normal style Arial 10."""
     name = "numeric_core_width_arial10"
@@ -2906,6 +2925,7 @@ SUITES: dict[str, Callable[[], Suite]] = {
     "error_width": error_width,
     "cell_font_arial": cell_font_arial,
     "general_cell_font_arial": general_cell_font_arial,
+    "cell_font_large": cell_font_large,
     "numeric_core_width_arial10": numeric_core_width_arial10,
 }
 
