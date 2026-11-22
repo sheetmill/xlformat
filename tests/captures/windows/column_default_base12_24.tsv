@@ -1,0 +1,94 @@
+# suite: column_default_base12_24
+# platform: windows
+# excel_build: 16.0.20527.20196
+# job: rules.job.json
+# job_id: xlformat-20261122-195218-rules
+# workbook_font: Calibri 24
+# captured: 2026-11-22
+# generator: capture.cases.column_default_base12_24, capture/job.py
+# method: width none=file_default; width 8=file_width; width 8.43=file_width; width 10=file_width
+# numbers: repr
+# widths: exact
+# column_points: B=156.0 C=96.0 D=101.25 E=120.0
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# width_source: file
+# sheet_format: baseColWidth=12
+# job_header: {"environment": {"audit": false, "checks": {"dde_server_launch_disabled": true, "dde_server_lookup_disabled": true, "vba_warnings": 4}, "display": {"screen_px": [2560, 1440], "system_dpi": 96}, "edition": {"found": "Microsoft 365", "source": "office products"}, "excel": {"build": "16.0.20527.20196", "build_number": 20527.0, "calculation_version": 191029, "decimal_separator": ".", "international": {"country": 1.0, "decimal": ".", "list": ","}, "operating_system": "Windows (64-bit ARM) NT 10.00", "process": {"native_machine": "0xaa64", "process_machine": "0x8664"}, "standard_font": "Aptos Narrow", "standard_font_size": 11.0, "thousands_separator": ",", "use_system_separators": true, "version": "16.0"}, "fonts": [{"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Regular", "version": "Version 6.27"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Regular", "version": "Version 5.72"}], "geometry": {"expected": {"excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "found": {"excel_window_px": "not shown", "screen_px": [2560, 1440], "system_dpi": 96}, "ok": true}, "locale": {"ansi_code_page": 1252, "decimal": ".", "list": ",", "long_date": "dddd, MMMM d, yyyy", "name": "en-US", "oem_code_page": 437, "short_date": "M/d/yyyy", "sort_locale": "en-US", "sort_version": {"custom": "01000000ee575c1e00b4d0000bb1e11e", "defined": 394498, "nls": 394498}, "time": "h:mm:ss tt", "two_digit_year_max": 2049, "two_digit_year_max_setting": null}, "office": {"channel": "Current Channel", "platform": "x64", "products": "O365HomePremRetail", "version": "16.0.20527.20196"}, "printer": {"orientation": "portrait", "paper": "A4", "paper_mm": [215.9, 279.4]}, "theme": {"office_ui_theme": 6, "windows_apps_light": 1, "windows_system_light": 1}, "windows": {"architecture": "ARM64", "build": "26300.9974", "display_version": "26H2", "edition": "Core"}}, "format": 1, "inputs": {"cell_font_arial.xlsx": {"bytes": 36873, "sha256": "a82a489247952903baa1697de541ac8f23a2b61019f454421d8d5eecf2ccc47f"}, "cell_font_large.xlsx": {"bytes": 73818, "sha256": "0f2c25e6e411a64ade4402eac06103bcc1cfd6c8fd27bb285e36829cbe73c282"}, "cell_font_styles.xlsx": {"bytes": 42149, "sha256": "180dfc766bd86670addef0ec46f84e4597ab87bbdf56784789a96a682c4b69ac"}, "column_boundary11.xlsx": {"bytes": 12671, "sha256": "3d4c4976721998ffb7b18a81c44be0e6556960663a5c8e922496a8e71d72ea86"}, "column_boundary16.xlsx": {"bytes": 12671, "sha256": "1d2bcb8c2beefd204bdaab57233498259db041f3fb18110faf8a5c577a6101ff"}, "column_boundary24.xlsx": {"bytes": 12670, "sha256": "b34ca330fb0c8b23dfe8f54b767a79e50caba9fd4726a502b0b88a04df370c2a"}, "column_default_base10_11.xlsx": {"bytes": 5403, "sha256": "68692819445e99c2bc1e90a6e8580b66080319558076c3ef1c0a9500edaf38e4"}, "column_default_base10_14.xlsx": {"bytes": 5394, "sha256": "8cd9a62242d25f1de30106dafc23d40bb717903253ecccef46cdbbbe4633127d"}, "column_default_base10_16.xlsx": {"bytes": 5394, "sha256": "c890a44e01157653055253df3705dfe73436155983f0ccba201a490496935ca6"}, "column_default_base10_18.xlsx": {"bytes": 5394, "sha256": "1b606840570cedebc9832d311070609fa4fdc578e662eafc2d38a409268f10ff"}, "column_default_base10_24.xlsx": {"bytes": 5393, "sha256": "e3c7265f18d9e24dac697cd10156a4d15cb1db7465945336b34effc7e548eda9"}, "column_default_base10_9.xlsx": {"bytes": 5393, "sha256": "e753870cde6ffe0d5ae55444b559b6e6071286d05f46f38a2d7d3e2bd00f7856"}, "column_default_base12_11.xlsx": {"bytes": 5394, "sha256": "2807cb8a180bf2fe0369d0165dd99255c8de6d6f9b3a00a3eb9a0f68bef8d5ea"}, "column_default_base12_14.xlsx": {"bytes": 5394, "sha256": "e015e892ac8f1e9e2413b8030d2aa671bd934e1d687c40333d2aba53017799b6"}, "column_default_base12_16.xlsx": {"bytes": 5394, "sha256": "ca3fe6814b8551e0c040abc2c703bbb0efcf1a4503453f9fe69048177753e860"}, "column_default_base12_18.xlsx": {"bytes": 5394, "sha256": "23bd2e3f29dfaf4922d3016ea7016e14759bc6150f33ca18a3214a5d26b85f23"}, "column_default_base12_24.xlsx": {"bytes": 5393, "sha256": "d84d9d33e81ff0e49da1807ebb33aac38d3454ddcadbb4027008a5f7eccfe2b0"}, "column_default_base12_9.xlsx": {"bytes": 5393, "sha256": "710913fe22e096fd7e90542ef540fcaf0c79c01752cff4e67613117461f397d3"}, "column_default_base6_11.xlsx": {"bytes": 5394, "sha256": "de578ef124a1e0ca49518084d37b726f556f22bfe82bdfc1080426977a0e8b2f"}, "column_default_base6_14.xlsx": {"bytes": 5394, "sha256": "359a0561498d5d2b0db6cb982e70dc6df1143fa44935f4ba03d113b3aa08df22"}, "column_default_base6_16.xlsx": {"bytes": 5394, "sha256": "99171e9458e8525319070859d636de6865b44fa88c717721bd6579714a0295aa"}, "column_default_base6_18.xlsx": {"bytes": 5394, "sha256": "49966e11e2bee05bbe9af52c52cd79e5d87980fc8bb3f6a444998a85fb32edfe"}, "column_default_base6_24.xlsx": {"bytes": 5393, "sha256": "2d95838e85249569601ec25b7740bd07f783016d40417a27a1125a26c6b09943"}, "column_default_base6_9.xlsx": {"bytes": 5393, "sha256": "22f72c02e9ced3919c5690418f527b2e0167277d578856135d6180159312a999"}, "column_default_dcw12_11.xlsx": {"bytes": 5406, "sha256": "2fcc818ebaa990841a584a9054cb45dc6e9c890b8eef933213a438dd539bf09e"}, "column_default_dcw843_14.xlsx": {"bytes": 5398, "sha256": "824bd1000208ccdf15f154860801056aee81c42d26a5b02a901b7a0f7c2e053c"}, "column_file10.xlsx": {"bytes": 13427, "sha256": "915919b9db73ff1f2e9150dd779e1ff9957424dd2813baa90efe88a159e74f34"}, "column_file11.xlsx": {"bytes": 13436, "sha256": "919ae4ddd70b35f702491c1ee4b59649bd1ea4155005dd1a6d1372a297619ccf"}, "column_file12.xlsx": {"bytes": 13426, "sha256": "b3ae6d4a46eab4e95eb8cb9265f93b605f9183e17567f03e0ae41dba68204d44"}, "column_file14.xlsx": {"bytes": 13427, "sha256": "dd2a2f49a3db6904b9268f62f09a6f1be218fbbc9c50549852d7540002bd6314"}, "column_file16.xlsx": {"bytes": 13427, "sha256": "e0ff04cd8be47a9792f3ea08183a473487c22806a4bc978f689880b4cac3d725"}, "column_file18.xlsx": {"bytes": 13427, "sha256": "8ce7afed698f1de8f76a95fb00d25e66da54bd0ec81e0f8981845c7eff6322a7"}, "column_file20.xlsx": {"bytes": 13426, "sha256": "4aba662204d0216d2415bccc91048fd872d00520038bb16be29f35eb4fc82802"}, "column_file24.xlsx": {"bytes": 13426, "sha256": "dd2162f039b06b859f56d8038d428f5bdbfe47e1368e08304b591bfea9b1964f"}, "column_file9.xlsx": {"bytes": 13426, "sha256": "7d2b6718b8cfeca8cfed69fa0ce5cf2c4cc2dd2396fdb9adabccbbb3b3799257"}, "column_file_aptos_narrow11.xlsx": {"bytes": 13423, "sha256": "f2985ff6e9375425f54d8270c53e3474b4277124f17d0a5abd45861d6427903b"}, "column_file_aptos_narrow18.xlsx": {"bytes": 13424, "sha256": "4a85c8f9ae865ab1f38cd5444803e273086a204a525f4050e527c6df0332498e"}, "column_file_aptos_narrow20.xlsx": {"bytes": 13422, "sha256": "2ae91590a02a6897a85dc39921a14502455ddd11df3006e39a6ccf934651c16a"}, "column_file_aptos_narrow24.xlsx": {"bytes": 13422, "sha256": "f7cbff1e2dcffe137ae00809cfece69afa0da38931ba401205fc5b1d09bfb7db"}, "column_file_arial10.xlsx": {"bytes": 13416, "sha256": "f6e4ef441245ad5c7591d892f2a96f116ef098104aa84105d0c98e8bb98c5088"}, "column_file_arial11.xlsx": {"bytes": 13416, "sha256": "a5179c106f87edbbd8ef5f27caab41fcc77b5e2333feeffd11e15560210f8c61"}, "column_file_arial12.xlsx": {"bytes": 13417, "sha256": "412dd522b473c98cc848de64d475137174a358487c8cae6f4bfa9e5df969860e"}, "column_file_arial14.xlsx": {"bytes": 13417, "sha256": "307f0962fd891100db60ab961627a50ecad4b66167fb17bc86709a5d79a58867"}, "column_file_arial16.xlsx": {"bytes": 13416, "sha256": "5f5143ee9bdd607679a34d7e9224311b45e09a8f1fa5f77cbd9382617a31b255"}, "column_file_arial18.xlsx": {"bytes": 13417, "sha256": "bbdc98bc9d1d926b52dc52eefdf4164173d5f7bb2d9740bfe9dc2baa758c2f83"}, "column_file_arial20.xlsx": {"bytes": 13415, "sha256": "20d286db7d582b1730ef0c2b55ebf9f39303027f22458abcfac4db9a829a4d08"}, "column_file_arial24.xlsx": {"bytes": 13416, "sha256": "0292b800eca2abaf7c71e892d19c933f41aa3feefde2fd7a5bc79977269bdee7"}, "column_file_arial9.xlsx": {"bytes": 13416, "sha256": "50f8497afc2240ed853b0c650f154b76b30d20289171c8582a3ce05b51f173d6"}, "error_width.xlsx": {"bytes": 10418, "sha256": "efcae014c704dbf6fdf2d7fd53b58f1dfe06cf4f255bef95ee0da25b95359309"}, "long_fills.xlsx": {"bytes": 5127, "sha256": "c4f2c0be127a4f3ed75db5918b40193e77c6eec95f251087ee4c91b934ba3bf8"}}, "job_id": "xlformat-20261122-195218-rules", "manifest_sha256": "ed9b45ee83cdaea84b5d748f230bcf2c5f8fbb749b986872ba4a5c425c0a8c4f", "runner_version": "0.1.23"}
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+column_default_base12_24	digits1	int	8	'0'		12.44	0	8		fast
+column_default_base12_24	digits2	int	88	'0'		12.44	0	88		fast
+column_default_base12_24	digits3	int	888	'0'		12.44	0	888		fast
+column_default_base12_24	digits4	int	8888	'0'		12.44	0	8888		fast
+column_default_base12_24	digits5	int	88888	'0'		12.44	0	88888		fast
+column_default_base12_24	digits6	int	888888	'0'		12.44	0	888888		fast
+column_default_base12_24	digits7	int	8888888	'0'		12.44	0	8888888		fast
+column_default_base12_24	digits8	int	88888888	'0'		12.44	0	88888888		fast
+column_default_base12_24	digits9	int	888888888	'0'		12.44	0	888888888		fast
+column_default_base12_24	digits10	int	8888888888	'0'		12.44	0	8888888888		fast
+column_default_base12_24	digits11	int	88888888888	'0'		12.44	0	88888888888		fast
+column_default_base12_24	digits12	int	888888888888	'0'		12.44	0	888888888888		fast
+column_default_base12_24	digits13	int	8888888888888	'0'		12.44	0	############		fast
+column_default_base12_24	digits14	int	88888888888888	'0'		12.44	0	############		full
+column_default_base12_24	digits15	int	888888888888888	'0'		12.44	0	############		full
+column_default_base12_24	fill-dash	int	1	'0*-'		12.44	0	1------------------		fast
+column_default_base12_24	fill-space	int	1	'* 0'		12.44	0	                          1		fast
+column_default_base12_24	general-7.3	float	1234567.891	'General'		12.44	0	1234567.891		fast
+column_default_base12_24	general-0.9	float	0.123456789	'General'		12.44	0	0.123456789		fast
+column_default_base12_24	digits1	int	8	'0'	8	7.44	0	8		fast
+column_default_base12_24	digits2	int	88	'0'	8	7.44	0	88		fast
+column_default_base12_24	digits3	int	888	'0'	8	7.44	0	888		fast
+column_default_base12_24	digits4	int	8888	'0'	8	7.44	0	8888		fast
+column_default_base12_24	digits5	int	88888	'0'	8	7.44	0	88888		fast
+column_default_base12_24	digits6	int	888888	'0'	8	7.44	0	888888		fast
+column_default_base12_24	digits7	int	8888888	'0'	8	7.44	0	8888888		fast
+column_default_base12_24	digits8	int	88888888	'0'	8	7.44	0	#######		fast
+column_default_base12_24	digits9	int	888888888	'0'	8	7.44	0	#######		full
+column_default_base12_24	digits10	int	8888888888	'0'	8	7.44	0	#######		full
+column_default_base12_24	digits11	int	88888888888	'0'	8	7.44	0	#######		full
+column_default_base12_24	digits12	int	888888888888	'0'	8	7.44	0	#######		full
+column_default_base12_24	digits13	int	8888888888888	'0'	8	7.44	0	#######		full
+column_default_base12_24	digits14	int	88888888888888	'0'	8	7.44	0	#######		full
+column_default_base12_24	digits15	int	888888888888888	'0'	8	7.44	0	#######		full
+column_default_base12_24	fill-dash	int	1	'0*-'	8	7.44	0	1----------		fast
+column_default_base12_24	fill-space	int	1	'* 0'	8	7.44	0	              1		fast
+column_default_base12_24	general-7.3	float	1234567.891	'General'	8	7.44	0	1234568		fast
+column_default_base12_24	general-0.9	float	0.123456789	'General'	8	7.44	0	0.12346		fast
+column_default_base12_24	digits1	int	8	'0'	8.43	7.88	0	8		fast
+column_default_base12_24	digits2	int	88	'0'	8.43	7.88	0	88		fast
+column_default_base12_24	digits3	int	888	'0'	8.43	7.88	0	888		fast
+column_default_base12_24	digits4	int	8888	'0'	8.43	7.88	0	8888		fast
+column_default_base12_24	digits5	int	88888	'0'	8.43	7.88	0	88888		fast
+column_default_base12_24	digits6	int	888888	'0'	8.43	7.88	0	888888		fast
+column_default_base12_24	digits7	int	8888888	'0'	8.43	7.88	0	8888888		fast
+column_default_base12_24	digits8	int	88888888	'0'	8.43	7.88	0	#######		fast
+column_default_base12_24	digits9	int	888888888	'0'	8.43	7.88	0	#######		full
+column_default_base12_24	digits10	int	8888888888	'0'	8.43	7.88	0	#######		full
+column_default_base12_24	digits11	int	88888888888	'0'	8.43	7.88	0	#######		full
+column_default_base12_24	digits12	int	888888888888	'0'	8.43	7.88	0	#######		full
+column_default_base12_24	digits13	int	8888888888888	'0'	8.43	7.88	0	#######		full
+column_default_base12_24	digits14	int	88888888888888	'0'	8.43	7.88	0	#######		full
+column_default_base12_24	digits15	int	888888888888888	'0'	8.43	7.88	0	#######		full
+column_default_base12_24	fill-dash	int	1	'0*-'	8.43	7.88	0	1-----------		fast
+column_default_base12_24	fill-space	int	1	'* 0'	8.43	7.88	0	               1		fast
+column_default_base12_24	general-7.3	float	1234567.891	'General'	8.43	7.88	0	1234568		fast
+column_default_base12_24	general-0.9	float	0.123456789	'General'	8.43	7.88	0	0.12346		fast
+column_default_base12_24	digits1	int	8	'0'	10	9.44	0	8		fast
+column_default_base12_24	digits2	int	88	'0'	10	9.44	0	88		fast
+column_default_base12_24	digits3	int	888	'0'	10	9.44	0	888		fast
+column_default_base12_24	digits4	int	8888	'0'	10	9.44	0	8888		fast
+column_default_base12_24	digits5	int	88888	'0'	10	9.44	0	88888		fast
+column_default_base12_24	digits6	int	888888	'0'	10	9.44	0	888888		fast
+column_default_base12_24	digits7	int	8888888	'0'	10	9.44	0	8888888		fast
+column_default_base12_24	digits8	int	88888888	'0'	10	9.44	0	88888888		fast
+column_default_base12_24	digits9	int	888888888	'0'	10	9.44	0	888888888		fast
+column_default_base12_24	digits10	int	8888888888	'0'	10	9.44	0	#########		fast
+column_default_base12_24	digits11	int	88888888888	'0'	10	9.44	0	#########		full
+column_default_base12_24	digits12	int	888888888888	'0'	10	9.44	0	#########		full
+column_default_base12_24	digits13	int	8888888888888	'0'	10	9.44	0	#########		full
+column_default_base12_24	digits14	int	88888888888888	'0'	10	9.44	0	#########		full
+column_default_base12_24	digits15	int	888888888888888	'0'	10	9.44	0	#########		full
+column_default_base12_24	fill-dash	int	1	'0*-'	10	9.44	0	1-------------		fast
+column_default_base12_24	fill-space	int	1	'* 0'	10	9.44	0	                   1		fast
+column_default_base12_24	general-7.3	float	1234567.891	'General'	10	9.44	0	1234567.9		fast
+column_default_base12_24	general-0.9	float	0.123456789	'General'	10	9.44	0	0.1234568		fast

@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `text_width`, `glyph_widths`, `digit_width`, `overhang`, `measured_fonts` and the column
   functions take `platform="windows"` for Calibri, Aptos Narrow and Arial, four styles, nine
   sizes, with glyph tables in pixels captured from Excel for Windows. Results stay in points.
+  Windows rounds a column's half pixel up, rounds a column without a width up to a multiple of
+  8 pixels, and stops a fill at 255 characters where the Mac shows a `#` run.
   Rows, text placement, rules, `text_function` and `builtin_format` still raise `LookupError`
   for Windows.
 - `platform=` on every function whose result can differ by platform, and `regional_settings=` on

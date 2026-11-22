@@ -1313,6 +1313,21 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     - **Glyph tables, 96 dpi** (groups `tables_calibri`, `tables_aptos_narrow`, `tables_arial`;
       Excel 16.0.20527.20196, Microsoft 365, Current Channel): every `measure*` and `space_fill*`
       suite of the three families, four styles, nine sizes, 216 suite files.
+66. **Windows rules at 96 dpi (2026-11-22; group `rules`, the build of item 65).** 50 suites,
+    119,776 rows: columns without a width under base widths 6 to 12 (`column_default_*`), file
+    widths on either side of a 1/256 step (`column_boundary*`), fills past 255 characters
+    (`long_fills`), file widths at every size (`column_file*`), cell fonts against a Calibri 11
+    Normal font (`cell_font_styles`, `cell_font_large`, `cell_font_arial`) and error values
+    (`error_width`). The package's own Windows rendering of every row other than the error values'
+    was committed before the run. The package missed 358 of those 116,768 width rows, all at a half
+    width (2.5, 4.5, ...), each one character or `#` short: Windows rounds a column's half pixel up,
+    where the package rounded it to even (36.5 pixels is 37 at a digit of 7 and width 4.5). With
+    that rounding every row of the 50 suites matches, among them the 28 `General` rows under a
+    larger cell font. No Mac capture holds a column of a half point (their widths are chosen at
+    whole points), so the Mac's rounding of a half is untested and stays as it was. The group
+    confirms on Windows: the default column rounded up to a multiple of 8 pixels at every base width
+    and size; a fill past 255 characters showing 255; every 1/256 boundary width truncated, as on
+    the Mac; and a cell font losing the padding it has beyond the Normal font's (item 64).
 
 ## 3. The pipeline
 

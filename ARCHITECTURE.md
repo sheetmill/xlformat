@@ -449,8 +449,12 @@ budget is that sum less `P`, not less `P` per column, and a hidden column counts
 hinted at ppem `size · dpi / 72` (Calibri 11 has a digit of 7 pixels at 96 dpi), fitted from the
 Windows autofit suites by `capture/glyph_fit.py --windows` with the space chosen by the fill
 suites (every one of the 17,280 fill rows of the 108 faces); the column is
-`round(MDW · w + P)` pixels with `P = 2 · ceil(MDW / 4) + 1`, the budget, `#` runs and fills
-as on the Mac. The internals count in the platform's device units (`Platform.scale`, 1 on the
+`round(MDW · w + P)` pixels with `P = 2 · ceil(MDW / 4) + 1`, a half pixel rounding up, the
+budget, `#` runs, fills and a cell font's extra padding as on the Mac. Two rules differ
+(`Platform` fields; the `rules` group, `CAPTURING.md` §2 item 66): a column without a width is
+`baseColWidth · MDW + P` rounded up to a multiple of 8 pixels (`default_column_step`), and a
+fill that would pass 255 characters stops at 255 (`long_fill="cap"`) where the Mac shows a `#`
+run. The internals count in the platform's device units (`Platform.scale`, 1 on the
 Mac, `dpi / 72` on Windows); every public result is in points.
 
 **Cell font and Normal font** (`_render.resolve_width`; suites `cell_font`, `general_cell_font`,
