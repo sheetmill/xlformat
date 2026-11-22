@@ -1,0 +1,1193 @@
+# predictions for rules_courier, written before its run (capture/courier_predict.py)
+# per rule, top/thickness in screen points below the baseline
+zoom	tag	round	floor	ceil	exact
+100	Courier New 6 single	1/1	1/1	1/1	1/1
+100	Courier New 6 double	-1/1 1/1	-1/1 1/1	-1/1 1/1	-1/1 1/1
+100	Courier New 6 singleAccounting	2/1	2/1	2/1	2/1
+100	Courier New 6 doubleAccounting	2/1 4/1	2/1 4/1	2/1 4/1	2/1 4/1
+100	Courier New 6 strike	-2/1	-2/1	-2/1	-2/1
+100	Courier New 7 single	1/1	1/1	1/1	1/1
+100	Courier New 7 double	-1/1 1/1	-1/1 1/1	-1/1 1/1	-1/1 1/1
+100	Courier New 7 singleAccounting	2/1	2/1	2/1	2/1
+100	Courier New 7 doubleAccounting	2/1 4/1	2/1 4/1	2/1 4/1	2/1 4/1
+100	Courier New 7 strike	-2/1	-2/1	-2/1	-2/1
+100	Courier New 8 single	1/1	1/1	1/1	1/1
+100	Courier New 8 double	-1/1 1/1	-1/1 1/1	-1/1 1/1	-1/1 1/1
+100	Courier New 8 singleAccounting	2/1	2/1	2/1	2/1
+100	Courier New 8 doubleAccounting	2/1 4/1	2/1 4/1	2/1 4/1	2/1 4/1
+100	Courier New 8 strike	-2/1	-2/1	-2/1	-2/1
+100	Courier New 9 single	2/1	2/1	2/1	2/1
+100	Courier New 9 double	0/1 2/1	0/1 2/1	0/1 2/1	0/1 2/1
+100	Courier New 9 singleAccounting	3/1	3/1	3/1	3/1
+100	Courier New 9 doubleAccounting	3/1 5/1	3/1 5/1	3/1 5/1	3/1 5/1
+100	Courier New 9 strike	-2/1	-2/1	-2/1	-2/1
+100	Courier New 10 single	2/1	2/1	2/1	2/1
+100	Courier New 10 double	0/1 2/1	0/1 2/1	0/1 2/1	0/1 2/1
+100	Courier New 10 singleAccounting	3/1	3/1	3/1	3/1
+100	Courier New 10 doubleAccounting	3/1 5/1	3/1 5/1	3/1 5/1	3/1 5/1
+100	Courier New 10 strike	-3/1	-3/1	-3/1	-3/1
+100	Courier New 11 single	2/1	2/1	2/1	2/1
+100	Courier New 11 double	0/1 2/1	0/1 2/1	0/1 2/1	0/1 2/1
+100	Courier New 11 singleAccounting	3/1	3/1	3/1	3/1
+100	Courier New 11 doubleAccounting	3/1 5/1	3/1 5/1	3/1 5/1	3/1 5/1
+100	Courier New 11 strike	-3/1	-3/1	-3/1	-3/1
+100	Courier New 12 single	2/1	2/1	2/1	2/1
+100	Courier New 12 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+100	Courier New 12 singleAccounting	4/1	4/1	4/1	4/1
+100	Courier New 12 doubleAccounting	4/1 6/1	4/1 6/1	4/1 6/1	4/1 6/1
+100	Courier New 12 strike	-3/1	-3/1	-3/1	-3/1
+100	Courier New 13 single	3/1	3/1	3/1	3/1
+100	Courier New 13 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+100	Courier New 13 singleAccounting	4/1	4/1	4/1	4/1
+100	Courier New 13 doubleAccounting	4/1 6/1	4/1 6/1	4/1 6/1	4/1 6/1
+100	Courier New 13 strike	-3/1	-3/1	-3/1	-3/1
+100	Courier New 14 single	3/1	3/1	3/1	3/1
+100	Courier New 14 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+100	Courier New 14 singleAccounting	4/1	4/1	4/1	4/1
+100	Courier New 14 doubleAccounting	4/1 6/1	4/1 6/1	4/1 6/1	4/1 6/1
+100	Courier New 14 strike	-4/1	-4/1	-4/1	-4/1
+100	Courier New 15 single	3/1	3/1	3/1	3/1
+100	Courier New 15 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+100	Courier New 15 singleAccounting	5/1	5/1	5/1	5/1
+100	Courier New 15 doubleAccounting	5/1 7/1	5/1 7/1	5/1 7/1	5/1 7/1
+100	Courier New 15 strike	-4/1	-4/1	-4/1	-4/1
+100	Courier New 16 single	3/1	3/1	3/1	3/1
+100	Courier New 16 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+100	Courier New 16 singleAccounting	5/1	5/1	5/1	5/1
+100	Courier New 16 doubleAccounting	5/1 7/1	5/1 7/1	5/1 7/1	5/1 7/1
+100	Courier New 16 strike	-4/1	-4/1	-4/1	-4/1
+100	Courier New 17 single	3/1	3/1	3/1	3/1
+100	Courier New 17 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+100	Courier New 17 singleAccounting	5/1	5/1	5/1	5/1
+100	Courier New 17 doubleAccounting	5/1 7/1	5/1 7/1	5/1 7/1	5/1 7/1
+100	Courier New 17 strike	-4/1	-4/1	-4/1	-4/1
+100	Courier New 18 single	1/1	1/1	1/1	1/1
+100	Courier New 18 double	1/1 4/1	1/1 4/1	1/1 4/1	1/1 4/1
+100	Courier New 18 singleAccounting	5/1	5/1	5/1	5/1
+100	Courier New 18 doubleAccounting	5/1 8/1	5/1 8/1	5/1 8/1	5/1 8/1
+100	Courier New 18 strike	-5/1	-5/1	-5/1	-5/1
+100	Courier New 19 single	1/1	1/1	1/1	1/1
+100	Courier New 19 double	1/1 4/1	1/1 4/1	1/1 4/1	1/1 4/1
+100	Courier New 19 singleAccounting	6/1	6/1	6/1	6/1
+100	Courier New 19 doubleAccounting	6/1 9/1	6/1 9/1	6/1 9/1	6/1 9/1
+100	Courier New 19 strike	-5/1	-5/1	-5/1	-5/1
+100	Courier New 20 single	1/1	1/1	1/1	1/1
+100	Courier New 20 double	1/1 4/1	1/1 4/1	1/1 4/1	1/1 4/1
+100	Courier New 20 singleAccounting	6/1	6/1	6/1	6/1
+100	Courier New 20 doubleAccounting	6/1 9/1	6/1 9/1	6/1 9/1	6/1 9/1
+100	Courier New 20 strike	-5/1	-5/1	-5/1	-5/1
+100	Courier New 21 single	1/1	1/1	1/1	1/1
+100	Courier New 21 double	1/1 4/1	1/1 4/1	1/1 4/1	1/1 4/1
+100	Courier New 21 singleAccounting	6/1	6/1	6/1	6/1
+100	Courier New 21 doubleAccounting	6/1 9/1	6/1 9/1	6/1 9/1	6/1 9/1
+100	Courier New 21 strike	-5/1	-5/1	-5/1	-5/1
+100	Courier New 22 single	2/1	2/1	2/1	2/1
+100	Courier New 22 double	2/1 5/1	2/1 5/1	2/1 5/1	2/1 5/1
+100	Courier New 22 singleAccounting	7/1	7/1	7/1	7/1
+100	Courier New 22 doubleAccounting	7/1 10/1	7/1 10/1	7/1 10/1	7/1 10/1
+100	Courier New 22 strike	-6/1	-6/1	-6/1	-6/1
+100	Courier New 23 single	2/1	2/1	2/1	2/1
+100	Courier New 23 double	2/1 5/1	2/1 5/1	2/1 5/1	2/1 5/1
+100	Courier New 23 singleAccounting	7/1	7/1	7/1	7/1
+100	Courier New 23 doubleAccounting	7/1 10/1	7/1 10/1	7/1 10/1	7/1 10/1
+100	Courier New 23 strike	-6/1	-6/1	-6/1	-6/1
+100	Courier New 24 single	2/1	2/1	2/1	2/1
+100	Courier New 24 double	2/1 5/1	2/1 5/1	2/1 5/1	2/1 5/1
+100	Courier New 24 singleAccounting	7/1	7/1	7/1	7/1
+100	Courier New 24 doubleAccounting	7/1 10/1	7/1 10/1	7/1 10/1	7/1 10/1
+100	Courier New 24 strike	-6/1	-6/1	-6/1	-6/1
+100	Courier New 25 single	2/1	2/1	2/1	2/1
+100	Courier New 25 double	2/1 5/1	2/1 5/1	2/1 5/1	2/1 5/1
+100	Courier New 25 singleAccounting	8/1	8/1	8/1	8/1
+100	Courier New 25 doubleAccounting	8/1 11/1	8/1 11/1	8/1 11/1	8/1 11/1
+100	Courier New 25 strike	-6/1	-6/1	-6/1	-6/1
+100	Courier New 26 single	2/1	2/1	2/1	2/1
+100	Courier New 26 double	2/1 6/1	2/1 6/1	2/1 6/1	2/1 6/1
+100	Courier New 26 singleAccounting	8/1	8/1	8/1	8/1
+100	Courier New 26 doubleAccounting	8/1 12/1	8/1 12/1	8/1 12/1	8/1 12/1
+100	Courier New 26 strike	-7/1	-7/1	-7/1	-7/1
+100	Courier New 27 single	2/1	2/1	2/1	2/1
+100	Courier New 27 double	2/1 6/1	2/1 6/1	2/1 6/1	2/1 6/1
+100	Courier New 27 singleAccounting	8/1	8/1	8/1	8/1
+100	Courier New 27 doubleAccounting	8/1 12/1	8/1 12/1	8/1 12/1	8/1 12/1
+100	Courier New 27 strike	-7/1	-7/1	-7/1	-7/1
+100	Courier New 28 single	2/1	2/1	2/1	2/1
+100	Courier New 28 double	2/1 6/1	2/1 6/1	2/1 6/1	2/1 6/1
+100	Courier New 28 singleAccounting	8/1	8/1	8/1	8/1
+100	Courier New 28 doubleAccounting	8/1 12/1	8/1 12/1	8/1 12/1	8/1 12/1
+100	Courier New 28 strike	-7/1	-7/1	-7/1	-7/1
+100	Courier New 29 single	2/1	2/1	2/1	2/1
+100	Courier New 29 double	2/1 6/1	2/1 6/1	2/1 6/1	2/1 6/1
+100	Courier New 29 singleAccounting	9/1	9/1	9/1	9/1
+100	Courier New 29 doubleAccounting	9/1 13/1	9/1 13/1	9/1 13/1	9/1 13/1
+100	Courier New 29 strike	-8/1	-8/1	-8/1	-8/1
+100	Courier New 30 single	2/1	2/1	2/1	2/1
+100	Courier New 30 double	2/1 6/1	2/1 6/1	2/1 6/1	2/1 6/1
+100	Courier New 30 singleAccounting	9/1	9/1	9/1	9/1
+100	Courier New 30 doubleAccounting	9/1 13/1	9/1 13/1	9/1 13/1	9/1 13/1
+100	Courier New 30 strike	-8/1	-8/1	-8/1	-8/1
+100	Courier New 31 single	3/1	3/1	3/1	3/1
+100	Courier New 31 double	3/1 7/1	3/1 7/1	3/1 7/1	3/1 7/1
+100	Courier New 31 singleAccounting	9/1	9/1	9/1	9/1
+100	Courier New 31 doubleAccounting	9/1 13/1	9/1 13/1	9/1 13/1	9/1 13/1
+100	Courier New 31 strike	-8/2	-8/2	-8/2	-8/2
+100	Courier New 32 single	3/1	3/1	3/1	3/1
+100	Courier New 32 double	3/1 7/1	3/1 7/1	3/1 7/1	3/1 7/1
+100	Courier New 32 singleAccounting	10/1	10/1	10/1	10/1
+100	Courier New 32 doubleAccounting	10/1 14/1	10/1 14/1	10/1 14/1	10/1 14/1
+100	Courier New 32 strike	-8/2	-8/2	-8/2	-8/2
+100	Courier New 33 single	3/1	3/1	3/1	3/1
+100	Courier New 33 double	3/1 7/1	3/1 7/1	3/1 7/1	3/1 7/1
+100	Courier New 33 singleAccounting	10/1	10/1	10/1	10/1
+100	Courier New 33 doubleAccounting	10/1 14/1	10/1 14/1	10/1 14/1	10/1 14/1
+100	Courier New 33 strike	-9/2	-9/2	-9/2	-9/2
+100	Courier New 34 single	3/1	3/1	3/1	3/1
+100	Courier New 34 double	3/1 7/1	3/1 7/1	3/1 7/1	3/1 7/1
+100	Courier New 34 singleAccounting	10/1	10/1	10/1	10/1
+100	Courier New 34 doubleAccounting	10/1 14/1	10/1 14/1	10/1 14/1	10/1 14/1
+100	Courier New 34 strike	-9/2	-9/2	-9/2	-9/2
+100	Courier New 35 single	3/1	3/1	3/1	3/1
+100	Courier New 35 double	3/1 8/1	3/1 8/1	3/1 8/1	3/1 8/1
+100	Courier New 35 singleAccounting	11/1	11/1	11/1	11/1
+100	Courier New 35 doubleAccounting	11/1 16/1	11/1 16/1	11/1 16/1	11/1 16/1
+100	Courier New 35 strike	-9/2	-9/2	-9/2	-9/2
+100	Courier New 36 single	3/1	3/1	3/1	3/1
+100	Courier New 36 double	3/1 8/1	3/1 8/1	3/1 8/1	3/1 8/1
+100	Courier New 36 singleAccounting	11/1	11/1	11/1	11/1
+100	Courier New 36 doubleAccounting	11/1 16/1	11/1 16/1	11/1 16/1	11/1 16/1
+100	Courier New 36 strike	-9/2	-9/2	-9/2	-9/2
+100	Courier New 37 single	3/1	3/1	3/1	3/1
+100	Courier New 37 double	3/1 8/1	3/1 8/1	3/1 8/1	3/1 8/1
+100	Courier New 37 singleAccounting	11/1	11/1	11/1	11/1
+100	Courier New 37 doubleAccounting	11/1 16/1	11/1 16/1	11/1 16/1	11/1 16/1
+100	Courier New 37 strike	-10/2	-10/2	-10/2	-10/2
+100	Courier New 38 single	3/1	3/1	3/1	3/1
+100	Courier New 38 double	3/1 8/1	3/1 8/1	3/1 8/1	3/1 8/1
+100	Courier New 38 singleAccounting	11/1	11/1	11/1	11/1
+100	Courier New 38 doubleAccounting	11/1 16/1	11/1 16/1	11/1 16/1	11/1 16/1
+100	Courier New 38 strike	-10/2	-10/2	-10/2	-10/2
+100	Courier New 39 single	4/1	4/1	4/1	4/1
+100	Courier New 39 double	4/1 9/1	4/1 9/1	4/1 9/1	4/1 9/1
+100	Courier New 39 singleAccounting	12/1	12/1	12/1	12/1
+100	Courier New 39 doubleAccounting	12/1 17/1	12/1 17/1	12/1 17/1	12/1 17/1
+100	Courier New 39 strike	-10/2	-10/2	-10/2	-10/2
+100	Courier New 40 single	4/1	4/1	4/1	4/1
+100	Courier New 40 double	4/1 9/1	4/1 9/1	4/1 9/1	4/1 9/1
+100	Courier New 40 singleAccounting	12/1	12/1	12/1	12/1
+100	Courier New 40 doubleAccounting	12/1 17/1	12/1 17/1	12/1 17/1	12/1 17/1
+100	Courier New 40 strike	-10/2	-10/2	-10/2	-10/2
+100	Courier New 41 single	4/1	4/1	4/1	4/1
+100	Courier New 41 double	4/1 9/1	4/1 9/1	4/1 9/1	4/1 9/1
+100	Courier New 41 singleAccounting	12/1	12/1	12/1	12/1
+100	Courier New 41 doubleAccounting	12/1 17/1	12/1 17/1	12/1 17/1	12/1 17/1
+100	Courier New 41 strike	-11/2	-11/2	-11/2	-11/2
+100	Courier New 42 single	4/1	4/1	4/1	4/1
+100	Courier New 42 double	4/1 9/1	4/1 9/1	4/1 9/1	4/1 9/1
+100	Courier New 42 singleAccounting	13/1	13/1	13/1	13/1
+100	Courier New 42 doubleAccounting	13/1 18/1	13/1 18/1	13/1 18/1	13/1 18/1
+100	Courier New 42 strike	-11/2	-11/2	-11/2	-11/2
+100	Courier New 43 single	4/1	4/1	4/1	4/1
+100	Courier New 43 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+100	Courier New 43 singleAccounting	13/1	13/1	13/1	13/1
+100	Courier New 43 doubleAccounting	13/1 19/1	13/1 19/1	13/1 19/1	13/1 19/1
+100	Courier New 43 strike	-11/2	-11/2	-11/2	-11/2
+100	Courier New 44 single	4/1	4/1	4/1	4/1
+100	Courier New 44 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+100	Courier New 44 singleAccounting	13/1	13/1	13/1	13/1
+100	Courier New 44 doubleAccounting	13/1 19/1	13/1 19/1	13/1 19/1	13/1 19/1
+100	Courier New 44 strike	-11/2	-11/2	-11/2	-11/2
+100	Courier New 45 single	4/1	4/1	4/1	4/1
+100	Courier New 45 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+100	Courier New 45 singleAccounting	14/1	14/1	14/1	14/1
+100	Courier New 45 doubleAccounting	14/1 20/1	14/1 20/1	14/1 20/1	14/1 20/1
+100	Courier New 45 strike	-12/2	-12/2	-12/2	-12/2
+100	Courier New 46 single	4/1	4/1	4/1	4/1
+100	Courier New 46 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+100	Courier New 46 singleAccounting	14/1	14/1	14/1	14/1
+100	Courier New 46 doubleAccounting	14/1 20/1	14/1 20/1	14/1 20/1	14/1 20/1
+100	Courier New 46 strike	-12/2	-12/2	-12/2	-12/2
+100	Courier New 47 single	4/1	4/1	4/1	4/1
+100	Courier New 47 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+100	Courier New 47 singleAccounting	14/1	14/1	14/1	14/1
+100	Courier New 47 doubleAccounting	14/1 20/1	14/1 20/1	14/1 20/1	14/1 20/1
+100	Courier New 47 strike	-12/2	-12/2	-12/2	-12/2
+100	Courier New 48 single	5/1	5/1	5/1	5/1
+100	Courier New 48 double	5/1 11/1	5/1 11/1	5/1 11/1	5/1 11/1
+100	Courier New 48 singleAccounting	14/1	14/1	14/1	14/1
+100	Courier New 48 doubleAccounting	14/1 20/1	14/1 20/1	14/1 20/1	14/1 20/1
+100	Courier New 48 strike	-12/2	-12/2	-12/2	-12/2
+100	Courier New 49 single	4/2	4/2	4/2	4/2
+100	Courier New 49 double	4/2 11/2	4/2 11/2	4/2 11/2	4/2 11/2
+100	Courier New 49 singleAccounting	15/2	15/2	15/2	15/2
+100	Courier New 49 doubleAccounting	15/2 22/2	15/2 22/2	15/2 22/2	15/2 22/2
+100	Courier New 49 strike	-13/2	-13/2	-13/2	-13/2
+100	Courier New 50 single	4/2	4/2	4/2	4/2
+100	Courier New 50 double	4/2 11/2	4/2 11/2	4/2 11/2	4/2 11/2
+100	Courier New 50 singleAccounting	15/2	15/2	15/2	15/2
+100	Courier New 50 doubleAccounting	15/2 22/2	15/2 22/2	15/2 22/2	15/2 22/2
+100	Courier New 50 strike	-13/2	-13/2	-13/2	-13/2
+100	Courier New 51 single	4/2	4/2	4/2	4/2
+100	Courier New 51 double	4/2 11/2	4/2 11/2	4/2 11/2	4/2 11/2
+100	Courier New 51 singleAccounting	15/2	15/2	15/2	15/2
+100	Courier New 51 doubleAccounting	15/2 22/2	15/2 22/2	15/2 22/2	15/2 22/2
+100	Courier New 51 strike	-13/3	-13/3	-13/3	-13/3
+100	Courier New 52 single	5/2	5/2	5/2	5/2
+100	Courier New 52 double	5/2 12/2	5/2 12/2	5/2 12/2	5/2 12/2
+100	Courier New 52 singleAccounting	16/2	16/2	16/2	16/2
+100	Courier New 52 doubleAccounting	16/2 23/2	16/2 23/2	16/2 23/2	16/2 23/2
+100	Courier New 52 strike	-13/3	-13/3	-13/3	-13/3
+100	Courier New 53 single	5/2	5/2	5/2	5/2
+100	Courier New 53 double	5/2 12/2	5/2 12/2	5/2 12/2	5/2 12/2
+100	Courier New 53 singleAccounting	16/2	16/2	16/2	16/2
+100	Courier New 53 doubleAccounting	16/2 23/2	16/2 23/2	16/2 23/2	16/2 23/2
+100	Courier New 53 strike	-14/3	-14/3	-14/3	-14/3
+100	Courier New 54 single	5/2	5/2	5/2	5/2
+100	Courier New 54 double	5/2 12/2	5/2 12/2	5/2 12/2	5/2 12/2
+100	Courier New 54 singleAccounting	16/2	16/2	16/2	16/2
+100	Courier New 54 doubleAccounting	16/2 23/2	16/2 23/2	16/2 23/2	16/2 23/2
+100	Courier New 54 strike	-14/3	-14/3	-14/3	-14/3
+100	Courier New 55 single	5/2	5/2	5/2	5/2
+100	Courier New 55 double	5/2 12/2	5/2 12/2	5/2 12/2	5/2 12/2
+100	Courier New 55 singleAccounting	17/2	17/2	17/2	17/2
+100	Courier New 55 doubleAccounting	17/2 24/2	17/2 24/2	17/2 24/2	17/2 24/2
+100	Courier New 55 strike	-14/3	-14/3	-14/3	-14/3
+100	Courier New 56 single	5/2	5/2	5/2	5/2
+100	Courier New 56 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+100	Courier New 56 singleAccounting	17/2	17/2	17/2	17/2
+100	Courier New 56 doubleAccounting	17/2 25/2	17/2 25/2	17/2 25/2	17/2 25/2
+100	Courier New 56 strike	-14/3	-14/3	-14/3	-14/3
+100	Courier New 57 single	5/2	5/2	5/2	5/2
+100	Courier New 57 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+100	Courier New 57 singleAccounting	17/2	17/2	17/2	17/2
+100	Courier New 57 doubleAccounting	17/2 25/2	17/2 25/2	17/2 25/2	17/2 25/2
+100	Courier New 57 strike	-15/3	-15/3	-15/3	-15/3
+100	Courier New 58 single	5/2	5/2	5/2	5/2
+100	Courier New 58 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+100	Courier New 58 singleAccounting	17/2	17/2	17/2	17/2
+100	Courier New 58 doubleAccounting	17/2 25/2	17/2 25/2	17/2 25/2	17/2 25/2
+100	Courier New 58 strike	-15/3	-15/3	-15/3	-15/3
+100	Courier New 59 single	5/2	5/2	5/2	5/2
+100	Courier New 59 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+100	Courier New 59 singleAccounting	18/2	18/2	18/2	18/2
+100	Courier New 59 doubleAccounting	18/2 26/2	18/2 26/2	18/2 26/2	18/2 26/2
+100	Courier New 59 strike	-15/3	-15/3	-15/3	-15/3
+100	Courier New 60 single	5/2	5/2	5/2	5/2
+100	Courier New 60 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+100	Courier New 60 singleAccounting	18/2	18/2	18/2	18/2
+100	Courier New 60 doubleAccounting	18/2 26/2	18/2 26/2	18/2 26/2	18/2 26/2
+100	Courier New 60 strike	-16/3	-16/3	-16/3	-16/3
+100	Courier New 61 single	6/2	6/2	6/2	6/2
+100	Courier New 61 double	6/2 14/2	6/2 14/2	6/2 14/2	6/2 14/2
+100	Courier New 61 singleAccounting	18/2	18/2	18/2	18/2
+100	Courier New 61 doubleAccounting	18/2 26/2	18/2 26/2	18/2 26/2	18/2 26/2
+100	Courier New 61 strike	-16/3	-16/3	-16/3	-16/3
+100	Courier New 62 single	6/2	6/2	6/2	6/2
+100	Courier New 62 double	6/2 14/2	6/2 14/2	6/2 14/2	6/2 14/2
+100	Courier New 62 singleAccounting	19/2	19/2	19/2	19/2
+100	Courier New 62 doubleAccounting	19/2 27/2	19/2 27/2	19/2 27/2	19/2 27/2
+100	Courier New 62 strike	-16/3	-16/3	-16/3	-16/3
+100	Courier New 63 single	6/2	6/2	6/2	6/2
+100	Courier New 63 double	6/2 14/2	6/2 14/2	6/2 14/2	6/2 14/2
+100	Courier New 63 singleAccounting	19/2	19/2	19/2	19/2
+100	Courier New 63 doubleAccounting	19/2 27/2	19/2 27/2	19/2 27/2	19/2 27/2
+100	Courier New 63 strike	-16/3	-16/3	-16/3	-16/3
+100	Courier New 64 single	6/2	6/2	6/2	6/2
+100	Courier New 64 double	6/2 14/2	6/2 14/2	6/2 14/2	6/2 14/2
+100	Courier New 64 singleAccounting	19/2	19/2	19/2	19/2
+100	Courier New 64 doubleAccounting	19/2 27/2	19/2 27/2	19/2 27/2	19/2 27/2
+100	Courier New 64 strike	-17/3	-17/3	-17/3	-17/3
+100	Courier New 65 single	6/2	6/2	6/2	6/2
+100	Courier New 65 double	6/2 15/2	6/2 15/2	6/2 15/2	6/2 15/2
+100	Courier New 65 singleAccounting	20/2	20/2	20/2	20/2
+100	Courier New 65 doubleAccounting	20/2 29/2	20/2 29/2	20/2 29/2	20/2 29/2
+100	Courier New 65 strike	-17/3	-17/3	-17/3	-17/3
+100	Courier New 66 single	6/2	6/2	6/2	6/2
+100	Courier New 66 double	6/2 15/2	6/2 15/2	6/2 15/2	6/2 15/2
+100	Courier New 66 singleAccounting	20/2	20/2	20/2	20/2
+100	Courier New 66 doubleAccounting	20/2 29/2	20/2 29/2	20/2 29/2	20/2 29/2
+100	Courier New 66 strike	-17/3	-17/3	-17/3	-17/3
+100	Courier New 67 single	6/2	6/2	6/2	6/2
+100	Courier New 67 double	6/2 15/2	6/2 15/2	6/2 15/2	6/2 15/2
+100	Courier New 67 singleAccounting	20/2	20/2	20/2	20/2
+100	Courier New 67 doubleAccounting	20/2 29/2	20/2 29/2	20/2 29/2	20/2 29/2
+100	Courier New 67 strike	-17/3	-17/3	-17/3	-17/3
+100	Courier New 68 single	6/2	6/2	6/2	6/2
+100	Courier New 68 double	6/2 15/2	6/2 15/2	6/2 15/2	6/2 15/2
+100	Courier New 68 singleAccounting	20/2	20/2	20/2	20/2
+100	Courier New 68 doubleAccounting	20/2 29/2	20/2 29/2	20/2 29/2	20/2 29/2
+100	Courier New 68 strike	-18/3	-18/3	-18/3	-18/3
+100	Courier New 69 single	7/2	7/2	7/2	7/2
+100	Courier New 69 double	7/2 16/2	7/2 16/2	7/2 16/2	7/2 16/2
+100	Courier New 69 singleAccounting	21/2	21/2	21/2	21/2
+100	Courier New 69 doubleAccounting	21/2 30/2	21/2 30/2	21/2 30/2	21/2 30/2
+100	Courier New 69 strike	-18/3	-18/3	-18/3	-18/3
+100	Courier New 70 single	7/2	7/2	7/2	7/2
+100	Courier New 70 double	7/2 16/2	7/2 16/2	7/2 16/2	7/2 16/2
+100	Courier New 70 singleAccounting	21/2	21/2	21/2	21/2
+100	Courier New 70 doubleAccounting	21/2 30/2	21/2 30/2	21/2 30/2	21/2 30/2
+100	Courier New 70 strike	-18/3	-18/3	-18/3	-18/3
+100	Courier New 71 single	7/2	7/2	7/2	7/2
+100	Courier New 71 double	7/2 16/2	7/2 16/2	7/2 16/2	7/2 16/2
+100	Courier New 71 singleAccounting	21/2	21/2	21/2	21/2
+100	Courier New 71 doubleAccounting	21/2 30/2	21/2 30/2	21/2 30/2	21/2 30/2
+100	Courier New 71 strike	-18/4	-18/4	-18/4	-18/4
+100	Courier New 72 single	7/2	7/2	7/2	7/2
+100	Courier New 72 double	7/2 16/2	7/2 16/2	7/2 16/2	7/2 16/2
+100	Courier New 72 singleAccounting	22/2	22/2	22/2	22/2
+100	Courier New 72 doubleAccounting	22/2 31/2	22/2 31/2	22/2 31/2	22/2 31/2
+100	Courier New 72 strike	-19/4	-19/4	-19/4	-19/4
+100	Courier New 36.5 single	3/1	3/1	3/1	3/1
+100	Courier New 36.5 double	3/1 8/1	3/1 8/1	3/1 8/1	3/1 8/1
+100	Courier New 36.5 singleAccounting	11/1	11/1	11/1	11/1
+100	Courier New 36.5 doubleAccounting	11/1 16/1	11/1 16/1	11/1 16/1	11/1 16/1
+100	Courier New 36.5 strike	-10/2	-9/2	-10/2	-9/2
+100	Courier New 37.5 single	3/1	3/1	3/1	3/1
+100	Courier New 37.5 double	3/1 8/1	3/1 8/1	3/1 8/1	3/1 8/1
+100	Courier New 37.5 singleAccounting	11/1	11/1	11/1	11/1
+100	Courier New 37.5 doubleAccounting	11/1 16/1	11/1 16/1	11/1 16/1	11/1 16/1
+100	Courier New 37.5 strike	-10/2	-10/2	-10/2	-10/2
+100	Courier New 38.5 single	4/1	3/1	4/1	3/1
+100	Courier New 38.5 double	4/1 9/1	3/1 8/1	4/1 9/1	3/1 8/1
+100	Courier New 38.5 singleAccounting	12/1	11/1	12/1	12/1
+100	Courier New 38.5 doubleAccounting	12/1 17/1	11/1 16/1	12/1 17/1	12/1 17/1
+100	Courier New 38.5 strike	-10/2	-10/2	-10/2	-10/2
+100	Courier New 39.5 single	4/1	4/1	4/1	4/1
+100	Courier New 39.5 double	4/1 9/1	4/1 9/1	4/1 9/1	4/1 9/1
+100	Courier New 39.5 singleAccounting	12/1	12/1	12/1	12/1
+100	Courier New 39.5 doubleAccounting	12/1 17/1	12/1 17/1	12/1 17/1	12/1 17/1
+100	Courier New 39.5 strike	-10/2	-10/2	-10/2	-10/2
+100	Courier New 40.5 single	4/1	4/1	4/1	4/1
+100	Courier New 40.5 double	4/1 9/1	4/1 9/1	4/1 9/1	4/1 9/1
+100	Courier New 40.5 singleAccounting	12/1	12/1	12/1	12/1
+100	Courier New 40.5 doubleAccounting	12/1 17/1	12/1 17/1	12/1 17/1	12/1 17/1
+100	Courier New 40.5 strike	-11/2	-10/2	-11/2	-10/2
+100	Courier New 41.5 single	4/1	4/1	4/1	4/1
+100	Courier New 41.5 double	4/1 9/1	4/1 9/1	4/1 9/1	4/1 9/1
+100	Courier New 41.5 singleAccounting	13/1	12/1	13/1	12/1
+100	Courier New 41.5 doubleAccounting	13/1 18/1	12/1 17/1	13/1 18/1	12/1 17/1
+100	Courier New 41.5 strike	-11/2	-11/2	-11/2	-11/2
+100	Courier New 42.5 single	4/1	4/1	4/1	3/1
+100	Courier New 42.5 double	4/1 10/1	4/1 9/1	4/1 10/1	3/1 9/1
+100	Courier New 42.5 singleAccounting	13/1	13/1	13/1	13/1
+100	Courier New 42.5 doubleAccounting	13/1 19/1	13/1 18/1	13/1 19/1	13/1 19/1
+100	Courier New 42.5 strike	-11/2	-11/2	-11/2	-11/2
+100	Courier New 43.5 single	4/1	4/1	4/1	4/1
+100	Courier New 43.5 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+100	Courier New 43.5 singleAccounting	13/1	13/1	13/1	13/1
+100	Courier New 43.5 doubleAccounting	13/1 19/1	13/1 19/1	13/1 19/1	13/1 19/1
+100	Courier New 43.5 strike	-11/2	-11/2	-11/2	-11/2
+100	Courier New 44.5 single	4/1	4/1	4/1	4/1
+100	Courier New 44.5 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+100	Courier New 44.5 singleAccounting	14/1	13/1	14/1	13/1
+100	Courier New 44.5 doubleAccounting	14/1 20/1	13/1 19/1	14/1 20/1	13/1 19/1
+100	Courier New 44.5 strike	-12/2	-11/2	-12/2	-12/2
+100	Courier New 45.5 single	4/1	4/1	4/1	4/1
+100	Courier New 45.5 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+100	Courier New 45.5 singleAccounting	14/1	14/1	14/1	14/1
+100	Courier New 45.5 doubleAccounting	14/1 20/1	14/1 20/1	14/1 20/1	14/1 20/1
+100	Courier New 45.5 strike	-12/2	-12/2	-12/2	-12/2
+100	Courier New 46.5 single	4/1	4/1	4/1	4/1
+100	Courier New 46.5 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+100	Courier New 46.5 singleAccounting	14/1	14/1	14/1	14/1
+100	Courier New 46.5 doubleAccounting	14/1 20/1	14/1 20/1	14/1 20/1	14/1 20/1
+100	Courier New 46.5 strike	-12/2	-12/2	-12/2	-12/2
+100	Courier New 47.5 single	5/1	4/1	5/1	5/1
+100	Courier New 47.5 double	5/1 11/1	4/1 10/1	5/1 11/1	5/1 11/1
+100	Courier New 47.5 singleAccounting	14/1	14/1	14/1	14/1
+100	Courier New 47.5 doubleAccounting	14/1 20/1	14/1 20/1	14/1 20/1	14/1 20/1
+100	Courier New 47.5 strike	-12/2	-12/2	-12/2	-12/2
+100	Courier New 48.5 single	4/2	5/1	4/2	4/1
+100	Courier New 48.5 double	4/2 11/2	5/1 11/1	4/2 11/2	4/1 11/1
+100	Courier New 48.5 singleAccounting	15/2	14/1	15/2	15/1
+100	Courier New 48.5 doubleAccounting	15/2 22/2	14/1 20/1	15/2 22/2	15/1 22/1
+100	Courier New 48.5 strike	-13/2	-12/2	-13/2	-13/2
+100	Courier New 49.5 single	4/2	4/2	4/2	4/2
+100	Courier New 49.5 double	4/2 11/2	4/2 11/2	4/2 11/2	4/2 11/2
+100	Courier New 49.5 singleAccounting	15/2	15/2	15/2	15/2
+100	Courier New 49.5 doubleAccounting	15/2 22/2	15/2 22/2	15/2 22/2	15/2 22/2
+100	Courier New 49.5 strike	-13/2	-13/2	-13/2	-13/2
+100	Courier New 50.5 single	4/2	4/2	4/2	4/2
+100	Courier New 50.5 double	4/2 11/2	4/2 11/2	4/2 11/2	4/2 11/2
+100	Courier New 50.5 singleAccounting	15/2	15/2	15/2	15/2
+100	Courier New 50.5 doubleAccounting	15/2 22/2	15/2 22/2	15/2 22/2	15/2 22/2
+100	Courier New 50.5 strike	-13/3	-13/2	-13/3	-13/3
+100	Courier New 51.5 single	5/2	4/2	5/2	4/2
+100	Courier New 51.5 double	5/2 12/2	4/2 11/2	5/2 12/2	4/2 11/2
+100	Courier New 51.5 singleAccounting	16/2	15/2	16/2	15/2
+100	Courier New 51.5 doubleAccounting	16/2 23/2	15/2 22/2	16/2 23/2	15/2 22/2
+100	Courier New 51.5 strike	-13/3	-13/3	-13/3	-13/3
+100	Courier New 52.5 single	5/2	5/2	5/2	5/2
+100	Courier New 52.5 double	5/2 12/2	5/2 12/2	5/2 12/2	5/2 12/2
+100	Courier New 52.5 singleAccounting	16/2	16/2	16/2	16/2
+100	Courier New 52.5 doubleAccounting	16/2 23/2	16/2 23/2	16/2 23/2	16/2 23/2
+100	Courier New 52.5 strike	-14/3	-13/3	-14/3	-14/3
+100	Courier New 53.5 single	5/2	5/2	5/2	5/2
+100	Courier New 53.5 double	5/2 12/2	5/2 12/2	5/2 12/2	5/2 12/2
+100	Courier New 53.5 singleAccounting	16/2	16/2	16/2	16/2
+100	Courier New 53.5 doubleAccounting	16/2 23/2	16/2 23/2	16/2 23/2	16/2 23/2
+100	Courier New 53.5 strike	-14/3	-14/3	-14/3	-14/3
+100	Courier New 54.5 single	5/2	5/2	5/2	5/2
+100	Courier New 54.5 double	5/2 12/2	5/2 12/2	5/2 12/2	5/2 12/2
+100	Courier New 54.5 singleAccounting	17/2	16/2	17/2	16/2
+100	Courier New 54.5 doubleAccounting	17/2 24/2	16/2 23/2	17/2 24/2	16/2 23/2
+100	Courier New 54.5 strike	-14/3	-14/3	-14/3	-14/3
+100	Courier New 55.5 single	5/2	5/2	5/2	4/2
+100	Courier New 55.5 double	5/2 13/2	5/2 12/2	5/2 13/2	4/2 12/2
+100	Courier New 55.5 singleAccounting	17/2	17/2	17/2	17/2
+100	Courier New 55.5 doubleAccounting	17/2 25/2	17/2 24/2	17/2 25/2	17/2 25/2
+100	Courier New 55.5 strike	-14/3	-14/3	-14/3	-14/3
+100	Courier New 56.5 single	5/2	5/2	5/2	5/2
+100	Courier New 56.5 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+100	Courier New 56.5 singleAccounting	17/2	17/2	17/2	17/2
+100	Courier New 56.5 doubleAccounting	17/2 25/2	17/2 25/2	17/2 25/2	17/2 25/2
+100	Courier New 56.5 strike	-15/3	-14/3	-15/3	-15/3
+100	Courier New 57.5 single	5/2	5/2	5/2	5/2
+100	Courier New 57.5 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+100	Courier New 57.5 singleAccounting	17/2	17/2	17/2	17/2
+100	Courier New 57.5 doubleAccounting	17/2 25/2	17/2 25/2	17/2 25/2	17/2 25/2
+100	Courier New 57.5 strike	-15/3	-15/3	-15/3	-15/3
+100	Courier New 58.5 single	5/2	5/2	5/2	5/2
+100	Courier New 58.5 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+100	Courier New 58.5 singleAccounting	18/2	17/2	18/2	18/2
+100	Courier New 58.5 doubleAccounting	18/2 26/2	17/2 25/2	18/2 26/2	18/2 26/2
+100	Courier New 58.5 strike	-15/3	-15/3	-15/3	-15/3
+100	Courier New 59.5 single	5/2	5/2	5/2	5/2
+100	Courier New 59.5 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+100	Courier New 59.5 singleAccounting	18/2	18/2	18/2	18/2
+100	Courier New 59.5 doubleAccounting	18/2 26/2	18/2 26/2	18/2 26/2	18/2 26/2
+100	Courier New 59.5 strike	-16/3	-15/3	-16/3	-15/3
+100	Courier New 60.5 single	6/2	5/2	6/2	6/2
+100	Courier New 60.5 double	6/2 14/2	5/2 13/2	6/2 14/2	6/2 14/2
+100	Courier New 60.5 singleAccounting	18/2	18/2	18/2	18/2
+100	Courier New 60.5 doubleAccounting	18/2 26/2	18/2 26/2	18/2 26/2	18/2 26/2
+100	Courier New 60.5 strike	-16/3	-16/3	-16/3	-16/3
+100	Courier New 61.5 single	6/2	6/2	6/2	6/2
+100	Courier New 61.5 double	6/2 14/2	6/2 14/2	6/2 14/2	6/2 14/2
+100	Courier New 61.5 singleAccounting	19/2	18/2	19/2	18/2
+100	Courier New 61.5 doubleAccounting	19/2 27/2	18/2 26/2	19/2 27/2	18/2 26/2
+100	Courier New 61.5 strike	-16/3	-16/3	-16/3	-16/3
+100	Courier New 62.5 single	6/2	6/2	6/2	6/2
+100	Courier New 62.5 double	6/2 14/2	6/2 14/2	6/2 14/2	6/2 14/2
+100	Courier New 62.5 singleAccounting	19/2	19/2	19/2	19/2
+100	Courier New 62.5 doubleAccounting	19/2 27/2	19/2 27/2	19/2 27/2	19/2 27/2
+100	Courier New 62.5 strike	-16/3	-16/3	-16/3	-16/3
+100	Courier New 63.5 single	6/2	6/2	6/2	6/2
+100	Courier New 63.5 double	6/2 14/2	6/2 14/2	6/2 14/2	6/2 14/2
+100	Courier New 63.5 singleAccounting	19/2	19/2	19/2	19/2
+100	Courier New 63.5 doubleAccounting	19/2 27/2	19/2 27/2	19/2 27/2	19/2 27/2
+100	Courier New 63.5 strike	-17/3	-16/3	-17/3	-16/3
+100	Courier New 64.5 single	6/2	6/2	6/2	6/2
+100	Courier New 64.5 double	6/2 15/2	6/2 14/2	6/2 15/2	6/2 15/2
+100	Courier New 64.5 singleAccounting	20/2	19/2	20/2	19/2
+100	Courier New 64.5 doubleAccounting	20/2 29/2	19/2 27/2	20/2 29/2	19/2 28/2
+100	Courier New 64.5 strike	-17/3	-17/3	-17/3	-17/3
+100	Courier New 65.5 single	6/2	6/2	6/2	6/2
+100	Courier New 65.5 double	6/2 15/2	6/2 15/2	6/2 15/2	6/2 15/2
+100	Courier New 65.5 singleAccounting	20/2	20/2	20/2	20/2
+100	Courier New 65.5 doubleAccounting	20/2 29/2	20/2 29/2	20/2 29/2	20/2 29/2
+100	Courier New 65.5 strike	-17/3	-17/3	-17/3	-17/3
+100	Courier New 66.5 single	6/2	6/2	6/2	6/2
+100	Courier New 66.5 double	6/2 15/2	6/2 15/2	6/2 15/2	6/2 15/2
+100	Courier New 66.5 singleAccounting	20/2	20/2	20/2	20/2
+100	Courier New 66.5 doubleAccounting	20/2 29/2	20/2 29/2	20/2 29/2	20/2 29/2
+100	Courier New 66.5 strike	-17/3	-17/3	-17/3	-17/3
+100	Courier New 67.5 single	6/2	6/2	6/2	6/2
+100	Courier New 67.5 double	6/2 15/2	6/2 15/2	6/2 15/2	6/2 15/2
+100	Courier New 67.5 singleAccounting	20/2	20/2	20/2	20/2
+100	Courier New 67.5 doubleAccounting	20/2 29/2	20/2 29/2	20/2 29/2	20/2 29/2
+100	Courier New 67.5 strike	-18/3	-17/3	-18/3	-17/3
+100	Courier New 68.5 single	7/2	6/2	7/2	6/2
+100	Courier New 68.5 double	7/2 16/2	6/2 15/2	7/2 16/2	6/2 15/2
+100	Courier New 68.5 singleAccounting	21/2	20/2	21/2	21/2
+100	Courier New 68.5 doubleAccounting	21/2 30/2	20/2 29/2	21/2 30/2	21/2 30/2
+100	Courier New 68.5 strike	-18/3	-18/3	-18/3	-18/3
+100	Courier New 69.5 single	7/2	7/2	7/2	7/2
+100	Courier New 69.5 double	7/2 16/2	7/2 16/2	7/2 16/2	7/2 16/2
+100	Courier New 69.5 singleAccounting	21/2	21/2	21/2	21/2
+100	Courier New 69.5 doubleAccounting	21/2 30/2	21/2 30/2	21/2 30/2	21/2 30/2
+100	Courier New 69.5 strike	-18/3	-18/3	-18/3	-18/3
+100	Courier New 70.5 single	7/2	7/2	7/2	7/2
+100	Courier New 70.5 double	7/2 16/2	7/2 16/2	7/2 16/2	7/2 16/2
+100	Courier New 70.5 singleAccounting	21/2	21/2	21/2	21/2
+100	Courier New 70.5 doubleAccounting	21/2 30/2	21/2 30/2	21/2 30/2	21/2 30/2
+100	Courier New 70.5 strike	-18/4	-18/3	-18/4	-18/4
+100	Courier New 71.5 single	7/2	7/2	7/2	7/2
+100	Courier New 71.5 double	7/2 16/2	7/2 16/2	7/2 16/2	7/2 16/2
+100	Courier New 71.5 singleAccounting	22/2	21/2	22/2	21/2
+100	Courier New 71.5 doubleAccounting	22/2 31/2	21/2 30/2	22/2 31/2	21/2 30/2
+100	Courier New 71.5 strike	-19/4	-18/4	-19/4	-19/4
+100	Times New Roman 36 single	3/1	3/1	3/1	3/1
+100	Times New Roman 36 double	3/1 5/1	3/1 5/1	3/1 5/1	3/1 5/1
+100	Times New Roman 36 singleAccounting	8/1	8/1	8/1	8/1
+100	Times New Roman 36 doubleAccounting	8/1 10/1	8/1 10/1	8/1 10/1	8/1 10/1
+100	Times New Roman 36 strike	-9/2	-9/2	-9/2	-9/2
+100	Times New Roman 36.5 single	4/1	3/1	4/1	3/1
+100	Times New Roman 36.5 double	3/1 6/1	3/1 6/1	3/1 6/1	3/1 6/1
+100	Times New Roman 36.5 singleAccounting	8/1	8/1	8/1	8/1
+100	Times New Roman 36.5 doubleAccounting	8/1 10/1	8/1 10/1	8/1 10/1	8/1 10/1
+100	Times New Roman 36.5 strike	-10/2	-9/2	-10/2	-9/2
+100	Times New Roman 37 single	4/1	4/1	4/1	4/1
+100	Times New Roman 37 double	4/1 7/1	4/1 7/1	4/1 7/1	4/1 7/1
+100	Times New Roman 37 singleAccounting	8/1	8/1	8/1	8/1
+100	Times New Roman 37 doubleAccounting	8/1 10/1	8/1 10/1	8/1 10/1	8/1 10/1
+100	Times New Roman 37 strike	-10/2	-10/2	-10/2	-10/2
+100	Times New Roman 37.5 single	4/1	4/1	4/1	4/1
+100	Times New Roman 37.5 double	4/1 7/1	4/1 7/1	4/1 7/1	4/1 7/1
+100	Times New Roman 37.5 singleAccounting	8/1	8/1	8/1	8/1
+100	Times New Roman 37.5 doubleAccounting	8/1 10/1	8/1 10/1	8/1 10/1	8/1 10/1
+100	Times New Roman 37.5 strike	-10/2	-10/2	-10/2	-10/2
+100	Times New Roman 38 single	4/1	4/1	4/1	4/1
+100	Times New Roman 38 double	4/1 7/1	4/1 7/1	4/1 7/1	4/1 7/1
+100	Times New Roman 38 singleAccounting	8/1	8/1	8/1	8/1
+100	Times New Roman 38 doubleAccounting	8/1 10/1	8/1 10/1	8/1 10/1	8/1 10/1
+100	Times New Roman 38 strike	-10/2	-10/2	-10/2	-10/2
+100	Times New Roman 38.5 single	4/1	4/1	4/1	4/1
+100	Times New Roman 38.5 double	4/1 7/1	4/1 7/1	4/1 7/1	4/1 7/1
+100	Times New Roman 38.5 singleAccounting	8/1	8/1	8/1	8/1
+100	Times New Roman 38.5 doubleAccounting	8/1 10/1	8/1 10/1	8/1 10/1	8/1 10/1
+100	Times New Roman 38.5 strike	-10/2	-10/2	-10/2	-10/2
+100	Times New Roman 39 single	4/1	4/1	4/1	4/1
+100	Times New Roman 39 double	4/1 7/1	4/1 7/1	4/1 7/1	4/1 7/1
+100	Times New Roman 39 singleAccounting	8/1	8/1	8/1	8/1
+100	Times New Roman 39 doubleAccounting	8/1 10/1	8/1 10/1	8/1 10/1	8/1 10/1
+100	Times New Roman 39 strike	-10/2	-10/2	-10/2	-10/2
+100	Times New Roman 39.5 single	4/1	4/1	4/1	4/1
+100	Times New Roman 39.5 double	4/1 7/1	4/1 7/1	4/1 7/1	4/1 7/1
+100	Times New Roman 39.5 singleAccounting	9/1	8/1	9/1	9/1
+100	Times New Roman 39.5 doubleAccounting	9/1 11/1	8/1 10/1	9/1 11/1	9/1 11/1
+100	Times New Roman 39.5 strike	-10/2	-10/2	-10/2	-10/2
+100	Times New Roman 40 single	4/1	4/1	4/1	4/1
+100	Times New Roman 40 double	4/1 7/1	4/1 7/1	4/1 7/1	4/1 7/1
+100	Times New Roman 40 singleAccounting	9/1	9/1	9/1	9/1
+100	Times New Roman 40 doubleAccounting	9/1 11/1	9/1 11/1	9/1 11/1	9/1 11/1
+100	Times New Roman 40 strike	-10/2	-10/2	-10/2	-10/2
+100	Times New Roman 40.5 single	4/2	4/1	4/2	4/1
+100	Times New Roman 40.5 double	4/1 6/1	4/1 6/1	4/1 6/1	4/1 6/1
+100	Times New Roman 40.5 singleAccounting	9/2	9/1	9/2	9/1
+100	Times New Roman 40.5 doubleAccounting	9/2 13/2	9/1 11/1	9/2 13/2	9/1 11/1
+100	Times New Roman 40.5 strike	-11/2	-10/2	-11/2	-10/2
+100	Times New Roman 41 single	4/2	4/2	4/2	4/2
+100	Times New Roman 41 double	2/2 6/2	2/2 6/2	2/2 6/2	2/2 6/2
+100	Times New Roman 41 singleAccounting	9/2	9/2	9/2	9/2
+100	Times New Roman 41 doubleAccounting	9/2 13/2	9/2 13/2	9/2 13/2	9/2 13/2
+100	Times New Roman 41 strike	-11/2	-11/2	-11/2	-11/2
+100	Calibri 9 single	1/1	1/1	1/1	1/1
+100	Calibri 9 double	-1/1 1/1	-1/1 1/1	-1/1 1/1	-1/1 1/1
+100	Calibri 9 singleAccounting	2/1	2/1	2/1	2/1
+100	Calibri 9 doubleAccounting	2/1 4/1	2/1 4/1	2/1 4/1	2/1 4/1
+100	Calibri 9 strike	-2/1	-2/1	-2/1	-2/1
+100	Calibri 14 single	1/1	1/1	1/1	1/1
+100	Calibri 14 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+100	Calibri 14 singleAccounting	4/1	4/1	4/1	4/1
+100	Calibri 14 doubleAccounting	4/1 6/1	4/1 6/1	4/1 6/1	4/1 6/1
+100	Calibri 14 strike	-4/1	-4/1	-4/1	-4/1
+100	Calibri 20 single	2/1	2/1	2/1	2/1
+100	Calibri 20 double	2/1 4/1	2/1 4/1	2/1 4/1	2/1 4/1
+100	Calibri 20 singleAccounting	5/1	5/1	5/1	5/1
+100	Calibri 20 doubleAccounting	5/1 7/1	5/1 7/1	5/1 7/1	5/1 7/1
+100	Calibri 20 strike	-5/1	-5/1	-5/1	-5/1
+100	Calibri 36 single	4/2	4/2	4/2	4/2
+100	Calibri 36 double	4/2 8/2	4/2 8/2	4/2 8/2	4/2 8/2
+100	Calibri 36 singleAccounting	10/2	10/2	10/2	10/2
+100	Calibri 36 doubleAccounting	10/2 14/2	10/2 14/2	10/2 14/2	10/2 14/2
+100	Calibri 36 strike	-9/2	-9/2	-9/2	-9/2
+100	Calibri 48 single	5/3	5/3	5/3	5/3
+100	Calibri 48 double	2/3 8/3	2/3 8/3	2/3 8/3	2/3 8/3
+100	Calibri 48 singleAccounting	13/3	13/3	13/3	13/3
+100	Calibri 48 doubleAccounting	13/3 19/3	13/3 19/3	13/3 19/3	13/3 19/3
+100	Calibri 48 strike	-12/3	-12/3	-12/3	-12/3
+200	Courier New 6 single	2/1	2/1	2/1	2/1
+200	Courier New 6 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+200	Courier New 6 singleAccounting	4/1	4/1	4/1	4/1
+200	Courier New 6 doubleAccounting	4/1 6/1	4/1 6/1	4/1 6/1	4/1 6/1
+200	Courier New 6 strike	-3/1	-3/1	-3/1	-3/1
+200	Courier New 7 single	3/1	3/1	3/1	3/1
+200	Courier New 7 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+200	Courier New 7 singleAccounting	4/1	4/1	4/1	4/1
+200	Courier New 7 doubleAccounting	4/1 6/1	4/1 6/1	4/1 6/1	4/1 6/1
+200	Courier New 7 strike	-4/1	-4/1	-4/1	-4/1
+200	Courier New 8 single	3/1	3/1	3/1	3/1
+200	Courier New 8 double	1/1 3/1	1/1 3/1	1/1 3/1	1/1 3/1
+200	Courier New 8 singleAccounting	5/1	5/1	5/1	5/1
+200	Courier New 8 doubleAccounting	5/1 7/1	5/1 7/1	5/1 7/1	5/1 7/1
+200	Courier New 8 strike	-4/1	-4/1	-4/1	-4/1
+200	Courier New 9 single	1/1	1/1	1/1	1/1
+200	Courier New 9 double	1/1 4/1	1/1 4/1	1/1 4/1	1/1 4/1
+200	Courier New 9 singleAccounting	5/1	5/1	5/1	5/1
+200	Courier New 9 doubleAccounting	5/1 8/1	5/1 8/1	5/1 8/1	5/1 8/1
+200	Courier New 9 strike	-5/1	-5/1	-5/1	-5/1
+200	Courier New 10 single	1/1	1/1	1/1	1/1
+200	Courier New 10 double	1/1 4/1	1/1 4/1	1/1 4/1	1/1 4/1
+200	Courier New 10 singleAccounting	6/1	6/1	6/1	6/1
+200	Courier New 10 doubleAccounting	6/1 9/1	6/1 9/1	6/1 9/1	6/1 9/1
+200	Courier New 10 strike	-5/1	-5/1	-5/1	-5/1
+200	Courier New 11 single	2/1	2/1	2/1	2/1
+200	Courier New 11 double	2/1 5/1	2/1 5/1	2/1 5/1	2/1 5/1
+200	Courier New 11 singleAccounting	7/1	7/1	7/1	7/1
+200	Courier New 11 doubleAccounting	7/1 10/1	7/1 10/1	7/1 10/1	7/1 10/1
+200	Courier New 11 strike	-6/1	-6/1	-6/1	-6/1
+200	Courier New 12 single	2/1	2/1	2/1	2/1
+200	Courier New 12 double	2/1 5/1	2/1 5/1	2/1 5/1	2/1 5/1
+200	Courier New 12 singleAccounting	7/1	7/1	7/1	7/1
+200	Courier New 12 doubleAccounting	7/1 10/1	7/1 10/1	7/1 10/1	7/1 10/1
+200	Courier New 12 strike	-6/1	-6/1	-6/1	-6/1
+200	Courier New 13 single	2/1	2/1	2/1	2/1
+200	Courier New 13 double	2/1 6/1	2/1 6/1	2/1 6/1	2/1 6/1
+200	Courier New 13 singleAccounting	8/1	8/1	8/1	8/1
+200	Courier New 13 doubleAccounting	8/1 12/1	8/1 12/1	8/1 12/1	8/1 12/1
+200	Courier New 13 strike	-7/1	-7/1	-7/1	-7/1
+200	Courier New 14 single	2/1	2/1	2/1	2/1
+200	Courier New 14 double	2/1 6/1	2/1 6/1	2/1 6/1	2/1 6/1
+200	Courier New 14 singleAccounting	8/1	8/1	8/1	8/1
+200	Courier New 14 doubleAccounting	8/1 12/1	8/1 12/1	8/1 12/1	8/1 12/1
+200	Courier New 14 strike	-7/1	-7/1	-7/1	-7/1
+200	Courier New 15 single	2/1	2/1	2/1	2/1
+200	Courier New 15 double	2/1 6/1	2/1 6/1	2/1 6/1	2/1 6/1
+200	Courier New 15 singleAccounting	9/1	9/1	9/1	9/1
+200	Courier New 15 doubleAccounting	9/1 13/1	9/1 13/1	9/1 13/1	9/1 13/1
+200	Courier New 15 strike	-8/1	-8/1	-8/1	-8/1
+200	Courier New 16 single	3/1	3/1	3/1	3/1
+200	Courier New 16 double	3/1 7/1	3/1 7/1	3/1 7/1	3/1 7/1
+200	Courier New 16 singleAccounting	10/1	10/1	10/1	10/1
+200	Courier New 16 doubleAccounting	10/1 14/1	10/1 14/1	10/1 14/1	10/1 14/1
+200	Courier New 16 strike	-8/2	-8/2	-8/2	-8/2
+200	Courier New 17 single	3/1	3/1	3/1	3/1
+200	Courier New 17 double	3/1 7/1	3/1 7/1	3/1 7/1	3/1 7/1
+200	Courier New 17 singleAccounting	10/1	10/1	10/1	10/1
+200	Courier New 17 doubleAccounting	10/1 14/1	10/1 14/1	10/1 14/1	10/1 14/1
+200	Courier New 17 strike	-9/2	-9/2	-9/2	-9/2
+200	Courier New 18 single	3/1	3/1	3/1	3/1
+200	Courier New 18 double	3/1 8/1	3/1 8/1	3/1 8/1	3/1 8/1
+200	Courier New 18 singleAccounting	11/1	11/1	11/1	11/1
+200	Courier New 18 doubleAccounting	11/1 16/1	11/1 16/1	11/1 16/1	11/1 16/1
+200	Courier New 18 strike	-9/2	-9/2	-9/2	-9/2
+200	Courier New 19 single	3/1	3/1	3/1	3/1
+200	Courier New 19 double	3/1 8/1	3/1 8/1	3/1 8/1	3/1 8/1
+200	Courier New 19 singleAccounting	11/1	11/1	11/1	11/1
+200	Courier New 19 doubleAccounting	11/1 16/1	11/1 16/1	11/1 16/1	11/1 16/1
+200	Courier New 19 strike	-10/2	-10/2	-10/2	-10/2
+200	Courier New 20 single	4/1	4/1	4/1	4/1
+200	Courier New 20 double	4/1 9/1	4/1 9/1	4/1 9/1	4/1 9/1
+200	Courier New 20 singleAccounting	12/1	12/1	12/1	12/1
+200	Courier New 20 doubleAccounting	12/1 17/1	12/1 17/1	12/1 17/1	12/1 17/1
+200	Courier New 20 strike	-10/2	-10/2	-10/2	-10/2
+200	Courier New 21 single	4/1	4/1	4/1	4/1
+200	Courier New 21 double	4/1 9/1	4/1 9/1	4/1 9/1	4/1 9/1
+200	Courier New 21 singleAccounting	13/1	13/1	13/1	13/1
+200	Courier New 21 doubleAccounting	13/1 18/1	13/1 18/1	13/1 18/1	13/1 18/1
+200	Courier New 21 strike	-11/2	-11/2	-11/2	-11/2
+200	Courier New 22 single	4/1	4/1	4/1	4/1
+200	Courier New 22 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+200	Courier New 22 singleAccounting	13/1	13/1	13/1	13/1
+200	Courier New 22 doubleAccounting	13/1 19/1	13/1 19/1	13/1 19/1	13/1 19/1
+200	Courier New 22 strike	-11/2	-11/2	-11/2	-11/2
+200	Courier New 23 single	4/1	4/1	4/1	4/1
+200	Courier New 23 double	4/1 10/1	4/1 10/1	4/1 10/1	4/1 10/1
+200	Courier New 23 singleAccounting	14/1	14/1	14/1	14/1
+200	Courier New 23 doubleAccounting	14/1 20/1	14/1 20/1	14/1 20/1	14/1 20/1
+200	Courier New 23 strike	-12/2	-12/2	-12/2	-12/2
+200	Courier New 24 single	5/1	5/1	5/1	5/1
+200	Courier New 24 double	5/1 11/1	5/1 11/1	5/1 11/1	5/1 11/1
+200	Courier New 24 singleAccounting	14/1	14/1	14/1	14/1
+200	Courier New 24 doubleAccounting	14/1 20/1	14/1 20/1	14/1 20/1	14/1 20/1
+200	Courier New 24 strike	-12/2	-12/2	-12/2	-12/2
+200	Courier New 25 single	4/2	4/2	4/2	4/2
+200	Courier New 25 double	4/2 11/2	4/2 11/2	4/2 11/2	4/2 11/2
+200	Courier New 25 singleAccounting	15/2	15/2	15/2	15/2
+200	Courier New 25 doubleAccounting	15/2 22/2	15/2 22/2	15/2 22/2	15/2 22/2
+200	Courier New 25 strike	-13/2	-13/2	-13/2	-13/2
+200	Courier New 26 single	5/2	5/2	5/2	5/2
+200	Courier New 26 double	5/2 12/2	5/2 12/2	5/2 12/2	5/2 12/2
+200	Courier New 26 singleAccounting	16/2	16/2	16/2	16/2
+200	Courier New 26 doubleAccounting	16/2 23/2	16/2 23/2	16/2 23/2	16/2 23/2
+200	Courier New 26 strike	-13/3	-13/3	-13/3	-13/3
+200	Courier New 27 single	5/2	5/2	5/2	5/2
+200	Courier New 27 double	5/2 12/2	5/2 12/2	5/2 12/2	5/2 12/2
+200	Courier New 27 singleAccounting	16/2	16/2	16/2	16/2
+200	Courier New 27 doubleAccounting	16/2 23/2	16/2 23/2	16/2 23/2	16/2 23/2
+200	Courier New 27 strike	-14/3	-14/3	-14/3	-14/3
+200	Courier New 28 single	5/2	5/2	5/2	5/2
+200	Courier New 28 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+200	Courier New 28 singleAccounting	17/2	17/2	17/2	17/2
+200	Courier New 28 doubleAccounting	17/2 25/2	17/2 25/2	17/2 25/2	17/2 25/2
+200	Courier New 28 strike	-14/3	-14/3	-14/3	-14/3
+200	Courier New 29 single	5/2	5/2	5/2	5/2
+200	Courier New 29 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+200	Courier New 29 singleAccounting	17/2	17/2	17/2	17/2
+200	Courier New 29 doubleAccounting	17/2 25/2	17/2 25/2	17/2 25/2	17/2 25/2
+200	Courier New 29 strike	-15/3	-15/3	-15/3	-15/3
+200	Courier New 30 single	5/2	5/2	5/2	5/2
+200	Courier New 30 double	5/2 13/2	5/2 13/2	5/2 13/2	5/2 13/2
+200	Courier New 30 singleAccounting	18/2	18/2	18/2	18/2
+200	Courier New 30 doubleAccounting	18/2 26/2	18/2 26/2	18/2 26/2	18/2 26/2
+200	Courier New 30 strike	-16/3	-16/3	-16/3	-16/3
+200	Courier New 31 single	6/2	6/2	6/2	6/2
+200	Courier New 31 double	6/2 14/2	6/2 14/2	6/2 14/2	6/2 14/2
+200	Courier New 31 singleAccounting	19/2	19/2	19/2	19/2
+200	Courier New 31 doubleAccounting	19/2 27/2	19/2 27/2	19/2 27/2	19/2 27/2
+200	Courier New 31 strike	-16/3	-16/3	-16/3	-16/3
+200	Courier New 32 single	6/2	6/2	6/2	6/2
+200	Courier New 32 double	6/2 14/2	6/2 14/2	6/2 14/2	6/2 14/2
+200	Courier New 32 singleAccounting	19/2	19/2	19/2	19/2
+200	Courier New 32 doubleAccounting	19/2 27/2	19/2 27/2	19/2 27/2	19/2 27/2
+200	Courier New 32 strike	-17/3	-17/3	-17/3	-17/3
+200	Courier New 33 single	6/2	6/2	6/2	6/2
+200	Courier New 33 double	6/2 15/2	6/2 15/2	6/2 15/2	6/2 15/2
+200	Courier New 33 singleAccounting	20/2	20/2	20/2	20/2
+200	Courier New 33 doubleAccounting	20/2 29/2	20/2 29/2	20/2 29/2	20/2 29/2
+200	Courier New 33 strike	-17/3	-17/3	-17/3	-17/3
+200	Courier New 34 single	6/2	6/2	6/2	6/2
+200	Courier New 34 double	6/2 15/2	6/2 15/2	6/2 15/2	6/2 15/2
+200	Courier New 34 singleAccounting	20/2	20/2	20/2	20/2
+200	Courier New 34 doubleAccounting	20/2 29/2	20/2 29/2	20/2 29/2	20/2 29/2
+200	Courier New 34 strike	-18/3	-18/3	-18/3	-18/3
+200	Courier New 35 single	7/2	7/2	7/2	7/2
+200	Courier New 35 double	7/2 16/2	7/2 16/2	7/2 16/2	7/2 16/2
+200	Courier New 35 singleAccounting	21/2	21/2	21/2	21/2
+200	Courier New 35 doubleAccounting	21/2 30/2	21/2 30/2	21/2 30/2	21/2 30/2
+200	Courier New 35 strike	-18/3	-18/3	-18/3	-18/3
+200	Courier New 36 single	7/2	7/2	7/2	7/2
+200	Courier New 36 double	7/2 16/2	7/2 16/2	7/2 16/2	7/2 16/2
+200	Courier New 36 singleAccounting	22/2	22/2	22/2	22/2
+200	Courier New 36 doubleAccounting	22/2 31/2	22/2 31/2	22/2 31/2	22/2 31/2
+200	Courier New 36 strike	-19/4	-19/4	-19/4	-19/4
+200	Courier New 37 single	7/3	7/3	7/3	7/3
+200	Courier New 37 double	7/3 17/3	7/3 17/3	7/3 17/3	7/3 17/3
+200	Courier New 37 singleAccounting	22/3	22/3	22/3	22/3
+200	Courier New 37 doubleAccounting	22/3 32/3	22/3 32/3	22/3 32/3	22/3 32/3
+200	Courier New 37 strike	-19/4	-19/4	-19/4	-19/4
+200	Courier New 38 single	7/3	7/3	7/3	7/3
+200	Courier New 38 double	7/3 17/3	7/3 17/3	7/3 17/3	7/3 17/3
+200	Courier New 38 singleAccounting	23/3	23/3	23/3	23/3
+200	Courier New 38 doubleAccounting	23/3 33/3	23/3 33/3	23/3 33/3	23/3 33/3
+200	Courier New 38 strike	-20/4	-20/4	-20/4	-20/4
+200	Courier New 39 single	7/3	7/3	7/3	7/3
+200	Courier New 39 double	7/3 18/3	7/3 18/3	7/3 18/3	7/3 18/3
+200	Courier New 39 singleAccounting	23/3	23/3	23/3	23/3
+200	Courier New 39 doubleAccounting	23/3 34/3	23/3 34/3	23/3 34/3	23/3 34/3
+200	Courier New 39 strike	-20/4	-20/4	-20/4	-20/4
+200	Courier New 40 single	7/3	7/3	7/3	7/3
+200	Courier New 40 double	7/3 18/3	7/3 18/3	7/3 18/3	7/3 18/3
+200	Courier New 40 singleAccounting	24/3	24/3	24/3	24/3
+200	Courier New 40 doubleAccounting	24/3 35/3	24/3 35/3	24/3 35/3	24/3 35/3
+200	Courier New 40 strike	-21/4	-21/4	-21/4	-21/4
+200	Courier New 41 single	8/3	8/3	8/3	8/3
+200	Courier New 41 double	8/3 19/3	8/3 19/3	8/3 19/3	8/3 19/3
+200	Courier New 41 singleAccounting	25/3	25/3	25/3	25/3
+200	Courier New 41 doubleAccounting	25/3 36/3	25/3 36/3	25/3 36/3	25/3 36/3
+200	Courier New 41 strike	-21/4	-21/4	-21/4	-21/4
+200	Courier New 42 single	8/3	8/3	8/3	8/3
+200	Courier New 42 double	8/3 19/3	8/3 19/3	8/3 19/3	8/3 19/3
+200	Courier New 42 singleAccounting	25/3	25/3	25/3	25/3
+200	Courier New 42 doubleAccounting	25/3 36/3	25/3 36/3	25/3 36/3	25/3 36/3
+200	Courier New 42 strike	-22/4	-22/4	-22/4	-22/4
+200	Courier New 43 single	8/3	8/3	8/3	8/3
+200	Courier New 43 double	8/3 20/3	8/3 20/3	8/3 20/3	8/3 20/3
+200	Courier New 43 singleAccounting	26/3	26/3	26/3	26/3
+200	Courier New 43 doubleAccounting	26/3 38/3	26/3 38/3	26/3 38/3	26/3 38/3
+200	Courier New 43 strike	-22/4	-22/4	-22/4	-22/4
+200	Courier New 44 single	8/3	8/3	8/3	8/3
+200	Courier New 44 double	8/3 20/3	8/3 20/3	8/3 20/3	8/3 20/3
+200	Courier New 44 singleAccounting	26/3	26/3	26/3	26/3
+200	Courier New 44 doubleAccounting	26/3 38/3	26/3 38/3	26/3 38/3	26/3 38/3
+200	Courier New 44 strike	-23/4	-23/4	-23/4	-23/4
+200	Courier New 45 single	8/3	8/3	8/3	8/3
+200	Courier New 45 double	8/3 20/3	8/3 20/3	8/3 20/3	8/3 20/3
+200	Courier New 45 singleAccounting	27/3	27/3	27/3	27/3
+200	Courier New 45 doubleAccounting	27/3 39/3	27/3 39/3	27/3 39/3	27/3 39/3
+200	Courier New 45 strike	-23/4	-23/4	-23/4	-23/4
+200	Courier New 46 single	9/3	9/3	9/3	9/3
+200	Courier New 46 double	9/3 21/3	9/3 21/3	9/3 21/3	9/3 21/3
+200	Courier New 46 singleAccounting	28/3	28/3	28/3	28/3
+200	Courier New 46 doubleAccounting	28/3 40/3	28/3 40/3	28/3 40/3	28/3 40/3
+200	Courier New 46 strike	-24/5	-24/5	-24/5	-24/5
+200	Courier New 47 single	9/3	9/3	9/3	9/3
+200	Courier New 47 double	9/3 21/3	9/3 21/3	9/3 21/3	9/3 21/3
+200	Courier New 47 singleAccounting	28/3	28/3	28/3	28/3
+200	Courier New 47 doubleAccounting	28/3 40/3	28/3 40/3	28/3 40/3	28/3 40/3
+200	Courier New 47 strike	-24/5	-24/5	-24/5	-24/5
+200	Courier New 48 single	9/3	9/3	9/3	9/3
+200	Courier New 48 double	9/3 22/3	9/3 22/3	9/3 22/3	9/3 22/3
+200	Courier New 48 singleAccounting	29/3	29/3	29/3	29/3
+200	Courier New 48 doubleAccounting	29/3 42/3	29/3 42/3	29/3 42/3	29/3 42/3
+200	Courier New 48 strike	-25/5	-25/5	-25/5	-25/5
+200	Courier New 49 single	9/4	9/4	9/4	9/4
+200	Courier New 49 double	9/4 22/4	9/4 22/4	9/4 22/4	9/4 22/4
+200	Courier New 49 singleAccounting	29/4	29/4	29/4	29/4
+200	Courier New 49 doubleAccounting	29/4 42/4	29/4 42/4	29/4 42/4	29/4 42/4
+200	Courier New 49 strike	-25/5	-25/5	-25/5	-25/5
+200	Courier New 50 single	9/4	9/4	9/4	9/4
+200	Courier New 50 double	9/4 23/4	9/4 23/4	9/4 23/4	9/4 23/4
+200	Courier New 50 singleAccounting	30/4	30/4	30/4	30/4
+200	Courier New 50 doubleAccounting	30/4 44/4	30/4 44/4	30/4 44/4	30/4 44/4
+200	Courier New 50 strike	-26/5	-26/5	-26/5	-26/5
+200	Courier New 51 single	9/4	9/4	9/4	9/4
+200	Courier New 51 double	9/4 23/4	9/4 23/4	9/4 23/4	9/4 23/4
+200	Courier New 51 singleAccounting	31/4	31/4	31/4	31/4
+200	Courier New 51 doubleAccounting	31/4 45/4	31/4 45/4	31/4 45/4	31/4 45/4
+200	Courier New 51 strike	-26/5	-26/5	-26/5	-26/5
+200	Courier New 52 single	10/4	10/4	10/4	10/4
+200	Courier New 52 double	10/4 24/4	10/4 24/4	10/4 24/4	10/4 24/4
+200	Courier New 52 singleAccounting	31/4	31/4	31/4	31/4
+200	Courier New 52 doubleAccounting	31/4 45/4	31/4 45/4	31/4 45/4	31/4 45/4
+200	Courier New 52 strike	-27/5	-27/5	-27/5	-27/5
+200	Courier New 53 single	10/4	10/4	10/4	10/4
+200	Courier New 53 double	10/4 24/4	10/4 24/4	10/4 24/4	10/4 24/4
+200	Courier New 53 singleAccounting	32/4	32/4	32/4	32/4
+200	Courier New 53 doubleAccounting	32/4 46/4	32/4 46/4	32/4 46/4	32/4 46/4
+200	Courier New 53 strike	-27/5	-27/5	-27/5	-27/5
+200	Courier New 54 single	10/4	10/4	10/4	10/4
+200	Courier New 54 double	10/4 25/4	10/4 25/4	10/4 25/4	10/4 25/4
+200	Courier New 54 singleAccounting	32/4	32/4	32/4	32/4
+200	Courier New 54 doubleAccounting	32/4 47/4	32/4 47/4	32/4 47/4	32/4 47/4
+200	Courier New 54 strike	-28/5	-28/5	-28/5	-28/5
+200	Courier New 55 single	10/4	10/4	10/4	10/4
+200	Courier New 55 double	10/4 25/4	10/4 25/4	10/4 25/4	10/4 25/4
+200	Courier New 55 singleAccounting	33/4	33/4	33/4	33/4
+200	Courier New 55 doubleAccounting	33/4 48/4	33/4 48/4	33/4 48/4	33/4 48/4
+200	Courier New 55 strike	-28/5	-28/5	-28/5	-28/5
+200	Courier New 56 single	11/4	11/4	11/4	11/4
+200	Courier New 56 double	11/4 26/4	11/4 26/4	11/4 26/4	11/4 26/4
+200	Courier New 56 singleAccounting	34/4	34/4	34/4	34/4
+200	Courier New 56 doubleAccounting	34/4 49/4	34/4 49/4	34/4 49/4	34/4 49/4
+200	Courier New 56 strike	-29/6	-29/6	-29/6	-29/6
+200	Courier New 57 single	11/4	11/4	11/4	11/4
+200	Courier New 57 double	11/4 26/4	11/4 26/4	11/4 26/4	11/4 26/4
+200	Courier New 57 singleAccounting	34/4	34/4	34/4	34/4
+200	Courier New 57 doubleAccounting	34/4 49/4	34/4 49/4	34/4 49/4	34/4 49/4
+200	Courier New 57 strike	-30/6	-30/6	-30/6	-30/6
+200	Courier New 58 single	11/4	11/4	11/4	11/4
+200	Courier New 58 double	11/4 27/4	11/4 27/4	11/4 27/4	11/4 27/4
+200	Courier New 58 singleAccounting	35/4	35/4	35/4	35/4
+200	Courier New 58 doubleAccounting	35/4 51/4	35/4 51/4	35/4 51/4	35/4 51/4
+200	Courier New 58 strike	-30/6	-30/6	-30/6	-30/6
+200	Courier New 59 single	11/4	11/4	11/4	11/4
+200	Courier New 59 double	11/4 27/4	11/4 27/4	11/4 27/4	11/4 27/4
+200	Courier New 59 singleAccounting	35/4	35/4	35/4	35/4
+200	Courier New 59 doubleAccounting	35/4 51/4	35/4 51/4	35/4 51/4	35/4 51/4
+200	Courier New 59 strike	-31/6	-31/6	-31/6	-31/6
+200	Courier New 60 single	11/4	11/4	11/4	11/4
+200	Courier New 60 double	11/4 27/4	11/4 27/4	11/4 27/4	11/4 27/4
+200	Courier New 60 singleAccounting	36/4	36/4	36/4	36/4
+200	Courier New 60 doubleAccounting	36/4 52/4	36/4 52/4	36/4 52/4	36/4 52/4
+200	Courier New 60 strike	-31/6	-31/6	-31/6	-31/6
+200	Courier New 61 single	11/5	11/5	11/5	11/5
+200	Courier New 61 double	11/5 28/5	11/5 28/5	11/5 28/5	11/5 28/5
+200	Courier New 61 singleAccounting	37/5	37/5	37/5	37/5
+200	Courier New 61 doubleAccounting	37/5 54/5	37/5 54/5	37/5 54/5	37/5 54/5
+200	Courier New 61 strike	-32/6	-32/6	-32/6	-32/6
+200	Courier New 62 single	11/5	11/5	11/5	11/5
+200	Courier New 62 double	11/5 28/5	11/5 28/5	11/5 28/5	11/5 28/5
+200	Courier New 62 singleAccounting	37/5	37/5	37/5	37/5
+200	Courier New 62 doubleAccounting	37/5 54/5	37/5 54/5	37/5 54/5	37/5 54/5
+200	Courier New 62 strike	-32/6	-32/6	-32/6	-32/6
+200	Courier New 63 single	12/5	12/5	12/5	12/5
+200	Courier New 63 double	12/5 29/5	12/5 29/5	12/5 29/5	12/5 29/5
+200	Courier New 63 singleAccounting	38/5	38/5	38/5	38/5
+200	Courier New 63 doubleAccounting	38/5 55/5	38/5 55/5	38/5 55/5	38/5 55/5
+200	Courier New 63 strike	-33/6	-33/6	-33/6	-33/6
+200	Courier New 64 single	12/5	12/5	12/5	12/5
+200	Courier New 64 double	12/5 29/5	12/5 29/5	12/5 29/5	12/5 29/5
+200	Courier New 64 singleAccounting	38/5	38/5	38/5	38/5
+200	Courier New 64 doubleAccounting	38/5 55/5	38/5 55/5	38/5 55/5	38/5 55/5
+200	Courier New 64 strike	-33/6	-33/6	-33/6	-33/6
+200	Courier New 65 single	12/5	12/5	12/5	12/5
+200	Courier New 65 double	12/5 30/5	12/5 30/5	12/5 30/5	12/5 30/5
+200	Courier New 65 singleAccounting	39/5	39/5	39/5	39/5
+200	Courier New 65 doubleAccounting	39/5 57/5	39/5 57/5	39/5 57/5	39/5 57/5
+200	Courier New 65 strike	-34/6	-34/6	-34/6	-34/6
+200	Courier New 66 single	12/5	12/5	12/5	12/5
+200	Courier New 66 double	12/5 30/5	12/5 30/5	12/5 30/5	12/5 30/5
+200	Courier New 66 singleAccounting	40/5	40/5	40/5	40/5
+200	Courier New 66 doubleAccounting	40/5 58/5	40/5 58/5	40/5 58/5	40/5 58/5
+200	Courier New 66 strike	-34/7	-34/7	-34/7	-34/7
+200	Courier New 67 single	13/5	13/5	13/5	13/5
+200	Courier New 67 double	13/5 31/5	13/5 31/5	13/5 31/5	13/5 31/5
+200	Courier New 67 singleAccounting	40/5	40/5	40/5	40/5
+200	Courier New 67 doubleAccounting	40/5 58/5	40/5 58/5	40/5 58/5	40/5 58/5
+200	Courier New 67 strike	-35/7	-35/7	-35/7	-35/7
+200	Courier New 68 single	13/5	13/5	13/5	13/5
+200	Courier New 68 double	13/5 31/5	13/5 31/5	13/5 31/5	13/5 31/5
+200	Courier New 68 singleAccounting	41/5	41/5	41/5	41/5
+200	Courier New 68 doubleAccounting	41/5 59/5	41/5 59/5	41/5 59/5	41/5 59/5
+200	Courier New 68 strike	-35/7	-35/7	-35/7	-35/7
+200	Courier New 69 single	13/5	13/5	13/5	13/5
+200	Courier New 69 double	13/5 32/5	13/5 32/5	13/5 32/5	13/5 32/5
+200	Courier New 69 singleAccounting	41/5	41/5	41/5	41/5
+200	Courier New 69 doubleAccounting	41/5 60/5	41/5 60/5	41/5 60/5	41/5 60/5
+200	Courier New 69 strike	-36/7	-36/7	-36/7	-36/7
+200	Courier New 70 single	13/5	13/5	13/5	13/5
+200	Courier New 70 double	13/5 32/5	13/5 32/5	13/5 32/5	13/5 32/5
+200	Courier New 70 singleAccounting	42/5	42/5	42/5	42/5
+200	Courier New 70 doubleAccounting	42/5 61/5	42/5 61/5	42/5 61/5	42/5 61/5
+200	Courier New 70 strike	-36/7	-36/7	-36/7	-36/7
+200	Courier New 71 single	14/5	14/5	14/5	14/5
+200	Courier New 71 double	14/5 33/5	14/5 33/5	14/5 33/5	14/5 33/5
+200	Courier New 71 singleAccounting	43/5	43/5	43/5	43/5
+200	Courier New 71 doubleAccounting	43/5 62/5	43/5 62/5	43/5 62/5	43/5 62/5
+200	Courier New 71 strike	-37/7	-37/7	-37/7	-37/7
+200	Courier New 72 single	14/5	14/5	14/5	14/5
+200	Courier New 72 double	14/5 33/5	14/5 33/5	14/5 33/5	14/5 33/5
+200	Courier New 72 singleAccounting	43/5	43/5	43/5	43/5
+200	Courier New 72 doubleAccounting	43/5 62/5	43/5 62/5	43/5 62/5	43/5 62/5
+200	Courier New 72 strike	-37/7	-37/7	-37/7	-37/7
+200	Courier New 36.5 single				
+200	Courier New 36.5 double				
+200	Courier New 36.5 singleAccounting	22/2	22/2	22/2	22/2
+200	Courier New 36.5 doubleAccounting				
+200	Courier New 36.5 strike	-19/4	-19/4	-19/4	-19/4
+200	Courier New 37.5 single	7/3	7/3	7/3	7/3
+200	Courier New 37.5 double	7/3 17/3	7/3 17/3	7/3 17/3	7/3 17/3
+200	Courier New 37.5 singleAccounting	23/3	23/3	23/3	23/3
+200	Courier New 37.5 doubleAccounting	23/3 33/3	23/3 33/3	23/3 33/3	23/3 33/3
+200	Courier New 37.5 strike	-19/4	-19/4	-19/4	-19/4
+200	Courier New 38.5 single				
+200	Courier New 38.5 double				
+200	Courier New 38.5 singleAccounting	23/3	23/3	23/3	23/3
+200	Courier New 38.5 doubleAccounting				
+200	Courier New 38.5 strike	-20/4	-20/4	-20/4	-20/4
+200	Courier New 39.5 single	7/3	7/3	7/3	7/3
+200	Courier New 39.5 double	7/3 18/3	7/3 18/3	7/3 18/3	7/3 18/3
+200	Courier New 39.5 singleAccounting	24/3	24/3	24/3	24/3
+200	Courier New 39.5 doubleAccounting	24/3 35/3	24/3 35/3	24/3 35/3	24/3 35/3
+200	Courier New 39.5 strike	-20/4	-20/4	-20/4	-20/4
+200	Courier New 40.5 single	7/3	7/3	7/3	7/3
+200	Courier New 40.5 double	7/3 18/3	7/3 18/3	7/3 18/3	7/3 18/3
+200	Courier New 40.5 singleAccounting	24/3	24/3	24/3	24/3
+200	Courier New 40.5 doubleAccounting	24/3 35/3	24/3 35/3	24/3 35/3	24/3 35/3
+200	Courier New 40.5 strike	-21/4	-21/4	-21/4	-21/4
+200	Courier New 41.5 single	8/3	8/3	8/3	8/3
+200	Courier New 41.5 double	8/3 19/3	8/3 19/3	8/3 19/3	8/3 19/3
+200	Courier New 41.5 singleAccounting	25/3	25/3	25/3	25/3
+200	Courier New 41.5 doubleAccounting	25/3 36/3	25/3 36/3	25/3 36/3	25/3 36/3
+200	Courier New 41.5 strike	-21/4	-21/4	-21/4	-21/4
+200	Courier New 42.5 single				
+200	Courier New 42.5 double				
+200	Courier New 42.5 singleAccounting	26/3	26/3	26/3	26/3
+200	Courier New 42.5 doubleAccounting				
+200	Courier New 42.5 strike	-22/4	-22/4	-22/4	-22/4
+200	Courier New 43.5 single	8/3	8/3	8/3	8/3
+200	Courier New 43.5 double	8/3 20/3	8/3 20/3	8/3 20/3	8/3 20/3
+200	Courier New 43.5 singleAccounting	26/3	26/3	26/3	26/3
+200	Courier New 43.5 doubleAccounting	26/3 38/3	26/3 38/3	26/3 38/3	26/3 38/3
+200	Courier New 43.5 strike	-23/4	-23/4	-23/4	-23/4
+200	Courier New 44.5 single	8/3	8/3	8/3	8/3
+200	Courier New 44.5 double	8/3 20/3	8/3 20/3	8/3 20/3	8/3 20/3
+200	Courier New 44.5 singleAccounting	27/3	27/3	27/3	27/3
+200	Courier New 44.5 doubleAccounting	27/3 39/3	27/3 39/3	27/3 39/3	27/3 39/3
+200	Courier New 44.5 strike	-23/4	-23/4	-23/4	-23/4
+200	Courier New 45.5 single	9/3	9/3	9/3	9/3
+200	Courier New 45.5 double	9/3 21/3	9/3 21/3	9/3 21/3	9/3 21/3
+200	Courier New 45.5 singleAccounting	27/3	27/3	27/3	27/3
+200	Courier New 45.5 doubleAccounting	27/3 39/3	27/3 39/3	27/3 39/3	27/3 39/3
+200	Courier New 45.5 strike	-24/5	-24/5	-24/5	-24/5
+200	Courier New 46.5 single	9/3	9/3	9/3	9/3
+200	Courier New 46.5 double	9/3 21/3	9/3 21/3	9/3 21/3	9/3 21/3
+200	Courier New 46.5 singleAccounting	28/3	28/3	28/3	28/3
+200	Courier New 46.5 doubleAccounting	28/3 40/3	28/3 40/3	28/3 40/3	28/3 40/3
+200	Courier New 46.5 strike	-24/5	-24/5	-24/5	-24/5
+200	Courier New 47.5 single				
+200	Courier New 47.5 double				
+200	Courier New 47.5 singleAccounting	29/3	29/3	29/3	29/3
+200	Courier New 47.5 doubleAccounting				
+200	Courier New 47.5 strike	-25/5	-25/5	-25/5	-25/5
+200	Courier New 48.5 single	9/3	9/3	9/3	9/3
+200	Courier New 48.5 double	9/3 22/3	9/3 22/3	9/3 22/3	9/3 22/3
+200	Courier New 48.5 singleAccounting	29/3	29/3	29/3	29/3
+200	Courier New 48.5 doubleAccounting	29/3 42/3	29/3 42/3	29/3 42/3	29/3 42/3
+200	Courier New 48.5 strike	-25/5	-25/5	-25/5	-25/5
+200	Courier New 49.5 single				
+200	Courier New 49.5 double				
+200	Courier New 49.5 singleAccounting	30/4	30/4	30/4	30/4
+200	Courier New 49.5 doubleAccounting				
+200	Courier New 49.5 strike	-26/5	-26/5	-26/5	-26/5
+200	Courier New 50.5 single	9/4	9/4	9/4	9/4
+200	Courier New 50.5 double	9/4 23/4	9/4 23/4	9/4 23/4	9/4 23/4
+200	Courier New 50.5 singleAccounting	30/4	30/4	30/4	30/4
+200	Courier New 50.5 doubleAccounting	30/4 44/4	30/4 44/4	30/4 44/4	30/4 44/4
+200	Courier New 50.5 strike	-26/5	-26/5	-26/5	-26/5
+200	Courier New 51.5 single	9/4	9/4	9/4	9/4
+200	Courier New 51.5 double	9/4 23/4	9/4 23/4	9/4 23/4	9/4 23/4
+200	Courier New 51.5 singleAccounting	31/4	31/4	31/4	31/4
+200	Courier New 51.5 doubleAccounting	31/4 45/4	31/4 45/4	31/4 45/4	31/4 45/4
+200	Courier New 51.5 strike	-27/5	-27/5	-27/5	-27/5
+200	Courier New 52.5 single	10/4	10/4	10/4	10/4
+200	Courier New 52.5 double	10/4 24/4	10/4 24/4	10/4 24/4	10/4 24/4
+200	Courier New 52.5 singleAccounting	32/4	32/4	32/4	32/4
+200	Courier New 52.5 doubleAccounting	32/4 46/4	32/4 46/4	32/4 46/4	32/4 46/4
+200	Courier New 52.5 strike	-27/5	-27/5	-27/5	-27/5
+200	Courier New 53.5 single				
+200	Courier New 53.5 double				
+200	Courier New 53.5 singleAccounting	32/4	32/4	32/4	32/4
+200	Courier New 53.5 doubleAccounting				
+200	Courier New 53.5 strike	-28/5	-28/5	-28/5	-28/5
+200	Courier New 54.5 single	10/4	10/4	10/4	10/4
+200	Courier New 54.5 double	10/4 25/4	10/4 25/4	10/4 25/4	10/4 25/4
+200	Courier New 54.5 singleAccounting	33/4	33/4	33/4	33/4
+200	Courier New 54.5 doubleAccounting	33/4 48/4	33/4 48/4	33/4 48/4	33/4 48/4
+200	Courier New 54.5 strike	-28/5	-28/5	-28/5	-28/5
+200	Courier New 55.5 single	10/4	10/4	10/4	10/4
+200	Courier New 55.5 double	10/4 25/4	10/4 25/4	10/4 25/4	10/4 25/4
+200	Courier New 55.5 singleAccounting	33/4	33/4	33/4	33/4
+200	Courier New 55.5 doubleAccounting	33/4 48/4	33/4 48/4	33/4 48/4	33/4 48/4
+200	Courier New 55.5 strike	-29/6	-29/6	-29/6	-29/6
+200	Courier New 56.5 single	11/4	11/4	11/4	11/4
+200	Courier New 56.5 double	11/4 26/4	11/4 26/4	11/4 26/4	11/4 26/4
+200	Courier New 56.5 singleAccounting	34/4	34/4	34/4	34/4
+200	Courier New 56.5 doubleAccounting	34/4 49/4	34/4 49/4	34/4 49/4	34/4 49/4
+200	Courier New 56.5 strike	-29/6	-29/6	-29/6	-29/6
+200	Courier New 57.5 single				
+200	Courier New 57.5 double				
+200	Courier New 57.5 singleAccounting	35/4	35/4	35/4	35/4
+200	Courier New 57.5 doubleAccounting				
+200	Courier New 57.5 strike	-30/6	-30/6	-30/6	-30/6
+200	Courier New 58.5 single	11/4	11/4	11/4	11/4
+200	Courier New 58.5 double	11/4 27/4	11/4 27/4	11/4 27/4	11/4 27/4
+200	Courier New 58.5 singleAccounting	35/4	35/4	35/4	35/4
+200	Courier New 58.5 doubleAccounting	35/4 51/4	35/4 51/4	35/4 51/4	35/4 51/4
+200	Courier New 58.5 strike	-30/6	-30/6	-30/6	-30/6
+200	Courier New 59.5 single	11/4	11/4	11/4	11/4
+200	Courier New 59.5 double	11/4 27/4	11/4 27/4	11/4 27/4	11/4 27/4
+200	Courier New 59.5 singleAccounting	36/4	36/4	36/4	36/4
+200	Courier New 59.5 doubleAccounting	36/4 52/4	36/4 52/4	36/4 52/4	36/4 52/4
+200	Courier New 59.5 strike	-31/6	-31/6	-31/6	-31/6
+200	Courier New 60.5 single				
+200	Courier New 60.5 double				
+200	Courier New 60.5 singleAccounting	36/4	36/4	36/4	36/4
+200	Courier New 60.5 doubleAccounting				
+200	Courier New 60.5 strike	-31/6	-31/6	-31/6	-31/6
+200	Courier New 61.5 single	11/5	11/5	11/5	11/5
+200	Courier New 61.5 double	11/5 28/5	11/5 28/5	11/5 28/5	11/5 28/5
+200	Courier New 61.5 singleAccounting	37/5	37/5	37/5	37/5
+200	Courier New 61.5 doubleAccounting	37/5 54/5	37/5 54/5	37/5 54/5	37/5 54/5
+200	Courier New 61.5 strike	-32/6	-32/6	-32/6	-32/6
+200	Courier New 62.5 single	12/5	12/5	12/5	12/5
+200	Courier New 62.5 double	12/5 29/5	12/5 29/5	12/5 29/5	12/5 29/5
+200	Courier New 62.5 singleAccounting	38/5	38/5	38/5	38/5
+200	Courier New 62.5 doubleAccounting	38/5 55/5	38/5 55/5	38/5 55/5	38/5 55/5
+200	Courier New 62.5 strike	-32/6	-32/6	-32/6	-32/6
+200	Courier New 63.5 single	12/5	12/5	12/5	12/5
+200	Courier New 63.5 double	12/5 29/5	12/5 29/5	12/5 29/5	12/5 29/5
+200	Courier New 63.5 singleAccounting	38/5	38/5	38/5	38/5
+200	Courier New 63.5 doubleAccounting	38/5 55/5	38/5 55/5	38/5 55/5	38/5 55/5
+200	Courier New 63.5 strike	-33/6	-33/6	-33/6	-33/6
+200	Courier New 64.5 single				
+200	Courier New 64.5 double				
+200	Courier New 64.5 singleAccounting	39/5	39/5	39/5	39/5
+200	Courier New 64.5 doubleAccounting				
+200	Courier New 64.5 strike	-33/6	-33/6	-33/6	-33/6
+200	Courier New 65.5 single	12/5	12/5	12/5	12/5
+200	Courier New 65.5 double	12/5 30/5	12/5 30/5	12/5 30/5	12/5 30/5
+200	Courier New 65.5 singleAccounting	39/5	39/5	39/5	39/5
+200	Courier New 65.5 doubleAccounting	39/5 57/5	39/5 57/5	39/5 57/5	39/5 57/5
+200	Courier New 65.5 strike	-34/7	-34/7	-34/7	-34/7
+200	Courier New 66.5 single	12/5	12/5	12/5	12/5
+200	Courier New 66.5 double	12/5 30/5	12/5 30/5	12/5 30/5	12/5 30/5
+200	Courier New 66.5 singleAccounting	40/5	40/5	40/5	40/5
+200	Courier New 66.5 doubleAccounting	40/5 58/5	40/5 58/5	40/5 58/5	40/5 58/5
+200	Courier New 66.5 strike	-34/7	-34/7	-34/7	-34/7
+200	Courier New 67.5 single	13/5	13/5	13/5	13/5
+200	Courier New 67.5 double	13/5 31/5	13/5 31/5	13/5 31/5	13/5 31/5
+200	Courier New 67.5 singleAccounting	41/5	41/5	41/5	41/5
+200	Courier New 67.5 doubleAccounting	41/5 59/5	41/5 59/5	41/5 59/5	41/5 59/5
+200	Courier New 67.5 strike	-35/7	-35/7	-35/7	-35/7
+200	Courier New 68.5 single				
+200	Courier New 68.5 double				
+200	Courier New 68.5 singleAccounting	41/5	41/5	41/5	41/5
+200	Courier New 68.5 doubleAccounting				
+200	Courier New 68.5 strike	-35/7	-35/7	-35/7	-35/7
+200	Courier New 69.5 single	13/5	13/5	13/5	13/5
+200	Courier New 69.5 double	13/5 32/5	13/5 32/5	13/5 32/5	13/5 32/5
+200	Courier New 69.5 singleAccounting	42/5	42/5	42/5	42/5
+200	Courier New 69.5 doubleAccounting	42/5 61/5	42/5 61/5	42/5 61/5	42/5 61/5
+200	Courier New 69.5 strike	-36/7	-36/7	-36/7	-36/7
+200	Courier New 70.5 single	13/5	13/5	13/5	13/5
+200	Courier New 70.5 double	13/5 32/5	13/5 32/5	13/5 32/5	13/5 32/5
+200	Courier New 70.5 singleAccounting	42/5	42/5	42/5	42/5
+200	Courier New 70.5 doubleAccounting	42/5 61/5	42/5 61/5	42/5 61/5	42/5 61/5
+200	Courier New 70.5 strike	-36/7	-36/7	-36/7	-36/7
+200	Courier New 71.5 single	14/5	14/5	14/5	14/5
+200	Courier New 71.5 double	14/5 33/5	14/5 33/5	14/5 33/5	14/5 33/5
+200	Courier New 71.5 singleAccounting	43/5	43/5	43/5	43/5
+200	Courier New 71.5 doubleAccounting	43/5 62/5	43/5 62/5	43/5 62/5	43/5 62/5
+200	Courier New 71.5 strike	-37/7	-37/7	-37/7	-37/7
+200	Times New Roman 36 single	7/3	7/3	7/3	7/3
+200	Times New Roman 36 double	7/3 13/3	7/3 13/3	7/3 13/3	7/3 13/3
+200	Times New Roman 36 singleAccounting	16/3	16/3	16/3	16/3
+200	Times New Roman 36 doubleAccounting	16/3 22/3	16/3 22/3	16/3 22/3	16/3 22/3
+200	Times New Roman 36 strike	-19/4	-19/4	-19/4	-19/4
+200	Times New Roman 36.5 single	7/3	7/3	7/3	7/3
+200	Times New Roman 36.5 double	7/3 13/3	7/3 13/3	7/3 13/3	7/3 13/3
+200	Times New Roman 36.5 singleAccounting	16/3	16/3	16/3	16/3
+200	Times New Roman 36.5 doubleAccounting	16/3 22/3	16/3 22/3	16/3 22/3	16/3 22/3
+200	Times New Roman 36.5 strike	-19/4	-19/4	-19/4	-19/4
+200	Times New Roman 37 single	8/3	8/3	8/3	8/3
+200	Times New Roman 37 double	5/3 11/3	5/3 11/3	5/3 11/3	5/3 11/3
+200	Times New Roman 37 singleAccounting	16/3	16/3	16/3	16/3
+200	Times New Roman 37 doubleAccounting	16/3 22/3	16/3 22/3	16/3 22/3	16/3 22/3
+200	Times New Roman 37 strike	-19/4	-19/4	-19/4	-19/4
+200	Times New Roman 37.5 single	8/3	8/3	8/3	8/3
+200	Times New Roman 37.5 double	5/3 11/3	5/3 11/3	5/3 11/3	5/3 11/3
+200	Times New Roman 37.5 singleAccounting	16/3	16/3	16/3	16/3
+200	Times New Roman 37.5 doubleAccounting	16/3 22/3	16/3 22/3	16/3 22/3	16/3 22/3
+200	Times New Roman 37.5 strike	-19/4	-19/4	-19/4	-19/4
+200	Times New Roman 38 single	8/3	8/3	8/3	8/3
+200	Times New Roman 38 double	5/3 11/3	5/3 11/3	5/3 11/3	5/3 11/3
+200	Times New Roman 38 singleAccounting	16/3	16/3	16/3	16/3
+200	Times New Roman 38 doubleAccounting	16/3 22/3	16/3 22/3	16/3 22/3	16/3 22/3
+200	Times New Roman 38 strike	-20/4	-20/4	-20/4	-20/4
+200	Times New Roman 38.5 single	8/3	8/3	8/3	8/3
+200	Times New Roman 38.5 double	8/3 14/3	8/3 14/3	8/3 14/3	8/3 14/3
+200	Times New Roman 38.5 singleAccounting	17/3	17/3	17/3	17/3
+200	Times New Roman 38.5 doubleAccounting	17/3 23/3	17/3 23/3	17/3 23/3	17/3 23/3
+200	Times New Roman 38.5 strike	-20/4	-20/4	-20/4	-20/4
+200	Times New Roman 39 single	8/3	8/3	8/3	8/3
+200	Times New Roman 39 double	8/3 14/3	8/3 14/3	8/3 14/3	8/3 14/3
+200	Times New Roman 39 singleAccounting	17/3	17/3	17/3	17/3
+200	Times New Roman 39 doubleAccounting	17/3 23/3	17/3 23/3	17/3 23/3	17/3 23/3
+200	Times New Roman 39 strike	-20/4	-20/4	-20/4	-20/4
+200	Times New Roman 39.5 single	8/3	8/3	8/3	8/3
+200	Times New Roman 39.5 double	8/3 14/3	8/3 14/3	8/3 14/3	8/3 14/3
+200	Times New Roman 39.5 singleAccounting	17/3	17/3	17/3	17/3
+200	Times New Roman 39.5 doubleAccounting	17/3 23/3	17/3 23/3	17/3 23/3	17/3 23/3
+200	Times New Roman 39.5 strike	-20/4	-20/4	-20/4	-20/4
+200	Times New Roman 40 single	8/3	8/3	8/3	8/3
+200	Times New Roman 40 double	8/3 14/3	8/3 14/3	8/3 14/3	8/3 14/3
+200	Times New Roman 40 singleAccounting	17/3	17/3	17/3	17/3
+200	Times New Roman 40 doubleAccounting	17/3 23/3	17/3 23/3	17/3 23/3	17/3 23/3
+200	Times New Roman 40 strike	-21/4	-21/4	-21/4	-21/4
+200	Times New Roman 40.5 single	8/3	8/3	8/3	8/3
+200	Times New Roman 40.5 double	8/3 14/3	8/3 14/3	8/3 14/3	8/3 14/3
+200	Times New Roman 40.5 singleAccounting	18/3	18/3	18/3	18/3
+200	Times New Roman 40.5 doubleAccounting	18/3 24/3	18/3 24/3	18/3 24/3	18/3 24/3
+200	Times New Roman 40.5 strike	-21/4	-21/4	-21/4	-21/4
+200	Times New Roman 41 single	8/4	8/4	8/4	8/4
+200	Times New Roman 41 double	4/4 12/4	4/4 12/4	4/4 12/4	4/4 12/4
+200	Times New Roman 41 singleAccounting	18/4	18/4	18/4	18/4
+200	Times New Roman 41 doubleAccounting	18/4 26/4	18/4 26/4	18/4 26/4	18/4 26/4
+200	Times New Roman 41 strike	-21/4	-21/4	-21/4	-21/4
+200	Calibri 9 single	2/1	2/1	2/1	2/1
+200	Calibri 9 double	2/1 4/1	2/1 4/1	2/1 4/1	2/1 4/1
+200	Calibri 9 singleAccounting	5/1	5/1	5/1	5/1
+200	Calibri 9 doubleAccounting	5/1 7/1	5/1 7/1	5/1 7/1	5/1 7/1
+200	Calibri 9 strike	-5/1	-5/1	-5/1	-5/1
+200	Calibri 14 single	3/1	3/1	3/1	3/1
+200	Calibri 14 double	3/1 5/1	3/1 5/1	3/1 5/1	3/1 5/1
+200	Calibri 14 singleAccounting	8/1	8/1	8/1	8/1
+200	Calibri 14 doubleAccounting	8/1 10/1	8/1 10/1	8/1 10/1	8/1 10/1
+200	Calibri 14 strike	-7/2	-7/2	-7/2	-7/2
+200	Calibri 20 single	4/2	4/2	4/2	4/2
+200	Calibri 20 double	4/2 8/2	4/2 8/2	4/2 8/2	4/2 8/2
+200	Calibri 20 singleAccounting	11/2	11/2	11/2	11/2
+200	Calibri 20 doubleAccounting	11/2 15/2	11/2 15/2	11/2 15/2	11/2 15/2
+200	Calibri 20 strike	-10/3	-10/3	-10/3	-10/3
+200	Calibri 36 single	8/4	8/4	8/4	8/4
+200	Calibri 36 double	4/4 12/4	4/4 12/4	4/4 12/4	4/4 12/4
+200	Calibri 36 singleAccounting	19/4	19/4	19/4	19/4
+200	Calibri 36 doubleAccounting	19/4 27/4	19/4 27/4	19/4 27/4	19/4 27/4
+200	Calibri 36 strike	-18/5	-18/5	-18/5	-18/5
+200	Calibri 48 single	10/6	10/6	10/6	10/6
+200	Calibri 48 double	4/6 16/6	4/6 16/6	4/6 16/6	4/6 16/6
+200	Calibri 48 singleAccounting	26/6	26/6	26/6	26/6
+200	Calibri 48 doubleAccounting	26/6 38/6	26/6 38/6	26/6 38/6	26/6 38/6
+200	Calibri 48 strike	-24/6	-24/6	-24/6	-24/6

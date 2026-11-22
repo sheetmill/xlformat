@@ -54,7 +54,7 @@ from capture.screen_vertical import (
 )
 
 CAPTURES = Path(__file__).resolve().parents[1] / "tests" / "captures"
-SUITES = ("rules", "rules_double")
+SUITES = ("rules", "rules_double", "rules_courier", "rules_zoom")
 FACES = ("Calibri", "Arial", "Aptos Narrow", "Times New Roman", "Courier New", "Georgia")
 SIZES = (9, 11, 14, 20, 36)
 RULES = ("none", "single", "double", "singleAccounting", "doubleAccounting", "strike")
@@ -63,6 +63,24 @@ DOUBLE_FACES = ("Calibri", "Arial", "Aptos Narrow", "Times New Roman", "Georgia"
 DOUBLE_SIZES = (*range(9, 37), *range(40, 73, 4))
 DOUBLE_RULES = ("single", "double", "singleAccounting", "doubleAccounting", "strike")
 HELD_OUT_SEED = 20261121  # rules_double: a third of the combinations, held out of any choice
+# rules_courier: Courier New at every size from 6 to 72 and every half size from 36.5 to 71.5 (odd
+# screen sizes 73 to 143 at zoom 200), Times New Roman at every half size from 36 to 41, and
+# Calibri as a control
+COURIER_SIZES = (*range(6, 73), *(s + 0.5 for s in range(36, 72)))
+TIMES_SIZES = tuple(36 + k / 2 for k in range(11))
+CONTROL_SIZES = (9, 14, 20, 36, 48)
+# rules_zoom: screen sizes that are not whole numbers, at zoom 50 and 150, which keep a whole
+# number of device pixels to a sheet point (1 and 3) as the reader needs, with zoom 100 beside
+ZOOM_SIZES = (
+    8, 8.5, 9.5, 10.5, 11.5, 12.5, 16.5, 17, 17.5, 20.5, 22.5, 23, 23.5, 34.5, 35.5, 36.5,
+    51.5, 52.5, 69.5, 70.5,
+)  # fmt: skip
+
+
+def zooms(suite: str) -> tuple[int, ...]:
+    return (50, 100, 150) if suite == "rules_zoom" else ZOOMS
+
+
 COLOR_FORMATS = (
     "General",
     "[Blue]General",
@@ -107,7 +125,24 @@ def predictions(suite: str) -> Path:
     return BUILD_DIR / f"screen_{suite}.predictions.tsv"
 
 
+def _rule_cases(faces_sizes: list[tuple[str, float]]) -> list[Case]:
+    found = [
+        Case("rule", f"{face} {s:g} {rule}", face, float(s), rule)
+        for face, s in faces_sizes
+        for rule in DOUBLE_RULES
+    ]
+    return found + [Case("rule", f"filler {k} none") for k in range(20)]
+
+
 def cases(suite: str = "rules") -> list[Case]:
+    if suite == "rules_courier":
+        return _rule_cases(
+            [("Courier New", s) for s in COURIER_SIZES]
+            + [("Times New Roman", s) for s in TIMES_SIZES]
+            + [("Calibri", s) for s in CONTROL_SIZES]
+        )
+    if suite == "rules_zoom":
+        return _rule_cases([(face, s) for face in ("Courier New", "Calibri") for s in ZOOM_SIZES])
     if suite == "rules_double":
         found = [
             Case("rule", f"{face} {s} {rule}", face, float(s), rule)
@@ -291,7 +326,7 @@ def run(suite: str = "rules") -> None:
     try:
         heights = _request("heights", name, str(n), seconds=120.0)
         window = _window_id(name.removesuffix(".xlsx"))
-        for zoom in ZOOMS:
+        for zoom in zooms(suite):
             folder = shots(suite) / f"zoom{zoom}"
             folder.mkdir(parents=True, exist_ok=True)
             for old in folder.glob("*.png"):
@@ -417,7 +452,7 @@ def display_profile(suite: str) -> str:
     colors on a wide-gamut display (Display P3) are converted and read a few units off."""
     import subprocess
 
-    first = min((shots(suite) / f"zoom{ZOOMS[0]}").glob("top_*.png"))
+    first = min((shots(suite) / f"zoom{zooms(suite)[0]}").glob("top_*.png"))
     out = subprocess.run(
         ["sips", "-g", "profile", str(first)], check=True, capture_output=True, text=True
     ).stdout
@@ -425,8 +460,8 @@ def display_profile(suite: str) -> str:
 
 
 def write(suite: str = "rules") -> None:
-    lines = [line for zoom in ZOOMS for line in read_zoom(zoom, suite)]
-    if suite == "rules_double":
+    lines = [line for zoom in zooms(suite) for line in read_zoom(zoom, suite)]
+    if suite != "rules":
         lines = [line for line in lines if "\tfiller " not in line]
     command = "capture.screen_rules" + ("" if suite == "rules" else f" {suite}")
     color = "; color: the mean of the text's colored ink, or black" if suite == "rules" else ""
@@ -435,7 +470,8 @@ def write(suite: str = "rules") -> None:
         out.write(f"# suite: {suite} ({command}); Excel for Mac, en_US\n")
         out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         out.write(
-            f"# captured: {dt.date.today().isoformat()}; window captures at zoom 100 and 200 on a "
+            f"# captured: {dt.date.today().isoformat()}; window captures at zoom "
+            f"{' and '.join(map(str, zooms(suite)))} on a "
             "display of scale 2; pixels from the row's top: the H stems' last ink row, each "
             f"rule's first and last row{color}\n"
         )
