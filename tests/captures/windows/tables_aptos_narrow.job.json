@@ -1,0 +1,4729 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261122-195926-tables-aptos-narrow",
+ "package": "xlformat",
+ "purpose": "xlformat capture group tables_aptos_narrow: displayed text, widths and autofit per suite",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "measure_aptos_narrow9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_italic9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_italic9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_italic10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_italic10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_italic11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_italic11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_italic12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_italic12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_italic14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_italic14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_italic16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_italic16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_italic18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_italic18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_italic20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_italic20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_italic24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_italic24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold_italic9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold_italic9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold_italic10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold_italic10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold_italic11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold_italic11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold_italic12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold_italic12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold_italic14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold_italic14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold_italic16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold_italic16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold_italic18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold_italic18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold_italic20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold_italic20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "measure_aptos_narrow_bold_italic24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:TC"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:TC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "space_fill_aptos_narrow_bold_italic24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B40"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!E:E",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_e",
+     "range": "cases!E1:E40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_e",
+     "range": "cases!E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!F:F",
+     "width": 20
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F40",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

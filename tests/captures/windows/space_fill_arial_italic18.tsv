@@ -1,0 +1,216 @@
+# suite: space_fill_arial_italic18
+# platform: windows
+# excel_build: 16.0.20527.20196
+# job: tables_arial.job.json
+# job_id: xlformat-20261122-205103-tables-arial
+# workbook_font: Arial 18
+# captured: 2026-11-22
+# generator: capture.cases.space_fill_arial_italic18, capture/job.py
+# method: width none=clipboard; width 6=string_value; width 10=string_value; width 14=string_value; width 20=string_value
+# numbers: repr
+# widths: exact
+# column_points: C=65.25 D=104.25 E=143.25 F=201.75
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# job_header: {"environment": {"audit": false, "checks": {"dde_server_launch_disabled": true, "dde_server_lookup_disabled": true, "vba_warnings": 4}, "display": {"screen_px": [2560, 1440], "system_dpi": 96}, "edition": {"found": "Microsoft 365", "source": "office products"}, "excel": {"build": "16.0.20527.20196", "build_number": 20527.0, "calculation_version": 191029, "decimal_separator": ".", "international": {"country": 1.0, "decimal": ".", "list": ","}, "operating_system": "Windows (64-bit ARM) NT 10.00", "process": {"native_machine": "0xaa64", "process_machine": "0x8664"}, "standard_font": "Aptos Narrow", "standard_font_size": 11.0, "thousands_separator": ",", "use_system_separators": true, "version": "16.0"}, "fonts": [{"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Regular", "version": "Version 6.27"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Regular", "version": "Version 5.72"}], "geometry": {"expected": {"excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "found": {"excel_window_px": "not shown", "screen_px": [2560, 1440], "system_dpi": 96}, "ok": true}, "locale": {"ansi_code_page": 1252, "decimal": ".", "list": ",", "long_date": "dddd, MMMM d, yyyy", "name": "en-US", "oem_code_page": 437, "short_date": "M/d/yyyy", "sort_locale": "en-US", "sort_version": {"custom": "01000000ee575c1e00b4d0000bb1e11e", "defined": 394498, "nls": 394498}, "time": "h:mm:ss tt", "two_digit_year_max": 2049, "two_digit_year_max_setting": null}, "office": {"channel": "Current Channel", "platform": "x64", "products": "O365HomePremRetail", "version": "16.0.20527.20196"}, "printer": {"orientation": "portrait", "paper": "A4", "paper_mm": [215.9, 279.4]}, "theme": {"office_ui_theme": 6, "windows_apps_light": 1, "windows_system_light": 1}, "windows": {"architecture": "ARM64", "build": "26300.9974", "display_version": "26H2", "edition": "Core"}}, "format": 1, "inputs": {"measure_arial10.xlsx": {"bytes": 12095, "sha256": "f72245d87e2f900118aa2369a56a58fa80eb1a61829ee8d83baef231b95847f7"}, "measure_arial11.xlsx": {"bytes": 12096, "sha256": "08c7e903e0e2d55291c490b299a408c5b9c771c4aaf1febcf9c9bde4dfa66c02"}, "measure_arial12.xlsx": {"bytes": 12095, "sha256": "423b8ab9447585abe00d594cf9fdc198f563c89e3a9618f54730dc4964eea412"}, "measure_arial14.xlsx": {"bytes": 12096, "sha256": "393f525c1058ae5bc882b101b2369c44d3b1378c1ed4a2a281655381da3e3e6e"}, "measure_arial16.xlsx": {"bytes": 12094, "sha256": "94ec2056918d93fad1fa3080b80a19bc2a9e28b2a8ca8e67076643328ffeeb66"}, "measure_arial18.xlsx": {"bytes": 12096, "sha256": "54cf58b2f0007112844f2440354524cd238bdb7774452821516c415f56d92f11"}, "measure_arial20.xlsx": {"bytes": 12094, "sha256": "fb8315aecdd88b69121153bacafa86434111cfb1324a49f1b4883b2898bc0980"}, "measure_arial24.xlsx": {"bytes": 12095, "sha256": "1795479b1560a44fe51033a11f5f33ba46901148f6900f899ee9054def711b40"}, "measure_arial9.xlsx": {"bytes": 12095, "sha256": "41274814c02386f3bb64109a1129e8fa5a529644adbcbd5c67b010fbdf0fc78f"}, "measure_arial_bold10.xlsx": {"bytes": 12107, "sha256": "64d1df72560cc8e79078c72cad3711f70536e27deca27c094f3a144b063693a2"}, "measure_arial_bold11.xlsx": {"bytes": 12107, "sha256": "d93efe1b314167dc2a19ac499284ddb830d93c62a841209872f768d96903b6ef"}, "measure_arial_bold12.xlsx": {"bytes": 12106, "sha256": "840684da27cbe130cbfaa04156b2961f64cf459ea23130d71b30e60231c15715"}, "measure_arial_bold14.xlsx": {"bytes": 12107, "sha256": "17d477029a813825b6aa711652ef0906280cf4ab546b850fccc75bcaa71b197c"}, "measure_arial_bold16.xlsx": {"bytes": 12105, "sha256": "cfa72fe7d5ea95199c0c02b2ce8b570d25138227a0e1269cb1e14456def4934b"}, "measure_arial_bold18.xlsx": {"bytes": 12107, "sha256": "3b7001475f703ca4f47a9092a0fde10552b44d3f4861a36ec29bc5025dc24ba5"}, "measure_arial_bold20.xlsx": {"bytes": 12106, "sha256": "16db5c1e49c12664fb9e901c011e4f1c671be4ff4a08e5519004b9ae943b4ccc"}, "measure_arial_bold24.xlsx": {"bytes": 12107, "sha256": "34995115f87f3a8fd4feb5c7c8bbd9edaf55f8f4f198a3afa50dfa165cf2b030"}, "measure_arial_bold9.xlsx": {"bytes": 12106, "sha256": "24ef0f497780a38187aaa5352e21ac7671eee86e164ec49b27d03dac835e4903"}, "measure_arial_bold_italic10.xlsx": {"bytes": 12110, "sha256": "aa4de79a298fe6e8cfe12dc0be8535672ac4c22ebb269baf5673668f59302cd8"}, "measure_arial_bold_italic11.xlsx": {"bytes": 12110, "sha256": "0cf7fe14a15e5a32dc7a90539bc0993842fc470d6374abb4278a34182a84070f"}, "measure_arial_bold_italic12.xlsx": {"bytes": 12110, "sha256": "a6b2be81f4ae010225ee77f4234bb9bba7faec35a95bc3bd1a9559a4cb1d3301"}, "measure_arial_bold_italic14.xlsx": {"bytes": 12110, "sha256": "6f0e4af6d26e90431d17389b4ce2dc6fff6e2f4e07af70086732a6de1a5f45ac"}, "measure_arial_bold_italic16.xlsx": {"bytes": 12109, "sha256": "31f4ff024c2d8e963720c3bb79d945d2d87b0a18786bcd211f1294cb24e43480"}, "measure_arial_bold_italic18.xlsx": {"bytes": 12110, "sha256": "66a09790cf6d9cfa6af8b63069d893356e74a76643e8f7a4cf2398f0a2a84d37"}, "measure_arial_bold_italic20.xlsx": {"bytes": 12110, "sha256": "30e1d77517481b55bd65b2e378380ffb852ca10e6b43b090c6e5c16c6c426115"}, "measure_arial_bold_italic24.xlsx": {"bytes": 12110, "sha256": "52d65039412ba329053d0c59bb4e362eb140bf47854c0307d5192b53724989f9"}, "measure_arial_bold_italic9.xlsx": {"bytes": 12110, "sha256": "0bd8013fbcc71ed425b8d3c988bea8c5d088f3029a2682c577566bf6db076b20"}, "measure_arial_italic10.xlsx": {"bytes": 12107, "sha256": "bcc7062500d557b18ee5cf65bae886c8c6627ac029f2d8b5874d9739f5cb1064"}, "measure_arial_italic11.xlsx": {"bytes": 12107, "sha256": "af417a42216354dd676f717bb82d03fa09741a98be4f0b457a0a2c71f051361d"}, "measure_arial_italic12.xlsx": {"bytes": 12107, "sha256": "80efb59104074f4705a93e8c4f35126ace58791c20223e7d27db053195e97902"}, "measure_arial_italic14.xlsx": {"bytes": 12107, "sha256": "98b8db1b1c310b240494d6541253aa1fb26fd872259f8ba61b6b6d710963327e"}, "measure_arial_italic16.xlsx": {"bytes": 12105, "sha256": "7e5f97362021e463303a4bf1bd6f341fd058e1f7d9908ff442a47f4cd579ef24"}, "measure_arial_italic18.xlsx": {"bytes": 12107, "sha256": "c09e1a13856e765f0ba3a05e2bf5ddeab310a6630a339f28721e6a009f1f3083"}, "measure_arial_italic20.xlsx": {"bytes": 12106, "sha256": "daf28fe1a46a171aabc1af675b446401c8d426f69a80ce0adf19b822050475f7"}, "measure_arial_italic24.xlsx": {"bytes": 12107, "sha256": "17be86c1f4e05d6851dd545e35ce74f0ca54067a7cb851f18f43cd40d82a3b38"}, "measure_arial_italic9.xlsx": {"bytes": 12106, "sha256": "a54129e15f27612b45c1feb7769cd2e1ae491f3fadfd630b41aebd316eff7029"}, "space_fill_arial10.xlsx": {"bytes": 5987, "sha256": "f1af1ceb1f1fbe77a5e8d0b207f8d667d9835f95ce38af7dd7cc059be5c8ce21"}, "space_fill_arial11.xlsx": {"bytes": 5988, "sha256": "c4c909380fdec571f00544a00991fbbc301d959fc1284ba1f20ab4f50ab82add"}, "space_fill_arial12.xlsx": {"bytes": 5987, "sha256": "613aa7afe0c9a487876e0cf904cbd63a5f86f368616a3751e6dda1a1bedb5c96"}, "space_fill_arial14.xlsx": {"bytes": 5988, "sha256": "e6402f53a26ff6deaa7e03ae50114ad763c1268eab1d1c7a7bf88eb4e8f31fe3"}, "space_fill_arial16.xlsx": {"bytes": 5986, "sha256": "7f7f226251c8d5ae3ccab135b645101c11e849b8ec8b7bb00dd600e6fbff9975"}, "space_fill_arial18.xlsx": {"bytes": 5987, "sha256": "8a71d6742b28018926a38288cce57139dc22a5e00d39b71db345cab1bfd3b003"}, "space_fill_arial20.xlsx": {"bytes": 5986, "sha256": "7b24f152abfed9a3d2c4e581daf37c62fd041c5c3fe5e47107a12be85f63202e"}, "space_fill_arial24.xlsx": {"bytes": 5987, "sha256": "6d86f20d3b7f09245c29b7cd25cd1a47b613867df503b26a637828cb5aeac698"}, "space_fill_arial9.xlsx": {"bytes": 5987, "sha256": "906e2729554eb2c1bdd9b9b01235c5cd1fe03c3cc97959ae63b5c6bfca654f1c"}, "space_fill_arial_bold10.xlsx": {"bytes": 5997, "sha256": "b3fcdda42eb99eab9f76bd51b0c613f52d29ce43395bc190aad60888be2b441c"}, "space_fill_arial_bold11.xlsx": {"bytes": 5998, "sha256": "7b4f60fd7d6bb44c71b4f11e21be7cf2dc5ce43862d2025f852332ee81da5c1a"}, "space_fill_arial_bold12.xlsx": {"bytes": 5998, "sha256": "fa32fd3598267fd14894ce5fa1457e1bc0193f91bb997084f4c98dab3f0c48fb"}, "space_fill_arial_bold14.xlsx": {"bytes": 5998, "sha256": "e7e727af2b0905365e9558e8b24ae0f4a450a916b09f2a4bb5c247b404d2a60d"}, "space_fill_arial_bold16.xlsx": {"bytes": 5997, "sha256": "abc3c00cc0ffdc9cd31e0351e6540cbda8228894ec7923ac1249afd68299376b"}, "space_fill_arial_bold18.xlsx": {"bytes": 5998, "sha256": "fd63b0ddccdad99b787b687e0fbac1245445187c4da639525819c121cd5552f4"}, "space_fill_arial_bold20.xlsx": {"bytes": 5997, "sha256": "1c1b82ccb95d12aa65b007b6ad93df38ea5e804a3f47dc370183b9a021df3899"}, "space_fill_arial_bold24.xlsx": {"bytes": 5998, "sha256": "befb0da3ce1b029849b4ab35f27c6cfddf81d7d10df05534e8d287febec51f82"}, "space_fill_arial_bold9.xlsx": {"bytes": 5998, "sha256": "0e588c8472af573fef447cd01d4b2b1d9eb4f63421eedc7d2cfe931bfc8d2c9e"}, "space_fill_arial_bold_italic10.xlsx": {"bytes": 6001, "sha256": "a532e4cf3e30db432801520eadd9d3f195e2842861a45c66387ddb6ea34e9f60"}, "space_fill_arial_bold_italic11.xlsx": {"bytes": 6002, "sha256": "56b02d5ece8578b21c11f5b11614f5f936b3387a46e8d6082a63ce0be468800a"}, "space_fill_arial_bold_italic12.xlsx": {"bytes": 6002, "sha256": "d7666bdaf686c990b3d2963f17c0dd72d9622205ea8f4d5d01a49d7c9c89c4e4"}, "space_fill_arial_bold_italic14.xlsx": {"bytes": 6002, "sha256": "79d6c0569760996963ac2caf82707e2d5fb54a022f303a0197bfa956d8ff7c05"}, "space_fill_arial_bold_italic16.xlsx": {"bytes": 6001, "sha256": "8f3e773e8d1006179a674bb27986b35bc8d38f2622a80ea36618917eb264abdc"}, "space_fill_arial_bold_italic18.xlsx": {"bytes": 6002, "sha256": "cbe1c498002f58e50a534cb91b154004a59a43d4d80d85eaa7c80895228b644e"}, "space_fill_arial_bold_italic20.xlsx": {"bytes": 6001, "sha256": "61cee159857a7a324b1ee3f309d536aa2c26b076846b0c309637ffd0645b3712"}, "space_fill_arial_bold_italic24.xlsx": {"bytes": 6002, "sha256": "c4bf365ad6f37c22b7829a0875602981189c9f5f64ea834c4974c0ba4673f850"}, "space_fill_arial_bold_italic9.xlsx": {"bytes": 6002, "sha256": "261686f78095ae04b2b2fe755667c4b45338e805637d3a84a21a3a700c97a149"}, "space_fill_arial_italic10.xlsx": {"bytes": 5997, "sha256": "234ea79335522f08858d337e5bba93f75ae68483a720c89a4c2c9059dff6ea52"}, "space_fill_arial_italic11.xlsx": {"bytes": 5998, "sha256": "d45070b4a1eb2320b867d5fe8bc2c9beeb43665824950b20e185477e9e223c82"}, "space_fill_arial_italic12.xlsx": {"bytes": 5998, "sha256": "91e9215bad489fafc03a11d0f9ef85a430aa6604c1da5cdc2c540493cbfd2264"}, "space_fill_arial_italic14.xlsx": {"bytes": 5999, "sha256": "db96858bf31d132c2e0b82a638a5b62668f37ea50f455a4119aec5c37be33a4a"}, "space_fill_arial_italic16.xlsx": {"bytes": 5997, "sha256": "e3acf9178aedc1559767ed92e8c17f5e5d53559c48e1ddf15359f70a67785aa8"}, "space_fill_arial_italic18.xlsx": {"bytes": 5998, "sha256": "55097ab46b84196f49c09aed058068cae28e0ca038c5463dae7f78230214b846"}, "space_fill_arial_italic20.xlsx": {"bytes": 5997, "sha256": "627b21cae89d0d65e6e35691f4965129668dfa6b17f83586b566d8e6234f1105"}, "space_fill_arial_italic24.xlsx": {"bytes": 5998, "sha256": "2e42abbb72d6655981fc0c6703fa1d0671b4a8d87803f74f9389e1fed65f07d6"}, "space_fill_arial_italic9.xlsx": {"bytes": 5998, "sha256": "a49761417f59dc8da1d14c64fd3e0e22733e7a4a7fe75445b2e62216e9fa7527"}}, "job_id": "xlformat-20261122-205103-tables-arial", "manifest_sha256": "b12f90cf9278828889f506d9d9338c02b44148bf25f17a072d50eb977cb2bad5", "runner_version": "0.1.23"}
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 -   		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1.00 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 (1.00)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 12.00 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1,234.50 		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 (1,234.50)		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 0.50 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1,234,567.89 		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 TRUE 		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $- 		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $(1)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $12 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1,235 		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $(1,235)		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1,234,568 		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 TRUE 		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'0* '			0	0		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'0* '			0	1		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'0* '			0	-1		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'0* '			0	12		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'0* '			0	1235		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'0* '			0	-1235		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'0* '			0	1		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'0* '			0	1234568		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'0* '			0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'0* '			0	TRUE		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'* 0'			0	0		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'* 0'			0	1		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'* 0'			0	-1		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'* 0'			0	12		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'* 0'			0	1235		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'* 0'			0	-1235		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'* 0'			0	1		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'* 0'			0	1234568		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'* 0'			0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'* 0'			0	TRUE		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	      -   		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	   1.00 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	 (1.00)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	 12.00 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	   0.50 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $     - 		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $    1 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $   (1)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $   12 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $    1 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	#####		full
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'0* '	6	6.0	0	0        		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'0* '	6	6.0	0	1        		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'0* '	6	6.0	0	-1       		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'0* '	6	6.0	0	12      		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'0* '	6	6.0	0	1235   		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'0* '	6	6.0	0	-1235  		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'0* '	6	6.0	0	1        		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'0* '	6	6.0	0	#####		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'0* '	6	6.0	0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'0* '	6	6.0	0	TRUE		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'* 0'	6	6.0	0	        0		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'* 0'	6	6.0	0	        1		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'* 0'	6	6.0	0	-       1		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'* 0'	6	6.0	0	      12		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'* 0'	6	6.0	0	   1235		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'* 0'	6	6.0	0	-  1235		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'* 0'	6	6.0	0	        1		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'* 0'	6	6.0	0	#####		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'* 0'	6	6.0	0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'* 0'	6	6.0	0	TRUE		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	             -   		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	          1.00 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	         (1.00)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	        12.00 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	   1,234.50 		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	  (1,234.50)		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	          0.50 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	#########		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	 TRUE 		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $             - 		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $            1 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $           (1)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $          12 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $     1,235 		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $    (1,235)		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $            1 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	#########		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 TRUE 		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'0* '	10	10.0	0	0                		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'0* '	10	10.0	0	1                		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'0* '	10	10.0	0	-1               		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'0* '	10	10.0	0	12              		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'0* '	10	10.0	0	1235          		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'0* '	10	10.0	0	-1235         		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'0* '	10	10.0	0	1                		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'0* '	10	10.0	0	1234568     		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'0* '	10	10.0	0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'0* '	10	10.0	0	TRUE		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'* 0'	10	10.0	0	                0		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'* 0'	10	10.0	0	                1		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'* 0'	10	10.0	0	-               1		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'* 0'	10	10.0	0	              12		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'* 0'	10	10.0	0	          1235		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'* 0'	10	10.0	0	-         1235		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'* 0'	10	10.0	0	                1		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'* 0'	10	10.0	0	     1234568		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'* 0'	10	10.0	0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'* 0'	10	10.0	0	TRUE		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                     -   		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                 1.00 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                (1.00)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                12.00 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	           1,234.50 		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	          (1,234.50)		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                 0.50 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	    1,234,567.89 		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	 TRUE 		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                    - 		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                   1 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                  (1)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                 12 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $             1,235 		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $           (1,235)		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                   1 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $      1,234,568 		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 TRUE 		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'0* '	14	14.0	0	0                       		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'0* '	14	14.0	0	1                       		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'0* '	14	14.0	0	-1                      		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'0* '	14	14.0	0	12                     		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'0* '	14	14.0	0	1235                  		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'0* '	14	14.0	0	-1235                		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'0* '	14	14.0	0	1                       		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'0* '	14	14.0	0	1234568            		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'0* '	14	14.0	0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'0* '	14	14.0	0	TRUE		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'* 0'	14	14.0	0	                       0		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'* 0'	14	14.0	0	                       1		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'* 0'	14	14.0	0	-                      1		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'* 0'	14	14.0	0	                     12		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'* 0'	14	14.0	0	                  1235		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'* 0'	14	14.0	0	-                1235		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'* 0'	14	14.0	0	                       1		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'* 0'	14	14.0	0	            1234568		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'* 0'	14	14.0	0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'* 0'	14	14.0	0	TRUE		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                -   		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                             1.00 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                           (1.00)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                           12.00 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                      1,234.50 		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                     (1,234.50)		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                             0.50 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	               1,234,567.89 		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	 TRUE 		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                               - 		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                              1 		fast
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                             (1)		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                             12 		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                        1,235 		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                       (1,235)		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                              1 		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                 1,234,568 		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 abc 		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 TRUE 		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'0* '	20	20.0	0	0                                  		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'0* '	20	20.0	0	1                                  		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'0* '	20	20.0	0	-1                                 		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'0* '	20	20.0	0	12                                		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'0* '	20	20.0	0	1235                             		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'0* '	20	20.0	0	-1235                            		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'0* '	20	20.0	0	1                                  		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'0* '	20	20.0	0	1234568                       		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'0* '	20	20.0	0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'0* '	20	20.0	0	TRUE		fast
+space_fill_arial_italic18	zero [Arial 18 italic]	int	0	'* 0'	20	20.0	0	                                  0		fast
+space_fill_arial_italic18	one [Arial 18 italic]	int	1	'* 0'	20	20.0	0	                                  1		full
+space_fill_arial_italic18	neg-one [Arial 18 italic]	int	-1	'* 0'	20	20.0	0	-                                 1		fast
+space_fill_arial_italic18	twelve [Arial 18 italic]	int	12	'* 0'	20	20.0	0	                                12		fast
+space_fill_arial_italic18	1234.5 [Arial 18 italic]	float	1234.5	'* 0'	20	20.0	0	                             1235		fast
+space_fill_arial_italic18	neg-1234.5 [Arial 18 italic]	float	-1234.5	'* 0'	20	20.0	0	-                            1235		fast
+space_fill_arial_italic18	half [Arial 18 italic]	float	0.5	'* 0'	20	20.0	0	                                  1		full
+space_fill_arial_italic18	million [Arial 18 italic]	float	1234567.891	'* 0'	20	20.0	0	                       1234568		fast
+space_fill_arial_italic18	text [Arial 18 italic]	str	'abc'	'* 0'	20	20.0	0	abc		fast
+space_fill_arial_italic18	bool [Arial 18 italic]	bool	True	'* 0'	20	20.0	0	TRUE		fast

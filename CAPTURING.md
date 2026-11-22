@@ -1300,6 +1300,19 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     25,740 rows; the first misses all 3,906 where they differ (a cell one character short:
     `###` where Excel shows `##`). Calibri and Aptos Narrow from 18 points and Arial from 16
     lose 2 points, Arial 24 (digit 13, padding 9) 4.
+65. **Excel for Windows by capture jobs (2026-11-22; `capture/job.py`, `tests/captures/windows/`).**
+    A group of suites runs as one job in sheetmill's capture-job format (version 1), one
+    workbook per suite, each built as for the Mac with fixed zip times and document dates. The
+    steps are the Mac capture script's: `copy_text` for a width-less column, `set_size` and a
+    `read` of each cell's text for a column at a width (with its width read back in units and
+    points), `autofit` and a width read for a measure sheet, and the display format's font color
+    per cell for a suite that reads colors. Each suite file in `tests/captures/windows/` has the
+    Mac schema and holds the job's result header whole (`job_header`); the manifest is beside
+    them as `<group>.job.json`, and `tests/test_windows_captures.py` writes each job again from
+    its `job_id` and requires the same manifest and input checksums.
+    - **Glyph tables, 96 dpi** (groups `tables_calibri`, `tables_aptos_narrow`, `tables_arial`;
+      Excel 16.0.20527.20196, Microsoft 365, Current Channel): every `measure*` and `space_fill*`
+      suite of the three families, four styles, nine sizes, 216 suite files.
 
 ## 3. The pipeline
 

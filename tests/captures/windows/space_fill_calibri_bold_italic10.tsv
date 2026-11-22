@@ -1,0 +1,216 @@
+# suite: space_fill_calibri_bold_italic10
+# platform: windows
+# excel_build: 16.0.20527.20196
+# job: tables_calibri.job.json
+# job_id: xlformat-20261122-200220-tables-calibri
+# workbook_font: Calibri 10
+# captured: 2026-11-22
+# generator: capture.cases.space_fill_calibri_bold_italic10, capture/job.py
+# method: width none=clipboard; width 6=string_value; width 10=string_value; width 14=string_value; width 20=string_value
+# numbers: repr
+# widths: exact
+# column_points: C=35.25 D=56.25 E=77.25 F=108.75
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# job_header: {"environment": {"audit": false, "checks": {"dde_server_launch_disabled": true, "dde_server_lookup_disabled": true, "vba_warnings": 4}, "display": {"screen_px": [2560, 1440], "system_dpi": 96}, "edition": {"found": "Microsoft 365", "source": "office products"}, "excel": {"build": "16.0.20527.20196", "build_number": 20527.0, "calculation_version": 191029, "decimal_separator": ".", "international": {"country": 1.0, "decimal": ".", "list": ","}, "operating_system": "Windows (64-bit ARM) NT 10.00", "process": {"native_machine": "0xaa64", "process_machine": "0x8664"}, "standard_font": "Aptos Narrow", "standard_font_size": 11.0, "thousands_separator": ",", "use_system_separators": true, "version": "16.0"}, "fonts": [{"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Regular", "version": "Version 6.27"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Regular", "version": "Version 5.72"}], "geometry": {"expected": {"excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "found": {"excel_window_px": "not shown", "screen_px": [2560, 1440], "system_dpi": 96}, "ok": true}, "locale": {"ansi_code_page": 1252, "decimal": ".", "list": ",", "long_date": "dddd, MMMM d, yyyy", "name": "en-US", "oem_code_page": 437, "short_date": "M/d/yyyy", "sort_locale": "en-US", "sort_version": {"custom": "01000000ee575c1e00b4d0000bb1e11e", "defined": 394498, "nls": 394498}, "time": "h:mm:ss tt", "two_digit_year_max": 2049, "two_digit_year_max_setting": null}, "office": {"channel": "Current Channel", "platform": "x64", "products": "O365HomePremRetail", "version": "16.0.20527.20196"}, "printer": {"orientation": "portrait", "paper": "A4", "paper_mm": [215.9, 279.4]}, "theme": {"office_ui_theme": 6, "windows_apps_light": 1, "windows_system_light": 1}, "windows": {"architecture": "ARM64", "build": "26300.9974", "display_version": "26H2", "edition": "Core"}}, "format": 1, "inputs": {"measure10.xlsx": {"bytes": 12106, "sha256": "e0ddd7241400d3ee9bb8a95ec6d5c2572b4824e897ef1cea6c2831dc2a8cccfb"}, "measure11.xlsx": {"bytes": 12113, "sha256": "3175d7559d8538707b1f2f2f93fd84260b5af59f6cedb277efe0fe00d8e09168"}, "measure12.xlsx": {"bytes": 12106, "sha256": "8f607f6189438a228660c262585702b4c662b0a3d4c96443b0d9e0cbb4589d7b"}, "measure14.xlsx": {"bytes": 12107, "sha256": "12ebf4c67d2fee2d0a478e01a8dc373464838628fe06201f8eddf7129407b01d"}, "measure16.xlsx": {"bytes": 12105, "sha256": "a71ce22471d1125d1f4ff18a9bbf74125ca3a1652f62c770c2f1174b829eb5f6"}, "measure9.xlsx": {"bytes": 12105, "sha256": "170b0c8e0f045342b18958fa4abc4380529185f0d802fc2a3d3225d428319d9f"}, "measure_calibri18.xlsx": {"bytes": 12106, "sha256": "072f1fec4a374a064d1ed697120896e735d0728011bf1be6004464552edbb47b"}, "measure_calibri20.xlsx": {"bytes": 12105, "sha256": "89aeee1aacccbb29eff2268d7af8cb6dd10ed11b299de8209c7d04c0776f60cb"}, "measure_calibri24.xlsx": {"bytes": 12106, "sha256": "2d9e56ea03b1429a7406b71b04d3edb11d636b411da5d125adf17793911a58e5"}, "measure_calibri_bold10.xlsx": {"bytes": 12118, "sha256": "efc75338fac58244c10d74a17ed6c5bc054fcc15873ac36466013bc778da6d9f"}, "measure_calibri_bold11.xlsx": {"bytes": 12118, "sha256": "eada8cf69dc92542372a1c605866a2afa4edab819156d3d06a5cca45587222ef"}, "measure_calibri_bold12.xlsx": {"bytes": 12117, "sha256": "ba81ae55bac6485b3518fe9f2ec73c171a1066618eb713a83a7b18b82ba57c24"}, "measure_calibri_bold14.xlsx": {"bytes": 12119, "sha256": "116b46b0fb3232d25406b3da6f714624a165b26ff4784be19989d0fb768f9141"}, "measure_calibri_bold16.xlsx": {"bytes": 12116, "sha256": "27e1a175c1ddb6047434e55e5ad0faa06da1cda08f5fb7efa4c4a5dff48c05fb"}, "measure_calibri_bold18.xlsx": {"bytes": 12118, "sha256": "4bcceafb42731c2876361e002fae05e27b5d2a9b32d5a6958bf1833eb84925b7"}, "measure_calibri_bold20.xlsx": {"bytes": 12117, "sha256": "3aa8a5f8dc87883d279b9c6b77b586dd69b8411b098f3f75271cb92b5fa149ab"}, "measure_calibri_bold24.xlsx": {"bytes": 12119, "sha256": "1de930f4a61a237a813dd4a0412ad30fda06f6b70cc46885fed4d38e86213899"}, "measure_calibri_bold9.xlsx": {"bytes": 12118, "sha256": "d15a265a071b571cfa6a382d93edb58550ec441a8fc35ce8b6b5ca2853d13a3a"}, "measure_calibri_bold_italic10.xlsx": {"bytes": 12121, "sha256": "18fd6fa2767f2ec1f445b7b840a561da50827433ef8473376ddd405cd4ea339f"}, "measure_calibri_bold_italic11.xlsx": {"bytes": 12121, "sha256": "7eaa50c304113ea975a58fc188ad8076eefd0982220b0d34c48a4fd004c85d56"}, "measure_calibri_bold_italic12.xlsx": {"bytes": 12121, "sha256": "aeec85ed2a0aa6bfe54576c7f09904c00d0da0fd007a0a7b150979eecc990ad7"}, "measure_calibri_bold_italic14.xlsx": {"bytes": 12122, "sha256": "b8dc29d5a01507fe2f3a0b56348f05fd3d6ab32a21b1318196885bf56d64900f"}, "measure_calibri_bold_italic16.xlsx": {"bytes": 12120, "sha256": "0b4339f03c31acd762eff71fb53f54a1591760347170930a48386280c6b19fbc"}, "measure_calibri_bold_italic18.xlsx": {"bytes": 12121, "sha256": "0fd668c5e323cd1590f13b4cd631076acff7c99e243341b703d619ccf94d813c"}, "measure_calibri_bold_italic20.xlsx": {"bytes": 12121, "sha256": "4c27b6dec0d3f6a04508ad9ca2206bdfcc0547e5b9092db7d9e53a963d203275"}, "measure_calibri_bold_italic24.xlsx": {"bytes": 12122, "sha256": "774e52e6b1253a703a5b386ea3a3ff348db51fe005868304a1d67cd9be689d0d"}, "measure_calibri_bold_italic9.xlsx": {"bytes": 12121, "sha256": "758bf1c69d7c951ce6436e6566616fe66254284155d6276e475eae4c5d48ba9a"}, "measure_calibri_italic10.xlsx": {"bytes": 12118, "sha256": "17962f7025f3ee2d0fe55b074909f31965cf9ff57bc30369e323d515ab6b6cd0"}, "measure_calibri_italic11.xlsx": {"bytes": 12118, "sha256": "51aea92cdfdc68580c82e8e350ab7d2be68f96f5e597ba1f1041c4c1c28bb526"}, "measure_calibri_italic12.xlsx": {"bytes": 12117, "sha256": "93bbbd26395ce2069ed2027fab41782855d75b33a08864990d9ea5e27d75f659"}, "measure_calibri_italic14.xlsx": {"bytes": 12119, "sha256": "4713358363a02f49751f86d7af88642490bb42084b15d988a78531f3be8c6310"}, "measure_calibri_italic16.xlsx": {"bytes": 12116, "sha256": "9bba18bef4e8db847a183702b69ddfd07ee8c1eab9de880d8c4cd890c25e9ad6"}, "measure_calibri_italic18.xlsx": {"bytes": 12118, "sha256": "08e2d3f6da493d7cd5b05f728255a0bf773f44584c1b029589e94e8588272b17"}, "measure_calibri_italic20.xlsx": {"bytes": 12118, "sha256": "f9c4098d74921937a100c4509d62f30a826b82908c3195d2c1fb39b4f469e6a7"}, "measure_calibri_italic24.xlsx": {"bytes": 12119, "sha256": "70e90bc5a7531356b30fea40619edde51047560b2700a10816c61e341139a012"}, "measure_calibri_italic9.xlsx": {"bytes": 12118, "sha256": "d9507a1958a111422c98e9e0391dc0c261b3b4d32747907df6ad8f9ab923946e"}, "space_fill10.xlsx": {"bytes": 5997, "sha256": "d9934650b3a512eaec43ec40d976495fb76d9c2dc77a7a84c559c44a4808ab7f"}, "space_fill11.xlsx": {"bytes": 5997, "sha256": "0419b941df5ba130c8a9f568d698868f58fb0d1a4b2eb7f88197af5a37a54607"}, "space_fill12.xlsx": {"bytes": 5997, "sha256": "a1e4c5c721ed9bf8d28d6279626c85dcecaa2236e5f015879944ae719aa9f6c3"}, "space_fill14.xlsx": {"bytes": 5998, "sha256": "4b8b50c3d2204a6f388328a6a6ec91dc82d7d9d73d276c81f9eefe038be7963b"}, "space_fill16.xlsx": {"bytes": 5997, "sha256": "c36f547fa0844212cef902018c36556cbb2589bd9835f47ccb21888d0fdb0f3c"}, "space_fill9.xlsx": {"bytes": 5996, "sha256": "7c47197d2f779525326193eab624b7b8251bc48fa86afd74e78b29562c089f81"}, "space_fill_calibri18.xlsx": {"bytes": 5997, "sha256": "8023dabdb37258a0a5e7d7539a7178527af16e547404c8d348a63c5eda624fdb"}, "space_fill_calibri20.xlsx": {"bytes": 5996, "sha256": "73f5845fed89596b05a549ae5470973655be8e23ebeeac86b80ae2175756e406"}, "space_fill_calibri24.xlsx": {"bytes": 5997, "sha256": "d7f7c30cff8f2ed8000a82f08fb042178b8b90bff97db382699e070b0bba02c0"}, "space_fill_calibri_bold10.xlsx": {"bytes": 6010, "sha256": "0e5cf94558b2101e6e4382392ad84fb0beff185ece00a802e8837296d241403e"}, "space_fill_calibri_bold11.xlsx": {"bytes": 6010, "sha256": "66d4361b77573270b6f1cf4a6b4987124f7cd543642423039a29283bf906b008"}, "space_fill_calibri_bold12.xlsx": {"bytes": 6009, "sha256": "95006a8247e230ad0e2ea994e8c2d42cb0d6d2a64f413c60370a5e0aa0e3f426"}, "space_fill_calibri_bold14.xlsx": {"bytes": 6010, "sha256": "409417bcc08aee559e6f97d3395ab2360c0f10aa72e578c1c588c40ade2e5138"}, "space_fill_calibri_bold16.xlsx": {"bytes": 6009, "sha256": "eef634cf6ba51320ad05ac90de2a42e35b2168c1bcb3844cb99cc7f4eee82882"}, "space_fill_calibri_bold18.xlsx": {"bytes": 6010, "sha256": "b8d7f937b1909bb88453070cb177e08b2d0f507663d8ed2f31ca5c85887d3c30"}, "space_fill_calibri_bold20.xlsx": {"bytes": 6009, "sha256": "22dd6c00b3e962277a5c849e9a4b02bba53063d052a830ba744826859a65a46b"}, "space_fill_calibri_bold24.xlsx": {"bytes": 6010, "sha256": "1c1e063ebf908aa9e3ae12a6736b1ece400c1230ad58327ffd9f813570b15d01"}, "space_fill_calibri_bold9.xlsx": {"bytes": 6010, "sha256": "b31a9b50019ebe569442cdbbe337527702edcf207c777a3d1f79dcf681082dc1"}, "space_fill_calibri_bold_italic10.xlsx": {"bytes": 6013, "sha256": "c1cf8d5bb532783b5837a5a671c4885169a2437b6310c7a8db761dfe798881f2"}, "space_fill_calibri_bold_italic11.xlsx": {"bytes": 6014, "sha256": "7a7e4633bb243ddf5bfc8bdea17f7dfbbea5843f744e1bcda0a92346ee8dea17"}, "space_fill_calibri_bold_italic12.xlsx": {"bytes": 6013, "sha256": "50f7d7fd74d5e9ac437efb8c76ea646b4b7acf19e9fdfe740d177a34403f306b"}, "space_fill_calibri_bold_italic14.xlsx": {"bytes": 6014, "sha256": "cc5ff5aca1a636b058987ed686010c8dac808945a9e7fc4fb806f92c78b86ee0"}, "space_fill_calibri_bold_italic16.xlsx": {"bytes": 6013, "sha256": "62e58b24595b946967a44dd2a4cb751368176d852af246c3b0ecddfc985b5eac"}, "space_fill_calibri_bold_italic18.xlsx": {"bytes": 6014, "sha256": "1c62c0a08e34076f6c9501b2425ccceff09ae79cafdab538537fc3143dfe693d"}, "space_fill_calibri_bold_italic20.xlsx": {"bytes": 6013, "sha256": "9eb955653a1c16fd300e733011148aff0405c7f620f78b2d0273898c4346ff54"}, "space_fill_calibri_bold_italic24.xlsx": {"bytes": 6014, "sha256": "fd4391daf0424181349bf64f3782303b9ca80bf50d8e03553e0663f08e8dcf68"}, "space_fill_calibri_bold_italic9.xlsx": {"bytes": 6013, "sha256": "fc2b7be9f5bf15fd9ec2cd70e38f553687a8985f22919eea76fc0d1c472117dd"}, "space_fill_calibri_italic10.xlsx": {"bytes": 6010, "sha256": "1fddc240ca95c859a98f10168ce53577c22bef5c5ab8376dfa04e23df3d9eb2a"}, "space_fill_calibri_italic11.xlsx": {"bytes": 6010, "sha256": "21757cb5aa46e55a79b87ada74dafcadc212eaa564609f9490d0367f21d215c6"}, "space_fill_calibri_italic12.xlsx": {"bytes": 6009, "sha256": "e8056b9bc9e40464f02dfa8c12cdead96615011b6b501f54f91e98ef549d0149"}, "space_fill_calibri_italic14.xlsx": {"bytes": 6010, "sha256": "98a63af342c2ea649a4cfc49f77c73f937227f787b450bd7696e01864456353f"}, "space_fill_calibri_italic16.xlsx": {"bytes": 6009, "sha256": "839f4d899512d19406427acc28f382b7731d91d5c83bb1c6683efe0be034270c"}, "space_fill_calibri_italic18.xlsx": {"bytes": 6010, "sha256": "658fe8cbaf54aaeb302b6bc22dd889835c5763b614ae01ae8e7de9f7fc239ec1"}, "space_fill_calibri_italic20.xlsx": {"bytes": 6009, "sha256": "947bd1cede7a043ba7d3ba73782fde0b6d877483c56fc5030162e072c83ac3bb"}, "space_fill_calibri_italic24.xlsx": {"bytes": 6010, "sha256": "32c1d8c6107cfe5ecf34223a89f9414793e80b6b3d5e93500fbc3e9741268794"}, "space_fill_calibri_italic9.xlsx": {"bytes": 6010, "sha256": "81c12da4fcd33d7b5d3113c0ee70406ff3ef2017f04813b013fae7904bae9711"}}, "job_id": "xlformat-20261122-200220-tables-calibri", "manifest_sha256": "6429cff4d2456202584c2d1d91df23290182de39ea0cb958191dcb71e1bc9f51", "runner_version": "0.1.23"}
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 -   		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1.00 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 (1.00)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 12.00 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1,234.50 		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 (1,234.50)		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 0.50 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 1,234,567.89 		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"			0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $- 		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $(1)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $12 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1,235 		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $(1,235)		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 $1,234,568 		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"			0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'0* '			0	0		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'0* '			0	1		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'0* '			0	-1		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'0* '			0	12		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'0* '			0	1235		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'0* '			0	-1235		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'0* '			0	1		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'0* '			0	1234568		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'0* '			0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'0* '			0	TRUE		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'* 0'			0	0		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'* 0'			0	1		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'* 0'			0	-1		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'* 0'			0	12		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'* 0'			0	1235		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'* 0'			0	-1235		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'* 0'			0	1		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'* 0'			0	1234568		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'* 0'			0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'* 0'			0	TRUE		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	         -   		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	    1.00 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	  (1.00)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	  12.00 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	######		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	######		full
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	    0.50 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	######		full
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	6	6.0	0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $       - 		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $      1 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $     (1)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $    12 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	######		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	######		full
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 $      1 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	######		full
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	6	6.0	0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'0* '	6	6.0	0	0           		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'0* '	6	6.0	0	1           		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'0* '	6	6.0	0	-1         		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'0* '	6	6.0	0	12        		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'0* '	6	6.0	0	1235    		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'0* '	6	6.0	0	-1235  		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'0* '	6	6.0	0	1           		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'0* '	6	6.0	0	######		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'0* '	6	6.0	0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'0* '	6	6.0	0	TRUE		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'* 0'	6	6.0	0	           0		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'* 0'	6	6.0	0	           1		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'* 0'	6	6.0	0	-         1		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'* 0'	6	6.0	0	        12		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'* 0'	6	6.0	0	    1235		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'* 0'	6	6.0	0	-  1235		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'* 0'	6	6.0	0	           1		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'* 0'	6	6.0	0	######		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'* 0'	6	6.0	0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'* 0'	6	6.0	0	TRUE		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	                  -   		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	             1.00 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	            (1.00)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	           12.00 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	     1,234.50 		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	    (1,234.50)		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	             0.50 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	###########		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	10	10.0	0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $                 - 		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $                1 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $              (1)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $             12 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $        1,235 		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $      (1,235)		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $                1 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 $1,234,568 		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	10	10.0	0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'0* '	10	10.0	0	0                    		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'0* '	10	10.0	0	1                    		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'0* '	10	10.0	0	-1                   		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'0* '	10	10.0	0	12                  		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'0* '	10	10.0	0	1235             		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'0* '	10	10.0	0	-1235            		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'0* '	10	10.0	0	1                    		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'0* '	10	10.0	0	1234568      		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'0* '	10	10.0	0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'0* '	10	10.0	0	TRUE		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'* 0'	10	10.0	0	                    0		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'* 0'	10	10.0	0	                    1		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'* 0'	10	10.0	0	-                   1		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'* 0'	10	10.0	0	                  12		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'* 0'	10	10.0	0	             1235		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'* 0'	10	10.0	0	-            1235		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'* 0'	10	10.0	0	                    1		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'* 0'	10	10.0	0	      1234568		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'* 0'	10	10.0	0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'* 0'	10	10.0	0	TRUE		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                           -   		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                       1.00 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                     (1.00)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                    12.00 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	               1,234.50 		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	             (1,234.50)		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	                       0.50 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	       1,234,567.89 		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	14	14.0	0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                          - 		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                         1 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                       (1)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                       12 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                 1,235 		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $               (1,235)		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $                         1 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 $         1,234,568 		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	14	14.0	0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'0* '	14	14.0	0	0                             		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'0* '	14	14.0	0	1                             		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'0* '	14	14.0	0	-1                            		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'0* '	14	14.0	0	12                           		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'0* '	14	14.0	0	1235                      		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'0* '	14	14.0	0	-1235                     		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'0* '	14	14.0	0	1                             		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'0* '	14	14.0	0	1234568               		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'0* '	14	14.0	0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'0* '	14	14.0	0	TRUE		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'* 0'	14	14.0	0	                             0		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'* 0'	14	14.0	0	                             1		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'* 0'	14	14.0	0	-                            1		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'* 0'	14	14.0	0	                           12		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'* 0'	14	14.0	0	                      1235		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'* 0'	14	14.0	0	-                     1235		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'* 0'	14	14.0	0	                             1		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'* 0'	14	14.0	0	               1234568		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'* 0'	14	14.0	0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'* 0'	14	14.0	0	TRUE		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                         -   		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                     1.00 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                   (1.00)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                  12.00 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                             1,234.50 		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                           (1,234.50)		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                                     0.50 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	                     1,234,567.89 		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_(* #,##0.00_);_(* (#,##0.00);_(* ""-""??_);_(@_)'"	20	20.0	0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                        - 		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                       1 		fast
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                     (1)		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                     12 		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                               1,235 		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                             (1,235)		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                                       1 		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 $                       1,234,568 		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 abc 		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	"'_($* #,##0_);_($* (#,##0);_($* ""-""_);_(@_)'"	20	20.0	0	 TRUE 		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'0* '	20	20.0	0	0                                           		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'0* '	20	20.0	0	1                                           		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'0* '	20	20.0	0	-1                                          		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'0* '	20	20.0	0	12                                         		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'0* '	20	20.0	0	1235                                    		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'0* '	20	20.0	0	-1235                                   		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'0* '	20	20.0	0	1                                           		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'0* '	20	20.0	0	1234568                             		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'0* '	20	20.0	0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'0* '	20	20.0	0	TRUE		fast
+space_fill_calibri_bold_italic10	zero [Calibri 10 bold italic]	int	0	'* 0'	20	20.0	0	                                           0		fast
+space_fill_calibri_bold_italic10	one [Calibri 10 bold italic]	int	1	'* 0'	20	20.0	0	                                           1		full
+space_fill_calibri_bold_italic10	neg-one [Calibri 10 bold italic]	int	-1	'* 0'	20	20.0	0	-                                          1		fast
+space_fill_calibri_bold_italic10	twelve [Calibri 10 bold italic]	int	12	'* 0'	20	20.0	0	                                         12		fast
+space_fill_calibri_bold_italic10	1234.5 [Calibri 10 bold italic]	float	1234.5	'* 0'	20	20.0	0	                                    1235		fast
+space_fill_calibri_bold_italic10	neg-1234.5 [Calibri 10 bold italic]	float	-1234.5	'* 0'	20	20.0	0	-                                   1235		fast
+space_fill_calibri_bold_italic10	half [Calibri 10 bold italic]	float	0.5	'* 0'	20	20.0	0	                                           1		full
+space_fill_calibri_bold_italic10	million [Calibri 10 bold italic]	float	1234567.891	'* 0'	20	20.0	0	                             1234568		fast
+space_fill_calibri_bold_italic10	text [Calibri 10 bold italic]	str	'abc'	'* 0'	20	20.0	0	abc		fast
+space_fill_calibri_bold_italic10	bool [Calibri 10 bold italic]	bool	True	'* 0'	20	20.0	0	TRUE		fast
