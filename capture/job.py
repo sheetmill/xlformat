@@ -63,6 +63,17 @@ GROUPS: dict[str, tuple[str, ...]] = {
         f"tables_{family}": tuple(n for n in _TABLES if _family(n) == family)
         for family in ("calibri", "aptos_narrow", "arial")
     },
+    # the rules: columns without a width, file widths at 1/256 steps, fills past 255
+    # characters, file widths at every size, cell fonts against the Normal font, error values
+    "rules": tuple(
+        name
+        for name in SUITES
+        if re.fullmatch(
+            r"column_default_\w+|column_boundary\d+|long_fills|column_file\w*"
+            r"|cell_font_styles|cell_font_large|cell_font_arial|error_width",
+            name,
+        )
+    ),
 }
 
 
