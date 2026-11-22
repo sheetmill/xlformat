@@ -430,12 +430,15 @@ def read_zoom(zoom: int, suite: str = "rules") -> list[str]:
         first_row, first_band = rows[0]
         ratios = sorted((b[1] - b[0] + 1) / heights[r - 1] for r, b in rows)
         scale = round(ratios[len(ratios) // 2])
-        for k, (row, _) in enumerate(rows):
+        for k, (row, band) in enumerate(rows):
             edge = k == len(rows) - 1 and row < len(all_cases)
             if row in found and (row not in at_edge or edge):
                 continue
-            top_px = first_band[0] + round(scale * sum(heights[first_row - 1 : row - 1]))
-            bottom_px = top_px + round(scale * heights[row - 1]) - 1
+            if _scale(zoom) is None:
+                top_px = first_band[0] + round(scale * sum(heights[first_row - 1 : row - 1]))
+                bottom_px = top_px + round(scale * heights[row - 1]) - 1
+            else:  # each row rounded to whole pixels: its own band, not a sum of heights
+                top_px, bottom_px = band
             left = _marker_right(image, (top_px + bottom_px) // 2, _marker_column(image)) + 2
             right = min(image.width, left + (900 if suite == "rules" else 1600))
             case = all_cases[row - 1]
