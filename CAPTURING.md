@@ -1160,6 +1160,16 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       section `@` without a color, or a condition, text stays black. The numbers' colors match the
       package's in all nine formats. The `colors` suite's read-back gave black for text under
       `[Red]General`: one of the read-back's known misreports of colored text.
+    - **Display (2026-11-21):** captured again in the macOS VM, twice (the second time from
+      `a968d20`, which records the display's profile in the header): all 360 rule rows match
+      the first capture's, and the 20 colored ones of the 36 text-color rows read the specified
+      colors (Excel's blue as `53 53 255` and `36 36 255` where the first capture read `50 50 246`
+      and `33 33 245`, its red `255 37 37` where it read `235 70 57`). The first capture's display has the
+      Display P3 profile, and its window captures are converted to sRGB, which pulls saturated
+      colors a few units off. The VM's display profile ("Apple Virtual") has sRGB's primaries
+      (its red, green and blue colorants equal the system sRGB profile's to four decimals).
+      `rules.layout.tsv` is the VM's capture since, its header recording `display_profile`;
+      every color reads as the same named color as before.
 
 61. **Times New Roman's accounting rows at 36 to 41 points (2026-11-21; `capture/font_heights.py
     accounting`, Times New Roman and Georgia at every half point from 36 to 41, plain and under

@@ -1,7 +1,8 @@
 # suite: rules (capture.screen_rules); Excel for Mac, en_US
 # excel_build: 16.115 (26110837)
 # edition: Microsoft 365 Subscription, update channel Current
-# captured: 2026-11-19; window captures at zoom 100 and 200 on a display of scale 2; pixels from the row's top: the H stems' last ink row, each rule's first and last row; color: the mean of the text's colored ink, or black
+# captured: 2026-11-21; window captures at zoom 100 and 200 on a display of scale 2; pixels from the row's top: the H stems' last ink row, each rule's first and last row; color: the mean of the text's colored ink, or black
+# display_profile: Apple Virtual
 zoom	tag	row_height	pixels_per_point	baseline_px	measured
 100	Calibri 9 none	15	2	29	
 100	Calibri 9 single	15	2	25	
@@ -185,22 +186,22 @@ zoom	tag	row_height	pixels_per_point	baseline_px	measured
 100	Georgia 36 strike	45	2	71	52-55
 100	'Total' General	15	2		black
 100	12 General	15	2		black
-100	'Total' [Blue]General	15	2		50 50 246
-100	12 [Blue]General	15	2		33 33 245
+100	'Total' [Blue]General	15	2		53 53 255
+100	12 [Blue]General	15	2		36 36 255
 100	'Total' [Red]0.0	15	2		black
-100	12 [Red]0.0	15	2		235 70 57
-100	'Total' [Blue]@	15	2		50 50 246
+100	12 [Red]0.0	15	2		255 37 37
+100	'Total' [Blue]@	15	2		53 53 255
 100	12 [Blue]@	15	2		black
 100	'Total' [Blue]0;[Red]0	15	2		black
-100	12 [Blue]0;[Red]0	15	2		33 33 245
+100	12 [Blue]0;[Red]0	15	2		36 36 255
 100	'Total' [Blue]0;[Red]0;[Magenta]0	15	2		black
-100	12 [Blue]0;[Red]0;[Magenta]0	15	2		33 33 245
+100	12 [Blue]0;[Red]0;[Magenta]0	15	2		36 36 255
 100	'Total' [Blue]0;[Red]0;[Magenta]0;@	15	2		black
-100	12 [Blue]0;[Red]0;[Magenta]0;@	15	2		33 33 245
-100	'Total' [Blue]0;[Red]0;[Magenta]0;[Red]@	15	2		235 77 65
-100	12 [Blue]0;[Red]0;[Magenta]0;[Red]@	15	2		33 33 245
+100	12 [Blue]0;[Red]0;[Magenta]0;@	15	2		36 36 255
+100	'Total' [Blue]0;[Red]0;[Magenta]0;[Red]@	15	2		255 47 47
+100	12 [Blue]0;[Red]0;[Magenta]0;[Red]@	15	2		36 36 255
 100	'Total' [Red][<0]0;[Blue]0	15	2		black
-100	12 [Red][<0]0;[Blue]0	15	2		33 33 245
+100	12 [Red][<0]0;[Blue]0	15	2		36 36 255
 200	Calibri 9 none	15	4	43	
 200	Calibri 9 single	15	4	43	48-49
 200	Calibri 9 double	15	4	43	48-49 52-53
@@ -383,19 +384,19 @@ zoom	tag	row_height	pixels_per_point	baseline_px	measured
 200	Georgia 36 strike	45	4	143	0-1 102-109
 200	'Total' General	15	4		black
 200	12 General	15	4		black
-200	'Total' [Blue]General	15	4		19 19 245
-200	12 [Blue]General	15	4		30 30 245
+200	'Total' [Blue]General	15	4		23 23 255
+200	12 [Blue]General	15	4		31 31 255
 200	'Total' [Red]0.0	15	4		black
-200	12 [Red]0.0	15	4		235 66 52
-200	'Total' [Blue]@	15	4		19 19 245
+200	12 [Red]0.0	15	4		255 28 28
+200	'Total' [Blue]@	15	4		23 23 255
 200	12 [Blue]@	15	4		black
 200	'Total' [Blue]0;[Red]0	15	4		black
-200	12 [Blue]0;[Red]0	15	4		30 30 245
+200	12 [Blue]0;[Red]0	15	4		31 31 255
 200	'Total' [Blue]0;[Red]0;[Magenta]0	15	4		black
-200	12 [Blue]0;[Red]0;[Magenta]0	15	4		30 30 245
+200	12 [Blue]0;[Red]0;[Magenta]0	15	4		31 31 255
 200	'Total' [Blue]0;[Red]0;[Magenta]0;@	15	4		black
-200	12 [Blue]0;[Red]0;[Magenta]0;@	15	4		30 30 245
-200	'Total' [Blue]0;[Red]0;[Magenta]0;[Red]@	15	4		235 64 50
-200	12 [Blue]0;[Red]0;[Magenta]0;[Red]@	15	4		30 30 245
+200	12 [Blue]0;[Red]0;[Magenta]0;@	15	4		31 31 255
+200	'Total' [Blue]0;[Red]0;[Magenta]0;[Red]@	15	4		255 26 26
+200	12 [Blue]0;[Red]0;[Magenta]0;[Red]@	15	4		31 31 255
 200	'Total' [Red][<0]0;[Blue]0	15	4		black
-200	12 [Red][<0]0;[Blue]0	15	4		30 30 245
+200	12 [Red][<0]0;[Blue]0	15	4		31 31 255
