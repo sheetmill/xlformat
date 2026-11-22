@@ -1,9 +1,11 @@
 """Where Excel draws underlines and strikethrough, and what color text takes, from the screen.
 
-    uv run python -m capture.screen_rules build     # the workbook, no Excel
-    uv run python -m capture.screen_rules predict   # write the predictions, before a run
-    uv run python -m capture.screen_rules run       # open, capture every view at zoom 100 and 200
-    uv run python -m capture.screen_rules read      # measure the saved captures again
+    uv run python -m capture.screen_rules build [suite]    # the workbook, no Excel
+    uv run python -m capture.screen_rules predict [suite]  # write the predictions, before a run
+    uv run python -m capture.screen_rules run [suite]      # open, capture at zoom 100 and 200
+    uv run python -m capture.screen_rules read [suite]     # measure the saved captures again
+
+Two suites, ``rules`` (the default) and ``rules_double``.
 
 One workbook, Normal style Calibri 11, column A filled magenta and cyan in turn as in
 ``capture/screen_vertical.py`` (whose AppleScript, window capture and band matching it uses), a
@@ -16,8 +18,13 @@ case a row in column B, left-aligned and bottom-aligned, rows fitted by Excel:
 - ``color``: "Total" and 12 in Calibri 11 under formats with one to four sections and colors.
   Measured: the mean color of the text's colored ink, or ``black``.
 
+``rules_double`` (CAPTURING.md section 2 item 62) has only ``rule`` cases: five faces (Courier New
+left out) at every size from 9 to 36 points and from 40 to 72 in steps of 4, each with every
+underline and a strikethrough (no plain row: the strikethrough row gives the plain row's
+baseline), then 20 small rows, so that the sheet does not end on rows taller than a view.
+
 The run needs the display on, Excel in front and nobody at the keyboard; no clipboard. Writes
-``tests/captures/rules.layout.tsv``; the images stay in ``capture/build/screen_rules/``.
+``tests/captures/<suite>.layout.tsv``; the images stay in ``capture/build/screen_<suite>/``.
 """
 
 from __future__ import annotations
@@ -45,15 +52,16 @@ from capture.screen_vertical import (
     rows_in_view,
 )
 
-NAME = "screen_rules.xlsx"
-PATH = (WORKBOOK_DIR / NAME).resolve()
-SHOTS = BUILD_DIR / "screen_rules"
-OUTPUT = Path(__file__).resolve().parents[1] / "tests" / "captures" / "rules.layout.tsv"
-PREDICTIONS = BUILD_DIR / "screen_rules.predictions.tsv"
+CAPTURES = Path(__file__).resolve().parents[1] / "tests" / "captures"
+SUITES = ("rules", "rules_double")
 FACES = ("Calibri", "Arial", "Aptos Narrow", "Times New Roman", "Courier New", "Georgia")
 SIZES = (9, 11, 14, 20, 36)
 RULES = ("none", "single", "double", "singleAccounting", "doubleAccounting", "strike")
 ZOOMS = (100, 200)
+DOUBLE_FACES = ("Calibri", "Arial", "Aptos Narrow", "Times New Roman", "Georgia")
+DOUBLE_SIZES = (*range(9, 37), *range(40, 73, 4))
+DOUBLE_RULES = ("single", "double", "singleAccounting", "doubleAccounting", "strike")
+HELD_OUT_SEED = 20261121  # rules_double: a third of the combinations, held out of any choice
 COLOR_FORMATS = (
     "General",
     "[Blue]General",
@@ -78,7 +86,35 @@ class Case:
     format: str = "General"
 
 
-def cases() -> list[Case]:
+def workbook_name(suite: str) -> str:
+    return "screen_rules.xlsx" if suite == "rules" else f"screen_{suite}.xlsx"
+
+
+def workbook_path(suite: str) -> Path:
+    return (WORKBOOK_DIR / workbook_name(suite)).resolve()
+
+
+def shots(suite: str) -> Path:
+    return BUILD_DIR / f"screen_{suite}"
+
+
+def output(suite: str) -> Path:
+    return CAPTURES / f"{suite}.layout.tsv"
+
+
+def predictions(suite: str) -> Path:
+    return BUILD_DIR / f"screen_{suite}.predictions.tsv"
+
+
+def cases(suite: str = "rules") -> list[Case]:
+    if suite == "rules_double":
+        found = [
+            Case("rule", f"{face} {s} {rule}", face, float(s), rule)
+            for face in DOUBLE_FACES
+            for s in DOUBLE_SIZES
+            for rule in DOUBLE_RULES
+        ]
+        return found + [Case("rule", f"filler {k} none") for k in range(20)]
     out = [
         Case("rule", f"{face} {s} {rule}", face, float(s), rule)
         for face in FACES
@@ -93,14 +129,14 @@ def cases() -> list[Case]:
     return out
 
 
-def build() -> Path:
+def build(suite: str = "rules") -> Path:
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font, PatternFill
 
     wb = Workbook()
     ws = wb.active
     markers = (PatternFill("solid", fgColor="FF00FF"), PatternFill("solid", fgColor="00FFFF"))
-    for r, case in enumerate(cases(), 1):
+    for r, case in enumerate(cases(suite), 1):
         ws.cell(row=r, column=1).fill = markers[r % 2]
         cell = ws.cell(row=r, column=2, value=case.value)
         if isinstance(case.value, str):
@@ -113,9 +149,10 @@ def build() -> Path:
         cell.alignment = Alignment(horizontal="left", vertical="bottom")
     ws.column_dimensions["A"].width = 4
     ws.column_dimensions["B"].width = 30
-    PATH.parent.mkdir(parents=True, exist_ok=True)
-    wb.save(PATH)
-    return PATH
+    path = workbook_path(suite)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    wb.save(path)
+    return path
 
 
 # --- predictions: the font's tables at the screen size, divided back ----------------------------
@@ -139,8 +176,11 @@ def predict_rule(face: str, size: float, rule: str, zoom: int) -> str:
     return " ".join(f"{top:g}/{thick:g}" for top in tops)
 
 
-def predict() -> None:
-    with PREDICTIONS.open("w", encoding="utf-8") as out:
+def predict(suite: str = "rules") -> None:
+    if suite == "rules_double":
+        predict_double()
+        return
+    with predictions(suite).open("w", encoding="utf-8") as out:
         out.write(
             f"# predicted {dt.datetime.now().isoformat(timespec='seconds')}: per rule, "
             "top/thickness\n"
@@ -150,12 +190,65 @@ def predict() -> None:
         )
         out.write("# finding that one-section formats color text, the first section's color\n")
         for zoom in ZOOMS:
-            for c in cases():
+            for c in cases(suite):
                 if c.kind == "rule":
                     out.write(f"{zoom}\t{c.tag}\t{predict_rule(c.face, c.size, c.rule, zoom)}\n")
                 elif zoom == 100:
                     out.write(f"{zoom}\t{c.tag}\t{_predict_color(c)}\n")
-    print(f"wrote {PREDICTIONS}")
+    print(f"wrote {predictions(suite)}")
+
+
+def held_out() -> set[tuple[int, str, int]]:
+    """rules_double: the (zoom, face, size) combinations held out of any choice made on the rest."""
+    import random
+
+    keys = [(z, f, s) for z in ZOOMS for f in DOUBLE_FACES for s in DOUBLE_SIZES]
+    return set(random.Random(HELD_OUT_SEED).sample(keys, len(keys) // 3))
+
+
+def predict_double() -> None:
+    """rules_double: today's ``rule_metrics`` and the stepped double, each line's
+    top/thickness in sheet points below the baseline (strike: negative, above)."""
+    from xlformat import rule_metrics
+
+    held = held_out()
+    with predictions("rules_double").open("w", encoding="utf-8") as out:
+        out.write(
+            f"# predicted {dt.datetime.now().isoformat(timespec='seconds')}: per rule, "
+            "top/thickness in sheet points below the baseline (strike: above, negative)\n"
+            "# current: rule_metrics as it stands (a double's first line at the single's top)\n"
+            "# step: a double's first line steps up from the single's top by its thickness until "
+            "the double (3 thicknesses) fits above the accounting underline's top; from the "
+            "font tables\n"
+            "# drawn (stated, scored on the captured rows): the same with the single's top, the "
+            "double's thickness and the accounting top as captured\n"
+            "# set: test = held out (seed 20261121), sel = the rest\n"
+            "zoom\ttag\tset\tcurrent\tstep\n"
+        )
+        for zoom in ZOOMS:
+            for c in cases("rules_double"):
+                if c.tag.startswith("filler"):
+                    continue
+                m = rule_metrics((c.face, c.size), zoom=zoom)
+                th = m.underline_thickness
+                if c.rule == "strike":
+                    cur = [(-m.strikethrough_top, m.strikethrough_thickness)]
+                elif c.rule in ("single", "double"):
+                    cur = [(m.underline_top, th)]
+                else:
+                    cur = [(m.accounting_top, th)]
+                if c.rule.startswith("double"):
+                    cur.append((cur[0][0] + m.double_gap, th))
+                step = cur
+                if c.rule == "double":
+                    first = m.underline_top
+                    while first > 0 and first + 3 * th > m.accounting_top:
+                        first -= th
+                    step = [(first, th), (first + 2 * th, th)]
+                kind = "test" if (zoom, c.face, int(c.size)) in held else "sel"
+                cur_s, step_s = (" ".join(f"{a:g}/{b:g}" for a, b in v) for v in (cur, step))
+                out.write(f"{zoom}\t{c.tag}\t{kind}\t{cur_s}\t{step_s}\n")
+    print(f"wrote {predictions('rules_double')}")
 
 
 def _predict_color(c: Case) -> str:
@@ -180,29 +273,30 @@ def _color_name(section: str) -> str:
 # --- capture and measurement ---------------------------------------------------------------------
 
 
-def run() -> None:
+def run(suite: str = "rules") -> None:
     if not answers():
         sys.exit("Excel does not answer: nothing run")
     if _request_count() != "0" or excel_windows():
         sys.exit("Excel must hold no workbook and show no window: nothing run")
-    build()
-    n = len(cases())
-    _request("open", str(PATH), NAME, seconds=120.0)
+    path = build(suite)
+    name = workbook_name(suite)
+    n = len(cases(suite))
+    _request("open", str(path), name, seconds=120.0)
     try:
-        heights = _request("heights", NAME, str(n), seconds=120.0)
-        window = _window_id(NAME.removesuffix(".xlsx"))
+        heights = _request("heights", name, str(n), seconds=120.0)
+        window = _window_id(name.removesuffix(".xlsx"))
         for zoom in ZOOMS:
-            folder = SHOTS / f"zoom{zoom}"
+            folder = shots(suite) / f"zoom{zoom}"
             folder.mkdir(parents=True, exist_ok=True)
             for old in folder.glob("*.png"):
                 old.unlink()
             (folder / "heights.txt").write_text(heights + "\n")
-            reported = _request("zoom", NAME, str(zoom))
+            reported = _request("zoom", name, str(zoom))
             if float(reported) != zoom:
                 sys.exit(f"zoom {zoom} not set: Excel reports {reported!r}")
             top = 1
             while top <= n:
-                if _request("scroll", NAME, str(top)) != str(top):
+                if _request("scroll", name, str(top)) != str(top):
                     sys.exit(f"row {top} not at the top")
                 shot = folder / f"top_{top:03d}.png"
                 _capture(window, shot)
@@ -213,8 +307,8 @@ def run() -> None:
                 top = last if last > top and last < n else last + 1
             print(f"zoom {zoom}: {len(list(folder.glob('*.png')))} views")
     finally:
-        _request("close", NAME)
-    write()
+        _request("close", name)
+    write(suite)
 
 
 def _rule_rows(
@@ -270,10 +364,10 @@ def _color(image: Image, x0: int, x1: int, y0: int, y1: int) -> str:
     return "black" if dark else "none"
 
 
-def read_zoom(zoom: int) -> list[str]:
-    folder = SHOTS / f"zoom{zoom}"
+def read_zoom(zoom: int, suite: str = "rules") -> list[str]:
+    folder = shots(suite) / f"zoom{zoom}"
     heights = [float(h) for h in (folder / "heights.txt").read_text().strip().split(",")]
-    all_cases = cases()
+    all_cases = cases(suite)
     found: dict[int, str] = {}
     at_edge: set[int] = set()
     for shot in sorted(folder.glob("top_*.png")):
@@ -312,32 +406,40 @@ def read_zoom(zoom: int) -> list[str]:
     return [found[r] for r in sorted(found)]
 
 
-def write() -> None:
-    lines = [line for zoom in ZOOMS for line in read_zoom(zoom)]
-    with OUTPUT.open("w", encoding="utf-8") as out:
-        out.write("# suite: rules (capture.screen_rules); Excel for Mac, en_US\n")
+def write(suite: str = "rules") -> None:
+    lines = [line for zoom in ZOOMS for line in read_zoom(zoom, suite)]
+    if suite == "rules_double":
+        lines = [line for line in lines if "\tfiller " not in line]
+    command = "capture.screen_rules" + ("" if suite == "rules" else f" {suite}")
+    color = "; color: the mean of the text's colored ink, or black" if suite == "rules" else ""
+    target = output(suite)
+    with target.open("w", encoding="utf-8") as out:
+        out.write(f"# suite: {suite} ({command}); Excel for Mac, en_US\n")
         out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         out.write(
             f"# captured: {dt.date.today().isoformat()}; window captures at zoom 100 and 200 on a "
             "display of scale 2; pixels from the row's top: the H stems' last ink row, each "
-            "rule's first and last row; color: the mean of the text's colored ink, or black\n"
+            f"rule's first and last row{color}\n"
         )
         out.write("zoom\ttag\trow_height\tpixels_per_point\tbaseline_px\tmeasured\n")
         out.write("\n".join(lines) + "\n")
-    print(f"wrote {OUTPUT}: {len(lines)} rows")
+    print(f"wrote {target}: {len(lines)} rows")
 
 
 def main(argv: list[str]) -> None:
     """Command-line entry point."""
     command = argv[0] if argv else ""
+    suite = argv[1] if len(argv) > 1 else "rules"
+    if suite not in SUITES or len(argv) > 2:
+        sys.exit(__doc__)
     if command == "build":
-        print(build())
+        print(build(suite))
     elif command == "predict":
-        predict()
+        predict(suite)
     elif command == "run":
-        run()
+        run(suite)
     elif command == "read":
-        write()
+        write(suite)
     else:
         sys.exit(__doc__)
 
