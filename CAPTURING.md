@@ -315,9 +315,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     colored text section, and `#` runs; the sheet paints the section color and so does the
     package. The fifteen rows are skipped under `tests/test_captures.py:
     DISPLAY_FORMAT_COLOR_MISREPORTS`; a future color capture needs another source for them. Two
-    more joined the list with item 60: text under `[Red]General`, colored by the rule the screen
-    shows for `[Blue]General`, and text under a lone `[Red]`, which parses as that General; the
-    screen has shown neither.
+    more joined the list with item 60: text under `[Red]General` and text under a lone `[Red]`,
+    which parses as that General. The screen has shown neither; the package colors both by the
+    rule the screen shows for `[Blue]General`.
 22. **Fixed-denominator numerators at half steps (2026-10-24, suite `fraction_ties`, 237 rows).**
     For D in 10, 100, 1000, 16, 7, 3 and whole parts 0, 1, 12, 1000, doubles whose fraction part
     times D sits a measured number of ulps below or above a half step (the tag records the

@@ -122,10 +122,11 @@ evidence for each.
 
 Every captured row passes. Two known deviations are listed in [QUIRKS.md](https://github.com/sheetmill/xlformat/blob/main/QUIRKS.md): a Buddhist-year code
 shows the Buddhist year without a width, as the sheet does, where Excel's clipboard gives the plain
-year; and an elapsed code after a date code (`d [s].00`) is not modeled. Seventeen color readings in the Excel captures are skipped because Excel's
-scripting interface reports automatic black for them; where the sheet was checked on screen, it
-shows the color the package returns, and one case, text under a lone `[Red]` section, has not been
-seen on screen; `[Red]General` follows the rule the screen shows for `[Blue]General`.
+year; and an elapsed code after a date code (`d [s].00`) is not modeled.
+
+Seventeen color readings in the Excel captures are skipped because Excel's scripting interface
+reports automatic black for them. [QUIRKS.md](https://github.com/sheetmill/xlformat/blob/main/QUIRKS.md)
+describes them and says which have been checked on screen.
 
 ## Related packages
 

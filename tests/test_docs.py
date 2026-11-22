@@ -103,3 +103,15 @@ def test_the_skipped_color_count_is_the_list_length() -> None:
             assert words.get(word.lower()) == want, (name, word, want)
             found += 1
     assert found == len(pages)
+
+
+def test_the_color_cases_not_seen_on_screen_are_named_alike() -> None:
+    from tests.test_captures import DISPLAY_FORMAT_COLOR_MISREPORTS, NOT_SEEN_ON_SCREEN
+
+    assert set(DISPLAY_FORMAT_COLOR_MISREPORTS) >= NOT_SEEN_ON_SCREEN
+    assert len(NOT_SEEN_ON_SCREEN) == 2
+    for name in ("QUIRKS.md", "docs/testing.md", "CAPTURING.md"):
+        text = " ".join((ROOT / name).read_text(encoding="utf-8").split())
+        assert "`[Red]General` and text under a lone `[Red]`" in text, name
+        unseen = r"Two cases have not been seen on screen|The screen has shown neither"
+        assert re.search(unseen, text), name

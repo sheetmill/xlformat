@@ -102,7 +102,8 @@ Thirteen further files are not suites of the common schema:
 In all, 334 suite files (226 with rows, the others autofit measurements) hold 836,116 rows. Every
 row passes. Seventeen color readings are skipped because Excel's scripting interface reports
 automatic black for them; where the sheet was checked by eye, it shows the section color, as the
-package does, and one case, text under a lone `[Red]` section, has not been seen on screen.
+package does. Two cases have not been seen on screen: text under `[Red]General` and text under a
+lone `[Red]`, which the package colors by the rule the screen shows for `[Blue]General`.
 Width-less rows of a Buddhist-year code are compared with the plain year, which is what Excel's
 clipboard gives where the sheet shows the Buddhist year.
 

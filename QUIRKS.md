@@ -113,7 +113,9 @@ No other row is known to differ. Such rows would be listed in `tests/test_captur
 with the evidence, and counted on every run. Seventeen color rows of the `colors` suite are skipped under `tests/test_captures.py:
 DISPLAY_FORMAT_COLOR_MISREPORTS`: Excel's DisplayFormat API reports automatic black for them. Where
 the sheet was checked on screen it paints the section color, as the package does (`CAPTURING.md`
-§2 items 21 and 60); text under a lone `[Red]` section has not been seen on screen.
+§2 item 21). Two cases have not been seen on screen: text under `[Red]General` and text under a
+lone `[Red]`, which parses as that General. The package colors both by the rule the screen shows
+for `[Blue]General` (item 60).
 
 ## Between captured sizes: `rule_metrics`' rule
 

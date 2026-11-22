@@ -72,6 +72,9 @@ DISPLAY_FORMAT_COLOR_MISREPORTS: dict[tuple[str, str], str] = {
     ("'[Red]m/d/yy'", "-1234.5"): _HASH,
     ("'[Red][h]:mm'", "-1234.5"): _HASH,
 }
+# the listed rows whose color no screen capture has shown; the package colors them by the rule
+# the screen shows for '[Blue]General' (rules.layout.tsv)
+NOT_SEEN_ON_SCREEN = {("'[Red]General'", "'abc'"), ("'[Red]'", "'abc'")}
 
 # File widths Excel converts otherwise than ECMA-376's formula, as (width text, digit width); rows
 # at them are skipped, and a listed width that matches fails. None is known (CAPTURING.md section 2
