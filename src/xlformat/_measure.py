@@ -736,11 +736,12 @@ class InkMetrics:
 
 
 def ink_metrics(font: FontSpec | None = None) -> InkMetrics:
-    """The measured ink of ``font``'s "H" and "g" (CAPTURING.md section 2 items 47 and 55).
+    """The measured ink of ``font``'s "H" and "g" (CAPTURING.md section 2 items 47, 55 and 59).
 
     Measured: Calibri, Aptos Narrow, Arial, Times New Roman, Courier New and Georgia at 9, 10, 11,
     12, 14, 16, 18, 20 and 24 points, and Calibri and Aptos Narrow at 13, 15, 17 and 22, in every
-    style alike (styles captured for the first three).
+    style alike (styles captured for the first three). Times New Roman, Courier New and Georgia,
+    and the sizes 13, 15, 17 and 22, come from item 59; the rest from items 47 and 55.
 
     Raises:
         LookupError: A face or size not measured.

@@ -37,7 +37,8 @@ def test_rows_follow_the_width_less_text() -> None:
     assert all(len(h) == 1 for h in heights.values()), heights
 
 
-def test_upright_turns_are_the_text_width_plus_seven() -> None:
+def test_vertical_text_is_the_text_width_plus_seven() -> None:
+    """Text turned 90 or -90 degrees fits a row as tall as its width plus 7 points."""
     for angle, value, fmt, height in _rows():
         if abs(angle) == 90:
             assert height == text_width(format_value(value, fmt)) + 7, (angle, value, fmt)

@@ -189,9 +189,9 @@ def predict(suite: str = "rules") -> None:
             "top/thickness\n"
         )
         out.write(
-            "# in sheet points below the baseline (strike: negative, above); color: sheetpeek's\n"
+            "# in sheet points below the baseline (strike: negative, above); color: text takes\n"
         )
-        out.write("# finding that one-section formats color text, the first section's color\n")
+        out.write("# the text section's color in four sections, else the first section's\n")
         for zoom in ZOOMS:
             for c in cases(suite):
                 if c.kind == "rule":
@@ -210,8 +210,11 @@ def held_out() -> set[tuple[int, str, int]]:
 
 
 def predict_double() -> None:
-    """rules_double: today's ``rule_metrics`` and the stepped double, each line's
-    top/thickness in sheet points below the baseline (strike: negative, above)."""
+    """rules_double: each line's top/thickness in sheet points below the baseline (strike:
+    negative, above), as ``rule_metrics`` gives it (``current``) and with a double underline's
+    first line stepped up (``step``). Written before the run of item 62, when ``rule_metrics``
+    put a double's first line at the single underline's top; run now, ``current`` is the
+    package's placement, which already steps."""
     from xlformat import rule_metrics
 
     held = held_out()
@@ -219,12 +222,12 @@ def predict_double() -> None:
         out.write(
             f"# predicted {dt.datetime.now().isoformat(timespec='seconds')}: per rule, "
             "top/thickness in sheet points below the baseline (strike: above, negative)\n"
-            "# current: rule_metrics as it stands (a double's first line at the single's top)\n"
+            "# current: rule_metrics as it stands\n"
             "# step: a double's first line steps up from the single's top by its thickness until "
             "the double (3 thicknesses) fits above the accounting underline's top; from the "
             "font tables\n"
-            "# drawn (stated, scored on the captured rows): the same with the single's top, the "
-            "double's thickness and the accounting top as captured\n"
+            "# not a column, scored after the run: the same steps from the captured single "
+            "underline's top, double's thickness and accounting underline's top\n"
             "# set: test = held out (seed 20261121), sel = the rest\n"
             "zoom\ttag\tset\tcurrent\tstep\n"
         )

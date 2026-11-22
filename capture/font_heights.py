@@ -44,9 +44,8 @@ FACES = ("Calibri", "Arial", "Aptos Narrow", "Times New Roman", "Courier New", "
 SIZES = tuple(s / 2 for s in range(2, 145))  # 1 to 72 in half steps
 PAIR_SIZES = (9, 11, 14, 20)
 CALIBRI_SIZES = (9, 10, 11, 12, 14, 16, 18, 20, 24)
-# the slope of each face's height, F(S) = floor(a * ceil(S) + 1.5): first as proposed before the
-# heights run (Calibri 1.2689, Arial 1.2120, Aptos Narrow 1.2820, Times New Roman 1.2155, Courier
-# New 1.3013, no Georgia), now the middle of each window that run's rows from 7.5 points allow
+# the slope of each face's height, F(S) = floor(a * ceil(S) + 1.5): the middle of the window of
+# slopes the captured rows from 7.5 points allow (CAPTURING.md section 2 item 57)
 SLOPES = {
     "Calibri": 1.2689,
     "Arial": 1.2122,
@@ -256,7 +255,8 @@ def underline_rows() -> list[tuple[str, str, float, str, int]]:
 
 
 def predict_underline(face: str, size: float, underline: str, n: int) -> int | None:
-    """The proposed row: an accounting underline adds 3 points a line, the others nothing."""
+    """The prediction written before item 58's run: an accounting underline adds 3 points a line,
+    the others nothing (it held to about 30 points; CAPTURING.md section 2 item 58)."""
     f = height(face, size)
     if f is None:
         return None
