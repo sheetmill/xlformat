@@ -100,12 +100,27 @@ def _zoom_100_first(item: tuple[tuple[int, str, float], object]) -> tuple[bool, 
 
 
 def courier_gap(entries: dict[tuple[str, float], tuple[int | None, ...]]) -> dict[int, float]:
-    """Courier New's double underline gap in screen points at each whole screen size read."""
-    return {
+    """Courier New's double underline gap in screen points at each whole screen size: as drawn,
+    and from the accounting rows (a row grows by the gap and the thickness) at a size whose
+    double was not read on screen. The two agree at every size both reach."""
+    drawn_gap = {
         int(p): fields[4] / 2
-        for (face, p), fields in sorted(entries.items())
+        for (face, p), fields in entries.items()
         if face == "courier new" and p == int(p) and fields[4] is not None
     }
+    heights = {}
+    with (ROOT / "tests" / "captures" / "underline_height.layout.tsv").open(encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("Courier New ") and line.split("\t")[0].endswith(" 1"):
+                tag, height = line.rstrip("\n").split("\t")
+                _, _, size, underline, _ = tag.split()
+                heights[(int(size), underline)] = float(height)
+    for size in sorted({s for s, _ in heights}):
+        thickness = max(1, (size * 84) // 2048)
+        rows = heights[(size, "singleAccounting")] - heights[(size, "none")] - thickness
+        assert drawn_gap.get(size, rows) == rows, (size, drawn_gap[size], rows)
+        drawn_gap.setdefault(size, rows)
+    return dict(sorted(drawn_gap.items()))
 
 
 def write() -> None:
