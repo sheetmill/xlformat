@@ -38,7 +38,7 @@ from xlformat._palette import DEFAULT_PALETTE, section_rgb
 from xlformat._parser import NumberFormat, Section, SectionKind
 from xlformat._quirks import Quirks
 
-__version__ = "0.5.0"
+__version__ = "0.6.0"
 
 __all__ = [
     "BUILTIN_FORMATS",
