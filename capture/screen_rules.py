@@ -21,7 +21,8 @@ case a row in column B, left-aligned and bottom-aligned, rows fitted by Excel:
 ``rules_double`` (CAPTURING.md section 2 item 62) has only ``rule`` cases: five faces (Courier New
 left out) at every size from 9 to 36 points and from 40 to 72 in steps of 4, each with every
 underline and a strikethrough (no plain row: the strikethrough row gives the plain row's
-baseline), then 20 small rows, so that the sheet does not end on rows taller than a view.
+baseline), then 20 small rows, so that the sheet does not end on rows taller than a view; column
+B is 60 characters wide, so that the text never overflows the cell.
 
 The run needs the display on, Excel in front and nobody at the keyboard; no clipboard. Writes
 ``tests/captures/<suite>.layout.tsv``; the images stay in ``capture/build/screen_<suite>/``.
@@ -148,7 +149,9 @@ def build(suite: str = "rules") -> Path:
         )
         cell.alignment = Alignment(horizontal="left", vertical="bottom")
     ws.column_dimensions["A"].width = 4
-    ws.column_dimensions["B"].width = 30
+    # rules_double: wide enough for "HHHH" at 72 points, since an accounting underline spans the
+    # cell and is read as a rule only where it is as long as the text
+    ws.column_dimensions["B"].width = 30 if suite == "rules" else 60
     path = workbook_path(suite)
     path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(path)
@@ -386,7 +389,7 @@ def read_zoom(zoom: int, suite: str = "rules") -> list[str]:
             top_px = first_band[0] + round(scale * sum(heights[first_row - 1 : row - 1]))
             bottom_px = top_px + round(scale * heights[row - 1]) - 1
             left = _marker_right(image, (top_px + bottom_px) // 2, _marker_column(image)) + 2
-            right = min(image.width, left + 900)
+            right = min(image.width, left + (900 if suite == "rules" else 1600))
             case = all_cases[row - 1]
             if case.kind == "rule":
                 stems, runs = _rule_rows(image, left, right, top_px, bottom_px)
