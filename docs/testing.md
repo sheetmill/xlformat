@@ -78,7 +78,7 @@ before Excel was asked, and every prediction matched.
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
 | `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri, Aptos Narrow and Arial, four styles, nine sizes |
 
-Twelve further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
+Thirteen further files are not suites of the common schema: `alignment.layout.tsv` (196 rows, read
 from Excel's PDF export) holds where Excel places each value, `repair.layout.tsv` (248 rows)
 what Excel's repair does to formats it refuses, and `row_height.layout.tsv.gz` (35,100 rows) the
 height Excel gives each row for its Normal font, its cell fonts and its wrapped lines, and
@@ -90,7 +90,8 @@ for six faces at every size from 1 to 72 points, beside Calibri and wrapped,
 `accounting_height.layout.tsv` (132 rows) Times New Roman and Georgia under accounting underlines
 at every half point from 36 to 41,
 `rules.layout.tsv` (396 rows, from window captures) where underlines and strikethrough are drawn
-and what color text takes,
+and what color text takes, `rules_double.layout.tsv` (1,850 rows, from window captures) the same
+in five faces at every size from 9 to 36 points and up to 72 in steps of 4,
 `builtin_formats.layout.tsv` (164 rows) what each built-in number format id stands for, and
 `palette.layout.tsv` (128 rows, from window captures) the colors drawn under a workbook palette. In all, 334 suite files (226 with rows, the
 others autofit measurements) hold 836,116 rows. Every row passes. Fifteen color readings are
