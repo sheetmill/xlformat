@@ -30,7 +30,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - `vertical_metrics` returns placement only (baselines, font height, line height, line pitch, line
   inset), by rule for every face and size `row_metrics` supports: six faces from 1 to 72 points.
-  The ink fields moved to `ink_metrics`.
+  The ink fields moved to `ink_metrics`. `cap_height` and `descender` are no longer fields of
+  `VerticalMetrics`: constructing one takes six values, `dataclasses.replace` no longer accepts
+  them, and `repr` shows the six; `dataclasses.asdict` gives the six and a private `_font`, which
+  the deprecated properties read. For a face or size that placement covers but `ink_metrics` has
+  not measured (Calibri 30, Times New Roman 30), `vertical_metrics` now returns where it raised
+  `LookupError`, and reading `cap_height` or `descender` on the result raises `LookupError`.
 - `row_metrics` takes a row of several fonts as the largest `size + 1` plus the largest
   `height − size − 1`, the rule behind the earlier tables, which every captured row height follows;
   its results for the faces and sizes measured before are unchanged.
@@ -55,8 +60,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `baseline_from_bottom` includes Excel's rule that bottom-aligned text sits at least the Normal
   font's distance up. `None`, the default, means the cell's own font.
 - Documentation: text turned to an angle shows the width-less rendering (its `_x` padding, no fill,
-  never `#`), captured at 15 to 90 degrees and -45 and -90 from the rows Excel fits
-  (`angled_formats.layout.tsv`).
+  never `#`), captured at 15, 30, 45, 60, 75 and 90 degrees and at -45 and -90 from the rows Excel
+  fits (`angled_formats.layout.tsv`).
 
 ### Changed
 - `vertical_metrics(("Calibri", 9)).baseline_from_bottom` without `normal_font` is 2 points, was 3:

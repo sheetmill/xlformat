@@ -109,8 +109,17 @@ The second: an elapsed code after a date code is not modeled: `d [s].00` with ha
 in Excel, numbers no rule here explains, and the package shows the elapsed count (`0 0.50`).
 `[s]*-.00` has no capture (`CAPTURING.md` §2 item 42).
 
-`rule_metrics` returns the lines Excel drew at the 275 face and screen sizes captured
-(`rules_double`, `CAPTURING.md` §2 item 62), and matches every captured row the reader can take
+No other row is known to differ. Such rows would be listed in `tests/test_captures.py` and here,
+with the evidence, and counted on every run. Seventeen color rows of the `colors` suite are skipped under `tests/test_captures.py:
+DISPLAY_FORMAT_COLOR_MISREPORTS`: Excel's DisplayFormat API reports automatic black for them. Where
+the sheet was checked on screen it paints the section color, as the package does (`CAPTURING.md`
+§2 items 21 and 60); text under a lone `[Red]` section has not been seen on screen.
+
+## Between captured sizes: `rule_metrics`' rule
+
+Not a captured row that differs, but a limit of a rule: `rule_metrics` returns the lines Excel
+drew at the 275 face and screen sizes captured (`rules_double`, `CAPTURING.md` §2 item 62), and
+matches every captured row the reader can take
 as whole lines. Between those sizes it computes from the font's tables, and that rule is known
 to miss a double underline at 59 of the captured screen sizes, which
 `tests/test_rule_metrics.py: RULE_MISSES` lists (73 of 369 rows): the first line is drawn one to
@@ -120,11 +129,6 @@ Arial at some sizes (36 to 40, 58 and 60, 80, 112, 136) the lines are also a scr
 thicker than `floor(P · yStrikeoutSize / em)`. Aptos Narrow 9 misses through its accounting
 underline, drawn a point lower than its table gives. Neither a stricter fit, a fit in the
 font's own units, nor a step of the single underline's thickness explains the higher lines.
-
-No other row is known to differ. Such rows would be listed in `tests/test_captures.py` and here,
-with the evidence, and counted on every run. Fifteen color rows of the `colors` suite are skipped under `tests/test_captures.py:
-DISPLAY_FORMAT_COLOR_MISREPORTS`: Excel's DisplayFormat API reports automatic black where the sheet
-paints the section color (seen on screen); the package is right there (`CAPTURING.md` §2 item 21).
 
 ## Candidates (evidence needed before they become switches)
 

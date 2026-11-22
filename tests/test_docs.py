@@ -88,3 +88,18 @@ def test_the_module_layout_lists_every_module() -> None:
     listed = set(re.findall(r"^  (_?\w+\.py) ", section, flags=re.MULTILINE))
     modules = {p.name for p in (ROOT / "src" / "xlformat").glob("*.py")}
     assert listed == modules, (sorted(modules - listed), sorted(listed - modules))
+
+
+def test_the_skipped_color_count_is_the_list_length() -> None:
+    from tests.test_captures import DISPLAY_FORMAT_COLOR_MISREPORTS
+
+    words = {"fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18, "nineteen": 19}
+    want = len(DISPLAY_FORMAT_COLOR_MISREPORTS)
+    pages = ("README.md", "QUIRKS.md", "docs/testing.md", "CAPTURING.md")
+    found = 0
+    for name in pages:
+        text = " ".join((ROOT / name).read_text(encoding="utf-8").split())
+        for word in re.findall(r"\b(\w+) color (?:readings|rows)\b", text, flags=re.IGNORECASE):
+            assert words.get(word.lower()) == want, (name, word, want)
+            found += 1
+    assert found == len(pages)

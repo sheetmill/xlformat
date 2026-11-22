@@ -168,7 +168,7 @@ one row are a combination not yet captured: the row takes the tallest of them.
 
 Text turned to an angle is not fitted to the column: Excel shows the width-less rendering, with its
 `_x` padding, without fills and never as `#`, so a caller formats angled cells without a width.
-Captured at 15, 30, 45, 60, 75 and 90 degrees and at -45 and -90.
+The capture turns text 15, 30, 45, 60, 75 and 90 degrees and -45 and -90.
 
 `vertical_metrics` gives where Excel draws a face's text within the row, in sheet points, as
 the screen shows it:

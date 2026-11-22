@@ -285,11 +285,10 @@ says so.
 Mac hints advances per size (digits are 6 points at both 11 and 12, the hyphen 3 then 4), and no
 size-independent fraction reproduces that, so each size has its measured table (the Excel-mode
 paragraph below). Three families are bundled, each in regular, bold, italic and bold italic at 9,
-10, 11, 12, 14, 16, 18, 20 and 24 points: Calibri, which openpyxl writes as the workbook default (Calibri 11;
-Excel for Mac's own default is Aptos Narrow 12 under Microsoft 365 and was Calibri 12 under
-Office 2021), and Aptos Narrow, the default of current Windows
-Excel, which ships inside Excel for Mac and is measured there the same way; and Arial, which Excel
-for Mac also bundles. Whether Windows Excel's widths differ from the Mac's is a separate, open
+10, 11, 12, 14, 16, 18, 20 and 24 points: Calibri, which openpyxl writes as the workbook default
+(Calibri 11; Excel for Mac's own default is Aptos Narrow 12 under Microsoft 365 and was Calibri 12
+under Office 2021); Aptos Narrow, the default of current Windows Excel, which ships inside Excel
+for Mac and is measured there the same way; and Arial, which Excel for Mac also bundles. Whether Windows Excel's widths differ from the Mac's is a separate, open
 question. Installed fonts
 are not read.
 
@@ -472,8 +471,8 @@ time: `format_value`, `format_cell` and the `NumberFormat` methods take
 `quirks: Quirks | None = None` (None means `Quirks.EXCEL`); `NumberFormat.parse` does not, and
 the parse cache is keyed on the string alone. If a parse-affecting quirk ever appears, revisit.
 `QUIRKS.md` holds, per quirk, the Excel evidence (captured rows) and what `strict` does instead.
-Candidates that need evidence before they are added:
-the `[$-x-sysdate]` `dd` versus `d` discrepancy. Scientific zero rendering (`000.0E+0`), the
+One candidate needs evidence before it is added: the `[$-x-sysdate]` `dd` versus `d`
+discrepancy. Scientific zero rendering (`000.0E+0`), the
 section-selection sign rules, the last `*` fill winning and `General` inside a date section are
 Excel semantics matched unconditionally, not quirks (`QUIRKS.md`).
 
@@ -597,8 +596,8 @@ default_col_width=None, normal_font=None)` for a column as a file states it and
 cell's sum of its columns' points, all returning a frozen
 `ColumnMetrics(width, points, budget, left_inset, right_inset, digit_width)`; `width` is what
 `column_width` takes, except that a column of no width has a `width` of 0 and `column_width` raises
-`ValueError` for it. `budget` is `points` less the padding `P`, and 0 under `P` points. Both still accept the Normal font under its deprecated name `font`, with
-a `DeprecationWarning`, until 1.0, and raise `ValueError` when given both. Format functions take no file width:
+`ValueError` for it. `budget` is `points` less the padding `P`, and 0 under `P` points. `column_metrics` and `file_column_metrics` still accept the Normal font under its deprecated name
+`font`, with a `DeprecationWarning`, until 1.0, and raise `ValueError` when given both. Format functions take no file width:
 callers convert once per column.
 
 `builtin_format(number_format_id) -> str` and the read-only `BUILTIN_FORMATS` give the string Excel
@@ -642,37 +641,39 @@ carries the model (with a few captured heights below 7.5 points), so it covers e
 `LookupError`. The slope is per face and comes from captures: it is not the font's ascent plus
 descent.
 
-`vertical_metrics(font=None, *, normal_font=None)` returns a frozen `VerticalMetrics(baseline_from_top,
-baseline_from_bottom, font_height, line_height, line_pitch, line_inset)`: where Excel places a
-face's text in a cell, measured on screen (`CAPTURING.md` §2 items 47 and 55). Placement follows
-from the face's height by rule, so it covers every face and size the row model does; the ink of
-the text is measured and partial, so it is a separate function, `ink_metrics(font=None)` returning
-`InkMetrics(cap_height, descender)`, which raises `LookupError` for a face or size not measured, as
-the glyph-table functions do. `VerticalMetrics.cap_height` and `.descender` remain until 1.0 as
-deprecated properties that warn and forward to `ink_metrics`. `rule_metrics(font=None, *,
-zoom=100)` returns `RuleMetrics(underline_top, underline_thickness, double_gap, accounting_top,
-strikethrough_top, strikethrough_thickness, double_top, double_thickness)`, in sheet points from
-the baseline. The lines depend on the screen size `size · zoom / 100` alone (equal screen sizes at
-zoom 100 and 200 draw equal lines, `CAPTURING.md` §2 item 62). At the screen sizes captured each
-value is the line Excel drew, from a table generated from the capture (`_rules_drawn.py`, by
-`capture/rule_table.py`); elsewhere it comes from the font's `post` and `OS/2` numbers in whole
-screen points (item 60), with a double underline's first line stepped up from the single's top a
-line thickness at a time until the double ends at or above the accounting underline's top, and
-its lines `floor(P · min(underlineThickness, yStrikeoutSize) / em)` thick. The table is preferred
-because the rule misses some doubles (`QUIRKS.md`) and the tables miss a few lines: Aptos
-Narrow's accounting underline at 20 screen sizes (drawn lower), Times New Roman's single at 38
-and 40 screen points, and every Calibri line from 80, where Excel draws on half screen points.
-Five faces carry those numbers; Courier New, which draws its underline elsewhere than its tables
-say, raises `LookupError`. They are facts, as the column's insets are; the caller aligns the text, as it does horizontally. The
-fields are the distances the screen shows: the top inset and the ascent appear only as their sum,
-and no split by convention is made. `line_inset` is the row model's `B − 2`. The
-Normal font moves two placements. Bottom-aligned text sits at least the Normal font's
-`baseline_from_bottom` up (Calibri 9 and Arial 9 to 11 have 2 points of their own and sit 3 up in
-a Calibri 11 workbook; `CAPTURING.md` §2 item 55); given `normal_font`, the function applies this
-itself, as `row_metrics` takes the Normal font, and `None` means the cell's own font. Wrapped
-text in a face with a smaller inset than the row's unwrapped fonts sits that difference higher;
-the caller applies that one, since it depends on every unwrapped font in the row and has no field
-of its own.
+`vertical_metrics(font=None, *, normal_font=None)` returns a frozen
+`VerticalMetrics(baseline_from_top, baseline_from_bottom, font_height, line_height, line_pitch,
+line_inset)`: where Excel places a face's text in a cell, measured on screen (`CAPTURING.md` §2
+items 47 and 55). Placement follows from the face's height by rule, so it covers every face and size
+the row model does; the ink of the text is measured and partial, so it is a separate function,
+`ink_metrics(font=None)` returning `InkMetrics(cap_height, descender)`, which raises `LookupError`
+for a face or size not measured, as the glyph-table functions do. `VerticalMetrics.cap_height` and
+`.descender` remain until 1.0 as deprecated properties that warn and forward to `ink_metrics`.
+`VerticalMetrics`' fields are facts, as the column's insets are; the caller aligns the text, as it
+does horizontally. The fields are the distances the screen shows: the top inset and the ascent
+appear only as their sum, and no split by convention is made. `line_inset` is the row model's `B −
+2`. The Normal font moves two placements. Bottom-aligned text sits at least the Normal font's
+`baseline_from_bottom` up (Calibri 9 and Arial 9 to 11 have 2 points of their own and sit 3 up in a
+Calibri 11 workbook; `CAPTURING.md` §2 item 55); given `normal_font`, the function applies this
+itself, as `row_metrics` takes the Normal font, and `None` means the cell's own font. Wrapped text
+in a face with a smaller inset than the row's unwrapped fonts sits that difference higher; the
+caller applies that one, since it depends on every unwrapped font in the row and has no field of its
+own.
+
+`rule_metrics(font=None, *, zoom=100)` returns `RuleMetrics(underline_top, underline_thickness,
+double_gap, accounting_top, strikethrough_top, strikethrough_thickness, double_top,
+double_thickness)`, in sheet points from the baseline. The lines depend on the screen size `size ·
+zoom / 100` alone (equal screen sizes at zoom 100 and 200 draw equal lines, `CAPTURING.md` §2 item
+62). At the screen sizes captured each value is the line Excel drew, from a table generated from the
+capture (`_rules_drawn.py`, by `capture/rule_table.py`); elsewhere it comes from the font's `post`
+and `OS/2` numbers in whole screen points (item 60), with a double underline's first line stepped up
+from the single's top a line thickness at a time until the double ends at or above the accounting
+underline's top, and its lines `floor(P · min(underlineThickness, yStrikeoutSize) / em)` thick. The
+table is preferred because the rule misses some doubles (`QUIRKS.md`) and the tables miss a few
+lines: Aptos Narrow's accounting underline at 20 screen sizes (drawn lower), Times New Roman's
+single at 38 and 40 screen points, and every Calibri line from 80, where Excel draws on half screen
+points. Five faces carry those numbers; Courier New, which draws its underline elsewhere than its
+tables say, raises `LookupError`.
 
 **Error values.** `ExcelError` is a `StrEnum` of every error text current Excel documents (the
 seven classic codes of ECMA-376 and ERROR.TYPE 1 to 7; `#GETTING_DATA`, ERROR.TYPE 8; the error
@@ -751,7 +752,8 @@ src/xlformat/
   _error_values.py ExcelError
 tests/
   captures/        TSV suites (see CAPTURING.md); *.measure.tsv autofit widths; *.layout.tsv[.gz]
-                   alignment, repair, row heights, vertical placement, built-in ids, palette
+                   files of other shapes: placement, row heights, rules and colors on screen,
+                   angled text, repair, built-in ids, palette (listed on the testing page)
   test_*.py        unit tests per module, the capture suites, alignment, repair, doc examples
 capture/            generator, capture scripts (not part of the wheel)
 bench/              golden.py (every captured row rendered, to prove a change renders

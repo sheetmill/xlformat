@@ -314,7 +314,10 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     for exactly these three cases**: zero rendered by section 1 or 2, text and booleans through a
     colored text section, and `#` runs; the sheet paints the section color and so does the
     package. The fifteen rows are skipped under `tests/test_captures.py:
-    DISPLAY_FORMAT_COLOR_MISREPORTS`; a future color capture needs another source for them.
+    DISPLAY_FORMAT_COLOR_MISREPORTS`; a future color capture needs another source for them. Two
+    more joined the list with item 60: text under `[Red]General`, colored by the rule the screen
+    shows for `[Blue]General`, and text under a lone `[Red]`, which parses as that General; the
+    screen has shown neither.
 22. **Fixed-denominator numerators at half steps (2026-10-24, suite `fraction_ties`, 237 rows).**
     For D in 10, 100, 1000, 16, 7, 3 and whole parts 0, 1, 12, 1000, doubles whose fraction part
     times D sits a measured number of ulps below or above a half step (the tag records the
@@ -1162,9 +1165,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       section `@` without a color, or a condition, text stays black. The numbers' colors match the
       package's in all nine formats. The `colors` suite's read-back gave black for text under
       `[Red]General`: one of the read-back's known misreports of colored text.
-    - **Display (2026-11-21):** captured again in the macOS VM, twice (the second time from
-      `a968d20`, which records the display's profile in the header): all 360 rule rows match
-      the first capture's, and the 20 colored ones of the 36 text-color rows read the specified
+    - **Display (2026-11-21):** captured again in a macOS virtual machine (item 61), twice (the
+      second time with the capture recording the display's profile in the header): all 360 rule
+      rows match the first capture's, and the 20 colored ones of the 36 text-color rows read the specified
       colors (Excel's blue as `53 53 255` and `36 36 255` where the first capture read `50 50 246`
       and `33 33 245`, its red `255 37 37` where it read `235 70 57`). The first capture's display
       has the Display P3 profile, and its window captures are converted to sRGB, which pulls
@@ -1261,6 +1264,11 @@ capture/vertical_pdf.py       vertical placement in the PDF export, a probe (ite
 capture/screen_vertical.py    vertical placement on screen: window captures at zoom 100, a probe
 capture/builtin_formats.py    what each built-in number format id shows, a probe
 capture/screen_palette.py     section colors under a workbook palette, on screen, a probe
+capture/angled_formats.py     the rows Excel fits for padded and filled angled text (item 56)
+capture/font_heights.py       row heights of six faces at every size, wrapped, underlined (57, 58, 61)
+capture/font_tables.py        the numbers read from the font files (post, OS/2, head, hhea)
+capture/screen_rules.py       underlines, strikethrough and text color on screen (items 60, 62)
+capture/rule_table.py         src/xlformat/_rules_drawn.py, the drawn lines, from item 62's capture
 capture/repair.py             what Excel's repair does to refused formats (item 33): `open`
                              through Launch Services, a person answers the dialog, then
                              `read` finds the workbook by name; `write` gathers the TSV
@@ -1298,7 +1306,7 @@ Choices that hold:
 - **Invalid formats are captured rows or unit tests**: strings are written with openpyxl and
   opened; a refused file is a `FormatError` (unit test), a rendered one is a row to match.
 - **Color** is read through `display format` one cell at a time (section 2 item 21; bulk reads
-  return `missing value`); only suites with `Suite.colors` fill the column, and fifteen rows
+  return `missing value`); only suites with `Suite.colors` fill the column, and seventeen color rows
   the API misreports are skipped by the test.
 - **The 2023 capture stays**, gzipped, as a full-tier-only suite; the diff between captures is
   evidence about Excel builds and about the method.
