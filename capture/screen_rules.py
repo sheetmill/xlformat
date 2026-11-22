@@ -69,8 +69,9 @@ HELD_OUT_SEED = 20261121  # rules_double: a third of the combinations, held out 
 COURIER_SIZES = (*range(6, 73), *(s + 0.5 for s in range(36, 72)))
 TIMES_SIZES = tuple(36 + k / 2 for k in range(11))
 CONTROL_SIZES = (9, 14, 20, 36, 48)
-# rules_zoom: screen sizes that are not whole numbers, at zoom 50 and 150, which keep a whole
-# number of device pixels to a sheet point (1 and 3) as the reader needs, with zoom 100 beside
+# rules_zoom: screen sizes that are not whole numbers, at zoom 150, which keeps a whole number of
+# device pixels to a sheet point (3) as the reader needs, with zoom 100 beside (zoom 50, 1 pixel
+# a point, stopped the reader at its first view of large rows)
 ZOOM_SIZES = (
     8, 8.5, 9.5, 10.5, 11.5, 12.5, 16.5, 17, 17.5, 20.5, 22.5, 23, 23.5, 34.5, 35.5, 36.5,
     51.5, 52.5, 69.5, 70.5,
@@ -78,7 +79,7 @@ ZOOM_SIZES = (
 
 
 def zooms(suite: str) -> tuple[int, ...]:
-    return (50, 100, 150) if suite == "rules_zoom" else ZOOMS
+    return (100, 150) if suite == "rules_zoom" else ZOOMS
 
 
 COLOR_FORMATS = (
