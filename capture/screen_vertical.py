@@ -284,15 +284,18 @@ def _bands(image: Image) -> list[tuple[int, int]]:
     return out
 
 
-def rows_in_view(image: Image, top: int, heights: list[float]) -> list[tuple[int, tuple[int, int]]]:
+def rows_in_view(
+    image: Image, top: int, heights: list[float], scale: float | None = None
+) -> list[tuple[int, tuple[int, int]]]:
     """(row, band) for each band whose height in pixels fits its row's height at the display's
-    scale (the median over the view); a band the window's edge cuts off does not."""
+    scale (given, or the median over the view); a band the window's edge cuts off does not."""
     bands = _bands(image)
     pairs = [(top + k, b) for k, b in enumerate(bands) if top + k <= len(heights)]
     if not pairs:
         return []
-    ratios = sorted((b[1] - b[0] + 1) / heights[r - 1] for r, b in pairs)
-    scale = ratios[len(ratios) // 2]
+    if scale is None:
+        ratios = sorted((b[1] - b[0] + 1) / heights[r - 1] for r, b in pairs)
+        scale = ratios[len(ratios) // 2]
     return [(r, b) for r, b in pairs if abs(b[1] - b[0] + 1 - heights[r - 1] * scale) <= 3]
 
 

@@ -342,7 +342,9 @@ def run(suite: str = "rules") -> None:
                     sys.exit(f"row {top} not at the top")
                 shot = folder / f"top_{top:03d}.png"
                 _capture(window, shot)
-                rows = rows_in_view(read_png(shot), top, [float(h) for h in heights.split(",")])
+                rows = rows_in_view(
+                    read_png(shot), top, [float(h) for h in heights.split(",")], _scale(zoom)
+                )
                 if not rows or rows[0][0] != top:
                     sys.exit(f"{shot.name}: row {top} not found whole at the top")
                 last = rows[-1][0]
@@ -406,6 +408,13 @@ def _color(image: Image, x0: int, x1: int, y0: int, y1: int) -> str:
     return "black" if dark else "none"
 
 
+def _scale(zoom: int) -> float | None:
+    """Device pixels a sheet point where the view's median would mislead: at zoom 150 Excel
+    rounds each row to whole pixels, small rows up, so the median drifts above 3 and a tall row
+    no longer fits it. At zoom 100 and 200 the median serves, as it always has."""
+    return None if zoom in (100, 200) else 2 * zoom / 100
+
+
 def read_zoom(zoom: int, suite: str = "rules") -> list[str]:
     folder = shots(suite) / f"zoom{zoom}"
     heights = [float(h) for h in (folder / "heights.txt").read_text().strip().split(",")]
@@ -415,7 +424,7 @@ def read_zoom(zoom: int, suite: str = "rules") -> list[str]:
     for shot in sorted(folder.glob("top_*.png")):
         top = int(shot.stem.split("_")[1])
         image = read_png(shot)
-        rows = rows_in_view(image, top, heights)
+        rows = rows_in_view(image, top, heights, _scale(zoom))
         if not rows:
             continue
         first_row, first_band = rows[0]
