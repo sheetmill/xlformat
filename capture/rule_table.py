@@ -7,13 +7,14 @@ them, in half screen points (a device pixel on the display of scale 2 the captur
 single underline's top and thickness, a double underline's first line, thickness and gap, the
 accounting underline's top, and the strikethrough's top (above the baseline) and thickness. The
 captures are ``rules_double``, ``rules_courier`` and ``rules_zoom`` (CAPTURING.md section 2 items 62
-and 63), read in that order; where two reach the same face and screen size the first is kept, and
-within a capture zoom 100 (equal screen sizes draw equal lines). ``COURIER_GAP`` holds Courier New's
-double underline gap at each whole screen size read. A field is left out (``None``) where its row
-does not read as whole lines: one line for a single, a single accounting underline and a
-strikethrough, two of one thickness for a double, a line from the row's first pixel row (the row
-above's) set aside. Baselines: the strikethrough row's for the plain rows and the single accounting
-row's for the accounting rows, which no rule touches.
+and 63), read in that order, at whole screen sizes only (at a fractional one Excel draws as at the
+nearest whole one, and Courier New's lines differ by zoom); where two reach the same face and screen
+size the first is kept, and within a capture zoom 100 (equal screen sizes draw equal lines).
+``COURIER_GAP`` holds Courier New's double underline gap at each whole screen size read. A field is
+left out (``None``) where its row does not read as whole lines: one line for a single, a single
+accounting underline and a strikethrough, two of one thickness for a double, a line from the row's
+first pixel row (the row above's) set aside. Baselines: the strikethrough row's for the plain rows
+and the single accounting row's for the accounting rows, which no rule touches.
 """
 
 from __future__ import annotations
@@ -86,8 +87,8 @@ def table() -> dict[tuple[str, float], tuple[int | None, ...]]:
         # zoom 100 first, then by face and size
         for (zoom, face, size), rules in sorted(read(capture).items(), key=_zoom_100_first):
             key = (face.lower(), size * zoom / 100)
-            if key in out:
-                continue
+            if key in out or key[1] != int(key[1]):
+                continue  # whole screen sizes only: a fractional one draws as the nearest whole
             fields = drawn(zoom, rules)
             if fields is not None and any(v is not None for v in fields):
                 out[key] = fields

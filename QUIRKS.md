@@ -119,18 +119,28 @@ for `[Blue]General` (item 60).
 
 ## Between captured sizes: `rule_metrics`' rule
 
-Not a captured row that differs, but a limit of a rule: `rule_metrics` returns the lines Excel
-drew at the 275 face and screen sizes captured (`rules_double`, `CAPTURING.md` §2 item 62), and
-matches every captured row the reader can take
-as whole lines. Between those sizes it computes from the font's tables, and that rule is known
-to miss a double underline at 59 of the captured screen sizes, which
-`tests/test_rule_metrics.py: RULE_MISSES` lists (73 of 369 rows): the first line is drawn one to
-three screen points higher than the rule gives in Arial at most screen sizes from 29, in Times
-New Roman at about half of those from 38, in Calibri from 80 and in Georgia at 128 and 144; in
-Arial at some sizes (36 to 40, 58 and 60, 80, 112, 136) the lines are also a screen point
-thicker than `floor(P · yStrikeoutSize / em)`. Aptos Narrow 9 misses through its accounting
-underline, drawn a point lower than its table gives. Neither a stricter fit, a fit in the
-font's own units, nor a step of the single underline's thickness explains the higher lines.
+Not captured rows that differ, but limits of a rule. `rule_metrics` returns the lines Excel drew at
+every whole screen size captured (`rules_double` and `rules_courier`, `CAPTURING.md` §2 items 62
+and 63), and matches every captured row the reader can take as whole lines. Elsewhere it computes
+from the font's tables, and two limits are known:
+
+- **Doubles at whole screen sizes not captured.** The rule misses a double underline at 57 of the
+  captured screen sizes, which `tests/test_rule_metrics.py: RULE_MISSES` lists (70 of 369 rows):
+  the first line is drawn one to three screen points higher than the rule gives in Arial at most
+  screen sizes from 29, in Times New Roman at 14 sizes from 46, in Calibri from 80 and in Georgia at
+  128 and 144; in Arial at some sizes (36 to 40, 58 and 60, 80, 112, 136) the lines are also a
+  screen point thicker than `floor(P · yStrikeoutSize / em)`. Aptos Narrow 9 misses through its
+  accounting underline, drawn a point lower than its table gives. Neither a stricter fit, a fit in
+  the font's own units, nor a step of the single underline's thickness explains the higher lines.
+- **Screen sizes that are not whole.** Excel draws the lines as at the nearest whole screen size (a
+  half up) in all but 23 of 400 captured rows (`rules_zoom`, zoom 100 and 150;
+  `tests/test_rule_metrics.py: ZOOM_MISSES`), where a line sits a screen point off: Courier New at
+  several sizes and Calibri from screen size 51. At those sizes Courier New also draws its lines a
+  screen point lower at zoom 150 than at zoom 100, so they do not depend on the screen size alone.
+
+Courier New's double underline gap has no closed form: it is captured at every screen size from 6
+to 144, and `rule_metrics` raises `LookupError` outside that range rather than extend a table no
+rule explains.
 
 ## Candidates (evidence needed before they become switches)
 

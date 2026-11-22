@@ -23,7 +23,7 @@ from functools import lru_cache
 from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
 from xlformat._glyphs_arial import ARIAL, ARIAL_OVERHANG
 from xlformat._glyphs_calibri import CALIBRI, CALIBRI_OVERHANG
-from xlformat._rules_drawn import DRAWN
+from xlformat._rules_drawn import COURIER_GAP, DRAWN
 
 Measure = Callable[[str], float]
 """Width of a text in the caller's units."""
@@ -480,9 +480,10 @@ def _font_height(key: str, size: float) -> float:
     return float(math.floor(_SLOPE[key] * math.ceil(size) + 1.5))
 
 
-# family (lower case) -> post.underlineThickness / unitsPerEm: an accounting underline adds
-# 3 * max(1, floor(size * this)) points to the row and to each wrapped line (CAPTURING.md section 2
-# item 58); Courier New follows another rule, not known
+# family (lower case) -> post.underlineThickness / unitsPerEm. An accounting underline adds its
+# line's thickness and its double's gap to the row and to each wrapped line (CAPTURING.md section
+# 2 items 58 and 63): the thickness max(1, floor(size * this)), the gap two thicknesses, except
+# where the drawn double is wider (Times New Roman from 37 to 40 points, Courier New always)
 _ACCOUNTING_THICKNESS: dict[str, float] = {
     "calibri": 134 / 2048,
     "aptos narrow": 50 / 2048,
@@ -490,12 +491,9 @@ _ACCOUNTING_THICKNESS: dict[str, float] = {
     "times new roman": 100 / 2048,
     "georgia": 101 / 2048,
 }
-# Arial's double accounting adds 3 up to 35 points, then 6, then 9 from 55 (captured)
-_ARIAL_DOUBLE_ACCOUNTING = ((55, 9.0), (36, 6.0), (0, 3.0))
-# Times New Roman adds 4 from 36.5 to 40 points, single and double alike, where the rule gives 3:
-# captured at every half point from 36 to 41 (accounting_height.layout.tsv, CAPTURING.md section
-# 2 item 61); no rule found
-_TIMES_ACCOUNTING = {37: 4.0, 38: 4.0, 39: 4.0, 40: 4.0}
+# Arial's double accounting lines, as drawn, are 1 point thick up to 35 points, then 2, then 3
+# from 55 (thinner than its single underline's; CAPTURING.md section 2 item 62)
+_ARIAL_DOUBLE_LINE = ((55, 3), (36, 2), (0, 1))
 
 
 def _accounting(key: str, size: float, underline: str | None) -> float:
@@ -503,15 +501,17 @@ def _accounting(key: str, size: float, underline: str | None) -> float:
     if underline not in ("singleAccounting", "doubleAccounting"):
         return 0.0
     whole = math.ceil(size)
-    known = key in _ACCOUNTING_THICKNESS and 6 <= whole <= _LARGEST
+    known = (key in _ACCOUNTING_THICKNESS or key == "courier new") and 6 <= whole <= _LARGEST
     if not known:
         msg = f"no accounting underline rows for {_DISPLAY[key]} {size:g}"
         raise LookupError(msg)
-    if key == "times new roman" and whole in _TIMES_ACCOUNTING:
-        return _TIMES_ACCOUNTING[whole]
+    if key == "courier new":
+        return max(1, math.floor(whole * 84 / 2048)) + COURIER_GAP[whole]
+    line = max(1, math.floor(whole * _ACCOUNTING_THICKNESS[key]))
     if key == "arial" and underline == "doubleAccounting":
-        return next(e for start, e in _ARIAL_DOUBLE_ACCOUNTING if whole >= start)
-    return 3.0 * max(1, math.floor(whole * _ACCOUNTING_THICKNESS[key]))
+        line = next(t for start, t in _ARIAL_DOUBLE_LINE if whole >= start)
+    wide = key == "times new roman" and _TIMES_WIDE_GAP[0] <= whole <= _TIMES_WIDE_GAP[1]
+    return float(line + (3 if wide else 2) * line)
 
 
 def _bottom(key: str, size: float) -> float:
@@ -577,6 +577,13 @@ def row_metrics(
     1``, its descent and line inset follow from the two. Bold and italic change nothing.
     Measured: Calibri, Aptos Narrow, Arial, Times New Roman, Courier New and Georgia from 1 to 72
     points; any other face or size raises ``LookupError``.
+
+    An accounting underline (``Font.underline``) adds its line's thickness and its double's gap
+    to the row and to each wrapped line, at the whole size ``ceil(size)`` from 6 to 72 points
+    (CAPTURING.md section 2 items 58, 61 and 63): mostly three thicknesses, a thickness being
+    ``max(1, floor(size * underlineThickness / em))`` and Arial's double accounting taking its
+    thinner double lines; 4 points in Times New Roman from 36.5 to 40, where its double is three
+    thicknesses wide; in Courier New its captured gap and its thickness.
 
     Several cells with wrapped text in one row are each computed this way and the row takes the
     tallest; that combination has not been captured.
@@ -836,7 +843,12 @@ _RULE_TABLES: dict[str, tuple[int, int, int, int, int]] = {
     "arial": (-217, 150, 530, 102, 434),
     "times new roman": (-223, 100, 530, 102, 443),
     "georgia": (-181, 101, 594, 101, 449),
+    "courier new": (-477, 84, 530, 102, 615),
 }
+# Times New Roman's double underline lies three line thicknesses apart at screen sizes 37 to 40
+# (36.5 included, which rounds to 37), where its accounting rows add 4 points (CAPTURING.md
+# section 2 item 63)
+_TIMES_WIDE_GAP = (37, 40)
 
 
 @dataclass(frozen=True, slots=True)
@@ -870,28 +882,59 @@ class RuleMetrics:
     double_thickness: float
 
 
+def _courier_rule(q: int) -> tuple[int, ...]:
+    """Courier New's lines at the whole screen size ``q``, in screen points."""
+    gap = COURIER_GAP.get(q)
+    if gap is None:
+        lowest, highest = min(COURIER_GAP), max(COURIER_GAP)
+        msg = (
+            f"no rule positions for Courier New at screen size {q}: its double underline's "
+            f"gap is measured at screen sizes {lowest} to {highest}"
+        )
+        raise LookupError(msg)
+    g = int(gap)
+    line = max(1, math.floor(q * 84 / 2048))
+    top = math.floor(q * 477 / 2048)
+    first = top - g + (1 if q == 12 else 0)  # the double alone is drawn a point lower at 12
+    accounting = math.floor(q * 615 / 2048 + 0.5)
+    single = top if g == 2 * line else first
+    strike = (math.floor(q * 530 / 2048 + 0.5), max(1, math.floor(q * 102 / 2048 + 0.5)))
+    return (single, line, first, line, g, accounting, *strike)
+
+
 def rule_metrics(font: FontSpec | None = None, *, zoom: float = 100) -> RuleMetrics:
     """Where Excel draws underlines and a strikethrough in ``font`` at ``zoom`` percent.
 
-    Depends on the screen size ``P = size * zoom / 100`` alone. Where the face and screen size
-    were captured (CAPTURING.md section 2 item 62: Calibri, Aptos Narrow, Arial, Times New
-    Roman and Georgia at every screen size from 9 to 36, every even one to 72, and 80 to 144 in
-    steps of 8), each value is the line Excel drew. Elsewhere, and for a line not read there,
-    the value comes from the font's tables in whole screen points (item 60): an underline's top
-    ``floor(P * -underlinePosition / em)`` below the baseline and its thickness ``max(1,
-    floor(P * underlineThickness / em))``; an accounting underline's top ``round(P *
-    usWinDescent / em)``; a strikethrough's top ``round(P * yStrikeoutPosition / em)`` above
-    the baseline, ``max(1, round(P * yStrikeoutSize / em))`` thick. A double underline's lines
-    are ``max(1, floor(P * min(underlineThickness, yStrikeoutSize) / em))`` thick and lie two
-    thicknesses apart; its first line starts at the single underline's top and steps up a
-    thickness at a time until the double (three thicknesses) ends at or above the accounting
-    underline's top. The rule misses some captured doubles (QUIRKS.md), the first line drawn one
-    to three screen points higher: Arial at most screen sizes from 29, Times New Roman at about
-    half of those from 38, Calibri from 80, Georgia at 128 and 144. Courier New draws its
-    underline elsewhere than its tables say, so it raises.
+    Excel draws the lines at the nearest whole screen size, ``P = round(size * zoom / 100)``
+    (a half rounds up), and at a whole screen size they depend on ``P`` alone (CAPTURING.md
+    section 2 items 62 and 63). Where the face and ``P`` were captured, each value is the line
+    Excel drew: Calibri, Aptos Narrow, Arial, Times New Roman and Georgia at every ``P`` from 9
+    to 36, every even one to 72 and 80 to 144 in steps of 8; Courier New at every ``P`` from 6
+    to 144. Elsewhere, and for a line not read there, the value comes from the font's tables in
+    whole screen points (item 60): an underline's top ``floor(P * -underlinePosition / em)``
+    below the baseline and its thickness ``max(1, floor(P * underlineThickness / em))``; an
+    accounting underline's top ``round(P * usWinDescent / em)``; a strikethrough's top
+    ``round(P * yStrikeoutPosition / em)`` above the baseline, ``max(1, round(P *
+    yStrikeoutSize / em))`` thick. A double underline's lines are ``max(1, floor(P *
+    min(underlineThickness, yStrikeoutSize) / em))`` thick and two thicknesses apart; its first
+    line starts at the single underline's top and steps up a thickness at a time until the
+    double (three thicknesses) ends at or above the accounting underline's top.
+
+    Where the double's gap is wider than two thicknesses, the double hangs up from the single's
+    table position instead (its second line there, its first the gap above) and the single
+    moves onto its first line: Times New Roman at ``P`` 37 to 40, three thicknesses apart, and
+    Courier New, whose gap is a captured table with no closed form (2 up to ``P`` 17, then 3,
+    rising to 19 at 144; at ``P`` 12 the double is drawn a point lower). A double accounting
+    underline's second line lies the gap below its first.
+
+    Known misses (QUIRKS.md): the rule misses some doubles at whole screen sizes not captured
+    (Arial at most from 29, Times New Roman at some from 46, Calibri from 80, Georgia at 128
+    and 144), and at a screen size that is not whole, Excel draws a line a screen point off
+    in some rows (23 of 400 captured; Courier New's lines there also differ by zoom).
 
     Raises:
-        LookupError: Courier New or another face without its rule, or a size outside 1 to 72.
+        LookupError: A face without its rule, a size outside 1 to 72, or Courier New at a
+            screen size outside 6 to 144, where its gap is not measured.
     """
     key, size = _row_face(font)
     if key not in _RULE_TABLES:
@@ -901,7 +944,8 @@ def rule_metrics(font: FontSpec | None = None, *, zoom: float = 100) -> RuleMetr
         )
         raise LookupError(msg)
     position, thickness, strike_position, strike_size, descent = _RULE_TABLES[key]
-    p = size * zoom / 100
+    exact = size * zoom / 100
+    p = math.floor(exact + 0.5)  # Excel draws the lines at the nearest whole screen size
 
     def floored(units: int) -> int:
         return math.floor(p * units / 2048)
@@ -911,16 +955,22 @@ def rule_metrics(font: FontSpec | None = None, *, zoom: float = 100) -> RuleMetr
 
     # the rule, in screen points
     top, line, accounting = floored(-position), max(1, floored(thickness)), rounded(descent)
-    double = max(1, floored(min(thickness, strike_size)))
-    first = top
-    while first + 3 * double > accounting:
-        first -= double
-    rule = (
-        top, line, first, double, 2 * double, accounting,
-        rounded(strike_position), max(1, rounded(strike_size)),
-    )  # fmt: skip
+    strike = (rounded(strike_position), max(1, rounded(strike_size)))
+    if key == "courier new":
+        rule = _courier_rule(p)
+    elif key == "times new roman" and _TIMES_WIDE_GAP[0] <= p <= _TIMES_WIDE_GAP[1]:
+        # a gap wider than two thicknesses: the double hangs up from the single's position, and
+        # the single moves onto its first line
+        wide = 3 * line
+        rule = (top - wide, line, top - wide, line, wide, accounting, *strike)
+    else:
+        double = max(1, floored(min(thickness, strike_size)))
+        first = top
+        while first + 3 * double > accounting:
+            first -= double
+        rule = (top, line, first, double, 2 * double, accounting, *strike)
     # the captured lines, in half screen points, where read
-    drawn = DRAWN.get((key, p))
+    drawn = DRAWN.get((key, float(p)))
     half = [2 * v for v in rule] if drawn is None else [
         2 * v if d is None else d for d, v in zip(drawn, rule, strict=True)
     ]  # fmt: skip

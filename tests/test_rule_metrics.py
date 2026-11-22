@@ -3,7 +3,7 @@
 The rows hold "HHHH" in a face, size and zoom under each underline and a strikethrough, as the
 pixel rows of each line from the row's top. Baselines come from rows whose rule cannot touch the H
 stems: the strikethrough row's for the plain rows, the single accounting row's for the accounting
-rows. ``rules.layout.tsv`` also holds Courier New and rows without a rule, which are skipped here.
+rows. Rows without a rule and the text-color rows of ``rules.layout.tsv`` are skipped.
 """
 
 from __future__ import annotations
@@ -47,8 +47,6 @@ def _rows(name: str) -> dict[tuple[int, str, float], Row]:
             )  # fmt: skip
     out: dict[tuple[int, str, float], Row] = {}
     for key, rules in raw.items():
-        if key[1] == "Courier New":
-            continue
         plain, accounting = rules["strike"][0] + 1, rules["singleAccounting"][0] + 1
         out[key] = {
             rule: ([((a - b) / ppp, (e - a + 1) / ppp) for a, e in runs], (last - b + 1) / ppp)
@@ -76,13 +74,21 @@ def _shown(lines: Lines, bottom: float) -> Lines:
     return [(top, min(th, bottom - top)) for top, th in lines if top < bottom]
 
 
+def _close(lines: Lines) -> list[tuple[float, float]]:
+    """Lines to six decimals: at zoom 150 a third of a point is reached by two float routes."""
+    return [(round(top, 6), round(th, 6)) for top, th in lines]
+
+
 def _differing(name: str) -> tuple[int, set[tuple[int, str]]]:
     compared, differ = 0, set()
     for (zoom, face, size), rules in _rows(name).items():
         m = rule_metrics((face, size), zoom=zoom)
         for rule, (got, bottom) in rules.items():
             compared += 1
-            if got != _shown(_expected(m, rule), bottom):
+            want = _expected(m, rule)
+            # whole, or cut at the row's bottom, which at zoom 150 the row's height in points
+            # gives only roughly (Excel rounds each row to whole pixels)
+            if _close(got) not in (_close(want), _close(_shown(want, bottom))):
                 differ.add((zoom, f"{face} {size:g} {rule}"))
     return compared, differ
 
@@ -90,7 +96,7 @@ def _differing(name: str) -> tuple[int, set[tuple[int, str]]]:
 def test_rules_capture() -> None:
     compared, differ = _differing("rules.layout.tsv")
     assert differ == RULES_UNREAD
-    assert compared == 250
+    assert compared == 300
 
 
 # rules_double.layout.tsv rows that differ: the Calibri 9 underlines join the stems at zoom 100
@@ -107,7 +113,7 @@ RULE_MISSES = {
     },
     "Calibri": {80, 88, 96, 104, 112, 120, 128, 136, 144},
     "Georgia": {128, 144},
-    "Times New Roman": {38, 40, 46, 48, 62, 66, 68, 70, 88, 96, 104, 112, 120, 128, 136, 144},
+    "Times New Roman": {46, 48, 62, 66, 68, 70, 88, 96, 104, 112, 120, 128, 136, 144},
 }  # fmt: skip
 
 
@@ -130,10 +136,67 @@ def test_rule_alone(monkeypatch: pytest.MonkeyPatch) -> None:
         else:
             misses[face].add(size * zoom / 100)
     assert misses == RULE_MISSES
-    assert right == 296  # of 369 captured doubles; 73 rows at the 59 screen sizes listed
+    assert right == 299  # of 369 captured doubles; 70 rows at the 57 screen sizes listed
 
 
-def test_courier_new_has_no_rule_positions() -> None:
-    with pytest.raises(LookupError, match="no rule positions for Courier New"):
-        rule_metrics(("Courier New", 11))
+def test_rules_courier_capture_is_the_table() -> None:
+    compared, differ = _differing("rules_courier.layout.tsv")
+    # Courier New 6 at zoom 100: the reader finds no single or double underline
+    assert differ == {(100, "Courier New 6 single"), (100, "Courier New 6 double")}
+    assert compared == 1190
+
+
+# rules_zoom.layout.tsv rows that differ. The reader: Courier New 8 has no line read; at zoom 150
+# a double accounting underline's second line is cut at the row's bottom, and a strikethrough
+# row reads a line of the row above. The rest are the rule's misses at a screen size that is not
+# whole, which Excel draws as at the nearest whole one in all but these (QUIRKS.md): a line one
+# screen point off, in Courier New at several sizes and in Calibri from screen size 51.
+ZOOM_UNREAD = {
+    (100, "Courier New 8 single"), (100, "Courier New 8 double"), (150, "Courier New 8 single"),
+    (150, "Calibri 22.5 doubleAccounting"), (150, "Calibri 23 doubleAccounting"),
+    (150, "Calibri 23.5 doubleAccounting"), (150, "Calibri 51.5 doubleAccounting"),
+    (150, "Calibri 69.5 doubleAccounting"), (150, "Calibri 69.5 strike"),
+    (150, "Calibri 70.5 strike"),
+}  # fmt: skip
+ZOOM_MISSES = {
+    (150, "Courier New 17 double"), (150, "Courier New 23 single"), (150, "Courier New 23 double"),
+    (150, "Courier New 35.5 single"), (150, "Courier New 35.5 double"),
+    (150, "Courier New 51.5 single"), (150, "Courier New 51.5 double"),
+    (150, "Courier New 69.5 double"), (150, "Courier New 70.5 doubleAccounting"),
+    (150, "Calibri 11.5 doubleAccounting"), (150, "Calibri 22.5 double"),
+    (150, "Calibri 34.5 single"), (150, "Calibri 34.5 double"), (150, "Calibri 51.5 double"),
+    (150, "Calibri 52.5 single"), (150, "Calibri 52.5 double"),
+    (150, "Calibri 52.5 singleAccounting"), (150, "Calibri 52.5 doubleAccounting"),
+    (150, "Calibri 52.5 strike"), (150, "Calibri 70.5 single"), (150, "Calibri 70.5 double"),
+    (150, "Calibri 70.5 singleAccounting"), (150, "Calibri 70.5 doubleAccounting"),
+}  # fmt: skip
+
+
+def test_rules_zoom_capture() -> None:
+    """Screen sizes that are not whole: drawn as at the nearest whole one, but for the misses."""
+    compared, differ = _differing("rules_zoom.layout.tsv")
+    assert differ == ZOOM_UNREAD | ZOOM_MISSES
+    assert compared == 400
+
+
+def test_courier_new_rule_alone(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Courier New's rule with the captured table set aside: every captured line it reads."""
+    monkeypatch.setattr(xlformat._measure, "DRAWN", {})
+    compared, differ = _differing("rules_courier.layout.tsv")
+    courier = {d for d in differ if "Courier New" in d[1]}
+    assert courier == {(100, "Courier New 6 single"), (100, "Courier New 6 double")}
+    assert compared == 1190
+
+
+def test_courier_new_rule_positions() -> None:
+    # the double hangs up from the single's table position; at 11 points the gap is 2
+    # thicknesses, so the single stays at that position
+    assert rule_metrics(("Courier New", 11)) == RuleMetrics(2.0, 1.0, 2.0, 3.0, 3.0, 1.0, 0.0, 1.0)
+    # at 72 points, zoom 200, the gap is wider and the single moves onto the first line
+    m = rule_metrics(("Courier New", 72), zoom=200)
+    assert (m.underline_top, m.double_top, m.double_gap) == (7.0, 7.0, 9.5)
+    with pytest.raises(LookupError, match="measured at screen sizes 6 to 144"):
+        rule_metrics(("Courier New", 72), zoom=250)
+    with pytest.raises(LookupError, match="screen size 5"):
+        rule_metrics(("Courier New", 5))
     assert rule_metrics(("Calibri", 11)) == RuleMetrics(1.0, 1.0, 2.0, 3.0, 3.0, 1.0, 0.0, 1.0)

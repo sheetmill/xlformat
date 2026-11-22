@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `rule_metrics` covers Courier New at screen sizes from 6 to 144 and raises `LookupError` outside
+  them, where it raised for every size. Its double underline hangs up from the single
+  underline's position, its gap captured at every screen size (no rule gives it), and its single
+  sits on the double's first line once the gap is wider than two thicknesses.
+- `row_metrics` gives Courier New's accounting rows from 6 to 72 points, where it raised
+  `LookupError`: an accounting underline adds the face's double underline gap and its line
+  thickness to the row and to each wrapped line. The same law gives every other face's
+  accounting rows, which are unchanged.
+
+### Changed
+- `rule_metrics` at a screen size that is not whole (a half size, or a zoom such as 150) gives
+  the lines at the nearest whole screen size, a half rounding up, as Excel draws them in most
+  rows captured; 0.6.0 fed the fraction to the font's formulas, so values at such sizes can
+  differ by a screen point.
+- `rule_metrics` for Times New Roman at screen sizes 37 to 40 gives a double underline three
+  line thicknesses wide, hanging up from the single's position, with the single on its first
+  line, as captured; 0.6.0 gave this only at 38 and 40. At screen sizes 74, 75, 76 and 82 it
+  gives the lines as now captured.
+
 ### Fixed
 - `VerticalMetrics` has slots again, as in 0.5.0: in 0.6.0 its instances had a `__dict__`, so
   `vars()` worked on them; now it raises `TypeError`. Its six fields, equality, hashing, `repr`

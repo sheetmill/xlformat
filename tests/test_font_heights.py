@@ -66,29 +66,22 @@ def test_wrapped_lines_of_every_face() -> None:
 
 def test_every_underlined_row() -> None:
     # underline_height.layout.tsv: every face at every whole size from 6 to 72 under each
-    # underline style; Courier New's accounting rows follow no known rule and raise
+    # underline style
     rows = _rows("underline_height.layout.tsv")
     assert len(rows) == 2814
-    misses, raised = [], 0
+    misses = []
     for tag, height in rows:
         m = re.fullmatch(r"(.+?) (\d+) (\w+) (\d)", tag)
         assert m, tag
         face, size, underline, lines = m[1], float(m[2]), m[3], int(m[4])
         font = Font(face, size, underline=None if underline == "none" else underline)
-        try:
-            if lines == 1:
-                got = row_metrics(("Calibri", 1.0), cell_fonts=[font]).height
-            else:
-                got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)]).height
-        except LookupError:
-            assert "Accounting" in underline, tag
-            assert face == "Courier New", tag
-            raised += 1
-            continue
+        if lines == 1:
+            got = row_metrics(("Calibri", 1.0), cell_fonts=[font]).height
+        else:
+            got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)]).height
         if got != float(height):
             misses.append((tag, height, got))
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
-    assert raised == 67 * 3
 
 
 def test_underline_names() -> None:

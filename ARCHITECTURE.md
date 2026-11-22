@@ -662,18 +662,25 @@ own.
 
 `rule_metrics(font=None, *, zoom=100)` returns `RuleMetrics(underline_top, underline_thickness,
 double_gap, accounting_top, strikethrough_top, strikethrough_thickness, double_top,
-double_thickness)`, in sheet points from the baseline. The lines depend on the screen size `size ·
-zoom / 100` alone (equal screen sizes at zoom 100 and 200 draw equal lines, `CAPTURING.md` §2 item
-62). At the screen sizes captured each value is the line Excel drew, from a table generated from the
-capture (`_rules_drawn.py`, by `capture/rule_table.py`); elsewhere it comes from the font's `post`
-and `OS/2` numbers in whole screen points (item 60), with a double underline's first line stepped up
+double_thickness)`, in sheet points from the baseline. Excel draws the lines at the nearest whole
+screen size, `P = round(size · zoom / 100)`, and at a whole screen size they depend on `P` alone
+(equal screen sizes at zoom 100 and 200 draw equal lines; `CAPTURING.md` §2 items 62 and 63). At a
+fractional screen size that rounding misses a line by a screen point in some rows, and Courier New's
+lines there also differ by zoom, so the table holds whole screen sizes only. At the screen sizes
+captured each value is the line Excel drew, from a table generated from the captures
+(`_rules_drawn.py`, by `capture/rule_table.py`); elsewhere it comes from the font's `post` and
+`OS/2` numbers in whole screen points (item 60), with a double underline's first line stepped up
 from the single's top a line thickness at a time until the double ends at or above the accounting
-underline's top, and its lines `floor(P · min(underlineThickness, yStrikeoutSize) / em)` thick. The
-table is preferred because the rule misses some doubles (`QUIRKS.md`) and the tables miss a few
-lines: Aptos Narrow's accounting underline at 20 screen sizes (drawn lower), Times New Roman's
-single at 38 and 40 screen points, and every Calibri line from 80, where Excel draws on half screen
-points. Five faces carry those numbers; Courier New, which draws its underline elsewhere than its
-tables say, raises `LookupError`.
+underline's top, and its lines `floor(P · min(underlineThickness, yStrikeoutSize) / em)` thick.
+Where the double's gap is wider than two thicknesses (Times New Roman at `P` 37 to 40; Courier New,
+whose gap is a captured table with no closed form) the double hangs up from the single's table
+position and the single moves onto its first line. The table is preferred because the rule misses
+some doubles (`QUIRKS.md`) and the tables miss a few lines: Aptos Narrow's accounting underline at
+20 screen sizes (drawn lower) and every Calibri line from 80, where Excel draws on half screen
+points. Six faces carry those numbers; Courier New raises `LookupError` outside `P` 6 to 144, where
+its gap is not measured. The same gap sets the row model's accounting rows: an accounting underline
+adds its line's thickness and its double's gap to a row and to each wrapped line, three thicknesses
+where the gap is two.
 
 **Error values.** `ExcelError` is a `StrEnum` of every error text current Excel documents (the
 seven classic codes of ECMA-376 and ERROR.TYPE 1 to 7; `#GETTING_DATA`, ERROR.TYPE 8; the error
