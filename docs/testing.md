@@ -25,7 +25,12 @@ defined in `capture/cases.py`. Capturing a suite takes four steps:
 The test suite then renders every row with xlformat and compares the text exactly. A default
 `pytest` run checks every captured row in seconds. Width rows are checked twice: in Excel
 mode, which must match exactly, and in character mode, which skips the rows where Excel fitted
-a text by glyph width.
+a text by glyph width. The glyph tables are fitted again from the autofit captures on every run
+and must equal the tables the package ships.
+
+Excel for Windows' captures live in `tests/captures/windows/`, made by capture jobs: manifests
+in a published format, committed beside the captures, that list every operation done to Excel.
+They run in the same default `pytest` run, rendered with `platform="windows"`.
 
 ## Getting the input right
 
