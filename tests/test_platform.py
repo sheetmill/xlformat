@@ -1,4 +1,5 @@
-"""``platform=`` and ``regional_settings=``: the defaults change nothing, Windows raises."""
+"""``platform=`` and ``regional_settings=``: the defaults change nothing; Windows works where its
+evidence is captured (the width model at 96 dpi) and raises elsewhere."""
 
 from __future__ import annotations
 
@@ -37,6 +38,12 @@ CALLS: dict[str, Callable[..., object]] = {
 REGIONAL = {"format_value", "format_cell", "text_function", "builtin_format"} | {
     n for n in CALLS if n.startswith("NumberFormat.")
 }
+# the functions with Windows evidence: the width model at 96 dpi (CAPTURING.md section 2 item 65)
+WINDOWS = {
+    "format_value", "format_cell", "text_width", "glyph_widths", "digit_width", "overhang",
+    "measured_fonts", "column_metrics", "column_metrics_from_points", "file_column_metrics",
+    "NumberFormat.format", "NumberFormat.format_cell",
+}  # fmt: skip
 
 
 def _function(name: str) -> Callable[..., object]:
@@ -66,13 +73,24 @@ def test_the_default_is_the_mac(name: str) -> None:
 
 @pytest.mark.parametrize("name", sorted(CALLS))
 def test_windows_raises_until_its_evidence_is_captured(name: str) -> None:
-    for platform in (
-        "windows",
-        Platform.WINDOWS,
-        dataclasses.replace(Platform.MAC, long_fill="cap"),
-    ):
+    other_dpi = dataclasses.replace(Platform.WINDOWS, dpi=120)
+    unsupported = [other_dpi, dataclasses.replace(Platform.MAC, long_fill="cap")]
+    if name in WINDOWS:
+        CALLS[name](platform="windows")
+        CALLS[name](platform=Platform.WINDOWS)
+    else:
+        unsupported += ["windows", Platform.WINDOWS]
+    for platform in unsupported:
         with pytest.raises(LookupError, match=f"^{name} has no captured evidence"):
             CALLS[name](platform=platform)
+
+
+def test_windows_measures_in_pixels_reported_in_points() -> None:
+    # Calibri 11 at 96 dpi: a digit of 7 pixels (measure11 on Windows), 5.25 points
+    assert xlformat.digit_width(FONT, platform="windows") == 7 * 72 / 96
+    assert xlformat.measured_fonts(platform="windows") == xlformat.measured_fonts()
+    with pytest.raises(LookupError, match="for Excel for Windows for font 'Courier New'"):
+        xlformat.text_width("x", ("Courier New", 11), platform="windows")
 
 
 def test_platform_names_and_fields() -> None:

@@ -842,7 +842,7 @@ class NumberFormat:
 
         Takes the same keyword arguments as :func:`xlformat.format_value`, which calls it.
         """
-        _platform = check_platform(platform, "NumberFormat.format")
+        _platform = check_platform(platform, "NumberFormat.format", windows=True)
         _regional = check_regional(regional_settings, _platform)
         from xlformat._render import render
 
@@ -857,6 +857,7 @@ class NumberFormat:
             date1904=date1904,
             show_zeros=show_zeros,
             quirks=quirks,
+            platform=_platform,
         ).text
 
     def format_cell(
@@ -879,7 +880,7 @@ class NumberFormat:
         Takes the same keyword arguments as :func:`xlformat.format_value`; returns a
         :class:`xlformat.FormattedCell`, as :func:`xlformat.format_cell` does.
         """
-        _platform = check_platform(platform, "NumberFormat.format_cell")
+        _platform = check_platform(platform, "NumberFormat.format_cell", windows=True)
         _regional = check_regional(regional_settings, _platform)
         from xlformat._render import render
 
@@ -894,6 +895,7 @@ class NumberFormat:
             date1904=date1904,
             show_zeros=show_zeros,
             quirks=quirks,
+            platform=_platform,
         )
 
     def text_function(

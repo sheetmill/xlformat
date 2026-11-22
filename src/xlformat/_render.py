@@ -17,11 +17,12 @@ from xlformat._measure import (
     column_budget,
     column_padding,
     column_units,
+    font_overhang,
     glyph_measure,
-    overhang,
 )
 from xlformat._number import general_text, render_number, render_scientific
 from xlformat._parser import NumberFormat, Piece, Section, SectionKind
+from xlformat._platform import _MAC, Platform
 from xlformat._quirks import Quirks
 from xlformat._text import render_text_section
 from xlformat._values import Kind, normalize
@@ -130,6 +131,7 @@ def resolve_width(
     font: FontSpec | None,
     measure: Measure | None,
     normal_font: FontSpec | None = None,
+    platform: Platform = _MAC,
 ) -> tuple[float | None, Measure, float | None]:
     """Budget, measure and column width in units for each way a caller limits width.
 
@@ -153,7 +155,9 @@ def resolve_width(
         if column_width <= 0:
             msg = f"column_width must be positive, not {column_width!r}"
             raise ValueError(msg)
-        return _excel_width(column_width, font, normal_font)
+        if platform is _MAC:  # the Mac's key leaves the platform out: hashing it costs time
+            return _excel_width(column_width, font, normal_font)
+        return _excel_width(column_width, font, normal_font, platform)
     if width is not None and (not isinstance(width, int) or isinstance(width, bool) or width < 1):
         msg = f"width must be a positive int or None, not {width!r}"
         raise ValueError(msg)
@@ -163,23 +167,31 @@ def resolve_width(
 
 @lru_cache(maxsize=4096)
 def _excel_width(
-    column_width: float, font: FontSpec | None, normal_font: FontSpec | None
+    column_width: float,
+    font: FontSpec | None,
+    normal_font: FontSpec | None,
+    platform: Platform = _MAC,
 ) -> tuple[float, Measure, float]:
-    """Excel mode's budget, measure and units: the same for every cell of a column and font."""
+    """Excel mode's budget, measure and units: the same for every cell of a column and font.
+
+    The budget and the measure are in the platform's device units (points on the Mac, pixels on
+    Windows).
+    """
     normal = font if normal_font is None else normal_font
-    cell = glyph_measure(font)
-    units = column_units(column_width, normal)
+    cell = glyph_measure(font, platform)
+    normal_digit = glyph_measure(normal, platform)("0")
+    units = column_units(column_width, normal, platform)
     if normal_font is not None:
-        units *= glyph_measure(normal)("0") / cell("0")  # in the cell font's digits
+        units *= normal_digit / cell("0")  # in the cell font's digits
     # an italic face reaches past its advances: its cell holds that much less, General's
     # characters included (1E-04 shows 0 in a Calibri 11 italic cell at width 5); a cell font
     # whose column padding passes the Normal font's loses the difference too (cell_font_large)
-    lost = overhang(font)
+    lost = font_overhang(font, platform)
     if normal_font is not None:
-        lost += max(0.0, column_padding(cell("0")) - column_padding(glyph_measure(normal)("0")))
+        lost += max(0.0, column_padding(cell("0")) - column_padding(normal_digit))
     if lost:
         units -= lost / cell("0")
-    return column_budget(column_width, normal) - lost, cell, units
+    return column_budget(column_width, normal, platform) - lost, cell, units
 
 
 def render(
@@ -194,9 +206,14 @@ def render(
     quirks: Quirks | None = None,
     normal_font: FontSpec | None = None,
     show_zeros: bool = True,
+    platform: Platform = _MAC,
 ) -> FormattedCell:
     """Render ``value`` under ``fmt``."""
-    budget, measure, units = resolve_width(width, column_width, font, measure, normal_font)
+    budget, measure, units = resolve_width(
+        width, column_width, font, measure, normal_font, platform
+    )
+    # Excel for Windows stops a fill at 255 characters where the Mac shows a '#' run
+    cap = platform.long_fill == "cap"
     if isinstance(value, ExcelError):
         return _render_error(value, budget, measure)
     v = normalize(value, date1904=date1904, quirks=quirks)
@@ -222,7 +239,13 @@ def render(
         fill_after_text = "fill" in kinds and kinds.index("fill") > kinds.index("lit")
         overflows = not is_text or fill_after_text
         return assemble(
-            pieces, section.color, align, width=budget, measure=measure, overflows=overflows
+            pieces,
+            section.color,
+            align,
+            width=budget,
+            measure=measure,
+            overflows=overflows,
+            cap_fill=cap,
         )
     assert v.number is not None
     x = v.number
@@ -232,7 +255,7 @@ def render(
         return assemble([], None, "right", width=budget, measure=measure)
     chosen, keep_sign = select(fmt, x)
     cell = _render_number(
-        fmt, chosen, keep_sign, x, v.raw, date1904, quirks, budget, measure, units
+        fmt, chosen, keep_sign, x, v.raw, date1904, quirks, budget, measure, units, cap
     )
     if (
         keep_sign
@@ -249,7 +272,17 @@ def render(
         magnitude = abs(x)
         chosen, keep_sign = select(fmt, magnitude)
         cell = _render_number(
-            fmt, chosen, keep_sign, magnitude, abs(v.raw), date1904, quirks, budget, measure, units
+            fmt,
+            chosen,
+            keep_sign,
+            magnitude,
+            abs(v.raw),
+            date1904,
+            quirks,
+            budget,
+            measure,
+            units,
+            cap,
         )
     return cell
 
@@ -321,6 +354,7 @@ def _render_number(
     width: float | None = None,
     measure: Measure = character_measure,
     units: float | None = None,
+    cap_fill: bool = False,
 ) -> FormattedCell:
     """Render a number under the selected section."""
     # the plain General format, as opposed to a General section (colored, among others) or a
@@ -382,4 +416,5 @@ def _render_number(
         general_value=general_value,
         units=units,
         general_format=plain,
+        cap_fill=cap_fill,
     )

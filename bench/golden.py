@@ -48,17 +48,20 @@ def lines() -> list[str]:
         m = re.match(r"(.+?) (\d+(?:\.\d+)?)\b", header.get("workbook_font", ""))
         normal = Font(m[1], float(m[2])) if m else Font("Calibri", 11.0)
         file_widths = header.get("width_source") == "file"
+        platform = header.get("platform", "mac")  # Excel for Windows' captures name it
         sheet_format = dict(kv.split("=") for kv in header.get("sheet_format", "").split())
         for row in rows:
             value = _excel_value(row, header)
             fmt = row.format_string
             d = row.date1904 == "1"
-            key = f"{path.name}|{row.tag}|{row.value_repr}|{row.format}|{row.width}"
+            where = "windows/" if platform == "windows" else ""
+            key = f"{where}{path.name}|{row.tag}|{row.value_repr}|{row.format}|{row.width}"
             if row.tag.startswith("merged:"):
-                width = column_metrics_from_points(row.width_value or 0, normal).width
-                out.append(
-                    f"{key}|excel|{_cell(value, fmt, column_width=width, normal_font=normal)}"
-                )
+                width = column_metrics_from_points(
+                    row.width_value or 0, normal, platform=platform
+                ).width
+                cell = _cell(value, fmt, column_width=width, normal_font=normal, platform=platform)
+                out.append(f"{key}|excel|{cell}")
                 continue
             if row.tag.startswith("text:"):
                 out.append(f"{key}|text|{text_function(value, fmt, date1904=d)!r}")
@@ -75,13 +78,20 @@ def lines() -> list[str]:
                         else None
                     ),
                     normal_font=normal,
+                    platform=platform,
                 ).width
             if width is not None:
                 font = _cell_font(row.tag) or normal
                 out.append(
                     f"{key}|excel|"
                     + _cell(
-                        value, fmt, column_width=width, font=font, normal_font=normal, date1904=d
+                        value,
+                        fmt,
+                        column_width=width,
+                        font=font,
+                        normal_font=normal,
+                        date1904=d,
+                        platform=platform,
                     )
                 )
                 if width == int(width) and width >= 1:

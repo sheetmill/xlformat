@@ -118,6 +118,7 @@ def assemble(
     general_value: Decimal | None = None,
     units: float | None = None,
     general_format: bool = False,
+    cap_fill: bool = False,
 ) -> FormattedCell:
     """Join pieces and apply the width decision.
 
@@ -126,6 +127,8 @@ def assemble(
     glyph widths; ``overflows`` is False for text, which never becomes a ``#`` run.
     ``general_format`` is True for the plain format ``General`` itself, as opposed to a General
     section (colored, among others or among literals) or a number through a text format.
+    ``cap_fill`` stops a fill at 255 characters in all (Excel for Windows) where the Mac shows a
+    ``#`` run.
     """
     full_text, fill = _join(pieces, None)
     if overflows and len(full_text) > MAX_TEXT:
@@ -186,6 +189,8 @@ def assemble(
         count = int((width - measure(text)) // measure(fill[1]))
         if count > 0:
             position, char = fill
+            if cap_fill:
+                count = min(count, MAX_TEXT - len(text))
             text = text[:position] + char * count + text[position:]
             if len(text) > MAX_TEXT:
                 # more than 255 characters with the fill: a '#' run, text too (limits)

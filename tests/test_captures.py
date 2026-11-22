@@ -33,12 +33,19 @@ from xlformat import (
 CAPTURE_DIR = Path(__file__).parent / "captures"
 SUITE_FILES = sorted(
     p
-    for p in CAPTURE_DIR.iterdir()
+    # Excel for Mac's captures, and in windows/ Excel for Windows' (their header says so)
+    for p in (*CAPTURE_DIR.iterdir(), *(CAPTURE_DIR / "windows").iterdir())
     # .measure. files hold autofit widths, .layout. files PDF positions; neither is a suite
     if p.name.endswith((".tsv", ".tsv.gz"))
     and ".measure." not in p.name
     and ".layout." not in p.name
 )
+
+
+def _suite_id(path: Path) -> str:
+    name = path.name.split(".")[0]
+    return f"windows/{name}" if path.parent.name == "windows" else name
+
 
 # Rows where Excel's DisplayFormat font color, the capture's source for `expected_color`,
 # reports automatic black although the sheet paints the section color (seen on screen:
@@ -212,7 +219,7 @@ def _texts_match(got: str, expected: str, width: int | None) -> bool:
 
 
 @pytest.mark.excel
-@pytest.mark.parametrize("suite_file", SUITE_FILES, ids=lambda p: p.name.split(".")[0])
+@pytest.mark.parametrize("suite_file", SUITE_FILES, ids=_suite_id)
 def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: ignore[no-untyped-def]
     header, rows = read_rows(suite_file)
     assert header.get("suite"), f"{suite_file}: missing suite header"
@@ -240,6 +247,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
     # "Calibri 11", "Aptos Narrow 11", "Calibri 11 (openpyxl default)"
     match = re.match(r"(.+?) (\d+(?:\.\d+)?)\b", header.get("workbook_font", ""))
     normal = Font(match[1], float(match[2])) if match else Font("Calibri", 11.0)
+    platform = header.get("platform", "mac")  # Excel for Windows' captures name it
     # widths written into the file (<col width>, or none: <sheetFormatPr>), not set by the script
     file_widths = header.get("width_source") == "file"
     sheet_format = dict(kv.split("=") for kv in header.get("sheet_format", "").split())
@@ -257,8 +265,10 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         column_width = row.width_value
         if row.tag.startswith("merged:"):  # the width is the block's total points
             counts["Excel mode compared"] += 1
-            cw = column_metrics_from_points(row.width_value or 0, normal).width
-            got = format_value(value, fmt, column_width=cw, font=normal, normal_font=normal)
+            cw = column_metrics_from_points(row.width_value or 0, normal, platform=platform).width
+            got = format_value(
+                value, fmt, column_width=cw, font=normal, normal_font=normal, platform=platform
+            )
             if got != row.expected_text:
                 excel_failures.append((row, got))
             continue
@@ -272,6 +282,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
                     else None
                 ),
                 normal_font=normal,
+                platform=platform,
             )
             column_width = metrics.width
             # the conversion itself: the dialog number Excel showed, to two decimals half up
@@ -300,6 +311,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
                     normal_font=normal,
                     date1904=date1904,
                     show_zeros=show_zeros,
+                    platform=platform,
                 )
             except Exception as exc:
                 got_excel = f"<{type(exc).__name__}: {exc}>"

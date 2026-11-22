@@ -131,8 +131,8 @@ def format_value(
             Pass the value as stored.
         quirks: Which Excel quirks to reproduce; ``None`` means ``Quirks.EXCEL``.
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. A platform without captured evidence for
-            this function raises ``LookupError``; so far that is every platform but the Mac.
+            ``None`` means the default, ``"mac"``. Excel for Windows is measured at 96 dpi;
+            another resolution raises ``LookupError``.
         regional_settings: The viewer's :class:`RegionalSettings`; ``None`` means the
             platform's en-US preset.
 
@@ -141,7 +141,7 @@ def format_value(
         TypeError: ``value`` has an unsupported type.
         ValueError: ``value`` is NaN or infinite.
     """
-    check_regional(regional_settings, check_platform(platform, "format_value"))
+    check_regional(regional_settings, check_platform(platform, "format_value", windows=True))
     return NumberFormat.parse(format_string).format(
         value,
         width=width,
@@ -225,7 +225,7 @@ def format_cell(
     regional_settings: RegionalSettings | None = None,
 ) -> FormattedCell:
     """Like :func:`format_value` but return a :class:`FormattedCell` with display details."""
-    check_regional(regional_settings, check_platform(platform, "format_cell"))
+    check_regional(regional_settings, check_platform(platform, "format_cell", windows=True))
     return NumberFormat.parse(format_string).format_cell(
         value,
         width=width,

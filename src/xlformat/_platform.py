@@ -8,6 +8,8 @@ from typing import ClassVar, Literal
 PlatformName = Literal["mac", "windows"]
 # what ``platform=None`` means; all the family's packages change it together
 DEFAULT_PLATFORM: PlatformName = "mac"
+# the display resolutions whose Windows glyph tables are captured
+WINDOWS_DPIS = (96,)
 
 _MONTHS = (
     "January", "February", "March", "April", "May", "June", "July", "August", "September",
@@ -22,8 +24,11 @@ class Platform:
 
     ``Platform.MAC`` is Excel for Mac, what ``platform=None`` means while the default is
     ``"mac"``; ``Platform.WINDOWS`` is Excel for Windows at 96 dpi. A function given a platform
-    it has no captured evidence for raises ``LookupError``: so far every function knows the Mac
-    only. Fields can be overridden with :func:`dataclasses.replace`.
+    it has no captured evidence for raises ``LookupError``: Windows is measured at 96 dpi for
+    the width model (``format_value`` and ``format_cell`` in Excel mode, the column and glyph
+    functions); rows, text placement, rules, ``text_function`` and ``builtin_format`` know the
+    Mac only. Every result is in points; Windows' fall on its pixel grid (0.75 points at 96
+    dpi). Fields can be overridden with :func:`dataclasses.replace`.
 
     Attributes:
         name: ``"mac"`` or ``"windows"``. The Mac measures in points, glyphs hinted at the
@@ -42,6 +47,11 @@ class Platform:
 
     MAC: ClassVar[Platform]
     WINDOWS: ClassVar[Platform]
+
+    @property
+    def scale(self) -> float:
+        """Device units per point: 1 on the Mac (points), ``dpi / 72`` on Windows (pixels)."""
+        return 1.0 if self.dpi is None else self.dpi / 72
 
     def __post_init__(self) -> None:
         if self.name not in ("mac", "windows"):
@@ -107,8 +117,14 @@ RegionalSettings.EN_US_MAC = RegionalSettings()
 RegionalSettings.EN_US_WINDOWS = RegionalSettings(short_date="m/d/yyyy")
 
 
-def check_platform(platform: str | Platform | None, function: str) -> Platform:
-    """The platform a call means; ``LookupError`` where ``function`` has no evidence for it."""
+def check_platform(
+    platform: str | Platform | None, function: str, *, windows: bool = False
+) -> Platform:
+    """The platform a call means; ``LookupError`` where ``function`` has no evidence for it.
+
+    ``windows`` is True for a function with Windows evidence, which holds at the display
+    resolutions of ``WINDOWS_DPIS``.
+    """
     if platform is _MAC or platform == "mac" or (platform is None and DEFAULT_PLATFORM == "mac"):
         return _MAC  # the common case, kept cheap: every format call passes through here
     if platform is None:
@@ -119,6 +135,11 @@ def check_platform(platform: str | Platform | None, function: str) -> Platform:
             msg = f"platform must be 'mac', 'windows' or a Platform, not {platform!r}"
             raise ValueError(msg)
         platform = presets[platform]
+    if windows and platform.name == "windows":
+        if platform.dpi not in WINDOWS_DPIS:
+            msg = f"{function} has no captured evidence for Excel for Windows at {platform.dpi} dpi"
+            raise LookupError(msg)
+        return platform
     if platform != Platform.MAC:
         what = "Excel for Windows" if platform.name == "windows" else "a Mac with other rules"
         msg = f"{function} has no captured evidence for {what}; Platform.MAC is supported"

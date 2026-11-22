@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Excel for Windows at 96 dpi in the width model: `format_value` and `format_cell` in Excel mode,
+  `text_width`, `glyph_widths`, `digit_width`, `overhang`, `measured_fonts` and the column
+  functions take `platform="windows"` for Calibri, Aptos Narrow and Arial, four styles, nine
+  sizes, with glyph tables in pixels captured from Excel for Windows. Results stay in points.
+  Rows, text placement, rules, `text_function` and `builtin_format` still raise `LookupError`
+  for Windows.
 - `platform=` on every function whose result can differ by platform, and `regional_settings=` on
   those that format or resolve built-in formats, with the frozen `Platform` (presets
   `Platform.MAC` and `Platform.WINDOWS`) and `RegionalSettings` (presets

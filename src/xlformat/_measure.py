@@ -23,7 +23,13 @@ from functools import lru_cache
 from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
 from xlformat._glyphs_arial import ARIAL, ARIAL_OVERHANG
 from xlformat._glyphs_calibri import CALIBRI, CALIBRI_OVERHANG
-from xlformat._platform import Platform, check_platform
+from xlformat._glyphs_windows_aptos_narrow import (
+    WINDOWS_APTOS_NARROW,
+    WINDOWS_APTOS_NARROW_OVERHANG,
+)
+from xlformat._glyphs_windows_arial import WINDOWS_ARIAL, WINDOWS_ARIAL_OVERHANG
+from xlformat._glyphs_windows_calibri import WINDOWS_CALIBRI, WINDOWS_CALIBRI_OVERHANG
+from xlformat._platform import _MAC, Platform, check_platform
 from xlformat._rules_drawn import COURIER_GAP, DRAWN
 
 Measure = Callable[[str], float]
@@ -84,6 +90,20 @@ _OVERHANG: dict[str, dict[str, dict[int, float]]] = {
     "aptos narrow": APTOS_NARROW_OVERHANG,
     "arial": ARIAL_OVERHANG,
 }
+# Excel for Windows at 96 dpi: the same shape, advances in pixels at ppem = size * 96 / 72
+# (CAPTURING.md section 2 item 65)
+_FONTS_WINDOWS: dict[str, tuple[str, dict[str, dict[int, dict[str, float]]]]] = {
+    "calibri": ("Calibri", WINDOWS_CALIBRI),
+    "aptos narrow": ("Aptos Narrow", WINDOWS_APTOS_NARROW),
+    "arial": ("Arial", WINDOWS_ARIAL),
+}
+_OVERHANG_WINDOWS: dict[str, dict[str, dict[int, float]]] = {
+    "calibri": WINDOWS_CALIBRI_OVERHANG,
+    "aptos narrow": WINDOWS_APTOS_NARROW_OVERHANG,
+    "arial": WINDOWS_ARIAL_OVERHANG,
+}
+# platform name -> (glyph tables, overhangs), in the platform's device units
+_REGISTRY = {"mac": (_FONTS, _OVERHANG), "windows": (_FONTS_WINDOWS, _OVERHANG_WINDOWS)}
 
 
 def column_padding(mdw: float) -> float:
@@ -122,12 +142,14 @@ def general_cost(minus: float) -> Measure:
     return cost
 
 
-def column_units(column_width: float, font: FontSpec | None = None) -> float:
-    """The column width Excel keeps after snapping to whole points (8.43 becomes 8.5)."""
-    return _units(column_points(column_width, font), _mdw(font))
+def column_units(
+    column_width: float, font: FontSpec | None = None, platform: Platform = _MAC
+) -> float:
+    """The column width Excel keeps after snapping to whole device units (8.43 becomes 8.5)."""
+    return _units(column_points(column_width, font, platform), _mdw(font, platform))
 
 
-def resolve_font(font: FontSpec | None) -> Font:
+def resolve_font(font: FontSpec | None, platform: Platform = _MAC) -> Font:
     """The canonical :class:`Font`; raises LookupError for a font or style without a table."""
     if font is None:
         return DEFAULT_FONT
@@ -135,25 +157,27 @@ def resolve_font(font: FontSpec | None) -> Font:
         font = Font(font, 11.0)
     elif not isinstance(font, Font):
         font = Font(font[0], float(font[1]))
-    entry = _FONTS.get(font.name.lower())
-    if entry is None:
-        bundled = ", ".join(display for display, _ in _FONTS.values())
-        msg = f"no glyph table for font {font.name!r}; measured: {bundled}"
+    fonts = _REGISTRY[platform.name][0]
+    where = "" if platform.name == "mac" else " for Excel for Windows"
+    entry = fonts.get(font.name.lower())
+    if entry is None or not entry[1]:
+        bundled = ", ".join(display for display, styles in fonts.values() if styles)
+        msg = f"no glyph table{where} for font {font.name!r}; measured: {bundled}"
         raise LookupError(msg)
     display, styles = entry
     if font.style not in styles:
-        msg = f"no glyph table for {display} {font.style}; measured: {', '.join(styles)}"
+        msg = f"no glyph table{where} for {display} {font.style}; measured: {', '.join(styles)}"
         raise LookupError(msg)
     return Font(display, float(font.size), font.bold, font.italic, font.underline)
 
 
-def _table(font: FontSpec | None) -> dict[str, float]:
-    f = resolve_font(font)
-    return _whole_advances(f.name, f.size, f.style)
+def _table(font: FontSpec | None, platform: Platform = _MAC) -> dict[str, float]:
+    f = resolve_font(font, platform)
+    return _whole_advances(f.name, f.size, f.style, platform.name)
 
 
-@lru_cache(maxsize=64)
-def _whole_advances(name: str, size: float, style: str) -> dict[str, float]:
+@lru_cache(maxsize=128)
+def _whole_advances(name: str, size: float, style: str, kind: str = "mac") -> dict[str, float]:
     """The advances fit and fill decisions use: whole points, without the tables' tenths.
 
     A tenth (``W`` is 10.1 at Calibri 11) is real only in autofit, where ten ``W`` measure 101;
@@ -161,15 +185,18 @@ def _whole_advances(name: str, size: float, style: str) -> dict[str, float]:
     (CAPTURING.md section 2 item 41). A line feed and a tab take the space's advance and a
     carriage return none, so CR LF measures one space (item 51).
     """
-    whole = {c: float(math.floor(a + 1e-9)) for c, a in _advances(name, size, style).items()}
+    advances = _advances(name, size, style, kind)
+    whole = {c: float(math.floor(a + 1e-9)) for c, a in advances.items()}
     whole["\n"] = whole["\t"] = whole[" "]
     whole["\r"] = 0.0
     return whole
 
 
-@lru_cache(maxsize=64)
-def _advances(name: str, size: float, style: str = "regular") -> dict[str, float]:
-    tables = _FONTS[name.lower()][1][style]
+@lru_cache(maxsize=128)
+def _advances(
+    name: str, size: float, style: str = "regular", kind: str = "mac"
+) -> dict[str, float]:
+    tables = _REGISTRY[kind][0][name.lower()][1][style]
     if size in tables:
         return tables[int(size)]
     # An unmeasured size: scale the nearest measured table (the larger one on a tie) and round
@@ -187,14 +214,19 @@ def overhang(font: FontSpec | None = None, *, platform: str | Platform | None = 
     one fill space fewer than a regular one. An unmeasured size scales the nearest measured
     overhang to whole points.
     """
-    _platform = check_platform(platform, "overhang")
-    f = resolve_font(font)
-    return _overhang(f.name, f.size, f.style)
+    p = check_platform(platform, "overhang", windows=True)
+    return font_overhang(font, p) / p.scale
 
 
-@lru_cache(maxsize=64)
-def _overhang(name: str, size: float, style: str) -> float:
-    table = _OVERHANG[name.lower()].get(style, {})
+def font_overhang(font: FontSpec | None, platform: Platform = _MAC) -> float:
+    """:func:`overhang` in the platform's device units."""
+    f = resolve_font(font, platform)
+    return _overhang(f.name, f.size, f.style, platform.name)
+
+
+@lru_cache(maxsize=128)
+def _overhang(name: str, size: float, style: str, kind: str = "mac") -> float:
+    table = _REGISTRY[kind][1][name.lower()].get(style, {})
     if not table:
         return 0.0
     if size in table:
@@ -203,14 +235,14 @@ def _overhang(name: str, size: float, style: str) -> float:
     return float(round(table[nearest] * size / nearest))
 
 
-def glyph_measure(font: FontSpec | None = None) -> Measure:
-    """Excel mode: the sum of whole glyph advances in points at the font's size.
+def glyph_measure(font: FontSpec | None = None, platform: Platform = _MAC) -> Measure:
+    """Excel mode: the sum of whole glyph advances in device units (points on the Mac).
 
     A line feed and a tab measure as a space, a carriage return as nothing; other glyphs outside
     the table measure as a digit (the maximum digit width), which is what a column width unit
     is; ``text_width`` and the ``font`` argument of ``format_value`` state it.
     """
-    adv = _table(font)
+    adv = _table(font, platform)
     digit = adv["0"]
 
     def measure(text: str) -> float:
@@ -233,8 +265,8 @@ def text_width(
     Raises:
         LookupError: ``font`` has no measured table.
     """
-    _platform = check_platform(platform, "text_width")
-    return glyph_measure(font)(text)
+    p = check_platform(platform, "text_width", windows=True)
+    return glyph_measure(font, p)(text) / p.scale
 
 
 def glyph_widths(
@@ -245,10 +277,10 @@ def glyph_widths(
     For measuring runs of a text (words, spaces): ``text_width`` of a run is
     ``sum(glyph_widths(run))``.
     """
-    _platform = check_platform(platform, "glyph_widths")
-    adv = _table(font)
+    p = check_platform(platform, "glyph_widths", windows=True)
+    adv = _table(font, p)
     digit = adv["0"]
-    return tuple(float(adv.get(c, digit)) for c in text)
+    return tuple(adv.get(c, digit) / p.scale for c in text)
 
 
 def digit_width(font: FontSpec | None = None, *, platform: str | Platform | None = None) -> float:
@@ -256,8 +288,8 @@ def digit_width(font: FontSpec | None = None, *, platform: str | Platform | None
 
     One column unit of a workbook whose Normal font is ``font``, and one indent level.
     """
-    _platform = check_platform(platform, "digit_width")
-    return _mdw(font)
+    p = check_platform(platform, "digit_width", windows=True)
+    return _mdw(font, p) / p.scale
 
 
 def measured_fonts(
@@ -269,32 +301,37 @@ def measured_fonts(
     raises ``LookupError``. A caller can test a workbook's fonts against this before choosing
     Excel mode.
     """
-    _platform = check_platform(platform, "measured_fonts")
+    p = check_platform(platform, "measured_fonts", windows=True)
     return {
         display: {style: tuple(sorted(sizes)) for style, sizes in styles.items()}
-        for display, styles in _FONTS.values()
+        for display, styles in _REGISTRY[p.name][0].values()
+        if styles
     }
 
 
-def column_budget(column_width: float, font: FontSpec | None = None) -> float:
-    """Points available to a number or date in a column of ``column_width`` dialog units."""
-    return column_points(column_width, font) - column_padding(_mdw(font))
+def column_budget(
+    column_width: float, font: FontSpec | None = None, platform: Platform = _MAC
+) -> float:
+    """Device units available to a number or date in a column of ``column_width`` units."""
+    return column_points(column_width, font, platform) - column_padding(_mdw(font, platform))
 
 
-def column_points(column_width: float, font: FontSpec | None = None) -> float:
-    """A column's width in whole points.
+def column_points(
+    column_width: float, font: FontSpec | None = None, platform: Platform = _MAC
+) -> float:
+    """A column's width in whole device units: points on the Mac, pixels on Windows.
 
     ``round(MDW * w + P)``, and below one unit ``round(w * (MDW + P))``, ``P`` being
     :func:`column_padding` (CAPTURING.md section 2 items 28 and 48).
     """
-    mdw = _mdw(font)
+    mdw = _mdw(font, platform)
     if column_width < 1:
         return float(round(column_width * (mdw + column_padding(mdw))))
     return float(round(mdw * column_width + column_padding(mdw)))
 
 
-def _mdw(font: FontSpec | None) -> float:
-    return float(_table(font)["0"])
+def _mdw(font: FontSpec | None, platform: Platform = _MAC) -> float:
+    return float(_table(font, platform)["0"])
 
 
 def _units(points: float, mdw: float) -> float:
@@ -305,14 +342,16 @@ def _units(points: float, mdw: float) -> float:
     return (points - pad) / mdw
 
 
-def file_points(file_width: float, font: FontSpec | None = None) -> float:
-    """Points of a column whose ``<col width>`` is ``file_width``.
+def file_points(
+    file_width: float, font: FontSpec | None = None, platform: Platform = _MAC
+) -> float:
+    """Device units of a column whose ``<col width>`` is ``file_width``.
 
     ECMA-376 Part 1 section 18.3.1.13's pixel formula with the maximum digit width in points,
     the width first truncated to 1/256 as Excel stores it:
     ``trunc((256 * w + trunc(128 / MDW)) / 256 * MDW)`` (CAPTURING.md section 2 item 28).
     """
-    mdw = _mdw(font)
+    mdw = _mdw(font, platform)
     w = math.trunc(file_width * 256) / 256
     return float(math.trunc((256 * w + math.trunc(128 / mdw)) / 256 * mdw))
 
@@ -349,15 +388,17 @@ class ColumnMetrics:
     digit_width: float
 
 
-def _metrics(points: float, font: FontSpec | None) -> ColumnMetrics:
-    mdw = _mdw(font)
+def _metrics(device: float, font: FontSpec | None, platform: Platform = _MAC) -> ColumnMetrics:
+    """The column ``device`` units wide, reported in points."""
+    mdw = _mdw(font, platform)
+    scale = platform.scale
     return ColumnMetrics(
-        width=_units(points, mdw),
-        points=points,
-        budget=max(points - column_padding(mdw), 0.0),
+        width=_units(device, mdw),
+        points=device / scale,
+        budget=max(device - column_padding(mdw), 0.0) / scale,
         left_inset=_LEFT_INSET,
         right_inset=_RIGHT_INSET,
-        digit_width=mdw,
+        digit_width=mdw / scale,
     )
 
 
@@ -391,18 +432,18 @@ def column_metrics(
         normal_font: The workbook's Normal font, whose digit width sets the column's units.
         font: Deprecated name of ``normal_font``, removed in 1.0.
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. A platform without captured evidence for
-            this function raises ``LookupError``; so far that is every platform but the Mac.
+            ``None`` means the default, ``"mac"``. Excel for Windows is measured at 96 dpi;
+            another resolution raises ``LookupError``. Results are in points on both.
 
     Raises:
         ValueError: ``column_width`` is not positive, or both font arguments were passed.
     """
-    _platform = check_platform(platform, "column_metrics")
+    p = check_platform(platform, "column_metrics", windows=True)
     normal_font = _normal_font_argument(normal_font, font)
     if column_width <= 0:
         msg = f"column_width must be positive, not {column_width!r}"
         raise ValueError(msg)
-    return _metrics(column_points(column_width, normal_font), normal_font)
+    return _metrics(column_points(column_width, normal_font, p), normal_font, p)
 
 
 def column_metrics_from_points(
@@ -417,11 +458,11 @@ def column_metrics_from_points(
     Raises:
         ValueError: ``points`` is negative.
     """
-    _platform = check_platform(platform, "column_metrics_from_points")
+    p = check_platform(platform, "column_metrics_from_points", windows=True)
     if points < 0:
         msg = f"points must not be negative, not {points!r}"
         raise ValueError(msg)
-    return _metrics(float(points), normal_font)
+    return _metrics(float(points) * p.scale, normal_font, p)
 
 
 def file_column_metrics(
@@ -444,17 +485,22 @@ def file_column_metrics(
     2 item 28); ``font`` is its deprecated name, removed in 1.0, and passing both raises
     ``ValueError``.
     """
-    _platform = check_platform(platform, "file_column_metrics")
+    p = check_platform(platform, "file_column_metrics", windows=True)
     normal_font = _normal_font_argument(normal_font, font)
     if file_width is None:
         if default_col_width is None:
-            mdw = _mdw(normal_font)
-            return _metrics(base_col_width * mdw + column_padding(mdw), normal_font)
+            mdw = _mdw(normal_font, p)
+            # Windows rounds it up to a multiple of 8 pixels (default_column_step)
+            device = base_col_width * mdw + column_padding(mdw)
+            step = p.default_column_step
+            if step > 1:
+                device = float(math.ceil(device / step) * step)
+            return _metrics(device, normal_font, p)
         file_width = default_col_width
     if file_width < 0:
         msg = f"file_width must not be negative, not {file_width!r}"
         raise ValueError(msg)
-    return _metrics(file_points(file_width, normal_font), normal_font)
+    return _metrics(file_points(file_width, normal_font, p), normal_font, p)
 
 
 # --- the row model (CAPTURING.md section 2 items 44, 55 and 57) --------------------------------
