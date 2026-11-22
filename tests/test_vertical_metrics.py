@@ -10,6 +10,8 @@ height, to half a point, and the ink exactly.
 from __future__ import annotations
 
 import csv
+import dataclasses
+import pickle
 import re
 from pathlib import Path
 
@@ -144,3 +146,28 @@ def test_the_normal_font_floors_a_bottom_aligned_baseline() -> None:
     )
     with pytest.raises(LookupError, match="Comic Sans"):
         vertical_metrics(("Calibri", 11), normal_font="Comic Sans")
+
+
+def test_vertical_metrics_shows_six_fields_only() -> None:
+    m = vertical_metrics(("Arial", 14))
+    six = ("baseline_from_top", "baseline_from_bottom", "font_height", "line_height",
+           "line_pitch", "line_inset")  # fmt: skip
+    assert tuple(f.name for f in dataclasses.fields(m)) == six
+    assert tuple(dataclasses.asdict(m)) == six
+    assert "_font" not in repr(m)
+    plain = VerticalMetrics(*dataclasses.astuple(m))
+    assert plain == m
+    assert hash(plain) == hash(m)
+    assert vertical_metrics(("Arial", 14)) == m
+    # replace keeps the six; the result does not know its font, so the deprecated ink raises
+    moved = dataclasses.replace(m, font_height=20.0)
+    assert moved.font_height == 20.0
+    assert moved.line_inset == m.line_inset
+    with (
+        pytest.warns(DeprecationWarning, match="cap_height"),
+        pytest.raises(LookupError, match="does not know its font"),
+    ):
+        moved.cap_height  # noqa: B018
+    # a copy or a pickle keeps it
+    with pytest.warns(DeprecationWarning, match="cap_height"):
+        assert pickle.loads(pickle.dumps(m)).cap_height == ink_metrics(("Arial", 14)).cap_height

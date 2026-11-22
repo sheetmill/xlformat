@@ -31,9 +31,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `vertical_metrics` returns placement only (baselines, font height, line height, line pitch, line
   inset), by rule for every face and size `row_metrics` supports: six faces from 1 to 72 points.
   The ink fields moved to `ink_metrics`. `cap_height` and `descender` are no longer fields of
-  `VerticalMetrics`: constructing one takes six values, `dataclasses.replace` no longer accepts
-  them, and `repr` shows the six; `dataclasses.asdict` gives the six and a private `_font`, which
-  the deprecated properties read. For a face or size that placement covers but `ink_metrics` has
+  `VerticalMetrics`: constructing one takes six values, and `dataclasses.fields`, `asdict`,
+  `repr` and equality show the six; `dataclasses.replace` no longer accepts `cap_height` or
+  `descender`, and its result does not know its font, so its deprecated properties raise
+  `LookupError`. For a face or size that placement covers but `ink_metrics` has
   not measured (Calibri 30, Times New Roman 30), `vertical_metrics` now returns where it raised
   `LookupError`, and reading `cap_height` or `descender` on the result raises `LookupError`.
 - `row_metrics` takes a row of several fonts as the largest `size + 1` plus the largest

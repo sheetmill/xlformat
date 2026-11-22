@@ -17,7 +17,7 @@ from __future__ import annotations
 import math
 import warnings
 from collections.abc import Callable, Iterable
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from functools import lru_cache
 
 from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
@@ -661,7 +661,7 @@ _INK: dict[str, dict[int, tuple[float, float]]] = {
 }  # fmt: skip
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True)
 class VerticalMetrics:
     """Where Excel for Mac draws a face's text in a cell, in sheet points.
 
@@ -698,7 +698,9 @@ class VerticalMetrics:
     line_height: float
     line_pitch: float
     line_inset: float
-    _font: Font | None = field(default=None, repr=False, compare=False)
+    # The font the deprecated ink properties read, set by vertical_metrics as a plain attribute
+    # (not a field: not in __init__, fields(), asdict(), repr or equality). A VerticalMetrics
+    # made otherwise, by dataclasses.replace for one, has none.
 
     @property
     def cap_height(self) -> float:
@@ -717,7 +719,14 @@ class VerticalMetrics:
             DeprecationWarning,
             stacklevel=3,
         )
-        return ink_metrics(self._font)
+        font = self.__dict__.get("_font")
+        if font is None:
+            msg = (
+                f"this VerticalMetrics does not know its font, so it has no {name}: use "
+                f"ink_metrics(font).{name}"
+            )
+            raise LookupError(msg)
+        return ink_metrics(font)
 
 
 @dataclass(frozen=True, slots=True)
@@ -788,15 +797,16 @@ def vertical_metrics(
     from_bottom = _bottom(key, size)
     if normal_font is not None:
         from_bottom = max(from_bottom, _bottom(*_row_face(normal_font)))
-    return VerticalMetrics(
+    metrics = VerticalMetrics(
         baseline_from_top=math.ceil(size) + 1.0,
         baseline_from_bottom=from_bottom,
         font_height=height,
         line_height=height + 1.0,
         line_pitch=height,
         line_inset=_bottom(key, size) - 2.0,
-        _font=Font(_DISPLAY[key], size),
     )
+    object.__setattr__(metrics, "_font", Font(_DISPLAY[key], size))
+    return metrics
 
 
 # --- rules: underlines and strikethrough (CAPTURING.md section 2 item 60) ------------------------
