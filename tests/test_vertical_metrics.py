@@ -9,6 +9,7 @@ height, to half a point, and the ink exactly.
 
 from __future__ import annotations
 
+import copy
 import csv
 import dataclasses
 import pickle
@@ -155,6 +156,7 @@ def test_vertical_metrics_shows_six_fields_only() -> None:
     assert tuple(f.name for f in dataclasses.fields(m)) == six
     assert tuple(dataclasses.asdict(m)) == six
     assert "_font" not in repr(m)
+    assert not hasattr(m, "__dict__")
     plain = VerticalMetrics(*dataclasses.astuple(m))
     assert plain == m
     assert hash(plain) == hash(m)
@@ -168,6 +170,14 @@ def test_vertical_metrics_shows_six_fields_only() -> None:
         pytest.raises(LookupError, match="does not know its font"),
     ):
         moved.cap_height  # noqa: B018
+    # so does one made directly
+    with (
+        pytest.warns(DeprecationWarning, match="descender"),
+        pytest.raises(LookupError, match="does not know its font"),
+    ):
+        plain.descender  # noqa: B018
     # a copy or a pickle keeps it
-    with pytest.warns(DeprecationWarning, match="cap_height"):
-        assert pickle.loads(pickle.dumps(m)).cap_height == ink_metrics(("Arial", 14)).cap_height
+    for kept in (copy.copy(m), pickle.loads(pickle.dumps(m))):
+        assert kept == m
+        with pytest.warns(DeprecationWarning, match="cap_height"):
+            assert kept.cap_height == ink_metrics(("Arial", 14)).cap_height

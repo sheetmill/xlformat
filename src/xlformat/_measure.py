@@ -692,15 +692,32 @@ class VerticalMetrics:
     :func:`ink_metrics`'s; ``cap_height`` and ``descender`` here are deprecated and forward to it.
     """
 
+    # Slots, with one that is not a field: the font the deprecated ink properties read, set by
+    # vertical_metrics after construction (not in __init__, fields(), asdict(), repr or
+    # equality). A VerticalMetrics made otherwise, directly or by dataclasses.replace, has none.
+    __slots__ = (
+        "_font",
+        "baseline_from_bottom",
+        "baseline_from_top",
+        "font_height",
+        "line_height",
+        "line_inset",
+        "line_pitch",
+    )  # fmt: skip
+
     baseline_from_top: float
     baseline_from_bottom: float
     font_height: float
     line_height: float
     line_pitch: float
     line_inset: float
-    # The font the deprecated ink properties read, set by vertical_metrics as a plain attribute
-    # (not a field: not in __init__, fields(), asdict(), repr or equality). A VerticalMetrics
-    # made otherwise, by dataclasses.replace for one, has none.
+
+    def __getstate__(self) -> dict[str, object]:
+        return {name: getattr(self, name) for name in self.__slots__ if hasattr(self, name)}
+
+    def __setstate__(self, state: dict[str, object]) -> None:
+        for name, value in state.items():
+            object.__setattr__(self, name, value)
 
     @property
     def cap_height(self) -> float:
@@ -719,7 +736,7 @@ class VerticalMetrics:
             DeprecationWarning,
             stacklevel=3,
         )
-        font = self.__dict__.get("_font")
+        font = getattr(self, "_font", None)
         if font is None:
             msg = (
                 f"this VerticalMetrics does not know its font, so it has no {name}: use "

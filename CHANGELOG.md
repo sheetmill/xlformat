@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- `VerticalMetrics` has slots again, as in 0.5.0: in 0.6.0 its instances had a `__dict__`, so
+  `vars()` worked on them; now it raises `TypeError`. Its six fields, equality, hashing, `repr`
+  and pickling are unchanged.
+- The 0.6.0 entry named only `dataclasses.replace`: a `VerticalMetrics` constructed directly,
+  not by `vertical_metrics`, does not know its font either, so its deprecated `cap_height` and
+  `descender` raise `LookupError`. This is unchanged.
+
 ## [0.6.0] - 2026-11-21
 
 ### Added
