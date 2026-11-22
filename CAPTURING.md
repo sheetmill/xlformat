@@ -1154,7 +1154,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       rule's top `round(P · usWinDescent / unitsPerEm)` below it in 58 of 60 (Aptos Narrow 9 and 20
       at zoom 100, a point lower).
     - **Doubles:** the second line lies two thicknesses below the first in 100 of 120 rows, and
-      the first line of a double underline sits higher than a single one's in 24 of 60. Not settled.
+      the first line of a double underline sits higher than a single one's in 24 of 60. Settled by
+      item 62; read with item 62's baselines and its cut lines, every row of this capture but
+      Calibri 9's single underline at zoom 100 (joined to the stems) matches `rule_metrics`.
     - **Text color:** text under `[Blue]General` shows blue and under `[Blue]@` blue, through a
       four-section format's `[Red]@` red; under `[Red]0.0`, two or three numeric sections, a fourth
       section `@` without a color, or a condition, text stays black. The numbers' colors match the
@@ -1164,9 +1166,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       `a968d20`, which records the display's profile in the header): all 360 rule rows match
       the first capture's, and the 20 colored ones of the 36 text-color rows read the specified
       colors (Excel's blue as `53 53 255` and `36 36 255` where the first capture read `50 50 246`
-      and `33 33 245`, its red `255 37 37` where it read `235 70 57`). The first capture's display has the
-      Display P3 profile, and its window captures are converted to sRGB, which pulls saturated
-      colors a few units off. The VM's display profile ("Apple Virtual") has sRGB's primaries
+      and `33 33 245`, its red `255 37 37` where it read `235 70 57`). The first capture's display
+      has the Display P3 profile, and its window captures are converted to sRGB, which pulls
+      saturated colors a few units off. The VM's display profile ("Apple Virtual") has sRGB's primaries
       (its red, green and blue colorants equal the system sRGB profile's to four decimals).
       `rules.layout.tsv` is the VM's capture since, its header recording `display_profile`;
       every color reads as the same named color as before.
@@ -1184,6 +1186,57 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     top (`round(S · usWinDescent / unitsPerEm)`) equals the face's descent `B` at every size from 7
     to 72, so its position adds nothing there, and the thickness does not tell the two faces apart.
     The package keeps the four sizes as captured.
+
+62. **Where a double underline's lines go (2026-11-21; `capture/screen_rules.py rules_double`:
+    "HHHH" in Calibri, Arial, Aptos Narrow, Times New Roman and Georgia at every size from 9 to
+    36 points and from 40 to 72 in steps of 4, under each underline and a strikethrough, at zoom
+    100 and 200, then 20 small rows; 1,850 rows in `rules_double.layout.tsv`, captured in the
+    macOS virtual machine, display profile with sRGB's primaries).** Predictions were written
+    before the run (`capture/build/`), with a third of the 370 face, size and zoom combinations
+    held out (seed 20261121): the placement as it stood (a double's first line at the single
+    underline's top) and the stepped double below, from the font's tables. Read with each size's
+    baselines from rows no rule touches: the strikethrough row for the plain rows, the single
+    accounting row for the accounting rows. The first run, with column B 30 characters wide, read
+    no accounting underline where "HHHH" overflowed the cell (24 rows from 56 points): the
+    underline spans the cell, so it was shorter than the text and not taken as a rule. The run
+    used here has a 60-character column and differs from the first only in those rows and in 8
+    strikethrough rows that gained the line described below.
+    - **Screen size alone:** wherever the same screen size `P = size · zoom / 100` occurs at both
+      zooms (95 face and screen sizes), the lines are equal.
+    - **Single and accounting:** a single accounting underline has the single's thickness; a
+      double accounting underline's first line is at the single accounting line's top, and its
+      lines have the double underline's thickness and gap. The font tables give the single
+      underline in 357 of 369 rows, the single accounting underline in 335 of 370 (Aptos Narrow's
+      a point lower at 20 screen sizes, Calibri's from 80), the strikethrough in 361 of 370. From
+      80 screen points Calibri's lines fall on half screen points.
+    - **The double's first line** starts at the single underline's top and steps up by its line
+      thickness until the double (three thicknesses) ends at or above the accounting underline's
+      top, as Calibri 11 at zoom 100 shows (single at 1 point, double at 0 and 2, accounting at
+      3); the second line lies two thicknesses below (366 of 369 rows; three thicknesses in
+      Times New Roman at screen sizes 38 and 40). The first line can rise above the baseline:
+      Arial 9 at zoom 100 a point above, as Calibri 9 at zoom 100 in item 60.
+    - **The double's thickness** is `max(1, floor(P · min(underlineThickness, yStrikeoutSize) /
+      unitsPerEm))`, 232 of 246 selection rows, against 215 for the single's thickness. Arial
+      alone tells them apart: its strikeout size is 102 units, its underline 150, and its doubles
+      are thinner than its single underline.
+    - **Scores, the double's two lines exact:** the placement as it stood, 238 of 369 readable
+      rows; the stepped double from the tables, as predicted, 282; the same with the captured
+      single, thickness and accounting lines, 298. The rule adopted (the stepped double with the
+      double's own thickness and no stop at the baseline, chosen on the selection rows) scores
+      198 of 246 selection rows and, scored once, 98 of 123 held out (88 for the prediction).
+      Exact in Aptos Narrow but for 9 points and in Georgia but for 128 and 144 screen points.
+    - **Not explained:** in Arial at most screen sizes from 29, in Times New Roman at about half
+      of those from 38 and in Calibri from 80, the first line is drawn one to three screen points
+      higher than the rule gives, and in Arial at some sizes the lines are a screen point thicker
+      than `floor` gives. A stricter fit test, a fit in the font's own units, a fit against the
+      row's bottom and a step of the single's thickness were tried; none explains them. The
+      package returns the drawn lines at every captured screen size (`capture/rule_table.py`
+      writes `src/xlformat/_rules_drawn.py`) and the rule elsewhere; `QUIRKS.md` lists the misses.
+    - **A double accounting underline outgrows its row at zoom 200:** at zoom 100 every double
+      accounting underline ends 2 pixels above its row's bottom (the row is fitted to it); at
+      zoom 200 the second line reaches that point and runs on into the row below in 55 of 185
+      rows, the next row showing its end at its top. The rows' heights are sheet points, fitted
+      at the sheet's size, and the lines are placed at the screen size.
 
 ## 3. The pipeline
 
