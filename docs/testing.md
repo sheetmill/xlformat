@@ -78,7 +78,7 @@ before Excel was asked, and every prediction matched.
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
 | `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri, Aptos Narrow and Arial, four styles, nine sizes |
 
-Thirteen further files are not suites of the common schema:
+Fifteen further files are not suites of the common schema:
 
 - `alignment.layout.tsv` (196 rows, read from Excel's PDF export): where Excel places each value.
 - `repair.layout.tsv` (248 rows): what Excel's repair does to formats it refuses.
@@ -96,6 +96,10 @@ Thirteen further files are not suites of the common schema:
   drawn, and what color text takes.
 - `rules_double.layout.tsv` (1,850 rows, from window captures): the same lines in five faces at
   every size from 9 to 36 points and up to 72 in steps of 4.
+- `rules_courier.layout.tsv` (1,190 rows, from window captures): Courier New at every size from 6
+  to 72 and every half size from 36.5 to 71.5, Times New Roman from 36 to 41 in half steps.
+- `rules_zoom.layout.tsv` (400 rows, from window captures): Courier New and Calibri at screen
+  sizes that are not whole, at zoom 100 and 150.
 - `builtin_formats.layout.tsv` (164 rows): what each built-in number format id stands for.
 - `palette.layout.tsv` (128 rows, from window captures): the colors drawn under a workbook palette.
 

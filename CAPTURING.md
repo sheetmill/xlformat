@@ -1241,6 +1241,52 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       rows, the next row showing its end at its top. The rows' heights are sheet points, fitted
       at the sheet's size, and the lines are placed at the screen size.
 
+63. **Courier New's rules and screen sizes that are not whole (2026-11-21; `capture/screen_rules.py
+    rules_courier`: Courier New at every size from 6 to 72 points and every half size from 36.5
+    to 71.5, Times New Roman from 36 to 41 in half steps, Calibri at 9, 14, 20, 36 and 48 as
+    controls, each under every underline and a strikethrough, zoom 100 and 200, 1,190 rows;
+    `rules_zoom`: Courier New and Calibri at 20 sizes from 8 to 70.5, zoom 100 and 150, 400
+    rows; both in a macOS virtual machine).** Predictions and their scorer were committed before
+    the runs (`capture/courier_predict.py`, `capture/predictions/`): Courier New's double with
+    its second line at the single's table position `u = floor(P · 477 / 2048)` and its first a
+    gap above it, the gap a table by screen size (2 up to 17, then 3 from 18, ... 9 at 65 to
+    72), one point lower at `P` = 12; the single at `u` while the gap is two thicknesses, on the
+    double's first line above that; accounting at `round(P · 615 / 2048)`, a double accounting
+    underline's second line the gap below. For a fractional `P`, four candidates: the nearest
+    whole size (a half up), `floor`, `ceil`, and the formulas fed the fraction.
+    - **Courier New at whole screen sizes:** 488 of 490 rows as predicted; the two others,
+      Courier New 6 at zoom 100, show no line to the reader. Zoom 200 at a size equals zoom 100
+      at twice that size in 155 of 155 pairs. At the odd screen sizes from 73 to 143, measured
+      here, the gap rises from 10 to 19, one value at each size. The double is drawn a point
+      lower at `P` = 12 at both zooms, the single not. The predictions' gap table came, up to
+      72, from Courier New's accounting rows (item 58), and above that from an earlier screen
+      reading at even sizes; every one of the 66 accounting rows readable on screen grows by
+      the drawn gap plus the line's thickness, single and double accounting alike.
+    - **Times New Roman, not predicted:** from 36.5 to 40 points at zoom 100 (screen sizes 37 to
+      40; 36.5 rounds to 37) its double behaves as Courier New's: second line at the single's
+      table position, first line three thicknesses above it, the single on the double's first
+      line, a double accounting underline's lines three thicknesses apart. That is the 4 points
+      its accounting rows add there (item 61) and the three-thickness gaps of item 62.
+    - **One law for accounting rows:** in every face, an accounting row grows by its line's
+      thickness plus the gap of a double drawn in that line (`rules_double` and
+      `underline_height`): three thicknesses where the gap is two, Arial's double accounting
+      with its thinner double lines (the 3, 6 and 9 points of item 58), Times New Roman's 4 at
+      37 to 40, Courier New's gap and thickness. Every captured row height is unchanged.
+    - **Screen sizes that are not whole:** at zoom 100's half sizes (Courier New 36.5 to 71.5)
+      the nearest whole size and `ceil` fit 180 of 180, the fraction 147, `floor` 129. In
+      `rules_zoom` the nearest whole size fits best: Courier New 170 of 180 fractional rows,
+      Calibri 156 (`ceil` 162 and 143, the fraction 145 and 141, `floor` 127 and 126). With the
+      drawn lines at that whole size in place of the tables, 23 of 400 rows differ by a screen
+      point (`QUIRKS.md`). At screen size 34.5 Courier New draws a point lower at zoom 150 than
+      at zoom 100; Calibri draws alike.
+    - **The reader at other zooms:** at zoom 50 (one pixel a sheet point) it stopped at its first
+      view of large rows, so `rules_zoom` runs at 150. There Excel rounds each row to whole
+      pixels, so the reader takes the known 3 pixels a point and each row's own band, and the
+      zoom-150 rows were read again from the run's screenshots after that change; the zoom-100
+      rows read identically both times. The scorer's cut of a line at the row's bottom, from the
+      row's height, was corrected after the run for the same rounding: equal lines had counted as
+      different.
+
 ## 3. The pipeline
 
 ```
@@ -1267,8 +1313,9 @@ capture/screen_palette.py     section colors under a workbook palette, on screen
 capture/angled_formats.py     the rows Excel fits for padded and filled angled text (item 56)
 capture/font_heights.py       row heights of six faces at every size, wrapped, underlined (57, 58, 61)
 capture/font_tables.py        the numbers read from the font files (post, OS/2, head, hhea)
-capture/screen_rules.py       underlines, strikethrough and text color on screen (items 60, 62)
-capture/rule_table.py         src/xlformat/_rules_drawn.py, the drawn lines, from item 62's capture
+capture/screen_rules.py       underlines, strikethrough and text color on screen (items 60, 62, 63)
+capture/rule_table.py         src/xlformat/_rules_drawn.py, the drawn lines, from items 62 and 63
+capture/courier_predict.py    item 63's predictions (capture/predictions/) and their scorer
 capture/repair.py             what Excel's repair does to refused formats (item 33): `open`
                              through Launch Services, a person answers the dialog, then
                              `read` finds the workbook by name; `write` gathers the TSV

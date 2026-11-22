@@ -1,0 +1,406 @@
+# suite: rules_zoom (capture.screen_rules rules_zoom); Excel for Mac, en_US
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# captured: 2026-11-21; window captures at zoom 100 and 150 on a display of scale 2; pixels from the row's top: the H stems' last ink row, each rule's first and last row
+# display_profile: Apple Virtual
+zoom	tag	row_height	pixels_per_point	baseline_px	measured
+100	Courier New 8 single	15	2	29	
+100	Courier New 8 double	15	2	25	
+100	Courier New 8 singleAccounting	17	2	21	26-27
+100	Courier New 8 doubleAccounting	17	2	21	26-27 30-31
+100	Courier New 8 strike	15	2	21	18-19
+100	Courier New 8.5 single	15	2	21	26-27
+100	Courier New 8.5 double	15	2	21	22-23 26-27
+100	Courier New 8.5 singleAccounting	18	2	21	28-29
+100	Courier New 8.5 doubleAccounting	18	2	21	28-29 32-33
+100	Courier New 8.5 strike	15	2	21	18-19
+100	Courier New 9.5 single	15	2	21	26-27
+100	Courier New 9.5 double	15	2	21	22-23 26-27
+100	Courier New 9.5 singleAccounting	18	2	21	28-29
+100	Courier New 9.5 doubleAccounting	18	2	21	28-29 32-33
+100	Courier New 9.5 strike	15	2	21	16-17
+100	Courier New 10.5 single	15	2	21	26-27
+100	Courier New 10.5 double	15	2	21	22-23 26-27
+100	Courier New 10.5 singleAccounting	18	2	21	28-29
+100	Courier New 10.5 doubleAccounting	18	2	21	28-29 32-33
+100	Courier New 10.5 strike	15	2	21	16-17
+100	Courier New 11.5 single	17	2	23	28-29
+100	Courier New 11.5 double	17	2	23	26-27 30-31
+100	Courier New 11.5 singleAccounting	20	2	23	32-33
+100	Courier New 11.5 doubleAccounting	20	2	23	32-33 36-37
+100	Courier New 11.5 strike	17	2	23	18-19
+100	Courier New 12.5 single	18	2	25	32-33
+100	Courier New 12.5 double	18	2	25	28-29 32-33
+100	Courier New 12.5 singleAccounting	21	2	25	34-35
+100	Courier New 12.5 doubleAccounting	21	2	25	34-35 38-39
+100	Courier New 12.5 strike	18	2	25	20-21
+100	Courier New 16.5 single	23	2	33	40-41
+100	Courier New 16.5 double	23	2	33	36-37 40-41
+100	Courier New 16.5 singleAccounting	26	2	33	44-45
+100	Courier New 16.5 doubleAccounting	26	2	33	44-45 48-49
+100	Courier New 16.5 strike	23	2	33	26-27
+100	Courier New 17 single	23	2	33	40-41
+100	Courier New 17 double	23	2	33	36-37 40-41
+100	Courier New 17 singleAccounting	26	2	33	44-45
+100	Courier New 17 doubleAccounting	26	2	33	44-45 48-49
+100	Courier New 17 strike	23	2	33	26-27
+100	Courier New 17.5 single	24	2	35	38-39
+100	Courier New 17.5 double	24	2	35	38-39 44-45
+100	Courier New 17.5 singleAccounting	28	2	35	46-47
+100	Courier New 17.5 doubleAccounting	28	2	35	46-47 52-53
+100	Courier New 17.5 strike	24	2	35	26-27
+100	Courier New 20.5 single	28	2	41	44-45
+100	Courier New 20.5 double	28	2	41	44-45 50-51
+100	Courier New 20.5 singleAccounting	32	2	41	54-55
+100	Courier New 20.5 doubleAccounting	32	2	41	54-55 60-61
+100	Courier New 20.5 strike	28	2	41	32-33
+100	Courier New 22.5 single	31	2	45	50-51
+100	Courier New 22.5 double	31	2	45	50-51 56-57
+100	Courier New 22.5 singleAccounting	35	2	45	60-61
+100	Courier New 22.5 doubleAccounting	35	2	45	60-61 66-67
+100	Courier New 22.5 strike	31	2	45	34-35
+100	Courier New 23 single	31	2	45	50-51
+100	Courier New 23 double	31	2	45	50-51 56-57
+100	Courier New 23 singleAccounting	35	2	45	60-61
+100	Courier New 23 doubleAccounting	35	2	45	60-61 66-67
+100	Courier New 23 strike	31	2	45	34-35
+100	Courier New 23.5 single	32	2	47	52-53
+100	Courier New 23.5 double	32	2	47	52-53 58-59
+100	Courier New 23.5 singleAccounting	36	2	47	62-63
+100	Courier New 23.5 doubleAccounting	36	2	47	62-63 68-69
+100	Courier New 23.5 strike	32	2	47	36-37
+100	Courier New 34.5 single	47	2	69	76-77
+100	Courier New 34.5 double	47	2	69	76-77 86-87
+100	Courier New 34.5 singleAccounting	53	2	69	92-93
+100	Courier New 34.5 doubleAccounting	53	2	69	92-93 102-103
+100	Courier New 34.5 strike	47	2	69	52-55
+100	Courier New 35.5 single	48	2	71	78-79
+100	Courier New 35.5 double	48	2	71	78-79 88-89
+100	Courier New 35.5 singleAccounting	54	2	71	94-95
+100	Courier New 35.5 doubleAccounting	54	2	71	94-95 104-105
+100	Courier New 35.5 strike	48	2	71	54-57
+100	Courier New 36.5 single	49	2	73	80-81
+100	Courier New 36.5 double	49	2	73	80-81 90-91
+100	Courier New 36.5 singleAccounting	55	2	73	96-97
+100	Courier New 36.5 doubleAccounting	55	2	73	96-97 106-107
+100	Courier New 36.5 strike	49	2	73	54-57
+100	Courier New 51.5 single	69	2	103	114-117
+100	Courier New 51.5 double	69	2	103	114-117 128-131
+100	Courier New 51.5 singleAccounting	78	2	103	136-139
+100	Courier New 51.5 doubleAccounting	78	2	103	136-139 150-153
+100	Courier New 51.5 strike	69	2	103	78-83
+100	Courier New 52.5 single	70	2	105	116-119
+100	Courier New 52.5 double	70	2	105	116-119 130-133
+100	Courier New 52.5 singleAccounting	79	2	105	138-141
+100	Courier New 52.5 doubleAccounting	79	2	105	138-141 152-155
+100	Courier New 52.5 strike	70	2	105	78-83
+100	Courier New 69.5 single	92	2	139	154-157
+100	Courier New 69.5 double	92	2	139	154-157 172-175
+100	Courier New 69.5 singleAccounting	103	2	139	182-185
+100	Courier New 69.5 doubleAccounting	103	2	139	182-185 200-203
+100	Courier New 69.5 strike	92	2	139	104-109
+100	Courier New 70.5 single	93	2	141	156-159
+100	Courier New 70.5 double	93	2	141	156-159 174-177
+100	Courier New 70.5 singleAccounting	104	2	141	184-187
+100	Courier New 70.5 doubleAccounting	104	2	141	184-187 202-205
+100	Courier New 70.5 strike	93	2	141	106-113
+100	Calibri 8 single	15	2	21	22-23
+100	Calibri 8 double	15	2	19	20-21 24-25
+100	Calibri 8 singleAccounting	17	2	21	26-27
+100	Calibri 8 doubleAccounting	17	2	21	26-27 30-31
+100	Calibri 8 strike	15	2	21	18-19
+100	Calibri 8.5 single	15	2	21	24-25
+100	Calibri 8.5 double	15	2	19	20-21 24-25
+100	Calibri 8.5 singleAccounting	17	2	21	26-27
+100	Calibri 8.5 doubleAccounting	17	2	21	26-27 30-31
+100	Calibri 8.5 strike	15	2	21	18-19
+100	Calibri 9.5 single	15	2	21	24-25
+100	Calibri 9.5 double	15	2	21	22-23 26-27
+100	Calibri 9.5 singleAccounting	18	2	21	28-29
+100	Calibri 9.5 doubleAccounting	18	2	21	28-29 32-33
+100	Calibri 9.5 strike	15	2	21	16-17
+100	Calibri 10.5 single	15	2	21	24-25
+100	Calibri 10.5 double	15	2	21	22-23 26-27
+100	Calibri 10.5 singleAccounting	18	2	21	28-29
+100	Calibri 10.5 doubleAccounting	18	2	21	28-29 32-33
+100	Calibri 10.5 strike	15	2	21	16-17
+100	Calibri 11.5 single	16	2	23	26-27
+100	Calibri 11.5 double	16	2	23	24-25 28-29
+100	Calibri 11.5 singleAccounting	19	2	23	30-31
+100	Calibri 11.5 doubleAccounting	19	2	23	30-31 34-35
+100	Calibri 11.5 strike	16	2	23	18-19
+100	Calibri 12.5 single	17	2	25	28-29
+100	Calibri 12.5 double	17	2	25	26-27 30-31
+100	Calibri 12.5 singleAccounting	20	2	25	32-33
+100	Calibri 12.5 doubleAccounting	20	2	25	32-33 36-37
+100	Calibri 12.5 strike	17	2	25	20-21
+100	Calibri 16.5 single	23	2	33	36-37
+100	Calibri 16.5 double	23	2	33	36-37 40-41
+100	Calibri 16.5 singleAccounting	26	2	33	44-45
+100	Calibri 16.5 doubleAccounting	26	2	33	44-45 48-49
+100	Calibri 16.5 strike	23	2	33	26-27
+100	Calibri 17 single	23	2	33	36-37
+100	Calibri 17 double	23	2	33	36-37 40-41
+100	Calibri 17 singleAccounting	26	2	33	44-45
+100	Calibri 17 doubleAccounting	26	2	33	44-45 48-49
+100	Calibri 17 strike	23	2	33	26-27
+100	Calibri 17.5 single	24	2	35	40-41
+100	Calibri 17.5 double	24	2	35	40-41 44-45
+100	Calibri 17.5 singleAccounting	27	2	35	46-47
+100	Calibri 17.5 doubleAccounting	27	2	35	46-47 50-51
+100	Calibri 17.5 strike	24	2	35	26-27
+100	Calibri 20.5 single	28	2	41	46-47
+100	Calibri 20.5 double	28	2	41	46-47 50-51
+100	Calibri 20.5 singleAccounting	31	2	41	54-55
+100	Calibri 20.5 doubleAccounting	31	2	41	54-55 58-59
+100	Calibri 20.5 strike	28	2	41	32-33
+100	Calibri 22.5 single	30	2	45	50-51
+100	Calibri 22.5 double	30	2	45	50-51 54-55
+100	Calibri 22.5 singleAccounting	33	2	45	58-59
+100	Calibri 22.5 doubleAccounting	33	2	45	58-59 62-63
+100	Calibri 22.5 strike	30	2	45	34-37
+100	Calibri 23 single	30	2	45	50-51
+100	Calibri 23 double	30	2	45	50-51 54-55
+100	Calibri 23 singleAccounting	33	2	45	58-59
+100	Calibri 23 doubleAccounting	33	2	45	58-59 62-63
+100	Calibri 23 strike	30	2	45	34-37
+100	Calibri 23.5 single	31	2	47	52-53
+100	Calibri 23.5 double	31	2	47	52-53 56-57
+100	Calibri 23.5 singleAccounting	34	2	47	60-61
+100	Calibri 23.5 doubleAccounting	34	2	47	60-61 64-65
+100	Calibri 23.5 strike	31	2	47	36-39
+100	Calibri 34.5 single	45	2	69	76-79
+100	Calibri 34.5 double	45	2	69	76-79 84-87
+100	Calibri 34.5 singleAccounting	51	2	69	88-91
+100	Calibri 34.5 doubleAccounting	51	2	69	88-91 96-99
+100	Calibri 34.5 strike	45	2	69	52-55
+100	Calibri 35.5 single	47	2	71	80-83
+100	Calibri 35.5 double	47	2	71	80-83 88-91
+100	Calibri 35.5 singleAccounting	53	2	71	92-95
+100	Calibri 35.5 doubleAccounting	53	2	71	92-95 100-103
+100	Calibri 35.5 strike	47	2	71	54-57
+100	Calibri 36.5 single	48	2	73	82-85
+100	Calibri 36.5 double	48	2	73	82-85 90-93
+100	Calibri 36.5 singleAccounting	54	2	73	94-97
+100	Calibri 36.5 doubleAccounting	54	2	73	94-97 102-105
+100	Calibri 36.5 strike	48	2	73	56-59
+100	Calibri 51.5 single	67	2	103	114-119
+100	Calibri 51.5 double	67	2	103	114-119 126-131
+100	Calibri 51.5 singleAccounting	76	2	103	132-137
+100	Calibri 51.5 doubleAccounting	76	2	103	132-137 144-149
+100	Calibri 51.5 strike	67	2	103	78-83
+100	Calibri 52.5 single	68	2	105	118-123
+100	Calibri 52.5 double	68	2	105	112-117 124-129
+100	Calibri 52.5 singleAccounting	77	2	105	134-139
+100	Calibri 52.5 doubleAccounting	77	2	105	134-139 146-151
+100	Calibri 52.5 strike	68	2	105	80-85
+100	Calibri 69.5 single	90	2	139	154-161
+100	Calibri 69.5 double	90	2	139	154-161 170-177
+100	Calibri 69.5 singleAccounting	102	2	139	178-185
+100	Calibri 69.5 doubleAccounting	102	2	139	178-185 194-201
+100	Calibri 69.5 strike	90	2	139	104-113
+100	Calibri 70.5 single	91	2	141	158-165
+100	Calibri 70.5 double	91	2	141	150-157 166-173
+100	Calibri 70.5 singleAccounting	103	2	141	180-187
+100	Calibri 70.5 doubleAccounting	103	2	141	180-187 196-203
+100	Calibri 70.5 strike	91	2	141	106-115
+150	Courier New 8 single	15	3	43	
+150	Courier New 8 double	15	3	35	38-39 42-43
+150	Courier New 8 singleAccounting	17	3	35	44-45
+150	Courier New 8 doubleAccounting	17	3	35	44-45 48-49
+150	Courier New 8 strike	15	3	35	30-31
+150	Courier New 8.5 single	15	3	35	42-43
+150	Courier New 8.5 double	15	3	35	38-39 42-43
+150	Courier New 8.5 singleAccounting	18	3	33	42-43
+150	Courier New 8.5 doubleAccounting	18	3	33	42-43 46-47
+150	Courier New 8.5 strike	15	3	35	30-31
+150	Courier New 9.5 single	15	3	35	42-43
+150	Courier New 9.5 double	15	3	35	38-39 42-43
+150	Courier New 9.5 singleAccounting	18	3	33	42-43
+150	Courier New 9.5 doubleAccounting	18	3	33	42-43 46-47
+150	Courier New 9.5 strike	15	3	35	28-29
+150	Courier New 10.5 single	15	3	35	42-43
+150	Courier New 10.5 double	15	3	35	38-39 42-43
+150	Courier New 10.5 singleAccounting	18	3	33	44-45
+150	Courier New 10.5 doubleAccounting	18	3	33	44-45 48-49
+150	Courier New 10.5 strike	15	3	35	28-29
+150	Courier New 11.5 single	17	3	37	44-45
+150	Courier New 11.5 double	17	3	37	40-41 44-45
+150	Courier New 11.5 singleAccounting	20	3	37	48-49
+150	Courier New 11.5 doubleAccounting	20	3	37	48-49 52-53
+150	Courier New 11.5 strike	17	3	37	30-31
+150	Courier New 12.5 single	18	3	39	42-43
+150	Courier New 12.5 double	18	3	39	42-43 48-49
+150	Courier New 12.5 singleAccounting	21	3	41	54-55
+150	Courier New 12.5 doubleAccounting	21	3	41	54-55 60-61
+150	Courier New 12.5 strike	18	3	39	30-31
+150	Courier New 16.5 single	23	3	53	58-59
+150	Courier New 16.5 double	23	3	53	58-59 64-65
+150	Courier New 16.5 singleAccounting	26	3	51	68-69
+150	Courier New 16.5 doubleAccounting	26	3	51	68-69 74-75
+150	Courier New 16.5 strike	23	3	53	42-43
+150	Courier New 17 single	23	3	53	58-59
+150	Courier New 17 double	23	3	51	56-57 64-65
+150	Courier New 17 singleAccounting	26	3	51	68-69
+150	Courier New 17 doubleAccounting	26	3	51	68-69 76-77
+150	Courier New 17 strike	23	3	53	40-41
+150	Courier New 17.5 single	24	3	55	60-61
+150	Courier New 17.5 double	24	3	55	60-61 68-69
+150	Courier New 17.5 singleAccounting	28	3	55	72-73
+150	Courier New 17.5 doubleAccounting	28	3	55	72-73 80-81
+150	Courier New 17.5 strike	24	3	55	42-43
+150	Courier New 20.5 single	28	3	63	70-71
+150	Courier New 20.5 double	28	3	63	70-71 78-79
+150	Courier New 20.5 singleAccounting	32	3	63	82-83
+150	Courier New 20.5 doubleAccounting	32	3	63	82-83 90-91
+150	Courier New 20.5 strike	28	3	63	48-51
+150	Courier New 22.5 single	31	3	71	78-79
+150	Courier New 22.5 double	31	3	71	78-79 86-87
+150	Courier New 22.5 singleAccounting	35	3	71	92-93
+150	Courier New 22.5 doubleAccounting	35	3	71	92-93 100-101
+150	Courier New 22.5 strike	31	3	71	54-57
+150	Courier New 23 single	31	3	71	78-79
+150	Courier New 23 double	31	3	71	78-79 88-89
+150	Courier New 23 singleAccounting	35	3	71	94-95
+150	Courier New 23 doubleAccounting	35	3	71	94-95 104-105
+150	Courier New 23 strike	31	3	69	52-55
+150	Courier New 23.5 single	32	3	73	80-81
+150	Courier New 23.5 double	32	3	73	80-81 90-91
+150	Courier New 23.5 singleAccounting	36	3	73	96-97
+150	Courier New 23.5 doubleAccounting	36	3	73	96-97 106-107
+150	Courier New 23.5 strike	32	3	73	56-59
+150	Courier New 34.5 single	47	3	107	118-121
+150	Courier New 34.5 double	47	3	107	118-121 132-135
+150	Courier New 34.5 singleAccounting	53	3	107	140-143
+150	Courier New 34.5 doubleAccounting	53	3	107	140-143 154-157
+150	Courier New 34.5 strike	47	3	107	82-87
+150	Courier New 35.5 single	48	3	109	120-123
+150	Courier New 35.5 double	48	3	109	120-123 134-137
+150	Courier New 35.5 singleAccounting	54	3	109	142-145
+150	Courier New 35.5 doubleAccounting	54	3	109	142-145 156-159
+150	Courier New 35.5 strike	48	3	107	80-85
+150	Courier New 36.5 single	49	3	113	124-127
+150	Courier New 36.5 double	49	3	113	124-127 138-141
+150	Courier New 36.5 singleAccounting	55	3	113	148-151
+150	Courier New 36.5 doubleAccounting	55	3	113	148-151 162-165
+150	Courier New 36.5 strike	49	3	113	86-91
+150	Courier New 51.5 single	69	3	157	172-177
+150	Courier New 51.5 double	69	3	157	172-177 192-197
+150	Courier New 51.5 singleAccounting	78	3	157	204-209
+150	Courier New 51.5 doubleAccounting	78	3	157	204-209 224-229
+150	Courier New 51.5 strike	69	3	155	116-123
+150	Courier New 52.5 single	70	3	159	174-179
+150	Courier New 52.5 double	70	3	159	174-179 196-201
+150	Courier New 52.5 singleAccounting	79	3	161	210-215
+150	Courier New 52.5 doubleAccounting	79	3	161	210-215 232-237
+150	Courier New 52.5 strike	70	3	159	120-127
+150	Courier New 69.5 single	92	3	211	232-239
+150	Courier New 69.5 double	92	3	209	230-237 258-265
+150	Courier New 69.5 singleAccounting	103	3	211	274-281
+150	Courier New 69.5 doubleAccounting	103	3	211	274-281 302-309
+150	Courier New 69.5 strike	92	3	211	158-167
+150	Courier New 70.5 single	93	3	215	236-243
+150	Courier New 70.5 double	93	3	215	236-243 264-271
+150	Courier New 70.5 singleAccounting	104	3	211	276-283
+150	Courier New 70.5 doubleAccounting	104	3	213	278-285 306-311
+150	Courier New 70.5 strike	93	3	215	162-171
+150	Calibri 8 single	15	3	35	38-39
+150	Calibri 8 double	15	3	35	36-37 40-41
+150	Calibri 8 singleAccounting	17	3	35	42-43
+150	Calibri 8 doubleAccounting	17	3	35	42-43 46-47
+150	Calibri 8 strike	15	3	35	30-31
+150	Calibri 8.5 single	15	3	35	38-39
+150	Calibri 8.5 double	15	3	35	36-37 40-41
+150	Calibri 8.5 singleAccounting	17	3	35	42-43
+150	Calibri 8.5 doubleAccounting	17	3	35	42-43 46-47
+150	Calibri 8.5 strike	15	3	35	30-31
+150	Calibri 9.5 single	15	3	35	38-39
+150	Calibri 9.5 double	15	3	35	38-39 42-43
+150	Calibri 9.5 singleAccounting	18	3	33	42-43
+150	Calibri 9.5 doubleAccounting	18	3	33	42-43 46-47
+150	Calibri 9.5 strike	15	3	35	28-29
+150	Calibri 10.5 single	15	3	35	38-39
+150	Calibri 10.5 double	15	3	35	38-39 42-43
+150	Calibri 10.5 singleAccounting	18	3	33	42-43
+150	Calibri 10.5 doubleAccounting	18	3	33	42-43 46-47
+150	Calibri 10.5 strike	15	3	35	28-29
+150	Calibri 11.5 single	16	3	37	40-41
+150	Calibri 11.5 double	16	3	37	40-41 44-45
+150	Calibri 11.5 singleAccounting	19	3	37	48-49
+150	Calibri 11.5 doubleAccounting	19	3	35	46-47 50-51
+150	Calibri 11.5 strike	16	3	37	30-31
+150	Calibri 12.5 single	17	3	41	46-47
+150	Calibri 12.5 double	17	3	41	46-47 50-51
+150	Calibri 12.5 singleAccounting	20	3	39	50-51
+150	Calibri 12.5 doubleAccounting	20	3	39	50-51 54-55
+150	Calibri 12.5 strike	17	3	41	32-33
+150	Calibri 16.5 single	23	3	53	58-59
+150	Calibri 16.5 double	23	3	53	58-59 62-63
+150	Calibri 16.5 singleAccounting	26	3	51	66-67
+150	Calibri 16.5 doubleAccounting	26	3	51	66-67 70-71
+150	Calibri 16.5 strike	23	3	53	42-45
+150	Calibri 17 single	23	3	53	58-59
+150	Calibri 17 double	23	3	53	58-59 62-63
+150	Calibri 17 singleAccounting	26	3	51	66-67
+150	Calibri 17 doubleAccounting	26	3	51	66-67 70-71
+150	Calibri 17 strike	23	3	53	40-43
+150	Calibri 17.5 single	24	3	55	60-61
+150	Calibri 17.5 double	24	3	55	60-61 64-65
+150	Calibri 17.5 singleAccounting	27	3	55	70-71
+150	Calibri 17.5 doubleAccounting	27	3	55	70-71 74-75
+150	Calibri 17.5 strike	24	3	55	42-45
+150	Calibri 20.5 single	28	3	63	70-73
+150	Calibri 20.5 double	28	3	63	66-69 74-77
+150	Calibri 20.5 singleAccounting	31	3	65	82-85
+150	Calibri 20.5 doubleAccounting	31	3	65	82-85 90-93
+150	Calibri 20.5 strike	28	3	63	48-51
+150	Calibri 22.5 single	30	3	69	76-79
+150	Calibri 22.5 double	30	3	67	74-77 82-85
+150	Calibri 22.5 singleAccounting	33	3	71	90-93
+150	Calibri 22.5 doubleAccounting	33	3	71	90-93 98-99
+150	Calibri 22.5 strike	30	3	69	52-55
+150	Calibri 23 single	30	3	69	76-79
+150	Calibri 23 double	30	3	69	76-79 84-87
+150	Calibri 23 singleAccounting	33	3	71	90-93
+150	Calibri 23 doubleAccounting	33	3	71	90-93 98-99
+150	Calibri 23 strike	30	3	69	52-55
+150	Calibri 23.5 single	31	3	73	80-83
+150	Calibri 23.5 double	31	3	73	80-83 88-91
+150	Calibri 23.5 singleAccounting	34	3	73	92-95
+150	Calibri 23.5 doubleAccounting	34	3	73	92-95 100-101
+150	Calibri 23.5 strike	31	3	73	56-59
+150	Calibri 34.5 single	45	3	107	118-123
+150	Calibri 34.5 double	45	3	107	118-123 130-135
+150	Calibri 34.5 singleAccounting	51	3	107	136-141
+150	Calibri 34.5 doubleAccounting	51	3	107	136-141 148-153
+150	Calibri 34.5 strike	45	3	105	80-85
+150	Calibri 35.5 single	47	3	109	122-127
+150	Calibri 35.5 double	47	3	109	116-121 128-133
+150	Calibri 35.5 singleAccounting	53	3	109	138-143
+150	Calibri 35.5 doubleAccounting	53	3	109	138-143 150-155
+150	Calibri 35.5 strike	47	3	109	84-89
+150	Calibri 36.5 single	48	3	111	124-129
+150	Calibri 36.5 double	48	3	111	124-129 136-141
+150	Calibri 36.5 singleAccounting	54	3	111	142-147
+150	Calibri 36.5 doubleAccounting	54	3	111	142-147 154-159
+150	Calibri 36.5 strike	48	3	111	84-91
+150	Calibri 51.5 single	67	3	157	174-183
+150	Calibri 51.5 double	67	3	155	162-171 182-191
+150	Calibri 51.5 singleAccounting	76	3	157	200-209
+150	Calibri 51.5 doubleAccounting	76	3	157	200-209 220-227
+150	Calibri 51.5 strike	67	3	157	120-129
+150	Calibri 52.5 single	68	3	160	176-185
+150	Calibri 52.5 double	68	3	160	166-175 186-195
+150	Calibri 52.5 singleAccounting	77	3	162	204-213
+150	Calibri 52.5 doubleAccounting	77	3	162	204-213 224-231
+150	Calibri 52.5 strike	68	3	158	118-127
+150	Calibri 69.5 single	90	3	212	234-245
+150	Calibri 69.5 double	90	3	212	220-233 248-261
+150	Calibri 69.5 singleAccounting	102	3	212	268-279
+150	Calibri 69.5 doubleAccounting	102	3	212	268-281 296-305
+150	Calibri 69.5 strike	90	3	212	2-3 160-173
+150	Calibri 70.5 single	91	3	214	238-249
+150	Calibri 70.5 double	91	3	216	224-237 252-265
+150	Calibri 70.5 singleAccounting	103	3	216	272-283
+150	Calibri 70.5 doubleAccounting	103	3	216	272-285 300-309
+150	Calibri 70.5 strike	91	3	216	2-3 162-175
