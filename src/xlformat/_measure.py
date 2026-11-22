@@ -23,6 +23,7 @@ from functools import lru_cache
 from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
 from xlformat._glyphs_arial import ARIAL, ARIAL_OVERHANG
 from xlformat._glyphs_calibri import CALIBRI, CALIBRI_OVERHANG
+from xlformat._rules_drawn import DRAWN
 
 Measure = Callable[[str], float]
 """Width of a text in the caller's units."""
@@ -814,16 +815,21 @@ _RULE_TABLES: dict[str, tuple[int, int, int, int, int]] = {
 class RuleMetrics:
     """Where Excel for Mac draws a face's rules at a zoom, in sheet points from the baseline.
 
-    Each value is computed at the screen size ``size * zoom / 100`` in whole screen points and
-    divided back, so it moves in steps of ``100 / zoom`` points.
+    Each value is a whole number of screen points (half points above about 80 screen points, on
+    the display of scale 2 it was captured on) at the screen size ``size * zoom / 100``, divided
+    back to sheet points.
 
     Attributes:
         underline_top: The top of a single underline, below the baseline.
-        underline_thickness: The thickness of every underline line, accounting ones included.
+        underline_thickness: The thickness of a single underline and of a single accounting one.
         double_gap: How far a double underline's second line lies below its first (both kinds).
-        accounting_top: The top of an accounting underline, below the baseline.
+        accounting_top: The top of an accounting underline (the first line of a double one),
+            below the baseline.
         strikethrough_top: The top of a strikethrough, above the baseline.
         strikethrough_thickness: The thickness of a strikethrough.
+        double_top: The top of a double underline's first line, below the baseline (negative:
+            above it).
+        double_thickness: The thickness of each line of a double underline, accounting or not.
     """
 
     underline_top: float
@@ -832,22 +838,29 @@ class RuleMetrics:
     accounting_top: float
     strikethrough_top: float
     strikethrough_thickness: float
+    double_top: float
+    double_thickness: float
 
 
 def rule_metrics(font: FontSpec | None = None, *, zoom: float = 100) -> RuleMetrics:
     """Where Excel draws underlines and a strikethrough in ``font`` at ``zoom`` percent.
 
-    From the font's own tables at the screen size ``P = size * zoom / 100`` (CAPTURING.md
-    section 2 item 60): an underline's top ``floor(P * -underlinePosition / em)`` below the
-    baseline and its thickness ``max(1, floor(P * underlineThickness / em))``; an accounting
-    underline's top ``round(P * usWinDescent / em)``; a strikethrough's top ``round(P *
-    yStrikeoutPosition / em)`` above the baseline, ``max(1, round(P * yStrikeoutSize / em))``
-    thick; a double's second line two thicknesses below its first. Captured at 9, 11, 14, 20 and
-    36 points, zoom 100 and 200, in Calibri, Aptos Narrow, Arial, Times New Roman and Georgia.
-    Known misses: a double underline's first line sometimes sits higher than a single one (24 of
-    60 captured rows); Aptos Narrow's accounting underline at 9 and 20 points, zoom 100, sits a
-    point lower; a few lines at zoom 200 are thinner. Courier New draws its underline elsewhere
-    than its tables say, so it raises.
+    Depends on the screen size ``P = size * zoom / 100`` alone. Where the face and screen size
+    were captured (CAPTURING.md section 2 item 62: Calibri, Aptos Narrow, Arial, Times New
+    Roman and Georgia at every screen size from 9 to 36, every even one to 72, and 80 to 144 in
+    steps of 8), each value is the line Excel drew. Elsewhere, and for a line not read there,
+    the value comes from the font's tables in whole screen points (item 60): an underline's top
+    ``floor(P * -underlinePosition / em)`` below the baseline and its thickness ``max(1,
+    floor(P * underlineThickness / em))``; an accounting underline's top ``round(P *
+    usWinDescent / em)``; a strikethrough's top ``round(P * yStrikeoutPosition / em)`` above
+    the baseline, ``max(1, round(P * yStrikeoutSize / em))`` thick. A double underline's lines
+    are ``max(1, floor(P * min(underlineThickness, yStrikeoutSize) / em))`` thick and lie two
+    thicknesses apart; its first line starts at the single underline's top and steps up a
+    thickness at a time until the double (three thicknesses) ends at or above the accounting
+    underline's top. The rule misses some captured doubles (QUIRKS.md), the first line drawn one
+    to three screen points higher: Arial at most screen sizes from 29, Times New Roman at about
+    half of those from 38, Calibri from 80, Georgia at 128 and 144. Courier New draws its
+    underline elsewhere than its tables say, so it raises.
 
     Raises:
         LookupError: Courier New or another face without its rule, or a size outside 1 to 72.
@@ -860,18 +873,38 @@ def rule_metrics(font: FontSpec | None = None, *, zoom: float = 100) -> RuleMetr
         )
         raise LookupError(msg)
     position, thickness, strike_position, strike_size, descent = _RULE_TABLES[key]
-    scale = zoom / 100
-    p = size * scale
+    p = size * zoom / 100
 
-    def rounded(units: int) -> float:
-        return float(math.floor(p * units / 2048 + 0.5))
+    def floored(units: int) -> int:
+        return math.floor(p * units / 2048)
 
-    line = max(1.0, float(math.floor(p * thickness / 2048)))
+    def rounded(units: int) -> int:
+        return math.floor(p * units / 2048 + 0.5)
+
+    # the rule, in screen points
+    top, line, accounting = floored(-position), max(1, floored(thickness)), rounded(descent)
+    double = max(1, floored(min(thickness, strike_size)))
+    first = top
+    while first + 3 * double > accounting:
+        first -= double
+    rule = (
+        top, line, first, double, 2 * double, accounting,
+        rounded(strike_position), max(1, rounded(strike_size)),
+    )  # fmt: skip
+    # the captured lines, in half screen points, where read
+    drawn = DRAWN.get((key, p))
+    half = [2 * v for v in rule] if drawn is None else [
+        2 * v if d is None else d for d, v in zip(drawn, rule, strict=True)
+    ]  # fmt: skip
+    k = 2 * zoom / 100  # half screen points per sheet point
+    u_top, u_thick, d_top, d_thick, gap, acc, s_top, s_thick = (v / k for v in half)
     return RuleMetrics(
-        underline_top=math.floor(p * -position / 2048) / scale,
-        underline_thickness=line / scale,
-        double_gap=2 * line / scale,
-        accounting_top=rounded(descent) / scale,
-        strikethrough_top=rounded(strike_position) / scale,
-        strikethrough_thickness=max(1.0, rounded(strike_size)) / scale,
+        underline_top=u_top,
+        underline_thickness=u_thick,
+        double_gap=gap,
+        accounting_top=acc,
+        strikethrough_top=s_top,
+        strikethrough_thickness=s_thick,
+        double_top=d_top,
+        double_thickness=d_thick,
     )

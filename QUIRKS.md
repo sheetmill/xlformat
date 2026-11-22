@@ -109,6 +109,18 @@ The second: an elapsed code after a date code is not modeled: `d [s].00` with ha
 in Excel, numbers no rule here explains, and the package shows the elapsed count (`0 0.50`).
 `[s]*-.00` has no capture (`CAPTURING.md` §2 item 42).
 
+`rule_metrics` returns the lines Excel drew at the 275 face and screen sizes captured
+(`rules_double`, `CAPTURING.md` §2 item 62), and matches every captured row the reader can take
+as whole lines. Between those sizes it computes from the font's tables, and that rule is known
+to miss a double underline at 59 of the captured screen sizes, which
+`tests/test_rule_metrics.py: RULE_MISSES` lists (73 of 369 rows): the first line is drawn one to
+three screen points higher than the rule gives in Arial at most screen sizes from 29, in Times
+New Roman at about half of those from 38, in Calibri from 80 and in Georgia at 128 and 144; in
+Arial at some sizes (36 to 40, 58 and 60, 80, 112, 136) the lines are also a screen point
+thicker than `floor(P · yStrikeoutSize / em)`. Aptos Narrow 9 misses through its accounting
+underline, drawn a point lower than its table gives. Neither a stricter fit, a fit in the
+font's own units, nor a step of the single underline's thickness explains the higher lines.
+
 No other row is known to differ. Such rows would be listed in `tests/test_captures.py` and here,
 with the evidence, and counted on every run. Fifteen color rows of the `colors` suite are skipped under `tests/test_captures.py:
 DISPLAY_FORMAT_COLOR_MISREPORTS`: Excel's DisplayFormat API reports automatic black where the sheet

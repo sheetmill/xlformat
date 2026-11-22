@@ -204,13 +204,17 @@ it depends on every font in the row. The fields are the
 distances Excel shows; the ascent and the descent are not split from the cell's insets.
 
 `rule_metrics` gives where Excel draws a face's underlines and strikethrough, in sheet points from
-the baseline, at a zoom (positions move in steps of a screen point):
+the baseline, at a zoom (positions move in steps of a screen point). A double underline's first
+line moves up until the double ends above the accounting underline, so in Calibri 11 it sits on
+the baseline:
 
 ```python
 >>> from xlformat import rule_metrics
 >>> r = rule_metrics(("Calibri", 11))
 >>> r.underline_top, r.underline_thickness, r.accounting_top, r.strikethrough_top
 (1.0, 1.0, 3.0, 3.0)
+>>> r.double_top, r.double_thickness, r.double_gap
+(0.0, 1.0, 2.0)
 >>> rule_metrics(("Calibri", 36), zoom=200).underline_thickness
 2.0
 ```

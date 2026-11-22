@@ -20,9 +20,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Times New Roman, Courier New and Georgia. A face's height is `floor(a · ceil(size) + 1.5)` with
   a slope per face from 7.5 points, and the captured heights below that.
 - `rule_metrics(font, *, zoom=100)` returning `RuleMetrics`: where Excel draws underlines,
-  accounting underlines and a strikethrough, from the font's own tables at the screen size, for
-  Calibri, Aptos Narrow, Arial, Times New Roman and Georgia (Courier New raises). A double
-  underline's first line sometimes sits higher than this gives.
+  accounting underlines and a strikethrough, for Calibri, Aptos Narrow, Arial, Times New Roman and
+  Georgia (Courier New raises). It depends on the screen size `size · zoom / 100` alone: the
+  lines as captured at the screen sizes measured, and the font's own tables elsewhere.
+  `RuleMetrics.double_top` and `.double_thickness` give a double underline's first line, which
+  moves up a line at a time until the double clears the accounting underline, and its lines'
+  thickness, which in Arial is thinner than a single underline's.
 
 ### Changed
 - `vertical_metrics` returns placement only (baselines, font height, line height, line pitch, line
