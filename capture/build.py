@@ -101,8 +101,21 @@ def _method(suite: Suite, width: float | None) -> str:
 
 def build(suite: Suite, directory: Path | None = None) -> Manifest:
     """Write ``<directory>/<suite>.xlsx`` (Excel's container by default) and its manifest in
-    ``capture/build/``; return the manifest."""
-    BUILTIN_FORMATS_REVERSE.clear()  # keep format strings verbatim, no built-in ids
+    ``capture/build/``; return the manifest.
+
+    openpyxl's table of built-in formats is emptied while the workbook is written, so that
+    format strings stay verbatim (no built-in ids), and restored after: another builder in the
+    same process writes the bytes it writes alone.
+    """
+    saved = dict(BUILTIN_FORMATS_REVERSE)
+    BUILTIN_FORMATS_REVERSE.clear()
+    try:
+        return _build(suite, directory)
+    finally:
+        BUILTIN_FORMATS_REVERSE.update(saved)
+
+
+def _build(suite: Suite, directory: Path | None) -> Manifest:
     wb = Workbook()
     wb.calculation.fullCalcOnLoad = True  # formula cells have no cached value; Excel computes
     if suite.font_size is not None or suite.font_name != "Calibri":
