@@ -1408,6 +1408,24 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       `screen_rules` measures it across the faces and sizes. Two rows read as the Mac's do at
       their edges: a double accounting underline whose second line would pass the row's last
       pixel shows one line (zoom 75), and a line on a row's first pixel row is the row above's.
+74. **Text placement on Excel for Windows (2026-11-23; group `screen_vertical`, the build of item
+    65).** "Hxg" in Calibri, Aptos Narrow and Arial at the nine table sizes, fitted, wrapped to two
+    and three lines, and placed top, center and bottom in rows of H, H + 13 and H + 14 pixels and
+    2H, with bold, italic and bold italic at 11, 12 and 20 points, in a Calibri 11 workbook; and
+    the three faces at 9, 11 and 20 points in workbooks of Calibri 9 and 20, Arial 9 and 11 and
+    Aptos Narrow 11: 693 rows from 33 pictures at zoom 100, in `screen_vertical.layout.tsv`.
+    Every band after a view's first lies at the view's one offset from the rows (760 of 760). In
+    pixels from the row's first pixel row, H and D the cell face's height and descent (item 69)
+    and D' the Normal font's descent, the baseline of every row is:
+    - **top:** H − D; **center:** ⌊(R − H)/2⌋ + H − D in a row of R pixels; **bottom:**
+      R − max(D, D');
+    - **wrapped (bottom-aligned):** lines H apart, the last one D' − D higher still where the
+      face's descent is smaller than the Normal font's (Calibri 9 and 10, Aptos Narrow 9, Arial 9
+      to 12 in the Calibri 11 workbook: a pixel), as the Mac's wrapped lines sit by the difference
+      of their insets (item 55).
+    These are the Mac's placement rules in device pixels. The reader now also drops a marker run
+    under 4 pixels: with the Arial 9 Normal font, column A's marker column lay under the same
+    light blue ribbon icon as in item 73, above the cells.
 
 ## 3. The pipeline
 

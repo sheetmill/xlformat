@@ -297,8 +297,12 @@ def _marker_column(image: Image) -> int:
     sys.exit("no marker column in the capture")
 
 
+MIN_BAND_PX = 4  # a row's band is taller: a shorter run is an icon above the cells
+
+
 def _bands(image: Image) -> list[tuple[int, int]]:
-    """(first, last) pixel rows of each magenta band, top to bottom."""
+    """(first, last) pixel rows of each marker band, top to bottom, at least ``MIN_BAND_PX``
+    tall (Excel for Windows' ribbon has a light blue icon in the cyan marker's range)."""
     x = _marker_column(image)
     out: list[tuple[int, int]] = []
     start, current = None, ""
@@ -308,7 +312,7 @@ def _bands(image: Image) -> list[tuple[int, int]]:
             if current:
                 out.append((start or 0, y - 1))
             start, current = (y if m else None), m
-    return out
+    return [b for b in out if b[1] - b[0] + 1 >= MIN_BAND_PX]
 
 
 def rows_in_view(

@@ -1,0 +1,701 @@
+# suite: screen_vertical (capture/screen_windows.py)
+# platform: windows
+# excel_build: 16.0.20527.20196
+# job: screen_vertical.job.json
+# job_id: xlformat-20261123-104706-screen-vertical
+# job_header: {"environment": {"audit": false, "checks": {"dde_server_launch_disabled": true, "dde_server_lookup_disabled": true, "vba_warnings": 4}, "display": {"screen_px": [2560, 1440], "system_dpi": 96}, "edition": {"found": "Microsoft 365", "source": "office products"}, "excel": {"build": "16.0.20527.20196", "build_number": 20527.0, "calculation_version": 191029, "decimal_separator": ".", "international": {"country": 1.0, "decimal": ".", "list": ","}, "operating_system": "Windows (64-bit ARM) NT 10.00", "process": {"native_machine": "0xaa64", "process_machine": "0x8664"}, "standard_font": "Aptos Narrow", "standard_font_size": 11.0, "thousands_separator": ",", "use_system_separators": true, "version": "16.0"}, "font_smoothing": {"expected": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "found": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "ok": true}, "fonts": [{"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Regular", "version": "Version 7.07"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Regular", "version": "Version 6.27"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.99001, "style": "Regular", "version": "Version 6.99"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Regular", "version": "Version 5.72"}], "geometry": {"expected": {"excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "found": {"excel_window_points": [-5.0, -6.0, 1932.0, 1056.0], "excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "ok": true}, "locale": {"ansi_code_page": 1252, "decimal": ".", "list": ",", "long_date": "dddd, MMMM d, yyyy", "name": "en-US", "oem_code_page": 437, "short_date": "M/d/yyyy", "sort_locale": "en-US", "sort_version": {"custom": "01000000ee575c1e00b4d0000bb1e11e", "defined": 394498, "nls": 394498}, "time": "h:mm:ss tt", "two_digit_year_max": 2049, "two_digit_year_max_setting": null}, "office": {"channel": "Current Channel", "platform": "x64", "products": "O365HomePremRetail", "version": "16.0.20527.20196"}, "printer": {"orientation": "portrait", "paper": "A4", "paper_mm": [215.9, 279.4]}, "theme": {"office_ui_theme": 6, "windows_apps_light": 1, "windows_system_light": 1}, "windows": {"architecture": "ARM64", "build": "26300.9974", "display_version": "26H2", "edition": "Core"}}, "format": 1, "inputs": {"vertical_aptos_narrow_11.xlsx": {"bytes": 5537, "sha256": "e84da5e1a1b9b65459f3ecc7919234e97e4605c5d4b1354b0f31244dd9112179"}, "vertical_arial_11.xlsx": {"bytes": 5537, "sha256": "dc2357615e4eace71c8ac2e6107dc27335ed8507449c9595455c1a47f2b7d29e"}, "vertical_arial_9.xlsx": {"bytes": 5541, "sha256": "c47bc93095571d4e8e9eebc0b3f31cfef0c712cd6fb632cf6ad4ea834b139ec6"}, "vertical_calibri_11.xlsx": {"bytes": 11381, "sha256": "270c177558294f92526323610350312a65d15fdbc02129f2c4a00511c38926b3"}, "vertical_calibri_20.xlsx": {"bytes": 5549, "sha256": "4be155f4166fa1f22c5332f289e0259776990069b0f6afd1324bde18c9fb7e2b"}, "vertical_calibri_9.xlsx": {"bytes": 5549, "sha256": "60704262a2df5447988fbb2b3096d6c501e9879f1fd181474733f1e101ef8af1"}}, "job_id": "xlformat-20261123-104706-screen-vertical", "manifest_sha256": "c9a49acfbc0561606d030b7e8128fce5af5238780ca98a6807c18c46fa373ee3", "runner_version": "0.1.27"}
+# method: window capture at zoom 100; device pixels from each row's top, computed from the view's first marker band (column A); H: cap top-baseline per line; g: descender bottom per line
+normal_font	tag	stated_height	row_height	band_px	shift_px	h_cap_base_px	g_bottom_px
+Calibri 11	natural Calibri 9		15	20	0	8-15	17
+Calibri 11	top H Calibri 9	12	12	16	0	5-12	14
+Calibri 11	top H+13 Calibri 9	21.75	21.75	29	0	5-12	14
+Calibri 11	top H+14 Calibri 9	22.5	22.5	30	0	5-12	14
+Calibri 11	top 2H Calibri 9	24	24	32	0	5-12	14
+Calibri 11	center H Calibri 9	12	12	16	0	5-12	14
+Calibri 11	center H+13 Calibri 9	21.75	21.75	29	0	11-18	20
+Calibri 11	center H+14 Calibri 9	22.5	22.5	30	0	12-19	21
+Calibri 11	center 2H Calibri 9	24	24	32	0	13-20	22
+Calibri 11	bottom H Calibri 9	12	12	16	0	4-11	13
+Calibri 11	bottom H+13 Calibri 9	21.75	21.75	29	0	17-24	26
+Calibri 11	bottom H+14 Calibri 9	22.5	22.5	30	0	18-25	27
+Calibri 11	bottom 2H Calibri 9	24	24	32	0	20-27	29
+Calibri 11	wrapped 2 Calibri 9		24.75	33	0	4-11 20-27	13 29
+Calibri 11	wrapped 3 Calibri 9		36.75	49	0	4-11 20-27 36-43	13 29 45
+Calibri 11	natural Calibri 10		15	20	0	8-15	17
+Calibri 11	top H Calibri 10	12.75	12.75	17	0	6-13	15
+Calibri 11	top H+13 Calibri 10	22.5	22.5	30	0	6-13	15
+Calibri 11	top H+14 Calibri 10	23.25	23.25	31	0	6-13	15
+Calibri 11	top 2H Calibri 10	25.5	25.5	34	0	6-13	15
+Calibri 11	center H Calibri 10	12.75	12.75	17	0	6-13	15
+Calibri 11	center H+13 Calibri 10	22.5	22.5	30	0	12-19	21
+Calibri 11	center H+14 Calibri 10	23.25	23.25	31	0	13-20	22
+Calibri 11	center 2H Calibri 10	25.5	25.5	34	0	14-21	23
+Calibri 11	bottom H Calibri 10	12.75	12.75	17	0	5-12	14
+Calibri 11	bottom H+13 Calibri 10	22.5	22.5	30	0	18-25	27
+Calibri 11	bottom H+14 Calibri 10	23.25	23.25	31	0	19-26	28
+Calibri 11	bottom 2H Calibri 10	25.5	25.5	34	0	22-29	31
+Calibri 11	wrapped 2 Calibri 10		26.25	35	0	5-12 22-29	14 31
+Calibri 11	wrapped 3 Calibri 10		39	52	0	5-12 22-29 39-46	14 31 48
+Calibri 11	natural Calibri 11		15	20	0	7-15	18
+Calibri 11	top H Calibri 11	15	15	20	0	7-15	18
+Calibri 11	top H+13 Calibri 11	24.75	24.75	33	0	7-15	18
+Calibri 11	top H+14 Calibri 11	25.5	25.5	34	0	7-15	18
+Calibri 11	top 2H Calibri 11	30	30	40	0	7-15	18
+Calibri 11	center H Calibri 11	15	15	20	0	7-15	18
+Calibri 11	center H+13 Calibri 11	24.75	24.75	33	0	13-21	24
+Calibri 11	center H+14 Calibri 11	25.5	25.5	34	0	14-22	25
+Calibri 11	center 2H Calibri 11	30	30	40	0	17-25	28
+Calibri 11	bottom H Calibri 11	15	15	20	0	7-15	18
+Calibri 11	bottom H+13 Calibri 11	24.75	24.75	33	0	20-28	31
+Calibri 11	bottom H+14 Calibri 11	25.5	25.5	34	0	21-29	32
+Calibri 11	bottom 2H Calibri 11	30	30	40	0	27-35	38
+Calibri 11	wrapped 2 Calibri 11		30	40	0	7-15 27-35	18 38
+Calibri 11	wrapped 3 Calibri 11		45	60	0	7-15 27-35 47-55	18 38 58
+Calibri 11	natural Calibri 12		15.75	21	0	7-16	19
+Calibri 11	top H Calibri 12	15.75	15.75	21	0	7-16	19
+Calibri 11	top H+13 Calibri 12	25.5	25.5	34	0	7-16	19
+Calibri 11	top H+14 Calibri 12	26.25	26.25	35	0	7-16	19
+Calibri 11	top 2H Calibri 12	31.5	31.5	42	0	7-16	19
+Calibri 11	center H Calibri 12	15.75	15.75	21	0	7-16	19
+Calibri 11	center H+13 Calibri 12	25.5	25.5	34	0	13-22	25
+Calibri 11	center H+14 Calibri 12	26.25	26.25	35	0	14-23	26
+Calibri 11	center 2H Calibri 12	31.5	31.5	42	0	17-26	29
+Calibri 11	bottom H Calibri 12	15.75	15.75	21	0	7-16	19
+Calibri 11	bottom H+13 Calibri 12	25.5	25.5	34	0	20-29	32
+Calibri 11	bottom H+14 Calibri 12	26.25	26.25	35	0	21-30	33
+Calibri 11	bottom 2H Calibri 12	31.5	31.5	42	0	28-37	40
+Calibri 11	wrapped 2 Calibri 12		31.5	42	0	7-16 28-37	19 40
+Calibri 11	wrapped 3 Calibri 12		47.25	63	0	7-16 28-37 49-58	19 40 61
+Calibri 11	natural Calibri 14		18.75	25	0	8-19	22
+Calibri 11	top H Calibri 14	18.75	18.75	25	0	8-19	22
+Calibri 11	top H+13 Calibri 14	28.5	28.5	38	0	8-19	22
+Calibri 11	top H+14 Calibri 14	29.25	29.25	39	0	8-19	22
+Calibri 11	top 2H Calibri 14	37.5	37.5	50	0	8-19	22
+Calibri 11	center H Calibri 14	18.75	18.75	25	0	8-19	22
+Calibri 11	center H+13 Calibri 14	28.5	28.5	38	0	14-25	28
+Calibri 11	center H+14 Calibri 14	29.25	29.25	39	0	15-26	29
+Calibri 11	center 2H Calibri 14	37.5	37.5	50	0	20-31	34
+Calibri 11	bottom H Calibri 14	18.75	18.75	25	0	8-19	22
+Calibri 11	bottom H+13 Calibri 14	28.5	28.5	38	0	21-32	35
+Calibri 11	bottom H+14 Calibri 14	29.25	29.25	39	0	22-33	36
+Calibri 11	bottom 2H Calibri 14	37.5	37.5	50	0	33-44	47
+Calibri 11	wrapped 2 Calibri 14		37.5	50	0	8-19 33-44	22 47
+Calibri 11	wrapped 3 Calibri 14		56.25	75	0	8-19 33-44 58-69	22 47 72
+Calibri 11	natural Calibri 16		21	28	0	9-21	25
+Calibri 11	top H Calibri 16	21	21	28	0	9-21	25
+Calibri 11	top H+13 Calibri 16	30.75	30.75	41	0	9-21	25
+Calibri 11	top H+14 Calibri 16	31.5	31.5	42	0	9-21	25
+Calibri 11	top 2H Calibri 16	42	42	56	0	9-21	25
+Calibri 11	center H Calibri 16	21	21	28	0	9-21	25
+Calibri 11	center H+13 Calibri 16	30.75	30.75	41	0	15-27	31
+Calibri 11	center H+14 Calibri 16	31.5	31.5	42	0	16-28	32
+Calibri 11	center 2H Calibri 16	42	42	56	0	23-35	39
+Calibri 11	bottom H Calibri 16	21	21	28	0	9-21	25
+Calibri 11	bottom H+13 Calibri 16	30.75	30.75	41	0	22-34	38
+Calibri 11	bottom H+14 Calibri 16	31.5	31.5	42	0	23-35	39
+Calibri 11	bottom 2H Calibri 16	42	42	56	0	37-49	53
+Calibri 11	wrapped 2 Calibri 16		42	56	0	9-21 37-49	25 53
+Calibri 11	wrapped 3 Calibri 16		63	84	0	9-21 37-49 65-77	25 53 81
+Calibri 11	natural Calibri 18		23.25	31	0	10-24	28
+Calibri 11	top H Calibri 18	23.25	23.25	31	0	10-24	28
+Calibri 11	top H+13 Calibri 18	33	33	44	0	10-24	28
+Calibri 11	top H+14 Calibri 18	33.75	33.75	45	0	10-24	28
+Calibri 11	top 2H Calibri 18	46.5	46.5	62	0	10-24	28
+Calibri 11	center H Calibri 18	23.25	23.25	31	0	10-24	28
+Calibri 11	center H+13 Calibri 18	33	33	44	0	16-30	34
+Calibri 11	center H+14 Calibri 18	33.75	33.75	45	0	17-31	35
+Calibri 11	center 2H Calibri 18	46.5	46.5	62	0	25-39	43
+Calibri 11	bottom H Calibri 18	23.25	23.25	31	0	10-24	28
+Calibri 11	bottom H+13 Calibri 18	33	33	44	0	23-37	41
+Calibri 11	bottom H+14 Calibri 18	33.75	33.75	45	0	24-38	42
+Calibri 11	bottom 2H Calibri 18	46.5	46.5	62	0	41-55	59
+Calibri 11	wrapped 2 Calibri 18		46.5	62	0	10-24 41-55	28 59
+Calibri 11	wrapped 3 Calibri 18		69.75	93	0	10-24 41-55 72-86	28 59 90
+Calibri 11	natural Calibri 20		26.25	35	0	11-27	32
+Calibri 11	top H Calibri 20	26.25	26.25	35	0	11-27	32
+Calibri 11	top H+13 Calibri 20	36	36	48	0	11-27	32
+Calibri 11	top H+14 Calibri 20	36.75	36.75	49	0	11-27	32
+Calibri 11	top 2H Calibri 20	52.5	52.5	70	0	11-27	32
+Calibri 11	center H Calibri 20	26.25	26.25	35	0	11-27	32
+Calibri 11	center H+13 Calibri 20	36	36	48	0	17-33	38
+Calibri 11	center H+14 Calibri 20	36.75	36.75	49	0	18-34	39
+Calibri 11	center 2H Calibri 20	52.5	52.5	70	0	28-44	49
+Calibri 11	bottom H Calibri 20	26.25	26.25	35	0	11-27	32
+Calibri 11	bottom H+13 Calibri 20	36	36	48	0	24-40	45
+Calibri 11	bottom H+14 Calibri 20	36.75	36.75	49	0	25-41	46
+Calibri 11	bottom 2H Calibri 20	52.5	52.5	70	0	46-62	67
+Calibri 11	wrapped 2 Calibri 20		52.5	70	0	11-27 46-62	32 67
+Calibri 11	wrapped 3 Calibri 20		78.75	105	0	11-27 46-62 81-97	32 67 102
+Calibri 11	natural Calibri 24		31.5	42	0	13-32	38
+Calibri 11	top H Calibri 24	31.5	31.5	42	0	13-32	38
+Calibri 11	top H+13 Calibri 24	41.25	41.25	55	0	13-32	38
+Calibri 11	top H+14 Calibri 24	42	42	56	0	13-32	38
+Calibri 11	top 2H Calibri 24	63	63	84	0	13-32	38
+Calibri 11	center H Calibri 24	31.5	31.5	42	0	13-32	38
+Calibri 11	center H+13 Calibri 24	41.25	41.25	55	0	19-38	44
+Calibri 11	center H+14 Calibri 24	42	42	56	0	20-39	45
+Calibri 11	center 2H Calibri 24	63	63	84	0	34-53	59
+Calibri 11	bottom H Calibri 24	31.5	31.5	42	0	13-32	38
+Calibri 11	bottom H+13 Calibri 24	41.25	41.25	55	0	26-45	51
+Calibri 11	bottom H+14 Calibri 24	42	42	56	0	27-46	52
+Calibri 11	bottom 2H Calibri 24	63	63	84	0	55-74	80
+Calibri 11	wrapped 2 Calibri 24		63	84	0	13-32 55-74	38 80
+Calibri 11	wrapped 3 Calibri 24		94.5	126	0	13-32 55-74 97-116	38 80 122
+Calibri 11	natural Aptos Narrow 9		15	20	0	8-15	17
+Calibri 11	top H Aptos Narrow 9	12	12	16	0	5-12	14
+Calibri 11	top H+13 Aptos Narrow 9	21.75	21.75	29	0	5-12	14
+Calibri 11	top H+14 Aptos Narrow 9	22.5	22.5	30	0	5-12	14
+Calibri 11	top 2H Aptos Narrow 9	24	24	32	0	5-12	14
+Calibri 11	center H Aptos Narrow 9	12	12	16	0	5-12	14
+Calibri 11	center H+13 Aptos Narrow 9	21.75	21.75	29	0	11-18	20
+Calibri 11	center H+14 Aptos Narrow 9	22.5	22.5	30	0	12-19	21
+Calibri 11	center 2H Aptos Narrow 9	24	24	32	0	13-20	22
+Calibri 11	bottom H Aptos Narrow 9	12	12	16	0	4-11	13
+Calibri 11	bottom H+13 Aptos Narrow 9	21.75	21.75	29	0	17-24	26
+Calibri 11	bottom H+14 Aptos Narrow 9	22.5	22.5	30	0	18-25	27
+Calibri 11	bottom 2H Aptos Narrow 9	24	24	32	0	20-27	29
+Calibri 11	wrapped 2 Aptos Narrow 9		24.75	33	0	4-11 20-27	13 29
+Calibri 11	wrapped 3 Aptos Narrow 9		36.75	49	0	4-11 20-27 36-43	13 29 45
+Calibri 11	natural Aptos Narrow 10		15	20	0	7-15	17
+Calibri 11	top H Aptos Narrow 10	13.5	13.5	18	0	5-13	15
+Calibri 11	top H+13 Aptos Narrow 10	23.25	23.25	31	0	5-13	15
+Calibri 11	top H+14 Aptos Narrow 10	24	24	32	0	5-13	15
+Calibri 11	top 2H Aptos Narrow 10	27	27	36	0	5-13	15
+Calibri 11	center H Aptos Narrow 10	13.5	13.5	18	0	5-13	15
+Calibri 11	center H+13 Aptos Narrow 10	23.25	23.25	31	0	11-19	21
+Calibri 11	center H+14 Aptos Narrow 10	24	24	32	0	12-20	22
+Calibri 11	center 2H Aptos Narrow 10	27	27	36	0	14-22	24
+Calibri 11	bottom H Aptos Narrow 10	13.5	13.5	18	0	5-13	15
+Calibri 11	bottom H+13 Aptos Narrow 10	23.25	23.25	31	0	18-26	28
+Calibri 11	bottom H+14 Aptos Narrow 10	24	24	32	0	19-27	29
+Calibri 11	bottom 2H Aptos Narrow 10	27	27	36	0	23-31	33
+Calibri 11	wrapped 2 Aptos Narrow 10		27	36	0	5-13 23-31	15 33
+Calibri 11	wrapped 3 Aptos Narrow 10		40.5	54	0	5-13 23-31 41-49	15 33 51
+Calibri 11	natural Aptos Narrow 11		15	20	0	6-15	18
+Calibri 11	top H Aptos Narrow 11	15	15	20	0	6-15	18
+Calibri 11	top H+13 Aptos Narrow 11	24.75	24.75	33	0	6-15	18
+Calibri 11	top H+14 Aptos Narrow 11	25.5	25.5	34	0	6-15	18
+Calibri 11	top 2H Aptos Narrow 11	30	30	40	0	6-15	18
+Calibri 11	center H Aptos Narrow 11	15	15	20	0	6-15	18
+Calibri 11	center H+13 Aptos Narrow 11	24.75	24.75	33	0	12-21	24
+Calibri 11	center H+14 Aptos Narrow 11	25.5	25.5	34	0	13-22	25
+Calibri 11	center 2H Aptos Narrow 11	30	30	40	0	16-25	28
+Calibri 11	bottom H Aptos Narrow 11	15	15	20	0	6-15	18
+Calibri 11	bottom H+13 Aptos Narrow 11	24.75	24.75	33	0	19-28	31
+Calibri 11	bottom H+14 Aptos Narrow 11	25.5	25.5	34	0	20-29	32
+Calibri 11	bottom 2H Aptos Narrow 11	30	30	40	0	26-35	38
+Calibri 11	wrapped 2 Aptos Narrow 11		30	40	0	6-15 26-35	18 38
+Calibri 11	wrapped 3 Aptos Narrow 11		45	60	0	6-15 26-35 46-55	18 38 58
+Calibri 11	natural Aptos Narrow 12		15.75	21	0	6-16	19
+Calibri 11	top H Aptos Narrow 12	15.75	15.75	21	0	6-16	19
+Calibri 11	top H+13 Aptos Narrow 12	25.5	25.5	34	0	6-16	19
+Calibri 11	top H+14 Aptos Narrow 12	26.25	26.25	35	0	6-16	19
+Calibri 11	top 2H Aptos Narrow 12	31.5	31.5	42	0	6-16	19
+Calibri 11	center H Aptos Narrow 12	15.75	15.75	21	0	6-16	19
+Calibri 11	center H+13 Aptos Narrow 12	25.5	25.5	34	0	12-22	25
+Calibri 11	center H+14 Aptos Narrow 12	26.25	26.25	35	0	13-23	26
+Calibri 11	center 2H Aptos Narrow 12	31.5	31.5	42	0	16-26	29
+Calibri 11	bottom H Aptos Narrow 12	15.75	15.75	21	0	6-16	19
+Calibri 11	bottom H+13 Aptos Narrow 12	25.5	25.5	34	0	19-29	32
+Calibri 11	bottom H+14 Aptos Narrow 12	26.25	26.25	35	0	20-30	33
+Calibri 11	bottom 2H Aptos Narrow 12	31.5	31.5	42	0	27-37	40
+Calibri 11	wrapped 2 Aptos Narrow 12		31.5	42	0	6-16 27-37	19 40
+Calibri 11	wrapped 3 Aptos Narrow 12		47.25	63	0	6-16 27-37 48-58	19 40 61
+Calibri 11	natural Aptos Narrow 14		18.75	25	0	8-19	22
+Calibri 11	top H Aptos Narrow 14	18.75	18.75	25	0	8-19	22
+Calibri 11	top H+13 Aptos Narrow 14	28.5	28.5	38	0	8-19	22
+Calibri 11	top H+14 Aptos Narrow 14	29.25	29.25	39	0	8-19	22
+Calibri 11	top 2H Aptos Narrow 14	37.5	37.5	50	0	8-19	22
+Calibri 11	center H Aptos Narrow 14	18.75	18.75	25	0	8-19	22
+Calibri 11	center H+13 Aptos Narrow 14	28.5	28.5	38	0	14-25	28
+Calibri 11	center H+14 Aptos Narrow 14	29.25	29.25	39	0	15-26	29
+Calibri 11	center 2H Aptos Narrow 14	37.5	37.5	50	0	20-31	34
+Calibri 11	bottom H Aptos Narrow 14	18.75	18.75	25	0	8-19	22
+Calibri 11	bottom H+13 Aptos Narrow 14	28.5	28.5	38	0	21-32	35
+Calibri 11	bottom H+14 Aptos Narrow 14	29.25	29.25	39	0	22-33	36
+Calibri 11	bottom 2H Aptos Narrow 14	37.5	37.5	50	0	33-44	47
+Calibri 11	wrapped 2 Aptos Narrow 14		37.5	50	0	8-19 33-44	22 47
+Calibri 11	wrapped 3 Aptos Narrow 14		56.25	75	0	8-19 33-44 58-69	22 47 72
+Calibri 11	natural Aptos Narrow 16		21	28	0	8-21	25
+Calibri 11	top H Aptos Narrow 16	21	21	28	0	8-21	25
+Calibri 11	top H+13 Aptos Narrow 16	30.75	30.75	41	0	8-21	25
+Calibri 11	top H+14 Aptos Narrow 16	31.5	31.5	42	0	8-21	25
+Calibri 11	top 2H Aptos Narrow 16	42	42	56	0	8-21	25
+Calibri 11	center H Aptos Narrow 16	21	21	28	0	8-21	25
+Calibri 11	center H+13 Aptos Narrow 16	30.75	30.75	41	0	14-27	31
+Calibri 11	center H+14 Aptos Narrow 16	31.5	31.5	42	0	15-28	32
+Calibri 11	center 2H Aptos Narrow 16	42	42	56	0	22-35	39
+Calibri 11	bottom H Aptos Narrow 16	21	21	28	0	8-21	25
+Calibri 11	bottom H+13 Aptos Narrow 16	30.75	30.75	41	0	21-34	38
+Calibri 11	bottom H+14 Aptos Narrow 16	31.5	31.5	42	0	22-35	39
+Calibri 11	bottom 2H Aptos Narrow 16	42	42	56	0	36-49	53
+Calibri 11	wrapped 2 Aptos Narrow 16		42	56	0	8-21 36-49	25 53
+Calibri 11	wrapped 3 Aptos Narrow 16		63	84	0	8-21 36-49 64-77	25 53 81
+Calibri 11	natural Aptos Narrow 18		24	32	0	9-24	28
+Calibri 11	top H Aptos Narrow 18	24	24	32	0	9-24	28
+Calibri 11	top H+13 Aptos Narrow 18	33.75	33.75	45	0	9-24	28
+Calibri 11	top H+14 Aptos Narrow 18	34.5	34.5	46	0	9-24	28
+Calibri 11	top 2H Aptos Narrow 18	48	48	64	0	9-24	28
+Calibri 11	center H Aptos Narrow 18	24	24	32	0	9-24	28
+Calibri 11	center H+13 Aptos Narrow 18	33.75	33.75	45	0	15-30	34
+Calibri 11	center H+14 Aptos Narrow 18	34.5	34.5	46	0	16-31	35
+Calibri 11	center 2H Aptos Narrow 18	48	48	64	0	25-40	44
+Calibri 11	bottom H Aptos Narrow 18	24	24	32	0	9-24	28
+Calibri 11	bottom H+13 Aptos Narrow 18	33.75	33.75	45	0	22-37	41
+Calibri 11	bottom H+14 Aptos Narrow 18	34.5	34.5	46	0	23-38	42
+Calibri 11	bottom 2H Aptos Narrow 18	48	48	64	0	41-56	60
+Calibri 11	wrapped 2 Aptos Narrow 18		48	64	0	9-24 41-56	28 60
+Calibri 11	wrapped 3 Aptos Narrow 18		72	96	0	9-24 41-56 73-88	28 60 92
+Calibri 11	natural Aptos Narrow 20		26.25	35	0	10-27	32
+Calibri 11	top H Aptos Narrow 20	26.25	26.25	35	0	10-27	32
+Calibri 11	top H+13 Aptos Narrow 20	36	36	48	0	10-27	32
+Calibri 11	top H+14 Aptos Narrow 20	36.75	36.75	49	0	10-27	32
+Calibri 11	top 2H Aptos Narrow 20	52.5	52.5	70	0	10-27	32
+Calibri 11	center H Aptos Narrow 20	26.25	26.25	35	0	10-27	32
+Calibri 11	center H+13 Aptos Narrow 20	36	36	48	0	16-33	38
+Calibri 11	center H+14 Aptos Narrow 20	36.75	36.75	49	0	17-34	39
+Calibri 11	center 2H Aptos Narrow 20	52.5	52.5	70	0	27-44	49
+Calibri 11	bottom H Aptos Narrow 20	26.25	26.25	35	0	10-27	32
+Calibri 11	bottom H+13 Aptos Narrow 20	36	36	48	0	23-40	45
+Calibri 11	bottom H+14 Aptos Narrow 20	36.75	36.75	49	0	24-41	46
+Calibri 11	bottom 2H Aptos Narrow 20	52.5	52.5	70	0	45-62	67
+Calibri 11	wrapped 2 Aptos Narrow 20		52.5	70	0	10-27 45-62	32 67
+Calibri 11	wrapped 3 Aptos Narrow 20		78.75	105	0	10-27 45-62 80-97	32 67 102
+Calibri 11	natural Aptos Narrow 24		31.5	42	0	12-32	38
+Calibri 11	top H Aptos Narrow 24	31.5	31.5	42	0	12-32	38
+Calibri 11	top H+13 Aptos Narrow 24	41.25	41.25	55	0	12-32	38
+Calibri 11	top H+14 Aptos Narrow 24	42	42	56	0	12-32	38
+Calibri 11	top 2H Aptos Narrow 24	63	63	84	0	12-32	38
+Calibri 11	center H Aptos Narrow 24	31.5	31.5	42	0	12-32	38
+Calibri 11	center H+13 Aptos Narrow 24	41.25	41.25	55	0	18-38	44
+Calibri 11	center H+14 Aptos Narrow 24	42	42	56	0	19-39	45
+Calibri 11	center 2H Aptos Narrow 24	63	63	84	0	33-53	59
+Calibri 11	bottom H Aptos Narrow 24	31.5	31.5	42	0	12-32	38
+Calibri 11	bottom H+13 Aptos Narrow 24	41.25	41.25	55	0	25-45	51
+Calibri 11	bottom H+14 Aptos Narrow 24	42	42	56	0	26-46	52
+Calibri 11	bottom 2H Aptos Narrow 24	63	63	84	0	54-74	80
+Calibri 11	wrapped 2 Aptos Narrow 24		63	84	0	12-32 54-74	38 80
+Calibri 11	wrapped 3 Aptos Narrow 24		94.5	126	0	12-32 54-74 96-116	38 80 122
+Calibri 11	natural Arial 9		15	20	0	7-15	17
+Calibri 11	top H Arial 9	12	12	16	0	4-12	14
+Calibri 11	top H+13 Arial 9	21.75	21.75	29	0	4-12	14
+Calibri 11	top H+14 Arial 9	22.5	22.5	30	0	4-12	14
+Calibri 11	top 2H Arial 9	24	24	32	0	4-12	14
+Calibri 11	center H Arial 9	12	12	16	0	4-12	14
+Calibri 11	center H+13 Arial 9	21.75	21.75	29	0	10-18	20
+Calibri 11	center H+14 Arial 9	22.5	22.5	30	0	11-19	21
+Calibri 11	center 2H Arial 9	24	24	32	0	12-20	22
+Calibri 11	bottom H Arial 9	12	12	16	0	3-11	13
+Calibri 11	bottom H+13 Arial 9	21.75	21.75	29	0	16-24	26
+Calibri 11	bottom H+14 Arial 9	22.5	22.5	30	0	17-25	27
+Calibri 11	bottom 2H Arial 9	24	24	32	0	19-27	29
+Calibri 11	wrapped 2 Arial 9		24.75	33	0	3-11 19-27	13 29
+Calibri 11	wrapped 3 Arial 9		36.75	49	0	3-11 19-27 35-43	13 29 45
+Calibri 11	natural Arial 10		15	20	0	6-15	18
+Calibri 11	top H Arial 10	12.75	12.75	17	0	4-13	16
+Calibri 11	top H+13 Arial 10	22.5	22.5	30	0	4-13	16
+Calibri 11	top H+14 Arial 10	23.25	23.25	31	0	4-13	16
+Calibri 11	top 2H Arial 10	25.5	25.5	34	0	4-13	16
+Calibri 11	center H Arial 10	12.75	12.75	17	0	4-13	16
+Calibri 11	center H+13 Arial 10	22.5	22.5	30	0	10-19	22
+Calibri 11	center H+14 Arial 10	23.25	23.25	31	0	11-20	23
+Calibri 11	center 2H Arial 10	25.5	25.5	34	0	12-21	24
+Calibri 11	bottom H Arial 10	12.75	12.75	17	0	3-12	15
+Calibri 11	bottom H+13 Arial 10	22.5	22.5	30	0	16-25	28
+Calibri 11	bottom H+14 Arial 10	23.25	23.25	31	0	17-26	29
+Calibri 11	bottom 2H Arial 10	25.5	25.5	34	0	20-29	32
+Calibri 11	wrapped 2 Arial 10		26.25	35	0	3-12 20-29	15 32
+Calibri 11	wrapped 3 Arial 10		39	52	0	3-12 20-29 37-46	15 32 49
+Calibri 11	natural Arial 11		15	20	0	5-15	18
+Calibri 11	top H Arial 11	14.25	14.25	19	0	5-15	18
+Calibri 11	top H+13 Arial 11	24	24	32	0	5-15	18
+Calibri 11	top H+14 Arial 11	24.75	24.75	33	0	5-15	18
+Calibri 11	top 2H Arial 11	28.5	28.5	38	0	5-15	18
+Calibri 11	center H Arial 11	14.25	14.25	19	0	5-15	18
+Calibri 11	center H+13 Arial 11	24	24	32	0	11-21	24
+Calibri 11	center H+14 Arial 11	24.75	24.75	33	0	12-22	25
+Calibri 11	center 2H Arial 11	28.5	28.5	38	0	14-24	27
+Calibri 11	bottom H Arial 11	14.25	14.25	19	0	4-14	17
+Calibri 11	bottom H+13 Arial 11	24	24	32	0	17-27	30
+Calibri 11	bottom H+14 Arial 11	24.75	24.75	33	0	18-28	31
+Calibri 11	bottom 2H Arial 11	28.5	28.5	38	0	23-33	36
+Calibri 11	wrapped 2 Arial 11		29.25	39	0	4-14 23-33	17 36
+Calibri 11	wrapped 3 Arial 11		43.5	58	0	4-14 23-33 42-52	17 36 55
+Calibri 11	natural Arial 12		15.75	21	0	5-16	19
+Calibri 11	top H Arial 12	15	15	20	0	5-16	19
+Calibri 11	top H+13 Arial 12	24.75	24.75	33	0	5-16	19
+Calibri 11	top H+14 Arial 12	25.5	25.5	34	0	5-16	19
+Calibri 11	top 2H Arial 12	30	30	40	0	5-16	19
+Calibri 11	center H Arial 12	15	15	20	0	5-16	19
+Calibri 11	center H+13 Arial 12	24.75	24.75	33	0	11-22	25
+Calibri 11	center H+14 Arial 12	25.5	25.5	34	0	12-23	26
+Calibri 11	center 2H Arial 12	30	30	40	0	15-26	29
+Calibri 11	bottom H Arial 12	15	15	20	0	4-15	18
+Calibri 11	bottom H+13 Arial 12	24.75	24.75	33	0	17-28	31
+Calibri 11	bottom H+14 Arial 12	25.5	25.5	34	0	18-29	32
+Calibri 11	bottom 2H Arial 12	30	30	40	0	24-35	38
+Calibri 11	wrapped 2 Arial 12		30.75	41	0	4-15 24-35	18 38
+Calibri 11	wrapped 3 Arial 12		45.75	61	0	4-15 24-35 44-55	18 38 58
+Calibri 11	natural Arial 14		18	24	0	6-19	23
+Calibri 11	top H Arial 14	18	18	24	0	6-19	23
+Calibri 11	top H+13 Arial 14	27.75	27.75	37	0	6-19	23
+Calibri 11	top H+14 Arial 14	28.5	28.5	38	0	6-19	23
+Calibri 11	top 2H Arial 14	36	36	48	0	6-19	23
+Calibri 11	center H Arial 14	18	18	24	0	6-19	23
+Calibri 11	center H+13 Arial 14	27.75	27.75	37	0	12-25	29
+Calibri 11	center H+14 Arial 14	28.5	28.5	38	0	13-26	30
+Calibri 11	center 2H Arial 14	36	36	48	0	18-31	35
+Calibri 11	bottom H Arial 14	18	18	24	0	6-19	23
+Calibri 11	bottom H+13 Arial 14	27.75	27.75	37	0	19-32	36
+Calibri 11	bottom H+14 Arial 14	28.5	28.5	38	0	20-33	37
+Calibri 11	bottom 2H Arial 14	36	36	48	0	30-43	47
+Calibri 11	wrapped 2 Arial 14		36	48	0	6-19 30-43	23 47
+Calibri 11	wrapped 3 Arial 14		54	72	0	6-19 30-43 54-67	23 47 71
+Calibri 11	natural Arial 16		20.25	27	0	7-21	25
+Calibri 11	top H Arial 16	20.25	20.25	27	0	7-21	25
+Calibri 11	top H+13 Arial 16	30	30	40	0	7-21	25
+Calibri 11	top H+14 Arial 16	30.75	30.75	41	0	7-21	25
+Calibri 11	top 2H Arial 16	40.5	40.5	54	0	7-21	25
+Calibri 11	center H Arial 16	20.25	20.25	27	0	7-21	25
+Calibri 11	center H+13 Arial 16	30	30	40	0	13-27	31
+Calibri 11	center H+14 Arial 16	30.75	30.75	41	0	14-28	32
+Calibri 11	center 2H Arial 16	40.5	40.5	54	0	20-34	38
+Calibri 11	bottom H Arial 16	20.25	20.25	27	0	7-21	25
+Calibri 11	bottom H+13 Arial 16	30	30	40	0	20-34	38
+Calibri 11	bottom H+14 Arial 16	30.75	30.75	41	0	21-35	39
+Calibri 11	bottom 2H Arial 16	40.5	40.5	54	0	34-48	52
+Calibri 11	wrapped 2 Arial 16		40.5	54	0	7-21 34-48	25 52
+Calibri 11	wrapped 3 Arial 16		60.75	81	0	7-21 34-48 61-75	25 52 79
+Calibri 11	natural Arial 18		23.25	31	0	8-24	29
+Calibri 11	top H Arial 18	23.25	23.25	31	0	8-24	29
+Calibri 11	top H+13 Arial 18	33	33	44	0	8-24	29
+Calibri 11	top H+14 Arial 18	33.75	33.75	45	0	8-24	29
+Calibri 11	top 2H Arial 18	46.5	46.5	62	0	8-24	29
+Calibri 11	center H Arial 18	23.25	23.25	31	0	8-24	29
+Calibri 11	center H+13 Arial 18	33	33	44	0	14-30	35
+Calibri 11	center H+14 Arial 18	33.75	33.75	45	0	15-31	36
+Calibri 11	center 2H Arial 18	46.5	46.5	62	0	23-39	44
+Calibri 11	bottom H Arial 18	23.25	23.25	31	0	8-24	29
+Calibri 11	bottom H+13 Arial 18	33	33	44	0	21-37	42
+Calibri 11	bottom H+14 Arial 18	33.75	33.75	45	0	22-38	43
+Calibri 11	bottom 2H Arial 18	46.5	46.5	62	0	39-55	60
+Calibri 11	wrapped 2 Arial 18		46.5	62	0	8-24 39-55	29 60
+Calibri 11	wrapped 3 Arial 18		69.75	93	0	8-24 39-55 70-86	29 60 91
+Calibri 11	natural Arial 20		25.5	34	0	8-27	32
+Calibri 11	top H Arial 20	25.5	25.5	34	0	8-27	32
+Calibri 11	top H+13 Arial 20	35.25	35.25	47	0	8-27	32
+Calibri 11	top H+14 Arial 20	36	36	48	0	8-27	32
+Calibri 11	top 2H Arial 20	51	51	68	0	8-27	32
+Calibri 11	center H Arial 20	25.5	25.5	34	0	8-27	32
+Calibri 11	center H+13 Arial 20	35.25	35.25	47	0	14-33	38
+Calibri 11	center H+14 Arial 20	36	36	48	0	15-34	39
+Calibri 11	center 2H Arial 20	51	51	68	0	25-44	49
+Calibri 11	bottom H Arial 20	25.5	25.5	34	0	8-27	32
+Calibri 11	bottom H+13 Arial 20	35.25	35.25	47	0	21-40	45
+Calibri 11	bottom H+14 Arial 20	36	36	48	0	22-41	46
+Calibri 11	bottom 2H Arial 20	51	51	68	0	42-61	66
+Calibri 11	wrapped 2 Arial 20		51	68	0	8-27 42-61	32 66
+Calibri 11	wrapped 3 Arial 20		76.5	102	0	8-27 42-61 76-95	32 66 100
+Calibri 11	natural Arial 24		30	40	0	10-32	38
+Calibri 11	top H Arial 24	30	30	40	0	10-32	38
+Calibri 11	top H+13 Arial 24	39.75	39.75	53	0	10-32	38
+Calibri 11	top H+14 Arial 24	40.5	40.5	54	0	10-32	38
+Calibri 11	top 2H Arial 24	60	60	80	0	10-32	38
+Calibri 11	center H Arial 24	30	30	40	0	10-32	38
+Calibri 11	center H+13 Arial 24	39.75	39.75	53	0	16-38	44
+Calibri 11	center H+14 Arial 24	40.5	40.5	54	0	17-39	45
+Calibri 11	center 2H Arial 24	60	60	80	0	30-52	58
+Calibri 11	bottom H Arial 24	30	30	40	0	10-32	38
+Calibri 11	bottom H+13 Arial 24	39.75	39.75	53	0	23-45	51
+Calibri 11	bottom H+14 Arial 24	40.5	40.5	54	0	24-46	52
+Calibri 11	bottom 2H Arial 24	60	60	80	0	50-72	78
+Calibri 11	wrapped 2 Arial 24		60	80	0	10-32 50-72	38 78
+Calibri 11	wrapped 3 Arial 24		90	120	0	10-32 50-72 90-112	38 78 118
+Calibri 11	natural Calibri 11 bold		15	20	0	7-15	18
+Calibri 11	top H+13 Calibri 11 bold	24.75	24.75	33	0	7-15	18
+Calibri 11	center H+13 Calibri 11 bold	24.75	24.75	33	0	13-21	24
+Calibri 11	bottom H+13 Calibri 11 bold	24.75	24.75	33	0	20-28	31
+Calibri 11	natural Calibri 11 italic		15	20	0	7-15	18
+Calibri 11	top H+13 Calibri 11 italic	24.75	24.75	33	0	7-15	18
+Calibri 11	center H+13 Calibri 11 italic	24.75	24.75	33	0	13-21	24
+Calibri 11	bottom H+13 Calibri 11 italic	24.75	24.75	33	0	20-28	31
+Calibri 11	natural Calibri 11 bold italic		15	20	0	7-15	18
+Calibri 11	top H+13 Calibri 11 bold italic	24.75	24.75	33	0	7-15	18
+Calibri 11	center H+13 Calibri 11 bold italic	24.75	24.75	33	0	13-21	24
+Calibri 11	bottom H+13 Calibri 11 bold italic	24.75	24.75	33	0	20-28	31
+Calibri 11	natural Calibri 12 bold		15.75	21	0	7-16	19
+Calibri 11	top H+13 Calibri 12 bold	25.5	25.5	34	0	7-16	19
+Calibri 11	center H+13 Calibri 12 bold	25.5	25.5	34	0	13-22	25
+Calibri 11	bottom H+13 Calibri 12 bold	25.5	25.5	34	0	20-29	32
+Calibri 11	natural Calibri 12 italic		15.75	21	0	7-16	19
+Calibri 11	top H+13 Calibri 12 italic	25.5	25.5	34	0	7-16	19
+Calibri 11	center H+13 Calibri 12 italic	25.5	25.5	34	0	13-22	25
+Calibri 11	bottom H+13 Calibri 12 italic	25.5	25.5	34	0	20-29	32
+Calibri 11	natural Calibri 12 bold italic		15.75	21	0	7-16	19
+Calibri 11	top H+13 Calibri 12 bold italic	25.5	25.5	34	0	7-16	19
+Calibri 11	center H+13 Calibri 12 bold italic	25.5	25.5	34	0	13-22	25
+Calibri 11	bottom H+13 Calibri 12 bold italic	25.5	25.5	34	0	20-29	32
+Calibri 11	natural Calibri 20 bold		26.25	35	0	11-27	32
+Calibri 11	top H+13 Calibri 20 bold	36	36	48	0	11-27	32
+Calibri 11	center H+13 Calibri 20 bold	36	36	48	0	17-33	38
+Calibri 11	bottom H+13 Calibri 20 bold	36	36	48	0	24-40	45
+Calibri 11	natural Calibri 20 italic		26.25	35	0	11-27	32
+Calibri 11	top H+13 Calibri 20 italic	36	36	48	0	11-27	32
+Calibri 11	center H+13 Calibri 20 italic	36	36	48	0	17-33	38
+Calibri 11	bottom H+13 Calibri 20 italic	36	36	48	0	24-40	45
+Calibri 11	natural Calibri 20 bold italic		26.25	35	0	11-27	32
+Calibri 11	top H+13 Calibri 20 bold italic	36	36	48	0	11-27	32
+Calibri 11	center H+13 Calibri 20 bold italic	36	36	48	0	17-33	38
+Calibri 11	bottom H+13 Calibri 20 bold italic	36	36	48	0	24-40	45
+Calibri 11	natural Aptos Narrow 11 bold		15	20	0	6-15	18
+Calibri 11	top H+13 Aptos Narrow 11 bold	24.75	24.75	33	0	6-15	18
+Calibri 11	center H+13 Aptos Narrow 11 bold	24.75	24.75	33	0	12-21	24
+Calibri 11	bottom H+13 Aptos Narrow 11 bold	24.75	24.75	33	0	19-28	31
+Calibri 11	natural Aptos Narrow 11 italic		15	20	0	6-15	18
+Calibri 11	top H+13 Aptos Narrow 11 italic	24.75	24.75	33	0	6-15	18
+Calibri 11	center H+13 Aptos Narrow 11 italic	24.75	24.75	33	0	12-21	24
+Calibri 11	bottom H+13 Aptos Narrow 11 italic	24.75	24.75	33	0	19-28	31
+Calibri 11	natural Aptos Narrow 11 bold italic		15	20	0	6-15	18
+Calibri 11	top H+13 Aptos Narrow 11 bold italic	24.75	24.75	33	0	6-15	18
+Calibri 11	center H+13 Aptos Narrow 11 bold italic	24.75	24.75	33	0	12-21	24
+Calibri 11	bottom H+13 Aptos Narrow 11 bold italic	24.75	24.75	33	0	19-28	31
+Calibri 11	natural Aptos Narrow 12 bold		15.75	21	0	6-16	19
+Calibri 11	top H+13 Aptos Narrow 12 bold	25.5	25.5	34	0	6-16	19
+Calibri 11	center H+13 Aptos Narrow 12 bold	25.5	25.5	34	0	12-22	25
+Calibri 11	bottom H+13 Aptos Narrow 12 bold	25.5	25.5	34	0	19-29	32
+Calibri 11	natural Aptos Narrow 12 italic		15.75	21	0	6-16	19
+Calibri 11	top H+13 Aptos Narrow 12 italic	25.5	25.5	34	0	6-16	19
+Calibri 11	center H+13 Aptos Narrow 12 italic	25.5	25.5	34	0	12-22	25
+Calibri 11	bottom H+13 Aptos Narrow 12 italic	25.5	25.5	34	0	19-29	32
+Calibri 11	natural Aptos Narrow 12 bold italic		15.75	21	0	6-16	19
+Calibri 11	top H+13 Aptos Narrow 12 bold italic	25.5	25.5	34	0	6-16	19
+Calibri 11	center H+13 Aptos Narrow 12 bold italic	25.5	25.5	34	0	12-22	25
+Calibri 11	bottom H+13 Aptos Narrow 12 bold italic	25.5	25.5	34	0	19-29	32
+Calibri 11	natural Aptos Narrow 20 bold		26.25	35	0	10-27	32
+Calibri 11	top H+13 Aptos Narrow 20 bold	36	36	48	0	10-27	32
+Calibri 11	center H+13 Aptos Narrow 20 bold	36	36	48	0	16-33	38
+Calibri 11	bottom H+13 Aptos Narrow 20 bold	36	36	48	0	23-40	45
+Calibri 11	natural Aptos Narrow 20 italic		26.25	35	0	10-27	32
+Calibri 11	top H+13 Aptos Narrow 20 italic	36	36	48	0	10-27	32
+Calibri 11	center H+13 Aptos Narrow 20 italic	36	36	48	0	16-33	38
+Calibri 11	bottom H+13 Aptos Narrow 20 italic	36	36	48	0	23-40	45
+Calibri 11	natural Aptos Narrow 20 bold italic		26.25	35	0	10-27	32
+Calibri 11	top H+13 Aptos Narrow 20 bold italic	36	36	48	0	10-27	32
+Calibri 11	center H+13 Aptos Narrow 20 bold italic	36	36	48	0	16-33	38
+Calibri 11	bottom H+13 Aptos Narrow 20 bold italic	36	36	48	0	23-40	45
+Calibri 11	natural Arial 11 bold		15	20	0	5-15	18
+Calibri 11	top H+13 Arial 11 bold	24.75	24.75	33	0	5-15	18
+Calibri 11	center H+13 Arial 11 bold	24.75	24.75	33	0	11-21	24
+Calibri 11	bottom H+13 Arial 11 bold	24.75	24.75	33	0	18-28	31
+Calibri 11	natural Arial 11 italic		15	20	0	5-15	18
+Calibri 11	top H+13 Arial 11 italic	24	24	32	0	5-15	18
+Calibri 11	center H+13 Arial 11 italic	24	24	32	0	11-21	24
+Calibri 11	bottom H+13 Arial 11 italic	24	24	32	0	17-27	30
+Calibri 11	natural Arial 11 bold italic		15	20	0	5-15	18
+Calibri 11	top H+13 Arial 11 bold italic	24	24	32	0	5-15	18
+Calibri 11	center H+13 Arial 11 bold italic	24	24	32	0	11-21	24
+Calibri 11	bottom H+13 Arial 11 bold italic	24	24	32	0	17-27	30
+Calibri 11	natural Arial 12 bold		15.75	21	0	5-16	19
+Calibri 11	top H+13 Arial 12 bold	25.5	25.5	34	0	5-16	19
+Calibri 11	center H+13 Arial 12 bold	25.5	25.5	34	0	11-22	25
+Calibri 11	bottom H+13 Arial 12 bold	25.5	25.5	34	0	18-29	32
+Calibri 11	natural Arial 12 italic		15.75	21	0	5-16	19
+Calibri 11	top H+13 Arial 12 italic	24.75	24.75	33	0	5-16	19
+Calibri 11	center H+13 Arial 12 italic	24.75	24.75	33	0	11-22	25
+Calibri 11	bottom H+13 Arial 12 italic	24.75	24.75	33	0	17-28	31
+Calibri 11	natural Arial 12 bold italic		15.75	21	0	5-16	19
+Calibri 11	top H+13 Arial 12 bold italic	24.75	24.75	33	0	5-16	19
+Calibri 11	center H+13 Arial 12 bold italic	24.75	24.75	33	0	11-22	25
+Calibri 11	bottom H+13 Arial 12 bold italic	24.75	24.75	33	0	17-28	31
+Calibri 11	natural Arial 20 bold		26.25	35	0	8-27	32
+Calibri 11	top H+13 Arial 20 bold	36	36	48	0	8-27	32
+Calibri 11	center H+13 Arial 20 bold	36	36	48	0	14-33	38
+Calibri 11	bottom H+13 Arial 20 bold	36	36	48	0	21-40	45
+Calibri 11	natural Arial 20 italic		25.5	34	0	8-27	32
+Calibri 11	top H+13 Arial 20 italic	35.25	35.25	47	0	8-27	32
+Calibri 11	center H+13 Arial 20 italic	35.25	35.25	47	0	14-33	38
+Calibri 11	bottom H+13 Arial 20 italic	35.25	35.25	47	0	21-40	45
+Calibri 11	natural Arial 20 bold italic		25.5	34	0	8-27	32
+Calibri 11	top H+13 Arial 20 bold italic	35.25	35.25	47	0	8-27	32
+Calibri 11	center H+13 Arial 20 bold italic	35.25	35.25	47	0	14-33	38
+Calibri 11	bottom H+13 Arial 20 bold italic	35.25	35.25	48	0	21-40	45
+Calibri 9	natural Calibri 9		12	16	0	5-12	14
+Calibri 9	top H+13 Calibri 9	21.75	21.75	29	0	5-12	14
+Calibri 9	center H+13 Calibri 9	21.75	21.75	29	0	11-18	20
+Calibri 9	bottom H+13 Calibri 9	21.75	21.75	29	0	18-25	27
+Calibri 9	natural Calibri 11		15	20	0	7-15	18
+Calibri 9	top H+13 Calibri 11	24.75	24.75	33	0	7-15	18
+Calibri 9	center H+13 Calibri 11	24.75	24.75	33	0	13-21	24
+Calibri 9	bottom H+13 Calibri 11	24.75	24.75	33	0	20-28	31
+Calibri 9	natural Calibri 20		26.25	35	0	11-27	32
+Calibri 9	top H+13 Calibri 20	36	36	48	0	11-27	32
+Calibri 9	center H+13 Calibri 20	36	36	48	0	17-33	38
+Calibri 9	bottom H+13 Calibri 20	36	36	48	0	24-40	45
+Calibri 9	natural Aptos Narrow 9		12	16	0	5-12	14
+Calibri 9	top H+13 Aptos Narrow 9	21.75	21.75	29	0	5-12	14
+Calibri 9	center H+13 Aptos Narrow 9	21.75	21.75	29	0	11-18	20
+Calibri 9	bottom H+13 Aptos Narrow 9	21.75	21.75	29	0	18-25	27
+Calibri 9	natural Aptos Narrow 11		15	20	0	6-15	18
+Calibri 9	top H+13 Aptos Narrow 11	24.75	24.75	33	0	6-15	18
+Calibri 9	center H+13 Aptos Narrow 11	24.75	24.75	33	0	12-21	24
+Calibri 9	bottom H+13 Aptos Narrow 11	24.75	24.75	33	0	19-28	31
+Calibri 9	natural Aptos Narrow 20		26.25	35	0	10-27	32
+Calibri 9	top H+13 Aptos Narrow 20	36	36	48	0	10-27	32
+Calibri 9	center H+13 Aptos Narrow 20	36	36	48	0	16-33	38
+Calibri 9	bottom H+13 Aptos Narrow 20	36	36	48	0	23-40	45
+Calibri 9	natural Arial 9		12	16	0	4-12	14
+Calibri 9	top H+13 Arial 9	21.75	21.75	29	0	4-12	14
+Calibri 9	center H+13 Arial 9	21.75	21.75	29	0	10-18	20
+Calibri 9	bottom H+13 Arial 9	21.75	21.75	29	0	17-25	27
+Calibri 9	natural Arial 11		14.25	19	0	5-15	18
+Calibri 9	top H+13 Arial 11	24	24	32	0	5-15	18
+Calibri 9	center H+13 Arial 11	24	24	32	0	11-21	24
+Calibri 9	bottom H+13 Arial 11	24	24	32	0	18-28	31
+Calibri 9	natural Arial 20		25.5	34	0	8-27	32
+Calibri 9	top H+13 Arial 20	35.25	35.25	47	0	8-27	32
+Calibri 9	center H+13 Arial 20	35.25	35.25	47	0	14-33	38
+Calibri 9	bottom H+13 Arial 20	35.25	35.25	48	0	21-40	45
+Calibri 20	natural Calibri 9		26.25	35	0	20-27	29
+Calibri 20	top H+13 Calibri 9	21.75	21.75	29	0	5-12	14
+Calibri 20	center H+13 Calibri 9	21.75	21.75	29	0	11-18	20
+Calibri 20	bottom H+13 Calibri 9	21.75	21.75	29	0	14-21	23
+Calibri 20	natural Calibri 11		26.25	35	0	19-27	30
+Calibri 20	top H+13 Calibri 11	24.75	24.75	33	0	7-15	18
+Calibri 20	center H+13 Calibri 11	24.75	24.75	33	0	13-21	24
+Calibri 20	bottom H+13 Calibri 11	24.75	24.75	33	0	17-25	28
+Calibri 20	natural Calibri 20		26.25	35	0	11-27	32
+Calibri 20	top H+13 Calibri 20	36	36	48	0	11-27	32
+Calibri 20	center H+13 Calibri 20	36	36	48	0	17-33	38
+Calibri 20	bottom H+13 Calibri 20	36	36	48	0	24-40	45
+Calibri 20	natural Aptos Narrow 9		26.25	35	0	20-27	29
+Calibri 20	top H+13 Aptos Narrow 9	21.75	21.75	29	0	5-12	14
+Calibri 20	center H+13 Aptos Narrow 9	21.75	21.75	29	0	11-18	20
+Calibri 20	bottom H+13 Aptos Narrow 9	21.75	21.75	29	0	14-21	23
+Calibri 20	natural Aptos Narrow 11		26.25	35	0	18-27	30
+Calibri 20	top H+13 Aptos Narrow 11	24.75	24.75	33	0	6-15	18
+Calibri 20	center H+13 Aptos Narrow 11	24.75	24.75	33	0	12-21	24
+Calibri 20	bottom H+13 Aptos Narrow 11	24.75	24.75	33	0	16-25	28
+Calibri 20	natural Aptos Narrow 20		26.25	35	0	10-27	32
+Calibri 20	top H+13 Aptos Narrow 20	36	36	48	0	10-27	32
+Calibri 20	center H+13 Aptos Narrow 20	36	36	48	0	16-33	38
+Calibri 20	bottom H+13 Aptos Narrow 20	36	36	48	0	23-40	45
+Calibri 20	natural Arial 9		26.25	35	0	19-27	29
+Calibri 20	top H+13 Arial 9	21.75	21.75	29	0	4-12	14
+Calibri 20	center H+13 Arial 9	21.75	21.75	29	0	10-18	20
+Calibri 20	bottom H+13 Arial 9	21.75	21.75	29	0	13-21	23
+Calibri 20	natural Arial 11		26.25	35	0	17-27	30
+Calibri 20	top H+13 Arial 11	24	24	32	0	5-15	18
+Calibri 20	center H+13 Arial 11	24	24	32	0	11-21	24
+Calibri 20	bottom H+13 Arial 11	24	24	32	0	14-24	27
+Calibri 20	natural Arial 20		26.25	35	0	8-27	32
+Calibri 20	top H+13 Arial 20	35.25	35.25	47	0	8-27	32
+Calibri 20	center H+13 Arial 20	35.25	35.25	47	0	14-33	38
+Calibri 20	bottom H+13 Arial 20	35.25	35.25	48	0	20-39	44
+Arial 9	natural Calibri 9		12	16	0	5-12	14
+Arial 9	top H+13 Calibri 9	21.75	21.75	29	0	5-12	14
+Arial 9	center H+13 Calibri 9	21.75	21.75	29	0	11-18	20
+Arial 9	bottom H+13 Calibri 9	21.75	21.75	29	0	18-25	27
+Arial 9	natural Calibri 11		15	20	0	7-15	18
+Arial 9	top H+13 Calibri 11	24.75	24.75	33	0	7-15	18
+Arial 9	center H+13 Calibri 11	24.75	24.75	33	0	13-21	24
+Arial 9	bottom H+13 Calibri 11	24.75	24.75	33	0	20-28	31
+Arial 9	natural Calibri 20		26.25	35	0	11-27	32
+Arial 9	top H+13 Calibri 20	36	36	48	0	11-27	32
+Arial 9	center H+13 Calibri 20	36	36	48	0	17-33	38
+Arial 9	bottom H+13 Calibri 20	36	36	48	0	24-40	45
+Arial 9	natural Aptos Narrow 9		12	16	0	5-12	14
+Arial 9	top H+13 Aptos Narrow 9	21.75	21.75	29	0	5-12	14
+Arial 9	center H+13 Aptos Narrow 9	21.75	21.75	29	0	11-18	20
+Arial 9	bottom H+13 Aptos Narrow 9	21.75	21.75	29	0	18-25	27
+Arial 9	natural Aptos Narrow 11		15	20	0	6-15	18
+Arial 9	top H+13 Aptos Narrow 11	24.75	24.75	33	0	6-15	18
+Arial 9	center H+13 Aptos Narrow 11	24.75	24.75	33	0	12-21	24
+Arial 9	bottom H+13 Aptos Narrow 11	24.75	24.75	33	0	19-28	31
+Arial 9	natural Aptos Narrow 20		26.25	35	0	10-27	32
+Arial 9	top H+13 Aptos Narrow 20	36	36	48	0	10-27	32
+Arial 9	center H+13 Aptos Narrow 20	36	36	48	0	16-33	38
+Arial 9	bottom H+13 Aptos Narrow 20	36	36	48	0	23-40	45
+Arial 9	natural Arial 9		12	16	0	4-12	14
+Arial 9	top H+13 Arial 9	21.75	21.75	29	0	4-12	14
+Arial 9	center H+13 Arial 9	21.75	21.75	29	0	10-18	20
+Arial 9	bottom H+13 Arial 9	21.75	21.75	29	0	17-25	27
+Arial 9	natural Arial 11		14.25	19	0	5-15	18
+Arial 9	top H+13 Arial 11	24	24	32	0	5-15	18
+Arial 9	center H+13 Arial 11	24	24	32	0	11-21	24
+Arial 9	bottom H+13 Arial 11	24	24	32	0	18-28	31
+Arial 9	natural Arial 20		25.5	34	0	8-27	32
+Arial 9	top H+13 Arial 20	35.25	35.25	47	0	8-27	32
+Arial 9	center H+13 Arial 20	35.25	35.25	47	0	14-33	38
+Arial 9	bottom H+13 Arial 20	35.25	35.25	48	0	21-40	45
+Arial 11	natural Calibri 9		14.25	19	0	8-15	17
+Arial 11	top H+13 Calibri 9	21.75	21.75	29	0	5-12	14
+Arial 11	center H+13 Calibri 9	21.75	21.75	29	0	11-18	20
+Arial 11	bottom H+13 Calibri 9	21.75	21.75	29	0	18-25	27
+Arial 11	natural Calibri 11		15	20	0	7-15	18
+Arial 11	top H+13 Calibri 11	24.75	24.75	33	0	7-15	18
+Arial 11	center H+13 Calibri 11	24.75	24.75	33	0	13-21	24
+Arial 11	bottom H+13 Calibri 11	24.75	24.75	33	0	20-28	31
+Arial 11	natural Calibri 20		26.25	35	0	11-27	32
+Arial 11	top H+13 Calibri 20	36	36	48	0	11-27	32
+Arial 11	center H+13 Calibri 20	36	36	48	0	17-33	38
+Arial 11	bottom H+13 Calibri 20	36	36	48	0	24-40	45
+Arial 11	natural Aptos Narrow 9		14.25	19	0	8-15	17
+Arial 11	top H+13 Aptos Narrow 9	21.75	21.75	29	0	5-12	14
+Arial 11	center H+13 Aptos Narrow 9	21.75	21.75	29	0	11-18	20
+Arial 11	bottom H+13 Aptos Narrow 9	21.75	21.75	29	0	18-25	27
+Arial 11	natural Aptos Narrow 11		15	20	0	6-15	18
+Arial 11	top H+13 Aptos Narrow 11	24.75	24.75	33	0	6-15	18
+Arial 11	center H+13 Aptos Narrow 11	24.75	24.75	33	0	12-21	24
+Arial 11	bottom H+13 Aptos Narrow 11	24.75	24.75	33	0	19-28	31
+Arial 11	natural Aptos Narrow 20		26.25	35	0	10-27	32
+Arial 11	top H+13 Aptos Narrow 20	36	36	48	0	10-27	32
+Arial 11	center H+13 Aptos Narrow 20	36	36	48	0	16-33	38
+Arial 11	bottom H+13 Aptos Narrow 20	36	36	48	0	23-40	45
+Arial 11	natural Arial 9		14.25	19	0	7-15	17
+Arial 11	top H+13 Arial 9	21.75	21.75	29	0	4-12	14
+Arial 11	center H+13 Arial 9	21.75	21.75	29	0	10-18	20
+Arial 11	bottom H+13 Arial 9	21.75	21.75	29	0	17-25	27
+Arial 11	natural Arial 11		14.25	19	0	5-15	18
+Arial 11	top H+13 Arial 11	24	24	32	0	5-15	18
+Arial 11	center H+13 Arial 11	24	24	32	0	11-21	24
+Arial 11	bottom H+13 Arial 11	24	24	32	0	18-28	31
+Arial 11	natural Arial 20		25.5	34	0	8-27	32
+Arial 11	top H+13 Arial 20	35.25	35.25	47	0	8-27	32
+Arial 11	center H+13 Arial 20	35.25	35.25	47	0	14-33	38
+Arial 11	bottom H+13 Arial 20	35.25	35.25	48	0	21-40	45
+Aptos Narrow 11	natural Calibri 9		15	20	0	8-15	17
+Aptos Narrow 11	top H+13 Calibri 9	21.75	21.75	29	0	5-12	14
+Aptos Narrow 11	center H+13 Calibri 9	21.75	21.75	29	0	11-18	20
+Aptos Narrow 11	bottom H+13 Calibri 9	21.75	21.75	29	0	17-24	26
+Aptos Narrow 11	natural Calibri 11		15	20	0	7-15	18
+Aptos Narrow 11	top H+13 Calibri 11	24.75	24.75	33	0	7-15	18
+Aptos Narrow 11	center H+13 Calibri 11	24.75	24.75	33	0	13-21	24
+Aptos Narrow 11	bottom H+13 Calibri 11	24.75	24.75	33	0	20-28	31
+Aptos Narrow 11	natural Calibri 20		26.25	35	0	11-27	32
+Aptos Narrow 11	top H+13 Calibri 20	36	36	48	0	11-27	32
+Aptos Narrow 11	center H+13 Calibri 20	36	36	48	0	17-33	38
+Aptos Narrow 11	bottom H+13 Calibri 20	36	36	48	0	24-40	45
+Aptos Narrow 11	natural Aptos Narrow 9		15	20	0	8-15	17
+Aptos Narrow 11	top H+13 Aptos Narrow 9	21.75	21.75	29	0	5-12	14
+Aptos Narrow 11	center H+13 Aptos Narrow 9	21.75	21.75	29	0	11-18	20
+Aptos Narrow 11	bottom H+13 Aptos Narrow 9	21.75	21.75	29	0	17-24	26
+Aptos Narrow 11	natural Aptos Narrow 11		15	20	0	6-15	18
+Aptos Narrow 11	top H+13 Aptos Narrow 11	24.75	24.75	33	0	6-15	18
+Aptos Narrow 11	center H+13 Aptos Narrow 11	24.75	24.75	33	0	12-21	24
+Aptos Narrow 11	bottom H+13 Aptos Narrow 11	24.75	24.75	33	0	19-28	31
+Aptos Narrow 11	natural Aptos Narrow 20		26.25	35	0	10-27	32
+Aptos Narrow 11	top H+13 Aptos Narrow 20	36	36	48	0	10-27	32
+Aptos Narrow 11	center H+13 Aptos Narrow 20	36	36	48	0	16-33	38
+Aptos Narrow 11	bottom H+13 Aptos Narrow 20	36	36	48	0	23-40	45
+Aptos Narrow 11	natural Arial 9		15	20	0	7-15	17
+Aptos Narrow 11	top H+13 Arial 9	21.75	21.75	29	0	4-12	14
+Aptos Narrow 11	center H+13 Arial 9	21.75	21.75	29	0	10-18	20
+Aptos Narrow 11	bottom H+13 Arial 9	21.75	21.75	29	0	16-24	26
+Aptos Narrow 11	natural Arial 11		15	20	0	5-15	18
+Aptos Narrow 11	top H+13 Arial 11	24	24	32	0	5-15	18
+Aptos Narrow 11	center H+13 Arial 11	24	24	32	0	11-21	24
+Aptos Narrow 11	bottom H+13 Arial 11	24	24	32	0	17-27	30
+Aptos Narrow 11	natural Arial 20		25.5	34	0	8-27	32
+Aptos Narrow 11	top H+13 Arial 20	35.25	35.25	47	0	8-27	32
+Aptos Narrow 11	center H+13 Arial 20	35.25	35.25	47	0	14-33	38
+Aptos Narrow 11	bottom H+13 Arial 20	35.25	35.25	48	0	21-40	45
