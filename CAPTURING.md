@@ -1492,6 +1492,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       in the file's list (counting from 0), and the cells before it in its row are drawn in
       their own fonts. Rows from 202 on keep 15 points, fitted to that font: 172 rows, a gap
       in this capture. The other 14 workbooks define at most 301 fonts and are drawn as built.
+      Observed on Excel for Windows: in that workbook, cells whose font is number 1,000 or later
+      in the font list were drawn in the default font.
     - Against items 73 and 75 at the sizes and zooms both hold (zoom 75, 100, 150 and 200,
       measured from the baseline, a double from its single's): every top, thickness and gap
       of the single, strikethrough, single accounting and double underlines agrees (90 of 90

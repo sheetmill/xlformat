@@ -38,6 +38,10 @@ Groups:
   (``capture/screen_table.py``).
 - ``screen_rules_table_arial``: the cells of ``screen_rules_table`` drawn in the default font,
   Arial from 29 points at zoom 150 and 200, again.
+- ``screen_rules_table_high``: the ppems from 193 to 384 ``screen_rules_table`` left out, once
+  each: both faces' double underlines, and Calibri's single, strikethrough and single
+  accounting underlines; and Aptos Narrow under every rule at every ppem to 11 and every eighth
+  from 200 to 384, each at two zooms (384 at one).
 """
 
 from __future__ import annotations
@@ -57,11 +61,16 @@ from capture.screen_rules import DOUBLE_RULES, DOUBLE_SIZES, measure_rules
 from capture.screen_rules import Case as RuleCase
 from capture.screen_rules import build as build_rules
 from capture.screen_table import (
+    APTOS,
     ARIAL_AGAIN,
+    HIGH_RULES,
     MIN_MARKER_PX,
+    TABLE_FACES,
     TableRow,
+    aptos_books,
     column_chars,
     cover,
+    high_books,
     measure_table,
     table_rows,
     unmeasured_table,
@@ -87,6 +96,7 @@ SCREEN_GROUPS = (
     "screen_rules_fresh",
     "screen_rules_table",
     "screen_rules_table_arial",
+    "screen_rules_table_high",
 )
 _PURPOSE = {
     "screen_pilot": "window pictures of text placement and of underlines and strikethrough",
@@ -97,6 +107,7 @@ _PURPOSE = {
     "screen_rules_fresh": "window pictures of underlines and strikethrough at new sizes and zooms",
     "screen_rules_table": "window pictures of underlines and strikethrough at every ppem",
     "screen_rules_table_arial": "window pictures of underlines and strikethrough in Arial again",
+    "screen_rules_table_high": "window pictures of underlines and strikethrough at large ppems",
 }
 
 
@@ -276,6 +287,26 @@ def _books(group: str) -> list[Book]:
     if group == "screen_rules_fresh":
         cases = _rule_cases(FAMILIES, FRESH_SIZES, DOUBLE_RULES)
         return [Book("rules_fresh", "rules", tuple(cases), FRESH_ZOOMS)]
+    if group == "screen_rules_table_high":
+        high = [
+            Book(
+                f"table_high_z{zoom}_{part}",
+                "table",
+                tuple(table_rows(zoom, sizes, TABLE_FACES, HIGH_RULES)),
+                (zoom,),
+            )
+            for zoom, part, sizes in high_books()
+        ]
+        aptos = [
+            Book(
+                f"table_aptos_z{zoom}_{part}",
+                "table",
+                tuple(table_rows(zoom, sizes, (APTOS,))),
+                (zoom,),
+            )
+            for zoom, part, sizes in aptos_books()
+        ]
+        return high + aptos
     if group == "screen_rules_table_arial":
         return [
             Book(

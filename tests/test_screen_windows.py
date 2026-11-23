@@ -283,9 +283,45 @@ def test_a_table_workbook_stays_under_the_points_seen_to_fail() -> None:
     not separated from the fonts there). screen_rules_table ran before this was known."""
     from capture.screen_table import MAX_FONTS
 
-    for book in books("screen_rules_table_arial"):
+    for book in books("screen_rules_table_arial") + books("screen_rules_table_high"):
         fonts = {(c.face, c.size, r) for c in book.cases if hasattr(c, "rules") for r in c.rules}
         assert len(fonts) + 1 < MAX_FONTS
         assert len(book.cases) < 1400
         assert sum(estimated_points(book)) < 7000
     assert MAX_FONTS <= 900
+
+
+def test_the_high_table_draws_each_left_out_ppem_once() -> None:
+    from capture.screen_table import HIGH_RULES, high_wanted, ppem
+
+    drawn: dict[tuple[str, int, str], int] = {}
+    for book in books("screen_rules_table_high"):
+        (zoom,) = book.zooms
+        for row in book.cases:
+            for rule in getattr(row, "rules", ()):
+                if row.face in HIGH_RULES:
+                    key = (row.face, ppem(row.size, zoom), rule)
+                    drawn[key] = drawn.get(key, 0) + 1
+    wanted = {p for p in range(193, 385) if high_wanted(p)}
+    assert wanted == {p for p in range(193, 384) if p % 8}
+    for face, rules in HIGH_RULES.items():
+        for rule in rules:
+            assert {p for (f, p, r) in drawn if f == face and r == rule} == wanted
+    assert set(drawn.values()) == {1}
+
+
+def test_the_high_group_draws_aptos_narrow_small_and_sampled_at_two_zooms() -> None:
+    from capture.screen_table import APTOS, APTOS_MIN_ZOOM, TABLE_RULES, ppem
+
+    zooms: dict[tuple[int, str], set[int]] = {}
+    for book in books("screen_rules_table_high"):
+        (zoom,) = book.zooms
+        for row in book.cases:
+            for rule in getattr(row, "rules", ()):
+                if row.face == APTOS:
+                    assert zoom >= APTOS_MIN_ZOOM
+                    zooms.setdefault((ppem(row.size, zoom), rule), set()).add(zoom)
+    expected = [*range(1, 12), *range(200, 384, 8)]
+    for rule in TABLE_RULES:
+        assert {p for p, r in zooms if r == rule} == {*expected, 384}
+        assert all(len(zooms[(p, rule)]) >= 2 for p in expected)

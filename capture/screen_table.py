@@ -27,7 +27,7 @@ the default font (Arial from 29 points), a workbook a zoom, each well under ``MA
 from __future__ import annotations
 
 import math
-from collections.abc import Iterable, Sequence
+from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -56,6 +56,70 @@ ARIAL_AGAIN = tuple(
     for part, (lo, hi) in enumerate(((29.0, 50.0), (50.5, 72.0)), 1)
 )
 MAX_FONTS = 900  # a workbook's fonts: cells past the 1,000th were drawn in the default font
+# screen_rules_table_high: the ppems from 193 to 384 the sample left out (not a multiple of 8),
+# once each: both faces' doubles, and Calibri's single, strikethrough and single accounting too
+# (to test its lines from ppem 171, a pixel higher than item 77's rules, as a prediction)
+HIGH_RULES = {
+    "Calibri": TABLE_RULES,
+    "Arial": ("double", "doubleAccounting"),
+}
+HIGH_ROW_POINTS = 5500  # a workbook's rows as planned, roughly (``high_books`` splits by it)
+# Aptos Narrow, Excel for Windows' standard font, in the same group: every ppem to 11 at two
+# zooms from 25 (column A about 8 pixels; at zoom 15 the reader found no marker), and every eighth
+# ppem from 200 to 384 at two (384 at zoom 400 only), each under every rule
+APTOS = "Aptos Narrow"
+APTOS_MIN_ZOOM = 25
+
+
+def aptos_small_wanted(p: int) -> int:
+    return 2 if p <= 11 else 0
+
+
+def aptos_high_wanted(p: int) -> int:
+    return 2 if 193 <= p <= MAX_PPEM and p % 8 == 0 else 0
+
+
+def high_wanted(p: int) -> int:
+    return 1 if 193 <= p <= MAX_PPEM and wanted(p) == 0 else 0
+
+
+def high_books() -> list[tuple[int, int, tuple[float, ...]]]:
+    """(zoom, part, sizes) of the high group: the cover of ``high_wanted``, each zoom's sizes
+    split into parts of about ``HIGH_ROW_POINTS`` of rows (accounting rows about 1.75 em)."""
+    cells = tuple(len(HIGH_RULES[f]) for f in TABLE_FACES)
+    return _split(cover({}, high_wanted, cells), TABLE_FACES, HIGH_RULES)
+
+
+def aptos_books() -> list[tuple[int, int, tuple[float, ...]]]:
+    """(zoom, part, sizes) of Aptos Narrow's cells in the high group (``APTOS``)."""
+    rules = {APTOS: TABLE_RULES}
+    small = cover({}, aptos_small_wanted, (5,), APTOS_MIN_ZOOM)
+    high = cover({}, aptos_high_wanted, (5,), APTOS_MIN_ZOOM)
+    return _split(small, (APTOS,), rules) + _split(high, (APTOS,), rules)
+
+
+def _split(
+    chosen: dict[int, tuple[float, ...]],
+    faces: Sequence[str],
+    rules_of: dict[str, tuple[str, ...]],
+) -> list[tuple[int, int, tuple[float, ...]]]:
+    """Each zoom's sizes in parts of about ``HIGH_ROW_POINTS`` of rows (accounting rows about
+    1.75 em)."""
+    out = []
+    for zoom, sizes in chosen.items():
+        k = columns(zoom, sizes)
+        rows = sum(math.ceil(len(rules_of[f]) / k) for f in faces)
+        part, chunk, used = 1, [], 0.0
+        for s in sizes:
+            if chunk and used + rows * 1.75 * s > HIGH_ROW_POINTS:
+                out.append((zoom, part, tuple(chunk)))
+                part, chunk, used = part + 1, [], 0.0
+            chunk.append(s)
+            used += rows * 1.75 * s
+        out.append((zoom, part, tuple(chunk)))
+    return out
+
+
 # the advance of "H" in em, the wider face's setting the columns' width
 ADVANCE = {"Calibri": 1276 / 2048, "Arial": 1479 / 2048}
 WINDOW_PX = 2560  # Excel's window at 96 dpi, maximized on the runner's display
@@ -95,30 +159,39 @@ def columns(zoom: int, sizes: Sequence[float]) -> int:
     return max(1, min(len(TABLE_RULES), int(room // width)))
 
 
-def _cost(zoom: int, sizes: Sequence[float]) -> float:
-    """A zoom's pictures, roughly: rows a fifth taller than 1.2 em, and one more per face."""
+def _cost(zoom: int, sizes: Sequence[float], cells: Sequence[int] = (5, 5)) -> float:
+    """A zoom's pictures, roughly: rows a fifth taller than 1.2 em, and one more per face
+    (``cells``: each face's rule cells)."""
     k = columns(zoom, sizes)
-    rows = math.ceil(len(TABLE_RULES) / k)
-    px = sum(rows * 1.45 * s * 4 / 3 * zoom / 100 for s in sizes)
-    return len(TABLE_FACES) * (px / 1000 + 1)
+    faces = [sum(math.ceil(n / k) * 1.45 * s * 4 / 3 * zoom / 100 for s in sizes) for n in cells]
+    return sum(px / 1000 + 1 for px in faces)
 
 
-def cover() -> dict[int, tuple[float, ...]]:
-    """Each zoom's sizes: ``FIRST``, then zooms chosen greedily, most ppems still wanted per
-    picture first (the lower zoom on a tie), until every ppem is drawn as often as ``wanted``
-    asks and can be (at different zooms; a size a ppem at a zoom, the smallest)."""
+def cover(
+    first: dict[int, tuple[float, ...]] | None = None,
+    want_of: Callable[[int], int] = wanted,
+    cells: Sequence[int] = (5, 5),
+    min_zoom: int = ZOOMS[0],
+) -> dict[int, tuple[float, ...]]:
+    """Each zoom's sizes: ``first`` (``FIRST`` when None), then zooms chosen greedily, most ppems
+    still wanted per picture first (the lower zoom on a tie), until every ppem is drawn as often
+    as ``want_of`` asks and can be (at different zooms from ``min_zoom``; a size a ppem at a
+    zoom, the smallest)."""
+    first = FIRST if first is None else first
     reach: dict[int, dict[int, float]] = {}
     for z in ZOOMS:
+        if z < min_zoom:
+            continue
         found: dict[int, float] = {}
         for s in SIZES:
             p = ppem(s, z)
             if 1 <= p <= MAX_PPEM:
                 found.setdefault(p, s)
         reach[z] = found
-    want = {p: min(wanted(p), sum(p in r for r in reach.values())) for p in range(1, MAX_PPEM + 1)}
+    want = {p: min(want_of(p), sum(p in r for r in reach.values())) for p in range(1, MAX_PPEM + 1)}
     drawn = dict.fromkeys(want, 0)
     chosen: dict[int, tuple[float, ...]] = {}
-    for z, sizes in FIRST.items():
+    for z, sizes in first.items():
         chosen[z] = tuple(sizes)
         for p in {ppem(s, z) for s in sizes}:
             drawn[p] += 1
@@ -127,13 +200,13 @@ def cover() -> dict[int, tuple[float, ...]]:
         if not need:
             break
         best, best_gain = 0, 0.0
-        for z in ZOOMS:
+        for z in reach:
             if z in chosen:
                 continue
             got = need & reach[z].keys()
             if not got:
                 continue
-            gain = len(got) / _cost(z, [reach[z][p] for p in got])
+            gain = len(got) / _cost(z, [reach[z][p] for p in got], cells)
             if gain > best_gain:
                 best, best_gain = z, gain
         got = need & reach[best].keys()
@@ -155,16 +228,21 @@ class TableRow:
 
 
 def table_rows(
-    zoom: int, sizes: Sequence[float], faces: Sequence[str] = TABLE_FACES
+    zoom: int,
+    sizes: Sequence[float],
+    faces: Sequence[str] = TABLE_FACES,
+    rules_of: dict[str, tuple[str, ...]] | None = None,
 ) -> list[TableRow]:
-    """The rows of zoom ``zoom``'s workbook: each face at each size, the rules ``columns`` a
-    row, then 20 fillers, so that the sheet does not end on rows taller than a view."""
+    """The rows of zoom ``zoom``'s workbook: each face at each size under its rules
+    (``rules_of``, every rule when None), ``columns`` a row, then 20 fillers, so that the sheet
+    does not end on rows taller than a view."""
     k = columns(zoom, sizes)
     out: list[TableRow] = []
     for face in faces:
+        face_rules = TABLE_RULES if rules_of is None else rules_of[face]
         for size in sizes:
-            for i in range(0, len(TABLE_RULES), k):
-                rules = TABLE_RULES[i : i + k]
+            for i in range(0, len(face_rules), k):
+                rules = face_rules[i : i + k]
                 if _tall(size, zoom) or (out and out[-1].rules and _tall(out[-1].size, zoom)):
                     out.append(TableRow(f"gap {len(out)}"))
                 out.append(TableRow(f"{face} {size:g} {'+'.join(rules)}", face, size, rules))
