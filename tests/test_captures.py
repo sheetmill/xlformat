@@ -20,7 +20,7 @@ from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 import pytest
-from capture.schema import Row, read_rows
+from capture.schema import Row, read_header, read_rows
 
 from xlformat import (
     DEFAULT_PALETTE,
@@ -445,9 +445,9 @@ def test_color_misreports_are_all_used() -> None:
     """Every listed color misreport names a captured row: an unused entry is stale."""
     used: set[tuple[str, str]] = set()
     for path in SUITE_FILES:
-        header, rows = read_rows(path)
-        if "colors=" not in header.get("method", ""):
+        if "colors=" not in read_header(path).get("method", ""):
             continue
+        _, rows = read_rows(path)
         used.update((r.format, r.value_repr) for r in rows if r.expected_color)
     unused = sorted(set(DISPLAY_FORMAT_COLOR_MISREPORTS) - used)
     assert not unused, f"color misreports no captured row has: {unused}"

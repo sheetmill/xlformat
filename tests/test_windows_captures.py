@@ -18,7 +18,7 @@ import pytest
 pytest.importorskip("openpyxl")
 
 from capture.job import GROUPS, write
-from capture.schema import read_rows
+from capture.schema import read_header
 
 WINDOWS = Path(__file__).parent / "captures" / "windows"
 # the groups whose job writes one layout file instead of suite files
@@ -42,7 +42,7 @@ def _header(group: str) -> dict[str, object]:
     headers = []
     for name in GROUPS[group]:
         path = next(p for p in (WINDOWS / f"{name}.tsv", WINDOWS / f"{name}.tsv.gz") if p.exists())
-        meta, _ = read_rows(path)
+        meta = read_header(path)
         assert meta["job"] == f"{group}.job.json"
         headers.append(meta["job_header"])
     assert len(set(headers)) == 1

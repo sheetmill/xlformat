@@ -57,12 +57,21 @@ class Row:
         """The Python value: ``None`` for ``NoneType``, else ``literal_eval`` of the repr."""
         if self.value_type == "NoneType":
             return None
+        # float() and int() read a float's or an int's repr as literal_eval does, faster.
+        if self.value_type == "float":
+            return float(self.value_repr)
+        if self.value_type == "int":
+            return int(self.value_repr)
         return literal_eval(self.value_repr)
 
     @property
     def format_string(self) -> str:
         """The format string itself (the stored column is its repr)."""
-        result = literal_eval(self.format)
+        stored = self.format
+        # A quoted repr without a backslash holds the string itself between its quotes.
+        if len(stored) >= 2 and stored[0] == stored[-1] in "'\"" and "\\" not in stored:
+            return stored[1:-1]
+        result = literal_eval(stored)
         assert isinstance(result, str)
         return result
 
@@ -90,6 +99,18 @@ def open_text(path: Path) -> TextIO:
     if path.suffix == ".gz":
         return gzip.open(path, "rt", newline="", encoding="utf-8")
     return path.open(newline="", encoding="utf-8")
+
+
+def read_header(path: Path) -> dict[str, str]:
+    """Read only a suite file's header metadata."""
+    header: dict[str, str] = {}
+    with open_text(path) as f:
+        for line in f:
+            if not line.startswith("#"):
+                break
+            key, _, value = line[1:].partition(":")
+            header[key.strip()] = value.strip()
+    return header
 
 
 def read_rows(path: Path) -> tuple[dict[str, str], list[Row]]:
