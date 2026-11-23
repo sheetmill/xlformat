@@ -2,7 +2,8 @@
 
 xlformat applies an Excel number format to a value and returns the text Excel displays. It is
 pure Python with no runtime dependencies, and its output is tested against text captured from
-Excel 16 for Mac and, with `platform="windows"`, from Excel for Windows.
+Excel 16 for Mac and, with `platform="windows"`, from Excel for Windows (16.0.20527.20196,
+Microsoft 365, en-US, 96 dpi).
 
 ```python
 >>> from xlformat import format_value
@@ -107,8 +108,9 @@ evidence for each.
 
 - **Excel mode measures Calibri, Aptos Narrow and Arial**, regular, bold, italic and bold italic,
   at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points, in Excel for Mac (which bundles Aptos Narrow, the
-  Windows default, and Arial) and in Excel for Windows at 96 dpi (`platform="windows"`, where
-  widths are whole pixels, reported in points). Other sizes are scaled from the nearest measured
+  Windows default, and Arial) and, with `platform="windows"`, in Excel for Windows
+  (16.0.20527.20196, Microsoft 365, en-US, 96 dpi), where widths are whole pixels, reported in
+  points. Other sizes are scaled from the nearest measured
   size and may differ from Excel by a character near the edge of a column. Any other font raises
   `LookupError`.
 - **Character mode is its own contract.** A `#` run is always `width` characters, and a value
@@ -168,8 +170,8 @@ The expected outputs under `tests/captures/` were captured from Excel for Mac by
 `capture/`, and those under `tests/captures/windows/` from Excel for Windows by capture jobs whose
 manifests are committed beside them. On the Mac each suite is written as a workbook with
 openpyxl, opened in Excel through AppleScript, and read back as displayed text at each column
-width. Regenerating a suite needs
-Excel for Mac and is described in [CAPTURING.md](https://github.com/sheetmill/xlformat/blob/main/CAPTURING.md):
+width. Regenerating a Mac suite needs Excel for Mac, and a Windows suite runs its job again; both
+are described in [CAPTURING.md](https://github.com/sheetmill/xlformat/blob/main/CAPTURING.md):
 
 ```bash
 uv run python -m capture numeric_core

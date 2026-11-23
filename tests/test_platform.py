@@ -1,5 +1,6 @@
 """``platform=`` and ``regional_settings=``: the defaults change nothing; Windows works where its
-evidence is captured (the width model at 96 dpi) and raises elsewhere."""
+evidence is captured (widths, rows, built-in formats and ``TEXT`` at 96 dpi) and raises
+elsewhere."""
 
 from __future__ import annotations
 
@@ -38,7 +39,8 @@ CALLS: dict[str, Callable[..., object]] = {
 REGIONAL = {"format_value", "format_cell", "text_function", "builtin_format"} | {
     n for n in CALLS if n.startswith("NumberFormat.")
 }
-# the functions with Windows evidence: the width model at 96 dpi (CAPTURING.md section 2 item 65)
+# the functions with Windows evidence at 96 dpi: widths, rows, built-in formats and TEXT
+# (CAPTURING.md section 2 items 65 to 72)
 WINDOWS = {
     "format_value", "format_cell", "text_width", "glyph_widths", "digit_width", "overhang",
     "measured_fonts", "column_metrics", "column_metrics_from_points", "file_column_metrics",

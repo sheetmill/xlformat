@@ -1349,8 +1349,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     clipboard (a Buddhist-year code's plain year, an elapsed code after a date code), the same on
     Windows. In character mode 23 rows of Arial 10 and `width_fill` show a fill one character
     shorter than the width, because the text's glyphs are wider than a digit; they are
-    glyph-slack rows (`tests/test_captures.py`). The merged-cell suites wait: their rows hold the
-    block's width in the Mac's points.
+    glyph-slack rows (`tests/test_captures.py`). The merged-cell suites, whose rows hold the
+    block's width in the Mac's points, are captured on Windows by their own group (item 71).
 69. **Windows row heights at 96 dpi (2026-11-22; group `rows`, the build of item 65).** The
     workbooks of the Mac's row capture (item 44), one per Normal font (Calibri, Aptos Narrow and
     Arial, four styles, nine sizes), each row's height read by the job: 34,992 rows in
@@ -1411,6 +1411,14 @@ capture/font_tables.py        the numbers read from the font files (post, OS/2, 
 capture/screen_rules.py       underlines, strikethrough and text color on screen (items 60, 62, 63)
 capture/rule_table.py         src/xlformat/_rules_drawn.py, the drawn lines, from items 62 and 63
 capture/courier_predict.py    item 63's predictions (capture/predictions/) and their scorer
+capture/padding_predict.py    item 64's predictions for cell_font_large, and their scorer
+capture/half_predict.py       item 67's predictions for column_half_points_*, and their scorer
+capture/job.py                Excel for Windows: suites as capture jobs (manifest and workbooks),
+                             and the suite files a job's result gives (items 65 to 72)
+capture/windows_rows.py       Windows row heights fitted into src/xlformat/_rows_windows.py (item 69)
+capture/excel_watch.py        a time limit on each request to Excel, and evidence when one passes
+capture/edition.py            the Excel edition and update channel, for each capture's header
+capture/invalid.py            which candidate format strings Excel refuses to open (item 9)
 capture/repair.py             what Excel's repair does to refused formats (item 33): `open`
                              through Launch Services, a person answers the dialog, then
                              `read` finds the workbook by name; `write` gathers the TSV
@@ -1426,8 +1434,9 @@ capture column either copies the column to the clipboard (width-less rendering, 
 `pbpaste`, base64-encoded in transit) or sets the Excel column width, reads it back (the
 `actual_width` column) and reads `string value of every cell` in one Apple event. With a measure
 sheet it autofits every measure column and reads the widths back. It closes the workbook without
-saving and restores alerts on every exit path. A 2,000-row suite takes about one second of
-Excel time.
+saving and restores alerts on every exit path. A suite takes about a second of Excel time per
+10,000 rows read, and about 0.75 s more for each column whose width the script sets (the testing
+page gives the same rates).
 
 Choices that hold:
 

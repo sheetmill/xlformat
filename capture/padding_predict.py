@@ -8,7 +8,8 @@ Written before the run. The question: does a cell font whose column padding ``2 
 rendering every width row in Excel mode as ``tests/test_captures.py`` does (the requested column
 width, the cell font, the Normal font Calibri 11):
 
-- ``current``: the package as it stands, the cell's budget the column's whatever the cell font.
+- ``current``: the package as it stood before the capture, the cell's budget the column's
+  whatever the cell font.
 - ``padding``: the budget less ``d = max(0, P(cell) - P(normal))`` points, and General's units
   less ``d`` over the cell font's digit, beside the italic overhang. Calibri 18 to 24 and Aptos
   Narrow 18 to 24 (digit 9 to 12, padding 7) lose 2 points; Arial 16 to 20 (digit 9 to 11) lose 2
@@ -19,10 +20,15 @@ Rows without a width (the default column, read through the clipboard) are not pr
 capture test does not compare cell-font rows in character mode.
 
 Decision rule, fixed before the run: on the rows where the candidates differ, the candidate with
-no misses is the Mac's rule (``padding`` sets the Mac preset's ``cell_font_padding``; ``current``
-keeps it off). If both miss there, neither is adopted: the Mac keeps the current model and the
-misses are written up. A miss on a row where the candidates agree is a separate finding about
-the model, reported with the score.
+no misses is the Mac's rule (``padding`` was to set the Mac preset's ``cell_font_padding``;
+``current`` would keep it off). If both miss there, neither is adopted: the Mac keeps the
+current model and the misses are written up. A miss on a row where the candidates agree is a
+separate finding about the model, reported with the score.
+
+Outcome (CAPTURING.md section 2 item 64): ``padding`` fits every row and ``current`` misses where
+they differ, so a cell font loses the padding it has beyond the Normal font's. Excel for Windows
+does the same (item 66), so the rule holds on both platforms and ``Platform`` has no
+``cell_font_padding`` field.
 """
 
 from __future__ import annotations

@@ -60,10 +60,15 @@ a `file://` page fetch Pagefind's index.
 
 ## The expected outputs
 
-The TSV files under `tests/captures/` are ground truth: each row is what Excel for Mac displayed
-for a value and a format string. They are never edited by hand. A suite is regenerated only by
-capturing it again from Excel for Mac with the scripts in `capture/` (see `CAPTURING.md`), and a
-regeneration that changes any expected text is reviewed as a change of evidence. If the code
+The TSV files under `tests/captures/` are ground truth: each row is what Excel displayed for a
+value and a format string, Excel for Mac for the files at the top level and Excel for Windows for
+those in `tests/captures/windows/`. They are never edited by hand. A Mac suite is regenerated
+only by capturing it again from Excel for Mac with the scripts in `capture/`; a Windows suite
+only by running its capture job again: `capture/job.py` writes the job (a manifest of every
+operation and the workbooks it opens, committed beside the captures as `<group>.job.json`), a
+program on a Windows machine runs it in Excel, and `capture/job.py` turns the result into suite
+files (see `CAPTURING.md`). A regeneration that changes any expected text is reviewed as a change
+of evidence. If the code
 and a row disagree, the code is wrong unless the row's input can be shown to differ from what
 the test assumes.
 

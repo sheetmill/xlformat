@@ -36,7 +36,8 @@ fits when its character count does.
 ## Excel mode: `column_width` and `font`
 
 `column_width` is the number from Excel's Column Width dialog. The text is measured with the
-glyph widths of `font` in points, as Excel for Mac measures it, so the result matches the sheet
+glyph widths of `font` in points, as Excel measures it on the platform asked for (the Mac by
+default), so the result matches the sheet
 character for character, including the number of `#` and fill characters.
 
 ```python
@@ -244,9 +245,9 @@ lists the bundled tables.
 
 ## Excel for Windows
 
-`platform="windows"` measures as Excel for Windows does at 96 dpi: the same rules in whole
-pixels, with glyph widths hinted for the screen, so a digit of Calibri 11 is 7 pixels (5.25
-points) and a column is a whole number of pixels. Results stay in points. A column without a
+`platform="windows"` measures as Excel for Windows does (16.0.20527.20196, Microsoft 365, en-US,
+96 dpi): the same rules in whole pixels, with glyph widths hinted for the screen, so a digit of
+Calibri 11 is 7 pixels (5.25 points) and a column is a whole number of pixels. Results stay in points. A column without a
 width is rounded up to a multiple of 8 pixels, and a fill stops at 255 characters where the Mac
 shows a `#` run.
 

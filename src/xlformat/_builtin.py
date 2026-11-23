@@ -117,7 +117,8 @@ def builtin_format(
 ) -> str:
     """The format string Excel uses for the built-in ``numFmtId`` ``number_format_id``.
 
-    The table is Excel for Mac's in en-US (CAPTURING.md section 2 item 49). What a cell shows under
+    The table is Excel's in en-US, the Mac's and Windows' the same apart from the short-date ids
+    below (CAPTURING.md section 2 items 49 and 70). What a cell shows under
     some ids depends on the viewer's system: Excel for Mac follows a custom short-date format set in
     macOS for ids 14 and 22, and pads the day of 15 and 16 to match, while the region alone changes
     nothing on the Mac. For Excel on Windows, Microsoft's "Format numbers as dates or times"

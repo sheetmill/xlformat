@@ -8,6 +8,8 @@ from pathlib import Path
 
 from capture.schema import read_rows
 
+import xlformat
+
 ROOT = Path(__file__).resolve().parents[1]
 CAPTURES = ROOT / "tests" / "captures"
 MARKDOWN = [
@@ -29,11 +31,11 @@ CURRENT_ONLY = [
 ]
 
 
-@lru_cache(maxsize=1)
-def _suite_rows() -> dict[str, int]:
+@lru_cache(maxsize=2)
+def _suite_rows(folder: Path = CAPTURES) -> dict[str, int]:
     return {
         path.name: len(read_rows(path)[1])
-        for path in CAPTURES.iterdir()
+        for path in folder.iterdir()
         if path.name.endswith((".tsv", ".tsv.gz"))
         and ".measure." not in path.name
         and ".layout." not in path.name
@@ -41,16 +43,34 @@ def _suite_rows() -> dict[str, int]:
 
 
 def test_published_suite_totals_match_the_captures() -> None:
-    rows = _suite_rows()
-    with_rows = sum(1 for count in rows.values() if count)
-    total = sum(rows.values())
+    mac, windows = _suite_rows(), _suite_rows(CAPTURES / "windows")
     page = " ".join((ROOT / "docs" / "testing.md").read_text().split())
-    match = re.search(r"In all, (\d+) suite files \((\d+) with rows.*?hold ([\d,]+) rows", page)
+    match = re.search(
+        r"In all, the Mac's (\d+) suite files \((\d+) with rows.*?hold ([\d,]+) rows, "
+        r"and Excel for Windows' (\d+) suite files .*?\((\d+) with rows\) hold ([\d,]+) rows",
+        page,
+    )
     assert match is not None
-    assert (int(match[1]), int(match[2])) == (len(rows), with_rows)
-    assert int(match[3].replace(",", "")) == total
+    for rows, (files, with_rows, total) in (
+        (mac, match.groups()[:3]),
+        (windows, match.groups()[3:]),
+    ):
+        assert (int(files), int(with_rows)) == (len(rows), sum(1 for n in rows.values() if n))
+        assert int(total.replace(",", "")) == sum(rows.values())
     architecture = (ROOT / "ARCHITECTURE.md").read_text()
-    assert f"`pytest`, {len(rows)} suite files, {total:,} rows" in architecture
+    assert (
+        f"`pytest`: the Mac's {len(mac)} suite files, {sum(mac.values()):,} rows, and Windows' "
+        f"{len(windows)}, {sum(windows.values()):,} rows" in architecture
+    )
+
+
+def test_every_public_name_is_in_the_public_api_section() -> None:
+    architecture = (ROOT / "ARCHITECTURE.md").read_text()
+    section = architecture[architecture.index("## 11. Public API") : architecture.index("## 12.")]
+    missing = [
+        name for name in xlformat.__all__ if not re.search(rf"\b{re.escape(name)}\b", section)
+    ]
+    assert not missing
 
 
 def test_the_testing_page_table_accounts_for_every_row() -> None:

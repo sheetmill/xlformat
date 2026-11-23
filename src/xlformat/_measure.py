@@ -255,7 +255,7 @@ def glyph_measure(font: FontSpec | None = None, platform: Platform = _MAC) -> Me
 def text_width(
     text: str, font: FontSpec | None = None, *, platform: str | Platform | None = None
 ) -> float:
-    """The width of ``text`` in points as Excel for Mac measures it in ``font``.
+    """The width of ``text`` in points as Excel measures it in ``font`` on ``platform``.
 
     The sum of the whole glyph advances, the measure every Excel-mode decision uses (fit, ``#``
     count, fill count); a line feed and a tab measure as a space, a carriage return as nothing,
@@ -364,7 +364,7 @@ def file_points(
 
 @dataclass(frozen=True, slots=True)
 class ColumnMetrics:
-    """A column as Excel for Mac lays it out, in whole points.
+    """A column as Excel lays it out, in whole points on the Mac and whole pixels on Windows.
 
     Attributes:
         width: The width in Column Width dialog units, exact (Excel shows it to two decimals:

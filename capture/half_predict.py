@@ -4,11 +4,11 @@
     uv run python -m capture.half_predict score     # score the captures against them
 
 Written before the run. The question: does Excel for Mac round a column of a half point
-(``MDW * w + P`` ending in .5) to even, as the package does, or up, as Excel for Windows does with
+(``MDW * w + P`` ending in .5) to even, as the package did, or up, as Excel for Windows does with
 a half pixel (CAPTURING.md section 2 item 66)? Each suite holds the cell-font values in its
 Normal font at every width from 1 to 20 whose column is a half point. Two candidates:
 
-- ``even``: the package as it stands, Python's ``round`` (2.5 to 2, 3.5 to 4).
+- ``even``: the package as it stood before the capture, Python's ``round`` (2.5 to 2, 3.5 to 4).
 - ``up``: a half rounds up.
 
 Per column, the points Excel reports (``column_points`` in the header) and the dialog width it
@@ -18,6 +18,10 @@ reads back; per row, the displayed text. The candidates differ on the columns wh
 Decision rule, fixed before the run: the candidate with no miss on the columns where they differ
 is the Mac's rule. If it is ``up``, one rule serves both platforms; if ``even``, Windows' rule stays
 its own and QUIRKS.md says so. If both miss, neither is adopted and the misses are written up.
+
+Outcome (CAPTURING.md section 2 item 67): ``up`` fits all 96 columns and 143 rows where the
+candidates differ, ``even`` none, so a half point rounds up on the Mac as a half pixel does on
+Windows, and the package now rounds it up.
 """
 
 from __future__ import annotations

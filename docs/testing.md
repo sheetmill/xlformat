@@ -112,8 +112,9 @@ Fifteen further files are not suites of the common schema:
 - `builtin_formats.layout.tsv` (164 rows): what each built-in number format id stands for.
 - `palette.layout.tsv` (128 rows, from window captures): the colors drawn under a workbook palette.
 
-In all, 343 suite files (235 with rows, the others autofit measurements) hold 866,322 rows. Every
-row passes. Seventeen color readings are skipped because Excel's scripting interface reports
+In all, the Mac's 343 suite files (235 with rows, the others autofit measurements) hold 866,322
+rows, and Excel for Windows' 301 suite files in `tests/captures/windows/` (193 with rows) hold
+514,013 rows, the layout files of both apart. Every row passes. Seventeen color readings are skipped because Excel's scripting interface reports
 automatic black for them; where the sheet was checked by eye, it shows the section color, as the
 package does. Two cases have not been seen on screen: text under `[Red]General` and text under a
 lone `[Red]`, which the package colors by the rule the screen shows for `[Blue]General`.
@@ -133,6 +134,6 @@ Regenerating a suite needs Excel for Mac and permission for the terminal to cont
 uv run python -m capture numeric_core
 ```
 
-A suite takes about a second of Excel time per 10,000 rows, and about 0.75 s more for each column
-whose width the script sets. The scripts never touch a workbook they
+A suite takes about a second of Excel for Mac's time per 10,000 rows, and about 0.75 s more for
+each column whose width the script sets. The scripts never touch a workbook they
 did not create.

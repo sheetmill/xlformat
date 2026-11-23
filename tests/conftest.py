@@ -7,8 +7,8 @@ def pytest_addoption(parser: pytest.Parser) -> None:
         choices=["fast", "full"],
         default="full",
         help=(
-            "Capture tier: 'full' (default, every captured row, a few seconds) or 'fast' "
-            "(the per-format sample, under a quarter of a second)."
+            "Capture tier: 'full' (default, every captured row, about 36 s) or 'fast' "
+            "(the per-format sample, about 21 s)."
         ),
     )
     parser.addoption(

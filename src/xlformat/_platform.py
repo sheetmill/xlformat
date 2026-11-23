@@ -6,7 +6,7 @@ from dataclasses import dataclass, fields
 from typing import ClassVar, Literal
 
 PlatformName = Literal["mac", "windows"]
-# what ``platform=None`` means; all the family's packages change it together
+# what ``platform=None`` means; all the sheetmill packages change it together
 DEFAULT_PLATFORM: PlatformName = "mac"
 # the display resolutions whose Windows glyph tables are captured
 WINDOWS_DPIS = (96,)
@@ -82,7 +82,8 @@ class RegionalSettings:
     Attributes:
         decimal_separator: The decimal separator shown (format codes keep ``.``).
         thousands_separator: The thousands separator shown (format codes keep ``,``).
-        short_date: The system short date, which built-in format 14 is and 22 begins with.
+        short_date: The system short date: the string of the 20 built-in ids whose en-US string
+            is the short date (14, 27 to 31, 36, 50 to 58, 71 and 72), and the start of 22 and 78.
         long_date: The system long date, shown for ``[$-F800]``.
         time: The system time, shown for ``[$-F400]``.
         am_pm: The two strings of ``AM/PM``.

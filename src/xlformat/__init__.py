@@ -112,8 +112,8 @@ def format_value(
         width: Character mode: the width in characters, or ``None`` for the unconstrained
             rendering (``*`` fills emit nothing, ``_x`` pads one space, overflow is 255 ``#``).
         column_width: Excel mode: the column width in Column Width dialog units; the text is
-            measured with the glyph table of ``font`` as Excel for Mac does, so overflow, ``#``
-            and fill counts and General digit reduction match the sheet. Not with ``width``.
+            measured with the glyph table of ``font`` as Excel on ``platform`` does, so overflow,
+            ``#`` and fill counts and General digit reduction match the sheet. Not with ``width``.
         font: The cell's font for Excel mode, a name, ``(name, size)`` or :class:`Font`; default
             ``("Calibri", 11)``, openpyxl's workbook default. The text is measured in it. Calibri,
             Aptos Narrow and Arial are measured in four styles at 9, 10, 11, 12, 14, 16, 18, 20 and
