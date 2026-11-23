@@ -11,24 +11,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `RowMetrics.accounting_height`: what the accounting underlines of a row's fonts add to its
   height, the difference from the same row without them (0 without one), as the captured rows
   with and without an accounting underline give it.
-- Excel for Windows at 96 dpi in the width model: `format_value` and `format_cell` in Excel mode,
-  `text_width`, `glyph_widths`, `digit_width`, `overhang`, `measured_fonts` and the column
-  functions take `platform="windows"` for Calibri, Aptos Narrow and Arial, four styles, nine
-  sizes, with glyph tables in pixels captured from Excel for Windows. Results stay in points.
-  Windows rounds a column without a width up to a multiple of 8 pixels, and stops a fill at 255 characters where the Mac shows a `#` run.
-  `row_metrics` takes `platform="windows"` for the same families at 9 to 24 points, without
-  accounting underlines, `builtin_format` gives Windows' `m/d/yyyy` for the short-date ids, and
-  `text_function` takes it as well. Text placement (`vertical_metrics`, `ink_metrics`) and
-  `rule_metrics` still raise `LookupError` for Windows.
-- `platform=` on every function whose result can differ by platform, and `regional_settings=` on
-  those that format or resolve built-in formats, with the frozen `Platform` (presets
-  `Platform.MAC` and `Platform.WINDOWS`) and `RegionalSettings` (presets
-  `RegionalSettings.EN_US_MAC` and `RegionalSettings.EN_US_WINDOWS`) and `DEFAULT_PLATFORM`.
-  `None` means the Mac and its en-US settings, so a call without them returns what it did. Every
-  function raises `LookupError` for Excel for Windows until its Windows evidence is captured.
-  `builtin_format` gives every id whose en-US string is the short date (14, 27 to 31, 36, 50 to
-  58, 71, 72, and 22 and 78 before ` h:mm`) from the regional settings' short date; only en-US
-  is supported.
+- Excel for Windows (16.0.20527.20196, Microsoft 365, en-US, 96 dpi): `platform=` on every
+  function whose result can differ by platform, and `regional_settings=` on those that format or
+  resolve built-in formats, with the frozen `Platform` (presets `Platform.MAC` and
+  `Platform.WINDOWS`), `RegionalSettings` (presets `RegionalSettings.EN_US_MAC` and
+  `RegionalSettings.EN_US_WINDOWS`) and `DEFAULT_PLATFORM`. `None` means the Mac and its en-US
+  settings, so a call without them returns what it did in 0.6.0.
+  - `platform="windows"` works in `format_value`, `format_cell`, `text_function`, the matching
+    `NumberFormat` methods, `text_width`, `glyph_widths`, `digit_width`, `overhang`,
+    `measured_fonts`, `column_metrics`, `column_metrics_from_points`, `file_column_metrics`,
+    `row_metrics` and `builtin_format`, for Calibri, Aptos Narrow and Arial in four styles, with
+    glyph tables in pixels captured from Excel for Windows; results stay in points. Both widths
+    and rows cover the sizes 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; rows without
+    accounting underlines.
+  - On Windows a column without a width rounds up to a multiple of 8 pixels, a fill stops at 255
+    characters where the Mac shows a `#` run, and `builtin_format` gives `m/d/yyyy` for the 20
+    ids whose en-US string is the short date (14, 27 to 31, 36, 50 to 58, 71, 72, and 22 and 78
+    before ` h:mm`), from the regional settings' short date; only en-US is supported.
+  - `vertical_metrics`, `ink_metrics` and `rule_metrics` raise `LookupError` for Windows, and
+    every function raises it for Windows at a resolution other than 96 dpi.
 - `rule_metrics` covers Courier New at screen sizes from 6 to 144 and raises `LookupError` outside
   them, where it raised for every size. Its double underline hangs up from the single
   underline's position, its gap captured at every screen size (no rule gives it), and its single
@@ -46,7 +47,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   of 9 points or more in a column of a smaller Normal font, such as Calibri 18 or Arial 16 cells
   in a Calibri 11 workbook) now loses the difference from its cell's budget in Excel mode, as
   Excel shows it: one `#` or one character fewer at some widths.
-- `Platform` has no `cell_font_padding` field: that rule holds on both platforms.
 - `rule_metrics` at a screen size that is not whole (a half size, or a zoom such as 150) gives
   the lines at the nearest whole screen size, a half rounding up, as Excel draws them in most
   rows captured; 0.6.0 fed the fraction to the font's formulas, so values at such sizes can
@@ -60,9 +60,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `VerticalMetrics` has slots again, as in 0.5.0: in 0.6.0 its instances had a `__dict__`, so
   `vars()` worked on them; now it raises `TypeError`. Its six fields, equality, hashing, `repr`
   and pickling are unchanged.
-- The 0.6.0 entry named only `dataclasses.replace`: a `VerticalMetrics` constructed directly,
-  not by `vertical_metrics`, does not know its font either, so its deprecated `cap_height` and
-  `descender` raise `LookupError`. This is unchanged.
 
 ## [0.6.0] - 2026-11-21
 
@@ -92,10 +89,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   The ink fields moved to `ink_metrics`. `cap_height` and `descender` are no longer fields of
   `VerticalMetrics`: constructing one takes six values, and `dataclasses.fields`, `asdict`,
   `repr` and equality show the six; `dataclasses.replace` no longer accepts `cap_height` or
-  `descender`, and its result does not know its font, so its deprecated properties raise
-  `LookupError`. For a face or size that placement covers but `ink_metrics` has
-  not measured (Calibri 30, Times New Roman 30), `vertical_metrics` now returns where it raised
-  `LookupError`, and reading `cap_height` or `descender` on the result raises `LookupError`.
+  `descender`, and its result, like a `VerticalMetrics` constructed directly, does not know its
+  font, so its deprecated properties raise `LookupError`. For a face or size that placement
+  covers but `ink_metrics` has not measured (Calibri 30, Times New Roman 30), `vertical_metrics`
+  now returns where it raised `LookupError`, and reading `cap_height` or `descender` on the
+  result raises `LookupError`.
 - `row_metrics` takes a row of several fonts as the largest `size + 1` plus the largest
   `height − size − 1`, the rule behind the earlier tables, which every captured row height follows;
   its results for the faces and sizes measured before are unchanged.
