@@ -205,3 +205,73 @@ def test_a_frame_that_is_not_one_offset_stops_the_reader(tmp_path: Path) -> None
     steps["heights"] = {"row_height": [[24 * 0.75]] * len(cases)}
     with pytest.raises(SystemExit, match="not at one offset"):
         measured_rows(book, steps, tmp_path)
+
+
+def test_the_table_reader_takes_the_rows_baseline_from_its_single_underline(
+    tmp_path: Path,
+) -> None:
+    """Five rule cells side by side; the double's first line lies on the stems' last pixel row,
+    so its own cell reads the baseline a row high, and the row's single underline gives it."""
+    from capture.screen_table import TABLE_RULES, TableRow
+
+    cases = [TableRow("filler top")]
+    cases.append(TableRow("Calibri 11 all", "Calibri", 11.0, TABLE_RULES))
+    cases += [TableRow(f"filler {k}") for k in range(20)]
+    book = Book("table_test", "table", tuple(cases), (100,))
+    heights_px = [30] * len(cases)
+    gridlines = (12, 72, 132, 192, 252, 312)  # columns A to F's right edges: 12 and 60 pixels
+    base = 20
+    lines = {
+        "single": [22],
+        "double": [20, 22],  # the first on the stems' last row
+        "strike": [14],
+        "singleAccounting": [24],
+        "doubleAccounting": [24, 26],
+    }
+
+    def draw_row(row: int, band: Pixels) -> None:
+        for y in range(len(band)):
+            for x in gridlines:
+                band[y][x] = (218, 220, 224)
+        if row != 2:
+            return
+        for c, rule in enumerate(TABLE_RULES):
+            left = gridlines[c] + 6
+            for x0 in (left, left + 12):  # two H glyphs: two stems and a bar
+                for y in range(8, base + 1):
+                    band[y][x0] = band[y][x0 + 6] = BLACK
+                band[14][x0 : x0 + 7] = [BLACK] * 7
+            for y in lines[rule]:
+                band[y][left : left + 19] = [BLACK] * 19
+
+    steps = _result(book, heights_px, draw_row, tmp_path)
+    steps["columns"] = {"left": [[0, 9, 54, 99, 144, 189]], "width": [[9, 45, 45, 45, 45, 45]]}
+    got = measured_rows(book, steps, tmp_path)
+    assert got == [
+        "100\tCalibri 11 single\t22.5\t1.33333\t20\t20\t22-22",
+        "100\tCalibri 11 double\t22.5\t1.33333\t19\t20\t20-20 22-22",
+        "100\tCalibri 11 strike\t22.5\t1.33333\t20\t20\t14-14",
+        "100\tCalibri 11 singleAccounting\t22.5\t1.33333\t20\t20\t24-24",
+        "100\tCalibri 11 doubleAccounting\t22.5\t1.33333\t20\t20\t24-24 26-26",
+    ]
+
+
+def test_the_table_draws_every_ppem_to_192_at_two_zooms() -> None:
+    from capture.screen_table import FIRST, MAX_PPEM, columns, cover, ppem, wanted
+
+    chosen = cover()
+    for zoom, sizes in FIRST.items():
+        assert chosen[zoom] == tuple(sizes)
+    zooms_of: dict[int, set[int]] = {}
+    for zoom, sizes in chosen.items():
+        for size in sizes:
+            zooms_of.setdefault(ppem(size, zoom), set()).add(zoom)
+    for p in range(1, 382):
+        assert len(zooms_of.get(p, ())) >= wanted(p), p
+    assert all(len(zooms_of[p]) >= 2 for p in range(1, 193))
+    assert all(len(zooms_of[p]) >= 2 for p in range(200, 382, 8))
+    assert zooms_of[MAX_PPEM] == {400}  # 72 points at zoom 400, the one size and zoom
+    for book in books("screen_rules_table"):
+        assert len(book.cases) < 1300  # Excel fits only about the first 1,400 rows it opens
+        (zoom,) = book.zooms
+        assert columns(zoom, chosen[zoom]) >= 3 or zoom < 300

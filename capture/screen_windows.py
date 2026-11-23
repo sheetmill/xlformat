@@ -33,6 +33,9 @@ Groups:
 - ``screen_wrapped``: bottom-aligned cells wrapped to two and three lines in faces whose descent
   is smaller than the Normal font's, and in two whose is not, in Calibri 20 and Arial 14
   workbooks, at zoom 100.
+- ``screen_rules_table``: Calibri and Arial under each underline and a strikethrough at every
+  ppem from 1 to 384, a workbook a zoom, the rules side by side in a row
+  (``capture/screen_table.py``).
 """
 
 from __future__ import annotations
@@ -51,6 +54,8 @@ from capture.cases import CellFont
 from capture.screen_rules import DOUBLE_RULES, DOUBLE_SIZES, measure_rules
 from capture.screen_rules import Case as RuleCase
 from capture.screen_rules import build as build_rules
+from capture.screen_table import TableRow, column_chars, cover, measure_table, table_rows
+from capture.screen_table import build as build_table
 from capture.screen_vertical import build as build_vertical
 from capture.screen_vertical import measure_vertical
 from capture.vertical_pdf import SIZES
@@ -69,6 +74,7 @@ SCREEN_GROUPS = (
     "screen_rules_zoom",
     "screen_wrapped",
     "screen_rules_fresh",
+    "screen_rules_table",
 )
 _PURPOSE = {
     "screen_pilot": "window pictures of text placement and of underlines and strikethrough",
@@ -77,6 +83,7 @@ _PURPOSE = {
     "screen_rules_zoom": "window pictures of underlines and strikethrough at six zooms",
     "screen_wrapped": "window pictures of wrapped text under a larger Normal font",
     "screen_rules_fresh": "window pictures of underlines and strikethrough at new sizes and zooms",
+    "screen_rules_table": "window pictures of underlines and strikethrough at every ppem",
 }
 
 
@@ -85,8 +92,8 @@ class Book:
     """One workbook of a screen job."""
 
     stem: str
-    kind: Literal["vertical", "rules"]
-    cases: tuple[VerticalCase, ...] | tuple[RuleCase, ...]
+    kind: Literal["vertical", "rules", "table"]
+    cases: tuple[VerticalCase, ...] | tuple[RuleCase, ...] | tuple[TableRow, ...]
     zooms: tuple[int, ...]
     normal: CellFont = DEFAULT_NORMAL
     # row 1 is every first view's first row, whose top pixel the column headings' border covers:
@@ -202,9 +209,11 @@ def books(group: str) -> list[Book]:
     out = []
     for book in _books(group):
         if book.lead_filler:
-            filler: VerticalCase | RuleCase = (
+            filler: VerticalCase | RuleCase | TableRow = (
                 VerticalCase("filler top", DEFAULT_NORMAL)
                 if book.kind == "vertical"
+                else TableRow("filler top")
+                if book.kind == "table"
                 else RuleCase("rule", "filler top none")
             )
             book = Book(
@@ -254,6 +263,11 @@ def _books(group: str) -> list[Book]:
     if group == "screen_rules_fresh":
         cases = _rule_cases(FAMILIES, FRESH_SIZES, DOUBLE_RULES)
         return [Book("rules_fresh", "rules", tuple(cases), FRESH_ZOOMS)]
+    if group == "screen_rules_table":
+        return [
+            Book(f"table_z{zoom}", "table", tuple(table_rows(zoom, sizes)), (zoom,))
+            for zoom, sizes in cover().items()
+        ]
     if group == "screen_wrapped":
         return [
             Book(
@@ -295,6 +309,16 @@ def estimated_points(book: Book) -> list[float]:
             out.append(
                 row_metrics(normal, cell_fonts=cells, wrapped=wrapped, platform="windows").height
             )
+        elif isinstance(case, TableRow):
+            # the row model holds accounting rows at whole sizes from 6 only: a row is planned
+            # at the next whole size, and at 6 below it, a row no shorter
+            fonts = [
+                Font(
+                    case.face, max(6, math.ceil(case.size)), underline=None if r == "strike" else r
+                )
+                for r in case.rules
+            ]
+            out.append(1.2 * row_metrics(normal, cell_fonts=fonts).height)
         else:
             underline = None if case.rule in ("none", "strike") else case.rule
             font = Font(case.face, case.size, underline=underline)
@@ -334,6 +358,9 @@ def _steps(book: Book) -> list[dict[str, Any]]:
         {"op": "open"},
         {"op": "read", "id": "heights", "range": f"{book.sheet}!B1:B{n}", "props": ["row_height"]},
     ]
+    if book.kind == "table":  # where each rule's column lies
+        steps.append({"op": "read", "id": "columns", "range": f"{book.sheet}!A1:F1",
+                      "props": ["left", "width"]})  # fmt: skip
     for zoom in book.zooms:
         for top in views(book, zoom):
             steps.append({
@@ -359,6 +386,9 @@ def workbooks(group: str, files: Path) -> list[dict[str, Any]]:
             raw = Path(tmp) / name
             if book.kind == "vertical":
                 build_vertical(book.normal, list(book.cases), raw)  # type: ignore[arg-type]
+            elif book.kind == "table":
+                sizes = [c.size for c in book.cases if isinstance(c, TableRow) and c.rules]
+                build_table(list(book.cases), column_chars(sizes), raw)  # type: ignore[arg-type]
             else:
                 build_rules("rules_double", list(book.cases), raw)  # type: ignore[arg-type]
             _fixed_copy(raw, files / name)
@@ -434,6 +464,13 @@ def measured_rows(book: Book, steps: dict[str, Any], artifacts: Path) -> list[st
                     f"{book.normal.label}\t{m.case.tag}\t{stated}\t{m.height:g}\t{band_px}"
                     f"\t{m.shift}\t{h}\t{g}"
                 )
+        elif book.kind == "table":
+            columns = steps["columns"]
+            lines += measure_table(
+                pictures, heights, zoom, scale, list(book.cases),  # type: ignore[arg-type]
+                [float(v) for v in columns["left"][0]], [float(v) for v in columns["width"][0]],
+                **frame,
+            )  # fmt: skip
         else:
             rows = measure_rules(
                 pictures, heights, zoom, "rules_double", match_scale=scale,
@@ -448,6 +485,7 @@ COLUMNS = {
         "normal_font\ttag\tstated_height\trow_height\tband_px\tshift_px\th_cap_base_px\tg_bottom_px"
     ),
     "rules": "zoom\ttag\trow_height\tpixels_per_point\tbaseline_px\tmeasured",
+    "table": "zoom\ttag\trow_height\tpixels_per_point\tbaseline_px\trow_baseline_px\tmeasured",
 }
 METHOD = {
     "vertical": (
@@ -457,6 +495,11 @@ METHOD = {
     "rules": (
         "window captures; device pixels from the row's top: the H stems' last ink row, each "
         "rule's first and last row"
+    ),
+    "table": (
+        "window captures; a cell a rule, the rules side by side in a row; device pixels from the "
+        "row's top: the cell's H stems' last ink row, the row's (its single underline's cell, "
+        "else its strikethrough's), each line's first and last row"
     ),
 }
 

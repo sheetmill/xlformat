@@ -64,3 +64,35 @@ def test_rows_and_ink_at_four_thirds_of_a_pixel_a_point(tmp_path: Path) -> None:
         # "H" alone: its cap top and baseline, and its bottom as the last glyph's
         assert h_lines == [(4, height - 7)]
         assert g_bottoms == [height - 7]
+
+
+SAVED = Path(__file__).resolve().parents[1] / "capture" / "build"
+
+
+@pytest.mark.parametrize(("suite", "layout"), [("rules", "rules"), ("rules_zoom", "rules_zoom")])
+def test_the_mac_reader_reads_its_saved_pictures_as_committed(suite: str, layout: str) -> None:
+    """The Mac's rules reader over the pictures it was committed from (kept locally, not in the
+    repository): every rule row as in the committed file. The color rows are left out: the
+    committed file was captured on another display (its ``display_profile``), whose mean colors
+    differ by a few units. A few minutes: it runs only with ``XLFORMAT_SAVED_PICTURES=1`` and
+    the pictures present."""
+    import os
+
+    from capture.screen_rules import RULES, read_zoom, zooms
+
+    if os.environ.get("XLFORMAT_SAVED_PICTURES") != "1":
+        pytest.skip("set XLFORMAT_SAVED_PICTURES=1 to read the saved pictures")
+    if not (SAVED / f"screen_{suite}").is_dir():
+        pytest.skip("the Mac's saved pictures are not here")
+    committed = (Path(__file__).parent / "captures" / f"{layout}.layout.tsv").read_text()
+    rows = [line for line in committed.splitlines() if line and not line.startswith("#")][1:]
+    got = [line for zoom in zooms(suite) for line in read_zoom(zoom, suite)]
+    if suite != "rules":
+        got = [line for line in got if "\tfiller " not in line]
+
+    def rule_rows(lines: list[str]) -> list[str]:
+        return [x for x in lines if x.split("\t")[1].rsplit(" ", 1)[-1] in RULES]
+
+    assert len(got) == len(rows)
+    assert rule_rows(got) == rule_rows(rows)
+    assert len(rule_rows(rows)) > 300

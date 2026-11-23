@@ -1510,6 +1510,8 @@ capture/job.py                Excel for Windows: suites as capture jobs (manifes
 capture/windows_rows.py       Windows row heights fitted into src/xlformat/_rows_windows.py (item 69)
 capture/screen_windows.py     window pictures on Excel for Windows as capture jobs (screen_* groups:
                              the Mac's screen suites for the faces with Windows tables), and their reader
+capture/screen_table.py       the rules table on Excel for Windows: each rule by ppem, the rules side by
+                             side in a row (group screen_rules_table), and its reader
 capture/excel_watch.py        a time limit on each request to Excel, and evidence when one passes
 capture/edition.py            the Excel edition and update channel, for each capture's header
 capture/invalid.py            which candidate format strings Excel refuses to open (item 9)
