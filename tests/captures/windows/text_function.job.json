@@ -1,0 +1,30 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261122-200537-text-function",
+ "package": "xlformat",
+ "purpose": "xlformat capture group text_function: displayed text, widths and autofit per suite",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "text_function.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "copy_text",
+     "id": "clip_b",
+     "range": "cases!B1:B29580"
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

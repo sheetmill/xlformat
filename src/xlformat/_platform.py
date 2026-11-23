@@ -26,8 +26,8 @@ class Platform:
     ``"mac"``; ``Platform.WINDOWS`` is Excel for Windows at 96 dpi. A function given a platform
     it has no captured evidence for raises ``LookupError``: Windows is measured at 96 dpi for
     the width model (``format_value`` and ``format_cell`` in Excel mode, the column and glyph
-    functions), for ``row_metrics`` and for ``builtin_format``; text placement, rules and
-    ``text_function`` know the Mac only. Every result is in points; Windows' fall on its pixel
+    functions), for ``row_metrics``, ``builtin_format`` and ``text_function``; text placement
+    and rules know the Mac only. Every result is in points; Windows' fall on its pixel
     grid (0.75 points at 96 dpi). Fields can be overridden with :func:`dataclasses.replace`.
 
     Attributes:

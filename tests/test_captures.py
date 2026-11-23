@@ -298,7 +298,7 @@ def test_suite(suite_file: Path, tier: str, record_glyph_slack: bool, record_pro
         date1904 = row.date1904 == "1"
         if row.tag.startswith("text:"):  # the cell holds TEXT of the value under the format
             counts["compared"] += 1
-            got = text_function(value, fmt, date1904=date1904)
+            got = text_function(value, fmt, date1904=date1904, platform=platform)
             if got != row.expected_text:
                 failures.append((row, got))
             continue

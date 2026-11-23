@@ -913,7 +913,7 @@ class NumberFormat:
         with one difference: ``NumberFormat.parse("")`` is the format ``General``, so the empty
         format of ``TEXT`` is reached through the function only.
         """
-        _platform = check_platform(platform, "NumberFormat.text_function")
+        _platform = check_platform(platform, "NumberFormat.text_function", windows=True)
         _regional = check_regional(regional_settings, _platform)
         from xlformat._render import text_function
 

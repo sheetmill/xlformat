@@ -156,8 +156,8 @@ than a table: `name` (the Mac measures in points, Windows in device pixels at `s
 `Platform.MAC` and `Platform.WINDOWS`, fields overridden with `dataclasses.replace`. A function
 raises `LookupError` for a platform it has no captured evidence for: Excel for Windows is
 measured at 96 dpi for the width model (Excel mode of `format_value` and `format_cell`, the
-column and glyph functions), for `row_metrics` and for `builtin_format`, not yet for text
-placement, rules or `text_function`. The viewer's regional settings are separate (`RegionalSettings`, presets
+column and glyph functions), for `row_metrics`, `builtin_format` and `text_function`, not yet
+for text placement or rules. The viewer's regional settings are separate (`RegionalSettings`, presets
 `EN_US_MAC` and `EN_US_WINDOWS`, a `regional_settings=` keyword on the functions that format or
 resolve built-in formats, objects only): `None` means the platform's en-US preset. Only en-US is
 supported, and only `short_date` is read (the built-in ids whose en-US string is the short date,

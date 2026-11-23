@@ -17,8 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   sizes, with glyph tables in pixels captured from Excel for Windows. Results stay in points.
   Windows rounds a column without a width up to a multiple of 8 pixels, and stops a fill at 255 characters where the Mac shows a `#` run.
   `row_metrics` takes `platform="windows"` for the same families at 9 to 24 points, without
-  accounting underlines, and `builtin_format` gives Windows' `m/d/yyyy` for the short-date ids.
-  Text placement, rules and `text_function` still raise `LookupError` for Windows.
+  accounting underlines, `builtin_format` gives Windows' `m/d/yyyy` for the short-date ids, and
+  `text_function` takes it as well. Text placement (`vertical_metrics`, `ink_metrics`) and
+  `rule_metrics` still raise `LookupError` for Windows.
 - `platform=` on every function whose result can differ by platform, and `regional_settings=` on
   those that format or resolve built-in formats, with the frozen `Platform` (presets
   `Platform.MAC` and `Platform.WINDOWS`) and `RegionalSettings` (presets

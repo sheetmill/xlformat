@@ -183,15 +183,15 @@ def text_function(
         date1904: The workbook uses the 1904 date system.
         quirks: The quirk settings; ``None`` means ``Quirks.EXCEL``.
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. A platform without captured evidence for
-            this function raises ``LookupError``; so far that is every platform but the Mac.
+            ``None`` means the default, ``"mac"``. ``TEXT`` gives the same text on both
+            (CAPTURING.md section 2 item 72); it chooses the regional settings' default.
         regional_settings: The viewer's :class:`RegionalSettings`; ``None`` means the
             platform's en-US preset.
 
     Returns:
         The text as a ``str``, or an :class:`ExcelError` (itself a ``str``).
     """
-    check_regional(regional_settings, check_platform(platform, "text_function"))
+    check_regional(regional_settings, check_platform(platform, "text_function", windows=True))
     if isinstance(value, ExcelError):
         return value
     if format_string == "":

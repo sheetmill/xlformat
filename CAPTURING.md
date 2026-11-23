@@ -1376,6 +1376,11 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     the run with each block's points predicted from its columns' file widths, holds for every
     row, block widths included: a merged block formats as one column of its columns' pixels
     with one padding, as on the Mac (item 40).
+72. **Windows TEXT (2026-11-22; group `text_function`, the build of item 65).** The
+    `text_function` suite as a job: Excel's `TEXT` over every format of the other suites, 29,580
+    cells computed when the workbook opens, read through the clipboard. The prediction committed
+    before the run was the package's `text_function`, which follows the Mac: every row is as
+    predicted, so `TEXT` gives the same text on both platforms in en-US.
 
 ## 3. The pipeline
 
