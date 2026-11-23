@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `RowMetrics.accounting_height`: what the accounting underlines of a row's fonts add to its
+  height, the difference from the same row without them (0 without one), as the captured rows
+  with and without an accounting underline give it.
 - Excel for Windows at 96 dpi in the width model: `format_value` and `format_cell` in Excel mode,
   `text_width`, `glyph_widths`, `digit_width`, `overhang`, `measured_fonts` and the column
   functions take `platform="windows"` for Calibri, Aptos Narrow and Arial, four styles, nine

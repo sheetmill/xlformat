@@ -145,7 +145,7 @@ cells with wrapped text, each as `(font, lines)` with `None` for the Normal font
 ```python
 >>> from xlformat import row_metrics
 >>> row_metrics()
-RowMetrics(height=15.0, font_height=15.0, line_height=16.0)
+RowMetrics(height=15.0, font_height=15.0, line_height=16.0, accounting_height=0.0)
 >>> row_metrics(cell_fonts=[("Calibri", 14)]).height
 19.0
 >>> row_metrics(wrapped=[(None, 3)]).height

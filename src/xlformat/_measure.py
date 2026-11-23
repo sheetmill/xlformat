@@ -17,7 +17,7 @@ from __future__ import annotations
 import math
 import warnings
 from collections.abc import Callable, Iterable
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from functools import lru_cache
 
 from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
@@ -607,11 +607,14 @@ class RowMetrics:
         line_height: What each wrapped line in the Normal font takes: on the Mac
             ``font_height`` plus 1, so one wrapped line is a point taller than the row without
             it; on Windows ``font_height``.
+        accounting_height: What the accounting underlines of the row's fonts add to
+            ``height``: the difference from the same row without them (0 without one).
     """
 
     height: float
     font_height: float
     line_height: float
+    accounting_height: float = 0.0
 
 
 def _row_face(font: FontSpec | None) -> tuple[str, float]:
@@ -683,11 +686,25 @@ def row_metrics(
     p = check_platform(platform, "row_metrics", windows=True)
     if p.name == "windows":
         return _windows_row(normal_font, cell_fonts, wrapped, p)
+    cell_fonts, wrapped = list(cell_fonts), list(wrapped)
+    row = _mac_row(normal_font, cell_fonts, wrapped, accounting=True)
+    plain = _mac_row(normal_font, cell_fonts, wrapped, accounting=False)
+    return replace(row, accounting_height=row.height - plain.height)
+
+
+def _mac_row(
+    normal_font: FontSpec | None,
+    cell_fonts: list[FontSpec],
+    wrapped: list[tuple[FontSpec | None, int]],
+    *,
+    accounting: bool,
+) -> RowMetrics:
+    """Excel for Mac's row; ``accounting`` False leaves accounting underlines out."""
     normal = _row_face(normal_font)
     font_height = _font_height(*normal)
 
     def underline(font: FontSpec | None) -> str | None:
-        return font.underline if isinstance(font, Font) else None
+        return font.underline if accounting and isinstance(font, Font) else None
 
     # a row holds its fonts' largest ascent (size + 1) and largest descent B; the largest line
     # inset (B - 2) of its unwrapped fonts lifts wrapped text in a face with a smaller one

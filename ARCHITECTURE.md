@@ -663,8 +663,9 @@ format of fewer than three sections (`CAPTURING.md` §2 item 45). It is checked 
 value is known to be a number, before section selection.
 
 The row model is public too: `row_metrics(normal_font=None, *, cell_fonts=(), wrapped=())`
-returns a frozen `RowMetrics(height, font_height, line_height)`, the height Excel fits a row
-without a stored height to (`CAPTURING.md` §2 items 44, 55 and 57). A face of size `S` has the
+returns a frozen `RowMetrics(height, font_height, line_height, accounting_height)`, the height
+Excel fits a row without a stored height to (`CAPTURING.md` §2 items 44, 55 and 57), and what the
+row's accounting underlines add to it. A face of size `S` has the
 height `F = floor(a · ceil(S) + 1.5)` from 7.5 points (Calibri 1.2689, Aptos Narrow 1.2815, Arial
 1.2122, Times New Roman 1.2162, Courier New 1.3007, Georgia 1.2190), and the captured heights
 below that; its ascent is `ceil(S) + 1` and its descent `B = F − ceil(S) − 1`. A row is the largest

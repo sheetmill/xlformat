@@ -106,3 +106,26 @@ def test_times_new_roman_accounting_at_half_sizes() -> None:
         if got != float(height):
             misses.append((tag, height, got))
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
+
+
+@pytest.mark.parametrize("name", ["underline_height.layout.tsv", "accounting_height.layout.tsv"])
+def test_accounting_height_is_what_the_underline_adds(name: str) -> None:
+    # each accounting row's captured height less the same row's without an underline
+    rows = dict(_rows(name))
+    checked, misses = 0, []
+    for tag, height in rows.items():
+        m = re.fullmatch(r"(.+?) ([\d.]+) (\w+Accounting) (\d)", tag)
+        if not m:
+            continue
+        face, size, underline, lines = m[1], float(m[2]), m[3], int(m[4])
+        plain = rows[f"{m[1]} {m[2]} none {m[4]}"]
+        font = Font(face, size, underline=underline)
+        if lines == 1:
+            got = row_metrics(("Calibri", 1.0), cell_fonts=[font])
+        else:
+            got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)])
+        checked += 1
+        if got.accounting_height != float(height) - float(plain):
+            misses.append((tag, float(height) - float(plain), got.accounting_height))
+    assert checked
+    assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
