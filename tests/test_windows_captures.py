@@ -42,6 +42,19 @@ def _sha256(path: Path) -> str:
 
 def _header(group: str) -> dict[str, object]:
     """The job header of the group's first suite file, checked equal in every other one."""
+    if group.startswith("screen_"):  # the first of its layout files
+        group_layouts = sorted(WINDOWS.glob(f"{group}*.layout.tsv"))
+        assert group_layouts, group
+        path = group_layouts[0]
+        with path.open(encoding="utf-8") as f:
+            line = next(x for x in f if x.startswith("# job_header: "))
+        screen_header: dict[str, object] = json.loads(line.removeprefix("# job_header: "))
+        for other in group_layouts[1:]:
+            assert (
+                f"# job_header: {json.dumps(screen_header, sort_keys=True, ensure_ascii=False)}\n"
+                in (other.read_text(encoding="utf-8"))
+            )
+        return screen_header
     if group in LAYOUTS:  # a layout file holds the header of its group
         path = WINDOWS / LAYOUTS[group]
         opener = gzip.open if path.suffix == ".gz" else open

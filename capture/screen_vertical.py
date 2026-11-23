@@ -284,10 +284,15 @@ def run_normal(normal: CellFont) -> None:
 
 def _marker_column(image: Image) -> int:
     """An x inside column A's marker fill, searched from the image's top (the last view of a
-    sheet holds only a few rows, near the top)."""
-    for y in range(image.height):
+    sheet holds only a few rows, near the top). The fill runs down at least 8 pixels, which no
+    icon of Excel for Windows' ribbon in a marker's colors does."""
+    for y in range(image.height - 8):
         for x in range(image.width // 2):
-            if is_marker(image.rgb(x, y)) and is_marker(image.rgb(x + 4, y)):
+            if (
+                is_marker(image.rgb(x, y))
+                and is_marker(image.rgb(x + 4, y))
+                and all(is_marker(image.rgb(x + 2, y + k)) for k in range(1, 8))
+            ):
                 return x + 2
     sys.exit("no marker column in the capture")
 
