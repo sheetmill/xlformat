@@ -16,6 +16,12 @@ text, one cell at a time), with the column's width read back in units and points
 whose width the file sets is read as it opens; a measure sheet is autofitted and each column's
 width read; colors are the display format's font color of each width-less cell.
 
+The group ``rows`` is the row-height capture of ``capture/row_heights.py`` instead: one workbook
+per Normal font, opened, each row's height read in points. It writes
+``tests/captures/windows/row_height.layout.tsv.gz`` in the Mac's layout schema, without the Mac's
+standard-height lines (the format reads no sheet property; the row without an element stands for
+it).
+
 ``read`` checks the manifest's and the inputs' SHA-256 against the result's and writes, per suite,
 ``tests/captures/windows/<suite>.tsv`` (gzipped above 50 KB) in the schema of the Mac's suite
 files, and ``<suite>.measure.tsv`` for a measure suite. The header names the group's manifest,
@@ -26,7 +32,9 @@ whole, as one line of JSON (``job_header``).
 from __future__ import annotations
 
 import datetime as dt
+import gzip
 import hashlib
+import io
 import json
 import re
 import shutil
@@ -178,11 +186,37 @@ def manifest_for(group: str, job_id: str, steps: list[dict[str, Any]], note: str
     }
 
 
+def _row_workbooks(files: Path) -> list[dict[str, Any]]:
+    """The row-height workbooks of ``capture/row_heights.py``, one per Normal font."""
+    from capture import row_heights
+
+    n = len(row_heights.rows())
+    workbooks = []
+    for normal in row_heights.fonts():
+        name = row_heights.file_name(normal)
+        with tempfile.TemporaryDirectory() as tmp:
+            _fixed_copy(row_heights.build(normal, Path(tmp)), files / name)
+        steps = [
+            {"op": "open"},
+            {"op": "read", "id": "heights", "range": f"rows!A1:A{n}", "props": ["row_height"]},
+            {"op": "close", "save": False},
+        ]
+        workbooks.append({"file": name, "steps": steps})
+    return workbooks
+
+
 def write(group: str, job_id: str, out: Path, note: str = "") -> Path:
     """The job folder ``out/<job_id>``."""
     folder = out / job_id
     files = folder / "files"
     files.mkdir(parents=True)
+    if group == "rows":
+        doc = manifest_for(group, job_id, _row_workbooks(files), note)
+        doc["purpose"] = doc["purpose"].replace(
+            "displayed text, widths and autofit per suite", "the height of every row"
+        )
+        (folder / "job.json").write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
+        return folder
     workbooks = []
     for name in GROUPS[group]:
         suite, manifest = _built(name, files)
@@ -330,10 +364,40 @@ def read(group: str, job: Path, result: Path) -> list[Path]:
     WINDOWS.mkdir(parents=True, exist_ok=True)
     by_file = {wb["file"]: wb for wb in outcome["workbooks"]}
     written: list[Path] = []
+    if group == "rows":
+        written.append(_row_layout(by_file, header))
+        shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
+        return written
     for name in GROUPS[group]:
         written += _suite_files(name, group, _results(by_file[f"{name}.xlsx"]), header)
     shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
     return written
+
+
+def _row_layout(by_file: dict[str, Any], header: dict[str, Any]) -> Path:
+    from capture import row_heights
+
+    cases = row_heights.rows()
+    path = WINDOWS / "row_height.layout.tsv.gz"
+    with gzip.GzipFile(path, "wb", mtime=0) as raw, io.TextIOWrapper(raw, "utf-8") as out:
+        out.write("# suite: row_height (capture.row_heights, capture/job.py); Excel for Windows\n")
+        out.write("# platform: windows\n# job: rows.job.json\n")
+        out.write(f"# job_id: {header.get('job_id', '')}\n")
+        out.write(
+            "# method: one workbook per Normal font, opened by the job; the row height of each "
+            "row read in points; no standard-height line (the row without an element stands "
+            "for it); <sheetFormatPr> as openpyxl writes it (no customHeight)\n"
+        )
+        out.write(f"# job_header: {json.dumps(header, sort_keys=True, ensure_ascii=False)}\n")
+        out.write("normal_font\trow\ttag\theight\n")
+        for normal in row_heights.fonts():
+            got = _results(by_file[row_heights.file_name(normal)])["heights"]["row_height"]
+            if len(got) != len(cases):
+                msg = f"{normal.label}: {len(got)} heights, not {len(cases)}"
+                raise ValueError(msg)
+            for r, (case, (height,)) in enumerate(zip(cases, got, strict=True), 1):
+                out.write(f"{normal.label}\t{r}\t{case.tag}\t{float(height):g}\n")
+    return path
 
 
 def main(argv: list[str]) -> None:

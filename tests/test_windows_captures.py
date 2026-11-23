@@ -8,6 +8,7 @@ the result recorded.
 
 from __future__ import annotations
 
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -29,6 +30,11 @@ def _sha256(path: Path) -> str:
 
 def _header(group: str) -> dict[str, object]:
     """The job header of the group's first suite file, checked equal in every other one."""
+    if group == "rows":  # the row-height layout file holds the rows group's header
+        with gzip.open(WINDOWS / "row_height.layout.tsv.gz", "rt", encoding="utf-8") as f:
+            line = next(x for x in f if x.startswith("# job_header: "))
+        rows_header: dict[str, object] = json.loads(line.removeprefix("# job_header: "))
+        return rows_header
     headers = []
     for name in GROUPS[group]:
         path = next(p for p in (WINDOWS / f"{name}.tsv", WINDOWS / f"{name}.tsv.gz") if p.exists())

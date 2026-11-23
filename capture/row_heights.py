@@ -130,8 +130,8 @@ def file_name(normal: CellFont) -> str:
     return "rh_" + normal.label.replace(" ", "_").lower() + ".xlsx"
 
 
-def build(normal: CellFont) -> Path:
-    """Write the workbook for one Normal font into Excel's container; return its path."""
+def build(normal: CellFont, directory: Path | None = None) -> Path:
+    """Write the workbook for one Normal font (into Excel's container by default); its path."""
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font
     from openpyxl.utils.indexed_list import IndexedList
@@ -158,8 +158,9 @@ def build(normal: CellFont) -> Path:
                 cell.font = font(c.font)
             if c.wrap:
                 cell.alignment = Alignment(wrap_text=True)
-    DIRECTORY.mkdir(parents=True, exist_ok=True)
-    path = (DIRECTORY / file_name(normal)).resolve()
+    directory = DIRECTORY if directory is None else directory
+    directory.mkdir(parents=True, exist_ok=True)
+    path = (directory / file_name(normal)).resolve()
     wb.save(path)
     return path
 
