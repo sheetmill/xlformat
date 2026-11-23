@@ -1,0 +1,1118 @@
+# suite: screen_rules (capture/screen_windows.py)
+# platform: windows
+# excel_build: 16.0.20527.20196
+# job: screen_rules.job.json
+# job_id: xlformat-20261123-112515-screen-rules
+# job_header: {"environment": {"audit": false, "checks": {"dde_server_launch_disabled": true, "dde_server_lookup_disabled": true, "vba_warnings": 4}, "display": {"screen_px": [2560, 1440], "system_dpi": 96}, "edition": {"found": "Microsoft 365", "source": "office products"}, "excel": {"build": "16.0.20527.20196", "build_number": 20527.0, "calculation_version": 191029, "decimal_separator": ".", "international": {"country": 1.0, "decimal": ".", "list": ","}, "operating_system": "Windows (64-bit ARM) NT 10.00", "process": {"native_machine": "0xaa64", "process_machine": "0x8664"}, "standard_font": "Aptos Narrow", "standard_font_size": 11.0, "thousands_separator": ",", "use_system_separators": true, "version": "16.0"}, "font_smoothing": {"expected": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "found": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "ok": true}, "fonts": [{"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Regular", "version": "Version 7.07"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Regular", "version": "Version 6.27"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.99001, "style": "Regular", "version": "Version 6.99"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Regular", "version": "Version 5.72"}], "geometry": {"expected": {"excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "found": {"excel_window_points": [-5.0, -6.0, 1932.0, 1056.0], "excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "ok": true}, "locale": {"ansi_code_page": 1252, "decimal": ".", "list": ",", "long_date": "dddd, MMMM d, yyyy", "name": "en-US", "oem_code_page": 437, "short_date": "M/d/yyyy", "sort_locale": "en-US", "sort_version": {"custom": "01000000ee575c1e00b4d0000bb1e11e", "defined": 394498, "nls": 394498}, "time": "h:mm:ss tt", "two_digit_year_max": 2049, "two_digit_year_max_setting": null}, "office": {"channel": "Current Channel", "platform": "x64", "products": "O365HomePremRetail", "version": "16.0.20527.20196"}, "printer": {"orientation": "portrait", "paper": "A4", "paper_mm": [215.9, 279.4]}, "theme": {"office_ui_theme": 6, "windows_apps_light": 1, "windows_system_light": 1}, "windows": {"architecture": "ARM64", "build": "26300.9974", "display_version": "26H2", "edition": "Core"}}, "format": 1, "inputs": {"rules.xlsx": {"bytes": 14764, "sha256": "15033f1d26bb36ef1bb081743f8fb5d12eb0f30676baabfa1c211e62ab9c2c95"}}, "job_id": "xlformat-20261123-112515-screen-rules", "manifest_sha256": "42e9e5823292bca4a368da1f88f0ec507dc583caba93369ac8aea4540133c26c", "runner_version": "0.1.27"}
+# method: window captures; device pixels from the row's top: the H stems' last ink row, each rule's first and last row
+zoom	tag	row_height	pixels_per_point	baseline_px	measured
+100	Calibri 9 single	15	1.33333	15	17-17
+100	Calibri 9 double	15	1.33333	15	16-16 18-18
+100	Calibri 9 singleAccounting	16.5	1.33333	15	19-19
+100	Calibri 9 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Calibri 9 strike	15	1.33333	15	13-13
+100	Calibri 10 single	15	1.33333	15	17-17
+100	Calibri 10 double	15	1.33333	15	16-16 18-18
+100	Calibri 10 singleAccounting	16.5	1.33333	15	19-19
+100	Calibri 10 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Calibri 10 strike	15	1.33333	15	13-13
+100	Calibri 11 single	15	1.33333	15	18-18
+100	Calibri 11 double	15	1.33333	15	17-17 19-19
+100	Calibri 11 singleAccounting	17.25	1.33333	15	20-20
+100	Calibri 11 doubleAccounting	17.25	1.33333	15	20-20 22-22
+100	Calibri 11 strike	15	1.33333	15	12-12
+100	Calibri 12 single	15.75	1.33333	16	19-19
+100	Calibri 12 double	15.75	1.33333	16	18-18 20-20
+100	Calibri 12 singleAccounting	18	1.33333	16	21-21
+100	Calibri 12 doubleAccounting	18	1.33333	16	21-21 23-23
+100	Calibri 12 strike	15.75	1.33333	16	13-13
+100	Calibri 13 single	17.25	1.33333	17	20-20
+100	Calibri 13 double	17.25	1.33333	17	20-20 22-22
+100	Calibri 13 singleAccounting	19.5	1.33333	17	23-23
+100	Calibri 13 doubleAccounting	19.5	1.33333	17	23-23 25-25
+100	Calibri 13 strike	17.25	1.33333	17	14-14
+100	Calibri 14 single	18.75	1.33333	19	22-22
+100	Calibri 14 double	18.75	1.33333	19	22-22 24-24
+100	Calibri 14 singleAccounting	21	1.33333	19	25-25
+100	Calibri 14 doubleAccounting	21	1.33333	19	25-25 27-27
+100	Calibri 14 strike	18.75	1.33333	19	15-15
+100	Calibri 15 single	19.5	1.33333	20	23-23
+100	Calibri 15 double	19.5	1.33333	20	23-23 25-25
+100	Calibri 15 singleAccounting	21.75	1.33333	20	26-26
+100	Calibri 15 doubleAccounting	21.75	1.33333	20	26-26 28-28
+100	Calibri 15 strike	19.5	1.33333	20	16-16
+100	Calibri 16 single	21	1.33333	21	24-24
+100	Calibri 16 double	21	1.33333	21	24-24 26-26
+100	Calibri 16 singleAccounting	23.25	1.33333	21	28-28
+100	Calibri 16 doubleAccounting	23.25	1.33333	21	28-28 30-30
+100	Calibri 16 strike	21	1.33333	21	17-17
+100	Calibri 17 single	22.5	1.33333	23	27-28
+100	Calibri 17 double	22.5	1.33333	23	26-26 28-28
+100	Calibri 17 singleAccounting	27	1.33333	23	30-31
+100	Calibri 17 doubleAccounting	24.75	1.33333	23	30-30 32-32
+100	Calibri 17 strike	22.5	1.33333	23	18-19
+100	Calibri 18 single	23.25	1.33333	24	28-29
+100	Calibri 18 double	23.25	1.33333	24	27-27 29-29
+100	Calibri 18 singleAccounting	27.75	1.33333	24	31-32
+100	Calibri 18 doubleAccounting	25.5	1.33333	24	31-31 33-33
+100	Calibri 18 strike	23.25	1.33333	24	19-20
+100	Calibri 19 single	24.75	1.33333	25	29-30
+100	Calibri 19 double	24.75	1.33333	25	28-28 30-30
+100	Calibri 19 singleAccounting	29.25	1.33333	25	33-34
+100	Calibri 19 doubleAccounting	27	1.33333	25	33-33 35-35
+100	Calibri 19 strike	24.75	1.33333	25	20-21
+100	Calibri 20 single	26.25	1.33333	27	31-32
+100	Calibri 20 double	26.25	1.33333	27	30-30 32-32
+100	Calibri 20 singleAccounting	30.75	1.33333	27	35-36
+100	Calibri 20 doubleAccounting	28.5	1.33333	27	35-35 37-37
+100	Calibri 20 strike	26.25	1.33333	27	21-22
+100	Calibri 21 single	27.75	1.33333	28	32-33
+100	Calibri 21 double	27.75	1.33333	28	30-31 34-35
+100	Calibri 21 singleAccounting	32.25	1.33333	28	37-38
+100	Calibri 21 doubleAccounting	32.25	1.33333	28	37-38 41-42
+100	Calibri 21 strike	27.75	1.33333	28	22-23
+100	Calibri 22 single	28.5	1.33333	29	33-34
+100	Calibri 22 double	28.5	1.33333	29	31-32 35-36
+100	Calibri 22 singleAccounting	33	1.33333	29	38-39
+100	Calibri 22 doubleAccounting	33	1.33333	29	38-39 42-43
+100	Calibri 22 strike	28.5	1.33333	29	23-24
+100	Calibri 23 single	30	1.33333	31	36-37
+100	Calibri 23 double	30	1.33333	31	33-34 37-38
+100	Calibri 23 singleAccounting	34.5	1.33333	31	40-41
+100	Calibri 23 doubleAccounting	34.5	1.33333	31	40-41 44-45
+100	Calibri 23 strike	30	1.33333	31	24-25
+100	Calibri 24 single	31.5	1.33333	32	37-38
+100	Calibri 24 double	31.5	1.33333	32	35-36 39-40
+100	Calibri 24 singleAccounting	36	1.33333	32	42-43
+100	Calibri 24 doubleAccounting	36	1.33333	32	42-43 46-47
+100	Calibri 24 strike	31.5	1.33333	32	25-26
+100	Calibri 25 single	32.25	1.33333	33	38-39
+100	Calibri 25 double	32.25	1.33333	33	36-37 40-41
+100	Calibri 25 singleAccounting	36.75	1.33333	33	43-44
+100	Calibri 25 doubleAccounting	36.75	1.33333	33	43-44 47-48
+100	Calibri 25 strike	32.25	1.33333	33	26-27
+100	Calibri 26 single	33.75	1.33333	35	40-41
+100	Calibri 26 double	33.75	1.33333	35	38-39 42-43
+100	Calibri 26 singleAccounting	38.25	1.33333	35	45-46
+100	Calibri 26 doubleAccounting	38.25	1.33333	35	45-46 49-50
+100	Calibri 26 strike	33.75	1.33333	35	27-28
+100	Calibri 27 single	35.25	1.33333	36	41-42
+100	Calibri 27 double	35.25	1.33333	36	41-42 45-46
+100	Calibri 27 singleAccounting	39.75	1.33333	36	47-48
+100	Calibri 27 doubleAccounting	39.75	1.33333	36	47-48 51-52
+100	Calibri 27 strike	35.25	1.33333	36	28-29
+100	Calibri 28 single	36	1.33333	37	42-43
+100	Calibri 28 double	36	1.33333	37	42-43 46-47
+100	Calibri 28 singleAccounting	40.5	1.33333	37	48-49
+100	Calibri 28 doubleAccounting	40.5	1.33333	37	48-49 52-53
+100	Calibri 28 strike	36	1.33333	37	29-30
+100	Calibri 29 single	37.5	1.33333	39	44-46
+100	Calibri 29 double	37.5	1.33333	39	42-43 46-47
+100	Calibri 29 singleAccounting	44.25	1.33333	39	50-52
+100	Calibri 29 doubleAccounting	42	1.33333	39	50-51 54-55
+100	Calibri 29 strike	37.5	1.33333	39	30-32
+100	Calibri 30 single	39	1.33333	40	46-48
+100	Calibri 30 double	39	1.33333	40	44-45 48-49
+100	Calibri 30 singleAccounting	45.75	1.33333	40	52-54
+100	Calibri 30 doubleAccounting	43.5	1.33333	40	52-53 56-57
+100	Calibri 30 strike	39	1.33333	40	31-33
+100	Calibri 31 single	39.75	1.33333	41	47-49
+100	Calibri 31 double	39.75	1.33333	41	45-46 49-50
+100	Calibri 31 singleAccounting	46.5	1.33333	41	53-55
+100	Calibri 31 doubleAccounting	44.25	1.33333	41	53-54 57-58
+100	Calibri 31 strike	39.75	1.33333	41	32-34
+100	Calibri 32 single	42	1.33333	43	49-51
+100	Calibri 32 double	42	1.33333	43	46-48 52-54
+100	Calibri 32 singleAccounting	48.75	1.33333	43	56-58
+100	Calibri 32 doubleAccounting	48.75	1.33333	43	56-58 62-64
+100	Calibri 32 strike	42	1.33333	43	33-35
+100	Calibri 33 single	42.75	1.33333	44	50-52
+100	Calibri 33 double	42.75	1.33333	44	47-49 53-55
+100	Calibri 33 singleAccounting	49.5	1.33333	44	57-59
+100	Calibri 33 doubleAccounting	49.5	1.33333	44	57-59 63-65
+100	Calibri 33 strike	42.75	1.33333	44	34-36
+100	Calibri 34 single	43.5	1.33333	45	51-53
+100	Calibri 34 double	43.5	1.33333	45	48-50 54-56
+100	Calibri 34 singleAccounting	50.25	1.33333	45	58-60
+100	Calibri 34 doubleAccounting	50.25	1.33333	45	58-60 64-66
+100	Calibri 34 strike	43.5	1.33333	45	35-37
+100	Calibri 35 single	45.75	1.33333	47	53-55
+100	Calibri 35 double	45.75	1.33333	47	50-52 56-58
+100	Calibri 35 singleAccounting	52.5	1.33333	47	61-63
+100	Calibri 35 doubleAccounting	52.5	1.33333	47	61-63 67-69
+100	Calibri 35 strike	45.75	1.33333	47	36-38
+100	Calibri 36 single	46.5	1.33333	48	54-56
+100	Calibri 36 double	46.5	1.33333	48	51-53 57-59
+100	Calibri 36 singleAccounting	53.25	1.33333	48	62-64
+100	Calibri 36 doubleAccounting	53.25	1.33333	48	62-64 68-70
+100	Calibri 36 strike	46.5	1.33333	48	37-39
+100	Calibri 40 single	51	1.33333	53	60-62
+100	Calibri 40 double	51	1.33333	53	57-59 63-65
+100	Calibri 40 singleAccounting	57.75	1.33333	53	68-70
+100	Calibri 40 doubleAccounting	57.75	1.33333	53	68-70 74-76
+100	Calibri 40 strike	51	1.33333	53	41-43
+100	Calibri 44 single	57	1.33333	59	67-70
+100	Calibri 44 double	57	1.33333	59	62-65 70-73
+100	Calibri 44 singleAccounting	66	1.33333	59	76-79
+100	Calibri 44 doubleAccounting	66	1.33333	59	76-79 84-87
+100	Calibri 44 strike	57	1.33333	59	45-48
+100	Calibri 48 single	61.5	1.33333	64	72-75
+100	Calibri 48 double	61.5	1.33333	64	68-71 76-79
+100	Calibri 48 singleAccounting	70.5	1.33333	64	82-85
+100	Calibri 48 doubleAccounting	70.5	1.33333	64	82-85 90-93
+100	Calibri 48 strike	61.5	1.33333	64	49-52
+100	Calibri 52 single	66.75	1.33333	69	78-82
+100	Calibri 52 double	66.75	1.33333	69	74-77 82-85
+100	Calibri 52 singleAccounting	78	1.33333	69	89-93
+100	Calibri 52 doubleAccounting	75.75	1.33333	69	89-92 97-100
+100	Calibri 52 strike	66.75	1.33333	69	53-57
+100	Calibri 56 single	72	1.33333	75	84-88
+100	Calibri 56 double	72	1.33333	75	79-83 89-93
+100	Calibri 56 singleAccounting	83.25	1.33333	75	96-100
+100	Calibri 56 doubleAccounting	83.25	1.33333	75	96-100 106-110
+100	Calibri 56 strike	72	1.33333	75	57-61
+100	Calibri 60 single	76.5	1.33333	80	90-94
+100	Calibri 60 double	76.5	1.33333	80	84-88 94-98
+100	Calibri 60 singleAccounting	87.75	1.33333	80	102-106
+100	Calibri 60 doubleAccounting	87.75	1.33333	80	102-106 112-116
+100	Calibri 60 strike	76.5	1.33333	80	61-65
+100	Calibri 64 single	81.75	1.33333	85	96-101
+100	Calibri 64 double	81.75	1.33333	85	90-94 100-104
+100	Calibri 64 singleAccounting	95.25	1.33333	85	109-114
+100	Calibri 64 doubleAccounting	93	1.33333	85	109-113 119-123
+100	Calibri 64 strike	81.75	1.33333	85	65-70
+100	Calibri 68 single	87	1.33333	91	102-107
+100	Calibri 68 double	87	1.33333	91	95-100 107-112
+100	Calibri 68 singleAccounting	100.5	1.33333	91	116-121
+100	Calibri 68 doubleAccounting	100.5	1.33333	91	116-121 128-133
+100	Calibri 68 strike	87	1.33333	91	69-74
+100	Calibri 72 single	92.25	1.33333	96	108-113
+100	Calibri 72 double	92.25	1.33333	96	101-106 113-118
+100	Calibri 72 singleAccounting	105.75	1.33333	96	123-128
+100	Calibri 72 doubleAccounting	105.75	1.33333	96	123-128 135-140
+100	Calibri 72 strike	92.25	1.33333	96	73-78
+100	Aptos Narrow 9 single	15	1.33333	15	17-17
+100	Aptos Narrow 9 double	15	1.33333	15	16-16 18-18
+100	Aptos Narrow 9 singleAccounting	16.5	1.33333	15	19-19
+100	Aptos Narrow 9 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Aptos Narrow 9 strike	15	1.33333	15	12-12
+100	Aptos Narrow 10 single	15	1.33333	15	17-17
+100	Aptos Narrow 10 double	15	1.33333	15	17-17 19-19
+100	Aptos Narrow 10 singleAccounting	17.25	1.33333	15	20-20
+100	Aptos Narrow 10 doubleAccounting	17.25	1.33333	15	20-20 22-22
+100	Aptos Narrow 10 strike	15	1.33333	15	11-11
+100	Aptos Narrow 11 single	15	1.33333	15	17-17
+100	Aptos Narrow 11 double	15	1.33333	15	17-17 19-19
+100	Aptos Narrow 11 singleAccounting	17.25	1.33333	15	20-20
+100	Aptos Narrow 11 doubleAccounting	17.25	1.33333	15	20-20 22-22
+100	Aptos Narrow 11 strike	15	1.33333	15	11-11
+100	Aptos Narrow 12 single	15.75	1.33333	16	18-18
+100	Aptos Narrow 12 double	15.75	1.33333	16	18-18 20-20
+100	Aptos Narrow 12 singleAccounting	18	1.33333	16	21-21
+100	Aptos Narrow 12 doubleAccounting	18	1.33333	16	21-21 23-23
+100	Aptos Narrow 12 strike	15.75	1.33333	16	11-11
+100	Aptos Narrow 13 single	17.25	1.33333	17	19-19
+100	Aptos Narrow 13 double	17.25	1.33333	17	19-19 21-21
+100	Aptos Narrow 13 singleAccounting	19.5	1.33333	17	23-23
+100	Aptos Narrow 13 doubleAccounting	19.5	1.33333	17	23-23 25-25
+100	Aptos Narrow 13 strike	17.25	1.33333	17	12-12
+100	Aptos Narrow 14 single	18.75	1.33333	19	21-21
+100	Aptos Narrow 14 double	18.75	1.33333	19	21-21 23-23
+100	Aptos Narrow 14 singleAccounting	21	1.33333	19	25-25
+100	Aptos Narrow 14 doubleAccounting	21	1.33333	19	25-25 27-27
+100	Aptos Narrow 14 strike	18.75	1.33333	19	13-13
+100	Aptos Narrow 15 single	19.5	1.33333	20	22-22
+100	Aptos Narrow 15 double	19.5	1.33333	20	22-22 24-24
+100	Aptos Narrow 15 singleAccounting	21.75	1.33333	20	26-26
+100	Aptos Narrow 15 doubleAccounting	21.75	1.33333	20	26-26 28-28
+100	Aptos Narrow 15 strike	19.5	1.33333	20	14-14
+100	Aptos Narrow 16 single	21	1.33333	21	23-23
+100	Aptos Narrow 16 double	21	1.33333	21	23-23 25-25
+100	Aptos Narrow 16 singleAccounting	23.25	1.33333	21	28-28
+100	Aptos Narrow 16 doubleAccounting	23.25	1.33333	21	28-28 30-30
+100	Aptos Narrow 16 strike	21	1.33333	21	15-15
+100	Aptos Narrow 17 single	22.5	1.33333	23	25-25
+100	Aptos Narrow 17 double	22.5	1.33333	23	25-25 27-27
+100	Aptos Narrow 17 singleAccounting	24.75	1.33333	23	30-30
+100	Aptos Narrow 17 doubleAccounting	24.75	1.33333	23	30-30 32-32
+100	Aptos Narrow 17 strike	22.5	1.33333	23	16-16
+100	Aptos Narrow 18 single	24	1.33333	24	26-26
+100	Aptos Narrow 18 double	24	1.33333	24	26-26 28-28
+100	Aptos Narrow 18 singleAccounting	26.25	1.33333	24	32-32
+100	Aptos Narrow 18 doubleAccounting	26.25	1.33333	24	32-32 34-34
+100	Aptos Narrow 18 strike	24	1.33333	24	16-16
+100	Aptos Narrow 19 single	24.75	1.33333	25	27-27
+100	Aptos Narrow 19 double	24.75	1.33333	25	27-27 29-29
+100	Aptos Narrow 19 singleAccounting	27	1.33333	25	33-33
+100	Aptos Narrow 19 doubleAccounting	27	1.33333	25	33-33 35-35
+100	Aptos Narrow 19 strike	24.75	1.33333	25	17-17
+100	Aptos Narrow 20 single	26.25	1.33333	27	29-29
+100	Aptos Narrow 20 double	26.25	1.33333	27	29-29 31-31
+100	Aptos Narrow 20 singleAccounting	28.5	1.33333	27	35-35
+100	Aptos Narrow 20 doubleAccounting	28.5	1.33333	27	35-35 37-37
+100	Aptos Narrow 20 strike	26.25	1.33333	27	18-18
+100	Aptos Narrow 21 single	27.75	1.33333	28	30-30
+100	Aptos Narrow 21 double	27.75	1.33333	28	30-30 32-32
+100	Aptos Narrow 21 singleAccounting	30	1.33333	28	37-37
+100	Aptos Narrow 21 doubleAccounting	30	1.33333	28	37-37 39-39
+100	Aptos Narrow 21 strike	27.75	1.33333	28	19-19
+100	Aptos Narrow 22 single	28.5	1.33333	29	31-31
+100	Aptos Narrow 22 double	28.5	1.33333	29	31-31 33-33
+100	Aptos Narrow 22 singleAccounting	30.75	1.33333	29	38-38
+100	Aptos Narrow 22 doubleAccounting	30.75	1.33333	29	38-38 40-40
+100	Aptos Narrow 22 strike	28.5	1.33333	29	20-20
+100	Aptos Narrow 23 single	30.75	1.33333	31	34-34
+100	Aptos Narrow 23 double	30.75	1.33333	31	34-34 36-36
+100	Aptos Narrow 23 singleAccounting	33	1.33333	31	41-41
+100	Aptos Narrow 23 doubleAccounting	33	1.33333	31	41-41 43-43
+100	Aptos Narrow 23 strike	30.75	1.33333	31	21-22
+100	Aptos Narrow 24 single	31.5	1.33333	32	35-35
+100	Aptos Narrow 24 double	31.5	1.33333	32	35-35 37-37
+100	Aptos Narrow 24 singleAccounting	33.75	1.33333	32	42-42
+100	Aptos Narrow 24 doubleAccounting	33.75	1.33333	32	42-42 44-44
+100	Aptos Narrow 24 strike	31.5	1.33333	32	22-23
+100	Aptos Narrow 25 single	32.25	1.33333	33	36-36
+100	Aptos Narrow 25 double	32.25	1.33333	33	36-36 38-38
+100	Aptos Narrow 25 singleAccounting	34.5	1.33333	33	43-43
+100	Aptos Narrow 25 doubleAccounting	34.5	1.33333	33	43-43 45-45
+100	Aptos Narrow 25 strike	32.25	1.33333	33	22-23
+100	Aptos Narrow 26 single	34.5	1.33333	35	38-38
+100	Aptos Narrow 26 double	34.5	1.33333	35	38-38 40-40
+100	Aptos Narrow 26 singleAccounting	36.75	1.33333	35	46-46
+100	Aptos Narrow 26 doubleAccounting	36.75	1.33333	35	46-46 48-48
+100	Aptos Narrow 26 strike	34.5	1.33333	35	24-25
+100	Aptos Narrow 27 single	35.25	1.33333	36	39-39
+100	Aptos Narrow 27 double	35.25	1.33333	36	39-39 41-41
+100	Aptos Narrow 27 singleAccounting	37.5	1.33333	36	47-47
+100	Aptos Narrow 27 doubleAccounting	37.5	1.33333	36	47-47 49-49
+100	Aptos Narrow 27 strike	35.25	1.33333	36	24-25
+100	Aptos Narrow 28 single	36	1.33333	37	40-40
+100	Aptos Narrow 28 double	36	1.33333	37	40-40 42-42
+100	Aptos Narrow 28 singleAccounting	38.25	1.33333	37	48-48
+100	Aptos Narrow 28 doubleAccounting	38.25	1.33333	37	48-48 50-50
+100	Aptos Narrow 28 strike	36	1.33333	37	25-26
+100	Aptos Narrow 29 single	38.25	1.33333	39	42-42
+100	Aptos Narrow 29 double	38.25	1.33333	39	42-42 44-44
+100	Aptos Narrow 29 singleAccounting	40.5	1.33333	39	51-51
+100	Aptos Narrow 29 doubleAccounting	40.5	1.33333	39	51-51 53-53
+100	Aptos Narrow 29 strike	38.25	1.33333	39	26-27
+100	Aptos Narrow 30 single	39	1.33333	40	43-43
+100	Aptos Narrow 30 double	39	1.33333	40	43-43 45-45
+100	Aptos Narrow 30 singleAccounting	41.25	1.33333	40	52-52
+100	Aptos Narrow 30 doubleAccounting	41.25	1.33333	40	52-52 54-54
+100	Aptos Narrow 30 strike	39	1.33333	40	27-28
+100	Aptos Narrow 31 single	39.75	1.33333	41	44-44
+100	Aptos Narrow 31 double	39.75	1.33333	41	44-44 46-46
+100	Aptos Narrow 31 singleAccounting	42	1.33333	41	53-53
+100	Aptos Narrow 31 doubleAccounting	42	1.33333	41	53-53 55-55
+100	Aptos Narrow 31 strike	39.75	1.33333	41	27-28
+100	Aptos Narrow 32 single	42	1.33333	43	46-46
+100	Aptos Narrow 32 double	42	1.33333	43	46-46 48-48
+100	Aptos Narrow 32 singleAccounting	44.25	1.33333	43	56-56
+100	Aptos Narrow 32 doubleAccounting	44.25	1.33333	43	56-56 58-58
+100	Aptos Narrow 32 strike	42	1.33333	43	29-30
+100	Aptos Narrow 33 single	42.75	1.33333	44	47-47
+100	Aptos Narrow 33 double	42.75	1.33333	44	47-47 49-49
+100	Aptos Narrow 33 singleAccounting	45	1.33333	44	57-57
+100	Aptos Narrow 33 doubleAccounting	45	1.33333	44	57-57 59-59
+100	Aptos Narrow 33 strike	42.75	1.33333	44	29-30
+100	Aptos Narrow 34 single	43.5	1.33333	45	48-48
+100	Aptos Narrow 34 double	43.5	1.33333	45	48-48 50-50
+100	Aptos Narrow 34 singleAccounting	45.75	1.33333	45	58-58
+100	Aptos Narrow 34 doubleAccounting	45.75	1.33333	45	58-58 60-60
+100	Aptos Narrow 34 strike	43.5	1.33333	45	30-31
+100	Aptos Narrow 35 single	45.75	1.33333	47	50-50
+100	Aptos Narrow 35 double	45.75	1.33333	47	50-50 52-52
+100	Aptos Narrow 35 singleAccounting	48	1.33333	47	61-61
+100	Aptos Narrow 35 doubleAccounting	48	1.33333	47	61-61 63-63
+100	Aptos Narrow 35 strike	45.75	1.33333	47	31-32
+100	Aptos Narrow 36 single	46.5	1.33333	48	51-51
+100	Aptos Narrow 36 double	46.5	1.33333	48	51-51 53-53
+100	Aptos Narrow 36 singleAccounting	48.75	1.33333	48	62-62
+100	Aptos Narrow 36 doubleAccounting	48.75	1.33333	48	62-62 64-64
+100	Aptos Narrow 36 strike	46.5	1.33333	48	32-33
+100	Aptos Narrow 40 single	53.25	1.33333	54	58-58
+100	Aptos Narrow 40 double	53.25	1.33333	54	58-58 60-60
+100	Aptos Narrow 40 singleAccounting	55.5	1.33333	54	70-70
+100	Aptos Narrow 40 doubleAccounting	55.5	1.33333	54	70-70 72-72
+100	Aptos Narrow 40 strike	53.25	1.33333	54	36-38
+100	Aptos Narrow 44 single	58.5	1.33333	60	64-64
+100	Aptos Narrow 44 double	58.5	1.33333	60	64-64 66-66
+100	Aptos Narrow 44 singleAccounting	60.75	1.33333	60	77-77
+100	Aptos Narrow 44 doubleAccounting	60.75	1.33333	60	77-77 79-79
+100	Aptos Narrow 44 strike	58.5	1.33333	60	40-42
+100	Aptos Narrow 48 single	63.75	1.33333	65	69-70
+100	Aptos Narrow 48 double	63.75	1.33333	65	69-70 73-74
+100	Aptos Narrow 48 singleAccounting	68.25	1.33333	65	84-85
+100	Aptos Narrow 48 doubleAccounting	68.25	1.33333	65	84-85 88-89
+100	Aptos Narrow 48 strike	63.75	1.33333	65	43-45
+100	Aptos Narrow 52 single	68.25	1.33333	70	74-75
+100	Aptos Narrow 52 double	68.25	1.33333	70	74-75 78-79
+100	Aptos Narrow 52 singleAccounting	72.75	1.33333	70	90-91
+100	Aptos Narrow 52 doubleAccounting	72.75	1.33333	70	90-91 94-95
+100	Aptos Narrow 52 strike	68.25	1.33333	70	46-48
+100	Aptos Narrow 56 single	74.25	1.33333	76	81-82
+100	Aptos Narrow 56 double	74.25	1.33333	76	81-82 85-86
+100	Aptos Narrow 56 singleAccounting	78.75	1.33333	76	98-99
+100	Aptos Narrow 56 doubleAccounting	78.75	1.33333	76	98-99 102-103
+100	Aptos Narrow 56 strike	74.25	1.33333	76	50-53
+100	Aptos Narrow 60 single	78.75	1.33333	81	86-87
+100	Aptos Narrow 60 double	78.75	1.33333	81	86-87 90-91
+100	Aptos Narrow 60 singleAccounting	83.25	1.33333	81	104-105
+100	Aptos Narrow 60 doubleAccounting	83.25	1.33333	81	104-105 108-109
+100	Aptos Narrow 60 strike	78.75	1.33333	81	53-56
+100	Aptos Narrow 64 single	83.25	1.33333	86	91-92
+100	Aptos Narrow 64 double	83.25	1.33333	86	91-92 95-96
+100	Aptos Narrow 64 singleAccounting	87.75	1.33333	86	110-111
+100	Aptos Narrow 64 doubleAccounting	87.75	1.33333	86	110-111 114-115
+100	Aptos Narrow 64 strike	83.25	1.33333	86	57-60
+100	Aptos Narrow 68 single	89.25	1.33333	92	97-98
+100	Aptos Narrow 68 double	89.25	1.33333	92	97-98 101-102
+100	Aptos Narrow 68 singleAccounting	93.75	1.33333	92	118-119
+100	Aptos Narrow 68 doubleAccounting	93.75	1.33333	92	118-119 122-123
+100	Aptos Narrow 68 strike	89.25	1.33333	92	61-65
+100	Aptos Narrow 72 single	93.75	1.33333	97	103-104
+100	Aptos Narrow 72 double	93.75	1.33333	97	103-104 107-108
+100	Aptos Narrow 72 singleAccounting	98.25	1.33333	97	124-125
+100	Aptos Narrow 72 doubleAccounting	98.25	1.33333	97	124-125 128-129
+100	Aptos Narrow 72 strike	93.75	1.33333	97	64-68
+100	Arial 9 single	15	1.33333	15	17-17
+100	Arial 9 double	15	1.33333	15	16-16 18-18
+100	Arial 9 singleAccounting	16.5	1.33333	15	19-19
+100	Arial 9 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Arial 9 strike	15	1.33333	15	13-13
+100	Arial 10 single	15	1.33333	15	17-17
+100	Arial 10 double	15	1.33333	15	16-16 18-18
+100	Arial 10 singleAccounting	16.5	1.33333	15	19-19
+100	Arial 10 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Arial 10 strike	15	1.33333	15	13-13
+100	Arial 11 single	15	1.33333	15	18-18
+100	Arial 11 double	15	1.33333	15	16-16 18-18
+100	Arial 11 singleAccounting	16.5	1.33333	15	19-19
+100	Arial 11 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Arial 11 strike	15	1.33333	15	12-12
+100	Arial 12 single	15.75	1.33333	16	19-19
+100	Arial 12 double	15.75	1.33333	16	17-17 19-19
+100	Arial 12 singleAccounting	17.25	1.33333	16	20-20
+100	Arial 12 doubleAccounting	17.25	1.33333	16	20-20 22-22
+100	Arial 12 strike	15.75	1.33333	16	13-13
+100	Arial 13 single	16.5	1.33333	17	20-20
+100	Arial 13 double	16.5	1.33333	17	19-19 21-21
+100	Arial 13 singleAccounting	18.75	1.33333	17	22-22
+100	Arial 13 doubleAccounting	18.75	1.33333	17	22-22 24-24
+100	Arial 13 strike	16.5	1.33333	17	14-14
+100	Arial 14 single	18	1.33333	19	22-22
+100	Arial 14 double	18	1.33333	19	21-21 23-23
+100	Arial 14 singleAccounting	20.25	1.33333	19	24-24
+100	Arial 14 doubleAccounting	20.25	1.33333	19	24-24 26-26
+100	Arial 14 strike	18	1.33333	19	15-15
+100	Arial 15 single	18.75	1.33333	20	23-23
+100	Arial 15 double	18.75	1.33333	20	22-22 24-24
+100	Arial 15 singleAccounting	21	1.33333	20	25-25
+100	Arial 15 doubleAccounting	21	1.33333	20	25-25 27-27
+100	Arial 15 strike	18.75	1.33333	20	16-16
+100	Arial 16 single	20.25	1.33333	21	24-25
+100	Arial 16 double	20.25	1.33333	21	23-23 25-25
+100	Arial 16 singleAccounting	24.75	1.33333	21	27-28
+100	Arial 16 doubleAccounting	22.5	1.33333	21	27-27 29-29
+100	Arial 16 strike	20.25	1.33333	21	17-17
+100	Arial 17 single	21.75	1.33333	23	26-27
+100	Arial 17 double	21.75	1.33333	23	25-25 27-27
+100	Arial 17 singleAccounting	26.25	1.33333	23	29-30
+100	Arial 17 doubleAccounting	24	1.33333	23	29-29 31-31
+100	Arial 17 strike	21.75	1.33333	23	18-18
+100	Arial 18 single	23.25	1.33333	24	28-29
+100	Arial 18 double	23.25	1.33333	24	27-27 29-29
+100	Arial 18 singleAccounting	27.75	1.33333	24	31-32
+100	Arial 18 doubleAccounting	25.5	1.33333	24	31-31 33-33
+100	Arial 18 strike	23.25	1.33333	24	19-19
+100	Arial 19 single	23.25	1.33333	25	29-30
+100	Arial 19 double	23.25	1.33333	25	27-27 29-29
+100	Arial 19 singleAccounting	27.75	1.33333	25	31-32
+100	Arial 19 doubleAccounting	25.5	1.33333	25	31-31 33-33
+100	Arial 19 strike	23.25	1.33333	25	20-20
+100	Arial 20 single	25.5	1.33333	27	31-32
+100	Arial 20 double	25.5	1.33333	27	30-30 32-32
+100	Arial 20 singleAccounting	30	1.33333	27	34-35
+100	Arial 20 doubleAccounting	27.75	1.33333	27	34-34 36-36
+100	Arial 20 strike	25.5	1.33333	27	21-21
+100	Arial 21 single	26.25	1.33333	28	32-33
+100	Arial 21 double	26.25	1.33333	28	31-31 33-33
+100	Arial 21 singleAccounting	30.75	1.33333	28	35-36
+100	Arial 21 doubleAccounting	28.5	1.33333	28	35-35 37-37
+100	Arial 21 strike	26.25	1.33333	28	22-22
+100	Arial 22 single	27	1.33333	29	33-34
+100	Arial 22 double	27	1.33333	29	32-32 34-34
+100	Arial 22 singleAccounting	31.5	1.33333	29	36-37
+100	Arial 22 doubleAccounting	29.25	1.33333	29	36-36 38-38
+100	Arial 22 strike	27	1.33333	29	22-22
+100	Arial 23 single	29.25	1.33333	31	35-36
+100	Arial 23 double	29.25	1.33333	31	34-34 36-36
+100	Arial 23 singleAccounting	33.75	1.33333	31	39-40
+100	Arial 23 doubleAccounting	31.5	1.33333	31	39-39 41-41
+100	Arial 23 strike	29.25	1.33333	31	24-25
+100	Arial 24 single	30	1.33333	32	36-37
+100	Arial 24 double	30	1.33333	32	35-35 37-37
+100	Arial 24 singleAccounting	34.5	1.33333	32	40-41
+100	Arial 24 doubleAccounting	32.25	1.33333	32	40-40 42-42
+100	Arial 24 strike	30	1.33333	32	25-26
+100	Arial 25 single	30.75	1.33333	33	37-38
+100	Arial 25 double	30.75	1.33333	33	36-36 38-38
+100	Arial 25 singleAccounting	35.25	1.33333	33	41-42
+100	Arial 25 doubleAccounting	33	1.33333	33	41-41 43-43
+100	Arial 25 strike	30.75	1.33333	33	25-26
+100	Arial 26 single	33	1.33333	35	40-42
+100	Arial 26 double	33	1.33333	35	37-38 41-42
+100	Arial 26 singleAccounting	39.75	1.33333	35	44-46
+100	Arial 26 doubleAccounting	37.5	1.33333	35	44-45 48-49
+100	Arial 26 strike	33	1.33333	35	27-28
+100	Arial 27 single	33.75	1.33333	36	41-43
+100	Arial 27 double	33.75	1.33333	36	38-39 42-43
+100	Arial 27 singleAccounting	40.5	1.33333	36	45-47
+100	Arial 27 doubleAccounting	38.25	1.33333	36	45-46 49-50
+100	Arial 27 strike	33.75	1.33333	36	28-29
+100	Arial 28 single	34.5	1.33333	37	42-44
+100	Arial 28 double	34.5	1.33333	37	39-40 43-44
+100	Arial 28 singleAccounting	41.25	1.33333	37	46-48
+100	Arial 28 doubleAccounting	39	1.33333	37	46-47 50-51
+100	Arial 28 strike	34.5	1.33333	37	28-29
+100	Arial 29 single	36.75	1.33333	39	44-46
+100	Arial 29 double	36.75	1.33333	39	42-43 46-47
+100	Arial 29 singleAccounting	43.5	1.33333	39	49-51
+100	Arial 29 doubleAccounting	41.25	1.33333	39	49-50 53-54
+100	Arial 29 strike	36.75	1.33333	39	30-31
+100	Arial 30 single	37.5	1.33333	40	45-47
+100	Arial 30 double	37.5	1.33333	40	43-44 47-48
+100	Arial 30 singleAccounting	44.25	1.33333	40	50-52
+100	Arial 30 doubleAccounting	42	1.33333	40	50-51 54-55
+100	Arial 30 strike	37.5	1.33333	40	31-32
+100	Arial 31 single	38.25	1.33333	41	46-48
+100	Arial 31 double	38.25	1.33333	41	44-45 48-49
+100	Arial 31 singleAccounting	45	1.33333	41	51-53
+100	Arial 31 doubleAccounting	42.75	1.33333	41	51-52 55-56
+100	Arial 31 strike	38.25	1.33333	41	31-32
+100	Arial 32 single	40.5	1.33333	43	49-51
+100	Arial 32 double	40.5	1.33333	43	46-47 50-51
+100	Arial 32 singleAccounting	47.25	1.33333	43	54-56
+100	Arial 32 doubleAccounting	45	1.33333	43	54-55 58-59
+100	Arial 32 strike	40.5	1.33333	43	33-34
+100	Arial 33 single	41.25	1.33333	44	50-52
+100	Arial 33 double	41.25	1.33333	44	47-48 51-52
+100	Arial 33 singleAccounting	48	1.33333	44	55-57
+100	Arial 33 doubleAccounting	45.75	1.33333	44	55-56 59-60
+100	Arial 33 strike	41.25	1.33333	44	34-35
+100	Arial 34 single	42	1.33333	45	51-53
+100	Arial 34 double	42	1.33333	45	48-49 52-53
+100	Arial 34 singleAccounting	48.75	1.33333	45	56-58
+100	Arial 34 doubleAccounting	46.5	1.33333	45	56-57 60-61
+100	Arial 34 strike	42	1.33333	45	34-35
+100	Arial 35 single	43.5	1.33333	47	53-55
+100	Arial 35 double	43.5	1.33333	47	50-51 54-55
+100	Arial 35 singleAccounting	50.25	1.33333	47	58-60
+100	Arial 35 doubleAccounting	48	1.33333	47	58-59 62-63
+100	Arial 35 strike	43.5	1.33333	47	36-37
+100	Arial 36 single	44.25	1.33333	48	54-57
+100	Arial 36 double	44.25	1.33333	48	51-52 55-56
+100	Arial 36 singleAccounting	53.25	1.33333	48	59-62
+100	Arial 36 doubleAccounting	48.75	1.33333	48	59-60 63-64
+100	Arial 36 strike	44.25	1.33333	48	37-38
+100	Arial 40 single	49.5	1.33333	53	60-63
+100	Arial 40 double	49.5	1.33333	53	56-58 62-64
+100	Arial 40 singleAccounting	58.5	1.33333	53	66-69
+100	Arial 40 doubleAccounting	56.25	1.33333	53	66-68 72-74
+100	Arial 40 strike	49.5	1.33333	53	40-42
+100	Arial 44 single	54.75	1.33333	59	66-69
+100	Arial 44 double	54.75	1.33333	59	62-64 68-70
+100	Arial 44 singleAccounting	63.75	1.33333	59	73-76
+100	Arial 44 doubleAccounting	61.5	1.33333	59	73-75 79-81
+100	Arial 44 strike	54.75	1.33333	59	45-47
+100	Arial 48 single	59.25	1.33333	64	72-76
+100	Arial 48 double	59.25	1.33333	64	68-70 74-76
+100	Arial 48 singleAccounting	70.5	1.33333	64	79-83
+100	Arial 48 doubleAccounting	66	1.33333	64	79-81 85-87
+100	Arial 48 strike	59.25	1.33333	64	48-50
+100	Arial 52 single	63.75	1.33333	69	77-81
+100	Arial 52 double	63.75	1.33333	69	73-75 79-81
+100	Arial 52 singleAccounting	75	1.33333	69	85-89
+100	Arial 52 doubleAccounting	70.5	1.33333	69	85-87 91-93
+100	Arial 52 strike	63.75	1.33333	69	52-54
+100	Arial 56 single	69	1.33333	75	84-88
+100	Arial 56 double	69	1.33333	75	78-81 86-89
+100	Arial 56 singleAccounting	80.25	1.33333	75	92-96
+100	Arial 56 doubleAccounting	78	1.33333	75	92-95 100-103
+100	Arial 56 strike	69	1.33333	75	57-60
+100	Arial 60 single	75	1.33333	81	90-95
+100	Arial 60 double	75	1.33333	81	85-88 93-96
+100	Arial 60 singleAccounting	88.5	1.33333	81	99-104
+100	Arial 60 doubleAccounting	84	1.33333	81	99-102 107-110
+100	Arial 60 strike	75	1.33333	81	61-64
+100	Arial 64 single	80.25	1.33333	86	96-101
+100	Arial 64 double	80.25	1.33333	86	91-94 99-102
+100	Arial 64 singleAccounting	93.75	1.33333	86	106-111
+100	Arial 64 doubleAccounting	89.25	1.33333	86	106-109 114-117
+100	Arial 64 strike	80.25	1.33333	86	65-68
+100	Arial 68 single	85.5	1.33333	92	103-109
+100	Arial 68 double	85.5	1.33333	92	96-100 106-110
+100	Arial 68 singleAccounting	101.25	1.33333	92	113-119
+100	Arial 68 doubleAccounting	96.75	1.33333	92	113-117 123-127
+100	Arial 68 strike	85.5	1.33333	92	69-73
+100	Arial 72 single	90	1.33333	97	108-114
+100	Arial 72 double	90	1.33333	97	101-105 111-115
+100	Arial 72 singleAccounting	105.75	1.33333	97	119-125
+100	Arial 72 doubleAccounting	101.25	1.33333	97	119-123 129-133
+100	Arial 72 strike	90	1.33333	97	73-77
+200	Calibri 9 single	15	2.66667	30	34-35
+200	Calibri 9 double	15	2.66667	30	33-33 35-35
+200	Calibri 9 singleAccounting	16.5	2.66667	30	37-38
+200	Calibri 9 doubleAccounting	16.5	2.66667	30	37-37 39-39
+200	Calibri 9 strike	15	2.66667	30	25-26
+200	Calibri 10 single	15	2.66667	30	34-35
+200	Calibri 10 double	15	2.66667	30	33-33 35-35
+200	Calibri 10 singleAccounting	16.5	2.66667	30	38-39
+200	Calibri 10 doubleAccounting	16.5	2.66667	30	38-38 40-40
+200	Calibri 10 strike	15	2.66667	30	24-25
+200	Calibri 11 single	15	2.66667	30	34-35
+200	Calibri 11 double	15	2.66667	30	32-33 36-37
+200	Calibri 11 singleAccounting	17.25	2.66667	30	39-40
+200	Calibri 11 doubleAccounting	17.25	2.66667	30	39-40 43-44
+200	Calibri 11 strike	15	2.66667	30	24-25
+200	Calibri 12 single	15.75	2.66667	32	37-38
+200	Calibri 12 double	15.75	2.66667	32	35-36 39-40
+200	Calibri 12 singleAccounting	18	2.66667	32	42-43
+200	Calibri 12 doubleAccounting	18	2.66667	32	42-43 46-47
+200	Calibri 12 strike	15.75	2.66667	32	25-26
+200	Calibri 13 single	17.25	2.66667	34	39-40
+200	Calibri 13 double	17.25	2.66667	34	37-38 41-42
+200	Calibri 13 singleAccounting	19.5	2.66667	34	44-45
+200	Calibri 13 doubleAccounting	19.5	2.66667	34	44-45 48-49
+200	Calibri 13 strike	17.25	2.66667	34	26-27
+200	Calibri 14 single	18.75	2.66667	38	43-44
+200	Calibri 14 double	18.75	2.66667	38	43-44 47-48
+200	Calibri 14 singleAccounting	21	2.66667	38	49-50
+200	Calibri 14 doubleAccounting	21	2.66667	38	49-50 53-54
+200	Calibri 14 strike	18.75	2.66667	38	30-31
+200	Calibri 15 single	19.5	2.66667	40	46-48
+200	Calibri 15 double	19.5	2.66667	40	44-45 48-49
+200	Calibri 15 singleAccounting	21.75	2.66667	40	52-54
+200	Calibri 15 doubleAccounting	21.75	2.66667	40	52-53 56-57
+200	Calibri 15 strike	19.5	2.66667	40	31-33
+200	Calibri 16 single	21	2.66667	42	48-50
+200	Calibri 16 double	21	2.66667	42	45-47 51-53
+200	Calibri 16 singleAccounting	23.25	2.66667	42	55-57
+200	Calibri 16 doubleAccounting	23.25	2.66667	42	55-57 61-61
+200	Calibri 16 strike	21	2.66667	42	1-1 32-34
+200	Calibri 17 single	22.5	2.66667	46	52-54
+200	Calibri 17 double	22.5	2.66667	46	49-51 55-57
+200	Calibri 17 singleAccounting	27	2.66667	46	59-61
+200	Calibri 17 doubleAccounting	24.75	2.66667	46	59-61 65-65
+200	Calibri 17 strike	22.5	2.66667	46	1-1 36-38
+200	Calibri 18 single	23.25	2.66667	48	54-56
+200	Calibri 18 double	23.25	2.66667	48	51-53 57-59
+200	Calibri 18 singleAccounting	27.75	2.66667	48	62-64
+200	Calibri 18 doubleAccounting	25.5	2.66667	48	62-64
+200	Calibri 18 strike	23.25	2.66667	48	1-2 37-39
+200	Calibri 19 single	24.75	2.66667	50	57-59
+200	Calibri 19 double	24.75	2.66667	50	54-56 60-62
+200	Calibri 19 singleAccounting	29.25	2.66667	50	65-67
+200	Calibri 19 doubleAccounting	27	2.66667	50	65-67 71-71
+200	Calibri 19 strike	24.75	2.66667	50	1-1 38-40
+200	Calibri 20 single	26.25	2.66667	54	61-63
+200	Calibri 20 double	26.25	2.66667	54	58-60 64-66
+200	Calibri 20 singleAccounting	30.75	2.66667	54	69-71
+200	Calibri 20 doubleAccounting	28.5	2.66667	54	69-71 75-75
+200	Calibri 20 strike	26.25	2.66667	54	1-1 42-44
+200	Calibri 21 single	27.75	2.66667	56	63-66
+200	Calibri 21 double	27.75	2.66667	56	60-62 66-68
+200	Calibri 21 singleAccounting	32.25	2.66667	56	72-75
+200	Calibri 21 doubleAccounting	32.25	2.66667	56	72-74 78-80
+200	Calibri 21 strike	27.75	2.66667	56	43-46
+200	Calibri 22 single	28.5	2.66667	58	66-69
+200	Calibri 22 double	28.5	2.66667	58	61-64 69-72
+200	Calibri 22 singleAccounting	33	2.66667	58	75-78
+200	Calibri 22 doubleAccounting	33	2.66667	58	75-78 83-86
+200	Calibri 22 strike	28.5	2.66667	58	44-47
+200	Calibri 23 single	30	2.66667	62	70-73
+200	Calibri 23 double	30	2.66667	62	65-68 73-76
+200	Calibri 23 singleAccounting	34.5	2.66667	62	79-82
+200	Calibri 23 doubleAccounting	34.5	2.66667	62	79-82 87-90
+200	Calibri 23 strike	30	2.66667	62	48-51
+200	Calibri 24 single	31.5	2.66667	64	72-75
+200	Calibri 24 double	31.5	2.66667	64	68-71 76-79
+200	Calibri 24 singleAccounting	36	2.66667	64	82-85
+200	Calibri 24 doubleAccounting	36	2.66667	64	82-85 90-93
+200	Calibri 24 strike	31.5	2.66667	64	49-52
+200	Calibri 25 single	32.25	2.66667	66	75-78
+200	Calibri 25 double	32.25	2.66667	66	70-73 78-81
+200	Calibri 25 singleAccounting	36.75	2.66667	66	85-88
+200	Calibri 25 doubleAccounting	36.75	2.66667	66	85-88 93-96
+200	Calibri 25 strike	32.25	2.66667	66	50-53
+200	Calibri 26 single	33.75	2.66667	70	79-83
+200	Calibri 26 double	33.75	2.66667	70	75-78 83-86
+200	Calibri 26 singleAccounting	38.25	2.66667	70	90-94
+200	Calibri 26 doubleAccounting	38.25	2.66667	70	90-93 98-101
+200	Calibri 26 strike	33.75	2.66667	70	54-58
+200	Calibri 27 single	35.25	2.66667	72	81-85
+200	Calibri 27 double	35.25	2.66667	72	77-80 85-88
+200	Calibri 27 singleAccounting	39.75	2.66667	72	92-96
+200	Calibri 27 doubleAccounting	39.75	2.66667	72	92-95 100-103
+200	Calibri 27 strike	35.25	2.66667	72	55-59
+200	Calibri 28 single	36	2.66667	74	83-87
+200	Calibri 28 double	36	2.66667	74	78-82 88-92
+200	Calibri 28 singleAccounting	40.5	2.66667	74	95-99
+200	Calibri 28 doubleAccounting	40.5	2.66667	74	95-99 105-107
+200	Calibri 28 strike	36	2.66667	74	1-1 56-60
+200	Calibri 29 single	37.5	2.66667	78	88-92
+200	Calibri 29 double	37.5	2.66667	78	82-86 92-96
+200	Calibri 29 singleAccounting	44.25	2.66667	78	100-104
+200	Calibri 29 doubleAccounting	42	2.66667	78	100-104 110-111
+200	Calibri 29 strike	37.5	2.66667	78	1-2 60-64
+200	Calibri 30 single	39	2.66667	80	90-94
+200	Calibri 30 double	39	2.66667	80	84-88 94-98
+200	Calibri 30 singleAccounting	45.75	2.66667	80	102-106
+200	Calibri 30 doubleAccounting	43.5	2.66667	80	102-106 112-115
+200	Calibri 30 strike	39	2.66667	80	61-65
+200	Calibri 31 single	39.75	2.66667	82	92-96
+200	Calibri 31 double	39.75	2.66667	82	87-91 97-101
+200	Calibri 31 singleAccounting	46.5	2.66667	82	105-109
+200	Calibri 31 doubleAccounting	44.25	2.66667	82	105-109 115-117
+200	Calibri 31 strike	39.75	2.66667	82	1-1 62-66
+200	Calibri 32 single	42	2.66667	86	97-102
+200	Calibri 32 double	42	2.66667	86	91-95 101-105
+200	Calibri 32 singleAccounting	48.75	2.66667	86	110-115
+200	Calibri 32 doubleAccounting	48.75	2.66667	86	110-114 120-124
+200	Calibri 32 strike	42	2.66667	86	66-71
+200	Calibri 33 single	42.75	2.66667	88	99-104
+200	Calibri 33 double	42.75	2.66667	88	92-97 104-109
+200	Calibri 33 singleAccounting	49.5	2.66667	88	113-118
+200	Calibri 33 doubleAccounting	49.5	2.66667	88	113-118 125-130
+200	Calibri 33 strike	42.75	2.66667	88	67-72
+200	Calibri 34 single	43.5	2.66667	90	101-106
+200	Calibri 34 double	43.5	2.66667	90	94-99 106-111
+200	Calibri 34 singleAccounting	50.25	2.66667	90	115-120
+200	Calibri 34 doubleAccounting	50.25	2.66667	90	115-120 127-132
+200	Calibri 34 strike	43.5	2.66667	90	68-73
+200	Calibri 35 single	45.75	2.66667	94	106-111
+200	Calibri 35 double	45.75	2.66667	94	99-104 111-116
+200	Calibri 35 singleAccounting	52.5	2.66667	94	120-125
+200	Calibri 35 doubleAccounting	52.5	2.66667	94	120-125 132-137
+200	Calibri 35 strike	45.75	2.66667	94	72-77
+200	Calibri 36 single	46.5	2.66667	96	108-113
+200	Calibri 36 double	46.5	2.66667	96	101-106 113-118
+200	Calibri 36 singleAccounting	53.25	2.66667	96	123-128
+200	Calibri 36 doubleAccounting	53.25	2.66667	96	123-128 135-140
+200	Calibri 36 strike	46.5	2.66667	96	73-78
+200	Calibri 40 single	51	2.66667	106	119-125
+200	Calibri 40 double	51	2.66667	106	111-117 125-131
+200	Calibri 40 singleAccounting	57.75	2.66667	106	136-142
+200	Calibri 40 doubleAccounting	57.75	2.66667	106	136-142 150-153
+200	Calibri 40 strike	51	2.66667	106	1-2 80-86
+200	Calibri 44 single	57	2.66667	118	132-139
+200	Calibri 44 double	57	2.66667	118	124-130 138-144
+200	Calibri 44 singleAccounting	66	2.66667	118	150-157
+200	Calibri 44 doubleAccounting	66	2.66667	118	150-156 164-170
+200	Calibri 44 strike	57	2.66667	118	90-97
+200	Calibri 48 single	61.5	2.66667	128	144-151
+200	Calibri 48 double	61.5	2.66667	128	134-141 150-157
+200	Calibri 48 singleAccounting	70.5	2.66667	128	163-170
+200	Calibri 48 doubleAccounting	70.5	2.66667	128	163-170 179-186
+200	Calibri 48 strike	61.5	2.66667	128	97-104
+200	Calibri 52 single	66.75	2.66667	138	155-163
+200	Calibri 52 double	66.75	2.66667	138	144-152 162-170
+200	Calibri 52 singleAccounting	78	2.66667	138	176-184
+200	Calibri 52 doubleAccounting	75.75	2.66667	138	176-184 194-201
+200	Calibri 52 strike	66.75	2.66667	138	104-112
+200	Calibri 56 single	72	2.66667	150	168-177
+200	Calibri 56 double	72	2.66667	150	156-165 176-185
+200	Calibri 56 singleAccounting	83.25	2.66667	150	191-200
+200	Calibri 56 doubleAccounting	83.25	2.66667	150	191-200 211-220
+200	Calibri 56 strike	72	2.66667	150	114-123
+200	Calibri 60 single	76.5	2.66667	160	179-188
+200	Calibri 60 double	76.5	2.66667	160	168-177 188-197
+200	Calibri 60 singleAccounting	87.75	2.66667	160	204-213
+200	Calibri 60 doubleAccounting	87.75	2.66667	160	204-213 224-233
+200	Calibri 60 strike	76.5	2.66667	160	121-130
+200	Calibri 64 single	81.75	2.66667	171	190-200
+200	Calibri 64 double	81.75	2.66667	171	178-188 200-210
+200	Calibri 64 singleAccounting	95.25	2.66667	171	217-227
+200	Calibri 64 doubleAccounting	93	2.66667	171	217-227 239-247
+200	Calibri 64 strike	81.75	2.66667	171	1-1 128-138
+200	Calibri 68 single	87	2.66667	183	204-215
+200	Calibri 68 double	87	2.66667	183	190-201 214-225
+200	Calibri 68 singleAccounting	100.5	2.66667	183	232-243
+200	Calibri 68 doubleAccounting	100.5	2.66667	183	232-243 256-267
+200	Calibri 68 strike	87	2.66667	183	138-149
+200	Calibri 72 single	92.25	2.66667	193	215-227
+200	Calibri 72 double	92.25	2.66667	193	200-212 226-238
+200	Calibri 72 singleAccounting	105.75	2.66667	193	245-257
+200	Calibri 72 doubleAccounting	105.75	2.66667	193	245-257 271-281
+200	Calibri 72 strike	92.25	2.66667	193	1-1 145-157
+200	Aptos Narrow 9 single	15	2.66667	30	32-32
+200	Aptos Narrow 9 double	15	2.66667	30	32-32 34-34
+200	Aptos Narrow 9 singleAccounting	16.5	2.66667	30	38-38
+200	Aptos Narrow 9 doubleAccounting	16.5	2.66667	30	38-38 40-40
+200	Aptos Narrow 9 strike	15	2.66667	30	22-22
+200	Aptos Narrow 10 single	15	2.66667	30	32-32
+200	Aptos Narrow 10 double	15	2.66667	30	32-32 34-34
+200	Aptos Narrow 10 singleAccounting	17.25	2.66667	30	38-38
+200	Aptos Narrow 10 doubleAccounting	17.25	2.66667	30	38-38 40-40
+200	Aptos Narrow 10 strike	15	2.66667	30	21-21
+200	Aptos Narrow 11 single	15	2.66667	30	32-32
+200	Aptos Narrow 11 double	15	2.66667	30	32-32 34-34
+200	Aptos Narrow 11 singleAccounting	17.25	2.66667	30	39-39
+200	Aptos Narrow 11 doubleAccounting	17.25	2.66667	30	39-39 41-41
+200	Aptos Narrow 11 strike	15	2.66667	30	21-21
+200	Aptos Narrow 12 single	15.75	2.66667	32	35-35
+200	Aptos Narrow 12 double	15.75	2.66667	32	35-35 37-37
+200	Aptos Narrow 12 singleAccounting	18	2.66667	32	42-42
+200	Aptos Narrow 12 doubleAccounting	18	2.66667	32	42-42 44-44
+200	Aptos Narrow 12 strike	15.75	2.66667	32	22-23
+200	Aptos Narrow 13 single	17.25	2.66667	34	37-37
+200	Aptos Narrow 13 double	17.25	2.66667	34	37-37 39-39
+200	Aptos Narrow 13 singleAccounting	19.5	2.66667	34	45-45
+200	Aptos Narrow 13 doubleAccounting	19.5	2.66667	34	45-45 47-47
+200	Aptos Narrow 13 strike	17.25	2.66667	34	23-24
+200	Aptos Narrow 14 single	18.75	2.66667	38	41-41
+200	Aptos Narrow 14 double	18.75	2.66667	38	41-41 43-43
+200	Aptos Narrow 14 singleAccounting	21	2.66667	38	49-49
+200	Aptos Narrow 14 doubleAccounting	21	2.66667	38	49-49 51-51
+200	Aptos Narrow 14 strike	18.75	2.66667	38	26-27
+200	Aptos Narrow 15 single	19.5	2.66667	40	43-43
+200	Aptos Narrow 15 double	19.5	2.66667	40	43-43 45-45
+200	Aptos Narrow 15 singleAccounting	21.75	2.66667	40	52-52
+200	Aptos Narrow 15 doubleAccounting	21.75	2.66667	40	52-52 54-54
+200	Aptos Narrow 15 strike	19.5	2.66667	40	27-28
+200	Aptos Narrow 16 single	21	2.66667	42	45-45
+200	Aptos Narrow 16 double	21	2.66667	42	45-45 47-47
+200	Aptos Narrow 16 singleAccounting	23.25	2.66667	42	55-55
+200	Aptos Narrow 16 doubleAccounting	23.25	2.66667	42	55-55 57-57
+200	Aptos Narrow 16 strike	21	2.66667	42	28-29
+200	Aptos Narrow 17 single	22.5	2.66667	46	49-49
+200	Aptos Narrow 17 double	22.5	2.66667	46	49-49 51-51
+200	Aptos Narrow 17 singleAccounting	24.75	2.66667	46	59-59
+200	Aptos Narrow 17 doubleAccounting	24.75	2.66667	46	59-59 61-61
+200	Aptos Narrow 17 strike	22.5	2.66667	46	31-32
+200	Aptos Narrow 18 single	24	2.66667	48	51-51
+200	Aptos Narrow 18 double	24	2.66667	48	51-51 53-53
+200	Aptos Narrow 18 singleAccounting	26.25	2.66667	48	62-62
+200	Aptos Narrow 18 doubleAccounting	26.25	2.66667	48	62-62 64-64
+200	Aptos Narrow 18 strike	24	2.66667	48	32-33
+200	Aptos Narrow 19 single	24.75	2.66667	50	53-53
+200	Aptos Narrow 19 double	24.75	2.66667	50	53-53 55-55
+200	Aptos Narrow 19 singleAccounting	27	2.66667	50	65-65
+200	Aptos Narrow 19 doubleAccounting	27	2.66667	50	65-65 67-67
+200	Aptos Narrow 19 strike	24.75	2.66667	50	33-35
+200	Aptos Narrow 20 single	26.25	2.66667	54	58-58
+200	Aptos Narrow 20 double	26.25	2.66667	54	58-58 60-60
+200	Aptos Narrow 20 singleAccounting	28.5	2.66667	54	70-70
+200	Aptos Narrow 20 doubleAccounting	28.5	2.66667	54	70-70 72-72
+200	Aptos Narrow 20 strike	26.25	2.66667	54	36-38
+200	Aptos Narrow 21 single	27.75	2.66667	56	60-60
+200	Aptos Narrow 21 double	27.75	2.66667	56	60-60 62-62
+200	Aptos Narrow 21 singleAccounting	30	2.66667	56	72-72
+200	Aptos Narrow 21 doubleAccounting	30	2.66667	56	72-72 74-74
+200	Aptos Narrow 21 strike	27.75	2.66667	56	37-39
+200	Aptos Narrow 22 single	28.5	2.66667	58	62-62
+200	Aptos Narrow 22 double	28.5	2.66667	58	62-62 64-64
+200	Aptos Narrow 22 singleAccounting	30.75	2.66667	58	75-75
+200	Aptos Narrow 22 doubleAccounting	30.75	2.66667	58	75-75 77-77
+200	Aptos Narrow 22 strike	28.5	2.66667	58	38-40
+200	Aptos Narrow 23 single	30.75	2.66667	62	66-66
+200	Aptos Narrow 23 double	30.75	2.66667	62	66-66 68-68
+200	Aptos Narrow 23 singleAccounting	33	2.66667	62	80-80
+200	Aptos Narrow 23 doubleAccounting	33	2.66667	62	80-80 82-82
+200	Aptos Narrow 23 strike	30.75	2.66667	62	41-43
+200	Aptos Narrow 24 single	31.5	2.66667	64	68-69
+200	Aptos Narrow 24 double	31.5	2.66667	64	68-69 72-73
+200	Aptos Narrow 24 singleAccounting	33.75	2.66667	64	83-84
+200	Aptos Narrow 24 doubleAccounting	33.75	2.66667	64	83-84 87-88
+200	Aptos Narrow 24 strike	31.5	2.66667	64	42-44
+200	Aptos Narrow 25 single	32.25	2.66667	66	70-71
+200	Aptos Narrow 25 double	32.25	2.66667	66	70-71 74-75
+200	Aptos Narrow 25 singleAccounting	34.5	2.66667	66	85-86
+200	Aptos Narrow 25 doubleAccounting	34.5	2.66667	66	85-86 89-90
+200	Aptos Narrow 25 strike	32.25	2.66667	66	43-45
+200	Aptos Narrow 26 single	34.5	2.66667	70	74-75
+200	Aptos Narrow 26 double	34.5	2.66667	70	74-75 78-79
+200	Aptos Narrow 26 singleAccounting	36.75	2.66667	70	90-91
+200	Aptos Narrow 26 doubleAccounting	36.75	2.66667	70	90-91 94-95
+200	Aptos Narrow 26 strike	34.5	2.66667	70	46-48
+200	Aptos Narrow 27 single	35.25	2.66667	72	77-78
+200	Aptos Narrow 27 double	35.25	2.66667	72	77-78 81-82
+200	Aptos Narrow 27 singleAccounting	37.5	2.66667	72	93-94
+200	Aptos Narrow 27 doubleAccounting	37.5	2.66667	72	93-94 97-98
+200	Aptos Narrow 27 strike	35.25	2.66667	72	47-50
+200	Aptos Narrow 28 single	36	2.66667	74	79-80
+200	Aptos Narrow 28 double	36	2.66667	74	79-80 83-84
+200	Aptos Narrow 28 singleAccounting	38.25	2.66667	74	96-97
+200	Aptos Narrow 28 doubleAccounting	38.25	2.66667	74	96-97 100-101
+200	Aptos Narrow 28 strike	36	2.66667	74	48-51
+200	Aptos Narrow 29 single	38.25	2.66667	78	83-84
+200	Aptos Narrow 29 double	38.25	2.66667	78	83-84 87-88
+200	Aptos Narrow 29 singleAccounting	40.5	2.66667	78	100-101
+200	Aptos Narrow 29 doubleAccounting	40.5	2.66667	78	100-101 104-105
+200	Aptos Narrow 29 strike	38.25	2.66667	78	52-55
+200	Aptos Narrow 30 single	39	2.66667	80	85-86
+200	Aptos Narrow 30 double	39	2.66667	80	85-86 89-90
+200	Aptos Narrow 30 singleAccounting	41.25	2.66667	80	103-104
+200	Aptos Narrow 30 doubleAccounting	41.25	2.66667	80	103-104 107-108
+200	Aptos Narrow 30 strike	39	2.66667	80	52-55
+200	Aptos Narrow 31 single	39.75	2.66667	82	87-88
+200	Aptos Narrow 31 double	39.75	2.66667	82	87-88 91-92
+200	Aptos Narrow 31 singleAccounting	42	2.66667	82	106-107
+200	Aptos Narrow 31 doubleAccounting	42	2.66667	82	106-107 110-111
+200	Aptos Narrow 31 strike	39.75	2.66667	82	53-56
+200	Aptos Narrow 32 single	42	2.66667	86	91-92
+200	Aptos Narrow 32 double	42	2.66667	86	91-92 95-96
+200	Aptos Narrow 32 singleAccounting	44.25	2.66667	86	110-111
+200	Aptos Narrow 32 doubleAccounting	44.25	2.66667	86	110-111 114-115
+200	Aptos Narrow 32 strike	42	2.66667	86	57-60
+200	Aptos Narrow 33 single	42.75	2.66667	88	93-94
+200	Aptos Narrow 33 double	42.75	2.66667	88	93-94 97-98
+200	Aptos Narrow 33 singleAccounting	45	2.66667	88	113-114
+200	Aptos Narrow 33 doubleAccounting	45	2.66667	88	113-114 117-118
+200	Aptos Narrow 33 strike	42.75	2.66667	88	58-61
+200	Aptos Narrow 34 single	43.5	2.66667	90	95-96
+200	Aptos Narrow 34 double	43.5	2.66667	90	95-96 99-100
+200	Aptos Narrow 34 singleAccounting	45.75	2.66667	90	116-117
+200	Aptos Narrow 34 doubleAccounting	45.75	2.66667	90	116-117 120-121
+200	Aptos Narrow 34 strike	43.5	2.66667	90	59-63
+200	Aptos Narrow 35 single	45.75	2.66667	94	100-101
+200	Aptos Narrow 35 double	45.75	2.66667	94	100-101 104-105
+200	Aptos Narrow 35 singleAccounting	48	2.66667	94	121-122
+200	Aptos Narrow 35 doubleAccounting	48	2.66667	94	121-122 125-126
+200	Aptos Narrow 35 strike	45.75	2.66667	94	62-66
+200	Aptos Narrow 36 single	46.5	2.66667	96	102-103
+200	Aptos Narrow 36 double	46.5	2.66667	96	102-103 106-107
+200	Aptos Narrow 36 singleAccounting	48.75	2.66667	96	123-124
+200	Aptos Narrow 36 doubleAccounting	48.75	2.66667	96	123-124 127-128
+200	Aptos Narrow 36 strike	46.5	2.66667	96	63-67
+200	Aptos Narrow 40 single	53.25	2.66667	108	114-116
+200	Aptos Narrow 40 double	53.25	2.66667	108	114-116 120-122
+200	Aptos Narrow 40 singleAccounting	55.5	2.66667	108	138-140
+200	Aptos Narrow 40 doubleAccounting	55.5	2.66667	108	138-140 144-146
+200	Aptos Narrow 40 strike	53.25	2.66667	108	71-75
+200	Aptos Narrow 44 single	58.5	2.66667	120	127-129
+200	Aptos Narrow 44 double	58.5	2.66667	120	127-129 133-135
+200	Aptos Narrow 44 singleAccounting	60.75	2.66667	120	153-155
+200	Aptos Narrow 44 doubleAccounting	60.75	2.66667	120	153-155 159-161
+200	Aptos Narrow 44 strike	58.5	2.66667	120	79-84
+200	Aptos Narrow 48 single	63.75	2.66667	130	137-139
+200	Aptos Narrow 48 double	63.75	2.66667	130	137-139 143-145
+200	Aptos Narrow 48 singleAccounting	68.25	2.66667	130	166-168
+200	Aptos Narrow 48 doubleAccounting	68.25	2.66667	130	166-168 172-174
+200	Aptos Narrow 48 strike	63.75	2.66667	130	85-90
+200	Aptos Narrow 52 single	68.25	2.66667	140	148-150
+200	Aptos Narrow 52 double	68.25	2.66667	140	148-150 154-156
+200	Aptos Narrow 52 singleAccounting	72.75	2.66667	140	179-181
+200	Aptos Narrow 52 doubleAccounting	72.75	2.66667	140	179-181 185-187
+200	Aptos Narrow 52 strike	68.25	2.66667	140	91-97
+200	Aptos Narrow 56 single	74.25	2.66667	152	160-163
+200	Aptos Narrow 56 double	74.25	2.66667	152	160-163 168-171
+200	Aptos Narrow 56 singleAccounting	78.75	2.66667	152	194-197
+200	Aptos Narrow 56 doubleAccounting	78.75	2.66667	152	194-197 202-205
+200	Aptos Narrow 56 strike	74.25	2.66667	152	100-106
+200	Aptos Narrow 60 single	78.75	2.66667	162	171-174
+200	Aptos Narrow 60 double	78.75	2.66667	162	171-174 179-182
+200	Aptos Narrow 60 singleAccounting	83.25	2.66667	162	207-210
+200	Aptos Narrow 60 doubleAccounting	83.25	2.66667	162	207-210 215-218
+200	Aptos Narrow 60 strike	78.75	2.66667	162	106-113
+200	Aptos Narrow 64 single	83.25	2.66667	172	181-184
+200	Aptos Narrow 64 double	83.25	2.66667	172	181-184 189-192
+200	Aptos Narrow 64 singleAccounting	87.75	2.66667	172	220-223
+200	Aptos Narrow 64 doubleAccounting	87.75	2.66667	172	220-223 228-231
+200	Aptos Narrow 64 strike	83.25	2.66667	172	112-120
+200	Aptos Narrow 68 single	89.25	2.66667	184	194-197
+200	Aptos Narrow 68 double	89.25	2.66667	184	194-197 202-205
+200	Aptos Narrow 68 singleAccounting	93.75	2.66667	184	235-238
+200	Aptos Narrow 68 doubleAccounting	93.75	2.66667	184	235-238 243-246
+200	Aptos Narrow 68 strike	89.25	2.66667	184	120-128
+200	Aptos Narrow 72 single	93.75	2.66667	194	204-208
+200	Aptos Narrow 72 double	93.75	2.66667	194	204-208 214-218
+200	Aptos Narrow 72 singleAccounting	98.25	2.66667	194	248-252
+200	Aptos Narrow 72 doubleAccounting	98.25	2.66667	194	248-252 258-261
+200	Aptos Narrow 72 strike	93.75	2.66667	194	126-135
+200	Arial 9 single	15	2.66667	30	34-35
+200	Arial 9 double	15	2.66667	30	33-33 35-35
+200	Arial 9 singleAccounting	16.5	2.66667	30	37-38
+200	Arial 9 doubleAccounting	16.5	2.66667	30	37-37 39-39
+200	Arial 9 strike	15	2.66667	30	25-25
+200	Arial 10 single	15	2.66667	30	34-35
+200	Arial 10 double	15	2.66667	30	33-33 35-35
+200	Arial 10 singleAccounting	16.5	2.66667	30	37-38
+200	Arial 10 doubleAccounting	16.5	2.66667	30	37-37 39-39
+200	Arial 10 strike	15	2.66667	30	24-24
+200	Arial 11 single	15	2.66667	30	34-35
+200	Arial 11 double	15	2.66667	30	33-33 35-35
+200	Arial 11 singleAccounting	16.5	2.66667	30	37-38
+200	Arial 11 doubleAccounting	16.5	2.66667	30	37-37 39-39
+200	Arial 11 strike	15	2.66667	30	23-23
+200	Arial 12 single	15.75	2.66667	32	36-37
+200	Arial 12 double	15.75	2.66667	32	35-35 37-37
+200	Arial 12 singleAccounting	17.25	2.66667	32	40-41
+200	Arial 12 doubleAccounting	17.25	2.66667	32	40-40 42-42
+200	Arial 12 strike	15.75	2.66667	32	25-26
+200	Arial 13 single	16.5	2.66667	34	39-41
+200	Arial 13 double	16.5	2.66667	34	36-37 40-41
+200	Arial 13 singleAccounting	18.75	2.66667	34	43-45
+200	Arial 13 doubleAccounting	18.75	2.66667	34	43-44 47-48
+200	Arial 13 strike	16.5	2.66667	34	26-27
+200	Arial 14 single	18	2.66667	38	43-45
+200	Arial 14 double	18	2.66667	38	40-41 44-45
+200	Arial 14 singleAccounting	20.25	2.66667	38	47-49
+200	Arial 14 doubleAccounting	20.25	2.66667	38	47-48 51-52
+200	Arial 14 strike	18	2.66667	38	29-30
+200	Arial 15 single	18.75	2.66667	40	45-47
+200	Arial 15 double	18.75	2.66667	40	43-44 47-48
+200	Arial 15 singleAccounting	21	2.66667	40	50-52
+200	Arial 15 doubleAccounting	21	2.66667	40	50-51 54-55
+200	Arial 15 strike	18.75	2.66667	40	31-32
+200	Arial 16 single	20.25	2.66667	42	48-50
+200	Arial 16 double	20.25	2.66667	42	45-46 49-50
+200	Arial 16 singleAccounting	24.75	2.66667	42	53-55
+200	Arial 16 doubleAccounting	22.5	2.66667	42	53-54 57-58
+200	Arial 16 strike	20.25	2.66667	42	32-33
+200	Arial 17 single	21.75	2.66667	46	52-54
+200	Arial 17 double	21.75	2.66667	46	49-50 53-54
+200	Arial 17 singleAccounting	26.25	2.66667	46	57-59
+200	Arial 17 doubleAccounting	24	2.66667	46	57-58 61-62
+200	Arial 17 strike	21.75	2.66667	46	35-36
+200	Arial 18 single	23.25	2.66667	48	54-57
+200	Arial 18 double	23.25	2.66667	48	51-52 55-56
+200	Arial 18 singleAccounting	27.75	2.66667	48	59-62
+200	Arial 18 doubleAccounting	25.5	2.66667	48	59-60 63-64
+200	Arial 18 strike	23.25	2.66667	48	37-38
+200	Arial 19 single	23.25	2.66667	50	56-59
+200	Arial 19 double	23.25	2.66667	50	54-55 58-59
+200	Arial 19 singleAccounting	27.75	2.66667	50	62-65
+200	Arial 19 doubleAccounting	25.5	2.66667	50	62-63 66-67
+200	Arial 19 strike	23.25	2.66667	50	38-40
+200	Arial 20 single	25.5	2.66667	54	61-64
+200	Arial 20 double	25.5	2.66667	54	57-59 63-65
+200	Arial 20 singleAccounting	30	2.66667	54	67-70
+200	Arial 20 doubleAccounting	27.75	2.66667	54	67-69 73-73
+200	Arial 20 strike	25.5	2.66667	54	1-1 41-43
+200	Arial 21 single	26.25	2.66667	56	63-66
+200	Arial 21 double	26.25	2.66667	56	59-61 65-67
+200	Arial 21 singleAccounting	30.75	2.66667	56	70-73
+200	Arial 21 doubleAccounting	28.5	2.66667	56	70-72
+200	Arial 21 strike	26.25	2.66667	56	1-2 43-45
+200	Arial 22 single	27	2.66667	58	65-68
+200	Arial 22 double	27	2.66667	58	61-63 67-69
+200	Arial 22 singleAccounting	31.5	2.66667	58	72-75
+200	Arial 22 doubleAccounting	29.25	2.66667	58	72-74
+200	Arial 22 strike	27	2.66667	58	1-2 44-46
+200	Arial 23 single	29.25	2.66667	62	69-72
+200	Arial 23 double	29.25	2.66667	62	65-67 71-73
+200	Arial 23 singleAccounting	33.75	2.66667	62	76-79
+200	Arial 23 doubleAccounting	31.5	2.66667	62	76-78 82-83
+200	Arial 23 strike	29.25	2.66667	62	47-49
+200	Arial 24 single	30	2.66667	64	72-76
+200	Arial 24 double	30	2.66667	64	68-70 74-76
+200	Arial 24 singleAccounting	34.5	2.66667	64	79-83
+200	Arial 24 doubleAccounting	32.25	2.66667	64	79-81 85-85
+200	Arial 24 strike	30	2.66667	64	1-1 48-50
+200	Arial 25 single	30.75	2.66667	66	74-78
+200	Arial 25 double	30.75	2.66667	66	70-72 76-78
+200	Arial 25 singleAccounting	35.25	2.66667	66	82-86
+200	Arial 25 doubleAccounting	33	2.66667	66	82-84
+200	Arial 25 strike	30.75	2.66667	66	1-2 50-52
+200	Arial 26 single	33	2.66667	70	78-82
+200	Arial 26 double	33	2.66667	70	74-76 80-82
+200	Arial 26 singleAccounting	39.75	2.66667	70	86-90
+200	Arial 26 doubleAccounting	37.5	2.66667	70	86-88 92-94
+200	Arial 26 strike	33	2.66667	70	53-55
+200	Arial 27 single	33.75	2.66667	72	81-85
+200	Arial 27 double	33.75	2.66667	72	75-78 83-86
+200	Arial 27 singleAccounting	40.5	2.66667	72	89-93
+200	Arial 27 doubleAccounting	38.25	2.66667	72	89-92 97-100
+200	Arial 27 strike	33.75	2.66667	72	54-57
+200	Arial 28 single	34.5	2.66667	74	83-87
+200	Arial 28 double	34.5	2.66667	74	77-80 85-88
+200	Arial 28 singleAccounting	41.25	2.66667	74	91-95
+200	Arial 28 doubleAccounting	39	2.66667	74	91-94 99-102
+200	Arial 28 strike	34.5	2.66667	74	56-59
+200	Arial 29 single	36.75	2.66667	78	87-92
+200	Arial 29 double	36.75	2.66667	78	82-85 90-93
+200	Arial 29 singleAccounting	43.5	2.66667	78	96-101
+200	Arial 29 doubleAccounting	41.25	2.66667	78	96-99 104-107
+200	Arial 29 strike	36.75	2.66667	78	59-62
+200	Arial 30 single	37.5	2.66667	80	89-94
+200	Arial 30 double	37.5	2.66667	80	84-87 92-95
+200	Arial 30 singleAccounting	44.25	2.66667	80	98-103
+200	Arial 30 doubleAccounting	42	2.66667	80	98-101 106-109
+200	Arial 30 strike	37.5	2.66667	80	60-63
+200	Arial 31 single	38.25	2.66667	82	92-97
+200	Arial 31 double	38.25	2.66667	82	86-89 94-97
+200	Arial 31 singleAccounting	45	2.66667	82	101-106
+200	Arial 31 doubleAccounting	42.75	2.66667	82	101-104 109-112
+200	Arial 31 strike	38.25	2.66667	82	62-65
+200	Arial 32 single	40.5	2.66667	86	96-101
+200	Arial 32 double	40.5	2.66667	86	91-94 99-102
+200	Arial 32 singleAccounting	47.25	2.66667	86	106-111
+200	Arial 32 doubleAccounting	45	2.66667	86	106-109 114-117
+200	Arial 32 strike	40.5	2.66667	86	65-68
+200	Arial 33 single	41.25	2.66667	88	98-103
+200	Arial 33 double	41.25	2.66667	88	92-96 102-106
+200	Arial 33 singleAccounting	48	2.66667	88	109-114
+200	Arial 33 doubleAccounting	45.75	2.66667	88	109-113 119-121
+200	Arial 33 strike	41.25	2.66667	88	1-1 66-69
+200	Arial 34 single	42	2.66667	90	101-107
+200	Arial 34 double	42	2.66667	90	94-98 104-108
+200	Arial 34 singleAccounting	48.75	2.66667	90	111-117
+200	Arial 34 doubleAccounting	46.5	2.66667	90	111-115 121-123
+200	Arial 34 strike	42	2.66667	90	1-1 67-71
+200	Arial 35 single	43.5	2.66667	94	105-111
+200	Arial 35 double	43.5	2.66667	94	98-102 108-112
+200	Arial 35 singleAccounting	50.25	2.66667	94	115-121
+200	Arial 35 doubleAccounting	48	2.66667	94	115-119 125-127
+200	Arial 35 strike	43.5	2.66667	94	1-1 71-75
+200	Arial 36 single	44.25	2.66667	96	107-113
+200	Arial 36 double	44.25	2.66667	96	100-104 110-114
+200	Arial 36 singleAccounting	53.25	2.66667	96	118-124
+200	Arial 36 doubleAccounting	48.75	2.66667	96	118-122 128-129
+200	Arial 36 strike	44.25	2.66667	96	1-2 72-76
+200	Arial 40 single	49.5	2.66667	106	118-125
+200	Arial 40 double	49.5	2.66667	106	111-115 121-125
+200	Arial 40 singleAccounting	58.5	2.66667	106	130-137
+200	Arial 40 doubleAccounting	56.25	2.66667	106	130-134 140-144
+200	Arial 40 strike	49.5	2.66667	106	79-83
+200	Arial 44 single	54.75	2.66667	118	131-139
+200	Arial 44 double	54.75	2.66667	118	123-128 135-140
+200	Arial 44 singleAccounting	63.75	2.66667	118	145-153
+200	Arial 44 doubleAccounting	61.5	2.66667	118	145-150 157-162
+200	Arial 44 strike	54.75	2.66667	118	89-94
+200	Arial 48 single	59.25	2.66667	128	143-151
+200	Arial 48 double	59.25	2.66667	128	133-139 147-153
+200	Arial 48 singleAccounting	70.5	2.66667	128	157-165
+200	Arial 48 doubleAccounting	66	2.66667	128	157-163 171-175
+200	Arial 48 strike	59.25	2.66667	128	1-1 96-101
+200	Arial 52 single	63.75	2.66667	138	154-163
+200	Arial 52 double	63.75	2.66667	138	144-150 158-164
+200	Arial 52 singleAccounting	75	2.66667	138	169-178
+200	Arial 52 doubleAccounting	70.5	2.66667	138	169-175 183-187
+200	Arial 52 strike	63.75	2.66667	138	1-1 103-109
+200	Arial 56 single	69	2.66667	150	167-177
+200	Arial 56 double	69	2.66667	150	156-163 172-179
+200	Arial 56 singleAccounting	80.25	2.66667	150	184-194
+200	Arial 56 doubleAccounting	78	2.66667	150	184-191 200-207
+200	Arial 56 strike	69	2.66667	150	112-118
+200	Arial 60 single	75	2.66667	162	180-191
+200	Arial 60 double	75	2.66667	162	168-175 184-191
+200	Arial 60 singleAccounting	88.5	2.66667	162	197-208
+200	Arial 60 doubleAccounting	84	2.66667	162	197-204 213-220
+200	Arial 60 strike	75	2.66667	162	122-129
+200	Arial 64 single	80.25	2.66667	172	191-203
+200	Arial 64 double	80.25	2.66667	172	178-186 196-204
+200	Arial 64 singleAccounting	93.75	2.66667	172	210-222
+200	Arial 64 doubleAccounting	89.25	2.66667	172	210-218 228-236
+200	Arial 64 strike	80.25	2.66667	172	129-137
+200	Arial 68 single	85.5	2.66667	184	204-216
+200	Arial 68 double	85.5	2.66667	184	190-199 210-219
+200	Arial 68 singleAccounting	101.25	2.66667	184	225-237
+200	Arial 68 doubleAccounting	96.75	2.66667	184	225-234 245-254
+200	Arial 68 strike	85.5	2.66667	184	138-146
+200	Arial 72 single	90	2.66667	194	215-228
+200	Arial 72 double	90	2.66667	194	201-210 221-230
+200	Arial 72 singleAccounting	105.75	2.66667	194	236-249
+200	Arial 72 doubleAccounting	101.25	2.66667	194	236-245 256-265
+200	Arial 72 strike	90	2.66667	194	145-154

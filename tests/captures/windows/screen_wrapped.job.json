@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261123-112459-screen-wrapped",
+ "package": "xlformat",
+ "purpose": "xlformat capture group screen_wrapped: window pictures of wrapped text under a larger Normal font",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "wrapped_calibri_20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "vertical!B1:B11",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "view",
+     "id": "view_z100_r1",
+     "sheet": "vertical",
+     "zoom": 100,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z100_r1",
+     "name": "wrapped_calibri_20_z100_r001.png"
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "wrapped_arial_14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "vertical!B1:B9",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "view",
+     "id": "view_z100_r1",
+     "sheet": "vertical",
+     "zoom": 100,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z100_r1",
+     "name": "wrapped_arial_14_z100_r001.png"
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

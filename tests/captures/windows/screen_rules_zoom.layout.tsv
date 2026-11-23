@@ -1,0 +1,548 @@
+# suite: screen_rules_zoom (capture/screen_windows.py)
+# platform: windows
+# excel_build: 16.0.20527.20196
+# job: screen_rules_zoom.job.json
+# job_id: xlformat-20261123-113005-screen-rules-zoom
+# job_header: {"environment": {"audit": false, "checks": {"dde_server_launch_disabled": true, "dde_server_lookup_disabled": true, "vba_warnings": 4}, "display": {"screen_px": [2560, 1440], "system_dpi": 96}, "edition": {"found": "Microsoft 365", "source": "office products"}, "excel": {"build": "16.0.20527.20196", "build_number": 20527.0, "calculation_version": 191029, "decimal_separator": ".", "international": {"country": 1.0, "decimal": ".", "list": ","}, "operating_system": "Windows (64-bit ARM) NT 10.00", "process": {"native_machine": "0xaa64", "process_machine": "0x8664"}, "standard_font": "Aptos Narrow", "standard_font_size": 11.0, "thousands_separator": ",", "use_system_separators": true, "version": "16.0"}, "font_smoothing": {"expected": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "found": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "ok": true}, "fonts": [{"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Regular", "version": "Version 7.07"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Regular", "version": "Version 6.27"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.99001, "style": "Regular", "version": "Version 6.99"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Regular", "version": "Version 5.72"}], "geometry": {"expected": {"excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "found": {"excel_window_points": [-5.0, -6.0, 1932.0, 1056.0], "excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "ok": true}, "locale": {"ansi_code_page": 1252, "decimal": ".", "list": ",", "long_date": "dddd, MMMM d, yyyy", "name": "en-US", "oem_code_page": 437, "short_date": "M/d/yyyy", "sort_locale": "en-US", "sort_version": {"custom": "01000000ee575c1e00b4d0000bb1e11e", "defined": 394498, "nls": 394498}, "time": "h:mm:ss tt", "two_digit_year_max": 2049, "two_digit_year_max_setting": null}, "office": {"channel": "Current Channel", "platform": "x64", "products": "O365HomePremRetail", "version": "16.0.20527.20196"}, "printer": {"orientation": "portrait", "paper": "A4", "paper_mm": [215.9, 279.4]}, "theme": {"office_ui_theme": 6, "windows_apps_light": 1, "windows_system_light": 1}, "windows": {"architecture": "ARM64", "build": "26300.9974", "display_version": "26H2", "edition": "Core"}}, "format": 1, "inputs": {"rules_zoom.xlsx": {"bytes": 6773, "sha256": "8954040d41223f6aa3a8a16107f3f104c1c6e1ff247a42c0b363b0bebd69d0f6"}}, "job_id": "xlformat-20261123-113005-screen-rules-zoom", "manifest_sha256": "d5c1b35ef206db09daefa356ce6d1111b4aebe2cdfd35ad819c3683bd977b91d", "runner_version": "0.1.27"}
+# method: window captures; device pixels from the row's top: the H stems' last ink row, each rule's first and last row
+zoom	tag	row_height	pixels_per_point	baseline_px	measured
+75	Calibri 9 single	15	1	11	12-12
+75	Calibri 9 double	15	1	10	11-11 13-13
+75	Calibri 9 singleAccounting	16.5	1	12	15-15
+75	Calibri 9 doubleAccounting	16.5	1	12	15-15
+75	Calibri 9 strike	15	1	11	9-9
+75	Calibri 10 single	15	1	11	12-12
+75	Calibri 10 double	15	1	10	11-11 13-13
+75	Calibri 10 singleAccounting	16.5	1	12	15-15
+75	Calibri 10 doubleAccounting	16.5	1	12	15-15
+75	Calibri 10 strike	15	1	11	9-9
+75	Calibri 11 single	15	1	11	13-13
+75	Calibri 11 double	15	1	11	12-12 14-14
+75	Calibri 11 singleAccounting	17.25	1	11	15-15
+75	Calibri 11 doubleAccounting	17.25	1	11	15-15
+75	Calibri 11 strike	15	1	11	9-9
+75	Calibri 12 single	15.75	1	12	14-14
+75	Calibri 12 double	15.75	1	12	13-13 15-15
+75	Calibri 12 singleAccounting	18	1	12	16-16
+75	Calibri 12 doubleAccounting	18	1	12	16-16
+75	Calibri 12 strike	15.75	1	12	10-10
+75	Calibri 14 single	18.75	1	14	17-17
+75	Calibri 14 double	18.75	1	14	16-16 18-18
+75	Calibri 14 singleAccounting	21	1	14	19-19
+75	Calibri 14 doubleAccounting	21	1	14	19-19
+75	Calibri 14 strike	18.75	1	14	11-11
+75	Calibri 16 single	21	1	16	19-19
+75	Calibri 16 double	21	1	16	18-18 20-20
+75	Calibri 16 singleAccounting	23.25	1	15	20-20
+75	Calibri 16 doubleAccounting	23.25	1	15	20-20 22-22
+75	Calibri 16 strike	21	1	16	13-13
+75	Calibri 18 single	23.25	1	18	21-21
+75	Calibri 18 double	23.25	1	18	21-21
+75	Calibri 18 singleAccounting	27.75	1	18	24-24
+75	Calibri 18 doubleAccounting	25.5	1	18	24-24
+75	Calibri 18 strike	23.25	1	18	14-14
+75	Calibri 20 single	26.25	1	20	23-23
+75	Calibri 20 double	26.25	1	20	23-23 25-25
+75	Calibri 20 singleAccounting	30.75	1	20	26-26
+75	Calibri 20 doubleAccounting	28.5	1	21	27-27
+75	Calibri 20 strike	26.25	1	20	16-16
+75	Calibri 24 single	31.5	1	24	28-29
+75	Calibri 24 double	31.5	1	24	27-27 29-29
+75	Calibri 24 singleAccounting	36	1	24	31-32
+75	Calibri 24 doubleAccounting	36	1	24	31-31 33-33
+75	Calibri 24 strike	31.5	1	24	19-20
+75	Arial 9 single	15	1	11	12-12
+75	Arial 9 double	15	1	10	11-11 13-13
+75	Arial 9 singleAccounting	16.5	1	12	15-15
+75	Arial 9 doubleAccounting	16.5	1	12	15-15
+75	Arial 9 strike	15	1	11	9-9
+75	Arial 10 single	15	1	11	12-12
+75	Arial 10 double	15	1	10	11-11 13-13
+75	Arial 10 singleAccounting	16.5	1	12	15-15
+75	Arial 10 doubleAccounting	16.5	1	12	15-15
+75	Arial 10 strike	15	1	11	9-9
+75	Arial 11 single	15	1	11	13-13
+75	Arial 11 double	15	1	11	12-12 14-14
+75	Arial 11 singleAccounting	16.5	1	12	16-16
+75	Arial 11 doubleAccounting	16.5	1	12	16-16
+75	Arial 11 strike	15	1	11	1-1 9-9
+75	Arial 12 single	15.75	1	12	14-14
+75	Arial 12 double	15.75	1	12	13-13 15-15
+75	Arial 12 singleAccounting	17.25	1	12	16-16
+75	Arial 12 doubleAccounting	17.25	1	12	16-16
+75	Arial 12 strike	15.75	1	12	1-1 10-10
+75	Arial 14 single	18	1	14	16-16
+75	Arial 14 double	18	1	14	15-15 17-17
+75	Arial 14 singleAccounting	20.25	1	14	18-18
+75	Arial 14 doubleAccounting	20.25	1	14	18-18
+75	Arial 14 strike	18	1	14	11-11
+75	Arial 16 single	20.25	1	15	18-18
+75	Arial 16 double	20.25	1	15	16-16 18-18
+75	Arial 16 singleAccounting	24.75	1	16	20-20
+75	Arial 16 doubleAccounting	22.5	1	16	20-20 22-22
+75	Arial 16 strike	20.25	1	15	12-12
+75	Arial 18 single	23.25	1	18	21-21
+75	Arial 18 double	23.25	1	18	20-20 22-22
+75	Arial 18 singleAccounting	27.75	1	18	23-23
+75	Arial 18 doubleAccounting	25.5	1	18	23-23 25-25
+75	Arial 18 strike	23.25	1	18	14-14
+75	Arial 20 single	25.5	1	21	24-24
+75	Arial 20 double	25.5	1	21	23-23 25-25
+75	Arial 20 singleAccounting	30	1	20	25-25
+75	Arial 20 doubleAccounting	27.75	1	20	25-25 27-27
+75	Arial 20 strike	25.5	1	21	17-17
+75	Arial 24 single	30	1	24	28-29
+75	Arial 24 double	30	1	24	27-27 29-29
+75	Arial 24 singleAccounting	34.5	1	24	31-32
+75	Arial 24 doubleAccounting	32.25	1	24	31-31
+75	Arial 24 strike	30	1	24	1-1 19-19
+90	Calibri 9 single	15	1.2	13	15-15
+90	Calibri 9 double	15	1.2	13	14-14 16-16
+90	Calibri 9 singleAccounting	16.5	1.2	14	18-18
+90	Calibri 9 doubleAccounting	16.5	1.2	14	18-18
+90	Calibri 9 strike	15	1.2	13	11-11
+90	Calibri 10 single	15	1.2	13	15-15
+90	Calibri 10 double	15	1.2	13	14-14 16-16
+90	Calibri 10 singleAccounting	16.5	1.2	14	18-18
+90	Calibri 10 doubleAccounting	16.5	1.2	14	18-18
+90	Calibri 10 strike	15	1.2	13	11-11
+90	Calibri 11 single	15	1.2	13	15-15
+90	Calibri 11 double	15	1.2	13	14-14 16-16
+90	Calibri 11 singleAccounting	17.25	1.2	14	18-18
+90	Calibri 11 doubleAccounting	17.25	1.2	14	18-18 20-20
+90	Calibri 11 strike	15	1.2	13	11-11
+90	Calibri 12 single	15.75	1.2	14	17-17
+90	Calibri 12 double	15.75	1.2	14	16-16 18-18
+90	Calibri 12 singleAccounting	18	1.2	15	20-20
+90	Calibri 12 doubleAccounting	18	1.2	15	20-20
+90	Calibri 12 strike	15.75	1.2	14	11-11
+90	Calibri 14 single	18.75	1.2	18	21-21
+90	Calibri 14 double	18.75	1.2	18	21-21
+90	Calibri 14 singleAccounting	21	1.2	17	23-23
+90	Calibri 14 doubleAccounting	21	1.2	17	23-23
+90	Calibri 14 strike	18.75	1.2	18	15-15
+90	Calibri 16 single	21	1.2	19	22-22
+90	Calibri 16 double	21	1.2	19	22-22 24-24
+90	Calibri 16 singleAccounting	23.25	1.2	19	25-25
+90	Calibri 16 doubleAccounting	23.25	1.2	19	25-25 27-27
+90	Calibri 16 strike	21	1.2	19	15-15
+90	Calibri 18 single	23.25	1.2	22	25-25
+90	Calibri 18 double	23.25	1.2	22	25-25 27-27
+90	Calibri 18 singleAccounting	27.75	1.2	21	28-28
+90	Calibri 18 doubleAccounting	25.5	1.2	22	29-29
+90	Calibri 18 strike	23.25	1.2	22	17-17
+90	Calibri 20 single	26.25	1.2	25	29-30
+90	Calibri 20 double	26.25	1.2	25	28-28 30-30
+90	Calibri 20 singleAccounting	30.75	1.2	24	31-32
+90	Calibri 20 doubleAccounting	28.5	1.2	24	31-31 33-33
+90	Calibri 20 strike	26.25	1.2	25	20-21
+90	Calibri 24 single	31.5	1.2	29	33-34
+90	Calibri 24 double	31.5	1.2	29	31-32 35-36
+90	Calibri 24 singleAccounting	36	1.2	29	38-39
+90	Calibri 24 doubleAccounting	36	1.2	29	38-39 42-42
+90	Calibri 24 strike	31.5	1.2	29	23-24
+90	Arial 9 single	15	1.2	13	15-15
+90	Arial 9 double	15	1.2	13	14-14 16-16
+90	Arial 9 singleAccounting	16.5	1.2	14	18-18
+90	Arial 9 doubleAccounting	16.5	1.2	14	18-18
+90	Arial 9 strike	15	1.2	13	11-11
+90	Arial 10 single	15	1.2	13	15-15
+90	Arial 10 double	15	1.2	13	14-14 16-16
+90	Arial 10 singleAccounting	16.5	1.2	14	18-18
+90	Arial 10 doubleAccounting	16.5	1.2	14	18-18
+90	Arial 10 strike	15	1.2	13	11-11
+90	Arial 11 single	15	1.2	13	15-15
+90	Arial 11 double	15	1.2	13	14-14 16-16
+90	Arial 11 singleAccounting	16.5	1.2	14	18-18
+90	Arial 11 doubleAccounting	16.5	1.2	14	18-18
+90	Arial 11 strike	15	1.2	13	11-11
+90	Arial 12 single	15.75	1.2	14	16-16
+90	Arial 12 double	15.75	1.2	14	15-15 17-17
+90	Arial 12 singleAccounting	17.25	1.2	15	19-19
+90	Arial 12 doubleAccounting	17.25	1.2	15	19-19
+90	Arial 12 strike	15.75	1.2	14	11-11
+90	Arial 14 single	18	1.2	17	20-20
+90	Arial 14 double	18	1.2	17	19-19 21-21
+90	Arial 14 singleAccounting	20.25	1.2	17	22-22
+90	Arial 14 doubleAccounting	20.25	1.2	17	22-22
+90	Arial 14 strike	18	1.2	17	14-14
+90	Arial 16 single	20.25	1.2	19	22-22
+90	Arial 16 double	20.25	1.2	19	21-21 23-23
+90	Arial 16 singleAccounting	24.75	1.2	19	24-24
+90	Arial 16 doubleAccounting	22.5	1.2	19	24-24 26-26
+90	Arial 16 strike	20.25	1.2	19	15-15
+90	Arial 18 single	23.25	1.2	22	25-26
+90	Arial 18 double	23.25	1.2	22	24-24 26-26
+90	Arial 18 singleAccounting	27.75	1.2	21	27-28
+90	Arial 18 doubleAccounting	25.5	1.2	22	28-28 30-30
+90	Arial 18 strike	23.25	1.2	22	17-17
+90	Arial 20 single	25.5	1.2	25	29-30
+90	Arial 20 double	25.5	1.2	25	28-28 30-30
+90	Arial 20 singleAccounting	30	1.2	24	31-32
+90	Arial 20 doubleAccounting	27.75	1.2	24	31-31
+90	Arial 20 strike	25.5	1.2	25	20-20
+90	Arial 24 single	30	1.2	29	33-34
+90	Arial 24 double	30	1.2	29	32-32 34-34
+90	Arial 24 singleAccounting	34.5	1.2	28	35-36
+90	Arial 24 doubleAccounting	32.25	1.2	29	36-36 38-38
+90	Arial 24 strike	30	1.2	29	22-22
+100	Calibri 9 single	15	1.33333	15	17-17
+100	Calibri 9 double	15	1.33333	15	16-16 18-18
+100	Calibri 9 singleAccounting	16.5	1.33333	15	19-19
+100	Calibri 9 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Calibri 9 strike	15	1.33333	15	13-13
+100	Calibri 10 single	15	1.33333	15	17-17
+100	Calibri 10 double	15	1.33333	15	16-16 18-18
+100	Calibri 10 singleAccounting	16.5	1.33333	15	19-19
+100	Calibri 10 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Calibri 10 strike	15	1.33333	15	13-13
+100	Calibri 11 single	15	1.33333	15	18-18
+100	Calibri 11 double	15	1.33333	15	17-17 19-19
+100	Calibri 11 singleAccounting	17.25	1.33333	15	20-20
+100	Calibri 11 doubleAccounting	17.25	1.33333	15	20-20 22-22
+100	Calibri 11 strike	15	1.33333	15	12-12
+100	Calibri 12 single	15.75	1.33333	16	19-19
+100	Calibri 12 double	15.75	1.33333	16	18-18 20-20
+100	Calibri 12 singleAccounting	18	1.33333	16	21-21
+100	Calibri 12 doubleAccounting	18	1.33333	16	21-21 23-23
+100	Calibri 12 strike	15.75	1.33333	16	13-13
+100	Calibri 14 single	18.75	1.33333	19	22-22
+100	Calibri 14 double	18.75	1.33333	19	22-22 24-24
+100	Calibri 14 singleAccounting	21	1.33333	19	25-25
+100	Calibri 14 doubleAccounting	21	1.33333	19	25-25 27-27
+100	Calibri 14 strike	18.75	1.33333	19	15-15
+100	Calibri 16 single	21	1.33333	21	24-24
+100	Calibri 16 double	21	1.33333	21	24-24 26-26
+100	Calibri 16 singleAccounting	23.25	1.33333	21	28-28
+100	Calibri 16 doubleAccounting	23.25	1.33333	21	28-28 30-30
+100	Calibri 16 strike	21	1.33333	21	17-17
+100	Calibri 18 single	23.25	1.33333	24	28-29
+100	Calibri 18 double	23.25	1.33333	24	27-27 29-29
+100	Calibri 18 singleAccounting	27.75	1.33333	24	31-32
+100	Calibri 18 doubleAccounting	25.5	1.33333	24	31-31 33-33
+100	Calibri 18 strike	23.25	1.33333	24	19-20
+100	Calibri 20 single	26.25	1.33333	27	31-32
+100	Calibri 20 double	26.25	1.33333	27	30-30 32-32
+100	Calibri 20 singleAccounting	30.75	1.33333	27	35-36
+100	Calibri 20 doubleAccounting	28.5	1.33333	27	35-35 37-37
+100	Calibri 20 strike	26.25	1.33333	27	21-22
+100	Calibri 24 single	31.5	1.33333	32	37-38
+100	Calibri 24 double	31.5	1.33333	32	35-36 39-40
+100	Calibri 24 singleAccounting	36	1.33333	32	42-43
+100	Calibri 24 doubleAccounting	36	1.33333	32	42-43 46-47
+100	Calibri 24 strike	31.5	1.33333	32	25-26
+100	Arial 9 single	15	1.33333	15	17-17
+100	Arial 9 double	15	1.33333	15	16-16 18-18
+100	Arial 9 singleAccounting	16.5	1.33333	15	19-19
+100	Arial 9 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Arial 9 strike	15	1.33333	15	13-13
+100	Arial 10 single	15	1.33333	15	17-17
+100	Arial 10 double	15	1.33333	15	16-16 18-18
+100	Arial 10 singleAccounting	16.5	1.33333	15	19-19
+100	Arial 10 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Arial 10 strike	15	1.33333	15	13-13
+100	Arial 11 single	15	1.33333	15	18-18
+100	Arial 11 double	15	1.33333	15	16-16 18-18
+100	Arial 11 singleAccounting	16.5	1.33333	15	19-19
+100	Arial 11 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Arial 11 strike	15	1.33333	15	12-12
+100	Arial 12 single	15.75	1.33333	16	19-19
+100	Arial 12 double	15.75	1.33333	16	17-17 19-19
+100	Arial 12 singleAccounting	17.25	1.33333	16	20-20
+100	Arial 12 doubleAccounting	17.25	1.33333	16	20-20 22-22
+100	Arial 12 strike	15.75	1.33333	16	13-13
+100	Arial 14 single	18	1.33333	19	22-22
+100	Arial 14 double	18	1.33333	19	21-21 23-23
+100	Arial 14 singleAccounting	20.25	1.33333	19	24-24
+100	Arial 14 doubleAccounting	20.25	1.33333	19	24-24 26-26
+100	Arial 14 strike	18	1.33333	19	15-15
+100	Arial 16 single	20.25	1.33333	21	24-25
+100	Arial 16 double	20.25	1.33333	21	23-23 25-25
+100	Arial 16 singleAccounting	24.75	1.33333	21	27-28
+100	Arial 16 doubleAccounting	22.5	1.33333	21	27-27 29-29
+100	Arial 16 strike	20.25	1.33333	21	17-17
+100	Arial 18 single	23.25	1.33333	24	28-29
+100	Arial 18 double	23.25	1.33333	24	27-27 29-29
+100	Arial 18 singleAccounting	27.75	1.33333	24	31-32
+100	Arial 18 doubleAccounting	25.5	1.33333	24	31-31 33-33
+100	Arial 18 strike	23.25	1.33333	24	19-19
+100	Arial 20 single	25.5	1.33333	27	31-32
+100	Arial 20 double	25.5	1.33333	27	30-30 32-32
+100	Arial 20 singleAccounting	30	1.33333	27	34-35
+100	Arial 20 doubleAccounting	27.75	1.33333	27	34-34 36-36
+100	Arial 20 strike	25.5	1.33333	27	21-21
+100	Arial 24 single	30	1.33333	32	36-37
+100	Arial 24 double	30	1.33333	32	35-35 37-37
+100	Arial 24 singleAccounting	34.5	1.33333	32	40-41
+100	Arial 24 doubleAccounting	32.25	1.33333	32	40-40 42-42
+100	Arial 24 strike	30	1.33333	32	25-26
+110	Calibri 9 single	15	1.46667	16	18-18
+110	Calibri 9 double	15	1.46667	16	17-17 19-19
+110	Calibri 9 singleAccounting	16.5	1.46667	16	20-20
+110	Calibri 9 doubleAccounting	16.5	1.46667	16	20-20 22-22
+110	Calibri 9 strike	15	1.46667	16	14-14
+110	Calibri 10 single	15	1.46667	16	19-19
+110	Calibri 10 double	15	1.46667	16	18-18 20-20
+110	Calibri 10 singleAccounting	16.5	1.46667	16	21-21
+110	Calibri 10 doubleAccounting	16.5	1.46667	16	21-21 23-23
+110	Calibri 10 strike	15	1.46667	16	13-13
+110	Calibri 11 single	15	1.46667	16	19-19
+110	Calibri 11 double	15	1.46667	16	18-18 20-20
+110	Calibri 11 singleAccounting	17.25	1.46667	16	21-21
+110	Calibri 11 doubleAccounting	17.25	1.46667	16	21-21 23-23
+110	Calibri 11 strike	15	1.46667	16	13-13
+110	Calibri 12 single	15.75	1.46667	17	20-20
+110	Calibri 12 double	15.75	1.46667	17	20-20 22-22
+110	Calibri 12 singleAccounting	18	1.46667	17	23-23
+110	Calibri 12 doubleAccounting	18	1.46667	17	23-23 25-25
+110	Calibri 12 strike	15.75	1.46667	17	13-13
+110	Calibri 14 single	18.75	1.46667	21	24-24
+110	Calibri 14 double	18.75	1.46667	21	24-24 26-26
+110	Calibri 14 singleAccounting	21	1.46667	21	28-28
+110	Calibri 14 doubleAccounting	21	1.46667	21	28-28 30-30
+110	Calibri 14 strike	18.75	1.46667	21	17-17
+110	Calibri 16 single	21	1.46667	23	27-28
+110	Calibri 16 double	21	1.46667	23	26-26 28-28
+110	Calibri 16 singleAccounting	23.25	1.46667	23	30-31
+110	Calibri 16 doubleAccounting	23.25	1.46667	23	30-30 32-32
+110	Calibri 16 strike	21	1.46667	23	18-19
+110	Calibri 18 single	23.25	1.46667	26	30-31
+110	Calibri 18 double	23.25	1.46667	26	29-29 31-31
+110	Calibri 18 singleAccounting	27.75	1.46667	27	35-36
+110	Calibri 18 doubleAccounting	25.5	1.46667	26	34-34 36-36
+110	Calibri 18 strike	23.25	1.46667	26	20-21
+110	Calibri 20 single	26.25	1.46667	30	34-35
+110	Calibri 20 double	26.25	1.46667	30	32-33 36-37
+110	Calibri 20 singleAccounting	30.75	1.46667	30	39-40
+110	Calibri 20 doubleAccounting	28.5	1.46667	30	39-40
+110	Calibri 20 strike	26.25	1.46667	30	1-2 24-25
+110	Calibri 24 single	31.5	1.46667	35	40-41
+110	Calibri 24 double	31.5	1.46667	35	38-39 42-43
+110	Calibri 24 singleAccounting	36	1.46667	35	45-46
+110	Calibri 24 doubleAccounting	36	1.46667	35	45-46 49-50
+110	Calibri 24 strike	31.5	1.46667	35	27-28
+110	Arial 9 single	15	1.46667	16	18-18
+110	Arial 9 double	15	1.46667	16	17-17 19-19
+110	Arial 9 singleAccounting	16.5	1.46667	16	20-20
+110	Arial 9 doubleAccounting	16.5	1.46667	16	20-20 22-22
+110	Arial 9 strike	15	1.46667	16	14-14
+110	Arial 10 single	15	1.46667	16	19-19
+110	Arial 10 double	15	1.46667	16	17-17 19-19
+110	Arial 10 singleAccounting	16.5	1.46667	16	20-20
+110	Arial 10 doubleAccounting	16.5	1.46667	16	20-20 22-22
+110	Arial 10 strike	15	1.46667	16	13-13
+110	Arial 11 single	15	1.46667	16	19-19
+110	Arial 11 double	15	1.46667	16	17-17 19-19
+110	Arial 11 singleAccounting	16.5	1.46667	16	20-20
+110	Arial 11 doubleAccounting	16.5	1.46667	16	20-20 22-22
+110	Arial 11 strike	15	1.46667	16	13-13
+110	Arial 12 single	15.75	1.46667	17	20-20
+110	Arial 12 double	15.75	1.46667	17	19-19 21-21
+110	Arial 12 singleAccounting	17.25	1.46667	17	22-22
+110	Arial 12 doubleAccounting	17.25	1.46667	17	22-22 24-24
+110	Arial 12 strike	15.75	1.46667	17	13-13
+110	Arial 14 single	18	1.46667	20	23-24
+110	Arial 14 double	18	1.46667	20	22-22 24-24
+110	Arial 14 singleAccounting	20.25	1.46667	21	27-28
+110	Arial 14 doubleAccounting	20.25	1.46667	21	27-27 29-29
+110	Arial 14 strike	18	1.46667	20	16-16
+110	Arial 16 single	20.25	1.46667	23	26-27
+110	Arial 16 double	20.25	1.46667	23	25-25 27-27
+110	Arial 16 singleAccounting	24.75	1.46667	23	29-30
+110	Arial 16 doubleAccounting	22.5	1.46667	23	29-29 31-31
+110	Arial 16 strike	20.25	1.46667	23	18-18
+110	Arial 18 single	23.25	1.46667	26	30-31
+110	Arial 18 double	23.25	1.46667	26	29-29 31-31
+110	Arial 18 singleAccounting	27.75	1.46667	27	34-35
+110	Arial 18 doubleAccounting	25.5	1.46667	26	33-33 35-35
+110	Arial 18 strike	23.25	1.46667	26	20-20
+110	Arial 20 single	25.5	1.46667	29	33-34
+110	Arial 20 double	25.5	1.46667	29	32-32 34-34
+110	Arial 20 singleAccounting	30	1.46667	30	37-38
+110	Arial 20 doubleAccounting	27.75	1.46667	30	37-37 39-39
+110	Arial 20 strike	25.5	1.46667	29	22-22
+110	Arial 24 single	30	1.46667	35	40-42
+110	Arial 24 double	30	1.46667	35	37-38 41-42
+110	Arial 24 singleAccounting	34.5	1.46667	36	45-47
+110	Arial 24 doubleAccounting	32.25	1.46667	35	44-45
+110	Arial 24 strike	30	1.46667	35	1-2 27-28
+125	Calibri 9 single	15	1.66667	19	22-22
+125	Calibri 9 double	15	1.66667	19	21-21 23-23
+125	Calibri 9 singleAccounting	16.5	1.66667	19	24-24
+125	Calibri 9 doubleAccounting	16.5	1.66667	19	24-24 26-26
+125	Calibri 9 strike	15	1.66667	19	16-16
+125	Calibri 10 single	15	1.66667	19	22-22
+125	Calibri 10 double	15	1.66667	19	22-22 24-24
+125	Calibri 10 singleAccounting	16.5	1.66667	19	25-25
+125	Calibri 10 doubleAccounting	16.5	1.66667	19	25-25 27-27
+125	Calibri 10 strike	15	1.66667	19	16-16
+125	Calibri 11 single	15	1.66667	19	22-22
+125	Calibri 11 double	15	1.66667	19	22-22 24-24
+125	Calibri 11 singleAccounting	17.25	1.66667	19	25-25
+125	Calibri 11 doubleAccounting	17.25	1.66667	19	25-25 27-27
+125	Calibri 11 strike	15	1.66667	19	15-15
+125	Calibri 12 single	15.75	1.66667	20	23-23
+125	Calibri 12 double	15.75	1.66667	20	23-23 25-25
+125	Calibri 12 singleAccounting	18	1.66667	20	26-26
+125	Calibri 12 doubleAccounting	18	1.66667	20	26-26 28-28
+125	Calibri 12 strike	15.75	1.66667	20	16-16
+125	Calibri 14 single	18.75	1.66667	23	27-28
+125	Calibri 14 double	18.75	1.66667	23	26-26 28-28
+125	Calibri 14 singleAccounting	21	1.66667	24	31-32
+125	Calibri 14 doubleAccounting	21	1.66667	24	31-31 33-33
+125	Calibri 14 strike	18.75	1.66667	23	18-19
+125	Calibri 16 single	21	1.66667	26	30-31
+125	Calibri 16 double	21	1.66667	26	29-29 31-31
+125	Calibri 16 singleAccounting	23.25	1.66667	26	34-35
+125	Calibri 16 doubleAccounting	23.25	1.66667	26	34-34 36-36
+125	Calibri 16 strike	21	1.66667	26	20-21
+125	Calibri 18 single	23.25	1.66667	30	34-35
+125	Calibri 18 double	23.25	1.66667	30	32-33 36-37
+125	Calibri 18 singleAccounting	27.75	1.66667	30	39-40
+125	Calibri 18 doubleAccounting	25.5	1.66667	30	39-40
+125	Calibri 18 strike	23.25	1.66667	30	1-1 23-24
+125	Calibri 20 single	26.25	1.66667	34	39-40
+125	Calibri 20 double	26.25	1.66667	34	37-38 41-42
+125	Calibri 20 singleAccounting	30.75	1.66667	33	43-44
+125	Calibri 20 doubleAccounting	28.5	1.66667	34	44-45
+125	Calibri 20 strike	26.25	1.66667	34	1-1 27-28
+125	Calibri 24 single	31.5	1.66667	40	46-48
+125	Calibri 24 double	31.5	1.66667	40	44-45 48-49
+125	Calibri 24 singleAccounting	36	1.66667	40	52-54
+125	Calibri 24 doubleAccounting	36	1.66667	40	52-53 56-57
+125	Calibri 24 strike	31.5	1.66667	40	31-33
+125	Arial 9 single	15	1.66667	19	22-22
+125	Arial 9 double	15	1.66667	19	20-20 22-22
+125	Arial 9 singleAccounting	16.5	1.66667	19	23-23
+125	Arial 9 doubleAccounting	16.5	1.66667	19	23-23 25-25
+125	Arial 9 strike	15	1.66667	19	16-16
+125	Arial 10 single	15	1.66667	19	22-22
+125	Arial 10 double	15	1.66667	19	21-21 23-23
+125	Arial 10 singleAccounting	16.5	1.66667	19	24-24
+125	Arial 10 doubleAccounting	16.5	1.66667	19	24-24 26-26
+125	Arial 10 strike	15	1.66667	19	16-16
+125	Arial 11 single	15	1.66667	19	22-22
+125	Arial 11 double	15	1.66667	19	21-21 23-23
+125	Arial 11 singleAccounting	16.5	1.66667	19	24-24
+125	Arial 11 doubleAccounting	16.5	1.66667	19	24-24 26-26
+125	Arial 11 strike	15	1.66667	19	15-15
+125	Arial 12 single	15.75	1.66667	20	23-23
+125	Arial 12 double	15.75	1.66667	20	22-22 24-24
+125	Arial 12 singleAccounting	17.25	1.66667	20	25-25
+125	Arial 12 doubleAccounting	17.25	1.66667	20	25-25 27-27
+125	Arial 12 strike	15.75	1.66667	20	16-16
+125	Arial 14 single	18	1.66667	24	27-28
+125	Arial 14 double	18	1.66667	24	26-26 28-28
+125	Arial 14 singleAccounting	20.25	1.66667	24	30-31
+125	Arial 14 doubleAccounting	20.25	1.66667	24	30-30 32-32
+125	Arial 14 strike	18	1.66667	24	19-19
+125	Arial 16 single	20.25	1.66667	26	30-31
+125	Arial 16 double	20.25	1.66667	26	29-29 31-31
+125	Arial 16 singleAccounting	24.75	1.66667	26	33-34
+125	Arial 16 doubleAccounting	22.5	1.66667	27	34-34 36-36
+125	Arial 16 strike	20.25	1.66667	26	20-20
+125	Arial 18 single	23.25	1.66667	30	34-35
+125	Arial 18 double	23.25	1.66667	30	33-33 35-35
+125	Arial 18 singleAccounting	27.75	1.66667	30	38-39
+125	Arial 18 doubleAccounting	25.5	1.66667	30	38-38 40-40
+125	Arial 18 strike	23.25	1.66667	30	23-23
+125	Arial 20 single	25.5	1.66667	34	38-39
+125	Arial 20 double	25.5	1.66667	34	37-37 39-39
+125	Arial 20 singleAccounting	30	1.66667	34	42-43
+125	Arial 20 doubleAccounting	27.75	1.66667	33	41-41 43-43
+125	Arial 20 strike	25.5	1.66667	34	26-27
+125	Arial 24 single	30	1.66667	40	45-47
+125	Arial 24 double	30	1.66667	40	43-44 47-48
+125	Arial 24 singleAccounting	34.5	1.66667	40	50-52
+125	Arial 24 doubleAccounting	32.25	1.66667	40	50-51
+125	Arial 24 strike	30	1.66667	40	1-1 31-32
+150	Calibri 9 single	15	2	22	25-25
+150	Calibri 9 double	15	2	22	25-25 27-27
+150	Calibri 9 singleAccounting	16.5	2	22	28-28
+150	Calibri 9 doubleAccounting	16.5	2	22	28-28 30-30
+150	Calibri 9 strike	15	2	22	18-18
+150	Calibri 10 single	15	2	22	25-25
+150	Calibri 10 double	15	2	22	25-25 27-27
+150	Calibri 10 singleAccounting	16.5	2	22	28-28
+150	Calibri 10 doubleAccounting	16.5	2	22	28-28 30-30
+150	Calibri 10 strike	15	2	22	18-18
+150	Calibri 11 single	15	2	22	25-25
+150	Calibri 11 double	15	2	22	25-25 27-27
+150	Calibri 11 singleAccounting	17.25	2	23	30-30
+150	Calibri 11 doubleAccounting	17.25	2	23	30-30 32-32
+150	Calibri 11 strike	15	2	22	17-17
+150	Calibri 12 single	15.75	2	24	28-29
+150	Calibri 12 double	15.75	2	24	27-27 29-29
+150	Calibri 12 singleAccounting	18	2	24	31-32
+150	Calibri 12 doubleAccounting	18	2	24	31-31 33-33
+150	Calibri 12 strike	15.75	2	24	19-20
+150	Calibri 14 single	18.75	2	29	33-34
+150	Calibri 14 double	18.75	2	29	31-32 35-36
+150	Calibri 14 singleAccounting	21	2	28	37-38
+150	Calibri 14 doubleAccounting	21	2	28	37-38 41-41
+150	Calibri 14 strike	18.75	2	29	23-24
+150	Calibri 16 single	21	2	31	36-37
+150	Calibri 16 double	21	2	31	34-35 38-39
+150	Calibri 16 singleAccounting	23.25	2	32	42-43
+150	Calibri 16 doubleAccounting	23.25	2	32	42-43 46-46
+150	Calibri 16 strike	21	2	31	24-25
+150	Calibri 18 single	23.25	2	36	41-42
+150	Calibri 18 double	23.25	2	36	41-42 45-46
+150	Calibri 18 singleAccounting	27.75	2	36	47-48
+150	Calibri 18 doubleAccounting	25.5	2	36	47-48
+150	Calibri 18 strike	23.25	2	36	1-1 28-29
+150	Calibri 20 single	26.25	2	41	47-49
+150	Calibri 20 double	26.25	2	41	45-46 49-50
+150	Calibri 20 singleAccounting	30.75	2	41	53-55
+150	Calibri 20 doubleAccounting	28.5	2	40	52-53 56-56
+150	Calibri 20 strike	26.25	2	41	32-34
+150	Calibri 24 single	31.5	2	48	54-56
+150	Calibri 24 double	31.5	2	48	51-53 57-59
+150	Calibri 24 singleAccounting	36	2	48	62-64
+150	Calibri 24 doubleAccounting	36	2	48	62-64 68-70
+150	Calibri 24 strike	31.5	2	48	37-39
+150	Arial 9 single	15	2	22	25-25
+150	Arial 9 double	15	2	22	24-24 26-26
+150	Arial 9 singleAccounting	16.5	2	22	27-27
+150	Arial 9 doubleAccounting	16.5	2	22	27-27 29-29
+150	Arial 9 strike	15	2	22	18-18
+150	Arial 10 single	15	2	22	25-25
+150	Arial 10 double	15	2	22	24-24 26-26
+150	Arial 10 singleAccounting	16.5	2	22	27-27
+150	Arial 10 doubleAccounting	16.5	2	22	27-27 29-29
+150	Arial 10 strike	15	2	22	18-18
+150	Arial 11 single	15	2	22	25-26
+150	Arial 11 double	15	2	22	24-24 26-26
+150	Arial 11 singleAccounting	16.5	2	22	28-29
+150	Arial 11 doubleAccounting	16.5	2	22	28-28 30-30
+150	Arial 11 strike	15	2	22	17-17
+150	Arial 12 single	15.75	2	24	28-29
+150	Arial 12 double	15.75	2	24	27-27 29-29
+150	Arial 12 singleAccounting	17.25	2	24	31-32
+150	Arial 12 doubleAccounting	17.25	2	24	31-31 33-33
+150	Arial 12 strike	15.75	2	24	19-19
+150	Arial 14 single	18	2	28	32-33
+150	Arial 14 double	18	2	28	31-31 33-33
+150	Arial 14 singleAccounting	20.25	2	29	36-37
+150	Arial 14 doubleAccounting	20.25	2	29	36-36 38-38
+150	Arial 14 strike	18	2	28	22-22
+150	Arial 16 single	20.25	2	32	36-37
+150	Arial 16 double	20.25	2	32	35-35 37-37
+150	Arial 16 singleAccounting	24.75	2	32	40-41
+150	Arial 16 doubleAccounting	22.5	2	31	39-39 41-41
+150	Arial 16 strike	20.25	2	32	25-26
+150	Arial 18 single	23.25	2	36	41-43
+150	Arial 18 double	23.25	2	36	38-39 42-43
+150	Arial 18 singleAccounting	27.75	2	36	45-47
+150	Arial 18 doubleAccounting	25.5	2	36	45-46 49-50
+150	Arial 18 strike	23.25	2	36	28-29
+150	Arial 20 single	25.5	2	40	45-47
+150	Arial 20 double	25.5	2	40	43-44 47-48
+150	Arial 20 singleAccounting	30	2	40	50-52
+150	Arial 20 doubleAccounting	27.75	2	41	51-52 55-55
+150	Arial 20 strike	25.5	2	40	31-32
+150	Arial 24 single	30	2	48	54-57
+150	Arial 24 double	30	2	48	51-52 55-56
+150	Arial 24 singleAccounting	34.5	2	48	59-62
+150	Arial 24 doubleAccounting	32.25	2	48	59-60 63-64
+150	Arial 24 strike	30	2	48	37-38

@@ -1427,6 +1427,28 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     under 4 pixels: with the Arial 9 Normal font, column A's marker column lay under the same
     light blue ribbon icon as in item 73, above the cells.
 
+75. **Rules on Excel for Windows (2026-11-23; groups `screen_rules` and `screen_rules_zoom`, the
+    build of item 65).** "HHHH" in Calibri, Aptos Narrow and Arial at every size from 9 to 36 and
+    from 40 to 72 in steps of 4 under each underline and a strikethrough at zoom 100 and 200
+    (1,110 rows from 144 pictures), and Calibri and Arial at the nine table sizes at zoom 75, 90,
+    100, 110, 125 and 150 (540 rows from 27): `screen_rules.layout.tsv`,
+    `screen_rules_zoom.layout.tsv`. Every view's bands lie at its one offset. Measured from the
+    baseline (the H stems' last ink row), the lines follow no candidate closely: the Mac's rule
+    formulas of item 60 read in device pixels at the ppem rounded to a whole pixel give 62 of
+    1,650 rows; every line a pixel lower, 958; that with the thicknesses rounded, 1,133 (at zoom
+    200 a single underline is often two pixels where the floor gives one). No rule is taken into
+    `rule_metrics` for Windows from these rows; they are what a Windows rule or table is fitted
+    to.
+76. **Wrapped text under a larger Normal font on Excel for Windows (2026-11-23; group
+    `screen_wrapped`, the build of item 65).** Bottom-aligned cells wrapped to two and three lines
+    in Calibri 11, Arial 11, Aptos Narrow 14 and Arial 18 in a Calibri 20 workbook and Arial 9
+    and Calibri 9 in an Arial 14 one, faces whose descent D is smaller than the Normal font's
+    D', with Calibri 24, Calibri 14 and Arial 16 beside them as controls: 18 rows from 2
+    pictures, `screen_wrapped.layout.tsv`. Written as a prediction from item 74's wrapped rows
+    before the run, the last line's baseline at R − max(D, D') − max(0, D' − D), lines H apart,
+    holds for all 18; without the second term, for the 6 controls only. Wrapped lines sit the
+    difference of the descents higher, as the Mac's do by the difference of their insets.
+
 ## 3. The pipeline
 
 ```

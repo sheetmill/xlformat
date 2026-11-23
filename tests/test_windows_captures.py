@@ -43,7 +43,8 @@ def _sha256(path: Path) -> str:
 def _header(group: str) -> dict[str, object]:
     """The job header of the group's first suite file, checked equal in every other one."""
     if group.startswith("screen_"):  # the first of its layout files
-        group_layouts = sorted(WINDOWS.glob(f"{group}*.layout.tsv"))
+        names = (f"{group}.layout.tsv", f"{group}_rules.layout.tsv", f"{group}_vertical.layout.tsv")
+        group_layouts = [WINDOWS / name for name in names if (WINDOWS / name).exists()]
         assert group_layouts, group
         path = group_layouts[0]
         with path.open(encoding="utf-8") as f:
