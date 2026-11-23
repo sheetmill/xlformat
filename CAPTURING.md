@@ -1449,6 +1449,31 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     holds for all 18; without the second term, for the 6 controls only. Wrapped lines sit the
     difference of the descents higher, as the Mac's do by the difference of their insets.
 
+77. **Rules on Excel for Windows at new sizes and zooms (2026-11-23; group `screen_rules_fresh`,
+    the build of item 65).** Calibri, Aptos Narrow and Arial at 37, 38, 39, 41, 43, 45, 49, 53
+    and 57 points under each underline and a strikethrough at zoom 80, 120, 140 and 175, none of
+    which items 73 and 75 hold: 540 rows from 87 pictures, `screen_rules_fresh.layout.tsv`.
+    Rules written from the rows of item 75 and frozen before this run hold for every row, with P
+    the ppem rounded to a whole pixel (size · 4/3 · zoom / 100), em the face's units per em and
+    every rounding half up, positions in pixels below the baseline (the H stems' last ink row):
+    - thickness of a single underline, a single accounting underline and a strikethrough:
+      max(1, round(P · thickness / em)), from `post.underlineThickness` and
+      `OS/2.yStrikeoutSize`;
+    - single underline: round(P · −`post.underlinePosition` / em) + 1;
+    - strikethrough: round(P · `OS/2.yStrikeoutPosition` / em) − 1 above the baseline;
+    - accounting underline (single, and a double's first line): the hinted descent + 1, the
+      descent being Arial's `VDMX` yMin at P and round(P · `OS/2.usWinDescent` / em) for
+      Calibri and Aptos Narrow, which have no `VDMX`;
+    - a double underline's two lines (both kinds): twice a line's thickness apart, a double
+      accounting line as thick as a double's;
+    - Aptos Narrow's double underline: the single's top and thickness, stepped up a thickness at
+      a time until it ends at or above the accounting underline's top, the Mac's rule of item 62.
+    A double accounting underline's second line past the row's last pixel is not measured (10
+    rows). The font numbers are the Mac's copies of the faces (Calibri 6.20, Arial 6.80i,
+    Aptos Narrow 2.01), where Windows draws Calibri 6.27 and Arial 7.07; they agree at the ppems
+    measured here (39 to 133). Calibri's and Arial's double underline (its top and thickness)
+    follows none of these rules.
+
 ## 3. The pipeline
 
 ```
