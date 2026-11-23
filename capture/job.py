@@ -104,8 +104,11 @@ GROUPS: dict[str, tuple[str, ...]] = {
             r"|width_general\w*|huge_values|letters|letters_upper|elapsed_decimals",
             name,
         )
-    ),  # merged cells: the block's width read as its columns' points
+    ),
+    # merged cells: the block's width read as its columns' points
     "merged": ("merged11", "merged14"),
+    # Excel's TEXT over every format of the other suites, computed when the workbook opens
+    "text_function": ("text_function",),
 }
 
 
