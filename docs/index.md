@@ -2,7 +2,7 @@
 
 xlformat applies an Excel number format to a value and returns the text Excel displays. It is
 pure Python with no runtime dependencies, and its output is tested against text captured from
-Excel 16 for Mac.
+Excel 16 for Mac and, with `platform="windows"`, from Excel for Windows.
 
 ```python
 >>> from xlformat import format_value

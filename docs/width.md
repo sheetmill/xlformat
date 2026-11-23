@@ -242,6 +242,31 @@ into the next column, wrapping, indents.
 `overhang` is how far an italic face reaches past its advances on each side; `measured_fonts`
 lists the bundled tables.
 
+## Excel for Windows
+
+`platform="windows"` measures as Excel for Windows does at 96 dpi: the same rules in whole
+pixels, with glyph widths hinted for the screen, so a digit of Calibri 11 is 7 pixels (5.25
+points) and a column is a whole number of pixels. Results stay in points. A column without a
+width is rounded up to a multiple of 8 pixels, and a fill stops at 255 characters where the Mac
+shows a `#` run.
+
+```python
+>>> from xlformat import digit_width
+>>> digit_width(("Calibri", 11), platform="windows")
+5.25
+>>> file_column_metrics(normal_font=("Calibri", 11), platform="windows").points
+48.0
+>>> format_value(1234567.891, "#,##0.00", column_width=8)
+'#########'
+>>> format_value(1234567.891, "#,##0.00", column_width=8, platform="windows")
+'########'
+>>> row_metrics(("Calibri", 11), platform="windows").height
+15.0
+```
+
+Text placement and underline positions (`vertical_metrics`, `ink_metrics`, `rule_metrics`) are
+measured on the Mac only and raise `LookupError` for Windows.
+
 ## Custom measures
 
 `measure` replaces the character count with any callable from text to a width, and `width` is

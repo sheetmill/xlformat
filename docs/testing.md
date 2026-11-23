@@ -2,7 +2,8 @@
 
 Excel's documentation of number formats is incomplete and, in places, wrong, so xlformat treats
 Excel itself as the specification. Every expected output in the test suite was captured from
-Excel 16 for Mac, and every rule in the code cites the captured rows that pinned it.
+Excel 16 for Mac, or by a capture job from Excel for Windows, and every rule in the code cites the
+captured rows that pinned it.
 
 ## Capturing from Excel
 

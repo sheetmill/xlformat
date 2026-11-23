@@ -375,8 +375,10 @@ class ColumnMetrics:
             less the column padding (5 points for a digit width up to 8, 7 for 9 to 12, 9 for
             13), and 0
             for a column narrower than that.
-        left_inset: Where left-aligned text starts, in points from the left gridline.
-        right_inset: Where right-aligned text ends, in points from the right gridline.
+        left_inset: Where left-aligned text starts, in points from the left gridline
+            (measured in Excel for Mac, given for Windows as well).
+        right_inset: Where right-aligned text ends, in points from the right gridline
+            (likewise).
         digit_width: The maximum digit width of the Normal font: one column unit, one indent
             level.
 

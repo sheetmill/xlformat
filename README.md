@@ -2,7 +2,7 @@
 
 xlformat applies an Excel number format to a value and returns the text Excel displays. It is
 pure Python with no runtime dependencies, and its output is tested against text captured from
-Excel 16 for Mac.
+Excel 16 for Mac and, with `platform="windows"`, from Excel for Windows.
 
 ```python
 >>> from xlformat import format_value
@@ -107,15 +107,18 @@ evidence for each.
 
 - **Excel mode measures Calibri, Aptos Narrow and Arial**, regular, bold, italic and bold italic,
   at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points, in Excel for Mac (which bundles Aptos Narrow, the
-  Windows default, and Arial). Other sizes are scaled from the nearest measured size and may differ from Excel by
-  a character near the edge of a column. Any other font raises `LookupError`.
+  Windows default, and Arial) and in Excel for Windows at 96 dpi (`platform="windows"`, where
+  widths are whole pixels, reported in points). Other sizes are scaled from the nearest measured
+  size and may differ from Excel by a character near the edge of a column. Any other font raises
+  `LookupError`.
 - **Character mode is its own contract.** A `#` run is always `width` characters, and a value
   is judged by its character count, where Excel would fit or overflow some texts by glyph
   width.
-- **Expected outputs come from Excel 16 for Mac** under Microsoft 365, with the en-US locale.
-  Month and day names are English; locale tags such as `[$-409]` are parsed but not applied.
-  Windows Excel renders text with a different engine and may disagree on a borderline fit in
-  Excel mode.
+- **Expected outputs come from Excel 16 for Mac and Excel for Windows** under Microsoft 365,
+  with the en-US locale. Month and day names are English; locale tags such as `[$-409]` are
+  parsed but not applied. The default platform is the Mac; on Windows, where text, columns and
+  rows are measured in pixels, pass `platform="windows"`. Text placement and underline positions
+  (`vertical_metrics`, `ink_metrics`, `rule_metrics`) are measured on the Mac only.
 - **Error values** are passed as `ExcelError` (`ExcelError("#N/A")`); a plain string such as
   `"#N/A"` is text.
 - **Conditional formatting** and cell styles beyond the format string are out of scope.
@@ -162,8 +165,10 @@ sphinx-build -n -W docs docs/_build/html
 [CONTRIBUTING.md](https://github.com/sheetmill/xlformat/blob/main/CONTRIBUTING.md) lists the checks a change must pass and how commits are written.
 
 The expected outputs under `tests/captures/` were captured from Excel for Mac by the scripts in
-`capture/`: each suite is written as a workbook with openpyxl, opened in Excel through
-AppleScript, and read back as displayed text at each column width. Regenerating a suite needs
+`capture/`, and those under `tests/captures/windows/` from Excel for Windows by capture jobs whose
+manifests are committed beside them. On the Mac each suite is written as a workbook with
+openpyxl, opened in Excel through AppleScript, and read back as displayed text at each column
+width. Regenerating a suite needs
 Excel for Mac and is described in [CAPTURING.md](https://github.com/sheetmill/xlformat/blob/main/CAPTURING.md):
 
 ```bash
