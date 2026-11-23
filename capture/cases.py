@@ -12,6 +12,7 @@ from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from decimal import Decimal
 from fractions import Fraction
+from functools import partial
 from pathlib import Path
 from string import ascii_uppercase
 from typing import Literal
@@ -2016,6 +2017,24 @@ def cell_font_large() -> Suite:
     return Suite("cell_font_large", cases, widths=(None, *_points(6)))
 
 
+# Normal fonts and their digit widths (points) for the half-point probe: odd digits land a column
+# on a half point at widths k + 0.5, digits 6 and 10 at k + 0.25 and k + 0.75
+_HALF_POINT_FONTS: tuple[tuple[str, int, int], ...] = (
+    ("Calibri", 9, 5), ("Calibri", 11, 6), ("Calibri", 14, 7), ("Calibri", 18, 9),
+    ("Calibri", 20, 10), ("Arial", 16, 9), ("Arial", 20, 11), ("Arial", 24, 13),
+)  # fmt: skip
+
+
+def _half_points(family: str, size: int, mdw: int) -> Suite:
+    """Widths from 1 to 20 whose column ``MDW * w + P`` is a half point, Normal font as named."""
+    pad = 2 * math.ceil(mdw / 4) + 1
+    widths = tuple(k / 4 for k in range(4, 81) if (mdw * k / 4 + pad) % 1 == 0.5)
+    slug = family.lower().replace(" ", "_")
+    name = f"column_half_points_{slug}{size}"
+    cases = tuple(Case(name, tag, value, fmt) for tag, value, fmt in _CELL_FONT_VALUES)
+    return Suite(name, cases, widths=widths, font_size=size, font_name=family)
+
+
 def numeric_core_width_arial10() -> Suite:
     """Every ``numeric_core`` case at widths 6, 10 and 14, Normal style Arial 10."""
     name = "numeric_core_width_arial10"
@@ -3064,6 +3083,10 @@ for _base in _DEFAULT_BASES:
 for _size in (11, 16, 24):
     SUITES[f"column_boundary{_size}"] = lambda s=_size: _column_boundary(s)
 SUITES["long_fills"] = long_fills
+for _family, _size, _mdw in _HALF_POINT_FONTS:
+    SUITES[f"column_half_points_{_family.lower()}{_size}"] = partial(
+        _half_points, _family, _size, _mdw
+    )
 SUITES["line_breaks_aptos_narrow"] = line_breaks_aptos_narrow
 
 
