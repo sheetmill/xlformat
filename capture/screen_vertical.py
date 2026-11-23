@@ -340,6 +340,8 @@ def read_views(
     match_scale: float | None = None,
     pixels_per_point: float | None = None,
     own_bands: bool = False,
+    row_px: Callable[[float], int] | None = None,
+    unmeasured_ok: frozenset[int] = frozenset(),
 ) -> dict[int, T]:
     """Measure every row of a sheet once, from views whose first visible row is given.
 
@@ -350,7 +352,12 @@ def read_views(
     rounded to whole pixels: 2 on a Mac display of scale 2), or with ``own_bands`` from its own
     band (for a zoom at which Excel rounds each row to whole pixels). A row seen whole in a later
     view replaces one seen only as a view's last band. Exits naming ``label`` if a row is never
-    measured.
+    measured, other than those of ``unmeasured_ok``.
+
+    With ``row_px`` (each row's height in whole device pixels, as Excel draws it) the view's frame
+    is anchored on its bands after the first instead: every one must begin at the same offset
+    from the heights above it (or the reader exits: the frame is not a constant offset), and the
+    first band, whose top pixel the column headings' border covers, is not measured.
     """
     found: dict[int, T] = {}
     at_edge: set[int] = set()  # rows measured only as a view's last band so far
@@ -361,16 +368,30 @@ def read_views(
         if not rows:
             continue
         first_row, first_band = rows[0]
+        anchor = None
+        if row_px is not None:
+            offsets = {
+                band[0] - sum(row_px(h) for h in heights[first_row - 1 : row - 1])
+                for row, band in rows[1:]
+            }
+            if len(offsets) != 1:
+                sys.exit(f"{label}: {path.name}: bands not at one offset from the rows: {offsets}")
+            (anchor,) = offsets
         if pixels_per_point is None:
             ratios = sorted((b[1] - b[0] + 1) / heights[r - 1] for r, b in rows)
             scale: float = round(ratios[len(ratios) // 2])
         else:
             scale = pixels_per_point
         for k, (row, band) in enumerate(rows):
+            if anchor is not None and k == 0:
+                continue  # the headings' border covers its top pixel
             edge = k == len(rows) - 1 and row < n_rows
             if row in found and (row not in at_edge or edge):
                 continue
-            if own_bands:
+            if anchor is not None and row_px is not None:
+                top_px = anchor + sum(row_px(h) for h in heights[first_row - 1 : row - 1])
+                bottom_px = top_px + row_px(heights[row - 1]) - 1
+            elif own_bands:
                 top_px, bottom_px = band
             else:
                 # boundaries between filled cells are sometimes drawn a pixel row or two off, so
@@ -382,7 +403,7 @@ def read_views(
                 at_edge.add(row)
             else:
                 at_edge.discard(row)
-    missing = [r for r in range(1, n_rows + 1) if r not in found]
+    missing = [r for r in range(1, n_rows + 1) if r not in found and r not in unmeasured_ok]
     if missing:
         sys.exit(f"{label}: rows never measured: {missing[:10]}")
     return found
@@ -471,6 +492,8 @@ def measure_vertical(
     label: str,
     pixels_per_point: float | None = None,
     case_list: list[Case] | None = None,
+    row_px: Callable[[float], int] | None = None,
+    unmeasured_ok: frozenset[int] = frozenset(),
 ) -> list[Measured]:
     """Every row of the vertical cases (or ``case_list``) measured from its views
     (``read_views``), in row order."""
@@ -484,8 +507,16 @@ def measure_vertical(
             all_cases[row - 1], heights[row - 1], band, h_lines, g_bottoms, band[0] - top_px
         )
 
-    found = read_views(views, heights, measure_row, label=label, pixels_per_point=pixels_per_point)
-    if len(found) != len(all_cases):
+    found = read_views(
+        views,
+        heights,
+        measure_row,
+        label=label,
+        pixels_per_point=pixels_per_point,
+        row_px=row_px,
+        unmeasured_ok=unmeasured_ok,
+    )
+    if len(found) + len(unmeasured_ok - set(found)) != len(all_cases):
         sys.exit(f"{label}: {len(found)} rows measured for {len(all_cases)} cases")
     # the band heights must follow the row heights at one scale
     off = [(m.case.tag, m.shift) for m in found.values() if abs(m.shift) > 2]

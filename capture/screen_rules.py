@@ -33,7 +33,7 @@ from __future__ import annotations
 import datetime as dt
 import math
 import sys
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -443,6 +443,8 @@ def measure_rules(
     pixels_per_point: float | None = None,
     own_bands: bool = False,
     case_list: list[Case] | None = None,
+    row_px: Callable[[float], int] | None = None,
+    unmeasured_ok: frozenset[int] = frozenset(),
 ) -> list[str]:
     """Every row of a rules suite (or ``case_list``) measured from its views at one zoom
     (``read_views``): per row
@@ -473,6 +475,8 @@ def measure_rules(
         match_scale=match_scale,
         pixels_per_point=pixels_per_point,
         own_bands=own_bands,
+        row_px=row_px,
+        unmeasured_ok=unmeasured_ok,
     )
     return [found[r] for r in sorted(found)]
 

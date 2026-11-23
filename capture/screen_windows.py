@@ -33,9 +33,11 @@ Groups:
 from __future__ import annotations
 
 import json
+import math
 import re
 import sys
 import tempfile
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Literal
@@ -73,6 +75,9 @@ class Book:
     cases: tuple[VerticalCase, ...] | tuple[RuleCase, ...]
     zooms: tuple[int, ...]
     normal: CellFont = DEFAULT_NORMAL
+    # row 1 is every first view's first row, whose top pixel the column headings' border covers:
+    # a filler there, except in the pilot, which ran before this was seen (its row 1 is unmeasured)
+    lead_filler: bool = True
 
     @property
     def sheet(self) -> str:
@@ -153,7 +158,28 @@ MIX_NORMALS = (
 
 
 def books(group: str) -> list[Book]:
-    """The workbooks of a screen group, in the job's order."""
+    """The workbooks of a screen group, in the job's order, a filler first where one is taken."""
+    out = []
+    for book in _books(group):
+        if book.lead_filler:
+            filler: VerticalCase | RuleCase = (
+                VerticalCase("filler top", DEFAULT_NORMAL)
+                if book.kind == "vertical"
+                else RuleCase("rule", "filler top none")
+            )
+            book = Book(
+                book.stem,
+                book.kind,
+                (filler, *book.cases),
+                book.zooms,
+                book.normal,
+                True,
+            )
+        out.append(book)
+    return out
+
+
+def _books(group: str) -> list[Book]:
     if group == "screen_pilot":
         pilot_vertical = [
             c
@@ -169,8 +195,9 @@ def books(group: str) -> list[Book]:
                 "rules",
                 tuple(_rule_cases(("Calibri", "Arial"), (9, 11, 20), RULES)),
                 (75, 100, 200),
+                lead_filler=False,
             ),
-            Book("pilot_vertical", "vertical", tuple(pilot_vertical), (100,)),
+            Book("pilot_vertical", "vertical", tuple(pilot_vertical), (100,), lead_filler=False),
         ]
     if group == "screen_vertical":
         out = [Book("vertical_calibri_11", "vertical", tuple(vertical_cases()), (100,))]
@@ -295,6 +322,12 @@ def manifest(group: str, job_id: str, books_: list[dict[str, Any]], note: str) -
 # --- reading the result -------------------------------------------------------------------------
 
 
+def _half_up(scale: float) -> Callable[[float], int]:
+    """A row's height in whole device pixels at ``scale``, as Excel draws it: half up (the
+    pilot: every band of every view begins where the rows above, so rounded, end)."""
+    return lambda points: math.floor(points * scale + 0.5 + 1e-9)
+
+
 def _first_row(visible_range: str) -> int:
     match = re.match(r"\$?[A-Z]+\$?(\d+)", visible_range)
     if match is None:
@@ -321,8 +354,9 @@ def measured_rows(book: Book, steps: dict[str, Any], artifacts: Path) -> list[st
                 raise ValueError(msg)
             scale = float(shot["dpi"]) / 72 * zoom / 100
             pictures.append((_first_row(seen["visible_range"]), artifacts / shot["artifact"]))
-        # Excel rounds each row to whole pixels where a row's points are not: its own band then
-        whole = all(abs(h * scale - round(h * scale)) < 1e-9 for h in heights)
+        # Excel draws each row's height rounded half up to whole pixels, the rows stacked; every
+        # view's first row is cut by the headings' border, so row 1 is never measured
+        frame = {"row_px": _half_up(scale), "unmeasured_ok": frozenset({1})}
         if book.kind == "vertical":
             for m in measure_vertical(
                 pictures,
@@ -330,7 +364,10 @@ def measured_rows(book: Book, steps: dict[str, Any], artifacts: Path) -> list[st
                 f"{book.stem} zoom {zoom}",
                 scale,
                 list(book.cases),  # type: ignore[arg-type]
+                **frame,  # type: ignore[arg-type]
             ):
+                if m.case.tag.startswith("filler"):
+                    continue
                 band_px = m.band[1] - m.band[0] + 1
                 h = " ".join(f"{a}-{b}" for a, b in m.h_lines)
                 g = " ".join(str(b) for b in m.g_bottoms)
@@ -342,7 +379,7 @@ def measured_rows(book: Book, steps: dict[str, Any], artifacts: Path) -> list[st
         else:
             rows = measure_rules(
                 pictures, heights, zoom, "rules_double", match_scale=scale,
-                pixels_per_point=scale, own_bands=not whole, case_list=list(book.cases),  # type: ignore[arg-type]
+                pixels_per_point=scale, case_list=list(book.cases), **frame,  # type: ignore[arg-type]
             )  # fmt: skip
             lines += [line for line in rows if "\tfiller " not in line]
     return lines

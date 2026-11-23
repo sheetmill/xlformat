@@ -32,6 +32,7 @@ from capture.screen_windows import (
 from capture.vertical_pdf import Case as VerticalCase
 
 WHITE, MAGENTA, CYAN, BLACK = (255, 255, 255), (255, 0, 255), (0, 255, 255), (0, 0, 0)
+BORDER = (171, 171, 171)
 Pixels = list[list[tuple[int, int, int]]]
 
 
@@ -75,6 +76,28 @@ def test_the_planned_views_show_every_row_whole(group: str) -> None:
             assert seen == set(range(1, len(px) + 1)), (book.stem, zoom)
 
 
+@pytest.mark.parametrize("group", SCREEN_GROUPS)
+def test_every_row_is_whole_below_a_views_first_row(group: str) -> None:
+    """A view's first row is cut by the column headings' border: every row is planned whole as
+    another row of some view, but row 1, which is a filler in every group after the pilot."""
+    for book in books(group):
+        assert book.lead_filler == (group != "screen_pilot")
+        if book.lead_filler:
+            assert book.cases[0].tag.startswith("filler")
+        for zoom in book.zooms:
+            scale = 96 / 72 * zoom / 100  # as views() computes it
+            px = [h * scale for h in estimated_points(book)]
+            whole: set[int] = set()
+            for top in views(book, zoom):
+                used = px[top - 1]
+                for row in range(top + 1, len(px) + 1):
+                    used += px[row - 1]
+                    if used > VIEW_BUDGET_PX:
+                        break
+                    whole.add(row)
+            assert set(range(2, len(px) + 1)) <= whole, (book.stem, zoom)
+
+
 def test_plan_views_overlaps_by_one_row() -> None:
     assert plan_views([300.0] * 10, budget=1000) == [1, 3, 5, 7, 9]
     assert plan_views([1200.0, 100.0], budget=1000) == [1, 2]
@@ -90,6 +113,8 @@ def _draw(
         fill = MAGENTA if row % 2 else CYAN
         band = [[fill] * 12 + [WHITE] * 388 for _ in range(heights_px[row - 1])]
         draw_row(row, band)
+        if row == top:  # the column headings' border covers the first row's top pixel
+            band[0] = [BORDER] * 400
         pixels += band
         row += 1
     return pixels[:height] + [[WHITE] * 400 for _ in range(max(0, height - len(pixels)))]
@@ -112,20 +137,21 @@ def _result(book: Book, heights_px: list[int], draw_row: Any, folder: Path) -> d
 
 def test_the_rules_reader_on_a_drawn_result(tmp_path: Path) -> None:
     rules = ("none", "single", "double", "strike")
-    cases = [RuleCase("rule", f"Calibri 11 {r}", "Calibri", 11.0, r) for r in rules]
+    cases = [RuleCase("rule", "filler top none")]  # row 1: under the headings' border
+    cases += [RuleCase("rule", f"Calibri 11 {r}", "Calibri", 11.0, r) for r in rules]
     cases += [RuleCase("rule", f"filler {k} none") for k in range(20)]
     book = Book("rules_test", "rules", tuple(cases), (100,))
     heights_px = [24] * len(cases)
     base = 16  # the H stems' last pixel row, from the row's top
 
     def draw_row(row: int, band: Pixels) -> None:
-        if row > len(rules):
+        if not 2 <= row <= len(rules) + 1:
             return
         for x0 in (30, 44, 58, 72):  # four H glyphs: two stems and a bar
             for y in range(6, base + 1):
                 band[y][x0] = band[y][x0 + 6] = BLACK
             band[11][x0 : x0 + 7] = [BLACK] * 7
-        lines = {"single": [18], "double": [17, 19], "strike": [12], "none": []}[rules[row - 1]]
+        lines = {"single": [18], "double": [17, 19], "strike": [12], "none": []}[rules[row - 2]]
         for y in lines:
             band[y][30:79] = [BLACK] * 49
 
@@ -142,14 +168,15 @@ def test_the_rules_reader_on_a_drawn_result(tmp_path: Path) -> None:
 def test_the_vertical_reader_on_a_drawn_result(tmp_path: Path) -> None:
     font = CellFont("Calibri", 11)
     cases = [
+        VerticalCase("filler top", font),
         VerticalCase("natural Calibri 11", font),
         VerticalCase("top H+13 Calibri 11", font, "top", 24.75),
         VerticalCase("bottom H+13 Calibri 11", font, "bottom", 24.75),
     ]
     book = Book("vertical_test", "vertical", tuple(cases), (100,))
-    heights_px = [20, 33, 33]
+    heights_px = [20, 20, 33, 33]
     # per row: the H's cap top and baseline, and the g's bottom, in pixels from the row's top
-    ink = {1: (5, 15, 18), 2: (3, 13, 16), 3: (18, 28, 31)}
+    ink = {1: (5, 15, 18), 2: (5, 15, 18), 3: (3, 13, 16), 4: (18, 28, 31)}
 
     def draw_row(row: int, band: Pixels) -> None:
         cap, base, tail = ink[row]
@@ -167,3 +194,14 @@ def test_the_vertical_reader_on_a_drawn_result(tmp_path: Path) -> None:
         "Calibri 11\ttop H+13 Calibri 11\t24.75\t24.75\t33\t0\t3-13\t16",
         "Calibri 11\tbottom H+13 Calibri 11\t24.75\t24.75\t33\t0\t18-28\t31",
     ]
+
+
+def test_a_frame_that_is_not_one_offset_stops_the_reader(tmp_path: Path) -> None:
+    cases = [RuleCase("rule", "filler top none")]
+    cases += [RuleCase("rule", f"filler {k} none") for k in range(6)]
+    book = Book("frame_test", "rules", tuple(cases), (100,))
+    drawn = [24, 24, 24, 25, 24, 24, 24]  # row 4 drawn a pixel taller than Excel reports it
+    steps = _result(book, drawn, lambda row, band: None, tmp_path)
+    steps["heights"] = {"row_height": [[24 * 0.75]] * len(cases)}
+    with pytest.raises(SystemExit, match="not at one offset"):
+        measured_rows(book, steps, tmp_path)
