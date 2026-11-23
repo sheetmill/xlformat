@@ -28,6 +28,9 @@ Groups:
   and from 40 to 72 in steps of 4) at zoom 100 and 200.
 - ``screen_rules_zoom``: Calibri and Arial at the nine sizes under each rule at zoom 75, 90, 100,
   110, 125 and 150, where the pixels a point are whole, a fraction, or neither.
+- ``screen_wrapped``: bottom-aligned cells wrapped to two and three lines in faces whose descent
+  is smaller than the Normal font's, and in two whose is not, in Calibri 20 and Arial 14
+  workbooks, at zoom 100.
 """
 
 from __future__ import annotations
@@ -57,12 +60,19 @@ RULES = ("none", *DOUBLE_RULES)
 FAR_CELL = "AZ1"  # the active cell, right of every picture at zoom 200
 VIEW_BUDGET_PX = 1000  # rows planned into one view; Excel shows about 1,100 pixels of cells
 DPI = 96
-SCREEN_GROUPS = ("screen_pilot", "screen_vertical", "screen_rules", "screen_rules_zoom")
+SCREEN_GROUPS = (
+    "screen_pilot",
+    "screen_vertical",
+    "screen_rules",
+    "screen_rules_zoom",
+    "screen_wrapped",
+)
 _PURPOSE = {
     "screen_pilot": "window pictures of text placement and of underlines and strikethrough",
     "screen_vertical": "window pictures of text placement",
     "screen_rules": "window pictures of underlines and strikethrough",
     "screen_rules_zoom": "window pictures of underlines and strikethrough at six zooms",
+    "screen_wrapped": "window pictures of wrapped text under a larger Normal font",
 }
 
 
@@ -148,6 +158,29 @@ def _rule_cases(
     return found + [RuleCase("rule", f"filler {k} none") for k in range(20)]
 
 
+# screen_wrapped: wrapped cells whose face's descent is smaller than the Normal font's (and two
+# controls each whose is not), bottom-aligned
+WRAPPED = (
+    (
+        CellFont("Calibri", 20),
+        (
+            CellFont("Calibri", 11),
+            CellFont("Arial", 11),
+            CellFont("Aptos Narrow", 14),
+            CellFont("Arial", 18),
+            CellFont("Calibri", 24),
+        ),
+    ),
+    (
+        CellFont("Arial", 14),
+        (
+            CellFont("Arial", 9),
+            CellFont("Calibri", 9),
+            CellFont("Calibri", 14),
+            CellFont("Arial", 16),
+        ),
+    ),
+)
 MIX_NORMALS = (
     CellFont("Calibri", 9),
     CellFont("Calibri", 20),
@@ -211,6 +244,21 @@ def _books(group: str) -> list[Book]:
     if group == "screen_rules_zoom":
         cases = _rule_cases(("Calibri", "Arial"), tuple(float(s) for s in SIZES), DOUBLE_RULES)
         return [Book("rules_zoom", "rules", tuple(cases), (75, 90, 100, 110, 125, 150))]
+    if group == "screen_wrapped":
+        return [
+            Book(
+                f"wrapped_{normal.label.replace(' ', '_').lower()}",
+                "vertical",
+                tuple(
+                    VerticalCase(f"wrapped {n} {f.label}", f, "bottom", None, n)
+                    for f in fonts
+                    for n in (2, 3)
+                ),
+                (100,),
+                normal,
+            )
+            for normal, fonts in WRAPPED
+        ]
     msg = f"not a screen group: {group}"
     raise KeyError(msg)
 
