@@ -36,6 +36,8 @@ Groups:
 - ``screen_rules_table``: Calibri and Arial under each underline and a strikethrough at every
   ppem from 1 to 384, a workbook a zoom, the rules side by side in a row
   (``capture/screen_table.py``).
+- ``screen_rules_table_arial``: the cells of ``screen_rules_table`` drawn in the default font,
+  Arial from 29 points at zoom 150 and 200, again.
 """
 
 from __future__ import annotations
@@ -55,6 +57,7 @@ from capture.screen_rules import DOUBLE_RULES, DOUBLE_SIZES, measure_rules
 from capture.screen_rules import Case as RuleCase
 from capture.screen_rules import build as build_rules
 from capture.screen_table import (
+    ARIAL_AGAIN,
     MIN_MARKER_PX,
     TableRow,
     column_chars,
@@ -83,6 +86,7 @@ SCREEN_GROUPS = (
     "screen_wrapped",
     "screen_rules_fresh",
     "screen_rules_table",
+    "screen_rules_table_arial",
 )
 _PURPOSE = {
     "screen_pilot": "window pictures of text placement and of underlines and strikethrough",
@@ -92,6 +96,7 @@ _PURPOSE = {
     "screen_wrapped": "window pictures of wrapped text under a larger Normal font",
     "screen_rules_fresh": "window pictures of underlines and strikethrough at new sizes and zooms",
     "screen_rules_table": "window pictures of underlines and strikethrough at every ppem",
+    "screen_rules_table_arial": "window pictures of underlines and strikethrough in Arial again",
 }
 
 
@@ -271,6 +276,16 @@ def _books(group: str) -> list[Book]:
     if group == "screen_rules_fresh":
         cases = _rule_cases(FAMILIES, FRESH_SIZES, DOUBLE_RULES)
         return [Book("rules_fresh", "rules", tuple(cases), FRESH_ZOOMS)]
+    if group == "screen_rules_table_arial":
+        return [
+            Book(
+                f"table_arial_z{zoom}_{part}",
+                "table",
+                tuple(table_rows(zoom, sizes, ("Arial",))),
+                (zoom,),
+            )
+            for zoom, part, sizes in ARIAL_AGAIN
+        ]
     if group == "screen_rules_table":
         return [
             Book(f"table_z{zoom}", "table", tuple(table_rows(zoom, sizes)), (zoom,))

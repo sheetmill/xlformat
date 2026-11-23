@@ -19,6 +19,9 @@ for several to fit at zoom 400.
 
 Zooms 75, 100, 150 and 200 hold sizes the earlier rules groups measured with one rule a row, so
 a row that holds every rule can be compared with them.
+
+Group ``screen_rules_table_arial`` draws again the cells the zoom 150 and 200 workbooks drew in
+the default font (Arial from 29 points), a workbook a zoom, each well under ``MAX_FONTS``.
 """
 
 from __future__ import annotations
@@ -44,6 +47,15 @@ MAX_PPEM = 384
 # drawn first, whole: every size at zoom 150 and 200 (ppem 2 to 192), and sizes the earlier rules
 # groups measured at zoom 75 and 100
 FIRST = {150: SIZES, 200: SIZES, 75: (9.0, 10.0, 11.0), 100: (9.0, 11.0, 20.0, 36.0)}
+# screen_rules_table_arial: the cells of screen_rules_table drawn in the default font (from the
+# 1,000th font of the zoom 150 and 200 workbooks, CAPTURING.md item 78), Arial 29 on, again
+# in two workbooks a zoom, 29 to 50 and 50.5 to 72 points, each about half the rows' height
+ARIAL_AGAIN = tuple(
+    (zoom, part, tuple(s for s in SIZES if lo <= s <= hi))
+    for zoom in (150, 200)
+    for part, (lo, hi) in enumerate(((29.0, 50.0), (50.5, 72.0)), 1)
+)
+MAX_FONTS = 900  # a workbook's fonts: cells past the 1,000th were drawn in the default font
 # the advance of "H" in em, the wider face's setting the columns' width
 ADVANCE = {"Calibri": 1276 / 2048, "Arial": 1479 / 2048}
 WINDOW_PX = 2560  # Excel's window at 96 dpi, maximized on the runner's display
@@ -142,12 +154,14 @@ class TableRow:
     rules: tuple[str, ...] = ()
 
 
-def table_rows(zoom: int, sizes: Sequence[float]) -> list[TableRow]:
+def table_rows(
+    zoom: int, sizes: Sequence[float], faces: Sequence[str] = TABLE_FACES
+) -> list[TableRow]:
     """The rows of zoom ``zoom``'s workbook: each face at each size, the rules ``columns`` a
     row, then 20 fillers, so that the sheet does not end on rows taller than a view."""
     k = columns(zoom, sizes)
     out: list[TableRow] = []
-    for face in TABLE_FACES:
+    for face in faces:
         for size in sizes:
             for i in range(0, len(TABLE_RULES), k):
                 rules = TABLE_RULES[i : i + k]

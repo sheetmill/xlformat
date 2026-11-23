@@ -275,3 +275,17 @@ def test_the_table_draws_every_ppem_to_192_at_two_zooms() -> None:
         assert len(book.cases) < 1300  # Excel fits only about the first 1,400 rows it opens
         (zoom,) = book.zooms
         assert columns(zoom, chosen[zoom]) >= 3 or zoom < 300
+
+
+def test_a_table_workbook_stays_under_the_points_seen_to_fail() -> None:
+    """Under 900 fonts (cells past the 1,000th were drawn in the default font, CAPTURING.md item
+    78), under 1,400 rows (item 58) and well under 9,300 points of rows (where item 78's cut fell,
+    not separated from the fonts there). screen_rules_table ran before this was known."""
+    from capture.screen_table import MAX_FONTS
+
+    for book in books("screen_rules_table_arial"):
+        fonts = {(c.face, c.size, r) for c in book.cases if hasattr(c, "rules") for r in c.rules}
+        assert len(fonts) + 1 < MAX_FONTS
+        assert len(book.cases) < 1400
+        assert sum(estimated_points(book)) < 7000
+    assert MAX_FONTS <= 900
