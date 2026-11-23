@@ -74,6 +74,23 @@ GROUPS: dict[str, tuple[str, ...]] = {
             name,
         )
     ),
+    # validation: rows the tables were not fitted on, in two jobs of about ten minutes
+    "validation_numbers": (
+        "numeric_core_width",
+        "numeric_core_width_aptos_narrow11",
+        "numeric_core_width_arial10",
+        "cell_font_numeric",
+    ),
+    "validation_general": tuple(
+        name
+        for name in SUITES
+        if re.fullmatch(
+            r"general_points\w+|general_literals_points|general_zero_sign|general_cell_font\w*"
+            r"|cell_font|column_narrow\d+|general_text_narrow|general_sign_narrow|width_fill"
+            r"|width_general\w*|huge_values|letters|letters_upper|elapsed_decimals",
+            name,
+        )
+    ),
 }
 
 
