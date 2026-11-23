@@ -1369,6 +1369,13 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     71 and 72 are `m/d/yyyy`, and 22 and 78 `m/d/yyyy h:mm`, the en-US Windows short date; the
     stored and local strings agree for every id. The package's Windows rendering of each format
     Windows reports gives all 1,148 texts.
+71. **Windows merged cells (2026-11-22; group `merged`, the build of item 65).** `merged11` and
+    `merged14` as a job, 5,940 rows: each block's anchor column read as any other, and every
+    column of the block read in row 1, its width the sum of their points as Excel for Windows
+    measured them (a hidden column reads 0). The package's Windows rendering, committed before
+    the run with each block's points predicted from its columns' file widths, holds for every
+    row, block widths included: a merged block formats as one column of its columns' pixels
+    with one padding, as on the Mac (item 40).
 
 ## 3. The pipeline
 

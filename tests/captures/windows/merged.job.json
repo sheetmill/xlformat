@@ -1,0 +1,1159 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261122-194829-merged",
+ "package": "xlformat",
+ "purpose": "xlformat capture group merged: displayed text, widths and autofit per suite",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "merged11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "text_b",
+     "range": "cases!B1:B90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_b",
+     "range": "cases!B1:C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1:E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1:G1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_h",
+     "range": "cases!H1:H90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_h",
+     "range": "cases!H1:I1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_j",
+     "range": "cases!J1:J90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_j",
+     "range": "cases!J1:K1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_l",
+     "range": "cases!L1:L90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_l",
+     "range": "cases!L1:M1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_n",
+     "range": "cases!N1:N90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_n",
+     "range": "cases!N1:O1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_p",
+     "range": "cases!P1:P90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_p",
+     "range": "cases!P1:Q1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_r",
+     "range": "cases!R1:R90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_r",
+     "range": "cases!R1:S1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_t",
+     "range": "cases!T1:T90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_t",
+     "range": "cases!T1:V1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_w",
+     "range": "cases!W1:W90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_w",
+     "range": "cases!W1:Y1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_z",
+     "range": "cases!Z1:Z90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_z",
+     "range": "cases!Z1:AB1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ac",
+     "range": "cases!AC1:AC90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ac",
+     "range": "cases!AC1:AE1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_af",
+     "range": "cases!AF1:AF90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_af",
+     "range": "cases!AF1:AJ1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ak",
+     "range": "cases!AK1:AK90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ak",
+     "range": "cases!AK1:AL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_am",
+     "range": "cases!AM1:AM90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_am",
+     "range": "cases!AM1:AN1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ao",
+     "range": "cases!AO1:AO90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ao",
+     "range": "cases!AO1:AQ1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ar",
+     "range": "cases!AR1:AR90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ar",
+     "range": "cases!AR1:AS1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_at",
+     "range": "cases!AT1:AT90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_at",
+     "range": "cases!AT1:AW1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ax",
+     "range": "cases!AX1:AX90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ax",
+     "range": "cases!AX1:AY1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_az",
+     "range": "cases!AZ1:AZ90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_az",
+     "range": "cases!AZ1:BA1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bb",
+     "range": "cases!BB1:BB90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bb",
+     "range": "cases!BB1:BC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bd",
+     "range": "cases!BD1:BD90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bd",
+     "range": "cases!BD1:BF1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bg",
+     "range": "cases!BG1:BG90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bg",
+     "range": "cases!BG1:BH1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bi",
+     "range": "cases!BI1:BI90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bi",
+     "range": "cases!BI1:BJ1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bk",
+     "range": "cases!BK1:BK90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bk",
+     "range": "cases!BK1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bl",
+     "range": "cases!BL1:BL90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bl",
+     "range": "cases!BL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bm",
+     "range": "cases!BM1:BM90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bm",
+     "range": "cases!BM1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bn",
+     "range": "cases!BN1:BN90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bn",
+     "range": "cases!BN1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bo",
+     "range": "cases!BO1:BO90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bo",
+     "range": "cases!BO1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bp",
+     "range": "cases!BP1:BP90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bp",
+     "range": "cases!BP1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bq",
+     "range": "cases!BQ1:BQ90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bq",
+     "range": "cases!BQ1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_br",
+     "range": "cases!BR1:BR90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_br",
+     "range": "cases!BR1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "merged14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "text_b",
+     "range": "cases!B1:B90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_b",
+     "range": "cases!B1:C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1:E1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_f",
+     "range": "cases!F1:F90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_f",
+     "range": "cases!F1:G1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_h",
+     "range": "cases!H1:H90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_h",
+     "range": "cases!H1:I1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_j",
+     "range": "cases!J1:J90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_j",
+     "range": "cases!J1:K1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_l",
+     "range": "cases!L1:L90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_l",
+     "range": "cases!L1:M1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_n",
+     "range": "cases!N1:N90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_n",
+     "range": "cases!N1:O1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_p",
+     "range": "cases!P1:P90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_p",
+     "range": "cases!P1:Q1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_r",
+     "range": "cases!R1:R90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_r",
+     "range": "cases!R1:S1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_t",
+     "range": "cases!T1:T90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_t",
+     "range": "cases!T1:V1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_w",
+     "range": "cases!W1:W90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_w",
+     "range": "cases!W1:Y1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_z",
+     "range": "cases!Z1:Z90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_z",
+     "range": "cases!Z1:AB1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ac",
+     "range": "cases!AC1:AC90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ac",
+     "range": "cases!AC1:AE1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_af",
+     "range": "cases!AF1:AF90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_af",
+     "range": "cases!AF1:AJ1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ak",
+     "range": "cases!AK1:AK90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ak",
+     "range": "cases!AK1:AL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_am",
+     "range": "cases!AM1:AM90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_am",
+     "range": "cases!AM1:AN1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ao",
+     "range": "cases!AO1:AO90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ao",
+     "range": "cases!AO1:AQ1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ar",
+     "range": "cases!AR1:AR90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ar",
+     "range": "cases!AR1:AS1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_at",
+     "range": "cases!AT1:AT90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_at",
+     "range": "cases!AT1:AW1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_ax",
+     "range": "cases!AX1:AX90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_ax",
+     "range": "cases!AX1:AY1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_az",
+     "range": "cases!AZ1:AZ90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_az",
+     "range": "cases!AZ1:BA1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bb",
+     "range": "cases!BB1:BB90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bb",
+     "range": "cases!BB1:BC1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bd",
+     "range": "cases!BD1:BD90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bd",
+     "range": "cases!BD1:BF1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bg",
+     "range": "cases!BG1:BG90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bg",
+     "range": "cases!BG1:BH1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bi",
+     "range": "cases!BI1:BI90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bi",
+     "range": "cases!BI1:BJ1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bk",
+     "range": "cases!BK1:BK90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bk",
+     "range": "cases!BK1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bl",
+     "range": "cases!BL1:BL90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bl",
+     "range": "cases!BL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bm",
+     "range": "cases!BM1:BM90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bm",
+     "range": "cases!BM1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bn",
+     "range": "cases!BN1:BN90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bn",
+     "range": "cases!BN1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bo",
+     "range": "cases!BO1:BO90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bo",
+     "range": "cases!BO1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bp",
+     "range": "cases!BP1:BP90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bp",
+     "range": "cases!BP1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_bq",
+     "range": "cases!BQ1:BQ90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_bq",
+     "range": "cases!BQ1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "text_br",
+     "range": "cases!BR1:BR90",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_br",
+     "range": "cases!BR1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}
