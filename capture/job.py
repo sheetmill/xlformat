@@ -46,11 +46,12 @@ import shutil
 import sys
 import tempfile
 import zipfile
+from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
 from capture.build import Manifest, build
-from capture.capture import make_rows, write_suite
+from capture.capture import _width_text, make_rows, write_suite
 from capture.cases import SUITES, Suite, distinct_measure_cases
 from capture.schema import COLUMNS
 from capture.tiers import assign_tiers, rule_description
@@ -103,7 +104,8 @@ GROUPS: dict[str, tuple[str, ...]] = {
             r"|width_general\w*|huge_values|letters|letters_upper|elapsed_decimals",
             name,
         )
-    ),
+    ),  # merged cells: the block's width read as its columns' points
+    "merged": ("merged11", "merged14"),
 }
 
 
@@ -116,8 +118,8 @@ def _steps(suite: Suite, manifest: Manifest) -> list[dict[str, Any]]:
     if manifest.date1904:
         msg = f"{suite.name}: a 1904 workbook is not written as a job"
         raise ValueError(msg)
-    if suite.merged:
-        msg = f"{suite.name}: merged columns are not written as a job"
+    if suite.merged and suite.width_source != "file":
+        msg = f"{suite.name}: merged columns are written as a job only with file widths"
         raise ValueError(msg)
     n = manifest.n_rows
     steps: list[dict[str, Any]] = [{"op": "open"}]
@@ -131,9 +133,11 @@ def _steps(suite: Suite, manifest: Manifest) -> list[dict[str, Any]]:
         if spec.method == "string_value":
             steps.append({"op": "set_size", "columns": f"cases!{col}:{col}", "width": spec.width})
         steps.append({"op": "read", "id": f"text_{key}", "range": cells, "props": ["text"]})
+        # a merged block's width is its columns' points together, each read
+        last = _block_end(suite, manifest, spec.letter)
+        top = _cell("cases", col, 1) if last == col else f"cases!{col}1:{last}1"
         steps.append({
-            "op": "read", "id": f"size_{key}", "range": _cell("cases", col, 1),
-            "props": ["column_width", "width"],
+            "op": "read", "id": f"size_{key}", "range": top, "props": ["column_width", "width"],
         })  # fmt: skip
     if manifest.colors:
         steps.append({
@@ -150,6 +154,16 @@ def _steps(suite: Suite, manifest: Manifest) -> list[dict[str, Any]]:
         })  # fmt: skip
     steps.append({"op": "close", "save": False})
     return steps
+
+
+def _block_end(suite: Suite, manifest: Manifest, letter: str) -> str:
+    """The last column of the block a capture column starts: itself unless merged."""
+    if not suite.merged:
+        return letter
+    from openpyxl.utils import column_index_from_string, get_column_letter
+
+    k = [c.letter for c in manifest.columns].index(letter)
+    return get_column_letter(column_index_from_string(letter) + len(suite.merged[k]) - 1)
 
 
 def _fixed_copy(raw: Path, path: Path) -> None:
@@ -312,14 +326,23 @@ def _suite_files(
             columns[spec.letter] = [row[0] for row in results[f"text_{key}"]["text"]]
             size = results[f"size_{key}"]
             meta[f"actual_width_{spec.letter}"] = _number(size["column_width"][0][0])
-            meta[f"points_{spec.letter}"] = _number(size["width"][0][0])
+            # a merged block: its columns' points together (a hidden column reads 0)
+            meta[f"points_{spec.letter}"] = _number(sum(float(w) for w in size["width"][0]))
         if len(columns[spec.letter]) != n:
             msg = f"{name} column {spec.letter}: {len(columns[spec.letter])} cells, not {n}"
             raise ValueError(msg)
     colors = None
     if manifest.colors:
         colors = [_hex(row[0]["font.color"]) for row in results["colors"]["cells"]]
-    rows = assign_tiers(make_rows(suite.cases, manifest, columns, meta, colors), suite.fast_cap)
+    made = make_rows(suite.cases, manifest, columns, meta, colors)
+    if suite.merged:
+        # a merged row's width is the block's points, as Excel for Windows measured them
+        n = len(suite.cases)  # make_rows gives each capture column's rows in turn
+        made = [
+            replace(r, width=_width_text(float(meta[f"points_{manifest.columns[i // n].letter}"])))
+            for i, r in enumerate(made)
+        ]
+    rows = assign_tiers(made, suite.fast_cap)
     env = header.get("environment", {})
     excel = env.get("excel", {})
     head = {
