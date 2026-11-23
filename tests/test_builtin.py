@@ -14,26 +14,32 @@ import pytest
 
 from xlformat import BUILTIN_FORMATS, builtin_format, format_value
 
-LAYOUT = Path(__file__).parent / "captures" / "builtin_formats.layout.tsv"
+CAPTURES = Path(__file__).parent / "captures"
+# Excel for Mac's capture, and Excel for Windows' at 96 dpi (CAPTURING.md section 2 item 70)
+LAYOUTS = {
+    "mac": CAPTURES / "builtin_formats.layout.tsv",
+    "windows": CAPTURES / "windows" / "builtin_formats.layout.tsv",
+}
 VALUES = (45292.5625, 1234.5678, -1234.5678, 0.25, 0, 1.5, "abc")
 
 
-def _rows() -> list[list[str]]:
-    with LAYOUT.open(encoding="utf-8") as f:
+def _rows(platform: str = "mac") -> list[list[str]]:
+    with LAYOUTS[platform].open(encoding="utf-8") as f:
         lines = [line for line in f if not line.startswith("#")]
     return list(csv.reader(lines, dialect="excel-tab"))[1:]
 
 
-def test_every_id_and_its_texts() -> None:
-    rows = _rows()
+@pytest.mark.parametrize("platform", sorted(LAYOUTS))
+def test_every_id_and_its_texts(platform: str) -> None:
+    rows = _rows(platform)
     assert [int(r[0]) for r in rows] == list(range(164))
     misses = []
     for ident, stored, _, *texts in rows:
-        fmt = builtin_format(int(ident))
+        fmt = builtin_format(int(ident), platform=platform)
         if fmt != literal_eval(stored):
             misses.append((ident, fmt, literal_eval(stored)))
         for value, text in zip(VALUES, texts, strict=True):
-            got = format_value(value, fmt, column_width=40)
+            got = format_value(value, fmt, column_width=40, platform=platform)
             if got != literal_eval(text):
                 misses.append((ident, value, got, literal_eval(text)))
     assert not misses, f"{len(misses)} differ: {misses[:10]}"

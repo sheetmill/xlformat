@@ -26,8 +26,8 @@ class Platform:
     ``"mac"``; ``Platform.WINDOWS`` is Excel for Windows at 96 dpi. A function given a platform
     it has no captured evidence for raises ``LookupError``: Windows is measured at 96 dpi for
     the width model (``format_value`` and ``format_cell`` in Excel mode, the column and glyph
-    functions) and for ``row_metrics``; text placement, rules, ``text_function`` and
-    ``builtin_format`` know the Mac only. Every result is in points; Windows' fall on its pixel
+    functions), for ``row_metrics`` and for ``builtin_format``; text placement, rules and
+    ``text_function`` know the Mac only. Every result is in points; Windows' fall on its pixel
     grid (0.75 points at 96 dpi). Fields can be overridden with :func:`dataclasses.replace`.
 
     Attributes:
@@ -76,7 +76,7 @@ class RegionalSettings:
 
     Separate from the platform (how Excel lays out text) and from the workbook (``date1904``)
     and Excel's behaviors (:class:`Quirks`). Only en-US is supported: ``short_date`` is used
-    (built-in formats 14 and 22 follow the system's short date), and every other field must keep
+    (the built-in short-date ids follow the system's short date), and every other field must keep
     its en-US value, or ``ValueError``.
 
     Attributes:
@@ -111,8 +111,8 @@ class RegionalSettings:
                 raise ValueError(msg)
 
 
-# Excel follows the system short date for built-ins 14 and 22; en-US defaults: the Mac M/d/yy,
-# Windows M/d/yyyy (Windows' value to be confirmed by a capture before Windows is supported)
+# Excel follows the system short date for the built-in short-date ids; en-US defaults: the Mac
+# M/d/yy, Windows M/d/yyyy (CAPTURING.md section 2 item 70)
 RegionalSettings.EN_US_MAC = RegionalSettings()
 RegionalSettings.EN_US_WINDOWS = RegionalSettings(short_date="m/d/yyyy")
 

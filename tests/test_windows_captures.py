@@ -21,6 +21,8 @@ from capture.job import GROUPS, write
 from capture.schema import read_rows
 
 WINDOWS = Path(__file__).parent / "captures" / "windows"
+# the groups whose job writes one layout file instead of suite files
+LAYOUTS = {"rows": "row_height.layout.tsv.gz", "builtin": "builtin_formats.layout.tsv"}
 JOBS = sorted(WINDOWS.glob("*.job.json")) if WINDOWS.exists() else []
 
 
@@ -30,11 +32,13 @@ def _sha256(path: Path) -> str:
 
 def _header(group: str) -> dict[str, object]:
     """The job header of the group's first suite file, checked equal in every other one."""
-    if group == "rows":  # the row-height layout file holds the rows group's header
-        with gzip.open(WINDOWS / "row_height.layout.tsv.gz", "rt", encoding="utf-8") as f:
+    if group in LAYOUTS:  # a layout file holds the header of its group
+        path = WINDOWS / LAYOUTS[group]
+        opener = gzip.open if path.suffix == ".gz" else open
+        with opener(path, "rt", encoding="utf-8") as f:
             line = next(x for x in f if x.startswith("# job_header: "))
-        rows_header: dict[str, object] = json.loads(line.removeprefix("# job_header: "))
-        return rows_header
+        layout_header: dict[str, object] = json.loads(line.removeprefix("# job_header: "))
+        return layout_header
     headers = []
     for name in GROUPS[group]:
         path = next(p for p in (WINDOWS / f"{name}.tsv", WINDOWS / f"{name}.tsv.gz") if p.exists())

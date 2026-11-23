@@ -1,0 +1,149 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261122-194808-builtin",
+ "package": "xlformat",
+ "purpose": "xlformat capture group builtin: the built-in number formats",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "builtin_0_49.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "set_size",
+     "columns": "builtin!B:H",
+     "width": 40
+    },
+    {
+     "op": "read",
+     "id": "formats",
+     "range": "builtin!B1:B50",
+     "props": [
+      "number_format",
+      "number_format_local"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "texts",
+     "range": "builtin!B1:H50",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "builtin_50_81.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "set_size",
+     "columns": "builtin!B:H",
+     "width": 40
+    },
+    {
+     "op": "read",
+     "id": "formats",
+     "range": "builtin!B1:B32",
+     "props": [
+      "number_format",
+      "number_format_local"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "texts",
+     "range": "builtin!B1:H32",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "builtin_82_122.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "set_size",
+     "columns": "builtin!B:H",
+     "width": 40
+    },
+    {
+     "op": "read",
+     "id": "formats",
+     "range": "builtin!B1:B41",
+     "props": [
+      "number_format",
+      "number_format_local"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "texts",
+     "range": "builtin!B1:H41",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "builtin_123_163.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "set_size",
+     "columns": "builtin!B:H",
+     "width": 40
+    },
+    {
+     "op": "read",
+     "id": "formats",
+     "range": "builtin!B1:B41",
+     "props": [
+      "number_format",
+      "number_format_local"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "texts",
+     "range": "builtin!B1:H41",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

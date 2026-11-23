@@ -14,16 +14,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   sizes, with glyph tables in pixels captured from Excel for Windows. Results stay in points.
   Windows rounds a column without a width up to a multiple of 8 pixels, and stops a fill at 255 characters where the Mac shows a `#` run.
   `row_metrics` takes `platform="windows"` for the same families at 9 to 24 points, without
-  accounting underlines. Text placement, rules, `text_function` and `builtin_format` still raise
-  `LookupError` for Windows.
+  accounting underlines, and `builtin_format` gives Windows' `m/d/yyyy` for the short-date ids.
+  Text placement, rules and `text_function` still raise `LookupError` for Windows.
 - `platform=` on every function whose result can differ by platform, and `regional_settings=` on
   those that format or resolve built-in formats, with the frozen `Platform` (presets
   `Platform.MAC` and `Platform.WINDOWS`) and `RegionalSettings` (presets
   `RegionalSettings.EN_US_MAC` and `RegionalSettings.EN_US_WINDOWS`) and `DEFAULT_PLATFORM`.
   `None` means the Mac and its en-US settings, so a call without them returns what it did. Every
   function raises `LookupError` for Excel for Windows until its Windows evidence is captured.
-  `builtin_format` gives ids 14 and 22 from the regional settings' short date; only en-US is
-  supported.
+  `builtin_format` gives every id whose en-US string is the short date (14, 27 to 31, 36, 50 to
+  58, 71, 72, and 22 and 78 before ` h:mm`) from the regional settings' short date; only en-US
+  is supported.
 - `rule_metrics` covers Courier New at screen sizes from 6 to 144 and raises `LookupError` outside
   them, where it raised for every size. Its double underline hangs up from the single
   underline's position, its gap captured at every screen size (no rule gives it), and its single

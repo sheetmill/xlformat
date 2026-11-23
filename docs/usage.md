@@ -72,7 +72,15 @@ shows `2024-01-01`) and pads the day of 15 and 16 to match, while the region alo
 nothing on the Mac. For Excel on Windows, Microsoft's [Format numbers as dates or
 times](https://support.microsoft.com/en-us/excel/format-numbers-as-dates-or-times) says that "Date and time formats that begin with an asterisk (\*) respond to
 changes in regional date and time settings that are specified in Control Panel." The table is the
-en-US one.
+en-US one. On Excel for Windows every id whose en-US string is the short date (14, 27 to 31, 36,
+50 to 58, 71 and 72, and 22 and 78 with ` h:mm`) uses the Windows short date, `m/d/yyyy`:
+
+```python
+>>> builtin_format(14, platform="windows")
+'m/d/yyyy'
+>>> builtin_format(78, platform="windows")
+'m/d/yyyy h:mm'
+```
 
 ## Sheets that hide zeros
 

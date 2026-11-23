@@ -104,6 +104,10 @@ BUILTIN_FORMATS: Mapping[int, str] = MappingProxyType(
 )
 """Every built-in id, 0 to 163, and the format string Excel for Mac uses for it in en-US."""
 
+# the ids whose en-US string is the system short date, alone or before " h:mm": on Windows every
+# one of them is m/d/yyyy where the Mac shows m/d/yy (CAPTURING.md section 2 item 70)
+_SHORT_DATE_IDS = frozenset(i for i, f in _EXPLICIT.items() if f in ("m/d/yy", "m/d/yy h:mm"))
+
 
 def builtin_format(
     number_format_id: int,
@@ -120,23 +124,27 @@ def builtin_format(
     says that "Date and time formats that begin with an asterisk (*) respond to changes in
     regional date and time settings that are specified in Control Panel"
     (https://support.microsoft.com/en-us/excel/format-numbers-as-dates-or-times).
-    ``regional_settings`` chooses the short date of ids 14 and 22 (``short_date``; the
-    default is the platform's en-US preset, ``m/d/yy`` on the Mac); every other id is the
-    en-US table's string.
+    ``regional_settings`` chooses the short date (``short_date``; the default is the platform's
+    en-US preset, ``m/d/yy`` on the Mac and ``m/d/yyyy`` on Windows) of the ids whose en-US
+    string is the short date: 14, 27 to 31, 36, 50 to 58, 71 and 72, and before `` h:mm`` 22
+    and 78 (CAPTURING.md section 2 item 70); every other id is the en-US table's string, the
+    same on both platforms. Ids 14 and 22 follow a custom short date on the Mac; the others are
+    captured at each platform's en-US default only.
 
     Raises:
         ValueError: ``number_format_id`` is negative or a custom id (164 or more), whose string the
             file itself holds.
     """
-    regional = check_regional(regional_settings, check_platform(platform, "builtin_format"))
+    regional = check_regional(
+        regional_settings, check_platform(platform, "builtin_format", windows=True)
+    )
     if not 0 <= number_format_id < CUSTOM_FORMAT_START:
         msg = (
             f"{number_format_id!r} is not a built-in number format id (0 to "
             f"{CUSTOM_FORMAT_START - 1}); custom ids are defined in the file"
         )
         raise ValueError(msg)
-    if number_format_id == 14:
-        return regional.short_date
-    if number_format_id == 22:
-        return f"{regional.short_date} h:mm"
+    if number_format_id in _SHORT_DATE_IDS:
+        time = BUILTIN_FORMATS[number_format_id].removeprefix("m/d/yy")
+        return regional.short_date + time
     return BUILTIN_FORMATS[number_format_id]

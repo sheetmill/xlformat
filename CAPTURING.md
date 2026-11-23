@@ -1361,6 +1361,14 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     each face's own row and searches D, and the table fits all 34,992 rows, each D the only value
     that does. Calibri and Aptos Narrow are the same in every style; Arial's bold and italic differ
     from its regular at 11, 12, 14, 20 and 24 points (bold Arial 11 is 20 pixels, regular 19).
+70. **Windows built-in formats (2026-11-22; group `builtin`, the build of item 65).** The Mac's
+    probe of item 49 as a job: ids 0 to 163 in four workbooks, each id's format read as stored and
+    as shown locally and seven values' texts at a column width of 40, in the Windows
+    `tests/captures/windows/builtin_formats.layout.tsv`. No group was refused. Every format string
+    is the Mac's except the 20 ids whose Mac string is the short date: 14, 27 to 31, 36, 50 to 58,
+    71 and 72 are `m/d/yyyy`, and 22 and 78 `m/d/yyyy h:mm`, the en-US Windows short date; the
+    stored and local strings agree for every id. The package's Windows rendering of each format
+    Windows reports gives all 1,148 texts.
 
 ## 3. The pipeline
 
