@@ -1323,11 +1323,21 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     width (2.5, 4.5, ...), each one character or `#` short: Windows rounds a column's half pixel up,
     where the package rounded it to even (36.5 pixels is 37 at a digit of 7 and width 4.5). With
     that rounding every row of the 50 suites matches, among them the 28 `General` rows under a
-    larger cell font. No Mac capture holds a column of a half point (their widths are chosen at
-    whole points), so the Mac's rounding of a half is untested and stays as it was. The group
-    confirms on Windows: the default column rounded up to a multiple of 8 pixels at every base width
-    and size; a fill past 255 characters showing 255; every 1/256 boundary width truncated, as on
-    the Mac; and a cell font losing the padding it has beyond the Normal font's (item 64).
+    larger cell font. The Mac rounds a half point up too (item 67). The group confirms on Windows:
+    the default column rounded up to a multiple of 8 pixels at every base width and size; a fill
+    past 255 characters showing 255; every 1/256 boundary width truncated, as on the Mac; and a cell
+    font losing the padding it has beyond the Normal font's (item 64).
+67. **A column of a half point on the Mac (2026-11-22; `capture/cases.py column_half_points_*`:
+    the cell-font values in eight Normal fonts, Calibri 9, 11, 14, 18 and 20 and Arial 16, 20
+    and 24, at every width from 1 to 20 whose column `MDW · w + P` is a half point, 4,180 rows
+    and 190 columns, in a macOS virtual machine).** No earlier Mac suite set a width giving a
+    half point. Predictions and their scorer were committed before the run
+    (`capture/half_predict.py`, `capture/predictions/column_half_points.tsv`) with two
+    candidates, the package's rounding to even and rounding up, as Windows rounds a half pixel
+    (item 66). They differ on 96 columns' points and 143 rows' texts. Rounding up fits all 96
+    columns and all 143 rows, to even none of them; the 94 columns and 4,037 rows where the two
+    agree fit both. One rule for both platforms: a half rounds up (12.5 points is 13 at Calibri
+    9 and width 1.5).
 
 ## 3. The pipeline
 

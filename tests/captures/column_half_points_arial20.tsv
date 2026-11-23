@@ -1,0 +1,435 @@
+# suite: column_half_points_arial20
+# excel_version: 16.115
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# display: display kept awake: yes (caffeinate -d, pid 55985); display at the start of the run, last change: 2026-11-19 23:10:42 -0800 Notification Display is turned on
+# standard_font: Aptos Narrow 12.0
+# workbook_font: Arial 20
+# locale: en_US
+# captured: 2026-11-22
+# generator: capture.cases.column_half_points_arial20
+# method: width 1.5=string_value; width 2.5=string_value; width 3.5=string_value; width 4.5=string_value; width 5.5=string_value; width 6.5=string_value; width 7.5=string_value; width 8.5=string_value; width 9.5=string_value; width 10.5=string_value; width 11.5=string_value; width 12.5=string_value; width 13.5=string_value; width 14.5=string_value; width 15.5=string_value; width 16.5=string_value; width 17.5=string_value; width 18.5=string_value; width 19.5=string_value
+# numbers: repr
+# widths: exact
+# column_points: B=24.0 C=35.0 D=46.0 E=57.0 F=68.0 G=79.0 H=90.0 I=101.0 J=112.0 K=123.0 L=134.0 M=145.0 N=156.0 O=167.0 P=178.0 Q=189.0 R=200.0 S=211.0 T=222.0
+# tier_rule: first row per output shape per (format, width), at most 15 per group
+# columns: suite tag value_type value_repr format width actual_width date1904 expected_text expected_color tier
+suite	tag	value_type	value_repr	format	width	actual_width	date1904	expected_text	expected_color	tier
+column_half_points_arial20	digits3	int	888	'0'	1.5	1.55	0	#		fast
+column_half_points_arial20	digits4	int	8888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits5	int	88888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits6	int	888888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits7	int	8888888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits8	int	88888888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits9	int	888888888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits10	int	8888888888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits11	int	88888888888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits12	int	888888888888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	1.5	1.55	0	#		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	1.5	1.55	0	1		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	1.5	1.55	0	 1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	1.5	1.55	0	#		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	1.5	1.55	0	#		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	1.5	1.55	0	#		full
+column_half_points_arial20	general-small	float	0.000123	'General'	1.5	1.55	0	0		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	1.5	1.55	0	#		full
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	1.5	1.55	0	#		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	1.5	1.55	0	#		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	1.5	1.55	0	#		fast
+column_half_points_arial20	digits3	int	888	'0'	2.5	2.55	0	##		fast
+column_half_points_arial20	digits4	int	8888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits5	int	88888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits6	int	888888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits7	int	8888888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits8	int	88888888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits9	int	888888888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits10	int	8888888888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits11	int	88888888888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits12	int	888888888888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	2.5	2.55	0	##		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	2.5	2.55	0	1--		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	2.5	2.55	0	  1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	2.5	2.55	0	ab		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	2.5	2.55	0	##		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	2.5	2.55	0	##		full
+column_half_points_arial20	general-small	float	0.000123	'General'	2.5	2.55	0	0		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	2.5	2.55	0	##		full
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	2.5	2.55	0	##		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	2.5	2.55	0	##		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	2.5	2.55	0	##		fast
+column_half_points_arial20	digits3	int	888	'0'	3.5	3.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	3.5	3.55	0	###		fast
+column_half_points_arial20	digits5	int	88888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	digits6	int	888888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	digits7	int	8888888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	digits8	int	88888888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	digits9	int	888888888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	digits10	int	8888888888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	digits11	int	88888888888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	digits12	int	888888888888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	3.5	3.55	0	###		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	3.5	3.55	0	1----		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	3.5	3.55	0	    1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	3.5	3.55	0	ab--		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	3.5	3.55	0	###		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	3.5	3.55	0	###		full
+column_half_points_arial20	general-small	float	0.000123	'General'	3.5	3.55	0	0		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	3.5	3.55	0	###		full
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	3.5	3.55	0	###		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	3.5	3.55	0	###		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	3.5	3.55	0	###		fast
+column_half_points_arial20	digits3	int	888	'0'	4.5	4.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	4.5	4.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	4.5	4.55	0	####		fast
+column_half_points_arial20	digits6	int	888888	'0'	4.5	4.55	0	####		full
+column_half_points_arial20	digits7	int	8888888	'0'	4.5	4.55	0	####		full
+column_half_points_arial20	digits8	int	88888888	'0'	4.5	4.55	0	####		full
+column_half_points_arial20	digits9	int	888888888	'0'	4.5	4.55	0	####		full
+column_half_points_arial20	digits10	int	8888888888	'0'	4.5	4.55	0	####		full
+column_half_points_arial20	digits11	int	88888888888	'0'	4.5	4.55	0	####		full
+column_half_points_arial20	digits12	int	888888888888	'0'	4.5	4.55	0	####		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	4.5	4.55	0	####		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	4.5	4.55	0	####		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	4.5	4.55	0	1-----		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	4.5	4.55	0	      1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	4.5	4.55	0	ab----		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	4.5	4.55	0	####		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	4.5	4.55	0	####		full
+column_half_points_arial20	general-small	float	0.000123	'General'	4.5	4.55	0	0		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	4.5	4.55	0	####		full
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	4.5	4.55	0	####		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	4.5	4.55	0	####		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	4.5	4.55	0	####		fast
+column_half_points_arial20	digits3	int	888	'0'	5.5	5.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	5.5	5.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	5.5	5.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	5.5	5.55	0	#####		fast
+column_half_points_arial20	digits7	int	8888888	'0'	5.5	5.55	0	#####		full
+column_half_points_arial20	digits8	int	88888888	'0'	5.5	5.55	0	#####		full
+column_half_points_arial20	digits9	int	888888888	'0'	5.5	5.55	0	#####		full
+column_half_points_arial20	digits10	int	8888888888	'0'	5.5	5.55	0	#####		full
+column_half_points_arial20	digits11	int	88888888888	'0'	5.5	5.55	0	#####		full
+column_half_points_arial20	digits12	int	888888888888	'0'	5.5	5.55	0	#####		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	5.5	5.55	0	#####		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	5.5	5.55	0	#####		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	5.5	5.55	0	1-------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	5.5	5.55	0	        1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	5.5	5.55	0	ab-----		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	5.5	5.55	0	1E+06		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	5.5	5.55	0	#####		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	5.5	5.55	0	1E-04		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	5.5	5.55	0	1E+11		full
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	5.5	5.55	0	#####		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	5.5	5.55	0	#####		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	5.5	5.55	0	#####		fast
+column_half_points_arial20	digits3	int	888	'0'	6.5	6.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	6.5	6.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	6.5	6.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	6.5	6.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	6.5	6.55	0	######		fast
+column_half_points_arial20	digits8	int	88888888	'0'	6.5	6.55	0	######		full
+column_half_points_arial20	digits9	int	888888888	'0'	6.5	6.55	0	######		full
+column_half_points_arial20	digits10	int	8888888888	'0'	6.5	6.55	0	######		full
+column_half_points_arial20	digits11	int	88888888888	'0'	6.5	6.55	0	######		full
+column_half_points_arial20	digits12	int	888888888888	'0'	6.5	6.55	0	######		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	6.5	6.55	0	######		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	6.5	6.55	0	######		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	6.5	6.55	0	1--------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	6.5	6.55	0	          1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	6.5	6.55	0	ab-------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	6.5	6.55	0	1E+06		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	6.5	6.55	0	-1E+07		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	6.5	6.55	0	0.0001		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	6.5	6.55	0	1E+11		full
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	6.5	6.55	0	######		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	6.5	6.55	0	######		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	6.5	6.55	0	######		fast
+column_half_points_arial20	digits3	int	888	'0'	7.5	7.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	7.5	7.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	7.5	7.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	7.5	7.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	7.5	7.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	7.5	7.55	0	#######		fast
+column_half_points_arial20	digits9	int	888888888	'0'	7.5	7.55	0	#######		full
+column_half_points_arial20	digits10	int	8888888888	'0'	7.5	7.55	0	#######		full
+column_half_points_arial20	digits11	int	88888888888	'0'	7.5	7.55	0	#######		full
+column_half_points_arial20	digits12	int	888888888888	'0'	7.5	7.55	0	#######		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	7.5	7.55	0	#######		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	7.5	7.55	0	#######		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	7.5	7.55	0	1----------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	7.5	7.55	0	            1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	7.5	7.55	0	ab--------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	7.5	7.55	0	1234568		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	7.5	7.55	0	-1E+07		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	7.5	7.55	0	0.00012		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	7.5	7.55	0	1.2E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	7.5	7.55	0	#######		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	7.5	7.55	0	#######		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	7.5	7.55	0	#######		fast
+column_half_points_arial20	digits3	int	888	'0'	8.5	8.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	8.5	8.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	8.5	8.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	8.5	8.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	8.5	8.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	8.5	8.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	8.5	8.55	0	########		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	8.5	8.55	0	########		full
+column_half_points_arial20	digits11	int	88888888888	'0'	8.5	8.55	0	########		full
+column_half_points_arial20	digits12	int	888888888888	'0'	8.5	8.55	0	########		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	8.5	8.55	0	########		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	8.5	8.55	0	########		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	8.5	8.55	0	1-----------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	8.5	8.55	0	             1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	8.5	8.55	0	ab----------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	8.5	8.55	0	1234568		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	8.5	8.55	0	-1.2E+07		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	8.5	8.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	8.5	8.55	0	1.23E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	8.5	8.55	0	########		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	8.5	8.55	0	########		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	8.5	8.55	0	########		fast
+column_half_points_arial20	digits3	int	888	'0'	9.5	9.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	9.5	9.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	9.5	9.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	9.5	9.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	9.5	9.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	9.5	9.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	9.5	9.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	9.5	9.55	0	#########		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	9.5	9.55	0	#########		full
+column_half_points_arial20	digits12	int	888888888888	'0'	9.5	9.55	0	#########		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	9.5	9.55	0	#########		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	9.5	9.55	0	#########		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	9.5	9.55	0	1-------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	9.5	9.55	0	               1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	9.5	9.55	0	ab-----------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	9.5	9.55	0	1234567.9		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	9.5	9.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	9.5	9.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	9.5	9.55	0	1.235E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	9.5	9.55	0	#########		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	9.5	9.55	0	#########		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	9.5	9.55	0	#########		fast
+column_half_points_arial20	digits3	int	888	'0'	10.5	10.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	10.5	10.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	10.5	10.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	10.5	10.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	10.5	10.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	10.5	10.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	10.5	10.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	10.5	10.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	10.5	10.55	0	##########		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	10.5	10.55	0	##########		full
+column_half_points_arial20	digits13	int	8888888888888	'0'	10.5	10.55	0	##########		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	10.5	10.55	0	##########		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	10.5	10.55	0	1---------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	10.5	10.55	0	                 1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	10.5	10.55	0	ab-------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	10.5	10.55	0	1234567.89		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	10.5	10.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	10.5	10.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	10.5	10.55	0	1.2346E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	10.5	10.55	0	##########		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	10.5	10.55	0	##########		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	10.5	10.55	0	1 Wmwmwm		fast
+column_half_points_arial20	digits3	int	888	'0'	11.5	11.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	11.5	11.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	11.5	11.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	11.5	11.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	11.5	11.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	11.5	11.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	11.5	11.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	11.5	11.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	11.5	11.55	0	88888888888		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	11.5	11.55	0	###########		fast
+column_half_points_arial20	digits13	int	8888888888888	'0'	11.5	11.55	0	###########		full
+column_half_points_arial20	digits14	int	88888888888888	'0'	11.5	11.55	0	###########		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	11.5	11.55	0	1----------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	11.5	11.55	0	                   1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	11.5	11.55	0	ab---------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	11.5	11.55	0	1234567.891		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	11.5	11.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	11.5	11.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	11.5	11.55	0	1.23457E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	11.5	11.55	0	1,234,567.89		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	11.5	11.55	0	###########		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	11.5	11.55	0	1 Wmwmwm		fast
+column_half_points_arial20	digits3	int	888	'0'	12.5	12.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	12.5	12.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	12.5	12.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	12.5	12.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	12.5	12.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	12.5	12.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	12.5	12.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	12.5	12.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	12.5	12.55	0	88888888888		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	12.5	12.55	0	888888888888		fast
+column_half_points_arial20	digits13	int	8888888888888	'0'	12.5	12.55	0	############		fast
+column_half_points_arial20	digits14	int	88888888888888	'0'	12.5	12.55	0	############		full
+column_half_points_arial20	fill-dash	int	1	'0*-'	12.5	12.55	0	1------------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	12.5	12.55	0	                     1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	12.5	12.55	0	ab----------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	12.5	12.55	0	1234567.891		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	12.5	12.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	12.5	12.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	12.5	12.55	0	1.23457E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	12.5	12.55	0	1,234,567.89		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	12.5	12.55	0	############		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	12.5	12.55	0	1 Wmwmwm		fast
+column_half_points_arial20	digits3	int	888	'0'	13.5	13.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	13.5	13.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	13.5	13.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	13.5	13.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	13.5	13.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	13.5	13.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	13.5	13.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	13.5	13.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	13.5	13.55	0	88888888888		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	13.5	13.55	0	888888888888		fast
+column_half_points_arial20	digits13	int	8888888888888	'0'	13.5	13.55	0	8888888888888		fast
+column_half_points_arial20	digits14	int	88888888888888	'0'	13.5	13.55	0	#############		fast
+column_half_points_arial20	fill-dash	int	1	'0*-'	13.5	13.55	0	1-------------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	13.5	13.55	0	                       1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	13.5	13.55	0	ab------------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	13.5	13.55	0	1234567.891		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	13.5	13.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	13.5	13.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	13.5	13.55	0	1.23457E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	13.5	13.55	0	1,234,567.89		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	13.5	13.55	0	#############		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	13.5	13.55	0	1 Wmwmwm		fast
+column_half_points_arial20	digits3	int	888	'0'	14.5	14.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	14.5	14.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	14.5	14.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	14.5	14.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	14.5	14.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	14.5	14.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	14.5	14.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	14.5	14.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	14.5	14.55	0	88888888888		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	14.5	14.55	0	888888888888		fast
+column_half_points_arial20	digits13	int	8888888888888	'0'	14.5	14.55	0	8888888888888		fast
+column_half_points_arial20	digits14	int	88888888888888	'0'	14.5	14.55	0	88888888888888		fast
+column_half_points_arial20	fill-dash	int	1	'0*-'	14.5	14.55	0	1---------------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	14.5	14.55	0	                        1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	14.5	14.55	0	ab-------------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	14.5	14.55	0	1234567.891		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	14.5	14.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	14.5	14.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	14.5	14.55	0	1.23457E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	14.5	14.55	0	1,234,567.89		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	14.5	14.55	0	##############		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	14.5	14.55	0	1 Wmwmwm		fast
+column_half_points_arial20	digits3	int	888	'0'	15.5	15.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	15.5	15.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	15.5	15.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	15.5	15.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	15.5	15.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	15.5	15.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	15.5	15.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	15.5	15.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	15.5	15.55	0	88888888888		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	15.5	15.55	0	888888888888		fast
+column_half_points_arial20	digits13	int	8888888888888	'0'	15.5	15.55	0	8888888888888		fast
+column_half_points_arial20	digits14	int	88888888888888	'0'	15.5	15.55	0	88888888888888		fast
+column_half_points_arial20	fill-dash	int	1	'0*-'	15.5	15.55	0	1----------------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	15.5	15.55	0	                          1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	15.5	15.55	0	ab---------------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	15.5	15.55	0	1234567.891		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	15.5	15.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	15.5	15.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	15.5	15.55	0	1.23457E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	15.5	15.55	0	1,234,567.89		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	15.5	15.55	0	###############		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	15.5	15.55	0	1 Wmwmwm		fast
+column_half_points_arial20	digits3	int	888	'0'	16.5	16.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	16.5	16.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	16.5	16.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	16.5	16.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	16.5	16.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	16.5	16.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	16.5	16.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	16.5	16.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	16.5	16.55	0	88888888888		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	16.5	16.55	0	888888888888		fast
+column_half_points_arial20	digits13	int	8888888888888	'0'	16.5	16.55	0	8888888888888		fast
+column_half_points_arial20	digits14	int	88888888888888	'0'	16.5	16.55	0	88888888888888		fast
+column_half_points_arial20	fill-dash	int	1	'0*-'	16.5	16.55	0	1------------------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	16.5	16.55	0	                            1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	16.5	16.55	0	ab----------------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	16.5	16.55	0	1234567.891		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	16.5	16.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	16.5	16.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	16.5	16.55	0	1.23457E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	16.5	16.55	0	1,234,567.89		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	16.5	16.55	0	################		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	16.5	16.55	0	1 Wmwmwm		fast
+column_half_points_arial20	digits3	int	888	'0'	17.5	17.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	17.5	17.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	17.5	17.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	17.5	17.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	17.5	17.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	17.5	17.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	17.5	17.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	17.5	17.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	17.5	17.55	0	88888888888		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	17.5	17.55	0	888888888888		fast
+column_half_points_arial20	digits13	int	8888888888888	'0'	17.5	17.55	0	8888888888888		fast
+column_half_points_arial20	digits14	int	88888888888888	'0'	17.5	17.55	0	88888888888888		fast
+column_half_points_arial20	fill-dash	int	1	'0*-'	17.5	17.55	0	1--------------------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	17.5	17.55	0	                              1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	17.5	17.55	0	ab------------------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	17.5	17.55	0	1234567.891		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	17.5	17.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	17.5	17.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	17.5	17.55	0	1.23457E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	17.5	17.55	0	1,234,567.89		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	17.5	17.55	0	#################		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	17.5	17.55	0	1 Wmwmwm		fast
+column_half_points_arial20	digits3	int	888	'0'	18.5	18.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	18.5	18.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	18.5	18.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	18.5	18.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	18.5	18.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	18.5	18.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	18.5	18.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	18.5	18.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	18.5	18.55	0	88888888888		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	18.5	18.55	0	888888888888		fast
+column_half_points_arial20	digits13	int	8888888888888	'0'	18.5	18.55	0	8888888888888		fast
+column_half_points_arial20	digits14	int	88888888888888	'0'	18.5	18.55	0	88888888888888		fast
+column_half_points_arial20	fill-dash	int	1	'0*-'	18.5	18.55	0	1---------------------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	18.5	18.55	0	                                1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	18.5	18.55	0	ab--------------------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	18.5	18.55	0	1234567.891		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	18.5	18.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	18.5	18.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	18.5	18.55	0	1.23457E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	18.5	18.55	0	1,234,567.89		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	18.5	18.55	0	##################		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	18.5	18.55	0	1 Wmwmwm		fast
+column_half_points_arial20	digits3	int	888	'0'	19.5	19.55	0	888		fast
+column_half_points_arial20	digits4	int	8888	'0'	19.5	19.55	0	8888		fast
+column_half_points_arial20	digits5	int	88888	'0'	19.5	19.55	0	88888		fast
+column_half_points_arial20	digits6	int	888888	'0'	19.5	19.55	0	888888		fast
+column_half_points_arial20	digits7	int	8888888	'0'	19.5	19.55	0	8888888		fast
+column_half_points_arial20	digits8	int	88888888	'0'	19.5	19.55	0	88888888		fast
+column_half_points_arial20	digits9	int	888888888	'0'	19.5	19.55	0	888888888		fast
+column_half_points_arial20	digits10	int	8888888888	'0'	19.5	19.55	0	8888888888		fast
+column_half_points_arial20	digits11	int	88888888888	'0'	19.5	19.55	0	88888888888		fast
+column_half_points_arial20	digits12	int	888888888888	'0'	19.5	19.55	0	888888888888		fast
+column_half_points_arial20	digits13	int	8888888888888	'0'	19.5	19.55	0	8888888888888		fast
+column_half_points_arial20	digits14	int	88888888888888	'0'	19.5	19.55	0	88888888888888		fast
+column_half_points_arial20	fill-dash	int	1	'0*-'	19.5	19.55	0	1-----------------------------		fast
+column_half_points_arial20	fill-space	int	1	'* 0'	19.5	19.55	0	                                  1		fast
+column_half_points_arial20	text-fill	str	'ab'	'@*-'	19.5	19.55	0	ab---------------------------		fast
+column_half_points_arial20	general-7.3	float	1234567.891	'General'	19.5	19.55	0	1234567.891		fast
+column_half_points_arial20	general-neg8	int	-12345678	'General'	19.5	19.55	0	-12345678		fast
+column_half_points_arial20	general-small	float	0.000123	'General'	19.5	19.55	0	0.000123		fast
+column_half_points_arial20	general-12	int	123456789012	'General'	19.5	19.55	0	1.23457E+11		fast
+column_half_points_arial20	comma	float	1234567.891	'#,##0.00'	19.5	19.55	0	1,234,567.89		fast
+column_half_points_arial20	date-long	int	36529	'dddd, mmmm d, yyyy'	19.5	19.55	0	###################		fast
+column_half_points_arial20	letters	int	1	"'0"" Wmwmwm""'"	19.5	19.55	0	1 Wmwmwm		fast

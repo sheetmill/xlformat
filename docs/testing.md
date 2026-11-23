@@ -75,6 +75,7 @@ before Excel was asked, and every prediction matched.
 | `merged11`, `merged14` | 5,940 | cells merged across columns, in Calibri 11 and 14 |
 | `advance_tenths11`, `advance_tenths12` | 41,481 | long runs and fills of the glyphs that autofit measures with a tenth of a point |
 | `error_width` | 1,638 | error values under formats and widths |
+| `column_half_points_calibri9` to `_arial24` (eight Normal fonts) | 4,180 | columns whose width comes to a half point |
 | `colors`, `lone_zero`, `conditions_rounding`, `selection_fallback` | 493 | section colors and section selection |
 | `letters`, `letters_upper`, `letters1904` | 6,584 | what a bare letter means in a format, and the Buddhist-year code |
 | `elapsed_decimals`, `huge_values`, `empty_text`, `fraction_percent` | 3,678 | fractions of a second after any date or time code, values too large for fraction and elapsed arithmetic, the empty text, a numerator's limits |
@@ -108,7 +109,7 @@ Fifteen further files are not suites of the common schema:
 - `builtin_formats.layout.tsv` (164 rows): what each built-in number format id stands for.
 - `palette.layout.tsv` (128 rows, from window captures): the colors drawn under a workbook palette.
 
-In all, 335 suite files (227 with rows, the others autofit measurements) hold 862,142 rows. Every
+In all, 343 suite files (235 with rows, the others autofit measurements) hold 866,322 rows. Every
 row passes. Seventeen color readings are skipped because Excel's scripting interface reports
 automatic black for them; where the sheet was checked by eye, it shows the section color, as the
 package does. Two cases have not been seen on screen: text under `[Red]General` and text under a

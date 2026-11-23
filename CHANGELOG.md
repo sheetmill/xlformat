@@ -12,8 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `text_width`, `glyph_widths`, `digit_width`, `overhang`, `measured_fonts` and the column
   functions take `platform="windows"` for Calibri, Aptos Narrow and Arial, four styles, nine
   sizes, with glyph tables in pixels captured from Excel for Windows. Results stay in points.
-  Windows rounds a column's half pixel up, rounds a column without a width up to a multiple of
-  8 pixels, and stops a fill at 255 characters where the Mac shows a `#` run.
+  Windows rounds a column without a width up to a multiple of 8 pixels, and stops a fill at 255 characters where the Mac shows a `#` run.
   Rows, text placement, rules, `text_function` and `builtin_format` still raise `LookupError`
   for Windows.
 - `platform=` on every function whose result can differ by platform, and `regional_settings=` on
@@ -34,6 +33,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   accounting rows, which are unchanged.
 
 ### Changed
+- A column whose width comes to a half point (Calibri 9 at width 1.5 is 12.5 points) is rounded
+  up, as Excel for Mac and Excel for Windows both do; it was rounded to even, one point narrow
+  at about half such widths.
 - A cell font whose column padding `2·ceil(MDW/4)+1` is larger than the Normal font's (a digit
   of 9 points or more in a column of a smaller Normal font, such as Calibri 18 or Arial 16 cells
   in a Calibri 11 workbook) now loses the difference from its cell's budget in Excel mode, as

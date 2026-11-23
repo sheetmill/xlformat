@@ -449,7 +449,8 @@ budget is that sum less `P`, not less `P` per column, and a hidden column counts
 hinted at ppem `size · dpi / 72` (Calibri 11 has a digit of 7 pixels at 96 dpi), fitted from the
 Windows autofit suites by `capture/glyph_fit.py --windows` with the space chosen by the fill
 suites (every one of the 17,280 fill rows of the 108 faces); the column is
-`round(MDW · w + P)` pixels with `P = 2 · ceil(MDW / 4) + 1`, a half pixel rounding up, the
+`round(MDW · w + P)` pixels with `P = 2 · ceil(MDW / 4) + 1`, a half rounding up as on the Mac
+(`column_half_points_*`, `CAPTURING.md` §2 item 67), the
 budget, `#` runs, fills and a cell font's extra padding as on the Mac. Two rules differ
 (`Platform` fields; the `rules` group, `CAPTURING.md` §2 item 66): a column without a width is
 `baseColWidth · MDW + P` rounded up to a multiple of 8 pixels (`default_column_step`), and a
@@ -831,7 +832,7 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`, 335 suite files, 862,142 rows in all modes | 18.5 s |
+| `pytest`, 343 suite files, 866,322 rows in all modes, and the Windows suites | 26 s |
 | `pytest --tier=fast` | 5.9 s |
 
 ## 14. What the code taught

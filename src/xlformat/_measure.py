@@ -321,8 +321,8 @@ def column_points(
 ) -> float:
     """A column's width in whole device units: points on the Mac, pixels on Windows.
 
-    ``round(MDW * w + P)`` (a half rounding up on Windows), and below one unit
-    ``round(w * (MDW + P))``, ``P`` being
+    ``round(MDW * w + P)``, and below one unit ``round(w * (MDW + P))``, a half rounding up,
+    ``P`` being
     :func:`column_padding` (CAPTURING.md section 2 items 28 and 48).
     """
     mdw = _mdw(font, platform)
@@ -330,12 +330,9 @@ def column_points(
         exact = column_width * (mdw + column_padding(mdw))
     else:
         exact = mdw * column_width + column_padding(mdw)
-    if platform.name == "windows":
-        # Windows rounds a half pixel up (36.5 is 37 at a digit of 7 and width 4.5; the rules
-        # group, CAPTURING.md section 2 item 66); no Mac capture holds a half, so its rounding
-        # of one is untested
-        return float(math.floor(exact + 0.5))
-    return float(round(exact))
+    # a half rounds up on both platforms: 12.5 points is 13 at Calibri 9 and width 1.5, 36.5
+    # pixels 37 at a digit of 7 pixels and width 4.5 (CAPTURING.md section 2 items 66 and 67)
+    return float(math.floor(exact + 0.5))
 
 
 def _mdw(font: FontSpec | None, platform: Platform = _MAC) -> float:
