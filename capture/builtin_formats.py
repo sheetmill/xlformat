@@ -52,7 +52,7 @@ def _placeholder(ident: int) -> str:
     return f'"__id_{ident}__"0'
 
 
-def build(ids: list[int], name: str) -> Path:
+def build(ids: list[int], name: str, directory: Path | None = None) -> Path:
     """One row per id: its label in A, the values in B onward under that built-in id."""
     from openpyxl import Workbook
 
@@ -66,8 +66,9 @@ def build(ids: list[int], name: str) -> Path:
             if isinstance(value, str):
                 cell.data_type = "s"
             cell.number_format = _placeholder(ident)
-    DIRECTORY.mkdir(parents=True, exist_ok=True)
-    path = (DIRECTORY / name).resolve()
+    directory = DIRECTORY if directory is None else directory
+    directory.mkdir(parents=True, exist_ok=True)
+    path = (directory / name).resolve()
     wb.save(path)
     _point_at_builtins(path)
     return path

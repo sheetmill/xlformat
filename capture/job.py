@@ -22,6 +22,11 @@ per Normal font, opened, each row's height read in points. It writes
 standard-height lines (the format reads no sheet property; the row without an element stands for
 it).
 
+The group ``builtin`` is ``capture/builtin_formats.py``'s probe: one workbook per group of
+built-in number format ids, each row's format read as stored and as shown locally and every
+value cell's text at a column width of 40. It writes
+``tests/captures/windows/builtin_formats.layout.tsv`` in the Mac's layout schema.
+
 ``read`` checks the manifest's and the inputs' SHA-256 against the result's and writes, per suite,
 ``tests/captures/windows/<suite>.tsv`` (gzipped above 50 KB) in the schema of the Mac's suite
 files, and ``<suite>.measure.tsv`` for a measure suite. The header names the group's manifest,
@@ -205,15 +210,40 @@ def _row_workbooks(files: Path) -> list[dict[str, Any]]:
     return workbooks
 
 
+def _builtin_workbooks(files: Path) -> list[dict[str, Any]]:
+    """The built-in format workbooks of ``capture/builtin_formats.py``, one per id group."""
+    from capture import builtin_formats as bf
+
+    last = "ABCDEFGHIJ"[len(bf.VALUES)]
+    workbooks = []
+    for ids in bf.GROUPS:
+        name = f"builtin_{ids.start}_{ids.stop - 1}.xlsx"
+        with tempfile.TemporaryDirectory() as tmp:
+            _fixed_copy(bf.build(list(ids), name, Path(tmp)), files / name)
+        n = len(ids)
+        steps = [
+            {"op": "open"},
+            {"op": "set_size", "columns": f"builtin!B:{last}", "width": 40},
+            {"op": "read", "id": "formats", "range": f"builtin!B1:B{n}",
+             "props": ["number_format", "number_format_local"]},
+            {"op": "read", "id": "texts", "range": f"builtin!B1:{last}{n}", "props": ["text"]},
+            {"op": "close", "save": False},
+        ]  # fmt: skip
+        workbooks.append({"file": name, "steps": steps})
+    return workbooks
+
+
 def write(group: str, job_id: str, out: Path, note: str = "") -> Path:
     """The job folder ``out/<job_id>``."""
     folder = out / job_id
     files = folder / "files"
     files.mkdir(parents=True)
-    if group == "rows":
-        doc = manifest_for(group, job_id, _row_workbooks(files), note)
+    if group in ("rows", "builtin"):
+        books = _row_workbooks(files) if group == "rows" else _builtin_workbooks(files)
+        doc = manifest_for(group, job_id, books, note)
+        what = "the height of every row" if group == "rows" else "the built-in number formats"
         doc["purpose"] = doc["purpose"].replace(
-            "displayed text, widths and autofit per suite", "the height of every row"
+            "displayed text, widths and autofit per suite", what
         )
         (folder / "job.json").write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
         return folder
@@ -364,8 +394,9 @@ def read(group: str, job: Path, result: Path) -> list[Path]:
     WINDOWS.mkdir(parents=True, exist_ok=True)
     by_file = {wb["file"]: wb for wb in outcome["workbooks"]}
     written: list[Path] = []
-    if group == "rows":
-        written.append(_row_layout(by_file, header))
+    if group in ("rows", "builtin"):
+        layout = _row_layout if group == "rows" else _builtin_layout
+        written.append(layout(by_file, header))
         shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
         return written
     for name in GROUPS[group]:
@@ -397,6 +428,35 @@ def _row_layout(by_file: dict[str, Any], header: dict[str, Any]) -> Path:
                 raise ValueError(msg)
             for r, (case, (height,)) in enumerate(zip(cases, got, strict=True), 1):
                 out.write(f"{normal.label}\t{r}\t{case.tag}\t{float(height):g}\n")
+    return path
+
+
+def _builtin_layout(by_file: dict[str, Any], header: dict[str, Any]) -> Path:
+    from capture import builtin_formats as bf
+
+    path = WINDOWS / "builtin_formats.layout.tsv"
+    lines = [
+        "# suite: builtin_formats (capture.builtin_formats, capture/job.py); Excel for Windows",
+        "# platform: windows",
+        "# job: builtin.job.json",
+        f"# job_id: {header.get('job_id', '')}",
+        "# method: <xf numFmtId> with no <numFmt>, the cell's text at column width 40, number "
+        "format and number format local of the cell; values: "
+        + ", ".join(f"{label}={value!r}" for label, value in bf.VALUES),
+        f"# job_header: {json.dumps(header, sort_keys=True, ensure_ascii=False)}",
+        "\t".join(["id", "number_format", "number_format_local", *(v for v, _ in bf.VALUES)]),
+    ]
+    for ids in bf.GROUPS:
+        wb = by_file[f"builtin_{ids.start}_{ids.stop - 1}.xlsx"]
+        if wb.get("steps") and wb["steps"][0].get("status") == "refused":
+            lines += [f"{i}\trefused" for i in ids]
+            continue
+        got = _results(wb)
+        formats, texts = got["formats"], got["texts"]["text"]
+        for k, ident in enumerate(ids):
+            fields = [formats["number_format"][k][0], formats["number_format_local"][k][0]]
+            lines.append("\t".join([str(ident), *(repr(str(x)) for x in fields + texts[k])]))
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return path
 
 
