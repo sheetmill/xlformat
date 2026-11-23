@@ -28,6 +28,8 @@ Groups:
   and from 40 to 72 in steps of 4) at zoom 100 and 200.
 - ``screen_rules_zoom``: Calibri and Arial at the nine sizes under each rule at zoom 75, 90, 100,
   110, 125 and 150, where the pixels a point are whole, a fraction, or neither.
+- ``screen_rules_fresh``: the three faces at sizes from 37 to 57 points none of the groups above
+  holds, under each underline and a strikethrough, at zoom 80, 120, 140 and 175.
 - ``screen_wrapped``: bottom-aligned cells wrapped to two and three lines in faces whose descent
   is smaller than the Normal font's, and in two whose is not, in Calibri 20 and Arial 14
   workbooks, at zoom 100.
@@ -66,6 +68,7 @@ SCREEN_GROUPS = (
     "screen_rules",
     "screen_rules_zoom",
     "screen_wrapped",
+    "screen_rules_fresh",
 )
 _PURPOSE = {
     "screen_pilot": "window pictures of text placement and of underlines and strikethrough",
@@ -73,6 +76,7 @@ _PURPOSE = {
     "screen_rules": "window pictures of underlines and strikethrough",
     "screen_rules_zoom": "window pictures of underlines and strikethrough at six zooms",
     "screen_wrapped": "window pictures of wrapped text under a larger Normal font",
+    "screen_rules_fresh": "window pictures of underlines and strikethrough at new sizes and zooms",
 }
 
 
@@ -158,6 +162,9 @@ def _rule_cases(
     return found + [RuleCase("rule", f"filler {k} none") for k in range(20)]
 
 
+# screen_rules_fresh: sizes and zooms none of the other rules groups holds
+FRESH_SIZES = (37.0, 38.0, 39.0, 41.0, 43.0, 45.0, 49.0, 53.0, 57.0)
+FRESH_ZOOMS = (80, 120, 140, 175)
 # screen_wrapped: wrapped cells whose face's descent is smaller than the Normal font's (and two
 # controls each whose is not), bottom-aligned
 WRAPPED = (
@@ -244,6 +251,9 @@ def _books(group: str) -> list[Book]:
     if group == "screen_rules_zoom":
         cases = _rule_cases(("Calibri", "Arial"), tuple(float(s) for s in SIZES), DOUBLE_RULES)
         return [Book("rules_zoom", "rules", tuple(cases), (75, 90, 100, 110, 125, 150))]
+    if group == "screen_rules_fresh":
+        cases = _rule_cases(FAMILIES, FRESH_SIZES, DOUBLE_RULES)
+        return [Book("rules_fresh", "rules", tuple(cases), FRESH_ZOOMS)]
     if group == "screen_wrapped":
         return [
             Book(
