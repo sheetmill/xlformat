@@ -1,0 +1,470 @@
+{
+ "cell_font": {
+  "full": 45,
+  "fast": 45
+ },
+ "cell_font_large": {
+  "full": 45,
+  "fast": 45
+ },
+ "column_narrow11": {
+  "full": 5,
+  "fast": 5
+ },
+ "column_narrow14": {
+  "full": 4,
+  "fast": 4
+ },
+ "elapsed_decimals": {
+  "full": 49,
+  "fast": 16
+ },
+ "empty_text": {
+  "full": 4,
+  "fast": 4
+ },
+ "error_width": {
+  "full": 27,
+  "fast": 9
+ },
+ "fraction_percent": {
+  "full": 9,
+  "fast": 2
+ },
+ "general_exponent3": {
+  "full": 212,
+  "fast": 76
+ },
+ "general_literals_points": {
+  "full": 627,
+  "fast": 158
+ },
+ "general_points11": {
+  "full": 17,
+  "fast": 6
+ },
+ "general_points12": {
+  "full": 18,
+  "fast": 6
+ },
+ "general_points14": {
+  "full": 16,
+  "fast": 6
+ },
+ "general_points16": {
+  "full": 14,
+  "fast": 6
+ },
+ "general_points18": {
+  "full": 13,
+  "fast": 6
+ },
+ "general_points20": {
+  "full": 12,
+  "fast": 6
+ },
+ "general_points24": {
+  "full": 10,
+  "fast": 6
+ },
+ "general_points9": {
+  "full": 17,
+  "fast": 6
+ },
+ "general_points_aptos_narrow11": {
+  "full": 17,
+  "fast": 6
+ },
+ "general_points_arial10": {
+  "full": 34,
+  "fast": 7
+ },
+ "general_points_arial11": {
+  "full": 34,
+  "fast": 7
+ },
+ "hidden_zeros": {
+  "full": 14,
+  "fast": 3
+ },
+ "hidden_zeros_control": {
+  "full": 14,
+  "fast": 3
+ },
+ "letters": {
+  "full": 41,
+  "fast": 13
+ },
+ "letters_upper": {
+  "full": 4,
+  "fast": 4
+ },
+ "limits": {
+  "full": 180,
+  "fast": 158
+ },
+ "line_breaks": {
+  "full": 434,
+  "fast": 146
+ },
+ "line_breaks_aptos_narrow": {
+  "full": 416,
+  "fast": 144
+ },
+ "long_fills": {
+  "full": 35,
+  "fast": 35
+ },
+ "numeric_core_width": {
+  "full": 2224,
+  "fast": 447
+ },
+ "numeric_core_width_aptos_narrow11": {
+  "full": 2257,
+  "fast": 459
+ },
+ "numeric_core_width_arial10": {
+  "full": 2226,
+  "fast": 441
+ },
+ "space_fill10": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill11": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill12": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill14": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill16": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill9": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_aptos_narrow10": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_aptos_narrow11": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_aptos_narrow12": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_aptos_narrow14": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_aptos_narrow16": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_aptos_narrow18": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_aptos_narrow20": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_aptos_narrow24": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_aptos_narrow9": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_arial10": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_arial11": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_arial12": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_arial14": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_arial16": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_arial18": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_arial20": {
+  "full": 118,
+  "fast": 94
+ },
+ "space_fill_arial24": {
+  "full": 120,
+  "fast": 94
+ },
+ "space_fill_arial9": {
+  "full": 118,
+  "fast": 94
+ },
+ "space_fill_calibri18": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_calibri20": {
+  "full": 119,
+  "fast": 95
+ },
+ "space_fill_calibri24": {
+  "full": 119,
+  "fast": 95
+ },
+ "text_overflow": {
+  "full": 19,
+  "fast": 19
+ },
+ "width_fill": {
+  "full": 11,
+  "fast": 11
+ },
+ "width_general": {
+  "full": 16,
+  "fast": 6
+ },
+ "width_general14": {
+  "full": 17,
+  "fast": 6
+ },
+ "windows/cell_font": {
+  "full": 43,
+  "fast": 43
+ },
+ "windows/cell_font_large": {
+  "full": 43,
+  "fast": 43
+ },
+ "windows/column_narrow11": {
+  "full": 4,
+  "fast": 4
+ },
+ "windows/column_narrow14": {
+  "full": 4,
+  "fast": 4
+ },
+ "windows/elapsed_decimals": {
+  "full": 34,
+  "fast": 12
+ },
+ "windows/error_width": {
+  "full": 63,
+  "fast": 9
+ },
+ "windows/general_literals_points": {
+  "full": 502,
+  "fast": 133
+ },
+ "windows/general_points11": {
+  "full": 18,
+  "fast": 6
+ },
+ "windows/general_points12": {
+  "full": 18,
+  "fast": 6
+ },
+ "windows/general_points14": {
+  "full": 15,
+  "fast": 6
+ },
+ "windows/general_points16": {
+  "full": 13,
+  "fast": 6
+ },
+ "windows/general_points18": {
+  "full": 13,
+  "fast": 6
+ },
+ "windows/general_points20": {
+  "full": 12,
+  "fast": 6
+ },
+ "windows/general_points24": {
+  "full": 10,
+  "fast": 6
+ },
+ "windows/general_points9": {
+  "full": 18,
+  "fast": 6
+ },
+ "windows/general_points_aptos_narrow11": {
+  "full": 18,
+  "fast": 6
+ },
+ "windows/general_points_arial10": {
+  "full": 34,
+  "fast": 7
+ },
+ "windows/general_points_arial11": {
+  "full": 34,
+  "fast": 7
+ },
+ "windows/letters": {
+  "full": 43,
+  "fast": 15
+ },
+ "windows/letters_upper": {
+  "full": 16,
+  "fast": 12
+ },
+ "windows/long_fills": {
+  "full": 30,
+  "fast": 30
+ },
+ "windows/numeric_core_width": {
+  "full": 1572,
+  "fast": 338
+ },
+ "windows/numeric_core_width_aptos_narrow11": {
+  "full": 1887,
+  "fast": 386
+ },
+ "windows/numeric_core_width_arial10": {
+  "full": 1545,
+  "fast": 321
+ },
+ "windows/space_fill10": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill11": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill12": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill14": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill16": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill9": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_aptos_narrow10": {
+  "full": 120,
+  "fast": 96
+ },
+ "windows/space_fill_aptos_narrow11": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_aptos_narrow12": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_aptos_narrow14": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_aptos_narrow16": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_aptos_narrow18": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_aptos_narrow20": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_aptos_narrow24": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_aptos_narrow9": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_arial10": {
+  "full": 118,
+  "fast": 94
+ },
+ "windows/space_fill_arial11": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_arial12": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_arial14": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_arial16": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_arial18": {
+  "full": 118,
+  "fast": 94
+ },
+ "windows/space_fill_arial20": {
+  "full": 118,
+  "fast": 94
+ },
+ "windows/space_fill_arial24": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_arial9": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_calibri18": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_calibri20": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/space_fill_calibri24": {
+  "full": 119,
+  "fast": 95
+ },
+ "windows/width_fill": {
+  "full": 21,
+  "fast": 21
+ },
+ "windows/width_general": {
+  "full": 17,
+  "fast": 6
+ },
+ "windows/width_general14": {
+  "full": 16,
+  "fast": 6
+ }
+}

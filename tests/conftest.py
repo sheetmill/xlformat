@@ -11,6 +11,19 @@ def pytest_addoption(parser: pytest.Parser) -> None:
             "(the per-format sample, under a quarter of a second)."
         ),
     )
+    parser.addoption(
+        "--record-glyph-slack",
+        action="store_true",
+        help=(
+            "Write each suite's count of glyph-slack rows into tests/captures/glyph_slack.json "
+            "instead of requiring the counts listed there."
+        ),
+    )
+
+
+@pytest.fixture(scope="session")
+def record_glyph_slack(request: pytest.FixtureRequest) -> bool:
+    return bool(request.config.getoption("--record-glyph-slack"))
 
 
 @pytest.fixture(scope="session")

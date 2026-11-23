@@ -6,11 +6,14 @@ font, exact match, ``#`` counts included) and in character mode, where a ``#`` r
 ``#`` run and rows at a fractional width and rows Excel fitted by glyph widths rather than by
 character count are skipped under their own labels.
 Every count is printed per suite and recorded as a test property; zero counts are left out of
-the printed line. Color rows Excel's DisplayFormat API misreports are skipped and counted.
+the printed line. The glyph-slack count of each suite and tier must equal the one listed in
+``tests/captures/glyph_slack.json`` (``--record-glyph-slack`` writes it). Color rows Excel's
+DisplayFormat API misreports are skipped and counted.
 """
 
 from __future__ import annotations
 
+import json
 import re
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
@@ -41,6 +44,12 @@ SUITE_FILES = sorted(
     and ".measure." not in p.name
     and ".layout." not in p.name
 )
+
+
+# rows character mode skips as glyph slack (Excel fitted more or fewer characters than the width),
+# per suite and tier: a known deviation of character mode, counted on every run; a change in a
+# count fails until the file is written again with --record-glyph-slack
+GLYPH_SLACK_FILE = CAPTURE_DIR / "glyph_slack.json"
 
 
 def _suite_id(path: Path) -> str:
@@ -216,6 +225,26 @@ def _glyph_slack_literals(expected: str, got: str, width: int | None) -> bool:
     )
 
 
+def _check_glyph_slack(suite: str, tier: str, count: int, record: bool) -> None:
+    listed: dict[str, dict[str, int]] = (
+        json.loads(GLYPH_SLACK_FILE.read_text(encoding="utf-8"))
+        if GLYPH_SLACK_FILE.exists()
+        else {}
+    )
+    if record:
+        listed.setdefault(suite, {})[tier] = count
+        listed = {k: {t: n for t, n in v.items() if n} for k, v in sorted(listed.items())}
+        listed = {k: v for k, v in listed.items() if v}
+        GLYPH_SLACK_FILE.write_text(json.dumps(listed, indent=1) + "\n", encoding="utf-8")
+        return
+    want = listed.get(suite, {}).get(tier, 0)
+    if count != want:
+        pytest.fail(
+            f"{suite} [{tier}]: {count} glyph-slack rows skipped, {want} listed in "
+            f"{GLYPH_SLACK_FILE.name}; write it again with --record-glyph-slack if intended"
+        )
+
+
 def _texts_match(got: str, expected: str, width: int | None) -> bool:
     """Equal texts; at a character-mode width also two ``#`` runs of any length.
 
@@ -231,7 +260,7 @@ def _texts_match(got: str, expected: str, width: int | None) -> bool:
 
 @pytest.mark.excel
 @pytest.mark.parametrize("suite_file", SUITE_FILES, ids=_suite_id)
-def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: ignore[no-untyped-def]
+def test_suite(suite_file: Path, tier: str, record_glyph_slack: bool, record_property) -> None:  # type: ignore[no-untyped-def]
     header, rows = read_rows(suite_file)
     assert header.get("suite"), f"{suite_file}: missing suite header"
     if tier == "fast":
@@ -407,6 +436,9 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
         pytest.fail(
             f"{len(failures)} of {counts['compared']} compared rows differ:\n" + "\n".join(lines)
         )
+    _check_glyph_slack(
+        _suite_id(suite_file), tier, counts["skipped (glyph slack)"], record_glyph_slack
+    )
 
 
 def test_color_misreports_are_all_used() -> None:
