@@ -1338,6 +1338,19 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     columns and all 143 rows, to even none of them; the 94 columns and 4,037 rows where the two
     agree fit both. One rule for both platforms: a half rounds up (12.5 points is 13 at Calibri
     9 and width 1.5).
+68. **Windows validation at 96 dpi (2026-11-22; groups `validation_numbers` and
+    `validation_general`, the build of item 65).** Rows the Windows tables were not fitted on: 32
+    suites and 337,117 rows, among them `numeric_core_width` in Calibri 11, Aptos Narrow 11 and
+    Arial 10, `cell_font_numeric`, `General` at every point from 9 to 24 and among literals,
+    `General` in cell fonts, narrow columns, fills, letters and elapsed decimals. The package's
+    Windows rendering of every row was committed before the runs. Every one of the 331,786 rows at
+    a width is as predicted. Of the 5,331 width-less rows, read through the clipboard, 189 differ,
+    all in `letters`, `letters_upper` and `elapsed_decimals`: the Mac's two known deviations of the
+    clipboard (a Buddhist-year code's plain year, an elapsed code after a date code), the same on
+    Windows. In character mode 23 rows of Arial 10 and `width_fill` show a fill one character
+    shorter than the width, because the text's glyphs are wider than a digit; they are
+    glyph-slack rows (`tests/test_captures.py`). The merged-cell suites wait: their rows hold the
+    block's width in the Mac's points.
 
 ## 3. The pipeline
 

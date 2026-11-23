@@ -1,0 +1,325 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261122-201450-validation-numbers",
+ "package": "xlformat",
+ "purpose": "xlformat capture group validation_numbers: displayed text, widths and autofit per suite",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "numeric_core_width.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!B:B",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_b",
+     "range": "cases!B1:B10944",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_b",
+     "range": "cases!B1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C10944",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D10944",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "numeric_core_width_aptos_narrow11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!B:B",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_b",
+     "range": "cases!B1:B10944",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_b",
+     "range": "cases!B1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C10944",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D10944",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "numeric_core_width_arial10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!B:B",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_b",
+     "range": "cases!B1:B10944",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_b",
+     "range": "cases!B1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C10944",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D10944",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "cell_font_numeric.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!B:B",
+     "width": 6
+    },
+    {
+     "op": "read",
+     "id": "text_b",
+     "range": "cases!B1:B21888",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_b",
+     "range": "cases!B1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!C:C",
+     "width": 10
+    },
+    {
+     "op": "read",
+     "id": "text_c",
+     "range": "cases!C1:C21888",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_c",
+     "range": "cases!C1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "set_size",
+     "columns": "cases!D:D",
+     "width": 14
+    },
+    {
+     "op": "read",
+     "id": "text_d",
+     "range": "cases!D1:D21888",
+     "props": [
+      "text"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "size_d",
+     "range": "cases!D1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

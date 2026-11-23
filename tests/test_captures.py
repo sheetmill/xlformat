@@ -12,6 +12,7 @@ the printed line. Color rows Excel's DisplayFormat API misreports are skipped an
 from __future__ import annotations
 
 import re
+from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
@@ -179,6 +180,16 @@ def _clipboard_year(row: Row, width: int | str | None, value: object, date1904: 
     return format_value(value, plain, date1904=date1904) == row.expected_text
 
 
+def _glyph_tight_fill(expected: str, got: str, fmt: str, width: int | None) -> bool:
+    """Excel filled fewer characters than the width because the text's glyphs are wider than a
+    digit: ``'@*-'`` with ``FALSE`` in Arial 10 on Windows at width 6 has no room for the dash
+    that character mode adds. Only counts when the extra characters are the format's fill."""
+    if width is None or len(got) <= len(expected) or len(got) > width:
+        return False
+    extra = Counter(got) - Counter(expected)
+    return not Counter(expected) - Counter(got) and all(f"*{c}" in fmt for c in extra)
+
+
 def _glyph_slack_exponent(expected: str, got: str, width: int | None) -> bool:
     """A reduced scientific General among literals: ``( 1.2346E-99 )`` is 14 characters and
     Excel charges the exponent a third digit, but its literals cost less than a digit each, so
@@ -342,6 +353,7 @@ def test_suite(suite_file: Path, tier: str, record_property) -> None:  # type: i
             got = f"<{type(exc).__name__}: {exc}>"
         if (
             _glyph_tight(row.expected_text, got, width)
+            or _glyph_tight_fill(row.expected_text, got, fmt, width)
             or _glyph_slack_literals(row.expected_text, got, width)
             or _glyph_slack_exponent(row.expected_text, got, width)
         ):
