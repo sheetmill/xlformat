@@ -30,6 +30,7 @@ from xlformat._glyphs_windows_aptos_narrow import (
 from xlformat._glyphs_windows_arial import WINDOWS_ARIAL, WINDOWS_ARIAL_OVERHANG
 from xlformat._glyphs_windows_calibri import WINDOWS_CALIBRI, WINDOWS_CALIBRI_OVERHANG
 from xlformat._platform import _MAC, Platform, check_platform
+from xlformat._rows_windows import WINDOWS_ROWS
 from xlformat._rules_drawn import COURIER_GAP, DRAWN
 
 Measure = Callable[[str], float]
@@ -594,15 +595,18 @@ def _bottom(key: str, size: float) -> float:
 
 @dataclass(frozen=True, slots=True)
 class RowMetrics:
-    """A row as Excel for Mac fits it when it opens a file, in whole points.
+    """A row as Excel fits it when it opens a file, in points.
+
+    Whole points on the Mac, whole pixels on Windows (0.75 points at 96 dpi).
 
     Attributes:
         height: The row's height: what Excel gives a row without a stored height (no ``ht``)
             holding the fonts and wrapped text given.
         font_height: The Normal font's height: a row in the Normal font alone, and the sheet's
             standard height.
-        line_height: What each wrapped line in the Normal font takes: ``font_height`` plus 1, so
-            one wrapped line is a point taller than the row without it.
+        line_height: What each wrapped line in the Normal font takes: on the Mac
+            ``font_height`` plus 1, so one wrapped line is a point taller than the row without
+            it; on Windows ``font_height``.
     """
 
     height: float
@@ -668,14 +672,17 @@ def row_metrics(
         wrapped: One ``(font, lines)`` per cell with wrapped text: its font (``None`` for the
             Normal font) and its number of lines, as the caller broke them.
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. A platform without captured evidence for
-            this function raises ``LookupError``; so far that is every platform but the Mac.
+            ``None`` means the default, ``"mac"``. Excel for Windows is measured at 96 dpi in
+            Calibri, Aptos Narrow and Arial at 9 to 24 points, without accounting underlines;
+            anything else raises ``LookupError`` there.
 
     Raises:
         LookupError: A font or size the row model has not measured.
         ValueError: A number of lines below 1.
     """
-    _platform = check_platform(platform, "row_metrics")
+    p = check_platform(platform, "row_metrics", windows=True)
+    if p.name == "windows":
+        return _windows_row(normal_font, cell_fonts, wrapped, p)
     normal = _row_face(normal_font)
     font_height = _font_height(*normal)
 
@@ -710,6 +717,45 @@ def row_metrics(
         inset = max(0.0, top_inset - (_bottom(key, size) - 2.0))
         height = max(height, lines * (_font_height(key, size) + 1.0 + extra) + inset)
     return RowMetrics(height=height, font_height=font_height, line_height=font_height + 1.0)
+
+
+def _windows_face(font: FontSpec | None) -> tuple[int, int]:
+    """(H, D) in pixels of a face Excel for Windows' rows were captured in; LookupError else."""
+    f = DEFAULT_FONT if font is None else resolve_font(font, Platform.WINDOWS)
+    if isinstance(font, Font) and font.underline in ("singleAccounting", "doubleAccounting"):
+        msg = f"no accounting underline rows for Excel for Windows ({f.name} {f.size:g})"
+        raise LookupError(msg)
+    sizes = WINDOWS_ROWS.get(f.name.lower(), {}).get(f.style, {})
+    if f.size != int(f.size) or int(f.size) not in sizes:
+        measured = ", ".join(str(z) for z in sizes)
+        msg = f"no row heights for Excel for Windows for {f.name} {f.size:g}; measured: {measured}"
+        raise LookupError(msg)
+    return sizes[int(f.size)]
+
+
+def _windows_row(
+    normal_font: FontSpec | None,
+    cell_fonts: Iterable[FontSpec],
+    wrapped: Iterable[tuple[FontSpec | None, int]],
+    platform: Platform,
+) -> RowMetrics:
+    """Excel for Windows' row: ``max(lines * H - D) + max D`` pixels over its cells.
+
+    The Normal font is a one-line cell among them; H and D per face (CAPTURING.md section 2
+    item 69).
+    """
+    normal = _windows_face(normal_font)
+    cells = [(normal, 1), *((_windows_face(f), 1) for f in cell_fonts)]
+    for font, lines in wrapped:
+        if lines < 1:
+            msg = f"wrapped text has at least one line, not {lines!r}"
+            raise ValueError(msg)
+        cells.append((normal if font is None else _windows_face(font), lines))
+    top = max(lines * h - d for (h, d), lines in cells)
+    pixels = top + max(d for (_, d), _ in cells)
+    scale = platform.scale
+    font_height = normal[0] / scale
+    return RowMetrics(height=pixels / scale, font_height=font_height, line_height=font_height)
 
 
 # --- vertical placement (CAPTURING.md section 2 item 47) ----------------------------------------

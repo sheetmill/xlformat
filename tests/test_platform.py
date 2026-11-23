@@ -42,7 +42,7 @@ REGIONAL = {"format_value", "format_cell", "text_function", "builtin_format"} | 
 WINDOWS = {
     "format_value", "format_cell", "text_width", "glyph_widths", "digit_width", "overhang",
     "measured_fonts", "column_metrics", "column_metrics_from_points", "file_column_metrics",
-    "NumberFormat.format", "NumberFormat.format_cell",
+    "NumberFormat.format", "NumberFormat.format_cell", "row_metrics",
 }  # fmt: skip
 
 

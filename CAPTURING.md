@@ -1351,6 +1351,16 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     shorter than the width, because the text's glyphs are wider than a digit; they are
     glyph-slack rows (`tests/test_captures.py`). The merged-cell suites wait: their rows hold the
     block's width in the Mac's points.
+69. **Windows row heights at 96 dpi (2026-11-22; group `rows`, the build of item 65).** The
+    workbooks of the Mac's row capture (item 44), one per Normal font (Calibri, Aptos Narrow and
+    Arial, four styles, nine sizes), each row's height read by the job: 34,992 rows in
+    `tests/captures/windows/row_height.layout.tsv.gz`, without the Mac's standard-height lines (the
+    job format reads no sheet property; the row without an element gives the same height). In
+    pixels, a face has a height H and a descent D, and a row is `max(lines · H − D) + max D` over
+    its cells, the Normal font a one-line cell among them: `capture/windows_rows.py` takes H from
+    each face's own row and searches D, and the table fits all 34,992 rows, each D the only value
+    that does. Calibri and Aptos Narrow are the same in every style; Arial's bold and italic differ
+    from its regular at 11, 12, 14, 20 and 24 points (bold Arial 11 is 20 pixels, regular 19).
 
 ## 3. The pipeline
 

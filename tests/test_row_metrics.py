@@ -12,13 +12,20 @@ from __future__ import annotations
 import csv
 import gzip
 import re
+from functools import partial
 from pathlib import Path
 
 import pytest
 
 from xlformat import Font, RowMetrics, row_metrics
+from xlformat import row_metrics as _row_metrics
 
-LAYOUT = Path(__file__).parent / "captures" / "row_height.layout.tsv.gz"
+CAPTURES = Path(__file__).parent / "captures"
+# Excel for Mac's capture, and Excel for Windows' at 96 dpi (CAPTURING.md section 2 item 69)
+LAYOUTS = {
+    "mac": CAPTURES / "row_height.layout.tsv.gz",
+    "windows": CAPTURES / "windows" / "row_height.layout.tsv.gz",
+}
 _FACE = re.compile(r"(Calibri|Aptos Narrow|Arial) (\d+)((?: bold)?)((?: italic)?)")
 
 
@@ -28,8 +35,9 @@ def _font(label: str) -> Font:
     return Font(m.group(1), float(m.group(2)), bool(m.group(3)), bool(m.group(4)))
 
 
-def _call(normal: Font, tag: str) -> RowMetrics:
+def _call(normal: Font, tag: str, platform: str = "mac") -> RowMetrics:
     """The ``row_metrics`` call a captured row's tag describes."""
+    row_metrics = partial(_row_metrics, platform=platform)
     if tag in ("standard height", "number", "no element", "number again", "number at the end"):
         return row_metrics(normal)
     if m := re.fullmatch(r"wrapped (\d+) lines (.+) beside (.+)", tag):
@@ -46,14 +54,15 @@ def _call(normal: Font, tag: str) -> RowMetrics:
     return row_metrics(normal, cell_fonts=[_font(first), _font(second)])
 
 
-def _rows() -> list[list[str]]:
-    with gzip.open(LAYOUT, "rt", encoding="utf-8", newline="") as f:
+def _rows(platform: str = "mac") -> list[list[str]]:
+    with gzip.open(LAYOUTS[platform], "rt", encoding="utf-8", newline="") as f:
         lines = [line for line in f if not line.startswith("#")]
     return list(csv.reader(lines, dialect="excel-tab"))[1:]
 
 
-def test_every_captured_row_height() -> None:
-    rows = _rows()
+@pytest.mark.parametrize("platform", sorted(LAYOUTS))
+def test_every_captured_row_height(platform: str) -> None:
+    rows = _rows(platform)
     per_font: dict[str, list[str]] = {}
     for normal, _, tag, _ in rows:
         per_font.setdefault(normal, []).append(tag)
@@ -62,7 +71,7 @@ def test_every_captured_row_height() -> None:
     misses = [
         (normal, tag, height, got)
         for normal, _, tag, height in rows
-        if (got := _call(_font(normal), tag).height) != float(height)
+        if (got := _call(_font(normal), tag, platform).height) != float(height)
     ]
     assert not misses, f"{len(misses)} heights differ: {misses[:10]}"
 
