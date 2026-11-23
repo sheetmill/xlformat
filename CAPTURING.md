@@ -1499,6 +1499,25 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       second line, which ended on or past the row's last pixel row there, is drawn whole here,
       in rows about 2 points taller.
 
+79. **The cells of item 78 drawn in the default font, again (2026-11-23; group
+    `screen_rules_table_arial`, the build of item 65).** Arial from 29 to 72 points under the
+    five rules at zoom 150 and 200, in four workbooks of at most 220 fonts: 870 cells from 57
+    pictures, `screen_rules_table_arial.layout.tsv`, every row fitted. They agree with items 75
+    and 78 at every size, zoom and rule both hold, but for the double accounting's second line
+    cut there by the row's last pixel row. Over items 78 and 79 together (the cells of this item
+    in place of those item 78 drew plainly), with P the ppem:
+    - item 77's rules hold for every thickness (every measured cell) and every double's gap of
+      two thicknesses; the single underline's, the strikethrough's and the accounting
+      underlines' tops hold in Arial at P 11 to 384 and in Calibri at P 11 to 170. In Calibri
+      from P 171 (171 to 192, and every eighth P to 384), every one of those lines is a pixel
+      higher, measured from the H stems' last ink row; below P 11 both faces miss by a pixel
+      here and there (P 9 and 10 as in item 75's rows);
+    - an equal P draws equal lines: 5,976 face, rule and part keys drawn at two zooms or more
+      agree but for 58, each the thickness of Calibri's double accounting second line where the
+      row's last pixel row cuts it (72 of the 73 cells where that line is thinner than the first
+      end on the row's last pixel row).
+    At zoom 15 nothing is measured (item 78), and 14 double gaps, all at P 14 or less, are not.
+
 ## 3. The pipeline
 
 ```

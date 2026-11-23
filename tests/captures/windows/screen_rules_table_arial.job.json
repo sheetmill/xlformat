@@ -1,0 +1,927 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261123-144603-screen-rules-table-arial",
+ "package": "xlformat",
+ "purpose": "xlformat capture group screen_rules_table_arial: window pictures of underlines and strikethrough in Arial again",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "table_arial_z150_1.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "Sheet!B1:B64",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "columns",
+     "range": "Sheet!A1:F1",
+     "props": [
+      "left",
+      "width"
+     ]
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r1",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r1",
+     "name": "table_arial_z150_1_z150_r001.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r9",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 9,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r9",
+     "name": "table_arial_z150_1_z150_r009.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r16",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 16,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r16",
+     "name": "table_arial_z150_1_z150_r016.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r22",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 22,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r22",
+     "name": "table_arial_z150_1_z150_r022.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r28",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 28,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r28",
+     "name": "table_arial_z150_1_z150_r028.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r33",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 33,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r33",
+     "name": "table_arial_z150_1_z150_r033.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r38",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 38,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r38",
+     "name": "table_arial_z150_1_z150_r038.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r43",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 43,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r43",
+     "name": "table_arial_z150_1_z150_r043.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r62",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 62,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r62",
+     "name": "table_arial_z150_1_z150_r062.png"
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "table_arial_z150_2.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "Sheet!B1:B65",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "columns",
+     "range": "Sheet!A1:F1",
+     "props": [
+      "left",
+      "width"
+     ]
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r1",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r1",
+     "name": "table_arial_z150_2_z150_r001.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r6",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 6,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r6",
+     "name": "table_arial_z150_2_z150_r006.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r10",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 10,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r10",
+     "name": "table_arial_z150_2_z150_r010.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r14",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 14,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r14",
+     "name": "table_arial_z150_2_z150_r014.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r18",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 18,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r18",
+     "name": "table_arial_z150_2_z150_r018.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r21",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 21,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r21",
+     "name": "table_arial_z150_2_z150_r021.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r24",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 24,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r24",
+     "name": "table_arial_z150_2_z150_r024.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r27",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 27,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r27",
+     "name": "table_arial_z150_2_z150_r027.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r30",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 30,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r30",
+     "name": "table_arial_z150_2_z150_r030.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r33",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 33,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r33",
+     "name": "table_arial_z150_2_z150_r033.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r36",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 36,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r36",
+     "name": "table_arial_z150_2_z150_r036.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r39",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 39,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r39",
+     "name": "table_arial_z150_2_z150_r039.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r42",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 42,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r42",
+     "name": "table_arial_z150_2_z150_r042.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z150_r45",
+     "sheet": "Sheet",
+     "zoom": 150,
+     "select": "AZ1",
+     "scroll_row": 45,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z150_r45",
+     "name": "table_arial_z150_2_z150_r045.png"
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "table_arial_z200_1.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "Sheet!B1:B64",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "columns",
+     "range": "Sheet!A1:F1",
+     "props": [
+      "left",
+      "width"
+     ]
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r1",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r1",
+     "name": "table_arial_z200_1_z200_r001.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r7",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 7,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r7",
+     "name": "table_arial_z200_1_z200_r007.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r12",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 12,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r12",
+     "name": "table_arial_z200_1_z200_r012.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r17",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 17,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r17",
+     "name": "table_arial_z200_1_z200_r017.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r21",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 21,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r21",
+     "name": "table_arial_z200_1_z200_r021.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r25",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 25,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r25",
+     "name": "table_arial_z200_1_z200_r025.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r29",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 29,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r29",
+     "name": "table_arial_z200_1_z200_r029.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r32",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 32,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r32",
+     "name": "table_arial_z200_1_z200_r032.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r35",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 35,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r35",
+     "name": "table_arial_z200_1_z200_r035.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r38",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 38,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r38",
+     "name": "table_arial_z200_1_z200_r038.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r41",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 41,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r41",
+     "name": "table_arial_z200_1_z200_r041.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r46",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 46,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r46",
+     "name": "table_arial_z200_1_z200_r046.png"
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "table_arial_z200_2.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "Sheet!B1:B65",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "read",
+     "id": "columns",
+     "range": "Sheet!A1:F1",
+     "props": [
+      "left",
+      "width"
+     ]
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r1",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r1",
+     "name": "table_arial_z200_2_z200_r001.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r5",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 5,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r5",
+     "name": "table_arial_z200_2_z200_r005.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r8",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 8,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r8",
+     "name": "table_arial_z200_2_z200_r008.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r11",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 11,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r11",
+     "name": "table_arial_z200_2_z200_r011.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r13",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 13,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r13",
+     "name": "table_arial_z200_2_z200_r013.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r15",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 15,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r15",
+     "name": "table_arial_z200_2_z200_r015.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r17",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 17,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r17",
+     "name": "table_arial_z200_2_z200_r017.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r19",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 19,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r19",
+     "name": "table_arial_z200_2_z200_r019.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r21",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 21,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r21",
+     "name": "table_arial_z200_2_z200_r021.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r23",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 23,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r23",
+     "name": "table_arial_z200_2_z200_r023.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r25",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 25,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r25",
+     "name": "table_arial_z200_2_z200_r025.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r27",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 27,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r27",
+     "name": "table_arial_z200_2_z200_r027.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r29",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 29,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r29",
+     "name": "table_arial_z200_2_z200_r029.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r31",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 31,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r31",
+     "name": "table_arial_z200_2_z200_r031.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r33",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 33,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r33",
+     "name": "table_arial_z200_2_z200_r033.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r35",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 35,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r35",
+     "name": "table_arial_z200_2_z200_r035.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r37",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 37,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r37",
+     "name": "table_arial_z200_2_z200_r037.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r39",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 39,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r39",
+     "name": "table_arial_z200_2_z200_r039.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r41",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 41,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r41",
+     "name": "table_arial_z200_2_z200_r041.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r43",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 43,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r43",
+     "name": "table_arial_z200_2_z200_r043.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r45",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 45,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r45",
+     "name": "table_arial_z200_2_z200_r045.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r58",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 58,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r58",
+     "name": "table_arial_z200_2_z200_r058.png"
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,878 @@
+# suite: screen_rules_table_arial (capture/screen_windows.py)
+# platform: windows
+# excel_build: 16.0.20527.20196
+# job: screen_rules_table_arial.job.json
+# job_id: xlformat-20261123-144603-screen-rules-table-arial
+# job_header: {"environment": {"audit": false, "checks": {"dde_server_launch_disabled": true, "dde_server_lookup_disabled": true, "vba_warnings": 4}, "display": {"screen_px": [2560, 1440], "system_dpi": 96}, "edition": {"found": "Microsoft 365", "source": "office products"}, "excel": {"build": "16.0.20527.20196", "build_number": 20527.0, "calculation_version": 191029, "decimal_separator": ".", "international": {"country": 1.0, "decimal": ".", "list": ","}, "operating_system": "Windows (64-bit ARM) NT 10.00", "process": {"native_machine": "0xaa64", "process_machine": "0x8664"}, "standard_font": "Aptos Narrow", "standard_font_size": 11.0, "thousands_separator": ",", "use_system_separators": true, "version": "16.0"}, "font_smoothing": {"expected": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "found": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "ok": true}, "fonts": [{"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Regular", "version": "Version 7.07"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Regular", "version": "Version 6.27"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.99001, "style": "Regular", "version": "Version 6.99"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Regular", "version": "Version 5.72"}], "fonts_missing": [], "geometry": {"expected": {"excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "found": {"excel_window_points": [-5.0, -6.0, 1932.0, 1056.0], "excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "ok": true}, "locale": {"ansi_code_page": 1252, "decimal": ".", "list": ",", "long_date": "dddd, MMMM d, yyyy", "name": "en-US", "oem_code_page": 437, "short_date": "M/d/yyyy", "sort_locale": "en-US", "sort_version": {"custom": "01000000ee575c1e00b4d0000bb1e11e", "defined": 394498, "nls": 394498}, "time": "h:mm:ss tt", "two_digit_year_max": 2049, "two_digit_year_max_setting": null}, "office": {"channel": "Current Channel", "platform": "x64", "products": "O365HomePremRetail", "version": "16.0.20527.20196"}, "printer": {"orientation": "portrait", "paper": "A4", "paper_mm": [215.9, 279.4]}, "theme": {"office_ui_theme": 6, "windows_apps_light": 1, "windows_system_light": 1}, "windows": {"architecture": "ARM64", "build": "26300.9974", "display_version": "26H2", "edition": "Core"}}, "format": 1, "inputs": {"table_arial_z150_1.xlsx": {"bytes": 7783, "sha256": "39f7fea2ed47c7f80b146d724f9e964171f699e0e8141b033dad87181feb61fb"}, "table_arial_z150_2.xlsx": {"bytes": 7838, "sha256": "812d44bca6931e50d14c1f5efdeaa012334b54cb1492081f3e2b7d20cb620a5d"}, "table_arial_z200_1.xlsx": {"bytes": 7783, "sha256": "39f7fea2ed47c7f80b146d724f9e964171f699e0e8141b033dad87181feb61fb"}, "table_arial_z200_2.xlsx": {"bytes": 7838, "sha256": "812d44bca6931e50d14c1f5efdeaa012334b54cb1492081f3e2b7d20cb620a5d"}}, "job_id": "xlformat-20261123-144603-screen-rules-table-arial", "manifest_sha256": "251997ea7cc31e6f334e33dd16ddebc897bbc3908d2c43f94758048eba3488aa", "runner_version": "0.1.28"}
+# method: window captures; a cell a rule, the rules side by side in a row; device pixels from the row's top: the cell's H stems' last ink row, the row's (its single underline's cell, else its strikethrough's), each line's first and last row
+zoom	tag	row_height	pixels_per_point	baseline_px	row_baseline_px	measured
+150	Arial 29 single	43.5	2	58	58	65-68
+150	Arial 29 double	43.5	2	58	58	61-63 67-69
+150	Arial 29 strike	43.5	2	58	58	44-46
+150	Arial 29 singleAccounting	43.5	2	58	58	72-75
+150	Arial 29 doubleAccounting	43.5	2	58	58	72-74 78-80
+150	Arial 29.5 single	43.5	2	58	58	65-68
+150	Arial 29.5 double	43.5	2	58	58	61-63 67-69
+150	Arial 29.5 strike	43.5	2	58	58	44-46
+150	Arial 29.5 singleAccounting	43.5	2	58	58	72-75
+150	Arial 29.5 doubleAccounting	43.5	2	58	58	72-74 78-80
+150	Arial 30 single	44.25	2	60	60	67-70
+150	Arial 30 double	44.25	2	60	60	63-65 69-71
+150	Arial 30 strike	44.25	2	60	60	45-47
+150	Arial 30 singleAccounting	44.25	2	60	60	74-77
+150	Arial 30 doubleAccounting	44.25	2	60	60	74-76 80-82
+150	Arial 30.5 single	45	2	61	61	68-71
+150	Arial 30.5 double	45	2	61	61	64-66 70-72
+150	Arial 30.5 strike	45	2	61	61	46-48
+150	Arial 30.5 singleAccounting	45	2	61	61	75-78
+150	Arial 30.5 doubleAccounting	45	2	61	61	75-77 81-83
+150	Arial 31 single	45	2	61	61	69-73
+150	Arial 31 double	45	2	61	61	64-66 70-72
+150	Arial 31 strike	45	2	61	61	46-48
+150	Arial 31 singleAccounting	45	2	61	61	75-79
+150	Arial 31 doubleAccounting	45	2	61	61	75-77 81-83
+150	Arial 31.5 single	45.75	2	63	63	71-75
+150	Arial 31.5 double	45.75	2	63	63	67-69 73-75
+150	Arial 31.5 strike	45.75	2	63	63	48-50
+150	Arial 31.5 singleAccounting	45.75	2	63	63	78-82
+150	Arial 31.5 doubleAccounting	45.75	2	63	63	78-80 84-86
+150	Arial 32 single	47.25	2	65	65	73-77
+150	Arial 32 double	47.25	2	65	65	69-71 75-77
+150	Arial 32 strike	47.25	2	65	65	49-51
+150	Arial 32 singleAccounting	47.25	2	65	65	80-84
+150	Arial 32 doubleAccounting	47.25	2	65	65	80-82 86-88
+150	Arial 32.5 single	47.25	2	65	65	73-77
+150	Arial 32.5 double	47.25	2	65	65	69-71 75-77
+150	Arial 32.5 strike	47.25	2	65	65	49-51
+150	Arial 32.5 singleAccounting	47.25	2	65	65	80-84
+150	Arial 32.5 doubleAccounting	47.25	2	65	65	80-82 86-88
+150	Arial 33 single	48	2	66	66	74-78
+150	Arial 33 double	48	2	66	66	70-72 76-78
+150	Arial 33 strike	48	2	66	66	50-52
+150	Arial 33 singleAccounting	48	2	66	66	81-85
+150	Arial 33 doubleAccounting	48	2	66	66	81-83 87-89
+150	Arial 33.5 single	48.75	2	68	68	76-80
+150	Arial 33.5 double	48.75	2	68	68	72-74 78-80
+150	Arial 33.5 strike	48.75	2	68	68	52-54
+150	Arial 33.5 singleAccounting	48.75	2	68	68	84-88
+150	Arial 33.5 doubleAccounting	48.75	2	68	68	84-86 90-92
+150	Arial 34 single	48.75	2	68	68	76-80
+150	Arial 34 double	48.75	2	68	68	72-74 78-80
+150	Arial 34 strike	48.75	2	68	68	51-53
+150	Arial 34 singleAccounting	48.75	2	68	68	84-88
+150	Arial 34 doubleAccounting	48.75	2	68	68	84-86 90-92
+150	Arial 34.5 single	49.5	2	69	69	77-81
+150	Arial 34.5 double	49.5	2	69	69	73-75 79-81
+150	Arial 34.5 strike	49.5	2	69	69	52-54
+150	Arial 34.5 singleAccounting	49.5	2	69	69	85-89
+150	Arial 34.5 doubleAccounting	49.5	2	69	69	85-87 91-93
+150	Arial 35 single	50.25	2	71	71	79-83
+150	Arial 35 double	50.25	2	71	71	74-77 82-85
+150	Arial 35 strike	50.25	2	71	71	54-56
+150	Arial 35 singleAccounting	50.25	2	71	71	88-92
+150	Arial 35 doubleAccounting	50.25	2	71	71	88-91 96-99
+150	Arial 35.5 single	50.25	2	71	71	80-84
+150	Arial 35.5 double	50.25	2	71	71	74-77 82-85
+150	Arial 35.5 strike	50.25	2	71	71	54-57
+150	Arial 35.5 singleAccounting	50.25	2	71	71	88-92
+150	Arial 35.5 doubleAccounting	50.25	2	71	71	88-91 96-99
+150	Arial 36 single	53.25	2	72	72	81-85
+150	Arial 36 double	53.25	2	72	72	75-78 83-86
+150	Arial 36 strike	53.25	2	72	72	54-57
+150	Arial 36 singleAccounting	53.25	2	72	72	89-93
+150	Arial 36 doubleAccounting	53.25	2	72	72	89-92 97-100
+150	Arial 36.5 single	54.75	2	74	74	83-87
+150	Arial 36.5 double	54.75	2	74	74	77-80 85-88
+150	Arial 36.5 strike	54.75	2	74	74	56-59
+150	Arial 36.5 singleAccounting	54.75	2	74	74	91-95
+150	Arial 36.5 doubleAccounting	54.75	2	74	74	91-94 99-102
+150	Arial 37 single	54.75	2	74	74	83-87
+150	Arial 37 double	54.75	2	74	74	77-80 85-88
+150	Arial 37 strike	54.75	2	74	74	56-59
+150	Arial 37 singleAccounting	54.75	2	74	74	91-95
+150	Arial 37 doubleAccounting	54.75	2	74	74	91-94 99-102
+150	Arial 37.5 single	55.5	2	75	75	84-88
+150	Arial 37.5 double	55.5	2	75	75	78-81 86-89
+150	Arial 37.5 strike	55.5	2	75	75	57-60
+150	Arial 37.5 singleAccounting	55.5	2	75	75	92-96
+150	Arial 37.5 doubleAccounting	55.5	2	75	75	92-95 100-103
+150	Arial 38 single	56.25	2	77	77	86-91
+150	Arial 38 double	56.25	2	77	77	80-83 88-91
+150	Arial 38 strike	56.25	2	77	77	58-61
+150	Arial 38 singleAccounting	56.25	2	77	77	94-99
+150	Arial 38 doubleAccounting	56.25	2	77	77	94-97 102-105
+150	Arial 38.5 single	56.25	2	77	77	86-91
+150	Arial 38.5 double	56.25	2	77	77	81-84 89-92
+150	Arial 38.5 strike	56.25	2	77	77	58-61
+150	Arial 38.5 singleAccounting	56.25	2	77	77	95-100
+150	Arial 38.5 doubleAccounting	56.25	2	77	77	95-98 103-106
+150	Arial 39 single	57.75	2	78	78	87-92
+150	Arial 39 double	57.75	2	78	78	82-85 90-93
+150	Arial 39 strike	57.75	2	78	78	59-62
+150	Arial 39 singleAccounting	57.75	2	78	78	96-101
+150	Arial 39 doubleAccounting	57.75	2	78	78	96-99 104-107
+150	Arial 39.5 single	58.5	2	79	79	88-93
+150	Arial 39.5 double	58.5	2	79	79	83-86 91-94
+150	Arial 39.5 strike	58.5	2	79	79	60-63
+150	Arial 39.5 singleAccounting	58.5	2	79	79	97-102
+150	Arial 39.5 doubleAccounting	58.5	2	79	79	97-100 105-108
+150	Arial 40 single	58.5	2	79	79	88-93
+150	Arial 40 double	58.5	2	79	79	83-86 91-94
+150	Arial 40 strike	58.5	2	79	79	59-62
+150	Arial 40 singleAccounting	58.5	2	79	79	97-102
+150	Arial 40 doubleAccounting	58.5	2	79	79	97-100 105-108
+150	Arial 40.5 single	59.25	2	81	81	91-96
+150	Arial 40.5 double	59.25	2	81	81	85-88 93-96
+150	Arial 40.5 strike	59.25	2	81	81	61-64
+150	Arial 40.5 singleAccounting	59.25	2	81	81	100-105
+150	Arial 40.5 doubleAccounting	59.25	2	81	81	100-103 108-111
+150	Arial 41 single	60	2	82	82	92-97
+150	Arial 41 double	60	2	82	82	86-89 94-97
+150	Arial 41 strike	60	2	82	82	62-65
+150	Arial 41 singleAccounting	60	2	82	82	101-106
+150	Arial 41 doubleAccounting	60	2	82	82	101-104 109-112
+150	Arial 41.5 single	60	2	82	82	92-97
+150	Arial 41.5 double	60	2	82	82	86-89 94-97
+150	Arial 41.5 strike	60	2	82	82	62-65
+150	Arial 41.5 singleAccounting	60	2	82	82	101-106
+150	Arial 41.5 doubleAccounting	60	2	82	82	101-104 109-112
+150	Arial 42 single	61.5	2	84	84	94-99
+150	Arial 42 double	61.5	2	84	84	89-92 97-100
+150	Arial 42 strike	61.5	2	84	84	63-66
+150	Arial 42 singleAccounting	61.5	2	84	84	104-109
+150	Arial 42 doubleAccounting	61.5	2	84	84	104-107 112-115
+150	Arial 42.5 single	62.25	2	86	86	96-101
+150	Arial 42.5 double	62.25	2	86	86	91-94 99-102
+150	Arial 42.5 strike	62.25	2	86	86	65-68
+150	Arial 42.5 singleAccounting	62.25	2	86	86	106-111
+150	Arial 42.5 doubleAccounting	62.25	2	86	86	106-109 114-117
+150	Arial 43 single	62.25	2	86	86	96-101
+150	Arial 43 double	62.25	2	86	86	91-94 99-102
+150	Arial 43 strike	62.25	2	86	86	65-68
+150	Arial 43 singleAccounting	62.25	2	86	86	106-111
+150	Arial 43 doubleAccounting	62.25	2	86	86	106-109 114-117
+150	Arial 43.5 single	63	2	87	87	97-102
+150	Arial 43.5 double	63	2	87	87	92-95 100-103
+150	Arial 43.5 strike	63	2	87	87	65-68
+150	Arial 43.5 singleAccounting	63	2	87	87	107-112
+150	Arial 43.5 doubleAccounting	63	2	87	87	107-110 115-118
+150	Arial 44 single	63.75	2	89	89	99-104
+150	Arial 44 double	63.75	2	89	89	93-97 103-107
+150	Arial 44 strike	63.75	2	89	89	67-70
+150	Arial 44 singleAccounting	63.75	2	89	89	110-115
+150	Arial 44 doubleAccounting	63.75	2	89	89	110-114 120-124
+150	Arial 44.5 single	63.75	2	89	89	99-105
+150	Arial 44.5 double	63.75	2	89	89	93-97 103-107
+150	Arial 44.5 strike	63.75	2	89	89	67-70
+150	Arial 44.5 singleAccounting	63.75	2	89	89	110-116
+150	Arial 44.5 doubleAccounting	63.75	2	89	89	110-114 120-124
+150	Arial 45 single	64.5	2	90	90	101-107
+150	Arial 45 double	64.5	2	90	90	95-98 103-106
+150	Arial 45 strike	64.5	2	90	90	68-71
+150	Arial 45 singleAccounting	64.5	2	90	90	110-116
+150	Arial 45 doubleAccounting	64.5	2	90	90	110-113 118-121
+150	Arial 45.5 single	65.25	2	92	92	103-109
+150	Arial 45.5 double	65.25	2	92	92	96-100 106-110
+150	Arial 45.5 strike	65.25	2	92	92	69-73
+150	Arial 45.5 singleAccounting	65.25	2	92	92	113-119
+150	Arial 45.5 doubleAccounting	65.25	2	92	92	113-117 123-127
+150	Arial 46 single	65.25	2	92	92	103-109
+150	Arial 46 double	65.25	2	92	92	96-100 106-110
+150	Arial 46 strike	65.25	2	92	92	69-73
+150	Arial 46 singleAccounting	65.25	2	92	92	113-119
+150	Arial 46 doubleAccounting	65.25	2	92	92	113-117 123-127
+150	Arial 46.5 single	68.25	2	93	93	104-110
+150	Arial 46.5 double	68.25	2	93	93	97-101 107-111
+150	Arial 46.5 strike	68.25	2	93	93	70-74
+150	Arial 46.5 singleAccounting	68.25	2	93	93	114-120
+150	Arial 46.5 doubleAccounting	68.25	2	93	93	114-118 124-128
+150	Arial 47 single	69.75	2	95	95	106-112
+150	Arial 47 double	69.75	2	95	95	99-103 109-113
+150	Arial 47 strike	69.75	2	95	95	72-76
+150	Arial 47 singleAccounting	69.75	2	95	95	116-122
+150	Arial 47 doubleAccounting	69.75	2	95	95	116-120 126-130
+150	Arial 47.5 single	69.75	2	95	95	106-112
+150	Arial 47.5 double	69.75	2	95	95	99-103 109-113
+150	Arial 47.5 strike	69.75	2	95	95	71-75
+150	Arial 47.5 singleAccounting	69.75	2	95	95	117-123
+150	Arial 47.5 doubleAccounting	69.75	2	95	95	117-121 127-131
+150	Arial 48 single	70.5	2	96	96	107-113
+150	Arial 48 double	70.5	2	96	96	100-104 110-114
+150	Arial 48 strike	70.5	2	96	96	72-76
+150	Arial 48 singleAccounting	70.5	2	96	96	118-124
+150	Arial 48 doubleAccounting	70.5	2	96	96	118-122 128-132
+150	Arial 48.5 single	71.25	2	98	98	109-115
+150	Arial 48.5 double	71.25	2	98	98	102-106 112-116
+150	Arial 48.5 strike	71.25	2	98	98	74-78
+150	Arial 48.5 singleAccounting	71.25	2	98	98	120-126
+150	Arial 48.5 doubleAccounting	71.25	2	98	98	120-124 130-134
+150	Arial 49 single	71.25	2	98	98	109-115
+150	Arial 49 double	71.25	2	98	98	103-107 113-117
+150	Arial 49 strike	71.25	2	98	98	74-78
+150	Arial 49 singleAccounting	71.25	2	98	98	121-127
+150	Arial 49 doubleAccounting	71.25	2	98	98	121-125 131-135
+150	Arial 49.5 single	72	2	99	99	110-116
+150	Arial 49.5 double	72	2	99	99	104-108 114-118
+150	Arial 49.5 strike	72	2	99	99	74-78
+150	Arial 49.5 singleAccounting	72	2	99	99	122-128
+150	Arial 49.5 doubleAccounting	72	2	99	99	122-126 132-136
+150	Arial 50 single	73.5	2	100	100	112-118
+150	Arial 50 double	73.5	2	100	100	105-109 115-119
+150	Arial 50 strike	73.5	2	100	100	75-79
+150	Arial 50 singleAccounting	73.5	2	100	100	123-129
+150	Arial 50 doubleAccounting	73.5	2	100	100	123-127 133-137
+150	Arial 50.5 single	73.5	2	100	100	112-118
+150	Arial 50.5 double	73.5	2	100	100	105-109 115-119
+150	Arial 50.5 strike	73.5	2	100	100	75-79
+150	Arial 50.5 singleAccounting	73.5	2	100	100	123-129
+150	Arial 50.5 doubleAccounting	73.5	2	100	100	123-127 133-137
+150	Arial 51 single	74.25	2	102	102	114-120
+150	Arial 51 double	74.25	2	102	102	107-111 117-121
+150	Arial 51 strike	74.25	2	102	102	77-81
+150	Arial 51 singleAccounting	74.25	2	102	102	126-132
+150	Arial 51 doubleAccounting	74.25	2	102	102	126-130 136-140
+150	Arial 51.5 single	75	2	103	103	115-122
+150	Arial 51.5 double	75	2	103	103	108-112 118-122
+150	Arial 51.5 strike	75	2	103	103	77-81
+150	Arial 51.5 singleAccounting	75	2	103	103	127-134
+150	Arial 51.5 doubleAccounting	75	2	103	103	127-131 137-141
+150	Arial 52 single	75	2	103	103	115-122
+150	Arial 52 double	75	2	103	103	108-112 118-122
+150	Arial 52 strike	75	2	103	103	77-81
+150	Arial 52 singleAccounting	75	2	103	103	127-134
+150	Arial 52 doubleAccounting	75	2	103	103	127-131 137-141
+150	Arial 52.5 single	76.5	2	105	105	117-124
+150	Arial 52.5 double	76.5	2	105	105	109-114 121-126
+150	Arial 52.5 strike	76.5	2	105	105	79-83
+150	Arial 52.5 singleAccounting	76.5	2	105	105	130-137
+150	Arial 52.5 doubleAccounting	76.5	2	105	105	130-135 142-147
+150	Arial 53 single	77.25	2	107	107	119-126
+150	Arial 53 double	77.25	2	107	107	112-116 122-126
+150	Arial 53 strike	77.25	2	107	107	81-85
+150	Arial 53 singleAccounting	77.25	2	107	107	131-138
+150	Arial 53 doubleAccounting	77.25	2	107	107	131-135 141-145
+150	Arial 53.5 single	77.25	2	107	107	119-126
+150	Arial 53.5 double	77.25	2	107	107	112-116 122-126
+150	Arial 53.5 strike	77.25	2	107	107	80-84
+150	Arial 53.5 singleAccounting	77.25	2	107	107	131-138
+150	Arial 53.5 doubleAccounting	77.25	2	107	107	131-135 141-145
+150	Arial 54 single	78	2	108	108	120-127
+150	Arial 54 double	78	2	108	108	113-117 123-127
+150	Arial 54 strike	78	2	108	108	81-85
+150	Arial 54 singleAccounting	78	2	108	108	132-139
+150	Arial 54 doubleAccounting	78	2	108	108	132-136 142-146
+150	Arial 54.5 single	78.75	2	110	110	123-130
+150	Arial 54.5 double	78.75	2	110	110	114-119 126-131
+150	Arial 54.5 strike	78.75	2	110	110	83-87
+150	Arial 54.5 singleAccounting	78.75	2	110	110	135-142
+150	Arial 54.5 doubleAccounting	78.75	2	110	110	135-140 147-152
+150	Arial 55 single	78.75	2	110	110	123-130
+150	Arial 55 double	78.75	2	110	110	114-119 126-131
+150	Arial 55 strike	78.75	2	110	110	83-87
+150	Arial 55 singleAccounting	78.75	2	110	110	135-142
+150	Arial 55 doubleAccounting	78.75	2	110	110	135-140 147-152
+150	Arial 55.5 single	79.5	2	111	111	124-131
+150	Arial 55.5 double	79.5	2	111	111	115-120 127-132
+150	Arial 55.5 strike	79.5	2	111	111	83-88
+150	Arial 55.5 singleAccounting	79.5	2	111	111	136-143
+150	Arial 55.5 doubleAccounting	79.5	2	111	111	136-141 148-153
+150	Arial 56 single	80.25	2	113	113	126-133
+150	Arial 56 double	80.25	2	113	113	118-123 130-135
+150	Arial 56 strike	80.25	2	113	113	85-90
+150	Arial 56 singleAccounting	80.25	2	113	113	139-146
+150	Arial 56 doubleAccounting	80.25	2	113	113	139-144 151-156
+150	Arial 56.5 single	80.25	2	113	113	126-133
+150	Arial 56.5 double	80.25	2	113	113	118-123 130-135
+150	Arial 56.5 strike	80.25	2	113	113	85-90
+150	Arial 56.5 singleAccounting	80.25	2	113	113	139-146
+150	Arial 56.5 doubleAccounting	80.25	2	113	113	139-144 151-156
+150	Arial 57 single	83.25	2	114	114	127-134
+150	Arial 57 double	83.25	2	114	114	119-124 131-136
+150	Arial 57 strike	83.25	2	114	114	85-90
+150	Arial 57 singleAccounting	83.25	2	114	114	140-147
+150	Arial 57 doubleAccounting	83.25	2	114	114	140-145 152-157
+150	Arial 57.5 single	86.25	2	117	117	130-137
+150	Arial 57.5 double	86.25	2	117	117	122-127 134-139
+150	Arial 57.5 strike	86.25	2	117	117	88-93
+150	Arial 57.5 singleAccounting	86.25	2	117	117	143-150
+150	Arial 57.5 doubleAccounting	86.25	2	117	117	143-148 155-160
+150	Arial 58 single	86.25	2	117	117	130-137
+150	Arial 58 double	86.25	2	117	117	122-127 134-139
+150	Arial 58 strike	86.25	2	117	117	88-93
+150	Arial 58 singleAccounting	86.25	2	117	117	144-151
+150	Arial 58 doubleAccounting	86.25	2	117	117	144-149 156-161
+150	Arial 58.5 single	87	2	118	118	131-139
+150	Arial 58.5 double	87	2	118	118	123-128 135-140
+150	Arial 58.5 strike	87	2	118	118	89-94
+150	Arial 58.5 singleAccounting	87	2	118	118	145-153
+150	Arial 58.5 doubleAccounting	87	2	118	118	145-150 157-162
+150	Arial 59 single	87.75	2	120	120	134-142
+150	Arial 59 double	87.75	2	120	120	125-130 137-142
+150	Arial 59 strike	87.75	2	120	120	90-95
+150	Arial 59 singleAccounting	87.75	2	120	120	147-155
+150	Arial 59 doubleAccounting	87.75	2	120	120	147-152 159-164
+150	Arial 59.5 single	87.75	2	120	120	134-142
+150	Arial 59.5 double	87.75	2	120	120	126-131 138-143
+150	Arial 59.5 strike	87.75	2	120	120	90-95
+150	Arial 59.5 singleAccounting	87.75	2	120	120	148-156
+150	Arial 59.5 doubleAccounting	87.75	2	120	120	148-153 160-165
+150	Arial 60 single	88.5	2	121	121	135-143
+150	Arial 60 double	88.5	2	121	121	127-132 139-144
+150	Arial 60 strike	88.5	2	121	121	91-96
+150	Arial 60 singleAccounting	88.5	2	121	121	149-157
+150	Arial 60 doubleAccounting	88.5	2	121	121	149-154 161-166
+150	Arial 60.5 single	90	2	123	123	137-145
+150	Arial 60.5 double	90	2	123	123	129-134 141-146
+150	Arial 60.5 strike	90	2	123	123	93-98
+150	Arial 60.5 singleAccounting	90	2	123	123	151-159
+150	Arial 60.5 doubleAccounting	90	2	123	123	151-156 163-168
+150	Arial 61 single	90	2	123	123	137-145
+150	Arial 61 double	90	2	123	123	129-134 141-146
+150	Arial 61 strike	90	2	123	123	92-97
+150	Arial 61 singleAccounting	90	2	123	123	151-159
+150	Arial 61 doubleAccounting	90	2	123	123	151-156 163-168
+150	Arial 61.5 single	90.75	2	125	125	139-147
+150	Arial 61.5 double	90.75	2	125	125	131-136 143-148
+150	Arial 61.5 strike	90.75	2	125	125	94-99
+150	Arial 61.5 singleAccounting	90.75	2	125	125	153-161
+150	Arial 61.5 doubleAccounting	90.75	2	125	125	153-158 165-170
+150	Arial 62 single	91.5	2	126	126	140-148
+150	Arial 62 double	91.5	2	126	126	132-137 144-149
+150	Arial 62 strike	91.5	2	126	126	95-100
+150	Arial 62 singleAccounting	91.5	2	126	126	154-162
+150	Arial 62 doubleAccounting	91.5	2	126	126	154-159 166-171
+150	Arial 62.5 single	91.5	2	126	126	140-148
+150	Arial 62.5 double	91.5	2	126	126	132-137 144-149
+150	Arial 62.5 strike	91.5	2	126	126	95-100
+150	Arial 62.5 singleAccounting	91.5	2	126	126	154-162
+150	Arial 62.5 doubleAccounting	91.5	2	126	126	154-159 166-171
+150	Arial 63 single	93	2	127	127	141-149
+150	Arial 63 double	93	2	127	127	132-138 146-152
+150	Arial 63 strike	93	2	127	127	95-100
+150	Arial 63 singleAccounting	93	2	127	127	156-164
+150	Arial 63 doubleAccounting	93	2	127	127	156-162 170-176
+150	Arial 63.5 single	93.75	2	129	129	143-151
+150	Arial 63.5 double	93.75	2	129	129	134-140 148-154
+150	Arial 63.5 strike	93.75	2	129	129	97-102
+150	Arial 63.5 singleAccounting	93.75	2	129	129	158-166
+150	Arial 63.5 doubleAccounting	93.75	2	129	129	158-164 172-178
+150	Arial 64 single	93.75	2	129	129	144-152
+150	Arial 64 double	93.75	2	129	129	134-140 148-154
+150	Arial 64 strike	93.75	2	129	129	97-102
+150	Arial 64 singleAccounting	93.75	2	129	129	158-166
+150	Arial 64 doubleAccounting	93.75	2	129	129	158-164 172-178
+150	Arial 64.5 single	94.5	2	130	130	145-153
+150	Arial 64.5 double	94.5	2	130	130	135-141 149-155
+150	Arial 64.5 strike	94.5	2	130	130	98-103
+150	Arial 64.5 singleAccounting	94.5	2	130	130	159-167
+150	Arial 64.5 doubleAccounting	94.5	2	130	130	159-165 173-179
+150	Arial 65 single	95.25	2	132	132	147-156
+150	Arial 65 double	95.25	2	132	132	137-143 151-157
+150	Arial 65 strike	95.25	2	132	132	99-104
+150	Arial 65 singleAccounting	95.25	2	132	132	162-171
+150	Arial 65 doubleAccounting	95.25	2	132	132	162-168 176-182
+150	Arial 65.5 single	95.25	2	132	132	147-156
+150	Arial 65.5 double	95.25	2	132	132	137-143 151-157
+150	Arial 65.5 strike	95.25	2	132	132	99-105
+150	Arial 65.5 singleAccounting	95.25	2	132	132	162-171
+150	Arial 65.5 doubleAccounting	95.25	2	132	132	162-168 176-182
+150	Arial 66 single	96.75	2	134	134	149-158
+150	Arial 66 double	96.75	2	134	134	139-145 153-159
+150	Arial 66 strike	96.75	2	134	134	101-107
+150	Arial 66 singleAccounting	96.75	2	134	134	164-173
+150	Arial 66 doubleAccounting	96.75	2	134	134	164-170 178-184
+150	Arial 66.5 single	99.75	2	135	135	150-159
+150	Arial 66.5 double	99.75	2	135	135	141-147 155-161
+150	Arial 66.5 strike	99.75	2	135	135	102-108
+150	Arial 66.5 singleAccounting	99.75	2	135	135	166-175
+150	Arial 66.5 doubleAccounting	99.75	2	135	135	166-172 180-186
+150	Arial 67 single	99.75	2	135	135	150-159
+150	Arial 67 double	99.75	2	135	135	141-147 155-161
+150	Arial 67 strike	99.75	2	135	135	101-107
+150	Arial 67 singleAccounting	99.75	2	135	135	166-175
+150	Arial 67 doubleAccounting	99.75	2	135	135	166-172 180-186
+150	Arial 67.5 single	99.75	2	137	137	152-161
+150	Arial 67.5 double	99.75	2	137	137	143-149 157-163
+150	Arial 67.5 strike	99.75	2	137	137	103-109
+150	Arial 67.5 singleAccounting	99.75	2	137	137	168-177
+150	Arial 67.5 doubleAccounting	99.75	2	137	137	168-174 182-188
+150	Arial 68 single	101.25	2	138	138	153-162
+150	Arial 68 double	101.25	2	138	138	144-150 158-164
+150	Arial 68 strike	101.25	2	138	138	104-110
+150	Arial 68 singleAccounting	101.25	2	138	138	169-178
+150	Arial 68 doubleAccounting	101.25	2	138	138	169-175 183-189
+150	Arial 68.5 single	101.25	2	138	138	154-163
+150	Arial 68.5 double	101.25	2	138	138	144-150 158-164
+150	Arial 68.5 strike	101.25	2	138	138	104-110
+150	Arial 68.5 singleAccounting	101.25	2	138	138	170-179
+150	Arial 68.5 doubleAccounting	101.25	2	138	138	170-176 184-190
+150	Arial 69 single	102	2	139	139	155-164
+150	Arial 69 double	102	2	139	139	145-151 159-165
+150	Arial 69 strike	102	2	139	139	104-110
+150	Arial 69 singleAccounting	102	2	139	139	171-180
+150	Arial 69 doubleAccounting	102	2	139	139	171-177 185-191
+150	Arial 69.5 single	102.75	2	141	141	157-166
+150	Arial 69.5 double	102.75	2	141	141	147-153 161-167
+150	Arial 69.5 strike	102.75	2	141	141	106-112
+150	Arial 69.5 singleAccounting	102.75	2	141	141	172-181
+150	Arial 69.5 doubleAccounting	102.75	2	141	141	172-178 186-192
+150	Arial 70 single	102.75	2	141	141	157-166
+150	Arial 70 double	102.75	2	141	141	147-153 161-167
+150	Arial 70 strike	102.75	2	141	141	106-112
+150	Arial 70 singleAccounting	102.75	2	141	141	173-182
+150	Arial 70 doubleAccounting	102.75	2	141	141	173-179 187-193
+150	Arial 70.5 single	103.5	2	142	142	158-167
+150	Arial 70.5 double	103.5	2	142	142	148-154 162-168
+150	Arial 70.5 strike	103.5	2	142	142	107-113
+150	Arial 70.5 singleAccounting	103.5	2	142	142	174-183
+150	Arial 70.5 doubleAccounting	103.5	2	142	142	174-180 188-194
+150	Arial 71 single	105	2	144	144	160-169
+150	Arial 71 double	105	2	144	144	150-156 164-170
+150	Arial 71 strike	105	2	144	144	108-114
+150	Arial 71 singleAccounting	105	2	144	144	176-185
+150	Arial 71 doubleAccounting	105	2	144	144	176-182 190-196
+150	Arial 71.5 single	105	2	144	144	160-169
+150	Arial 71.5 double	105	2	144	144	150-156 164-170
+150	Arial 71.5 strike	105	2	144	144	108-114
+150	Arial 71.5 singleAccounting	105	2	144	144	176-185
+150	Arial 71.5 doubleAccounting	105	2	144	144	176-182 190-196
+150	Arial 72 single	105.75	2	146	146	162-172
+150	Arial 72 double	105.75	2	146	146	151-158 167-174
+150	Arial 72 strike	105.75	2	146	146	110-116
+150	Arial 72 singleAccounting	105.75	2	146	146	179-189
+150	Arial 72 doubleAccounting	105.75	2	146	146	179-186 195-202
+200	Arial 29 single	43.5	2.66667	78	78	87-92
+200	Arial 29 double	43.5	2.66667	78	78	82-85 90-93
+200	Arial 29 strike	43.5	2.66667	78	78	59-62
+200	Arial 29 singleAccounting	43.5	2.66667	78	78	96-101
+200	Arial 29 doubleAccounting	43.5	2.66667	78	78	96-99 104-107
+200	Arial 29.5 single	43.5	2.66667	78	78	87-92
+200	Arial 29.5 double	43.5	2.66667	78	78	82-85 90-93
+200	Arial 29.5 strike	43.5	2.66667	78	78	59-62
+200	Arial 29.5 singleAccounting	43.5	2.66667	78	78	96-101
+200	Arial 29.5 doubleAccounting	43.5	2.66667	78	78	96-99 104-107
+200	Arial 30 single	44.25	2.66667	80	80	89-94
+200	Arial 30 double	44.25	2.66667	80	80	84-87 92-95
+200	Arial 30 strike	44.25	2.66667	80	80	60-63
+200	Arial 30 singleAccounting	44.25	2.66667	80	80	98-103
+200	Arial 30 doubleAccounting	44.25	2.66667	80	80	98-101 106-109
+200	Arial 30.5 single	45	2.66667	82	82	92-97
+200	Arial 30.5 double	45	2.66667	82	82	86-89 94-97
+200	Arial 30.5 strike	45	2.66667	82	82	62-65
+200	Arial 30.5 singleAccounting	45	2.66667	82	82	101-106
+200	Arial 30.5 doubleAccounting	45	2.66667	82	82	101-104 109-112
+200	Arial 31 single	45	2.66667	82	82	92-97
+200	Arial 31 double	45	2.66667	82	82	86-89 94-97
+200	Arial 31 strike	45	2.66667	82	82	62-65
+200	Arial 31 singleAccounting	45	2.66667	82	82	101-106
+200	Arial 31 doubleAccounting	45	2.66667	82	82	101-104 109-112
+200	Arial 31.5 single	45.75	2.66667	84	84	94-99
+200	Arial 31.5 double	45.75	2.66667	84	84	89-92 97-100
+200	Arial 31.5 strike	45.75	2.66667	84	84	63-66
+200	Arial 31.5 singleAccounting	45.75	2.66667	84	84	104-109
+200	Arial 31.5 doubleAccounting	45.75	2.66667	84	84	104-107 112-115
+200	Arial 32 single	47.25	2.66667	86	86	96-101
+200	Arial 32 double	47.25	2.66667	86	86	91-94 99-102
+200	Arial 32 strike	47.25	2.66667	86	86	65-68
+200	Arial 32 singleAccounting	47.25	2.66667	86	86	106-111
+200	Arial 32 doubleAccounting	47.25	2.66667	86	86	106-109 114-117
+200	Arial 32.5 single	47.25	2.66667	86	86	96-101
+200	Arial 32.5 double	47.25	2.66667	86	86	91-94 99-102
+200	Arial 32.5 strike	47.25	2.66667	86	86	64-67
+200	Arial 32.5 singleAccounting	47.25	2.66667	86	86	106-111
+200	Arial 32.5 doubleAccounting	47.25	2.66667	86	86	106-109 114-117
+200	Arial 33 single	48	2.66667	88	88	98-103
+200	Arial 33 double	48	2.66667	88	88	92-96 102-106
+200	Arial 33 strike	48	2.66667	88	88	66-69
+200	Arial 33 singleAccounting	48	2.66667	88	88	109-114
+200	Arial 33 doubleAccounting	48	2.66667	88	88	109-113 119-123
+200	Arial 33.5 single	48.75	2.66667	90	90	100-106
+200	Arial 33.5 double	48.75	2.66667	90	90	94-98 104-108
+200	Arial 33.5 strike	48.75	2.66667	90	90	68-71
+200	Arial 33.5 singleAccounting	48.75	2.66667	90	90	111-117
+200	Arial 33.5 doubleAccounting	48.75	2.66667	90	90	111-115 121-125
+200	Arial 34 single	48.75	2.66667	90	90	101-107
+200	Arial 34 double	48.75	2.66667	90	90	94-98 104-108
+200	Arial 34 strike	48.75	2.66667	90	90	67-71
+200	Arial 34 singleAccounting	48.75	2.66667	90	90	111-117
+200	Arial 34 doubleAccounting	48.75	2.66667	90	90	111-115 121-125
+200	Arial 34.5 single	49.5	2.66667	92	92	103-109
+200	Arial 34.5 double	49.5	2.66667	92	92	96-100 106-110
+200	Arial 34.5 strike	49.5	2.66667	92	92	69-73
+200	Arial 34.5 singleAccounting	49.5	2.66667	92	92	113-119
+200	Arial 34.5 doubleAccounting	49.5	2.66667	92	92	113-117 123-127
+200	Arial 35 single	50.25	2.66667	94	94	105-111
+200	Arial 35 double	50.25	2.66667	94	94	98-102 108-112
+200	Arial 35 strike	50.25	2.66667	94	94	71-75
+200	Arial 35 singleAccounting	50.25	2.66667	94	94	115-121
+200	Arial 35 doubleAccounting	50.25	2.66667	94	94	115-119 125-129
+200	Arial 35.5 single	50.25	2.66667	94	94	105-111
+200	Arial 35.5 double	50.25	2.66667	94	94	98-102 108-112
+200	Arial 35.5 strike	50.25	2.66667	94	94	70-74
+200	Arial 35.5 singleAccounting	50.25	2.66667	94	94	116-122
+200	Arial 35.5 doubleAccounting	50.25	2.66667	94	94	116-120 126-130
+200	Arial 36 single	53.25	2.66667	96	96	107-113
+200	Arial 36 double	53.25	2.66667	96	96	100-104 110-114
+200	Arial 36 strike	53.25	2.66667	96	96	72-76
+200	Arial 36 singleAccounting	53.25	2.66667	96	96	118-124
+200	Arial 36 doubleAccounting	53.25	2.66667	96	96	118-122 128-132
+200	Arial 36.5 single	54.75	2.66667	98	98	109-115
+200	Arial 36.5 double	54.75	2.66667	98	98	102-106 112-116
+200	Arial 36.5 strike	54.75	2.66667	98	98	74-78
+200	Arial 36.5 singleAccounting	54.75	2.66667	98	98	120-126
+200	Arial 36.5 doubleAccounting	54.75	2.66667	98	98	120-124 130-134
+200	Arial 37 single	54.75	2.66667	98	98	109-115
+200	Arial 37 double	54.75	2.66667	98	98	103-107 113-117
+200	Arial 37 strike	54.75	2.66667	98	98	73-77
+200	Arial 37 singleAccounting	54.75	2.66667	98	98	121-127
+200	Arial 37 doubleAccounting	54.75	2.66667	98	98	121-125 131-135
+200	Arial 37.5 single	55.5	2.66667	100	100	112-118
+200	Arial 37.5 double	55.5	2.66667	100	100	105-109 115-119
+200	Arial 37.5 strike	55.5	2.66667	100	100	75-79
+200	Arial 37.5 singleAccounting	55.5	2.66667	100	100	123-129
+200	Arial 37.5 doubleAccounting	55.5	2.66667	100	100	123-127 133-137
+200	Arial 38 single	56.25	2.66667	102	102	114-120
+200	Arial 38 double	56.25	2.66667	102	102	107-111 117-121
+200	Arial 38 strike	56.25	2.66667	102	102	77-81
+200	Arial 38 singleAccounting	56.25	2.66667	102	102	125-131
+200	Arial 38 doubleAccounting	56.25	2.66667	102	102	125-129 135-139
+200	Arial 38.5 single	56.25	2.66667	102	102	114-121
+200	Arial 38.5 double	56.25	2.66667	102	102	107-111 117-121
+200	Arial 38.5 strike	56.25	2.66667	102	102	76-80
+200	Arial 38.5 singleAccounting	56.25	2.66667	102	102	126-133
+200	Arial 38.5 doubleAccounting	56.25	2.66667	102	102	126-130 136-140
+200	Arial 39 single	57.75	2.66667	104	104	116-123
+200	Arial 39 double	57.75	2.66667	104	104	109-113 119-123
+200	Arial 39 strike	57.75	2.66667	104	104	78-82
+200	Arial 39 singleAccounting	57.75	2.66667	104	104	128-135
+200	Arial 39 doubleAccounting	57.75	2.66667	104	104	128-132 138-142
+200	Arial 39.5 single	58.5	2.66667	106	106	118-125
+200	Arial 39.5 double	58.5	2.66667	106	106	110-115 122-127
+200	Arial 39.5 strike	58.5	2.66667	106	106	80-84
+200	Arial 39.5 singleAccounting	58.5	2.66667	106	106	131-138
+200	Arial 39.5 doubleAccounting	58.5	2.66667	106	106	131-136 143-148
+200	Arial 40 single	58.5	2.66667	106	106	118-125
+200	Arial 40 double	58.5	2.66667	106	106	111-115 121-125
+200	Arial 40 strike	58.5	2.66667	106	106	79-83
+200	Arial 40 singleAccounting	58.5	2.66667	106	106	130-137
+200	Arial 40 doubleAccounting	58.5	2.66667	106	106	130-134 140-144
+200	Arial 40.5 single	59.25	2.66667	108	108	120-127
+200	Arial 40.5 double	59.25	2.66667	108	108	113-117 123-127
+200	Arial 40.5 strike	59.25	2.66667	108	108	81-85
+200	Arial 40.5 singleAccounting	59.25	2.66667	108	108	132-139
+200	Arial 40.5 doubleAccounting	59.25	2.66667	108	108	132-136 142-146
+200	Arial 41 single	60	2.66667	110	110	123-130
+200	Arial 41 double	60	2.66667	110	110	114-119 126-131
+200	Arial 41 strike	60	2.66667	110	110	83-87
+200	Arial 41 singleAccounting	60	2.66667	110	110	135-142
+200	Arial 41 doubleAccounting	60	2.66667	110	110	135-140 147-152
+200	Arial 41.5 single	60	2.66667	110	110	123-130
+200	Arial 41.5 double	60	2.66667	110	110	114-119 126-131
+200	Arial 41.5 strike	60	2.66667	110	110	82-87
+200	Arial 41.5 singleAccounting	60	2.66667	110	110	135-142
+200	Arial 41.5 doubleAccounting	60	2.66667	110	110	135-140 147-152
+200	Arial 42 single	61.5	2.66667	112	112	125-132
+200	Arial 42 double	61.5	2.66667	112	112	117-122 129-134
+200	Arial 42 strike	61.5	2.66667	112	112	84-89
+200	Arial 42 singleAccounting	61.5	2.66667	112	112	138-145
+200	Arial 42 doubleAccounting	61.5	2.66667	112	112	138-143 150-155
+200	Arial 42.5 single	62.25	2.66667	114	114	127-134
+200	Arial 42.5 double	62.25	2.66667	114	114	119-124 131-136
+200	Arial 42.5 strike	62.25	2.66667	114	114	86-91
+200	Arial 42.5 singleAccounting	62.25	2.66667	114	114	140-147
+200	Arial 42.5 doubleAccounting	62.25	2.66667	114	114	140-145 152-157
+200	Arial 43 single	62.25	2.66667	114	114	127-134
+200	Arial 43 double	62.25	2.66667	114	114	119-124 131-136
+200	Arial 43 strike	62.25	2.66667	114	114	85-90
+200	Arial 43 singleAccounting	62.25	2.66667	114	114	140-147
+200	Arial 43 doubleAccounting	62.25	2.66667	114	114	140-145 152-157
+200	Arial 43.5 single	63	2.66667	116	116	129-136
+200	Arial 43.5 double	63	2.66667	116	116	121-126 133-138
+200	Arial 43.5 strike	63	2.66667	116	116	87-92
+200	Arial 43.5 singleAccounting	63	2.66667	116	116	143-150
+200	Arial 43.5 doubleAccounting	63	2.66667	116	116	143-148 155-160
+200	Arial 44 single	63.75	2.66667	118	118	131-139
+200	Arial 44 double	63.75	2.66667	118	118	123-128 135-140
+200	Arial 44 strike	63.75	2.66667	118	118	89-94
+200	Arial 44 singleAccounting	63.75	2.66667	118	118	145-153
+200	Arial 44 doubleAccounting	63.75	2.66667	118	118	145-150 157-162
+200	Arial 44.5 single	63.75	2.66667	118	118	132-140
+200	Arial 44.5 double	63.75	2.66667	118	118	124-129 136-141
+200	Arial 44.5 strike	63.75	2.66667	118	118	88-93
+200	Arial 44.5 singleAccounting	63.75	2.66667	118	118	146-154
+200	Arial 44.5 doubleAccounting	63.75	2.66667	118	118	146-151 158-163
+200	Arial 45 single	64.5	2.66667	120	120	134-142
+200	Arial 45 double	64.5	2.66667	120	120	126-131 138-143
+200	Arial 45 strike	64.5	2.66667	120	120	90-95
+200	Arial 45 singleAccounting	64.5	2.66667	120	120	148-156
+200	Arial 45 doubleAccounting	64.5	2.66667	120	120	148-153 160-165
+200	Arial 45.5 single	65.25	2.66667	122	122	136-144
+200	Arial 45.5 double	65.25	2.66667	122	122	128-133 140-145
+200	Arial 45.5 strike	65.25	2.66667	122	122	92-97
+200	Arial 45.5 singleAccounting	65.25	2.66667	122	122	150-158
+200	Arial 45.5 doubleAccounting	65.25	2.66667	122	122	150-155 162-167
+200	Arial 46 single	65.25	2.66667	122	122	136-144
+200	Arial 46 double	65.25	2.66667	122	122	128-133 140-145
+200	Arial 46 strike	65.25	2.66667	122	122	91-96
+200	Arial 46 singleAccounting	65.25	2.66667	122	122	150-158
+200	Arial 46 doubleAccounting	65.25	2.66667	122	122	150-155 162-167
+200	Arial 46.5 single	68.25	2.66667	124	124	138-146
+200	Arial 46.5 double	68.25	2.66667	124	124	130-135 142-147
+200	Arial 46.5 strike	68.25	2.66667	124	124	93-98
+200	Arial 46.5 singleAccounting	68.25	2.66667	124	124	152-160
+200	Arial 46.5 doubleAccounting	68.25	2.66667	124	124	152-157 164-169
+200	Arial 47 single	69.75	2.66667	126	126	140-148
+200	Arial 47 double	69.75	2.66667	126	126	132-137 144-149
+200	Arial 47 strike	69.75	2.66667	126	126	95-100
+200	Arial 47 singleAccounting	69.75	2.66667	126	126	154-162
+200	Arial 47 doubleAccounting	69.75	2.66667	126	126	154-159 166-171
+200	Arial 47.5 single	69.75	2.66667	126	126	140-148
+200	Arial 47.5 double	69.75	2.66667	126	126	131-137 145-151
+200	Arial 47.5 strike	69.75	2.66667	126	126	94-99
+200	Arial 47.5 singleAccounting	69.75	2.66667	126	126	155-163
+200	Arial 47.5 doubleAccounting	69.75	2.66667	126	126	155-161 169-175
+200	Arial 48 single	70.5	2.66667	128	128	143-151
+200	Arial 48 double	70.5	2.66667	128	128	133-139 147-153
+200	Arial 48 strike	70.5	2.66667	128	128	96-101
+200	Arial 48 singleAccounting	70.5	2.66667	128	128	157-165
+200	Arial 48 doubleAccounting	70.5	2.66667	128	128	157-163 171-177
+200	Arial 48.5 single	71.25	2.66667	130	130	145-153
+200	Arial 48.5 double	71.25	2.66667	130	130	135-141 149-155
+200	Arial 48.5 strike	71.25	2.66667	130	130	98-103
+200	Arial 48.5 singleAccounting	71.25	2.66667	130	130	159-167
+200	Arial 48.5 doubleAccounting	71.25	2.66667	130	130	159-165 173-179
+200	Arial 49 single	71.25	2.66667	130	130	145-154
+200	Arial 49 double	71.25	2.66667	130	130	135-141 149-155
+200	Arial 49 strike	71.25	2.66667	130	130	97-103
+200	Arial 49 singleAccounting	71.25	2.66667	130	130	160-169
+200	Arial 49 doubleAccounting	71.25	2.66667	130	130	160-166 174-180
+200	Arial 49.5 single	72	2.66667	132	132	147-156
+200	Arial 49.5 double	72	2.66667	132	132	137-143 151-157
+200	Arial 49.5 strike	72	2.66667	132	132	99-105
+200	Arial 49.5 singleAccounting	72	2.66667	132	132	162-171
+200	Arial 49.5 doubleAccounting	72	2.66667	132	132	162-168 176-182
+200	Arial 50 single	73.5	2.66667	134	134	149-158
+200	Arial 50 double	73.5	2.66667	134	134	140-146 154-160
+200	Arial 50 strike	73.5	2.66667	134	134	101-107
+200	Arial 50 singleAccounting	73.5	2.66667	134	134	165-174
+200	Arial 50 doubleAccounting	73.5	2.66667	134	134	165-171 179-185
+200	Arial 50.5 single	73.5	2.66667	134	134	149-158
+200	Arial 50.5 double	73.5	2.66667	134	134	140-146 154-160
+200	Arial 50.5 strike	73.5	2.66667	134	134	100-106
+200	Arial 50.5 singleAccounting	73.5	2.66667	134	134	165-174
+200	Arial 50.5 doubleAccounting	73.5	2.66667	134	134	165-171 179-185
+200	Arial 51 single	74.25	2.66667	136	136	151-160
+200	Arial 51 double	74.25	2.66667	136	136	142-148 156-162
+200	Arial 51 strike	74.25	2.66667	136	136	102-108
+200	Arial 51 singleAccounting	74.25	2.66667	136	136	167-176
+200	Arial 51 doubleAccounting	74.25	2.66667	136	136	167-173 181-187
+200	Arial 51.5 single	75	2.66667	138	138	154-163
+200	Arial 51.5 double	75	2.66667	138	138	144-150 158-164
+200	Arial 51.5 strike	75	2.66667	138	138	104-110
+200	Arial 51.5 singleAccounting	75	2.66667	138	138	170-179
+200	Arial 51.5 doubleAccounting	75	2.66667	138	138	170-176 184-190
+200	Arial 52 single	75	2.66667	138	138	154-163
+200	Arial 52 double	75	2.66667	138	138	144-150 158-164
+200	Arial 52 strike	75	2.66667	138	138	103-109
+200	Arial 52 singleAccounting	75	2.66667	138	138	169-178
+200	Arial 52 doubleAccounting	75	2.66667	138	138	169-175 183-189
+200	Arial 52.5 single	76.5	2.66667	140	140	156-165
+200	Arial 52.5 double	76.5	2.66667	140	140	146-152 160-166
+200	Arial 52.5 strike	76.5	2.66667	140	140	105-111
+200	Arial 52.5 singleAccounting	76.5	2.66667	140	140	172-181
+200	Arial 52.5 doubleAccounting	76.5	2.66667	140	140	172-178 186-192
+200	Arial 53 single	77.25	2.66667	142	142	158-167
+200	Arial 53 double	77.25	2.66667	142	142	148-154 162-168
+200	Arial 53 strike	77.25	2.66667	142	142	107-113
+200	Arial 53 singleAccounting	77.25	2.66667	142	142	174-183
+200	Arial 53 doubleAccounting	77.25	2.66667	142	142	174-180 188-194
+200	Arial 53.5 single	77.25	2.66667	142	142	158-167
+200	Arial 53.5 double	77.25	2.66667	142	142	148-154 162-168
+200	Arial 53.5 strike	77.25	2.66667	142	142	106-112
+200	Arial 53.5 singleAccounting	77.25	2.66667	142	142	174-183
+200	Arial 53.5 doubleAccounting	77.25	2.66667	142	142	174-180 188-194
+200	Arial 54 single	78	2.66667	144	144	160-170
+200	Arial 54 double	78	2.66667	144	144	149-156 165-172
+200	Arial 54 strike	78	2.66667	144	144	108-114
+200	Arial 54 singleAccounting	78	2.66667	144	144	177-187
+200	Arial 54 doubleAccounting	78	2.66667	144	144	177-184 193-200
+200	Arial 54.5 single	78.75	2.66667	146	146	162-172
+200	Arial 54.5 double	78.75	2.66667	146	146	151-158 167-174
+200	Arial 54.5 strike	78.75	2.66667	146	146	109-115
+200	Arial 54.5 singleAccounting	78.75	2.66667	146	146	179-189
+200	Arial 54.5 doubleAccounting	78.75	2.66667	146	146	179-186 195-202
+200	Arial 55 single	78.75	2.66667	146	146	163-173
+200	Arial 55 double	78.75	2.66667	146	146	152-159 168-175
+200	Arial 55 strike	78.75	2.66667	146	146	109-115
+200	Arial 55 singleAccounting	78.75	2.66667	146	146	180-190
+200	Arial 55 doubleAccounting	78.75	2.66667	146	146	180-187 196-203
+200	Arial 55.5 single	79.5	2.66667	148	148	165-175
+200	Arial 55.5 double	79.5	2.66667	148	148	154-161 170-177
+200	Arial 55.5 strike	79.5	2.66667	148	148	111-117
+200	Arial 55.5 singleAccounting	79.5	2.66667	148	148	182-192
+200	Arial 55.5 doubleAccounting	79.5	2.66667	148	148	182-189 198-205
+200	Arial 56 single	80.25	2.66667	150	150	167-177
+200	Arial 56 double	80.25	2.66667	150	150	156-163 172-179
+200	Arial 56 strike	80.25	2.66667	150	150	112-118
+200	Arial 56 singleAccounting	80.25	2.66667	150	150	184-194
+200	Arial 56 doubleAccounting	80.25	2.66667	150	150	184-191 200-207
+200	Arial 56.5 single	80.25	2.66667	150	150	167-177
+200	Arial 56.5 double	80.25	2.66667	150	150	155-162 171-178
+200	Arial 56.5 strike	80.25	2.66667	150	150	112-119
+200	Arial 56.5 singleAccounting	80.25	2.66667	150	150	183-193
+200	Arial 56.5 doubleAccounting	80.25	2.66667	150	150	183-190 199-206
+200	Arial 57 single	83.25	2.66667	152	152	169-179
+200	Arial 57 double	83.25	2.66667	152	152	158-165 174-181
+200	Arial 57 strike	83.25	2.66667	152	152	114-121
+200	Arial 57 singleAccounting	83.25	2.66667	152	152	186-196
+200	Arial 57 doubleAccounting	83.25	2.66667	152	152	186-193 202-209
+200	Arial 57.5 single	86.25	2.66667	156	156	173-183
+200	Arial 57.5 double	86.25	2.66667	156	156	162-169 178-185
+200	Arial 57.5 strike	86.25	2.66667	156	156	117-124
+200	Arial 57.5 singleAccounting	86.25	2.66667	156	156	190-200
+200	Arial 57.5 doubleAccounting	86.25	2.66667	156	156	190-197 206-213
+200	Arial 58 single	86.25	2.66667	156	156	173-183
+200	Arial 58 double	86.25	2.66667	156	156	162-169 178-185
+200	Arial 58 strike	86.25	2.66667	156	156	117-124
+200	Arial 58 singleAccounting	86.25	2.66667	156	156	191-201
+200	Arial 58 doubleAccounting	86.25	2.66667	156	156	191-198 207-214
+200	Arial 58.5 single	87	2.66667	158	158	176-186
+200	Arial 58.5 double	87	2.66667	158	158	164-171 180-187
+200	Arial 58.5 strike	87	2.66667	158	158	119-126
+200	Arial 58.5 singleAccounting	87	2.66667	158	158	193-203
+200	Arial 58.5 doubleAccounting	87	2.66667	158	158	193-200 209-216
+200	Arial 59 single	87.75	2.66667	160	160	178-188
+200	Arial 59 double	87.75	2.66667	160	160	166-173 182-189
+200	Arial 59 strike	87.75	2.66667	160	160	120-127
+200	Arial 59 singleAccounting	87.75	2.66667	160	160	195-205
+200	Arial 59 doubleAccounting	87.75	2.66667	160	160	195-202 211-218
+200	Arial 59.5 single	87.75	2.66667	160	160	178-189
+200	Arial 59.5 double	87.75	2.66667	160	160	166-173 182-189
+200	Arial 59.5 strike	87.75	2.66667	160	160	120-127
+200	Arial 59.5 singleAccounting	87.75	2.66667	160	160	195-206
+200	Arial 59.5 doubleAccounting	87.75	2.66667	160	160	195-202 211-218
+200	Arial 60 single	88.5	2.66667	162	162	180-191
+200	Arial 60 double	88.5	2.66667	162	162	168-175 184-191
+200	Arial 60 strike	88.5	2.66667	162	162	122-129
+200	Arial 60 singleAccounting	88.5	2.66667	162	162	197-208
+200	Arial 60 doubleAccounting	88.5	2.66667	162	162	197-204 213-220
+200	Arial 60.5 single	90	2.66667	164	164	182-193
+200	Arial 60.5 double	90	2.66667	164	164	171-178 187-194
+200	Arial 60.5 strike	90	2.66667	164	164	123-130
+200	Arial 60.5 singleAccounting	90	2.66667	164	164	200-211
+200	Arial 60.5 doubleAccounting	90	2.66667	164	164	200-207 216-223
+200	Arial 61 single	90	2.66667	164	164	182-193
+200	Arial 61 double	90	2.66667	164	164	171-178 187-194
+200	Arial 61 strike	90	2.66667	164	164	123-130
+200	Arial 61 singleAccounting	90	2.66667	164	164	200-211
+200	Arial 61 doubleAccounting	90	2.66667	164	164	200-207 216-223
+200	Arial 61.5 single	90.75	2.66667	166	166	184-195
+200	Arial 61.5 double	90.75	2.66667	166	166	173-180 189-196
+200	Arial 61.5 strike	90.75	2.66667	166	166	125-132
+200	Arial 61.5 singleAccounting	90.75	2.66667	166	166	202-213
+200	Arial 61.5 doubleAccounting	90.75	2.66667	166	166	202-209 218-225
+200	Arial 62 single	91.5	2.66667	168	168	186-197
+200	Arial 62 double	91.5	2.66667	168	168	174-182 192-200
+200	Arial 62 strike	91.5	2.66667	168	168	126-133
+200	Arial 62 singleAccounting	91.5	2.66667	168	168	205-216
+200	Arial 62 doubleAccounting	91.5	2.66667	168	168	205-213 223-231
+200	Arial 62.5 single	91.5	2.66667	168	168	187-198
+200	Arial 62.5 double	91.5	2.66667	168	168	174-182 192-200
+200	Arial 62.5 strike	91.5	2.66667	168	168	126-133
+200	Arial 62.5 singleAccounting	91.5	2.66667	168	168	206-217
+200	Arial 62.5 doubleAccounting	91.5	2.66667	168	168	206-214 224-232
+200	Arial 63 single	93	2.66667	170	170	189-200
+200	Arial 63 double	93	2.66667	170	170	176-184 194-202
+200	Arial 63 strike	93	2.66667	170	170	128-135
+200	Arial 63 singleAccounting	93	2.66667	170	170	208-219
+200	Arial 63 doubleAccounting	93	2.66667	170	170	208-216 226-234
+200	Arial 63.5 single	93.75	2.66667	172	172	191-202
+200	Arial 63.5 double	93.75	2.66667	172	172	178-186 196-204
+200	Arial 63.5 strike	93.75	2.66667	172	172	129-136
+200	Arial 63.5 singleAccounting	93.75	2.66667	172	172	210-221
+200	Arial 63.5 doubleAccounting	93.75	2.66667	172	172	210-218 228-236
+200	Arial 64 single	93.75	2.66667	172	172	191-203
+200	Arial 64 double	93.75	2.66667	172	172	178-186 196-204
+200	Arial 64 strike	93.75	2.66667	172	172	129-137
+200	Arial 64 singleAccounting	93.75	2.66667	172	172	210-222
+200	Arial 64 doubleAccounting	93.75	2.66667	172	172	210-218 228-236
+200	Arial 64.5 single	94.5	2.66667	174	174	193-205
+200	Arial 64.5 double	94.5	2.66667	174	174	180-188 198-206
+200	Arial 64.5 strike	94.5	2.66667	174	174	130-138
+200	Arial 64.5 singleAccounting	94.5	2.66667	174	174	212-224
+200	Arial 64.5 doubleAccounting	94.5	2.66667	174	174	212-220 230-238
+200	Arial 65 single	95.25	2.66667	176	176	195-207
+200	Arial 65 double	95.25	2.66667	176	176	182-190 200-208
+200	Arial 65 strike	95.25	2.66667	176	176	132-140
+200	Arial 65 singleAccounting	95.25	2.66667	176	176	214-226
+200	Arial 65 doubleAccounting	95.25	2.66667	176	176	214-222 232-240
+200	Arial 65.5 single	95.25	2.66667	176	176	196-208
+200	Arial 65.5 double	95.25	2.66667	176	176	182-190 200-208
+200	Arial 65.5 strike	95.25	2.66667	176	176	132-140
+200	Arial 65.5 singleAccounting	95.25	2.66667	176	176	214-226
+200	Arial 65.5 doubleAccounting	95.25	2.66667	176	176	214-222 232-240
+200	Arial 66 single	96.75	2.66667	178	178	198-210
+200	Arial 66 double	96.75	2.66667	178	178	184-192 202-210
+200	Arial 66 strike	96.75	2.66667	178	178	133-141
+200	Arial 66 singleAccounting	96.75	2.66667	178	178	216-228
+200	Arial 66 doubleAccounting	96.75	2.66667	178	178	216-224 234-242
+200	Arial 66.5 single	99.75	2.66667	180	180	200-212
+200	Arial 66.5 double	99.75	2.66667	180	180	187-195 205-213
+200	Arial 66.5 strike	99.75	2.66667	180	180	135-143
+200	Arial 66.5 singleAccounting	99.75	2.66667	180	180	219-231
+200	Arial 66.5 doubleAccounting	99.75	2.66667	180	180	219-227 237-245
+200	Arial 67 single	99.75	2.66667	180	180	200-212
+200	Arial 67 double	99.75	2.66667	180	180	187-195 205-213
+200	Arial 67 strike	99.75	2.66667	180	180	135-143
+200	Arial 67 singleAccounting	99.75	2.66667	180	180	219-231
+200	Arial 67 doubleAccounting	99.75	2.66667	180	180	219-227 237-245
+200	Arial 67.5 single	99.75	2.66667	182	182	202-214
+200	Arial 67.5 double	99.75	2.66667	182	182	189-197 207-215
+200	Arial 67.5 strike	99.75	2.66667	182	182	136-144
+200	Arial 67.5 singleAccounting	99.75	2.66667	182	182	222-234
+200	Arial 67.5 doubleAccounting	99.75	2.66667	182	182	222-230 240-248
+200	Arial 68 single	101.25	2.66667	184	184	204-216
+200	Arial 68 double	101.25	2.66667	184	184	190-199 210-219
+200	Arial 68 strike	101.25	2.66667	184	184	138-146
+200	Arial 68 singleAccounting	101.25	2.66667	184	184	225-237
+200	Arial 68 doubleAccounting	101.25	2.66667	184	184	225-234 245-254
+200	Arial 68.5 single	101.25	2.66667	184	184	204-216
+200	Arial 68.5 double	101.25	2.66667	184	184	190-199 210-219
+200	Arial 68.5 strike	101.25	2.66667	184	184	138-146
+200	Arial 68.5 singleAccounting	101.25	2.66667	184	184	225-237
+200	Arial 68.5 doubleAccounting	101.25	2.66667	184	184	225-234 245-254
+200	Arial 69 single	102	2.66667	186	186	206-218
+200	Arial 69 double	102	2.66667	186	186	192-201 212-221
+200	Arial 69 strike	102	2.66667	186	186	139-147
+200	Arial 69 singleAccounting	102	2.66667	186	186	227-239
+200	Arial 69 doubleAccounting	102	2.66667	186	186	227-236 247-256
+200	Arial 69.5 single	102.75	2.66667	188	188	209-222
+200	Arial 69.5 double	102.75	2.66667	188	188	194-203 214-223
+200	Arial 69.5 strike	102.75	2.66667	188	188	141-149
+200	Arial 69.5 singleAccounting	102.75	2.66667	188	188	229-242
+200	Arial 69.5 doubleAccounting	102.75	2.66667	188	188	229-238 249-258
+200	Arial 70 single	102.75	2.66667	188	188	209-222
+200	Arial 70 double	102.75	2.66667	188	188	194-203 214-223
+200	Arial 70 strike	102.75	2.66667	188	188	141-149
+200	Arial 70 singleAccounting	102.75	2.66667	188	188	229-242
+200	Arial 70 doubleAccounting	102.75	2.66667	188	188	229-238 249-258
+200	Arial 70.5 single	103.5	2.66667	190	190	211-224
+200	Arial 70.5 double	103.5	2.66667	190	190	197-206 217-226
+200	Arial 70.5 strike	103.5	2.66667	190	190	142-150
+200	Arial 70.5 singleAccounting	103.5	2.66667	190	190	232-245
+200	Arial 70.5 doubleAccounting	103.5	2.66667	190	190	232-241 252-261
+200	Arial 71 single	105	2.66667	192	192	213-226
+200	Arial 71 double	105	2.66667	192	192	199-208 219-228
+200	Arial 71 strike	105	2.66667	192	192	144-152
+200	Arial 71 singleAccounting	105	2.66667	192	192	234-247
+200	Arial 71 doubleAccounting	105	2.66667	192	192	234-243 254-263
+200	Arial 71.5 single	105	2.66667	192	192	213-226
+200	Arial 71.5 double	105	2.66667	192	192	199-208 219-228
+200	Arial 71.5 strike	105	2.66667	192	192	144-153
+200	Arial 71.5 singleAccounting	105	2.66667	192	192	234-247
+200	Arial 71.5 doubleAccounting	105	2.66667	192	192	234-243 254-263
+200	Arial 72 single	105.75	2.66667	194	194	215-228
+200	Arial 72 double	105.75	2.66667	194	194	201-210 221-230
+200	Arial 72 strike	105.75	2.66667	194	194	145-154
+200	Arial 72 singleAccounting	105.75	2.66667	194	194	236-249
+200	Arial 72 doubleAccounting	105.75	2.66667	194	194	236-245 256-265
