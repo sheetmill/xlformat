@@ -1,6 +1,7 @@
-# Release: push a tag vX.Y.Z on main. The workflow runs CI, checks that the tag matches the
-# package version, builds once, publishes to TestPyPI, installs that release from TestPyPI
-# and imports it, then publishes the same files to PyPI.
+# Release: push a tag vX.Y.Z on main. The workflow first requires a successful run of the CI
+# workflow on the tagged commit, pushed to main (it does not run CI again), checks that the tag
+# matches the package version, builds once, publishes to TestPyPI, installs that release from
+# TestPyPI and imports it, then publishes the same files to PyPI.
 #
 # Publishing uses trusted publishing (OpenID Connect), so no token is stored. Configure on
 # test.pypi.org and pypi.org a trusted publisher for owner `sheetmill`, repository
@@ -16,11 +17,26 @@ permissions:
   contents: read
 
 jobs:
-  ci:
-    uses: ./.github/workflows/ci.yml
+  ci-passed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+    steps:
+      - name: The CI workflow passed on this commit, pushed to main
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: |
+          runs=$(gh api "repos/${REPO}/actions/workflows/ci.yml/runs?head_sha=${SHA}&event=push&branch=main&per_page=100" \
+            --jq '.workflow_runs[] | "\(.id) \(.status) \(.conclusion) \(.head_branch) \(.html_url)"')
+          echo "CI runs on ${SHA} (event push, branch main): id status conclusion branch url"
+          echo "${runs:-none}"
+          echo "${runs}" | grep -q '^[0-9]* completed success main ' || { echo "no successful CI run on ${SHA} pushed to main"; exit 1; }
 
   build:
-    needs: ci
+    needs: ci-passed
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
