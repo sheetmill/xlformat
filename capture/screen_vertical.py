@@ -29,8 +29,10 @@ import subprocess
 import sys
 import time
 import zlib
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from pathlib import Path
+from typing import TypeVar
 
 from capture.build import BUILD_DIR, WORKBOOK_DIR
 from capture.cases import CellFont
@@ -299,6 +301,73 @@ def rows_in_view(
     return [(r, b) for r, b in pairs if abs(b[1] - b[0] + 1 - heights[r - 1] * scale) <= 3]
 
 
+T = TypeVar("T")
+# measure(image, row, band, top_px, bottom_px, pixels_per_point) -> the row's measurement
+RowMeasure = Callable[[Image, int, tuple[int, int], int, int, float], T]
+
+
+def read_views(
+    views: Iterable[tuple[int, Path]],
+    heights: list[float],
+    measure_row: RowMeasure[T],
+    *,
+    label: str,
+    match_scale: float | None = None,
+    pixels_per_point: float | None = None,
+    own_bands: bool = False,
+) -> dict[int, T]:
+    """Measure every row of a sheet once, from views whose first visible row is given.
+
+    ``views`` are (first row, picture) pairs; ``heights`` every row's height in points as Excel
+    reports it. Bands are matched to rows by ``rows_in_view`` at ``match_scale`` (the view's median
+    when None). A row's pixels run from its top, computed from the view's first band plus the
+    heights above it at ``pixels_per_point`` device pixels a point (when None, the view's median
+    rounded to whole pixels: 2 on a Mac display of scale 2), or with ``own_bands`` from its own
+    band (for a zoom at which Excel rounds each row to whole pixels). A row seen whole in a later
+    view replaces one seen only as a view's last band. Exits naming ``label`` if a row is never
+    measured.
+    """
+    found: dict[int, T] = {}
+    at_edge: set[int] = set()  # rows measured only as a view's last band so far
+    n_rows = len(heights)
+    for top, path in sorted(views):
+        image = read_png(path)
+        rows = rows_in_view(image, top, heights, match_scale)
+        if not rows:
+            continue
+        first_row, first_band = rows[0]
+        if pixels_per_point is None:
+            ratios = sorted((b[1] - b[0] + 1) / heights[r - 1] for r, b in rows)
+            scale: float = round(ratios[len(ratios) // 2])
+        else:
+            scale = pixels_per_point
+        for k, (row, band) in enumerate(rows):
+            edge = k == len(rows) - 1 and row < n_rows
+            if row in found and (row not in at_edge or edge):
+                continue
+            if own_bands:
+                top_px, bottom_px = band
+            else:
+                # boundaries between filled cells are sometimes drawn a pixel row or two off, so
+                # distances are taken from the row's top computed from the view's first band
+                top_px = first_band[0] + round(scale * sum(heights[first_row - 1 : row - 1]))
+                bottom_px = top_px + round(scale * heights[row - 1]) - 1
+            found[row] = measure_row(image, row, band, top_px, bottom_px, scale)
+            if edge:
+                at_edge.add(row)
+            else:
+                at_edge.discard(row)
+    missing = [r for r in range(1, n_rows + 1) if r not in found]
+    if missing:
+        sys.exit(f"{label}: rows never measured: {missing[:10]}")
+    return found
+
+
+def numbered_views(folder: Path) -> list[tuple[int, Path]]:
+    """The Mac run's views: ``top_<first row>.png`` in ``folder``."""
+    return [(int(p.stem.split("_")[1]), p) for p in folder.glob("top_*.png")]
+
+
 def _marker_right(image: Image, y: int, x: int) -> int:
     while x < image.width and is_marker(image.rgb(x, y)):
         x += 1
@@ -368,41 +437,33 @@ def read_normal(normal: CellFont) -> list[Measured]:
     """Match each view's bands to rows by height and measure every row once."""
     folder = SHOTS / normal.label.replace(" ", "_").lower()
     heights = [float(h) for h in (folder / "heights.txt").read_text().strip().split(",")]
+    return measure_vertical(numbered_views(folder), heights, normal.label)
+
+
+def measure_vertical(
+    views: Iterable[tuple[int, Path]],
+    heights: list[float],
+    label: str,
+    pixels_per_point: float | None = None,
+) -> list[Measured]:
+    """Every row of the vertical cases measured from its views (``read_views``), in row order."""
     all_cases = cases()
-    found: dict[int, Measured] = {}
-    at_edge: set[int] = set()  # rows measured only as a view's last band so far
-    for shot in sorted(folder.glob("top_*.png")):
-        top = int(shot.stem.split("_")[1])
-        image = read_png(shot)
-        rows = rows_in_view(image, top, heights)
-        if not rows:
-            continue
-        first_row, first_band = rows[0]
-        ratios = sorted((b[1] - b[0] + 1) / heights[r - 1] for r, b in rows)
-        scale = round(ratios[len(ratios) // 2])  # whole pixels a point (2 on a 2x display)
-        for k, (row, band) in enumerate(rows):
-            edge = k == len(rows) - 1 and row < len(all_cases)
-            if row in found and (row not in at_edge or edge):
-                continue
-            # boundaries between filled cells are sometimes drawn a pixel row or two off, so
-            # distances are taken from the row's top computed from the view's first band
-            top_px = first_band[0] + round(scale * sum(heights[first_row - 1 : row - 1]))
-            bottom_px = top_px + round(scale * heights[row - 1]) - 1
-            h_lines, g_bottoms = measure(image, (top_px, bottom_px))
-            found[row] = Measured(
-                all_cases[row - 1], heights[row - 1], band, h_lines, g_bottoms, band[0] - top_px
-            )
-            if edge:
-                at_edge.add(row)
-            else:
-                at_edge.discard(row)
-    missing = [r for r in range(1, len(all_cases) + 1) if r not in found]
-    if missing:
-        sys.exit(f"{normal.label}: rows never measured: {missing[:10]}")
+
+    def measure_row(
+        image: Image, row: int, band: tuple[int, int], top_px: int, bottom_px: int, _: float
+    ) -> Measured:
+        h_lines, g_bottoms = measure(image, (top_px, bottom_px))
+        return Measured(
+            all_cases[row - 1], heights[row - 1], band, h_lines, g_bottoms, band[0] - top_px
+        )
+
+    found = read_views(views, heights, measure_row, label=label, pixels_per_point=pixels_per_point)
+    if len(found) != len(all_cases):
+        sys.exit(f"{label}: {len(found)} rows measured for {len(all_cases)} cases")
     # the band heights must follow the row heights at one scale
     off = [(m.case.tag, m.shift) for m in found.values() if abs(m.shift) > 2]
     if off:
-        sys.exit(f"{normal.label}: bands off their computed rows by more than 2 px: {off[:3]}")
+        sys.exit(f"{label}: bands off their computed rows by more than 2 px: {off[:3]}")
     return [found[r] for r in sorted(found)]
 
 

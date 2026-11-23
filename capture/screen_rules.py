@@ -33,6 +33,7 @@ from __future__ import annotations
 import datetime as dt
 import math
 import sys
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -49,7 +50,9 @@ from capture.screen_vertical import (
     _request_count,
     _window_id,
     is_ink,
+    numbered_views,
     read_png,
+    read_views,
     rows_in_view,
 )
 
@@ -418,45 +421,55 @@ def _scale(zoom: int) -> float | None:
 def read_zoom(zoom: int, suite: str = "rules") -> list[str]:
     folder = shots(suite) / f"zoom{zoom}"
     heights = [float(h) for h in (folder / "heights.txt").read_text().strip().split(",")]
+    return measure_rules(
+        numbered_views(folder),
+        heights,
+        zoom,
+        suite,
+        match_scale=_scale(zoom),
+        own_bands=_scale(zoom) is not None,
+    )
+
+
+def measure_rules(
+    views: Iterable[tuple[int, Path]],
+    heights: list[float],
+    zoom: int,
+    suite: str,
+    *,
+    match_scale: float | None = None,
+    pixels_per_point: float | None = None,
+    own_bands: bool = False,
+) -> list[str]:
+    """Every row of a rules suite measured from its views at one zoom (``read_views``): per row
+    the zoom, tag, height, device pixels a point, and the baseline and rules in pixels from the
+    row's top (or a color row's color)."""
     all_cases = cases(suite)
-    found: dict[int, str] = {}
-    at_edge: set[int] = set()
-    for shot in sorted(folder.glob("top_*.png")):
-        top = int(shot.stem.split("_")[1])
-        image = read_png(shot)
-        rows = rows_in_view(image, top, heights, _scale(zoom))
-        if not rows:
-            continue
-        first_row, first_band = rows[0]
-        ratios = sorted((b[1] - b[0] + 1) / heights[r - 1] for r, b in rows)
-        scale = round(ratios[len(ratios) // 2])
-        for k, (row, band) in enumerate(rows):
-            edge = k == len(rows) - 1 and row < len(all_cases)
-            if row in found and (row not in at_edge or edge):
-                continue
-            if _scale(zoom) is None:
-                top_px = first_band[0] + round(scale * sum(heights[first_row - 1 : row - 1]))
-                bottom_px = top_px + round(scale * heights[row - 1]) - 1
-            else:  # each row rounded to whole pixels: its own band, not a sum of heights
-                top_px, bottom_px = band
-            left = _marker_right(image, (top_px + bottom_px) // 2, _marker_column(image)) + 2
-            right = min(image.width, left + (900 if suite == "rules" else 1600))
-            case = all_cases[row - 1]
-            if case.kind == "rule":
-                stems, runs = _rule_rows(image, left, right, top_px, bottom_px)
-                base = "" if stems is None else str(stems - top_px)
-                text = " ".join(f"{a - top_px}-{b - top_px}" for a, b in runs)
-                measured = f"{base}\t{text}"
-            else:
-                measured = f"\t{_color(image, left, right, top_px, bottom_px)}"
-            found[row] = f"{zoom}\t{case.tag}\t{heights[row - 1]:g}\t{scale}\t{measured}"
-            if edge:
-                at_edge.add(row)
-            else:
-                at_edge.discard(row)
-    missing = [r for r in range(1, len(all_cases) + 1) if r not in found]
-    if missing:
-        sys.exit(f"zoom {zoom}: rows never measured: {missing[:10]}")
+
+    def measure_row(
+        image: Image, row: int, band: tuple[int, int], top_px: int, bottom_px: int, scale: float
+    ) -> str:
+        left = _marker_right(image, (top_px + bottom_px) // 2, _marker_column(image)) + 2
+        right = min(image.width, left + (900 if suite == "rules" else 1600))
+        case = all_cases[row - 1]
+        if case.kind == "rule":
+            stems, runs = _rule_rows(image, left, right, top_px, bottom_px)
+            base = "" if stems is None else str(stems - top_px)
+            text = " ".join(f"{a - top_px}-{b - top_px}" for a, b in runs)
+            measured = f"{base}\t{text}"
+        else:
+            measured = f"\t{_color(image, left, right, top_px, bottom_px)}"
+        return f"{zoom}\t{case.tag}\t{heights[row - 1]:g}\t{scale:g}\t{measured}"
+
+    found = read_views(
+        views,
+        heights,
+        measure_row,
+        label=f"zoom {zoom}",
+        match_scale=match_scale,
+        pixels_per_point=pixels_per_point,
+        own_bands=own_bands,
+    )
     return [found[r] for r in sorted(found)]
 
 
