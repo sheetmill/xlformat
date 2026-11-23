@@ -865,8 +865,8 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`: the Mac's 343 suite files, 866,322 rows, and Windows' 301, 514,013 rows, in all modes | 36 s |
-| `pytest --tier=fast` | 21 s |
+| `pytest`: the Mac's 343 suite files, 866,322 rows, and Windows' 301, 514,013 rows, in all modes | 25 s (36 s with pytest's cache empty) |
+| `pytest --tier=fast` | 10 s (21 s with pytest's cache empty) |
 
 ## 14. What the code taught
 
