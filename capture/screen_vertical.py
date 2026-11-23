@@ -67,8 +67,9 @@ def _paths(normal: CellFont) -> tuple[str, Path]:
     return name, (WORKBOOK_DIR / name).resolve()
 
 
-def build(normal: CellFont) -> Path:
-    """The cases of the PDF probe in column B, column A in marker fills, in Excel's container."""
+def build(normal: CellFont, case_list: list[Case] | None = None, path: Path | None = None) -> Path:
+    """The cases of the PDF probe in column B, column A in marker fills, in Excel's container
+    (or ``case_list`` at ``path``)."""
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font, PatternFill
     from openpyxl.utils.indexed_list import IndexedList
@@ -87,7 +88,7 @@ def build(normal: CellFont) -> Path:
     # two marker colors in turn: Excel draws no gridline between cells of one fill, so rows of
     # a single color would merge into one band on screen
     markers = (PatternFill("solid", fgColor="FF00FF"), PatternFill("solid", fgColor="00FFFF"))
-    for r, case in enumerate(cases(), 1):
+    for r, case in enumerate(cases() if case_list is None else case_list, 1):
         ws.cell(row=r, column=1).fill = markers[r % 2]
         cell = ws.cell(row=r, column=2, value="\n".join([TEXT] * case.lines))
         cell.data_type = "s"
@@ -98,7 +99,7 @@ def build(normal: CellFont) -> Path:
             ws.row_dimensions[r].height = case.height
     ws.column_dimensions["A"].width = 4
     ws.column_dimensions["B"].width = 30
-    path = _paths(normal)[1]
+    path = _paths(normal)[1] if path is None else path
     path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(path)
     return path
@@ -164,6 +165,25 @@ def read_png(path: Path) -> Image:
         rows.append(bytes(line))
         prev = line
     return Image(width, height, channels, rows)
+
+
+def write_png(path: Path, pixels: list[list[tuple[int, int, int]]]) -> None:
+    """An 8-bit RGB PNG of ``pixels`` (rows of colors), every row unfiltered: for pictures drawn
+    in tests."""
+
+    def chunk(kind: bytes, body: bytes) -> bytes:
+        return (
+            struct.pack(">I", len(body)) + kind + body + struct.pack(">I", zlib.crc32(kind + body))
+        )
+
+    raw = b"".join(b"\0" + bytes(c for px in row for c in px) for row in pixels)
+    head = struct.pack(">IIBBBBB", len(pixels[0]), len(pixels), 8, 2, 0, 0, 0)
+    path.write_bytes(
+        b"\x89PNG\r\n\x1a\n"
+        + chunk(b"IHDR", head)
+        + chunk(b"IDAT", zlib.compress(raw))
+        + chunk(b"IEND", b"")
+    )
 
 
 def marker(rgb: tuple[int, int, int]) -> str:
@@ -445,9 +465,11 @@ def measure_vertical(
     heights: list[float],
     label: str,
     pixels_per_point: float | None = None,
+    case_list: list[Case] | None = None,
 ) -> list[Measured]:
-    """Every row of the vertical cases measured from its views (``read_views``), in row order."""
-    all_cases = cases()
+    """Every row of the vertical cases (or ``case_list``) measured from its views
+    (``read_views``), in row order."""
+    all_cases = cases() if case_list is None else case_list
 
     def measure_row(
         image: Image, row: int, band: tuple[int, int], top_px: int, bottom_px: int, _: float

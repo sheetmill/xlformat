@@ -7,37 +7,18 @@ here, with column A's marker bands and an "H" of known pixel rows, and read back
 
 from __future__ import annotations
 
-import struct
-import zlib
 from pathlib import Path
 
 import pytest
 
 pytest.importorskip("openpyxl")  # capture.screen_vertical imports the workbook builder
 
-from capture.screen_vertical import measure, read_views
+from capture.screen_vertical import measure, read_views, write_png
 
 WHITE, MAGENTA, CYAN, BLACK = (255, 255, 255), (255, 0, 255), (0, 255, 255), (0, 0, 0)
 SCALE = 4 / 3  # device pixels a sheet point at 96 dpi and zoom 100
 HEIGHTS = [15.0, 18.75, 15.0, 30.0, 15.0]  # points; 20, 25, 20, 40, 20 pixels
 WIDTH = 120
-
-
-def _png(path: Path, pixels: list[list[tuple[int, int, int]]]) -> None:
-    """A minimal 8-bit RGB PNG, every row filtered with type 0."""
-
-    def chunk(kind: bytes, body: bytes) -> bytes:
-        crc = zlib.crc32(kind + body)
-        return struct.pack(">I", len(body)) + kind + body + struct.pack(">I", crc)
-
-    raw = b"".join(b"\0" + bytes(c for px in row for c in px) for row in pixels)
-    header = struct.pack(">IIBBBBB", len(pixels[0]), len(pixels), 8, 2, 0, 0, 0)
-    path.write_bytes(
-        b"\x89PNG\r\n\x1a\n"
-        + chunk(b"IHDR", header)
-        + chunk(b"IDAT", zlib.compress(raw))
-        + chunk(b"IEND", b"")
-    )
 
 
 def _view(first_row: int, offset: int) -> tuple[list[list[tuple[int, int, int]]], dict[int, int]]:
@@ -67,7 +48,7 @@ def test_rows_and_ink_at_four_thirds_of_a_pixel_a_point(tmp_path: Path) -> None:
     for first_row, offset in ((1, 3), (3, 7)):
         pixels, _ = _view(first_row, offset)
         path = tmp_path / f"view{first_row}.png"
-        _png(path, pixels)
+        write_png(path, pixels)
         views.append((first_row, path))
 
     def measure_row(image, row, band, top_px, bottom_px, scale):  # type: ignore[no-untyped-def]

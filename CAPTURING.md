@@ -1416,6 +1416,8 @@ capture/half_predict.py       item 67's predictions for column_half_points_*, an
 capture/job.py                Excel for Windows: suites as capture jobs (manifest and workbooks),
                              and the suite files a job's result gives (items 65 to 72)
 capture/windows_rows.py       Windows row heights fitted into src/xlformat/_rows_windows.py (item 69)
+capture/screen_windows.py     window pictures on Excel for Windows as capture jobs (screen_* groups:
+                             the Mac's screen suites for the faces with Windows tables), and their reader
 capture/excel_watch.py        a time limit on each request to Excel, and evidence when one passes
 capture/edition.py            the Excel edition and update channel, for each capture's header
 capture/invalid.py            which candidate format strings Excel refuses to open (item 9)

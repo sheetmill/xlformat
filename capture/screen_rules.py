@@ -169,14 +169,16 @@ def cases(suite: str = "rules") -> list[Case]:
     return out
 
 
-def build(suite: str = "rules") -> Path:
+def build(
+    suite: str = "rules", case_list: list[Case] | None = None, path: Path | None = None
+) -> Path:
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font, PatternFill
 
     wb = Workbook()
     ws = wb.active
     markers = (PatternFill("solid", fgColor="FF00FF"), PatternFill("solid", fgColor="00FFFF"))
-    for r, case in enumerate(cases(suite), 1):
+    for r, case in enumerate(cases(suite) if case_list is None else case_list, 1):
         ws.cell(row=r, column=1).fill = markers[r % 2]
         cell = ws.cell(row=r, column=2, value=case.value)
         if isinstance(case.value, str):
@@ -191,7 +193,7 @@ def build(suite: str = "rules") -> Path:
     # rules_double: wide enough for "HHHH" at 72 points, since an accounting underline spans the
     # cell and is read as a rule only where it is as long as the text
     ws.column_dimensions["B"].width = 30 if suite == "rules" else 60
-    path = workbook_path(suite)
+    path = workbook_path(suite) if path is None else path
     path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(path)
     return path
@@ -440,11 +442,13 @@ def measure_rules(
     match_scale: float | None = None,
     pixels_per_point: float | None = None,
     own_bands: bool = False,
+    case_list: list[Case] | None = None,
 ) -> list[str]:
-    """Every row of a rules suite measured from its views at one zoom (``read_views``): per row
+    """Every row of a rules suite (or ``case_list``) measured from its views at one zoom
+    (``read_views``): per row
     the zoom, tag, height, device pixels a point, and the baseline and rules in pixels from the
     row's top (or a color row's color)."""
-    all_cases = cases(suite)
+    all_cases = cases(suite) if case_list is None else case_list
 
     def measure_row(
         image: Image, row: int, band: tuple[int, int], top_px: int, bottom_px: int, scale: float

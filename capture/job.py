@@ -255,6 +255,12 @@ def write(group: str, job_id: str, out: Path, note: str = "") -> Path:
     folder = out / job_id
     files = folder / "files"
     files.mkdir(parents=True)
+    if group.startswith("screen_"):
+        from capture import screen_windows
+
+        doc = screen_windows.manifest(group, job_id, screen_windows.workbooks(group, files), note)
+        (folder / "job.json").write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
+        return folder
     if group in ("rows", "builtin"):
         books = _row_workbooks(files) if group == "rows" else _builtin_workbooks(files)
         doc = manifest_for(group, job_id, books, note)
@@ -420,6 +426,12 @@ def read(group: str, job: Path, result: Path) -> list[Path]:
     WINDOWS.mkdir(parents=True, exist_ok=True)
     by_file = {wb["file"]: wb for wb in outcome["workbooks"]}
     written: list[Path] = []
+    if group.startswith("screen_"):
+        from capture import screen_windows
+
+        written += screen_windows.read(group, job, result, outcome, WINDOWS)
+        shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
+        return written
     if group in ("rows", "builtin"):
         layout = _row_layout if group == "rows" else _builtin_layout
         written.append(layout(by_file, header))
