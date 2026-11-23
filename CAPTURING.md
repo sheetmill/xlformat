@@ -1438,7 +1438,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     1,650 rows; every line a pixel lower, 958; that with the thicknesses rounded, 1,133 (at zoom
     200 a single underline is often two pixels where the floor gives one). No rule is taken into
     `rule_metrics` for Windows from these rows; they are what a Windows rule or table is fitted
-    to.
+    to. A double accounting underline's second line that ends on the row's last pixel row is cut
+    there (item 78 draws it whole in taller rows): its thickness in these rows is no evidence.
 76. **Wrapped text under a larger Normal font on Excel for Windows (2026-11-23; group
     `screen_wrapped`, the build of item 65).** Bottom-aligned cells wrapped to two and three lines
     in Calibri 11, Arial 11, Aptos Narrow 14 and Arial 18 in a Calibri 20 workbook and Arial 9
@@ -1469,10 +1470,34 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     - Aptos Narrow's double underline: the single's top and thickness, stepped up a thickness at
       a time until it ends at or above the accounting underline's top, the Mac's rule of item 62.
     A double accounting underline's second line past the row's last pixel is not measured (10
-    rows). The font numbers are the Mac's copies of the faces (Calibri 6.20, Arial 6.80i,
+    rows), and one ending on the row's last pixel row is cut there (item 78): its thickness is
+    no evidence. The font numbers are the Mac's copies of the faces (Calibri 6.20, Arial 6.80i,
     Aptos Narrow 2.01), where Windows draws Calibri 6.27 and Arial 7.07; they agree at the ppems
     measured here (39 to 133). Calibri's and Arial's double underline (its top and thickness)
     follows none of these rules.
+
+78. **Rules by ppem on Excel for Windows, a row holding every rule (2026-11-23; group
+    `screen_rules_table`, `capture/screen_table.py`, the build of item 65).** "HH" in Calibri and
+    Arial, a row a face and size, its cells under a single underline, a double, a strikethrough,
+    a single accounting and a double accounting underline side by side (three to five to a row,
+    as fit the window at the zoom), one workbook per zoom at 16 zooms from 15 to 400: 4,370
+    cells from 372 pictures, `screen_rules_table.layout.tsv`. Each cell gives its own baseline
+    (the H stems' last ink row) and the row's, from its single underline's cell, since a double's
+    first line can lie on the stems' last row (at ppem 9 and 10 in items 73 and 75).
+    - Zoom 15: column A is about 5 pixels wide and the reader finds no marker in it; its 10
+      cells are written unmeasured.
+    - In the workbooks of zoom 150 and 200, which define 1,431 fonts each, every cell from F201
+      on (Arial 29's double accounting, then Arial from 29.5 to 72 points) is drawn in the
+      default font, without its underline: F201 is the first cell whose font is number 1,000
+      in the file's list (counting from 0), and the cells before it in its row are drawn in
+      their own fonts. Rows from 202 on keep 15 points, fitted to that font: 172 rows, a gap
+      in this capture. The other 14 workbooks define at most 301 fonts and are drawn as built.
+    - Against items 73 and 75 at the sizes and zooms both hold (zoom 75, 100, 150 and 200,
+      measured from the baseline, a double from its single's): every top, thickness and gap
+      of the single, strikethrough, single accounting and double underlines agrees (90 of 90
+      rows), and the double accounting's tops and first lines too. The double accounting's
+      second line, which ended on or past the row's last pixel row there, is drawn whole here,
+      in rows about 2 points taller.
 
 ## 3. The pipeline
 

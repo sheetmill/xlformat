@@ -48,6 +48,8 @@ FIRST = {150: SIZES, 200: SIZES, 75: (9.0, 10.0, 11.0), 100: (9.0, 11.0, 20.0, 3
 ADVANCE = {"Calibri": 1276 / 2048, "Arial": 1479 / 2048}
 WINDOW_PX = 2560  # Excel's window at 96 dpi, maximized on the runner's display
 COLUMN_A_CHARS = 4
+# column A narrower than this in device pixels holds no marker the reader finds (zoom 15: about 5)
+MIN_MARKER_PX = 7
 
 
 def ppem(size: float, zoom: int) -> int:
@@ -282,3 +284,15 @@ def measure_table(
         pixels_per_point=scale, **frame,  # type: ignore[arg-type]
     )  # fmt: skip
     return [line for r in sorted(found) for line in found[r]]
+
+
+def unmeasured_table(
+    zoom: int, heights: list[float], scale: float, rows: Sequence[TableRow]
+) -> list[str]:
+    """The lines of a workbook whose pictures cannot be read (column A too narrow for its
+    marker): every rule cell with nothing measured."""
+    return [
+        f"{zoom}\t{row.face} {row.size:g} {rule}\t{heights[r]:g}\t{scale:g}\t\t\t"
+        for r, row in enumerate(rows)
+        for rule in row.rules
+    ]

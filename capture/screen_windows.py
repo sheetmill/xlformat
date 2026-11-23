@@ -54,7 +54,15 @@ from capture.cases import CellFont
 from capture.screen_rules import DOUBLE_RULES, DOUBLE_SIZES, measure_rules
 from capture.screen_rules import Case as RuleCase
 from capture.screen_rules import build as build_rules
-from capture.screen_table import TableRow, column_chars, cover, measure_table, table_rows
+from capture.screen_table import (
+    MIN_MARKER_PX,
+    TableRow,
+    column_chars,
+    cover,
+    measure_table,
+    table_rows,
+    unmeasured_table,
+)
 from capture.screen_table import build as build_table
 from capture.screen_vertical import build as build_vertical
 from capture.screen_vertical import measure_vertical
@@ -466,6 +474,10 @@ def measured_rows(book: Book, steps: dict[str, Any], artifacts: Path) -> list[st
                 )
         elif book.kind == "table":
             columns = steps["columns"]
+            if float(columns["width"][0][0]) * scale < MIN_MARKER_PX:
+                # column A too narrow for its marker to be found: every cell unmeasured
+                lines += unmeasured_table(zoom, heights, scale, list(book.cases))  # type: ignore[arg-type]
+                continue
             lines += measure_table(
                 pictures, heights, zoom, scale, list(book.cases),  # type: ignore[arg-type]
                 [float(v) for v in columns["left"][0]], [float(v) for v in columns["width"][0]],
