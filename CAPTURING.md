@@ -1381,6 +1381,33 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     cells computed when the workbook opens, read through the clipboard. The prediction committed
     before the run was the package's `text_function`, which follows the Mac: every row is as
     predicted, so `TEXT` gives the same text on both platforms in en-US.
+73. **Window pictures on Excel for Windows: the pilot (2026-11-23; group `screen_pilot`,
+    `capture/screen_windows.py`, the build of item 65, ClearType font smoothing as the header
+    records it).** Calibri and Arial at 9, 11 and 20 points under no rule, each underline and a
+    strikethrough at zoom 75, 100 and 200, and Calibri and Arial 11 placed top, center and bottom
+    in rows of the face's height H, H + 13 and H + 14 pixels and 2H, fitted and wrapped, at zoom
+    100: 9 pictures, in `screen_pilot_rules.layout.tsv` and `screen_pilot_vertical.layout.tsv`.
+    - **The frame.** The column headings' border covers the top pixel of a view's first row, so
+      that row is never whole; row 1 is every first view's first row and is not measured (the
+      groups after the pilot put a filler there). Every other band of every view begins where
+      the rows above it end, each row's height drawn as whole pixels rounded half up and the
+      rows stacked: at zoom 100 and 200 the pixels are exact, at 75 a row of 16.5 pixels is 17.
+      The reader anchors each view on those bands and stops when one disagrees.
+    - **A light blue ribbon icon** (155, 222, 255) passes the reader's cyan marker test, so a
+      marker column is now one whose fill runs down 8 pixels or more.
+    - **Placement, in the 27 rows measured (baseline: the H stems' last ink row, from the row's
+      first pixel row).** Top-aligned text has its baseline at H − D, centered text at
+      ⌊(R − H)/2⌋ + H − D in a row of R pixels, and bottom-aligned text at R − max(D, D'), D'
+      the Normal font's descent: Arial 11 (D 4) in a Calibri 11 workbook (D 5) sits a pixel
+      higher than its own D would put it, as the Mac's rule of item 55 does in points. These
+      are the pilot's rows only; `screen_vertical` decides the rules.
+    - **Rules, findings only.** At zoom 75 and 100 every line, the strikethrough's too, lies a
+      pixel lower against the measured baseline than the Mac's lines of item 60 read in device
+      pixels at the ppem rounded to a whole pixel; at zoom 200 the lines are thicker than the
+      Mac's floor gives (2 or 3 pixels). Neither is applied to `rule_metrics` until
+      `screen_rules` measures it across the faces and sizes. Two rows read as the Mac's do at
+      their edges: a double accounting underline whose second line would pass the row's last
+      pixel shows one line (zoom 75), and a line on a row's first pixel row is the row above's.
 
 ## 3. The pipeline
 

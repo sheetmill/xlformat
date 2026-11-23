@@ -1,0 +1,179 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261123-093947-screen-pilot",
+ "package": "xlformat",
+ "purpose": "xlformat capture group screen_pilot: window pictures of text placement and of underlines and strikethrough",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": true,
+ "workbooks": [
+  {
+   "file": "pilot_rules.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "Sheet!B1:B56",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "view",
+     "id": "view_z75_r1",
+     "sheet": "Sheet",
+     "zoom": 75,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z75_r1",
+     "name": "pilot_rules_z75_r001.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z75_r45",
+     "sheet": "Sheet",
+     "zoom": 75,
+     "select": "AZ1",
+     "scroll_row": 45,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z75_r45",
+     "name": "pilot_rules_z75_r045.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z100_r1",
+     "sheet": "Sheet",
+     "zoom": 100,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z100_r1",
+     "name": "pilot_rules_z100_r001.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z100_r33",
+     "sheet": "Sheet",
+     "zoom": 100,
+     "select": "AZ1",
+     "scroll_row": 33,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z100_r33",
+     "name": "pilot_rules_z100_r033.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r1",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r1",
+     "name": "pilot_rules_z200_r001.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r16",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 16,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r16",
+     "name": "pilot_rules_z200_r016.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r31",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 31,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r31",
+     "name": "pilot_rules_z200_r031.png"
+    },
+    {
+     "op": "view",
+     "id": "view_z200_r46",
+     "sheet": "Sheet",
+     "zoom": 200,
+     "select": "AZ1",
+     "scroll_row": 46,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z200_r46",
+     "name": "pilot_rules_z200_r046.png"
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "pilot_vertical.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "vertical!B1:B28",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "view",
+     "id": "view_z100_r1",
+     "sheet": "vertical",
+     "zoom": 100,
+     "select": "AZ1",
+     "scroll_row": 1,
+     "scroll_column": 1
+    },
+    {
+     "op": "capture_window",
+     "id": "shot_z100_r1",
+     "name": "pilot_vertical_z100_r001.png"
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

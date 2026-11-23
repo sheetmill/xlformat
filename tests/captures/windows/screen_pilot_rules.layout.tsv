@@ -1,0 +1,113 @@
+# suite: screen_pilot_rules (capture/screen_windows.py)
+# platform: windows
+# excel_build: 16.0.20527.20196
+# job: screen_pilot.job.json
+# job_id: xlformat-20261123-093947-screen-pilot
+# job_header: {"environment": {"audit": true, "checks": {"dde_server_launch_disabled": true, "dde_server_lookup_disabled": true, "vba_warnings": 4}, "display": {"screen_px": [2560, 1440], "system_dpi": 96}, "edition": {"found": "Microsoft 365", "source": "office products"}, "excel": {"build": "16.0.20527.20196", "build_number": 20527.0, "calculation_version": 191029, "decimal_separator": ".", "international": {"country": 1.0, "decimal": ".", "list": ","}, "operating_system": "Windows (64-bit ARM) NT 10.00", "process": {"native_machine": "0xaa64", "process_machine": "0x8664"}, "standard_font": "Aptos Narrow", "standard_font_size": 11.0, "thousands_separator": ",", "use_system_separators": true, "version": "16.0"}, "font_smoothing": {"expected": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "found": {"contrast": 1200, "directwrite": {}, "enabled": true, "orientation": "rgb", "type": "cleartype"}, "ok": true}, "fonts": [{"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Display", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Bold Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Italic", "version": "Version 2.01;O365"}, {"cloud": true, "family": "Aptos Narrow", "head_revision": 2.00999, "style": "Regular", "version": "Version 2.01;O365"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Bold Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Italic", "version": "Version 7.07"}, {"cloud": false, "family": "Arial", "head_revision": 7.07001, "style": "Regular", "version": "Version 7.07"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Bold Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Italic", "version": "Version 6.27"}, {"cloud": false, "family": "Calibri", "head_revision": 6.27, "style": "Regular", "version": "Version 6.27"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Bold Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.98, "style": "Italic", "version": "Version 6.98"}, {"cloud": false, "family": "Cambria", "head_revision": 6.99001, "style": "Regular", "version": "Version 6.99"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Bold Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Italic", "version": "Version 5.72"}, {"cloud": false, "family": "Segoe UI", "head_revision": 5.72, "style": "Regular", "version": "Version 5.72"}], "geometry": {"expected": {"excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "found": {"excel_window_points": [-5.0, -6.0, 1932.0, 1056.0], "excel_window_px": [-8, -8, 2568, 1400], "screen_px": [2560, 1440], "system_dpi": 96}, "ok": true}, "locale": {"ansi_code_page": 1252, "decimal": ".", "list": ",", "long_date": "dddd, MMMM d, yyyy", "name": "en-US", "oem_code_page": 437, "short_date": "M/d/yyyy", "sort_locale": "en-US", "sort_version": {"custom": "01000000ee575c1e00b4d0000bb1e11e", "defined": 394498, "nls": 394498}, "time": "h:mm:ss tt", "two_digit_year_max": 2049, "two_digit_year_max_setting": null}, "office": {"channel": "Current Channel", "platform": "x64", "products": "O365HomePremRetail", "version": "16.0.20527.20196"}, "printer": {"orientation": "portrait", "paper": "A4", "paper_mm": [215.9, 279.4]}, "theme": {"office_ui_theme": 6, "windows_apps_light": 1, "windows_system_light": 1}, "windows": {"architecture": "ARM64", "build": "26300.9974", "display_version": "26H2", "edition": "Core"}}, "format": 1, "inputs": {"pilot_rules.xlsx": {"bytes": 5815, "sha256": "43e8a20b30ca0b4bffa3f8cfe7b72294ab772fc6f8c987e7bc5018305e2171e6"}, "pilot_vertical.xlsx": {"bytes": 5334, "sha256": "e4d57a60e495a1fae46bc322e863113f48f77949a6ce5d78cf9eaa3088500081"}}, "job_id": "xlformat-20261123-093947-screen-pilot", "manifest_sha256": "39846e10bd9cd0de9329cead638a65c6b100d2b63641a577cf0264283bfafaaf", "runner_version": "0.1.27"}
+# method: window captures; device pixels from the row's top: the H stems' last ink row, each rule's first and last row
+zoom	tag	row_height	pixels_per_point	baseline_px	measured
+75	Calibri 9 single	15	1	11	12-12
+75	Calibri 9 double	15	1	10	11-11 13-13
+75	Calibri 9 singleAccounting	16.5	1	12	15-15
+75	Calibri 9 doubleAccounting	16.5	1	12	15-15
+75	Calibri 9 strike	15	1	11	9-9
+75	Calibri 11 none	15	1	11	
+75	Calibri 11 single	15	1	11	13-13
+75	Calibri 11 double	15	1	11	12-12 14-14
+75	Calibri 11 singleAccounting	17.25	1	11	15-15
+75	Calibri 11 doubleAccounting	17.25	1	11	15-15
+75	Calibri 11 strike	15	1	11	9-9
+75	Calibri 20 none	26.25	1	20	
+75	Calibri 20 single	26.25	1	20	23-23
+75	Calibri 20 double	26.25	1	20	23-23 25-25
+75	Calibri 20 singleAccounting	30.75	1	20	26-26
+75	Calibri 20 doubleAccounting	28.5	1	21	27-27
+75	Calibri 20 strike	26.25	1	20	16-16
+75	Arial 9 none	15	1	11	
+75	Arial 9 single	15	1	11	12-12
+75	Arial 9 double	15	1	10	11-11 13-13
+75	Arial 9 singleAccounting	16.5	1	12	15-15
+75	Arial 9 doubleAccounting	16.5	1	12	15-15
+75	Arial 9 strike	15	1	11	9-9
+75	Arial 11 none	15	1	11	
+75	Arial 11 single	15	1	11	13-13
+75	Arial 11 double	15	1	11	12-12 14-14
+75	Arial 11 singleAccounting	16.5	1	12	16-16
+75	Arial 11 doubleAccounting	16.5	1	12	16-16
+75	Arial 11 strike	15	1	11	1-1 9-9
+75	Arial 20 none	25.5	1	21	
+75	Arial 20 single	25.5	1	21	24-24
+75	Arial 20 double	25.5	1	21	23-23 25-25
+75	Arial 20 singleAccounting	30	1	20	25-25
+75	Arial 20 doubleAccounting	27.75	1	20	25-25 27-27
+75	Arial 20 strike	25.5	1	21	17-17
+100	Calibri 9 single	15	1.33333	15	17-17
+100	Calibri 9 double	15	1.33333	15	16-16 18-18
+100	Calibri 9 singleAccounting	16.5	1.33333	15	19-19
+100	Calibri 9 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Calibri 9 strike	15	1.33333	15	13-13
+100	Calibri 11 none	15	1.33333	15	
+100	Calibri 11 single	15	1.33333	15	18-18
+100	Calibri 11 double	15	1.33333	15	17-17 19-19
+100	Calibri 11 singleAccounting	17.25	1.33333	15	20-20
+100	Calibri 11 doubleAccounting	17.25	1.33333	15	20-20 22-22
+100	Calibri 11 strike	15	1.33333	15	12-12
+100	Calibri 20 none	26.25	1.33333	27	
+100	Calibri 20 single	26.25	1.33333	27	31-32
+100	Calibri 20 double	26.25	1.33333	27	30-30 32-32
+100	Calibri 20 singleAccounting	30.75	1.33333	27	35-36
+100	Calibri 20 doubleAccounting	28.5	1.33333	27	35-35 37-37
+100	Calibri 20 strike	26.25	1.33333	27	21-22
+100	Arial 9 none	15	1.33333	15	
+100	Arial 9 single	15	1.33333	15	17-17
+100	Arial 9 double	15	1.33333	15	16-16 18-18
+100	Arial 9 singleAccounting	16.5	1.33333	15	19-19
+100	Arial 9 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Arial 9 strike	15	1.33333	15	13-13
+100	Arial 11 none	15	1.33333	15	
+100	Arial 11 single	15	1.33333	15	18-18
+100	Arial 11 double	15	1.33333	15	16-16 18-18
+100	Arial 11 singleAccounting	16.5	1.33333	15	19-19
+100	Arial 11 doubleAccounting	16.5	1.33333	15	19-19 21-21
+100	Arial 11 strike	15	1.33333	15	12-12
+100	Arial 20 none	25.5	1.33333	27	
+100	Arial 20 single	25.5	1.33333	27	31-32
+100	Arial 20 double	25.5	1.33333	27	30-30 32-32
+100	Arial 20 singleAccounting	30	1.33333	27	34-35
+100	Arial 20 doubleAccounting	27.75	1.33333	27	34-34 36-36
+100	Arial 20 strike	25.5	1.33333	27	21-21
+200	Calibri 9 single	15	2.66667	30	34-35
+200	Calibri 9 double	15	2.66667	30	33-33 35-35
+200	Calibri 9 singleAccounting	16.5	2.66667	30	37-38
+200	Calibri 9 doubleAccounting	16.5	2.66667	30	37-37 39-39
+200	Calibri 9 strike	15	2.66667	30	25-26
+200	Calibri 11 none	15	2.66667	30	
+200	Calibri 11 single	15	2.66667	30	34-35
+200	Calibri 11 double	15	2.66667	30	32-33 36-37
+200	Calibri 11 singleAccounting	17.25	2.66667	30	39-40
+200	Calibri 11 doubleAccounting	17.25	2.66667	30	39-40 43-44
+200	Calibri 11 strike	15	2.66667	30	24-25
+200	Calibri 20 none	26.25	2.66667	54	
+200	Calibri 20 single	26.25	2.66667	54	61-63
+200	Calibri 20 double	26.25	2.66667	54	58-60 64-66
+200	Calibri 20 singleAccounting	30.75	2.66667	54	69-71
+200	Calibri 20 doubleAccounting	28.5	2.66667	54	69-71 75-75
+200	Calibri 20 strike	26.25	2.66667	54	1-1 42-44
+200	Arial 9 none	15	2.66667	30	
+200	Arial 9 single	15	2.66667	30	34-35
+200	Arial 9 double	15	2.66667	30	33-33 35-35
+200	Arial 9 singleAccounting	16.5	2.66667	30	37-38
+200	Arial 9 doubleAccounting	16.5	2.66667	30	37-37 39-39
+200	Arial 9 strike	15	2.66667	30	25-25
+200	Arial 11 none	15	2.66667	30	
+200	Arial 11 single	15	2.66667	30	34-35
+200	Arial 11 double	15	2.66667	30	33-33 35-35
+200	Arial 11 singleAccounting	16.5	2.66667	30	37-38
+200	Arial 11 doubleAccounting	16.5	2.66667	30	37-37 39-39
+200	Arial 11 strike	15	2.66667	30	23-23
+200	Arial 20 none	25.5	2.66667	54	
+200	Arial 20 single	25.5	2.66667	54	61-64
+200	Arial 20 double	25.5	2.66667	54	57-59 63-65
+200	Arial 20 singleAccounting	30	2.66667	54	67-70
+200	Arial 20 doubleAccounting	27.75	2.66667	54	67-69 73-73
+200	Arial 20 strike	25.5	2.66667	54	1-1 41-43
