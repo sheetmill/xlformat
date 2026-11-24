@@ -6,13 +6,14 @@ Usage: ``uv run python -m capture.faces count|run <group> [suite ...]``, ``<grou
   family's regular face at the size, the four styles as cell fonts): every glyph of
   :data:`GLYPHS` ten times, a digit five-run, texts mixing ASCII and other glyphs, and long texts
   across the autofit bonus's steps. Also Segoe UI and MS Sans Serif, faces Excel for Mac lacks.
-- ``recover``: per family and size 383, 397 and 409 (``faces_r<size>_<family>``): every ASCII
-  glyph as ``T + g * N + T`` with the trigger ``T`` (:data:`TRIGGER`, a non-ASCII glyph, so Excel
-  sums the text unrounded), every other glyph as ``g * N``, the trigger as ``T * M`` and every
-  digit's five- and ten-run. ``N`` and ``M`` are the longest runs under :data:`LIMIT_DIGITS` digit
-  widths of the Normal font, estimated from the ``check`` captures at 13 pt (committed), so that
-  no text reaches the autofit bonus.
-- ``padding``: per size (``faces_p<size>``), every face of every family as a cell font: ``0``
+- ``recover``: per family (and Segoe UI) and size 383, 397 and 409
+  (``faces_r<size>_<family>``): every ASCII glyph as ``T + g * N + T`` with the trigger ``T``
+  (:data:`TRIGGER`, a non-ASCII glyph, so Excel sums the text unrounded), every other glyph as
+  ``g * N``, the trigger as ``T * M`` and every digit's five- and ten-run. ``N`` and ``M`` are
+  the longest runs under :data:`LIMIT_DIGITS` digit widths of the Normal font, estimated from
+  the ``check`` captures at 13 pt (committed), so that no text reaches the autofit bonus.
+- ``padding``: per size (``faces_p<size>``), every face of every family (and Segoe UI) as a
+  cell font: ``0``
   five and ten times. Twice the five-run less the ten-run is the autofit padding, which gives
   each italic face's overhang.
 
@@ -63,6 +64,9 @@ FAMILIES = (
     "Verdana",
 )
 ABSENT = ("Segoe UI", "MS Sans Serif")  # names Excel for Mac has no face for
+# Segoe UI autofits as none of FAMILIES (the check captures), so its advances are recovered as
+# Excel measures them; MS Sans Serif autofits exactly as Times New Roman
+MEASURED = (*FAMILIES, "Segoe UI")
 STYLES = ("regular", "bold", "italic", "bold italic")
 # space, printable ASCII, then the cp1252 code page's other characters (Latin-1 and its additions)
 GLYPHS = tuple(chr(c) for c in range(0x20, 0x7F)) + tuple(
@@ -192,7 +196,7 @@ def padding_suite(name: str, normal_size: int, sizes: tuple[float, ...]) -> xc.S
     texts = {
         f"{family}|{s:g}|{style}": ["0" * 5, "0" * 10]
         for s in sizes
-        for family in FAMILIES
+        for family in MEASURED
         for style in STYLES
     }
     return _suite(name, "Calibri", normal_size, texts)
@@ -205,7 +209,7 @@ def group(name: str) -> Iterator[Callable[[], xc.Suite]]:
             for family in (*FAMILIES, *ABSENT):
                 yield lambda f=family, s=size: check_suite(f, s)
     elif name == "recover":
-        for family in FAMILIES:
+        for family in MEASURED:
             for size in RECOVER_SIZES:
                 yield lambda f=family, s=size: recover_suite(f, s)
     elif name == "padding":
