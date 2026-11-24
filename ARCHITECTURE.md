@@ -308,15 +308,17 @@ widths, not read from a font file: at 383, 397 and 409 points a run of a glyph b
 makes Excel sum the text unrounded, each width pins `u / E` to a fraction of a font unit, and the
 three sizes together leave one multiple of `1/E` (one E per face: 2048, 1024 for Consolas and
 Lucida Console, 1000 for Haettenschweiler). 27 families are measured, each in regular, bold,
-italic and bold italic (a style Excel synthesizes is captured as itself), at any size from 1 to
-192 points; a half size is measured as the whole size it rounds to, half up (`faces_phalf`).
+italic and bold italic (a style Excel synthesizes is captured as itself), at every size Excel
+allows (1 to 409 points; captured to 192); a half size is measured as the whole size it rounds to, half up (`faces_phalf`).
 Calibri is what openpyxl writes as the workbook default (Calibri 11; Excel for Mac's own default
 is Aptos Narrow 12 under Microsoft 365 and was Calibri 12 under Office 2021); the others are the
 faces workbooks use most and Office's later defaults. Names Excel for Mac has no face for:
 MS Sans Serif autofits as Times New Roman at every captured text and is measured as it
 (`font_substitutes()`); Segoe UI autofits as none of the families, and its widths are not
-proportional to the size, so it raises `LookupError`, as Geneva does. Digit runs are rounded per glyph up to 192 points (`faces_p<size>`); larger sizes
-raise `LookupError`. Excel for Windows measures Calibri, Aptos Narrow and Arial in whole device pixels,
+proportional to the size, so it raises `LookupError`, as Geneva does. Digit runs are rounded per
+glyph up to 192 points (`faces_p<size>`); above that the same rule answers, unverified: autofit
+stops rounding each glyph at a size that depends on the face (Calibri from 286 points; five
+other faces still round at 320, `faces_s<size>`), and fit decisions there are not captured. Excel for Windows measures Calibri, Aptos Narrow and Arial in whole device pixels,
 with tables of its own (**Excel for Windows** below). Installed fonts are not read.
 
 **The seam**: internally both modes are "a measure function plus a width in its units": `len`
@@ -662,7 +664,8 @@ characters; `column_width: float | None` is Excel mode in Column Width dialog un
 the glyph advances of `font`; passing both raises `ValueError`. `font: str | tuple[str, float] | None`
 names the font and size, default `("Calibri", 11)` (openpyxl's workbook default; sheetpeek passes
 the workbook's Normal style); a font without advances raises `LookupError` naming the measured
-fonts (on the Mac the 27 families of `measured_fonts()` in four styles at 1 to 192 points; on
+fonts (on the Mac the 27 families of `measured_fonts()` in four styles at every size, captured to 192
+points; on
 Windows Calibri, Aptos Narrow and Arial measured at 9 to 24 points and scaled from the nearest
 measured size elsewhere). Row heights, vertical placement, rules and insets cover fewer faces,
 each function's docstring says which. `measure:

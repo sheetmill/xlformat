@@ -80,11 +80,13 @@ def test_substitutes_measure_as_their_face() -> None:
         assert xlformat.text_width(text, (name, 13)) == xlformat.text_width(text, (face, 13))
 
 
-def test_sizes_run_from_1_to_192_points() -> None:
-    assert xlformat.text_width("0", ("Verdana", 192)) > 0
-    for size in (0.5, 192.5, 409):
-        with pytest.raises(LookupError):
-            xlformat.text_width("0", ("Verdana", size))
+def test_every_size_is_answered_by_the_rule() -> None:
+    # captured to 192 points; above, to Excel's 409, the same rule (unverified)
+    for size in (192, 250, 409):
+        expected = math.floor(1456 * size / 2048 + 0.5)  # Verdana bold's widest digit
+        bold = xlformat.Font("Verdana", size, bold=True)
+        assert xlformat.digit_width(bold, platform="mac") == expected
+    assert xlformat.file_column_metrics(None, normal_font=xlformat.Font("Calibri", 409)).points
     with pytest.raises(LookupError):
         xlformat.text_width("0", ("Geneva", 11))
     with pytest.raises(LookupError):

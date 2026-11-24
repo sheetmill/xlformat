@@ -108,8 +108,8 @@ evidence for each.
 
 - **Excel mode measures 27 families on the Mac** (`measured_fonts()`: Calibri, Aptos Narrow,
   Arial, Times New Roman, Verdana, Tahoma, Courier New and 20 more), regular, bold, italic and bold
-  italic, at any size from 1 to 192 points, by glyph advances recovered from Excel for Mac's own
-  autofit widths; MS Sans Serif measures as Times New Roman, as Excel for Mac does
+  italic, at any size (captured to 192 points, the same rule unverified above), by glyph advances
+  recovered from Excel for Mac's own autofit widths; MS Sans Serif measures as Times New Roman, as Excel for Mac does
   (`font_substitutes()`). With `platform="windows"`, Excel for Windows (16.0.20527.20196,
   Microsoft 365, en-US, 96 dpi) is measured for Calibri, Aptos Narrow and Arial at 9 to 24
   points, in whole pixels reported in points; other sizes there are scaled from the nearest

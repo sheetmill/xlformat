@@ -92,14 +92,17 @@ _OVERHANG_WINDOWS: dict[str, dict[str, dict[int, float]]] = {
     "aptos narrow": WINDOWS_APTOS_NARROW_OVERHANG,
     "arial": WINDOWS_ARIAL_OVERHANG,
 }
-# Excel for Mac: every face of _faces_mac.FACES at any size up to MAC_MAX_SIZE, by rule
-# (CAPTURING.md section 2 item 82)
+# Excel for Mac: every face of _faces_mac.FACES at any size, by rule (CAPTURING.md section 2
+# item 82)
 _STYLES = ("regular", "bold", "italic", "bold italic")
 _MAC_FAMILIES = {family.lower(): family for family in _faces_mac.FACES}
 _MAC_SUBSTITUTES = {name.lower(): family for name, family in _faces_mac.SUBSTITUTES.items()}
-MAC_MAX_SIZE = 192.0
-"""The largest size Excel for Mac's rule is known for: ASCII glyphs are rounded per glyph to
-whole points up to it (CAPTURING.md section 2 item 82)."""
+MAC_VERIFIED_SIZE = 192.0
+"""The largest size at which Excel for Mac's rule is captured: up to it each glyph's advance is
+rounded to whole points (CAPTURING.md section 2 item 82). Larger sizes, to Excel's 409 points,
+are answered by the same rule, unverified; there autofit stops rounding each glyph at a size
+that depends on the face (Calibri from 286 points; Arial, Times New Roman, Verdana, Candara and
+Georgia still round at 320), and fit decisions there are not captured."""
 _DIGITS = "0123456789"
 
 
@@ -172,7 +175,8 @@ def resolve_font(font: FontSpec | None, platform: Platform = _MAC) -> Font:
     """The canonical :class:`Font`; raises LookupError for a font, style or size not covered.
 
     On the Mac a name Excel for Mac has no face for and measures as another (``SUBSTITUTES``)
-    resolves to that face, and sizes run from 1 to :data:`MAC_MAX_SIZE` points.
+    resolves to that face; every size is measured by the rule (verified to
+    :data:`MAC_VERIFIED_SIZE` points).
     """
     if font is None:
         return DEFAULT_FONT
@@ -187,9 +191,6 @@ def resolve_font(font: FontSpec | None, platform: Platform = _MAC) -> Font:
             msg = (
                 f"no glyph advances for font {font.name!r}; measured: {', '.join(_faces_mac.FACES)}"
             )
-            raise LookupError(msg)
-        if not 1 <= font.size <= MAC_MAX_SIZE:
-            msg = f"no glyph advances for {family} at {font.size:g} points: 1 to {MAC_MAX_SIZE:g}"
             raise LookupError(msg)
         return Font(family, float(font.size), font.bold, font.italic, font.underline)
     entry = _FONTS_WINDOWS.get(font.name.lower())
@@ -343,13 +344,15 @@ def measured_fonts(
 ) -> dict[str, dict[str, tuple[int, ...]]]:
     """The fonts xlformat measures text in: family, then style, then the sizes verified.
 
-    On the Mac every listed family and style is measured at any size from 1 to 192 points by
-    its glyph advances, recovered from Excel's autofit widths; the sizes listed are those at
-    which every glyph's width was captured. :func:`font_substitutes` lists names Excel for Mac
-    measures as one of these. On Windows the measured tables, other sizes scaling the nearest.
-    Anything else raises ``LookupError``. A caller can test a workbook's fonts against this
-    before choosing Excel mode. Only text measurement follows this list: row heights, vertical
-    placement, rules and insets cover fewer faces (each function says which).
+    On the Mac every listed family and style is measured at any size by its glyph advances,
+    recovered from Excel's autofit widths: captured to 192 points, and by the same rule,
+    unverified, above (Excel allows 409; see ``MAC_VERIFIED_SIZE`` in ``_measure``). The sizes
+    listed are those at which every glyph's width was captured. :func:`font_substitutes` lists
+    names Excel for Mac measures as one of these. On Windows the measured tables, other sizes
+    scaling the nearest. Anything else raises ``LookupError``. A caller can test a workbook's
+    fonts against this before choosing Excel mode. Only text measurement follows this list:
+    row heights, vertical placement, rules and insets cover fewer faces (each function says
+    which).
     """
     p = check_platform(platform, "measured_fonts", windows=True)
     if p.name == "mac":
