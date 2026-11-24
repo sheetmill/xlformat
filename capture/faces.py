@@ -19,6 +19,10 @@ Usage: ``uv run python -m capture.faces count|run <group> [suite ...] [--out <di
   five and ten times. Twice the five-run less the ten-run is the autofit padding, which gives
   each italic face's overhang.
 
+- ``switch``: per size from 193 to 320 (``faces_s<size>``; Normal Calibri at the size), in six
+  faces, ``0`` and the six ASCII glyphs whose rounding per glyph and rounding of the run's sum
+  disagree most, five times each: where Excel stops rounding each ASCII glyph.
+
 Each suite is one workbook; ``run`` writes ``tests/captures/faces/<suite>.measure.tsv``
 (gzipped above 50 KB) and drops the row-less suite file. ``capture/face_fit.py`` reads them.
 """
@@ -204,6 +208,33 @@ def padding_suite(name: str, normal_size: int, sizes: tuple[float, ...]) -> xc.S
     return _suite(name, "Calibri", normal_size, texts)
 
 
+SWITCH_SIZES = tuple(range(193, 321))
+SWITCH_FACES = ("Calibri", "Arial", "Times New Roman", "Verdana", "Candara", "Georgia")
+
+
+def switch_suite(size: int) -> xc.Suite:
+    """Five-runs where rounding each ASCII glyph and rounding the run's sum disagree most.
+
+    From the recovered advances (``src/xlformat/_faces_mac.py``): per face the six ASCII glyphs
+    whose ``5 * round(x) - round(5 * x)`` is largest in size at ``size`` (x the advance in
+    points), plus ``0`` five times.
+    """
+    from xlformat import _measure
+
+    texts: dict[str, list[str]] = {}
+    for family in SWITCH_FACES:
+        e, units = _measure._mac_face(family, "regular")
+        ascii_glyphs = [chr(c) for c in range(0x21, 0x7F)]
+
+        def gap(g: str, e: int = e, units: dict[str, float] = units) -> float:
+            x = units[g] * size / e
+            return abs(5 * math.floor(x + 0.5) - math.floor(5 * x + 0.5))
+
+        chosen = sorted(ascii_glyphs, key=lambda g: (-gap(g), g))[:6]
+        texts[f"{family}|{size}|regular"] = ["0" * 5, *(g * 5 for g in chosen)]
+    return _suite(f"faces_s{size}", "Calibri", size, texts)
+
+
 def group(name: str) -> Iterator[Callable[[], xc.Suite]]:
     """The suites of a group, built lazily (``recover`` reads the check captures)."""
     if name == "check":
@@ -219,8 +250,11 @@ def group(name: str) -> Iterator[Callable[[], xc.Suite]]:
             yield lambda s=size: padding_suite(f"faces_p{s}", s, (s,))
         for suite, (normal, sizes) in PADDING_GROUPS.items():
             yield lambda n=suite, ns=normal, ss=sizes: padding_suite(n, ns, ss)
+    elif name == "switch":
+        for size in SWITCH_SIZES:
+            yield lambda s=size: switch_suite(s)
     else:
-        msg = f"unknown group {name!r}: check, recover or padding"
+        msg = f"unknown group {name!r}: check, recover, padding or switch"
         raise SystemExit(msg)
 
 
