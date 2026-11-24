@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `vertical_metrics`, `ink_metrics` and `rule_metrics` work with `platform="windows"` (96 dpi),
+  where they raised `LookupError`, for Calibri, Aptos Narrow and Arial, from window captures of
+  Excel for Windows; results in points, whole pixels at the zoom.
+  - `vertical_metrics`: placement in whole pixels from the face's height and descent, the
+    sizes and styles of the Windows row tables.
+  - `ink_metrics`: the ink of "H" and "g" at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points, and
+    bold, italic and bold italic at 11, 12 and 20.
+  - `rule_metrics`: any whole zoom from 10 to 400 (a size and zoom under one pixel an em
+    raises `LookupError`): the lines by a rule of the font's tables at the rounded ppem, with
+    Calibri's and Arial's double underlines, Arial's accounting underline and every line up
+    to 11 pixels an em from captured tables. A line may reach past its row: Excel draws it
+    into the row below.
+
 ## [0.7.0] - 2026-11-22
 
 ### Added

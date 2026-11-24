@@ -32,6 +32,7 @@ from xlformat._glyphs_windows_calibri import WINDOWS_CALIBRI, WINDOWS_CALIBRI_OV
 from xlformat._platform import _MAC, Platform, check_platform
 from xlformat._rows_windows import WINDOWS_ROWS
 from xlformat._rules_drawn import COURIER_GAP, DRAWN
+from xlformat._screen_windows import WINDOWS_INK, WINDOWS_RULES
 
 Measure = Callable[[str], float]
 """Width of a text in the caller's units."""
@@ -813,7 +814,7 @@ _INK: dict[str, dict[int, tuple[float, float]]] = {
 
 @dataclass(frozen=True)
 class VerticalMetrics:
-    """Where Excel for Mac draws a face's text in a cell, in sheet points.
+    """Where Excel draws a face's text in a cell, in sheet points (whole pixels on Windows).
 
     Every field is a distance Excel's screen shows, not a split of one by convention: the top
     inset and the ascent are seen only as their sum, ``baseline_from_top``, and the descent and
@@ -898,7 +899,9 @@ class VerticalMetrics:
 
 @dataclass(frozen=True, slots=True)
 class InkMetrics:
-    """The ink Excel for Mac draws for a face at zoom 100 on a 2x display, in sheet points.
+    """The ink Excel draws for a face at zoom 100, in sheet points.
+
+    To half a point on the Mac's 2x display, to a pixel (0.75 points) on Windows at 96 dpi.
 
     Attributes:
         cap_height: The ink of "H" above the baseline, to half a point.
@@ -921,10 +924,16 @@ def ink_metrics(
     style alike (styles captured for the first three). Times New Roman, Courier New and Georgia,
     and the sizes 13, 15, 17 and 22, come from item 59; the rest from items 47 and 55.
 
+    With ``platform="windows"`` (96 dpi, item 74): Calibri, Aptos Narrow and Arial at 9, 10, 11,
+    12, 14, 16, 18, 20 and 24 points, and bold, italic and bold italic at 11, 12 and 20, each
+    style as measured, in whole pixels.
+
     Raises:
         LookupError: A face or size not measured.
     """
-    _platform = check_platform(platform, "ink_metrics")
+    _platform = check_platform(platform, "ink_metrics", windows=True)
+    if _platform.name == "windows":
+        return _windows_ink(font)
     key, size = _row_face(font)
     ink = _INK.get(key, {}).get(int(size)) if size == int(size) else None
     if ink is None:
@@ -934,6 +943,41 @@ def ink_metrics(
         )
         raise LookupError(msg)
     return InkMetrics(cap_height=ink[0], descender=ink[1])
+
+
+def _windows_ink(font: FontSpec | None) -> InkMetrics:
+    f = DEFAULT_FONT if font is None else resolve_font(font, Platform.WINDOWS)
+    ink = WINDOWS_INK.get((_DISPLAY.get(f.name.lower(), f.name), f.style, int(f.size)))
+    if ink is None or f.size != int(f.size):
+        msg = (
+            f"no ink measured on Excel for Windows for {f.name} {f.size:g} {f.style}; measured: "
+            "Calibri, Aptos Narrow and Arial at 9, 10, 11, 12, 14, 16, 18, 20 and 24, and bold, "
+            "italic and bold italic at 11, 12 and 20"
+        )
+        raise LookupError(msg)
+    return InkMetrics(cap_height=ink[0] * _PX, descender=ink[1] * _PX)
+
+
+_PX = 0.75  # points a device pixel at 96 dpi and zoom 100
+
+
+def _windows_vertical(font: FontSpec | None, normal_font: FontSpec | None) -> VerticalMetrics:
+    """Excel for Windows' placement in whole pixels from the face's H and D.
+
+    CAPTURING.md section 2 items 74 and 76: the H stems' last ink row is ``H - D`` below a
+    top-aligned row's top and ``max(D, D')`` above a bottom-aligned row's bottom, the baseline
+    the edge below that row.
+    """
+    h, d = _windows_face(font)
+    below = d if normal_font is None else max(d, _windows_face(normal_font)[1])
+    return VerticalMetrics(
+        baseline_from_top=(h - d + 1) * _PX,
+        baseline_from_bottom=(below - 1) * _PX,
+        font_height=h * _PX,
+        line_height=h * _PX,
+        line_pitch=h * _PX,
+        line_inset=(d - 1) * _PX,
+    )
 
 
 def vertical_metrics(
@@ -962,13 +1006,21 @@ def vertical_metrics(
         normal_font: The workbook's Normal font; default ``None``, the cell's own font, which
             gives the face's own placement (a cell in the Normal font).
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. A platform without captured evidence for
-            this function raises ``LookupError``; so far that is every platform but the Mac.
+            ``None`` means the default, ``"mac"``. On ``"windows"`` (96 dpi) the placement is
+            in whole pixels from the face's H and D, the height and descent of
+            :func:`row_metrics` (CAPTURING.md section 2 items 74 and 76): the baseline ``H - D
+            + 1`` pixels below a top-aligned row's top, ``max(D, D') - 1`` above a
+            bottom-aligned row's bottom (``D'`` the Normal font's), centered text ``floor((R -
+            H) / 2)`` pixels lower than top-aligned text in a row of ``R`` pixels; wrapped
+            lines ``H`` apart, the last raised by the difference of ``line_inset`` (``D - 1``)
+            as on the Mac. The faces and sizes of the Windows row tables are supported.
 
     Raises:
         LookupError: A font or size not measured.
     """
-    _platform = check_platform(platform, "vertical_metrics")
+    _platform = check_platform(platform, "vertical_metrics", windows=True)
+    if _platform.name == "windows":
+        return _windows_vertical(font, normal_font)
     key, size = _row_face(font)
     height = _font_height(key, size)
     from_bottom = _bottom(key, size)
@@ -1006,7 +1058,12 @@ _TIMES_WIDE_GAP = (37, 40)
 
 @dataclass(frozen=True, slots=True)
 class RuleMetrics:
-    """Where Excel for Mac draws a face's rules at a zoom, in sheet points from the baseline.
+    """Where Excel draws a face's rules at a zoom, in sheet points from the baseline.
+
+    On Windows each value is a whole number of device pixels at the zoom (``0.75 * 100 / zoom``
+    points a pixel). A line may reach past the row's bottom: Excel draws it on into the row
+    below, under that row's top gridline (CAPTURING.md section 2 item 80); a caller that draws
+    within the row cuts it there.
 
     Each value is a whole number of screen points (half points above about 80 screen points, on
     the display of scale 2 it was captured on) at the screen size ``size * zoom / 100``, divided
@@ -1033,6 +1090,63 @@ class RuleMetrics:
     strikethrough_thickness: float
     double_top: float
     double_thickness: float
+
+
+_WINDOWS_RULE_FACES = {"calibri": "Calibri", "arial": "Arial", "aptos narrow": "Aptos Narrow"}
+_CALIBRI_HIGHER = 171  # from this ppem Calibri's lines lie a pixel higher (item 79, item 80)
+
+
+def _windows_rules(key: str, size: float, zoom: float) -> RuleMetrics:
+    """Excel for Windows' lines at 96 dpi (CAPTURING.md section 2 items 75 and 77 to 80)."""
+    face = _WINDOWS_RULE_FACES.get(key)
+    if face is None:
+        msg = (
+            f"no rule positions on Excel for Windows for {_DISPLAY[key]}; measured: Calibri, "
+            "Aptos Narrow and Arial"
+        )
+        raise LookupError(msg)
+    if zoom != int(zoom) or not 10 <= zoom <= 400:
+        msg = f"Excel for Windows draws at whole zooms from 10 to 400, not {zoom:g}"
+        raise LookupError(msg)
+    p = math.floor(size * 4 / 3 * zoom / 100 + 0.5)  # the ppem: pixels an em at 96 dpi
+    if p < 1:
+        msg = f"{_DISPLAY[key]} {size:g} at zoom {zoom:g} is under one pixel an em: not captured"
+        raise LookupError(msg)
+
+    def rounded(units: int) -> int:
+        return math.floor(p * units / 2048 + 0.5)
+
+    position, thickness, strike_position, strike_size, descent = _RULE_TABLES[key]
+    line, top, accounting = max(1, rounded(thickness)), rounded(-position), rounded(descent)
+    strike, strike_line = rounded(strike_position), max(1, rounded(strike_size))
+    if key == "calibri" and p >= _CALIBRI_HIGHER:
+        top, accounting, strike = top - 1, accounting - 1, strike + 1
+    table = WINDOWS_RULES.get((face, p), (None,) * 8)
+    if table[5] is not None:
+        accounting = table[5]
+    if key == "aptos narrow":  # the single's line stepped up until the double ends at accounting's
+        first = top
+        while first + 3 * line > accounting:
+            first -= line
+        double: tuple[int | None, int | None] = (first, line)
+    else:
+        double = (table[2], table[3])
+    rule = (top, line, double[0], double[1], None, accounting, strike, strike_line)
+    v = [r if t is None else t for r, t in zip(rule, table, strict=True)]
+    if v[4] is None:
+        v[4] = 2 * v[3]  # type: ignore[operator]
+    # device pixels to sheet points: 0.75 at zoom 100
+    u_top, u_thick, d_top, d_thick, gap, acc, s_top, s_thick = (x * 75 / zoom for x in v)  # type: ignore[operator]
+    return RuleMetrics(
+        underline_top=u_top,
+        underline_thickness=u_thick,
+        double_gap=gap,
+        accounting_top=acc,
+        strikethrough_top=s_top,
+        strikethrough_thickness=s_thick,
+        double_top=d_top,
+        double_thickness=d_thick,
+    )
 
 
 def _courier_rule(q: int) -> tuple[int, ...]:
@@ -1087,12 +1201,29 @@ def rule_metrics(
     and 144), and at a screen size that is not whole, Excel draws a line a screen point off
     in some rows (23 of 400 captured; Courier New's lines there also differ by zoom).
 
+    With ``platform="windows"`` (96 dpi; Calibri, Aptos Narrow and Arial, at any whole zoom
+    from 10 to 400) the lines are drawn at the ppem ``P = round(size * 4/3 * zoom / 100)`` (a
+    half rounds up) and depend on ``P`` alone (CAPTURING.md section 2 items 77 to 80). In whole
+    pixels, every rounding half up: an underline's top ``round(P * -underlinePosition / em)``
+    below the baseline, its thickness ``max(1, round(P * underlineThickness / em))``; an
+    accounting underline's top the face's hinted descent, ``round(P * usWinDescent / em)``
+    (Arial's, captured at every ``P``); a strikethrough's top ``round(P * yStrikeoutPosition /
+    em)`` above the baseline, ``max(1, round(P * yStrikeoutSize / em))`` thick; Calibri from
+    ``P`` 171 draws these three a pixel higher. A double underline's lines are two thicknesses
+    apart; Aptos Narrow's are the single's, stepped up as on the Mac, and Calibri's and Arial's
+    are a captured table at every ``P`` from 1 to 384. Up to ``P`` 11 every value of the three
+    faces is the captured line. A line may reach past the row (see :class:`RuleMetrics`).
+
     Raises:
         LookupError: A face without its rule, a size outside 1 to 72, or Courier New at a
-            screen size outside 6 to 144, where its gap is not measured.
+            screen size outside 6 to 144, where its gap is not measured; on Windows, a face
+            other than the three, a zoom that is not whole or outside 10 to 400, or a size and
+            zoom under one pixel an em.
     """
-    _platform = check_platform(platform, "rule_metrics")
+    _platform = check_platform(platform, "rule_metrics", windows=True)
     key, size = _row_face(font)
+    if _platform.name == "windows":
+        return _windows_rules(key, size, zoom)
     if key not in _RULE_TABLES:
         msg = (
             f"no rule positions for {_DISPLAY[key]}; measured: Calibri, Aptos Narrow, Arial, "

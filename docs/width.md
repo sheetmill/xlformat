@@ -266,7 +266,15 @@ shows a `#` run.
 ```
 
 Text placement and underline positions (`vertical_metrics`, `ink_metrics`, `rule_metrics`) are
-measured on the Mac only and raise `LookupError` for Windows.
+measured on Windows too, for Calibri, Aptos Narrow and Arial, in whole pixels:
+
+```python
+>>> from xlformat import rule_metrics, vertical_metrics
+>>> vertical_metrics(("Calibri", 11), platform="windows").baseline_from_bottom
+3.0
+>>> rule_metrics(("Calibri", 11), platform="windows").underline_top
+1.5
+```
 
 ## Custom measures
 

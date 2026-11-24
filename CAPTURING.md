@@ -1539,7 +1539,13 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     mostly past the row. With items 78 and 79, Calibri's and Arial's double underlines (both
     kinds) are now measured at every P from 1 to 384, and 6,416 face, rule and part keys drawn
     at two zooms or more agree but for 67, each a line cut by its row's last pixel row (58 of
-    item 79's, 9 of Aptos Narrow's double accounting at zoom 25).
+    item 79's, 9 of Aptos Narrow's double accounting at zoom 25). Such a line is not cut where
+    Excel draws it: it goes on into the row below, under that row's top gridline. Of the 53
+    double accounting second lines of item 78 that end on their row's last pixel row thinner
+    than their first, 35 lack one pixel row, the row below's gridline row; of the 18 that lack
+    two or three, 13 show the rest on the row below's next pixel rows (5 do not, unexplained).
+    At zoom 25, which draws no gridlines, Aptos Narrow's lines show on the next row's first
+    pixel rows.
 
 ## 3. The pipeline
 
@@ -1579,6 +1585,8 @@ capture/screen_windows.py     window pictures on Excel for Windows as capture jo
                              the Mac's screen suites for the faces with Windows tables), and their reader
 capture/screen_table.py       the rules table on Excel for Windows: each rule by ppem, the rules side by
                              side in a row (group screen_rules_table), and its reader
+capture/windows_screen_tables.py  Excel for Windows' rules and ink into src/xlformat/_screen_windows.py
+                             (items 74, 78 to 80)
 capture/excel_watch.py        a time limit on each request to Excel, and evidence when one passes
 capture/edition.py            the Excel edition and update channel, for each capture's header
 capture/invalid.py            which candidate format strings Excel refuses to open (item 9)
