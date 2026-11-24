@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-11-24
+
 ### Added
 - Excel mode on the Mac measures 27 families: Calibri, Arial, Aptos Narrow, Aptos, Arial Black,
   Arial Narrow, Book Antiqua, Bookman Old Style, Calibri Light, Cambria, Candara, Century
@@ -437,7 +439,8 @@ First release.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.9.0
 [0.8.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.8.0
 [0.7.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.7.0
 [0.6.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.6.0

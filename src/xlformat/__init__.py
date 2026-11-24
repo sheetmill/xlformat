@@ -48,7 +48,7 @@ from xlformat._platform import (
 )
 from xlformat._quirks import Quirks
 
-__version__ = "0.8.0"
+__version__ = "0.9.0"
 
 __all__ = [
     "BUILTIN_FORMATS",
