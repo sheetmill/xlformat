@@ -1407,23 +1407,31 @@ def text_insets(
             unit an em.
     """
     p = check_platform(platform, "text_insets", windows=True)
-    key, size = _row_face(font)
-    if normal_font is not None:
-        _row_face(normal_font)
-    advance = _DIGIT_ADVANCE.get(key)
-    if advance is None:
-        msg = f"no text insets for {_DISPLAY[key]}; measured: Calibri, Aptos Narrow and Arial"
-        raise LookupError(msg)
     windows = p.name == "windows"
+    if windows:
+        key, size = _row_face(font)
+        if normal_font is not None:
+            _row_face(normal_font)
+        advance = _DIGIT_ADVANCE.get(key)
+        if advance is None:
+            msg = f"no text insets for {_DISPLAY[key]}; measured: Calibri, Aptos Narrow and Arial"
+            raise LookupError(msg)
+        name, units, em = _DISPLAY[key], {"0": float(advance)}, 2048
+    else:  # every face Excel for Mac measures, by its widest digit
+        f = resolve_font(font, p)
+        if normal_font is not None:
+            resolve_font(normal_font, p)
+        name, size = f.name, f.size
+        em, units = _mac_face(f.name, f.style)
     per_point = 4 / 3 if windows else 1.0  # screen units a point at zoom 100
     screen = math.floor(size * per_point * zoom / 100 + 0.5)
     if screen < 1:
-        msg = f"{_DISPLAY[key]} {size:g} at zoom {zoom:g} is under one screen unit an em"
+        msg = f"{name} {size:g} at zoom {zoom:g} is under one screen unit an em"
         raise LookupError(msg)
-    digit = math.floor(screen * advance / 2048 + 0.5)
+    digit = max(math.floor(screen * units[d] / em + 0.5) for d in _DIGITS if d in units)
     if windows:
         digit = _WINDOWS_DIGIT.get((key, screen), digit)
     clear = math.ceil(digit / 4)
-    units = 75 if windows else 100  # sheet points a screen unit, times the zoom
-    left, right = (1 + clear) * units / zoom, clear * units / zoom
+    step = 75 if windows else 100  # sheet points a screen unit, times the zoom
+    left, right = (1 + clear) * step / zoom, clear * step / zoom
     return TextInsets(left=left, right=right, accounting_left=left, accounting_right=right)

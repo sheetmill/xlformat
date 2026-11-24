@@ -1,7 +1,7 @@
 """Where Excel starts and ends a cell's text, by the cell's font: the text insets on screen.
 
-    uv run python -m capture.screen_insets run      # Excel for Mac (in a macOS virtual machine)
-    uv run python -m capture.screen_insets read     # read the Mac's saved pictures again
+    uv run python -m capture.screen_insets run [faces]   # Excel for Mac (in a macOS VM)
+    uv run python -m capture.screen_insets read [faces]  # read the saved pictures again
 
 The same workbooks run on Excel for Windows as the group ``screen_insets`` of
 ``capture/screen_windows.py``. A row holds one face at one size, "HH" in four cells side by side:
@@ -10,7 +10,9 @@ end, then left- and right-aligned under a single accounting underline, which spa
 those cells' text edges come from the H's ink less the bearing the plain cells show. Faces
 Calibri, Arial and Aptos Narrow at every size from 9 to 36 points and every fourth from 40 to 72,
 in workbooks of two Normal fonts (Calibri 11, Aptos Narrow 20), so that the cell's font can be told
-from the Normal font's; seen at zoom 100 and 150.
+from the Normal font's; seen at zoom 100 and 150. With ``faces`` (the Mac only), one workbook
+under a Calibri 11 Normal font holds Times New Roman, Verdana, Georgia, Courier New and Verdana
+italic at 11, 36 and 72 points (``FACES_ROWS``), written to ``insets_faces.layout.tsv``.
 
 The reader finds each row's gridlines in the picture (columns of light gray down the row's band;
 column B's left gridline lies under column A's fill, so it is taken as the fill's last pixel
@@ -41,6 +43,19 @@ TEXT = "HH"
 COLUMN_CHARS = 24  # wide enough for "HH" at 72 points with room either side
 
 
+FACES_ROWS = tuple(
+    (face, italic, size)
+    for face, italic in (
+        ("Times New Roman", False),
+        ("Verdana", False),
+        ("Georgia", False),
+        ("Courier New", False),
+        ("Verdana", True),
+    )
+    for size in (11, 36, 72)
+)
+
+
 @dataclass(frozen=True, slots=True)
 class InsetRow:
     """A sheet row: ``face`` at ``size`` in the four cells of ``CELLS``; a filler when no face."""
@@ -48,6 +63,7 @@ class InsetRow:
     tag: str
     face: str = ""
     size: float = 0.0
+    italic: bool = False
 
     @property
     def rules(self) -> tuple[str, ...]:  # the planner's and limit test's view of the cells
@@ -61,8 +77,19 @@ class InsetBook:
     rows: tuple[InsetRow, ...]
 
 
-def books() -> list[InsetBook]:
-    """Two workbooks a Normal font: sizes to 36, and above (each well under 1,000 fonts)."""
+def books(variant: str = "") -> list[InsetBook]:
+    """Two workbooks a Normal font: sizes to 36, and above (each well under 1,000 fonts).
+
+    ``faces``: one workbook of ``FACES_ROWS`` under Calibri 11.
+    """
+    if variant == "faces":
+        rows = [InsetRow("filler top")]
+        rows += [
+            InsetRow(f"{face} {size:g}" + (" italic" if italic else ""), face, float(size), italic)
+            for face, italic, size in FACES_ROWS
+        ]
+        rows += [InsetRow(f"filler {k}") for k in range(20)]
+        return [InsetBook("insets_faces", CellFont("Calibri", 11), tuple(rows))]
     out = []
     for normal in NORMALS:
         label = normal.label.replace(" ", "_").lower()
@@ -99,7 +126,7 @@ def build(book: InsetBook, path: Path) -> Path:
         for c, (align, underline) in enumerate(CELLS, 2):
             cell = ws.cell(row=r, column=c, value=TEXT)
             cell.data_type = "s"
-            cell.font = Font(name=row.face, sz=row.size, family=2, u=underline)
+            cell.font = Font(name=row.face, sz=row.size, family=2, u=underline, i=row.italic)
             cell.alignment = Alignment(horizontal=align, vertical="bottom")
     ws.column_dimensions["A"].width = 4
     for c in range(2, 2 + len(CELLS)):
@@ -215,19 +242,19 @@ METHOD = (
 # --- Excel for Mac (run in a macOS virtual machine) ----------------------------------------------
 
 
-def mac_output() -> Path:
+def mac_output(variant: str = "") -> Path:
     from capture.screen_rules import CAPTURES
 
-    return CAPTURES / "insets.layout.tsv"
+    return CAPTURES / ("insets_faces.layout.tsv" if variant == "faces" else "insets.layout.tsv")
 
 
-def mac_shots() -> Path:
+def mac_shots(variant: str = "") -> Path:
     from capture.build import BUILD_DIR
 
-    return BUILD_DIR / "screen_insets"
+    return BUILD_DIR / ("screen_insets_faces" if variant == "faces" else "screen_insets")
 
 
-def run() -> None:
+def run(variant: str = "") -> None:
     """Every workbook at every zoom on Excel for Mac, its pictures saved, then ``read``."""
     from capture.build import WORKBOOK_DIR
     from capture.excel_watch import answers, excel_windows
@@ -244,7 +271,7 @@ def run() -> None:
         sys.exit("Excel does not answer: nothing run")
     if _request_count() != "0" or excel_windows():
         sys.exit("Excel must hold no workbook and show no window: nothing run")
-    for book in books():
+    for book in books(variant):
         name = f"{book.stem}.xlsx"
         path = build(book, (WORKBOOK_DIR / name).resolve())
         n = len(book.rows)
@@ -253,7 +280,7 @@ def run() -> None:
             heights = _request("heights", name, str(n), seconds=120.0)
             window = _window_id(book.stem)
             for zoom in ZOOMS:
-                folder = mac_shots() / book.stem / f"zoom{zoom}"
+                folder = mac_shots(variant) / book.stem / f"zoom{zoom}"
                 folder.mkdir(parents=True, exist_ok=True)
                 for old in folder.glob("*.png"):
                     old.unlink()
@@ -276,33 +303,38 @@ def run() -> None:
                     top = last if top < last < n else last + 1
         finally:
             _request("close", name)
-    with tarfile.open(mac_shots().with_suffix(".tar"), "w") as tar:
-        tar.add(mac_shots(), arcname="screen_insets")
-    read()
+    with tarfile.open(mac_shots(variant).with_suffix(".tar"), "w") as tar:
+        tar.add(mac_shots(variant), arcname=mac_shots(variant).name)
+    read(variant)
 
 
-def read() -> None:
+def read(variant: str = "") -> None:
     """The Mac's layout file from its saved pictures."""
     from capture.edition import edition_line, excel_build
     from capture.screen_vertical import numbered_views
 
     lines = []
-    for book in books():
+    for book in books(variant):
         for zoom in ZOOMS:
-            folder = mac_shots() / book.stem / f"zoom{zoom}"
+            folder = mac_shots(variant) / book.stem / f"zoom{zoom}"
             heights = [float(h) for h in (folder / "heights.txt").read_text().strip().split(",")]
             own = zoom != 100  # rows rounded to whole pixels: each row's own band
             lines += measure_insets(
                 numbered_views(folder), heights, zoom, book.rows, book.normal,
                 match_scale=None if zoom == 100 else 2 * zoom / 100, own_bands=own,
             )  # fmt: skip
-    with mac_output().open("w", encoding="utf-8", newline="\n") as out:
-        out.write("# suite: insets (capture.screen_insets); Excel for Mac, en_US\n")
+    suite = (
+        "insets_faces (capture.screen_insets faces)"
+        if variant
+        else "insets (capture.screen_insets)"
+    )
+    with mac_output(variant).open("w", encoding="utf-8", newline="\n") as out:
+        out.write(f"# suite: {suite}; Excel for Mac, en_US\n")
         out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         out.write(f"# method: {METHOD}; a display of scale 2\n")
         out.write(COLUMNS + "\n" + "\n".join(lines) + "\n")
-    print(f"wrote {mac_output()}: {len(lines)} rows")
+    print(f"wrote {mac_output(variant)}: {len(lines)} rows")
 
 
 if __name__ == "__main__":
-    {"run": run, "read": read}[sys.argv[1]]()
+    {"run": run, "read": read}[sys.argv[1]](*sys.argv[2:3])

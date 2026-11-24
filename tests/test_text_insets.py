@@ -73,6 +73,8 @@ def test_the_column_insets_are_the_normal_fonts(platform: str) -> None:
 
 def test_text_insets_raises_outside_its_captures() -> None:
     with pytest.raises(LookupError, match="no text insets"):
-        text_insets(("Georgia", 11))
+        text_insets(("Georgia", 11), platform="windows")
+    with pytest.raises(LookupError):
+        text_insets(("Geneva", 11), platform="mac")
     with pytest.raises(LookupError, match="under one screen unit"):
         text_insets(("Calibri", 1), zoom=10, platform="windows")
