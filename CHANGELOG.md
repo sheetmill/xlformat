@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-11-23
+
 ### Added
 - `text_insets(font, *, normal_font=None, zoom=100, platform=None)` returning `TextInsets(left,
   right, accounting_left, accounting_right)`: where a cell's text starts and ends, by the cell's
@@ -382,7 +384,8 @@ First release.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.8.0
 [0.7.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.7.0
 [0.6.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.6.0
 [0.5.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.5.0
