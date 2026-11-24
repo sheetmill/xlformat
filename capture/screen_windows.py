@@ -57,6 +57,12 @@ from pathlib import Path
 from typing import Any, Literal
 
 from capture.cases import CellFont
+from capture.screen_insets import COLUMNS as INSET_COLUMNS
+from capture.screen_insets import METHOD as INSET_METHOD
+from capture.screen_insets import ZOOMS as INSET_ZOOMS
+from capture.screen_insets import InsetBook, InsetRow, measure_insets
+from capture.screen_insets import books as inset_books
+from capture.screen_insets import build as build_insets
 from capture.screen_rules import DOUBLE_RULES, DOUBLE_SIZES, measure_rules
 from capture.screen_rules import Case as RuleCase
 from capture.screen_rules import build as build_rules
@@ -97,6 +103,7 @@ SCREEN_GROUPS = (
     "screen_rules_table",
     "screen_rules_table_arial",
     "screen_rules_table_high",
+    "screen_insets",
 )
 _PURPOSE = {
     "screen_pilot": "window pictures of text placement and of underlines and strikethrough",
@@ -108,6 +115,7 @@ _PURPOSE = {
     "screen_rules_table": "window pictures of underlines and strikethrough at every ppem",
     "screen_rules_table_arial": "window pictures of underlines and strikethrough in Arial again",
     "screen_rules_table_high": "window pictures of underlines and strikethrough at large ppems",
+    "screen_insets": "window pictures of where a cell's text starts and ends",
 }
 
 
@@ -116,8 +124,13 @@ class Book:
     """One workbook of a screen job."""
 
     stem: str
-    kind: Literal["vertical", "rules", "table"]
-    cases: tuple[VerticalCase, ...] | tuple[RuleCase, ...] | tuple[TableRow, ...]
+    kind: Literal["vertical", "rules", "table", "insets"]
+    cases: (
+        tuple[VerticalCase, ...]
+        | tuple[RuleCase, ...]
+        | tuple[TableRow, ...]
+        | tuple[InsetRow, ...]
+    )
     zooms: tuple[int, ...]
     normal: CellFont = DEFAULT_NORMAL
     # row 1 is every first view's first row, whose top pixel the column headings' border covers:
@@ -233,11 +246,13 @@ def books(group: str) -> list[Book]:
     out = []
     for book in _books(group):
         if book.lead_filler:
-            filler: VerticalCase | RuleCase | TableRow = (
+            filler: VerticalCase | RuleCase | TableRow | InsetRow = (
                 VerticalCase("filler top", DEFAULT_NORMAL)
                 if book.kind == "vertical"
                 else TableRow("filler top")
                 if book.kind == "table"
+                else InsetRow("filler top")
+                if book.kind == "insets"
                 else RuleCase("rule", "filler top none")
             )
             book = Book(
@@ -287,6 +302,11 @@ def _books(group: str) -> list[Book]:
     if group == "screen_rules_fresh":
         cases = _rule_cases(FAMILIES, FRESH_SIZES, DOUBLE_RULES)
         return [Book("rules_fresh", "rules", tuple(cases), FRESH_ZOOMS)]
+    if group == "screen_insets":
+        return [
+            Book(b.stem, "insets", b.rows[1:], INSET_ZOOMS, b.normal)  # books() adds row 1's filler
+            for b in inset_books()
+        ]
     if group == "screen_rules_table_high":
         high = [
             Book(
@@ -363,6 +383,16 @@ def estimated_points(book: Book) -> list[float]:
             out.append(
                 row_metrics(normal, cell_fonts=cells, wrapped=wrapped, platform="windows").height
             )
+        elif isinstance(case, InsetRow):
+            fonts = (
+                [
+                    Font(case.face, max(6, math.ceil(case.size)), underline=u)
+                    for u in ("single", "singleAccounting")
+                ]
+                if case.face
+                else []
+            )
+            out.append(1.2 * row_metrics(normal, cell_fonts=fonts).height)
         elif isinstance(case, TableRow):
             # the row model holds accounting rows at whole sizes from 6 only: a row is planned
             # at the next whole size, and at 6 below it, a row no shorter
@@ -440,6 +470,8 @@ def workbooks(group: str, files: Path) -> list[dict[str, Any]]:
             raw = Path(tmp) / name
             if book.kind == "vertical":
                 build_vertical(book.normal, list(book.cases), raw)  # type: ignore[arg-type]
+            elif book.kind == "insets":
+                build_insets(InsetBook(book.stem, book.normal, book.cases), raw)  # type: ignore[arg-type]
             elif book.kind == "table":
                 sizes = [c.size for c in book.cases if isinstance(c, TableRow) and c.rules]
                 build_table(list(book.cases), column_chars(sizes), raw)  # type: ignore[arg-type]
@@ -518,6 +550,11 @@ def measured_rows(book: Book, steps: dict[str, Any], artifacts: Path) -> list[st
                     f"{book.normal.label}\t{m.case.tag}\t{stated}\t{m.height:g}\t{band_px}"
                     f"\t{m.shift}\t{h}\t{g}"
                 )
+        elif book.kind == "insets":
+            lines += measure_insets(
+                pictures, heights, zoom, list(book.cases), book.normal,  # type: ignore[arg-type]
+                match_scale=scale, pixels_per_point=scale, **frame,
+            )  # fmt: skip
         elif book.kind == "table":
             columns = steps["columns"]
             if math.floor(float(columns["width"][0][0]) * scale + 0.5) < MIN_MARKER_PX:
@@ -544,8 +581,10 @@ COLUMNS = {
     ),
     "rules": "zoom\ttag\trow_height\tpixels_per_point\tbaseline_px\tmeasured",
     "table": "zoom\ttag\trow_height\tpixels_per_point\tbaseline_px\trow_baseline_px\tmeasured",
+    "insets": INSET_COLUMNS,
 }
 METHOD = {
+    "insets": INSET_METHOD,
     "vertical": (
         "window capture at zoom 100; device pixels from each row's top, computed from the view's "
         "first marker band (column A); H: cap top-baseline per line; g: descender bottom per line"

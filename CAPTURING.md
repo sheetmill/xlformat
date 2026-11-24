@@ -1585,6 +1585,8 @@ capture/screen_windows.py     window pictures on Excel for Windows as capture jo
                              the Mac's screen suites for the faces with Windows tables), and their reader
 capture/screen_table.py       the rules table on Excel for Windows: each rule by ppem, the rules side by
                              side in a row (group screen_rules_table), and its reader
+capture/screen_insets.py      where a cell's text starts and ends by its font, on screen: the Mac's run
+                             (in the macOS VM) and the reader of both platforms (group screen_insets)
 capture/windows_screen_tables.py  Excel for Windows' rules and ink into src/xlformat/_screen_windows.py
                              (items 74, 78 to 80)
 capture/excel_watch.py        a time limit on each request to Excel, and evidence when one passes
