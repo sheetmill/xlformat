@@ -1613,6 +1613,13 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       size it rounds to, half up (Calibri 8.5 as 9, Garamond 9.5 as 10). Under a Calibri 6
       Normal font every width of sizes 1 to 5 is a multiple of 5 points, so that workbook gives
       no padding.
+    - **Switch** (`faces_s193` to `faces_s320`; 128 workbooks, 5,279 columns, 5 minutes; Normal
+      Calibri at the size): in Calibri, Arial, Times New Roman, Verdana, Candara and Georgia,
+      `0` and the six ASCII characters whose per-character rounding and whole-run rounding
+      disagree most, five times each. Calibri rounds each character through 285 points and
+      sums the run unrounded from 286 (228 of 228 deciding rows); the other five round each
+      character at every size to 320. No row fits neither. Where the rounding stops is a
+      property of the face, not one size; the measured sizes stay at most 192 points.
 
     The rule, on every check row but the runs of spaces, no-break spaces and soft hyphens
     (56,896 of 56,896): an ASCII character's advance is `u · S / E` rounded half up to whole

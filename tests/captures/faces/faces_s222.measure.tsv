@@ -1,0 +1,44 @@
+# autofit column width (Excel units) per distinct (value, format); font: Calibri 222
+value_type	value_repr	format	autofit_width	autofit_points	cell_font
+str	'00000'	'@'	5.02	626.0	Calibri 222
+str	'!!!!!'	'@'	3.2	421.0	Calibri 222
+str	'#####'	'@'	4.93	616.0	Calibri 222
+str	'$$$$$'	'@'	5.02	626.0	Calibri 222
+str	'%%%%%'	'@'	7.05	856.0	Calibri 222
+str	'&&&&&'	'@'	6.7	816.0	Calibri 222
+str	'((((('	'@'	2.98	396.0	Calibri 222
+str	'00000'	'@'	5.5	680.0	Arial 222
+str	'!!!!!'	'@'	2.8	375.0	Arial 222
+str	'#####'	'@'	5.5	680.0	Arial 222
+str	'$$$$$'	'@'	5.5	680.0	Arial 222
+str	'%%%%%'	'@'	8.77	1050.0	Arial 222
+str	"'''''"	'@'	1.91	275.0	Arial 222
+str	'*****'	'@'	3.86	495.0	Arial 222
+str	'00000'	'@'	4.91	614.0	Times New Roman 222
+str	'"""""'	'@'	4.03	514.0	Times New Roman 222
+str	'&&&&&'	'@'	7.65	924.0	Times New Roman 222
+str	',,,,,'	'@'	2.48	339.0	Times New Roman 222
+str	'.....'	'@'	2.48	339.0	Times New Roman 222
+str	'/////'	'@'	2.74	369.0	Times New Roman 222
+str	':::::'	'@'	2.74	369.0	Times New Roman 222
+str	'00000'	'@'	6.38	780.0	Verdana 222
+str	'!!!!!'	'@'	3.99	510.0	Verdana 222
+str	'#####'	'@'	8.19	985.0	Verdana 222
+str	"'''''"	'@'	2.8	375.0	Verdana 222
+str	'+++++'	'@'	8.19	985.0	Verdana 222
+str	'<<<<<'	'@'	8.19	985.0	Verdana 222
+str	'====='	'@'	8.19	985.0	Verdana 222
+str	'00000'	'@'	5.45	675.0	Candara 222
+str	'"""""'	'@'	4.48	565.0	Candara 222
+str	'$$$$$'	'@'	4.43	560.0	Candara 222
+str	'&&&&&'	'@'	6.73	820.0	Candara 222
+str	"'''''"	'@'	2.53	345.0	Candara 222
+str	'((((('	'@'	3.5	455.0	Candara 222
+str	')))))'	'@'	3.5	455.0	Candara 222
+str	'00000'	'@'	6.12	751.0	Georgia 222
+str	'!!!!!'	'@'	3.34	436.0	Georgia 222
+str	'"""""'	'@'	4.13	526.0	Georgia 222
+str	'$$$$$'	'@'	6.08	746.0	Georgia 222
+str	'%%%%%'	'@'	8.12	976.0	Georgia 222
+str	'11111'	'@'	4.31	546.0	Georgia 222
+str	'33333'	'@'	5.5	681.0	Georgia 222
