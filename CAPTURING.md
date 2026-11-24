@@ -1619,7 +1619,10 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       disagree most, five times each. Calibri rounds each character through 285 points and
       sums the run unrounded from 286 (228 of 228 deciding rows); the other five round each
       character at every size to 320. No row fits neither. Where the rounding stops is a
-      property of the face, not one size; the measured sizes stay at most 192 points.
+      property of the face, not one size. Sizes above 192 points raise `LookupError`: this
+      group measures autofit only, and no capture shows fit, `#` or fill decisions above 192
+      points, where the rounding of each character could stop as autofit's does (Calibri from
+      286).
 
     The rule, on every check row but the runs of spaces, no-break spaces and soft hyphens
     (56,896 of 56,896): an ASCII character's advance is `u · S / E` rounded half up to whole

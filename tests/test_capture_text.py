@@ -43,16 +43,44 @@ def test_every_capture_is_checked() -> None:
     assert not [p for p in CAPTURES.rglob("*") if p.is_file() and p not in FILES]
 
 
-@pytest.mark.parametrize("path", FILES, ids=lambda p: str(p.relative_to(CAPTURES)))
-def test_a_text_capture_holds_no_control_character(path: Path) -> None:
-    allowed = "\r" if path.name in CARRIAGE_RETURN_IN_TEXT else ""
-    found = [
+def control_lines(text: str, allowed: str = "") -> list[tuple[int, str, str]]:
+    """Each control character of ``text`` not in ``allowed``: line number, the character, line.
+
+    Split on newline alone: ``str.splitlines`` also splits on carriage return, form feed, the
+    file, group and record separators and others, which would never reach the pattern.
+    """
+    return [
         (number, repr(match.group()), line[:60])
-        for number, line in enumerate(_text(path).split("\n"), 1)
+        for number, line in enumerate(text.split("\n"), 1)
         for match in CONTROL.finditer(line)
         if match.group() not in allowed
     ]
+
+
+@pytest.mark.parametrize("path", FILES, ids=lambda p: str(p.relative_to(CAPTURES)))
+def test_a_text_capture_holds_no_control_character(path: Path) -> None:
+    allowed = "\r" if path.name in CARRIAGE_RETURN_IN_TEXT else ""
+    found = control_lines(_text(path), allowed)
     assert not found, found
+
+
+@pytest.mark.parametrize(
+    "char",
+    ["\x00", "\x0b", "\x0c", "\r", "\x1c", "\x1d", "\x1e", "\x1f", "\x7f", "\x80", "\x85", "\x9f"],
+)
+def test_every_control_character_is_found(char: str) -> None:
+    text = f"case\tvalue\nrow\t1{char}2\tdone\n"
+    assert control_lines(text) == [(2, repr(char), f"row\t1{char}2\tdone")]
+
+
+def test_tab_newline_and_other_text_pass() -> None:
+    assert control_lines("a\tb\nc\u00a0d\u2028e\u2029f\u20ac\n") == []
+
+
+def test_a_gzipped_capture_is_read_decompressed(tmp_path: Path) -> None:
+    path = tmp_path / "suite.tsv.gz"
+    path.write_bytes(gzip.compress("a\tb\x85c\n".encode()))
+    assert control_lines(_text(path)) == [(1, repr("\x85"), "a\tb\x85c")]
 
 
 @pytest.mark.parametrize("name", sorted(CARRIAGE_RETURN_IN_TEXT))
