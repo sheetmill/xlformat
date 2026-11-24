@@ -438,14 +438,13 @@ shows one `#` and keeps a one-character result (`1` in a 1-point column), while 
 `@`, `[Red]General` or `General;General` shows nothing there (`general_text_narrow`); at most 255. A number or text
 whose displayed text with its `*` fill would exceed 255 characters shows a `#` run, and a number
 whose text exceeds 255 characters is 255 `#` without a width as well (`1E+300` under `0`).
-`ColumnMetrics` also carries the text insets of the Normal font, the clear space between each
-gridline and the text: `ceil(digit_width / 4)` screen units a side, so that the two and the
-gridline make the column padding. `text_insets(font, *, normal_font, zoom, platform)` gives a cell
-font's: the same rule with the digit width of the cell's font at its screen size (the Mac's
-rounded screen size, Windows' ppem), whatever the Normal font; on the Mac an accounting underline
-moves the text half a screen point right (`CAPTURING.md` §2 item 81, both platforms, every row;
-Excel's print layout, `capture/alignment.py`, puts Calibri 11's text 3 points from the left
-gridline and 2 from the right instead).
+`ColumnMetrics` also carries the text insets of the Normal font, from the cell's boundaries: on
+the left the gridline (one screen unit) and `ceil(digit_width / 4)` screen units of clear space,
+on the right the clear space, so that the two make the column padding. `text_insets(font, *,
+normal_font, zoom, platform)` gives a cell font's: the same rule with the digit width of the cell's
+font at its screen size (the Mac's rounded screen size, Windows' ppem), whatever the Normal font,
+with or without an accounting underline (`CAPTURING.md` §2 item 81, both platforms, every row).
+Calibri 11 gives 3 and 2 points on the Mac, as Excel's print layout does (`capture/alignment.py`).
 
 **Merged cells** (suites `merged11`, `merged14`; `CAPTURING.md` §2 item 40). A cell merged across
 columns formats exactly as one column of the sum of their points, with a single padding `P`: its

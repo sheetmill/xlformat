@@ -374,10 +374,13 @@ class ColumnMetrics:
             less the column padding (5 points for a digit width up to 8, 7 for 9 to 12, 9 for
             13), and 0
             for a column narrower than that.
-        left_inset: The clear space between the left gridline and left-aligned text in the
-            Normal font at zoom 100: ``ceil(digit_width / 4)`` screen units (points on the Mac,
-            pixels on Windows), as :func:`text_insets` gives it for that font.
-        right_inset: The same between right-aligned text and the right gridline.
+        left_inset: Where left-aligned text in the Normal font starts at zoom 100, from the
+            cell's left boundary: the gridline there (one screen unit: a point on the Mac, a pixel
+            on Windows) and ``ceil(digit_width / 4)`` screen units of clear space, as
+            :func:`text_insets` gives it for that font.
+        right_inset: Where right-aligned text ends, before the cell's right boundary: the clear
+            space alone, ``ceil(digit_width / 4)`` screen units (the gridline there is the next
+            cell's).
         digit_width: The maximum digit width of the Normal font: one column unit, one indent
             level.
 
@@ -402,7 +405,7 @@ def _metrics(device: float, font: FontSpec | None, platform: Platform = _MAC) ->
         width=_units(device, mdw),
         points=device / scale,
         budget=max(device - column_padding(mdw), 0.0) / scale,
-        left_inset=math.ceil(mdw / 4) / scale,
+        left_inset=(1 + math.ceil(mdw / 4)) / scale,
         right_inset=math.ceil(mdw / 4) / scale,
         digit_width=mdw / scale,
     )
@@ -1282,13 +1285,18 @@ _WINDOWS_DIGIT = {("calibri", 72): 37, ("aptos narrow", 72): 37}
 
 @dataclass(frozen=True, slots=True)
 class TextInsets:
-    """The clear space between a cell's gridlines and its text, in sheet points.
+    """Where a cell's text starts and ends, in sheet points from the cell's boundaries.
+
+    The left boundary's gridline counts on the left: one screen unit (a point on the Mac, two
+    device pixels on its 2x display; a pixel on Windows). The right boundary's belongs to the
+    next cell.
 
     Attributes:
-        left: Between the left gridline and left-aligned text.
-        right: Between right-aligned text and the right gridline.
-        accounting_left: ``left`` for a cell with an accounting underline, which spans the
-            cell's width less these two; on the Mac half a screen point more than ``left``.
+        left: From the cell's left boundary to left-aligned text: the gridline and the clear
+            space.
+        right: From right-aligned text to the cell's right boundary: the clear space.
+        accounting_left: ``left`` for a cell with an accounting underline, whose line spans the
+            cell between the two; the same as ``left`` on both platforms.
         accounting_right: ``right`` for such a cell.
     """
 
@@ -1307,17 +1315,18 @@ def text_insets(
 ) -> TextInsets:
     """Where Excel starts and ends the text of a cell in ``font`` (CAPTURING.md section 2 item 81).
 
-    Each side's clear space is ``ceil(D / 4)`` whole screen units, ``D`` the width of a digit of
+    The text starts after the left gridline (one screen unit) and ``ceil(D / 4)`` screen units of
+    clear space, and ends that clear space before the right boundary, ``D`` the width of a digit of
     the cell's font at its screen size: on the Mac, screen points at ``S = round(size * zoom /
     100)``; on Windows (96 dpi), device pixels at the ppem ``round(size * 4/3 * zoom / 100)``,
     ``D = round(ppem * digit advance / em)`` as the font hints it (a half rounds up). The same
-    rule gives the column padding of the Normal font, two insets and the gridline. It depends on
+    rule makes the Normal font's ``left + right`` the column padding, ``2 * ceil(mdw / 4) + 1``.
+    It depends on
     the cell's font alone: the workbook's Normal font (``normal_font``, accepted for symmetry with
     :func:`vertical_metrics`) does not move it, and the zoom changes it only through the screen
     size, so in sheet points it varies with the zoom. Captured at zoom 100 and 150 for Calibri,
     Arial and Aptos Narrow from 9 to 72 points under two Normal fonts, every row of both
-    platforms by this rule. A cell with an accounting underline places its text as a plain one
-    on Windows and half a screen point further right on the Mac.
+    platforms by this rule. A cell with an accounting underline places its text as a plain one.
 
     Raises:
         LookupError: Another face, a size outside 1 to 72, or a size and zoom under one screen
@@ -1342,10 +1351,5 @@ def text_insets(
         digit = _WINDOWS_DIGIT.get((key, screen), digit)
     clear = math.ceil(digit / 4)
     units = 75 if windows else 100  # sheet points a screen unit, times the zoom
-    accounting = clear if windows else clear + 0.5
-    return TextInsets(
-        left=clear * units / zoom,
-        right=clear * units / zoom,
-        accounting_left=accounting * units / zoom,
-        accounting_right=clear * units / zoom,
-    )
+    left, right = (1 + clear) * units / zoom, clear * units / zoom
+    return TextInsets(left=left, right=right, accounting_left=left, accounting_right=right)

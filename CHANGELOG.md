@@ -9,9 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `text_insets(font, *, normal_font=None, zoom=100, platform=None)` returning `TextInsets(left,
-  right, accounting_left, accounting_right)`: the clear space between a cell's gridlines and its
-  text, by the cell's font, on the Mac and on Windows (96 dpi), for Calibri, Aptos Narrow and
-  Arial: `ceil(D / 4)` screen units a side, `D` the cell font's digit width at its screen size.
+  right, accounting_left, accounting_right)`: where a cell's text starts and ends, by the cell's
+  font, on the Mac and on Windows (96 dpi), for Calibri, Aptos Narrow and Arial, in sheet points
+  from the cell's boundaries: the left gridline and `ceil(D / 4)` screen units on the left, `ceil(D
+  / 4)` on the right, `D` the cell font's digit width at its screen size; the Normal font does not
+  move it.
 - `vertical_metrics`, `ink_metrics` and `rule_metrics` work with `platform="windows"` (96 dpi),
   where they raised `LookupError`, for Calibri, Aptos Narrow and Arial, from window captures of
   Excel for Windows; results in points, whole pixels at the zoom.
@@ -26,10 +28,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     into the row below.
 
 ### Changed
-- `ColumnMetrics.left_inset` and `right_inset` are the insets of text in the Normal font at zoom
-  100 on screen, `ceil(digit_width / 4)` screen units a side, where they were 3 and 2 points
-  from Excel for Mac's print layout on both platforms: Calibri 11 gives 2 and 2 points on the
-  Mac and 1.5 and 1.5 on Windows.
+- `ColumnMetrics.left_inset` and `right_inset` follow the Normal font, from the cell's
+  boundaries as before: the left gridline and `ceil(digit_width / 4)` screen units of clear space
+  on the left, the clear space on the right, where they were 3 and 2 points for every font and
+  platform. Calibri 11 keeps 3 and 2 points on the Mac; on Windows it gives 2.25 and 1.5 points
+  (3 and 2 pixels), and other Normal fonts give their own (Calibri 24: 4 and 3 points on the
+  Mac).
 
 ## [0.7.0] - 2026-11-22
 

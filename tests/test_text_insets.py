@@ -2,8 +2,10 @@
 
 Each row holds four cells: left- and right-aligned under a single underline, whose ends are the
 text's, then the same under a single accounting underline, whose text edges are the H's ink less
-the bearings the plain cells show. Insets are counted in device pixels from the gridline to the
-text, the gridline's own pixel column included: the clear space plus one.
+the bearings the plain cells show. In device pixels: the left inset from the left gridline's first
+pixel column (column B's is under column A's fill, which ends on its last), the right one from the
+text's last pixel column to the right gridline's first. A gridline is a pixel wide on Windows and
+two on the Mac's 2x display.
 """
 
 from __future__ import annotations
@@ -32,6 +34,7 @@ def _rows(path: Path) -> list[list[str]]:
 @pytest.mark.parametrize("platform", ["windows", "mac"])
 def test_every_captured_row_matches_text_insets(platform: str) -> None:
     px = 4 / 3 if platform == "windows" else 2.0  # device pixels a point at zoom 100
+    width = 1 if platform == "windows" else 2  # a gridline's device pixels
     checked = 0
     for normal, zoom, tag, _rh, _ppp, *cells in _rows(LAYOUTS[platform]):
         face, size = tag.rsplit(" ", 1)
@@ -43,11 +46,11 @@ def test_every_captured_row_matches_text_insets(platform: str) -> None:
         gl3, gr3, ls3, le3, il3 = c[2][0], c[2][1], c[2][2], c[2][3], c[2][4]
         gr4, ih4 = c[3][1], c[3][5]
         unit = px * z / 100
-        assert ls1 - gl1 - 1 == pytest.approx(got.left * unit), (platform, normal, zoom, tag)
+        assert ls1 - (gl1 - width + 1) == pytest.approx(got.left * unit), (platform, zoom, tag)
         assert gr2 - le2 - 1 == pytest.approx(got.right * unit), (platform, normal, zoom, tag)
         bearing_left, bearing_right = il1 - ls1, le2 - ih2
-        assert il3 - bearing_left - gl3 - 1 == pytest.approx(got.accounting_left * unit)
-        assert ls3 - gl3 - 1 == pytest.approx(got.accounting_left * unit)  # the line starts there
+        assert il3 - bearing_left - gl3 == pytest.approx(got.accounting_left * unit)
+        assert ls3 - gl3 == pytest.approx(got.accounting_left * unit)  # the line starts there
         assert gr3 - le3 - 1 == pytest.approx(got.accounting_right * unit)
         if not (platform == "mac" and tag in MAC_INK_MISREADS):
             assert gr4 - (ih4 + bearing_right) - 1 == pytest.approx(got.accounting_right * unit)

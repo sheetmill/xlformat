@@ -1560,13 +1560,16 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     Narrow hint the digit at ppem 72 to 37 pixels, a pixel wider. Every row of both platforms
     holds it, the right side as the left, a seeded third of the face, size and Normal font keys
     held out from the fit and scored after it (148 of 148 on each platform). The Normal font
-    moves nothing. An accounting underline's cell places its text as a plain one on Windows; on
-    the Mac it and its line start one device pixel (half a screen point) further right. In the
+    moves nothing. An accounting underline's cell places its text as a plain one (the Mac's
+    gridline is two device pixels wide, one screen point; counted from its first pixel column,
+    the accounting cell's text and line, in column D, start where the plain one's do, in column B
+    from the end of column A's fill). Counted from the cell's left boundary, its gridline
+    included, the left inset is a screen unit more than the clear space. In the
     Mac's first face row of each workbook (Calibri 9 and 40) the right accounting cell's ink
     reads up to 25 pixels past its line, unexplained; its line agrees. The same rule for the
-    Normal font is the column padding's, two insets and the gridline. Excel's print layout
-    (`capture/alignment.py`) places Calibri 11 otherwise, 3 points from the left gridline and 2
-    from the right. The table pictures of item 78 read one pixel wide on column B's left (the
+    Normal font is the column padding's, two insets and the gridline; for Calibri 11 on the Mac,
+    3 points from the left boundary and 2 before the right, as Excel's print layout places it
+    (`capture/alignment.py`). The table pictures of item 78 read one pixel wide on column B's left (the
     gridline there is under column A's fill); this capture's reader takes that edge from the
     fill.
 
