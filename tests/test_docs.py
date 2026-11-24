@@ -145,3 +145,38 @@ def test_every_layout_file_is_on_the_testing_page() -> None:
     ]
     assert len(names) > 25
     assert [n for n in names if f"`{n}`" not in page] == []
+
+
+def _top_changelog_entry() -> str:
+    """The first changelog section with content (Unreleased, or the latest release)."""
+    text = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
+    sections = re.split(r"\n(?=## \[)", text)[1:]
+    return next(s for s in sections if s.strip().count("\n") > 1)
+
+
+def test_every_family_count_is_the_measured_fonts() -> None:
+    families = len(xlformat.measured_fonts())
+    texts = {
+        path.name: path.read_text(encoding="utf-8")
+        for path in [
+            ROOT / "README.md",
+            ROOT / "ARCHITECTURE.md",
+            ROOT / "CAPTURING.md",
+            *sorted((ROOT / "docs").glob("*.md")),
+        ]
+    }
+    texts["CHANGELOG.md (top entry)"] = _top_changelog_entry()
+    found = [
+        (name, int(m[1]))
+        for name, text in texts.items()
+        for m in re.finditer(r"\b(\d+) families\b", " ".join(text.split()))
+    ]
+    assert found
+    assert [f for f in found if f[1] != families] == []
+    # the README names some and counts the rest
+    readme = " ".join(texts["README.md"].split())
+    listed = re.search(r"`measured_fonts\(\)`: ([^)]*?) and (\d+) more\)", readme)
+    assert listed
+    names = [n.strip() for n in listed[1].split(",")]
+    assert set(names) <= set(xlformat.measured_fonts())
+    assert len(names) + int(listed[2]) == families

@@ -52,7 +52,7 @@ character for character, including the number of `#` and fill characters.
 ```
 
 `font` is the cell's font: a name, a `(name, size)` pair or a `Font`; the default is
-`("Calibri", 11)`, the Normal style openpyxl writes. On the Mac, 28 families (`measured_fonts()`)
+`("Calibri", 11)`, the Normal style openpyxl writes. On the Mac, 27 families (`measured_fonts()`)
 are measured in regular, bold, italic and bold italic at any size from 1 to 192 points, a half
 size as the whole size it rounds to, half up (10.5 as 11), as Excel for Mac does; MS Sans Serif
 measures as Times New Roman (`font_substitutes()`). Another font, or a larger size, raises
