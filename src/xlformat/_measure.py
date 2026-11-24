@@ -904,12 +904,11 @@ class VerticalMetrics:
         line_height: What each wrapped line in this face adds to a row: on the Mac
             ``font_height`` plus 1, on Windows ``font_height`` (Calibri 11: 15 and 15 points).
         line_pitch: The distance between the baselines of wrapped lines: ``font_height``; the
-            last line is placed as bottom-aligned text is. On Windows the line inset is ``D - 1``
-            pixels.
-        line_inset: The face's line inset, the ``p`` of the row model. Wrapped text in this face,
-            in a row whose Normal font or other cell fonts have a larger ``line_inset``, takes
-            that difference more height (``row_metrics``) and sits that much higher, the extra
-            lying below its last line.
+            last line is placed as bottom-aligned text is.
+        line_inset: The face's line inset, the ``p`` of the row model; on Windows ``D - 1``
+            pixels. Wrapped text in this face, in a row whose Normal font or other cell fonts
+            have a larger ``line_inset``, takes that difference more height (``row_metrics``)
+            and sits that much higher, the extra lying below its last line.
 
     The ink of the text, which is measured rather than given by a rule, is
     :func:`ink_metrics`'s; ``cap_height`` and ``descender`` here are deprecated and forward to it.

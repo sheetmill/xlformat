@@ -390,9 +390,11 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     and 12 alike. The autofit width is the floored sum of the glyph advances plus 7 points; a
     glyph's advance is the ten-run less 7 over 10. Advances are hinted per size: digits 6 at both,
     `.` `,` `:` `i` 3 at both, `-` `(` `)` 3 then 4, `+` `E` `#` `a` 5 then 6, `/` 4 then 5, `%` 8
-    then 9.1, `W` 10.1 then 11.1, `M` `m` 9.1 then 10.1; a size-independent em fraction cannot
-    give 6 for the digit at both sizes, so `_glyphs_calibri.py` holds both measured tables.
-    `capture/glyph_fit.py` fits and writes them: 518 of 519 texts exact at each size (the
+    then 9.1, `W` 10.1 then 11.1, `M` `m` 9.1 then 10.1. Taken then for hinting per size, these
+    went into per-size tables (`_glyphs_calibri.py`, since removed); item 82 found one em
+    fraction per glyph, rounded half up at each size, gives them all, the tenths being
+    autofit's bonus (the digit, 1038/2048 em, is 5.58 and 6.08 points, 6 at both).
+    `capture/glyph_fit.py` fitted the tables: 518 of 519 texts exact at each size (the
     exception at 11 and the two at 12 are the long day-name strings, one point off). The space
     is ambiguous in the autofit data (2.0 to 2.4 fit the mixed strings equally); the accounting
     fills decide it (item 25). A blank text autofits to the default width and is ignored.
@@ -1628,8 +1630,8 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     (56,896 of 56,896): an ASCII character's advance is `u · S / E` rounded half up to whole
     points, and an ASCII text the sum; a text holding any other character sums every advance
     unrounded, one character at a time in double precision, and rounds the total half up
-(ten Haettenschweiler 10 `‰`, 5.05 points each, add up to 50.49999999999999, and Excel's
-width is 50 plus the padding, not 51). The autofit width adds the padding, twice the
+    (ten Haettenschweiler 10 `‰`, 5.05 points each, add up to 50.49999999999999, and Excel's
+    width is 50 plus the padding, not 51). The autofit width adds the padding, twice the
     italic overhang and a bonus of `max(0, floor(W / D / 5) - 2)` points, W the text's width
     plus one overhang and D the Normal font's digit: a point at 15 digit widths and one more
     every 5. The bonus is item 41's tenth (ten `W` at Calibri 11 measure 101). Every glyph entry

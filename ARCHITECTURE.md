@@ -149,8 +149,7 @@ Precision rules applied at normalization, each a quirk (section 9):
 
 **Platform and regional settings.** Every function whose result can differ by platform takes a
 keyword-only `platform: str | Platform | None = None`, a name (`"mac"`, `"windows"`) or a frozen
-`Platform`, as `csv` takes a dialect's name or a `Dialect`; `None` means `DEFAULT_PLATFORM`, `"mac"`
-until the sheetmill packages switch to `"windows"` together. `Platform` holds what is a rule rather
+`Platform`, as `csv` takes a dialect's name or a `Dialect`; `None` means `DEFAULT_PLATFORM`, `"mac"`. `Platform` holds what is a rule rather
 than a table: `name` (the Mac measures in points, Windows in device pixels at `size · dpi / 72`),
 `dpi` (Windows only), `default_column_step` and `long_fill`; presets
 `Platform.MAC` and `Platform.WINDOWS`, fields overridden with `dataclasses.replace`. A function

@@ -1,7 +1,8 @@
 """Autofit captures from which the per-face glyph advances are recovered (CAPTURING.md item 82).
 
 Usage: ``uv run python -m capture.faces count|run <group> [suite ...] [--out <dir>]``
-(``--out``: a directory under the repository instead of ``tests/captures/faces/``),
+(``--out``: write the group's files to that directory, relative to the repository, instead of
+``tests/captures/faces/``),
 ``<group>`` one of:
 
 - ``check``: per family and size 10 and 13 (``faces_c<size>_<family>``; Normal font the
@@ -15,10 +16,8 @@ Usage: ``uv run python -m capture.faces count|run <group> [suite ...] [--out <di
   the longest runs under :data:`LIMIT_DIGITS` digit widths of the Normal font, estimated from
   the ``check`` captures at 13 pt (committed), so that no text reaches the autofit bonus.
 - ``padding``: per size (``faces_p<size>``), every face of every family (and Segoe UI) as a
-  cell font: ``0``
-  five and ten times. Twice the five-run less the ten-run is the autofit padding, which gives
-  each italic face's overhang.
-
+  cell font: ``0`` five and ten times. The five-run less five digits is the autofit padding,
+  which gives each italic face's overhang; the ten-run checks it with the autofit bonus.
 - ``switch``: per size from 193 to 320 (``faces_s<size>``; Normal Calibri at the size), in six
   faces, ``0`` and the six ASCII glyphs whose rounding per glyph and rounding of the run's sum
   disagree most, five times each: where Excel stops rounding each ASCII glyph.
@@ -288,7 +287,7 @@ def run(suites: list[xc.Suite], out_dir: Path = FACES_DIR) -> None:
 
 def main(argv: list[str]) -> None:
     out_dir = FACES_DIR
-    if "--out" in argv:  # a directory of its own to fetch: a fetched path is emptied first
+    if "--out" in argv:  # the group's files go to that directory instead
         k = argv.index("--out")
         out_dir = ROOT / argv[k + 1]
         argv = argv[:k] + argv[k + 2 :]
