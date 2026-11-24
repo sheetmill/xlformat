@@ -12,7 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Arial Narrow, Book Antiqua, Bookman Old Style, Calibri Light, Cambria, Candara, Century
   Gothic, Comic Sans MS, Consolas, Courier, Courier New, Garamond, Georgia, Haettenschweiler,
   Helvetica, Impact, Lucida Console, Rockwell, Tahoma, Times New Roman, Trebuchet MS and
-  Verdana, each in four styles at any size from 1 to 192 points. Each face is its units per em
+  Verdana, each in four styles at every size, captured to 192 points and by the same rule,
+  unverified, above (Excel allows 409; above 192 autofit stops rounding each glyph at a size
+  that depends on the face, Calibri from 286). Each face is its units per em
   and one advance per character (space, ASCII and the cp1252 characters), recovered from Excel
   for Mac's own autofit widths (CAPTURING item 82), about 1 KB a face; a glyph's advance is
   `u * size / em` rounded half up to whole points.
@@ -33,14 +35,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - A character outside ASCII measured as the digit; now each cp1252 character measures by its
     own advance (`25°C ± 0.5` in Calibri 11: 46 points, 0.8.0 49), and a character beyond
     cp1252 as the widest digit.
-  - Sizes above 192 points and below 1, which 0.8.0 scaled, raise `LookupError`, as Segoe UI and
-    Geneva do.
+  - Every size is answered, as in 0.8.0, by the rule instead of scaling, past Excel's 409
+    points too: a Calibri 409 Normal font gives a 1,761-point default column (0.8.0: 1,735).
+    A size under half a point measures 0 (a negative size less), as in 0.8.0, and the column
+    functions take a 1-point digit there where 0.8.0 raised `ZeroDivisionError`.
 - `measured_fonts()` lists every measured family; its sizes are those at which every glyph's
   width was captured (Calibri, Aptos Narrow and Arial 9 to 14, 16, 18, 20, 24; the others 10
-  and 13). `row_metrics`, `vertical_metrics`, `ink_metrics`, `rule_metrics` and `text_insets`
-  keep their own coverage, stated in each docstring (on the Mac the first four Calibri, Aptos
-  Narrow, Arial, Times New Roman, Courier New and Georgia, `text_insets` the first three), and
-  raise `LookupError` for the other families.
+  and 13). `row_metrics`, `vertical_metrics`, `ink_metrics` and `rule_metrics` keep their own
+  coverage, stated in each docstring (on the Mac Calibri, Aptos Narrow, Arial,
+  Times New Roman, Courier New and Georgia), and raise `LookupError` for the
+  other families.
+- `text_insets` on the Mac covers every family `measured_fonts()` lists, from 1 to 72 points,
+  by the widest digit of the cell's face (captured for Times New Roman, Verdana, Georgia,
+  Courier New and Verdana italic as well, CAPTURING item 83), where it raised `LookupError` for
+  all but Calibri, Aptos Narrow and Arial. Right-aligned italic text ends its overhang at the
+  screen size further in (`right` and `accounting_right` grow by it); an accounting line still
+  runs to the clear space.
 - The italic overhang on the Mac is measured at every whole size from 6 to 30 and at 32 to 192
   in steps, for every family.
 - The bundled per-size Mac glyph tables are gone; `capture/glyph_fit.py` writes only Excel for
