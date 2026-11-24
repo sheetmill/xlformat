@@ -42,6 +42,7 @@ Everything below is importable from `xlformat`.
 .. autofunction:: xlformat.digit_width
 .. autofunction:: xlformat.overhang
 .. autofunction:: xlformat.measured_fonts
+.. autofunction:: xlformat.font_substitutes
 ```
 
 ## Columns and fonts

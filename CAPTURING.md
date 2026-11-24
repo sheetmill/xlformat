@@ -1573,6 +1573,59 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     gridline there is under column A's fill); this capture's reader takes that edge from the
     fill.
 
+82. **Glyph advances per face, from autofit widths (2026-11-23 and 24; `capture/faces.py`,
+    `capture/face_fit.py`; Excel for Mac 16.115 in a macOS virtual machine; files in
+    `tests/captures/faces/`).** Three groups of autofit captures (the measure method, one
+    workbook per suite, each style a cell font over the Normal style), for 27 families: Calibri,
+    Arial, Aptos Narrow, Aptos, Arial Black, Arial Narrow, Book Antiqua, Bookman Old Style,
+    Calibri Light, Cambria, Candara, Century Gothic, Comic Sans MS, Consolas, Courier, Courier
+    New, Garamond, Georgia, Haettenschweiler, Helvetica, Impact, Lucida Console, Rockwell,
+    Tahoma, Times New Roman, Trebuchet MS and Verdana, in regular, bold, italic and bold italic.
+    - **Check** (`faces_c10_<family>`, `faces_c13_<family>`; 58 workbooks, 59,624 columns, 35
+      minutes): each of 218 characters (space, printable ASCII, the cp1252 code page's others)
+      ten times, a digit five-run, twelve texts mixing ASCII and other characters
+      (`1.234,56 €`, `naïve résumé`), and long texts (14 to 31 digits, a sentence cut at 20 to
+      55 characters). MS Sans Serif, which the Mac lacks, autofits as Times New Roman at every
+      text of both sizes (1,028 of 1,028 each). Segoe UI, also absent, autofits as none of the
+      families (the closest, Tahoma, matches 104 of its 257 ten-runs at 10 points).
+    - **Recovery** (`faces_r383_<family>`, `faces_r397_<family>`, `faces_r409_<family>`; 84
+      workbooks, 79,968 columns, 46 minutes): every ASCII character `g` as `é + g·N + é`, every
+      other as `g·N`, `é` alone `M` times, every digit's five- and ten-run; N and M the longest
+      runs under 13 digit widths of the Normal font, from the 13-point check. A text holding a
+      non-ASCII character is summed unrounded, so a width W gives `S · (2t + N·g)` within half a
+      point of `W - P` (P the padding). For each face the paddings the digit runs allow, the
+      padding rule and the three sizes leave one solution: every character pins to one multiple
+      of `1/E` (E 2048; Consolas and Lucida Console 1024; Haettenschweiler 1000) but three, off
+      every grid, which the face lacks (Haettenschweiler's `·` and `Ž`, Lucida Console's `€`).
+      The space of an italic monospace face (Consolas, Courier, Courier New, Lucida Console)
+      comes out half a unit past the grid there, while the check's spaced texts take the
+      advance the face's other characters share (Consolas 10 italic: the sentence texts, 4 to
+      10 points narrower with the space off the grid); it is given that advance. Segoe UI has no
+      solution: its digit runs give 0.5379 em at 409 points, 0.5390 at 397 and 0.5379 at 383,
+      not one ratio, so its widths are not proportional to the size.
+    - **Padding** (`faces_p6` to `faces_p30`, `faces_p32` to `faces_p192`, `faces_phalf`,
+      `faces_p1to5`; 38 workbooks, 10,080 columns, 6 minutes; Normal Calibri at the size): `0`
+      five and ten times in every face. The five-run less five whole digits is the padding,
+      `2·ceil(d/4) + 3` for an upright face (d its widest digit) at every size from 6 to 192,
+      more by twice the overhang for an italic one; the ten-run is ten digits, the padding and
+      the bonus below, which a wide digit earns against Calibri's (Verdana bold 12: 90 points
+      are 15 of Calibri's 6-point digits, one point). A half size autofits exactly as the whole
+      size it rounds to, half up (Calibri 8.5 as 9, Garamond 9.5 as 10). Under a Calibri 6
+      Normal font every width of sizes 1 to 5 is a multiple of 5 points, so that workbook gives
+      no padding.
+
+    The rule, on every check row but the runs of spaces, no-break spaces and soft hyphens
+    (56,896 of 56,896): an ASCII character's advance is `u · S / E` rounded half up to whole
+    points, and an ASCII text the sum; a text holding any other character sums every advance
+    unrounded and rounds the total half up. The autofit width adds the padding, twice the
+    italic overhang and a bonus of `max(0, floor(W / D / 5) - 2)` points, W the text's width
+    plus one overhang and D the Normal font's digit: a point at 15 digit widths and one more
+    every 5. The bonus is item 41's tenth (ten `W` at Calibri 11 measure 101). Every glyph entry
+    and overhang of the 108 per-size tables of items 24, 26, 30 and 48 follows from the
+    recovered advances. Fit, `#` and fill decisions round every character, non-ASCII ones too:
+    the euro rows of `numeric_core_width_arial10` and `cell_font_numeric` (`€ 99.00 ` in Arial
+    10 shows `######` at width 6) fit only so.
+
 ## 3. The pipeline
 
 ```

@@ -26,6 +26,7 @@ from xlformat._measure import (
     column_metrics_from_points,
     digit_width,
     file_column_metrics,
+    font_substitutes,
     glyph_widths,
     ink_metrics,
     measured_fonts,
@@ -75,6 +76,7 @@ __all__ = [
     "column_metrics_from_points",
     "digit_width",
     "file_column_metrics",
+    "font_substitutes",
     "format_cell",
     "format_value",
     "glyph_widths",
@@ -119,11 +121,12 @@ def format_value(
             measured with the glyph table of ``font`` as Excel on ``platform`` does, so overflow,
             ``#`` and fill counts and General digit reduction match the sheet. Not with ``width``.
         font: The cell's font for Excel mode, a name, ``(name, size)`` or :class:`Font`; default
-            ``("Calibri", 11)``, openpyxl's workbook default. The text is measured in it. Calibri,
-            Aptos Narrow and Arial are measured in four styles at 9, 10, 11, 12, 14, 16, 18, 20 and
-            24 points and scaled from the nearest measured size elsewhere; other fonts raise
-            ``LookupError``. A line feed and a tab measure as a space and a carriage return as
-            nothing; other glyphs outside the table measure as a digit.
+            ``("Calibri", 11)``, openpyxl's workbook default. The text is measured in it. On the
+            Mac the families of :func:`measured_fonts` are measured in four styles at any size
+            from 1 to 192 points; on Windows Calibri, Aptos Narrow and Arial at 9 to 24 points,
+            scaled from the nearest measured size elsewhere; other fonts raise ``LookupError``.
+            A line feed and a tab measure as a space and a carriage return as nothing; glyphs
+            beyond the cp1252 characters measure as the widest digit.
         normal_font: The workbook's Normal font for Excel mode, whose digit width sets the
             column (one unit of ``column_width``); default ``font``.
         measure: A custom text measure for ``width``, whose units then also apply to ``width``.

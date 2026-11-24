@@ -52,10 +52,11 @@ character for character, including the number of `#` and fill characters.
 ```
 
 `font` is the cell's font: a name, a `(name, size)` pair or a `Font`; the default is
-`("Calibri", 11)`, the Normal style openpyxl writes. Calibri, Aptos Narrow and Arial are measured in
-regular, bold, italic and bold italic at 9, 10, 11, 12, 14, 16, 18, 20 and 24 points; other sizes scale the
-nearest measured table and may differ from Excel by a character at the edge of a column. Another
-font raises `LookupError`. An italic face's slant reaches past its glyphs, so a cell in italic
+`("Calibri", 11)`, the Normal style openpyxl writes. On the Mac, 28 families (`measured_fonts()`)
+are measured in regular, bold, italic and bold italic at any size from 1 to 192 points, a half
+size as the whole size it rounds to, half up (10.5 as 11), as Excel for Mac does; MS Sans Serif
+measures as Times New Roman (`font_substitutes()`). Another font, or a larger size, raises
+`LookupError`. An italic face's slant reaches past its glyphs, so a cell in italic
 holds a point or two less than an upright one, as in Excel.
 
 Excel sizes a column by the digit width of the workbook's Normal font and measures a cell's text
@@ -248,7 +249,7 @@ into the next column, wrapping, indents.
 `glyph_widths` gives the whole advance of each character, for measuring runs of a text;
 `digit_width` is the width of one column unit (and one indent level) for a Normal font;
 `overhang` is how far an italic face reaches past its advances on each side; `measured_fonts`
-lists the bundled tables.
+lists the fonts measured, and `font_substitutes` the names measured as another face.
 
 ## Excel for Windows
 

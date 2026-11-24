@@ -85,7 +85,12 @@ before Excel was asked, and every prediction matched.
 | `hidden_zeros`, `hidden_zeros_control` | 1,700 | a sheet that hides zeros (`show_zeros=False`) and the same cases on one that shows them: exact zeros, values rounding to zero, zero sections |
 | `line_breaks`, `line_breaks_aptos_narrow` | 648, 648 | carriage returns, line feeds, CR LF and tabs in text under fills of spaces and digits, at four widths, with autofit widths beside |
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
-| `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri, Aptos Narrow and Arial, four styles, nine sizes |
+| `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths of Calibri, Aptos Narrow and Arial in four styles at nine sizes, which the Mac's rule must reproduce (Excel for Windows' tables are fitted from the same suites there) |
+
+`tests/captures/faces/` holds the autofit captures from which each Mac face's advances are
+recovered (`capture/faces.py`, `capture/face_fit.py`): 58 check workbooks (every character ten
+times, mixed and long texts, at 10 and 13 points), 84 recovery workbooks (383, 397 and 409
+points) and 38 padding workbooks (digit runs at 1 to 192 points), one `.measure.tsv` each.
 
 Sixteen further files are not suites of the common schema:
 

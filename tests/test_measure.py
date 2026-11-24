@@ -1,42 +1,37 @@
-"""Excel-mode measure: measured sizes are exact tables, other sizes scale the nearest one."""
+"""Excel-mode measure: each glyph's advance by rule at any size, as the captures give it."""
 
 import pytest
 
 from xlformat import Font, format_value
-from xlformat._glyphs_aptos_narrow import APTOS_NARROW
-from xlformat._glyphs_calibri import CALIBRI
-from xlformat._measure import _advances, column_budget, glyph_measure, overhang, resolve_font
+from xlformat._measure import (
+    _whole_advances,
+    column_budget,
+    glyph_measure,
+    overhang,
+    resolve_font,
+)
 
 MEASURED_SIZES = (9, 10, 11, 12, 14, 16, 18, 20, 24)
 STYLES = ("regular", "bold", "italic", "bold italic")
 
 
-def test_measured_sizes_are_bundled() -> None:
-    for table in (CALIBRI, APTOS_NARROW):
-        assert tuple(table) == STYLES
-        assert all(tuple(sorted(table[style])) == MEASURED_SIZES for style in STYLES)
-    regular = CALIBRI["regular"]
+def test_measured_digits_and_spaces() -> None:
+    calibri = [_whole_advances("Calibri", float(s), "regular") for s in MEASURED_SIZES]
+    aptos = [_whole_advances("Aptos Narrow", float(s), "regular") for s in MEASURED_SIZES]
     # the maximum digit width per size (CAPTURING.md section 2 item 26)
-    assert [regular[s]["0"] for s in MEASURED_SIZES] == [5, 5, 6, 6, 7, 8, 9, 10, 12]
-    assert [regular[s][" "] for s in MEASURED_SIZES] == [2, 2, 2, 3, 3, 4, 4, 5, 5]
-    assert [APTOS_NARROW["regular"][s][" "] for s in MEASURED_SIZES] == [2, 2, 2, 2, 3, 3, 3, 4, 4]
+    assert [table["0"] for table in calibri] == [5, 5, 6, 6, 7, 8, 9, 10, 12]
+    assert [table[" "] for table in calibri] == [2, 2, 2, 3, 3, 4, 4, 5, 5]
+    assert [table[" "] for table in aptos] == [2, 2, 2, 2, 3, 3, 3, 4, 4]
 
 
-@pytest.mark.parametrize("size", MEASURED_SIZES)
-@pytest.mark.parametrize("style", STYLES)
-def test_measured_size_uses_its_own_table(size: int, style: str) -> None:
-    assert _advances("Calibri", float(size), style) is CALIBRI[style][size]
-    assert _advances("Aptos Narrow", float(size), style) is APTOS_NARROW[style][size]
-
-
-def test_unmeasured_size_scales_the_nearest_table() -> None:
-    # 13 lies between 12 and 14; the larger wins the tie and every advance is a whole point
-    regular = CALIBRI["regular"]
-    scaled = _advances("Calibri", 13.0)
-    assert scaled["0"] == round(regular[14]["0"] * 13 / 14)
-    assert all(adv == int(adv) for adv in scaled.values())
-    # 22 lies between 20 and 24: the larger again
-    assert _advances("Calibri", 22.0)["0"] == round(regular[24]["0"] * 22 / 24)
+def test_any_size_is_the_rule() -> None:
+    # Calibri's digit is 1038/2048 em: 6.59 points at 13 is 7, and a half size is measured as
+    # the whole size it rounds to, half up (faces_phalf: 10.5 autofits as 11)
+    assert _whole_advances("Calibri", 13.0, "regular")["0"] == 7
+    assert _whole_advances("Calibri", 10.5, "regular") == _whole_advances(
+        "Calibri", 11.0, "regular"
+    )
+    assert all(a == int(a) for a in _whole_advances("Verdana", 37.0, "bold").values())
 
 
 def test_italic_overhang() -> None:
@@ -90,7 +85,8 @@ def test_glyph_measure_sums_whole_advances() -> None:
     measure = glyph_measure(("Calibri", 11))
     assert measure("1,000.0") == 36  # fits width 6 (36 points) while -1234.6 is reduced
     assert measure("10000%") == 38
-    assert CALIBRI["regular"][11]["W"] == 10.1  # the tenth is real in autofit only
+    # ten W autofit to 101 points plus padding (the bonus); W is 10 points
+    assert _whole_advances("Calibri", 11.0, "regular")["W"] == 10
     assert measure("W" * 10) == 100  # advance_tenths11: ten W and a digit fit a 106-point budget
 
 
@@ -207,11 +203,12 @@ def test_public_measurement() -> None:
     widths = glyph_widths("1,000.0")
     assert len(widths) == 7
     assert text_width("1,000.0") == int(sum(widths))
-    assert glyph_widths("€") == (6.0,)  # outside the table: a digit
+    assert glyph_widths("€") == (6.0,)  # 1038/2048 em at 11 points
+    assert glyph_widths("\u4e00") == (6.0,)  # beyond the cp1252 characters: the widest digit
     fonts = measured_fonts()
-    assert set(fonts) == {"Calibri", "Aptos Narrow", "Arial"}
-    assert fonts["Aptos Narrow"]["bold italic"] == MEASURED_SIZES
-    assert fonts["Arial"]["italic"] == MEASURED_SIZES
+    assert {"Calibri", "Aptos Narrow", "Arial", "Times New Roman", "Verdana"} <= set(fonts)
+    assert fonts["Aptos Narrow"]["bold italic"] == (9, 10, 11, 12, 13, 14, 16, 18, 20, 24)
+    assert fonts["Arial"]["italic"] == (9, 10, 11, 12, 13, 14, 16, 18, 20, 24)
     # Arial's digit is wider than Calibri's from 10 points (column_file_arial<size>)
     assert [digit_width(("Arial", s)) for s in MEASURED_SIZES] == [5, 6, 6, 7, 8, 9, 10, 11, 13]
     with pytest.raises(LookupError):

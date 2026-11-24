@@ -18,11 +18,9 @@ import math
 import warnings
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass, replace
-from functools import lru_cache
+from functools import cache, lru_cache
 
-from xlformat._glyphs_aptos_narrow import APTOS_NARROW, APTOS_NARROW_OVERHANG
-from xlformat._glyphs_arial import ARIAL, ARIAL_OVERHANG
-from xlformat._glyphs_calibri import CALIBRI, CALIBRI_OVERHANG
+from xlformat import _faces_mac
 from xlformat._glyphs_windows_aptos_narrow import (
     WINDOWS_APTOS_NARROW,
     WINDOWS_APTOS_NARROW_OVERHANG,
@@ -79,33 +77,53 @@ FontSpec = str | tuple[str, float] | Font
 DEFAULT_FONT = Font("Calibri", 11)
 """openpyxl's default workbook font; a reader of a workbook passes its Normal style instead."""
 
-# family (lower case) -> (display name, style -> size -> advances in points)
-_FONTS: dict[str, tuple[str, dict[str, dict[int, dict[str, float]]]]] = {
-    "calibri": ("Calibri", CALIBRI),
-    "aptos narrow": ("Aptos Narrow", APTOS_NARROW),
-    "arial": ("Arial", ARIAL),
-}
-# family (lower case) -> style -> size -> points an italic face's text reaches past its advances
-# on each side: the cell's budget is that much smaller (CAPTURING.md section 2 item 30)
-_OVERHANG: dict[str, dict[str, dict[int, float]]] = {
-    "calibri": CALIBRI_OVERHANG,
-    "aptos narrow": APTOS_NARROW_OVERHANG,
-    "arial": ARIAL_OVERHANG,
-}
-# Excel for Windows at 96 dpi: the same shape, advances in pixels at ppem = size * 96 / 72
-# (CAPTURING.md section 2 item 65)
+# Excel for Windows at 96 dpi: family (lower case) -> (display name, style -> size -> advances
+# in pixels at ppem = size * 96 / 72) (CAPTURING.md section 2 item 65)
 _FONTS_WINDOWS: dict[str, tuple[str, dict[str, dict[int, dict[str, float]]]]] = {
     "calibri": ("Calibri", WINDOWS_CALIBRI),
     "aptos narrow": ("Aptos Narrow", WINDOWS_APTOS_NARROW),
     "arial": ("Arial", WINDOWS_ARIAL),
 }
+# family (lower case) -> style -> size -> pixels an italic face's text reaches past its advances
+# on each side: the cell's budget is that much smaller (CAPTURING.md section 2 item 30)
 _OVERHANG_WINDOWS: dict[str, dict[str, dict[int, float]]] = {
     "calibri": WINDOWS_CALIBRI_OVERHANG,
     "aptos narrow": WINDOWS_APTOS_NARROW_OVERHANG,
     "arial": WINDOWS_ARIAL_OVERHANG,
 }
-# platform name -> (glyph tables, overhangs), in the platform's device units
-_REGISTRY = {"mac": (_FONTS, _OVERHANG), "windows": (_FONTS_WINDOWS, _OVERHANG_WINDOWS)}
+# Excel for Mac: every face of _faces_mac.FACES at any size up to MAC_MAX_SIZE, by rule
+# (CAPTURING.md section 2 item 82)
+_STYLES = ("regular", "bold", "italic", "bold italic")
+_MAC_FAMILIES = {family.lower(): family for family in _faces_mac.FACES}
+_MAC_SUBSTITUTES = {name.lower(): family for name, family in _faces_mac.SUBSTITUTES.items()}
+MAC_MAX_SIZE = 192.0
+"""The largest size Excel for Mac's rule is known for: ASCII glyphs are rounded per glyph to
+whole points up to it (CAPTURING.md section 2 item 82)."""
+_DIGITS = "0123456789"
+
+
+def _mac_size(size: float) -> float:
+    """The size Excel for Mac measures a face at: a fractional size rounds half up (10.5 is 11)."""
+    return float(math.floor(size + 0.5))
+
+
+@cache
+def _mac_face(family: str, style: str) -> tuple[int, dict[str, float]]:
+    """A Mac face's units per em E and each glyph's advance in 1/E em."""
+    entry = _faces_mac.FACES[family][style]
+    while isinstance(entry, str):
+        entry = _faces_mac.FACES[family][entry]
+    e, numbers = entry
+    return e, dict(zip(_faces_mac.GLYPHS, map(float, numbers.split()), strict=True))
+
+
+@cache
+def _mac_overhang_table(family: str, style: str) -> dict[float, float]:
+    numbers = _faces_mac.OVERHANG.get((family, style))
+    if numbers is None:
+        return {}
+    values = map(float, numbers.split())
+    return dict(zip(_faces_mac.OVERHANG_SIZES, values, strict=True))
 
 
 def column_padding(mdw: float) -> float:
@@ -150,23 +168,37 @@ def column_units(
 
 
 def resolve_font(font: FontSpec | None, platform: Platform = _MAC) -> Font:
-    """The canonical :class:`Font`; raises LookupError for a font or style without a table."""
+    """The canonical :class:`Font`; raises LookupError for a font, style or size not covered.
+
+    On the Mac a name Excel for Mac has no face for and measures as another (``SUBSTITUTES``)
+    resolves to that face, and sizes run from 1 to :data:`MAC_MAX_SIZE` points.
+    """
     if font is None:
         return DEFAULT_FONT
     if isinstance(font, str):
         font = Font(font, 11.0)
     elif not isinstance(font, Font):
         font = Font(font[0], float(font[1]))
-    fonts = _REGISTRY[platform.name][0]
-    where = "" if platform.name == "mac" else " for Excel for Windows"
-    entry = fonts.get(font.name.lower())
-    if entry is None or not entry[1]:
-        bundled = ", ".join(display for display, styles in fonts.values() if styles)
-        msg = f"no glyph table{where} for font {font.name!r}; measured: {bundled}"
+    if platform.name == "mac":
+        key = font.name.lower()
+        family = _MAC_FAMILIES.get(key) or _MAC_SUBSTITUTES.get(key)
+        if family is None:
+            msg = (
+                f"no glyph advances for font {font.name!r}; measured: {', '.join(_faces_mac.FACES)}"
+            )
+            raise LookupError(msg)
+        if not 1 <= font.size <= MAC_MAX_SIZE:
+            msg = f"no glyph advances for {family} at {font.size:g} points: 1 to {MAC_MAX_SIZE:g}"
+            raise LookupError(msg)
+        return Font(family, float(font.size), font.bold, font.italic, font.underline)
+    entry = _FONTS_WINDOWS.get(font.name.lower())
+    if entry is None:
+        bundled = ", ".join(display for display, _ in _FONTS_WINDOWS.values())
+        msg = f"no glyph table for Excel for Windows for font {font.name!r}; measured: {bundled}"
         raise LookupError(msg)
     display, styles = entry
     if font.style not in styles:
-        msg = f"no glyph table{where} for {display} {font.style}; measured: {', '.join(styles)}"
+        msg = f"no glyph table for Excel for Windows for {display} {font.style}"
         raise LookupError(msg)
     return Font(display, float(font.size), font.bold, font.italic, font.underline)
 
@@ -178,29 +210,46 @@ def _table(font: FontSpec | None, platform: Platform = _MAC) -> dict[str, float]
 
 @lru_cache(maxsize=128)
 def _whole_advances(name: str, size: float, style: str, kind: str = "mac") -> dict[str, float]:
-    """The advances fit and fill decisions use: whole points, without the tables' tenths.
+    """The advances every Excel-mode decision sums: whole points (pixels on Windows).
 
-    A tenth (``W`` is 10.1 at Calibri 11) is real only in autofit, where ten ``W`` measure 101;
-    ten ``W`` and a digit fit a budget of 106, and ``*W0`` holds 10 of them there
-    (CAPTURING.md section 2 item 41). A line feed and a tab take the space's advance and a
-    carriage return none, so CR LF measures one space (item 51).
+    On the Mac each glyph's advance ``u * size / E`` rounded half up (CAPTURING.md section 2
+    item 82). On Windows the measured table, without its tenths: a tenth (``W``
+    is 10.1 at Calibri 11) is real only in autofit (item 41). A line feed and a tab take the
+    space's advance and a carriage return none, so CR LF measures one space (item 51).
     """
-    advances = _advances(name, size, style, kind)
-    whole = {c: float(math.floor(a + 1e-9)) for c, a in advances.items()}
+    if kind == "mac":
+        e, units = _mac_face(name, style)
+        size = _mac_size(size)
+        whole = {c: float(math.floor(u * size / e + 0.5)) for c, u in units.items()}
+    else:
+        whole = {c: float(math.floor(a + 1e-9)) for c, a in _advances(name, size, style).items()}
     whole["\n"] = whole["\t"] = whole[" "]
     whole["\r"] = 0.0
+    # a glyph outside the table: the widest digit (at least a point: a column unit divides by it)
+    whole[""] = max(1.0, *(whole[d] for d in _DIGITS))
     return whole
 
 
 @lru_cache(maxsize=128)
-def _advances(
-    name: str, size: float, style: str = "regular", kind: str = "mac"
-) -> dict[str, float]:
-    tables = _REGISTRY[kind][0][name.lower()][1][style]
+def _linear_advances(name: str, size: float, style: str) -> dict[str, float]:
+    """The Mac's unrounded advances, which autofit sums for a text holding a non-ASCII glyph."""
+    e, units = _mac_face(name, style)
+    size = _mac_size(size)
+    linear = {c: u * size / e for c, u in units.items()}
+    linear["\n"] = linear["\t"] = linear[" "]
+    linear["\r"] = 0.0
+    linear[""] = max((linear[d] for d in _DIGITS), key=lambda a: math.floor(a + 0.5))
+    return linear
+
+
+@lru_cache(maxsize=128)
+def _advances(name: str, size: float, style: str = "regular") -> dict[str, float]:
+    """A Windows table at ``size``: measured, or the nearest measured one scaled."""
+    tables = _FONTS_WINDOWS[name.lower()][1][style]
     if size in tables:
         return tables[int(size)]
     # An unmeasured size: scale the nearest measured table (the larger one on a tie) and round
-    # each advance to whole points, the way hinting does. An approximation; the measured sizes
+    # each advance to whole pixels, the way hinting does. An approximation; the measured sizes
     # (9, 10, 11, 12, 14, 16, 18, 20 and 24) are exact.
     nearest = min(tables, key=lambda measured: (abs(measured - size), -measured))
     base = tables[nearest]
@@ -211,8 +260,10 @@ def overhang(font: FontSpec | None = None, *, platform: str | Platform | None = 
     """Points an italic face reaches past its advances on each side; 0 for upright faces.
 
     The text area of a cell in that font is this much smaller: an italic Calibri 11 cell holds
-    one fill space fewer than a regular one. An unmeasured size scales the nearest measured
-    overhang to whole points.
+    one fill space fewer than a regular one. Measured at every whole size from 6 to 30 and at
+    32, 36, 40, 48, 56, 64, 72, 96, 128, 160 and 192 points on the Mac (a half size is the
+    whole size it rounds to, half up), at 9 to 24 on Windows; another size scales the nearest
+    measured overhang to whole points.
     """
     p = check_platform(platform, "overhang", windows=True)
     return font_overhang(font, p) / p.scale
@@ -226,11 +277,15 @@ def font_overhang(font: FontSpec | None, platform: Platform = _MAC) -> float:
 
 @lru_cache(maxsize=128)
 def _overhang(name: str, size: float, style: str, kind: str = "mac") -> float:
-    table = _REGISTRY[kind][1][name.lower()].get(style, {})
+    if kind == "mac":
+        size = _mac_size(size)
+        table: dict[float, float] = _mac_overhang_table(name, style)
+    else:
+        table = {float(k): v for k, v in _OVERHANG_WINDOWS[name.lower()].get(style, {}).items()}
     if not table:
         return 0.0
     if size in table:
-        return float(table[int(size)])
+        return float(table[size])
     nearest = min(table, key=lambda measured: (abs(measured - size), -measured))
     return float(round(table[nearest] * size / nearest))
 
@@ -238,15 +293,15 @@ def _overhang(name: str, size: float, style: str, kind: str = "mac") -> float:
 def glyph_measure(font: FontSpec | None = None, platform: Platform = _MAC) -> Measure:
     """Excel mode: the sum of whole glyph advances in device units (points on the Mac).
 
-    A line feed and a tab measure as a space, a carriage return as nothing; other glyphs outside
-    the table measure as a digit (the maximum digit width), which is what a column width unit
-    is; ``text_width`` and the ``font`` argument of ``format_value`` state it.
+    A line feed and a tab measure as a space, a carriage return as nothing, and a glyph
+    outside the table (beyond the cp1252 characters) as the widest digit (the maximum digit
+    width, which is what a column width unit is).
     """
-    adv = _table(font, platform)
-    digit = adv["0"]
+    whole = _table(font, platform)
+    digit = whole[""]
 
     def measure(text: str) -> float:
-        return sum(adv.get(c, digit) for c in text)
+        return sum(whole.get(c, digit) for c in text)
 
     return measure
 
@@ -256,14 +311,16 @@ def text_width(
 ) -> float:
     """The width of ``text`` in points as Excel measures it in ``font`` on ``platform``.
 
-    The sum of the whole glyph advances, the measure every Excel-mode decision uses (fit, ``#``
-    count, fill count); a line feed and a tab measure as a space, a carriage return as nothing,
-    and other glyphs outside the table as a digit. Like reportlab's
-    ``stringWidth``, but whole points as Excel hints them. Excel's autofit alone counts a tenth
-    on a few wide glyphs.
+    The sum of the whole glyph advances, the measure every Excel-mode decision uses (fit,
+    ``#`` count, fill count); a line feed and a tab measure as a space, a carriage return as
+    nothing, and a glyph beyond the cp1252 characters as the widest digit. Like reportlab's
+    ``stringWidth``, but whole points as Excel rounds them. Excel's autofit alone measures
+    differently: a text holding a non-ASCII glyph unrounded, and a long text a point or more
+    wider.
 
     Raises:
-        LookupError: ``font`` has no measured table.
+        LookupError: A font, style or size xlformat has no advances for
+            (:func:`measured_fonts`).
     """
     p = check_platform(platform, "text_width", windows=True)
     return glyph_measure(font, p)(text) / p.scale
@@ -278,9 +335,8 @@ def glyph_widths(
     ``sum(glyph_widths(run))``.
     """
     p = check_platform(platform, "glyph_widths", windows=True)
-    adv = _table(font, p)
-    digit = adv["0"]
-    return tuple(adv.get(c, digit) / p.scale for c in text)
+    whole = _table(font, p)
+    return tuple(whole.get(c, whole[""]) / p.scale for c in text)
 
 
 def digit_width(font: FontSpec | None = None, *, platform: str | Platform | None = None) -> float:
@@ -295,18 +351,38 @@ def digit_width(font: FontSpec | None = None, *, platform: str | Platform | None
 def measured_fonts(
     *, platform: str | Platform | None = None
 ) -> dict[str, dict[str, tuple[int, ...]]]:
-    """The glyph tables xlformat bundles: family, then style, then the measured sizes.
+    """The fonts xlformat measures text in: family, then style, then the sizes verified.
 
-    Other sizes of a measured family and style scale the nearest measured table; anything else
-    raises ``LookupError``. A caller can test a workbook's fonts against this before choosing
-    Excel mode.
+    On the Mac every listed family and style is measured at any size from 1 to 192 points by
+    its glyph advances, recovered from Excel's autofit widths; the sizes listed are those at
+    which every glyph's width was captured. :func:`font_substitutes` lists names Excel for Mac
+    measures as one of these. On Windows the measured tables, other sizes scaling the nearest.
+    Anything else raises ``LookupError``. A caller can test a workbook's fonts against this
+    before choosing Excel mode. Only text measurement follows this list: row heights, vertical
+    placement, rules and insets cover fewer faces (each function says which).
     """
     p = check_platform(platform, "measured_fonts", windows=True)
+    if p.name == "mac":
+        return {
+            family: dict.fromkeys(_STYLES, _faces_mac.VERIFIED_SIZES[family])
+            for family in _faces_mac.FACES
+        }
     return {
         display: {style: tuple(sorted(sizes)) for style, sizes in styles.items()}
-        for display, styles in _REGISTRY[p.name][0].values()
+        for display, styles in _FONTS_WINDOWS.values()
         if styles
     }
+
+
+def font_substitutes(*, platform: str | Platform | None = None) -> dict[str, str]:
+    """Font names the platform has no face for, and the face Excel measures them in.
+
+    Excel for Mac measures Segoe UI as Calibri and MS Sans Serif as Times New Roman (the Mac
+    has neither face; CAPTURING.md section 2 item 82), and so does every function here that
+    takes ``font=`` on the Mac. Empty on Windows.
+    """
+    p = check_platform(platform, "font_substitutes", windows=True)
+    return dict(_faces_mac.SUBSTITUTES) if p.name == "mac" else {}
 
 
 def column_budget(
@@ -336,7 +412,7 @@ def column_points(
 
 
 def _mdw(font: FontSpec | None, platform: Platform = _MAC) -> float:
-    return float(_table(font, platform)["0"])
+    return _table(font, platform)[""]
 
 
 def _units(points: float, mdw: float) -> float:

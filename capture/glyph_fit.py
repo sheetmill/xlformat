@@ -1,8 +1,10 @@
-"""Fit glyph advances from the autofit measurements and write the glyph modules.
+"""Fit glyph advances from the autofit measurements and write Excel for Windows' glyph modules.
 
-Usage: ``uv run python -m capture.glyph_fit [--windows] [--check]``. Reads every
-``tests/captures/measure*.measure.tsv`` (with ``--windows``, ``tests/captures/windows/``, Excel for
-Windows at 96 dpi, fitted in pixels: points times 96 / 72; CAPTURING.md section 2 item 65)
+Usage: ``uv run python -m capture.glyph_fit --windows [--check]``. Reads every
+``tests/captures/windows/measure*.measure.tsv`` (Excel for Windows at 96 dpi, fitted in pixels:
+points times 96 / 72; CAPTURING.md section 2 item 65). Excel for Mac's advances come from
+``capture/face_fit.py``; its ``tests/captures/measure*.measure.tsv`` are fitted here only by
+``tests/test_glyph_tables.py``, which checks them against that rule
 (CAPTURING.md section 2 items 24, 26 and 30): every printable ASCII character in runs of 1, 2, 5
 and 10, digit pairs, month and day names, AM, PM, E+07, ####, mixed strings, autofitted one per
 column, with the column width read back in points. The header names the workbook's Normal font
@@ -28,6 +30,7 @@ import ast
 import json
 import math
 import re
+import sys
 from pathlib import Path
 
 from capture.schema import read_rows
@@ -117,7 +120,7 @@ def _predict(text: str, adv: dict[str, float], pad: float) -> float:
 def _install(face: Font, table: dict[str, float], overhang: float = 0.0) -> None:
     """Put ``table`` and ``overhang`` in the package's font registry for ``face`` (fitting)."""
     key = face.name.lower()
-    fonts, overhangs = measure_module._REGISTRY[PLATFORM.name]
+    fonts, overhangs = measure_module._FONTS_WINDOWS, measure_module._OVERHANG_WINDOWS
     if key not in fonts:
         fonts[key] = (face.name, {})
         overhangs[key] = {}
@@ -171,7 +174,9 @@ def main(argv: list[str] | None = None) -> None:
     global PLATFORM
     check = "--check" in (argv or [])
     windows = "--windows" in (argv or [])
-    PLATFORM = Platform.WINDOWS if windows else Platform.MAC
+    if not windows:
+        sys.exit("Excel for Mac's advances come from capture/face_fit.py; pass --windows")
+    PLATFORM = Platform.WINDOWS
     source = CAPTURE_DIR / "windows" if windows else CAPTURE_DIR
     loaded = [(path, *load(path)) for path in source.glob("measure*.measure.tsv")]
     # regular faces first: a styled face's fill rows need its regular Normal font's table
@@ -279,6 +284,4 @@ def _write(
 
 
 if __name__ == "__main__":
-    import sys
-
     main(sys.argv[1:])

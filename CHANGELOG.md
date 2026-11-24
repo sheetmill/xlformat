@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Excel mode on the Mac measures 27 families: Calibri, Arial, Aptos Narrow, Aptos, Arial Black,
+  Arial Narrow, Book Antiqua, Bookman Old Style, Calibri Light, Cambria, Candara, Century
+  Gothic, Comic Sans MS, Consolas, Courier, Courier New, Garamond, Georgia, Haettenschweiler,
+  Helvetica, Impact, Lucida Console, Rockwell, Tahoma, Times New Roman, Trebuchet MS and
+  Verdana, each in four styles at any size from 1 to 192 points. Each face is its units per em
+  and one advance per character (space, ASCII and the cp1252 characters), recovered from Excel
+  for Mac's own autofit widths (CAPTURING item 82), about 1 KB a face; a glyph's advance is
+  `u * size / em` rounded half up to whole points.
+- `font_substitutes(*, platform=None)`: names the platform has no face for and the face Excel
+  measures them in. On the Mac, MS Sans Serif measures as Times New Roman, in every function
+  that takes `font=`.
+
+### Changed
+- On the Mac, sizes outside the nine measured ones (9 to 24 points) are computed by the rule
+  instead of scaling the nearest measured table; a half size is measured as the whole size it
+  rounds to, half up (10.5 as 11). Every captured row renders as before. Sizes above 192 points
+  raise `LookupError`, as Segoe UI and Geneva do on the Mac.
+- `measured_fonts()` lists every measured family; its sizes are those at which every glyph's
+  width was captured (Calibri, Aptos Narrow and Arial 9 to 14, 16, 18, 20, 24; the others 10
+  and 13). `row_metrics`, `vertical_metrics`, `ink_metrics`, `rule_metrics` and `text_insets`
+  keep their own coverage, stated in each docstring (on the Mac the first four Calibri, Aptos
+  Narrow, Arial, Times New Roman, Courier New and Georgia, `text_insets` the first three), and
+  raise `LookupError` for the other families.
+- On the Mac a character beyond the cp1252 characters measures as the font's widest digit, and
+  the cp1252 characters by their own advances, where every character outside ASCII measured as
+  the digit.
+- The italic overhang on the Mac is measured at every whole size from 6 to 30 and at 32 to 192
+  in steps, for every family.
+- The bundled per-size Mac glyph tables are gone; `capture/glyph_fit.py` writes only Excel for
+  Windows' tables, and `tests/test_glyph_tables.py` checks the Mac's measure files against the
+  rule.
+
 ## [0.8.0] - 2026-11-23
 
 ### Added
