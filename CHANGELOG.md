@@ -35,10 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - A character outside ASCII measured as the digit; now each cp1252 character measures by its
     own advance (`25°C ± 0.5` in Calibri 11: 46 points, 0.8.0 49), and a character beyond
     cp1252 as the widest digit.
-  - Every size is answered, as in 0.8.0, by the rule instead of scaling, past Excel's 409
-    points too: a Calibri 409 Normal font gives a 1,761-point default column (0.8.0: 1,735).
-    A size under half a point measures 0 (a negative size less), as in 0.8.0, and the column
-    functions take a 1-point digit there where 0.8.0 raised `ZeroDivisionError`.
+  - Every size is answered, as in 0.8.0, past Excel's 409 points too, now by the rule where
+    0.8.0 scaled: a Calibri 409 Normal font gives a 1,761-point default column (0.8.0: 1,735).
+    A size under half a point measures 0 and a negative size a negative width, as in 0.8.0,
+    and the column functions take a 1-point digit there where 0.8.0 raised
+    `ZeroDivisionError`.
 - `measured_fonts()` lists every measured family; its sizes are those at which every glyph's
   width was captured (Calibri, Aptos Narrow and Arial 9 to 14, 16, 18, 20, 24; the others 10
   and 13). `row_metrics`, `vertical_metrics`, `ink_metrics` and `rule_metrics` keep their own
@@ -49,8 +50,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   by the widest digit of the cell's face (captured for Times New Roman, Verdana, Georgia,
   Courier New and Verdana italic as well, CAPTURING item 83), where it raised `LookupError` for
   all but Calibri, Aptos Narrow and Arial. Right-aligned italic text ends its overhang at the
-  screen size further in (`right` and `accounting_right` grow by it); an accounting line still
-  runs to the clear space.
+  screen size further in (`right` and `accounting_right` grow by it), captured for Verdana,
+  Calibri, Aptos Narrow and Arial italic (CAPTURING items 83 and 84); an accounting line still
+  runs to the clear space. This changes the right insets of Calibri, Aptos Narrow and Arial
+  italic from 0.8.0's: Calibri 11 italic 2 points to 4, Calibri 72 italic 9 to 22.
 - The italic overhang on the Mac is measured at every whole size from 6 to 30 and at 32 to 192
   in steps, for every family.
 - The bundled per-size Mac glyph tables are gone; `capture/glyph_fit.py` writes only Excel for

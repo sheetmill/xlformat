@@ -1621,10 +1621,10 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       disagree most, five times each. Calibri rounds each character through 285 points and
       sums the run unrounded from 286 (228 of 228 deciding rows); the other five round each
       character at every size to 320. No row fits neither. Where the rounding stops is a
-      property of the face, not one size. Sizes above 192 points raise `LookupError`: this
-      group measures autofit only, and no capture shows fit, `#` or fill decisions above 192
-      points, where the rounding of each character could stop as autofit's does (Calibri from
-      286).
+      property of the face, not one size. Sizes above 192 points are answered by the same
+      per-character rule, unverified: this group measures autofit only, and no capture shows
+      fit, `#` or fill decisions above 192 points, where the rounding of each character could
+      stop as autofit's does (Calibri from 286).
 
     The rule, on every check row but the runs of spaces, no-break spaces and soft hyphens
     (56,896 of 56,896): an ASCII character's advance is `u · S / E` rounded half up to whole
@@ -1653,6 +1653,15 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     (item 82 measures 48 and 56) and scales to 11 there, a screen point more than the capture
     shows. The face row read first in the workbook, Times New Roman 11, reads its right
     accounting cell's ink past its line, as item 81's first rows did.
+
+84. **Italic text insets in the three default faces (2026-11-24; `capture/screen_insets.py`,
+    `run italics`; Excel for Mac 16.115 in a macOS virtual machine; `insets_italics.layout.tsv`,
+    18 rows).** Item 83's workbook with Calibri, Aptos Narrow and Arial italic at 11, 36 and 72
+    points, zoom 100 and 150. Every row holds item 83's italic rule: the left inset and the
+    accounting line by item 81's rule, right-aligned text (plain and accounting) further in by
+    the face's overhang at the screen size (Calibri 11 italic: 2 points of clear space and 2 of
+    overhang, 4 in all). One row, Arial 36 italic at zoom 150 (screen size 54), reads a screen
+    point less than the overhang scaled from 56's, as Verdana's did in item 83.
 
 ## 3. The pipeline
 

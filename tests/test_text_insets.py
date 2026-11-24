@@ -82,16 +82,21 @@ def test_text_insets_raises_outside_its_captures() -> None:
         text_insets(("Calibri", 1), zoom=10, platform="windows")
 
 
-# the faces capture (CAPTURING.md section 2 item 83): Verdana 36 italic at zoom 150 sits at screen
-# size 54, whose overhang is scaled from 56's (11 screen points) where Excel shows 10
-FACES_DEVIATIONS = {("Verdana 36 italic", 150)}
+# the faces and italics captures (CAPTURING.md section 2 items 83 and 84): at zoom 150 a 36-point
+# face sits at screen size 54, whose overhang is scaled from 56's, a screen point more than Excel
+# shows in Verdana and Arial italic
+FACES_DEVIATIONS = {("Verdana 36 italic", 150), ("Arial 36 italic", 150)}
+FACES_FILES = {"insets_faces.layout.tsv": 30, "insets_italics.layout.tsv": 18}
 
 
-def test_the_faces_capture_matches_text_insets() -> None:
+@pytest.mark.parametrize("name", sorted(FACES_FILES))
+def test_the_faces_captures_match_text_insets(name: str) -> None:
     from xlformat import Font
 
     checked = 0
-    for _normal, zoom, tag, _rh, _ppp, *cells in _rows(CAPTURES / "insets_faces.layout.tsv"):
+    rows = _rows(CAPTURES / name)
+    first = rows[0][2]  # the face row read first: item 81's ink misread
+    for _normal, zoom, tag, _rh, _ppp, *cells in rows:
         words = tag.split(" ")
         italic = words[-1] == "italic"
         if italic:
@@ -108,8 +113,8 @@ def test_the_faces_capture_matches_text_insets() -> None:
         if (tag, z) not in FACES_DEVIATIONS:
             assert c[1][1] - c[1][3] - 1 == pytest.approx(got.right * unit), (tag, z)
             bearing = c[1][3] - c[1][5]
-            if tag != "Times New Roman 11":  # the first face row: item 81's ink misread
+            if tag != first:
                 text_end = c[3][5] + bearing
                 assert c[3][1] - text_end - 1 == pytest.approx(got.accounting_right * unit)
         checked += 1
-    assert checked == 30
+    assert checked == FACES_FILES[name]

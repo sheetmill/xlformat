@@ -149,8 +149,8 @@ Precision rules applied at normalization, each a quirk (section 9):
 
 **Platform and regional settings.** Every function whose result can differ by platform takes a
 keyword-only `platform: str | Platform | None = None`, a name (`"mac"`, `"windows"`) or a frozen
-`Platform`, as `csv` takes a dialect's name or a `Dialect`; `None` means `DEFAULT_PLATFORM`, `"mac"`. `Platform` holds what is a rule rather
-than a table: `name` (the Mac measures in points, Windows in device pixels at `size · dpi / 72`),
+`Platform`, as `csv` takes a dialect's name or a `Dialect`; `None` means `DEFAULT_PLATFORM`,
+`"mac"`. `Platform` holds what is a rule rather than a table: `name` (the Mac measures in points, Windows in device pixels at `size · dpi / 72`),
 `dpi` (Windows only), `default_column_step` and `long_fill`; presets
 `Platform.MAC` and `Platform.WINDOWS`, fields overridden with `dataclasses.replace`. A function
 raises `LookupError` for a platform it has no captured evidence for: Excel for Windows is
@@ -308,8 +308,9 @@ widths, not read from a font file: at 383, 397 and 409 points a run of a glyph b
 makes Excel sum the text unrounded, each width pins `u / E` to a fraction of a font unit, and the
 three sizes together leave one multiple of `1/E` (one E per face: 2048, 1024 for Consolas and
 Lucida Console, 1000 for Haettenschweiler). 27 families are measured, each in regular, bold,
-italic and bold italic (a style Excel synthesizes is captured as itself), at every size Excel
-allows (1 to 409 points; captured to 192); a half size is measured as the whole size it rounds to, half up (`faces_phalf`).
+italic and bold italic (a style Excel synthesizes is captured as itself), at every size (captured
+to 192 points, the same rule unverified above, past Excel's 409 too); a half size is measured as
+the whole size it rounds to, half up (`faces_phalf`).
 Calibri is what openpyxl writes as the workbook default (Calibri 11; Excel for Mac's own default
 is Aptos Narrow 12 under Microsoft 365 and was Calibri 12 under Office 2021); the others are the
 faces workbooks use most and Office's later defaults. Names Excel for Mac has no face for:
@@ -318,8 +319,9 @@ MS Sans Serif autofits as Times New Roman at every captured text and is measured
 proportional to the size, so it raises `LookupError`, as Geneva does. Digit runs are rounded per
 glyph up to 192 points (`faces_p<size>`); above that the same rule answers, unverified: autofit
 stops rounding each glyph at a size that depends on the face (Calibri from 286 points; five
-other faces still round at 320, `faces_s<size>`), and fit decisions there are not captured. Excel for Windows measures Calibri, Aptos Narrow and Arial in whole device pixels,
-with tables of its own (**Excel for Windows** below). Installed fonts are not read.
+other faces still round at 320, `faces_s<size>`), and fit decisions there are not captured.
+Excel for Windows measures Calibri, Aptos Narrow and Arial in whole device pixels, with tables of
+its own (**Excel for Windows** below). Installed fonts are not read.
 
 **The seam**: internally both modes are "a measure function plus a width in its units": `len`
 for character mode, a glyph-advance sum for Excel mode. The same seam is exposed for callers
@@ -454,10 +456,14 @@ whose text exceeds 255 characters is 255 `#` without a width as well (`1E+300` u
 `ColumnMetrics` also carries the text insets of the Normal font, from the cell's boundaries: on
 the left the gridline (one screen unit) and `ceil(digit_width / 4)` screen units of clear space,
 on the right the clear space, so that the two make the column padding. `text_insets(font, *,
-normal_font, zoom, platform)` gives a cell font's: the same rule with the digit width of the cell's
-font at its screen size (the Mac's rounded screen size, Windows' ppem), whatever the Normal font,
-with or without an accounting underline (`CAPTURING.md` §2 item 81, both platforms, every row).
-Calibri 11 gives 3 and 2 points on the Mac, as Excel's print layout does (`capture/alignment.py`).
+normal_font, zoom, platform)` gives a cell font's: the same rule with the widest digit of the
+cell's font at its screen size (the Mac's rounded screen size, Windows' ppem), whatever the Normal
+font, with or without an accounting underline (`CAPTURING.md` §2 item 81, both platforms, every
+row; on the Mac every measured face from 1 to 72 points, item 83). On the Mac right-aligned italic
+text ends further in by the face's italic overhang at the screen size, while an accounting line
+still runs to the clear space (items 83 and 84: Verdana, Calibri, Aptos Narrow and Arial italic,
+every row but two at a screen size whose overhang is not measured). Calibri 11 gives 3 and 2
+points on the Mac, as Excel's print layout does (`capture/alignment.py`).
 
 **Merged cells** (suites `merged11`, `merged14`; `CAPTURING.md` §2 item 40). A cell merged across
 columns formats exactly as one column of the sum of their points, with a single padding `P`: its
@@ -993,9 +999,10 @@ row in every mode, so a change meant to keep the output can show that it did.
 - The 255-character limit is modeled from `string value` rows; the screen is not yet checked
   (`CAPTURING.md` §2 item 28).
 - `ColumnMetrics` carries the text insets of the Normal font and `text_insets` those of any cell
-  font, by one rule on both platforms, captured on screen (`CAPTURING.md` §2 item 81): from the
-  cell's boundaries, the left gridline and `ceil(D / 4)` screen units on the left, `ceil(D / 4)`
-  on the right, `D` the font's digit width at its screen size.
+  font, by one rule on both platforms, captured on screen (`CAPTURING.md` §2 items 81, 83 and
+  84): from the cell's boundaries, the left gridline and `ceil(D / 4)` screen units on the left,
+  `ceil(D / 4)` on the right, `D` the font's widest digit at its screen size; on the Mac an
+  italic face's right-aligned text ends its overhang further in.
 - The fraction rules ship with zero deviations (`QUIRKS.md`; `CAPTURING.md` §2 item 22).
 - Lower-case `e+` after digits is a `FormatError`, and `e` alone is a year code (`CAPTURING.md`
   §2 item 9).

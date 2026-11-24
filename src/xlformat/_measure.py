@@ -345,14 +345,13 @@ def measured_fonts(
     """The fonts xlformat measures text in: family, then style, then the sizes verified.
 
     On the Mac every listed family and style is measured at any size by its glyph advances,
-    recovered from Excel's autofit widths: captured to 192 points, and by the same rule,
-    unverified, above (Excel allows 409; see ``MAC_VERIFIED_SIZE`` in ``_measure``). The sizes
-    listed are those at which every glyph's width was captured. :func:`font_substitutes` lists
-    names Excel for Mac measures as one of these. On Windows the measured tables, other sizes
-    scaling the nearest. Anything else raises ``LookupError``. A caller can test a workbook's
-    fonts against this before choosing Excel mode. Text measurement and, on the Mac,
-    :func:`text_insets` follow this list; row heights, vertical placement and rules cover fewer
-    faces (each function says which).
+    recovered from Excel's autofit widths: captured to 192 points, and by the same rule, unverified,
+    above (Excel allows 409). The sizes listed are those at which every glyph's width was captured.
+    :func:`font_substitutes` lists names Excel for Mac measures as one of these. On Windows the
+    measured tables, other sizes scaling the nearest. Anything else raises ``LookupError``. A caller
+    can test a workbook's fonts against this before choosing Excel mode. Text measurement and, on
+    the Mac, :func:`text_insets` follow this list; row heights, vertical placement and rules cover
+    fewer faces (each function says which).
     """
     p = check_platform(platform, "measured_fonts", windows=True)
     if p.name == "mac":
@@ -1390,7 +1389,7 @@ def text_insets(
     zoom: float = 100,
     platform: str | Platform | None = None,
 ) -> TextInsets:
-    """Where Excel starts and ends the text of a cell in ``font`` (CAPTURING.md items 81, 83).
+    """Where Excel starts and ends the text of a cell in ``font`` (CAPTURING.md items 81-84).
 
     The text starts after the left gridline (one screen unit) and ``ceil(D / 4)`` screen units of
     clear space, and ends that clear space before the right boundary, ``D`` the width of the
@@ -1407,10 +1406,11 @@ def text_insets(
 
     Coverage: on the Mac every face :func:`measured_fonts` lists, from 1 to 72 points;
     captured at zoom 100 and 150 for Calibri, Arial and Aptos Narrow from 9 to 72 points under
-    two Normal fonts, and for Times New Roman, Verdana, Georgia, Courier New and Verdana italic
-    at 11, 36 and 72 points, every row by this rule but one (an italic overhang at an
-    unmeasured screen size); carried over to the other faces. On Windows Calibri, Aptos Narrow
-    and Arial, every captured row by this rule.
+    two Normal fonts, and for Times New Roman, Verdana, Georgia and Courier New and the italics
+    of Verdana, Calibri, Aptos Narrow and Arial at 11, 36 and 72 points, every row by this rule
+    but two (an italic overhang at a screen size where it is not measured); carried over to the
+    other faces and italics. On Windows Calibri, Aptos Narrow and Arial, every captured row by
+    this rule, no italic among them.
 
     Raises:
         LookupError: A face not covered, a size outside 1 to 72, or a size and zoom under one
@@ -1433,7 +1433,7 @@ def text_insets(
             resolve_font(normal_font, p)
         name, size = f.name, f.size
         if not 1.0 <= size <= _LARGEST:
-            msg = f"no text insets for {name} {size:g}; captured sizes: 1 to 72"
+            msg = f"no text insets for {name} {size:g}; covered sizes: 1 to 72"
             raise LookupError(msg)
         em, units = _mac_face(f.name, f.style)
     per_point = 4 / 3 if windows else 1.0  # screen units a point at zoom 100

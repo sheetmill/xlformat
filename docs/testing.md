@@ -100,7 +100,7 @@ before Excel was asked, and every prediction matched.
 - 128 switch workbooks (`faces_s<size>`): five-runs at 193 to 320 points, where Excel stops
   rounding each character.
 
-Seventeen further files are not suites of the common schema:
+Eighteen further files are not suites of the common schema:
 
 - `alignment.layout.tsv` (196 rows, read from Excel's PDF export): where Excel places each value.
 - `repair.layout.tsv` (248 rows): what Excel's repair does to formats it refuses.
@@ -126,7 +126,8 @@ Seventeen further files are not suites of the common schema:
 - `palette.layout.tsv` (128 rows, from window captures): the colors drawn under a workbook palette.
 - `insets.layout.tsv` (444 rows, from window captures): where a cell's text starts and ends, by
   the cell's font, under two Normal fonts at zoom 100 and 150; `insets_faces.layout.tsv` (30
-  rows) the same for Times New Roman, Verdana, Georgia, Courier New and Verdana italic.
+  rows) the same for Times New Roman, Verdana, Georgia, Courier New and Verdana italic, and
+  `insets_italics.layout.tsv` (18 rows) for Calibri, Aptos Narrow and Arial italic.
 
 Excel for Windows' layout files in `tests/captures/windows/` are the same kinds of record, each
 beside the capture job it came from: `builtin_formats.layout.tsv` and `row_height.layout.tsv.gz`
