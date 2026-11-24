@@ -21,19 +21,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   that takes `font=`.
 
 ### Changed
-- On the Mac, sizes outside the nine measured ones (9 to 24 points) are computed by the rule
-  instead of scaling the nearest measured table; a half size is measured as the whole size it
-  rounds to, half up (10.5 as 11). Every captured row renders as before. Sizes above 192 points
-  raise `LookupError`, as Segoe UI and Geneva do on the Mac.
+- On the Mac, results change for Calibri, Aptos Narrow and Arial wherever 0.8.0 had no captured
+  table. Every row captured from Excel renders as before.
+  - A size other than 9, 10, 11, 12, 14, 16, 18, 20 and 24 points is measured by the rule, where
+    0.8.0 scaled the nearest measured table and rounded each advance half to even. Calibri's and
+    Aptos Narrow's digit at 13 points is 7 (0.8.0: 6; the 13-point check captures), so ten
+    digits measure 70 points instead of 60 and a workbook whose Normal font is either at 13
+    points has 7-point column units. On generated texts the difference reaches 16 points at 8
+    to 36 points (the alphabet in Arial 13) and 42 points at 72 to 192.
+  - A half size is measured as the whole size it rounds to, half up (10.5 as 11).
+  - A character outside ASCII measured as the digit; now each cp1252 character measures by its
+    own advance (`25°C ± 0.5` in Calibri 11: 46 points, 0.8.0 49), and a character beyond
+    cp1252 as the widest digit.
+  - Sizes above 192 points and below 1, which 0.8.0 scaled, raise `LookupError`, as Segoe UI and
+    Geneva do.
 - `measured_fonts()` lists every measured family; its sizes are those at which every glyph's
   width was captured (Calibri, Aptos Narrow and Arial 9 to 14, 16, 18, 20, 24; the others 10
   and 13). `row_metrics`, `vertical_metrics`, `ink_metrics`, `rule_metrics` and `text_insets`
   keep their own coverage, stated in each docstring (on the Mac the first four Calibri, Aptos
   Narrow, Arial, Times New Roman, Courier New and Georgia, `text_insets` the first three), and
   raise `LookupError` for the other families.
-- On the Mac a character beyond the cp1252 characters measures as the font's widest digit, and
-  the cp1252 characters by their own advances, where every character outside ASCII measured as
-  the digit.
 - The italic overhang on the Mac is measured at every whole size from 6 to 30 and at 32 to 192
   in steps, for every family.
 - The bundled per-size Mac glyph tables are gone; `capture/glyph_fit.py` writes only Excel for
