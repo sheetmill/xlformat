@@ -87,7 +87,7 @@ before Excel was asked, and every prediction matched.
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
 | `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths from which the glyph tables are fitted: Calibri, Aptos Narrow and Arial, four styles, nine sizes |
 
-Fifteen further files are not suites of the common schema:
+Sixteen further files are not suites of the common schema:
 
 - `alignment.layout.tsv` (196 rows, read from Excel's PDF export): where Excel places each value.
 - `repair.layout.tsv` (248 rows): what Excel's repair does to formats it refuses.
@@ -111,6 +111,17 @@ Fifteen further files are not suites of the common schema:
   sizes that are not whole, at zoom 100 and 150.
 - `builtin_formats.layout.tsv` (164 rows): what each built-in number format id stands for.
 - `palette.layout.tsv` (128 rows, from window captures): the colors drawn under a workbook palette.
+- `insets.layout.tsv` (444 rows, from window captures): where a cell's text starts and ends, by
+  the cell's font, under two Normal fonts at zoom 100 and 150.
+
+Excel for Windows' layout files in `tests/captures/windows/` are the same kinds of record, each
+beside the capture job it came from: `builtin_formats.layout.tsv` and `row_height.layout.tsv.gz`
+from cell reads; and from window captures `screen_pilot_rules.layout.tsv`,
+`screen_pilot_vertical.layout.tsv`, `screen_vertical.layout.tsv` and `screen_wrapped.layout.tsv`
+(text placement), `screen_rules.layout.tsv`, `screen_rules_zoom.layout.tsv`,
+`screen_rules_fresh.layout.tsv`, `screen_rules_table.layout.tsv`,
+`screen_rules_table_arial.layout.tsv` and `screen_rules_table_high.layout.tsv` (underlines and
+strikethrough), and `screen_insets.layout.tsv` (text insets).
 
 In all, the Mac's 343 suite files (235 with rows, the others autofit measurements) hold 866,322
 rows, and Excel for Windows' 301 suite files in `tests/captures/windows/` (193 with rows) hold

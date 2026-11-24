@@ -1,6 +1,6 @@
 """Where Excel starts and ends a cell's text, by the cell's font: the text insets on screen.
 
-    uv run python -m capture.screen_insets run      # Excel for Mac (in the macOS VM): capture, read
+    uv run python -m capture.screen_insets run      # Excel for Mac (in a macOS virtual machine)
     uv run python -m capture.screen_insets read     # read the Mac's saved pictures again
 
 The same workbooks run on Excel for Windows as the group ``screen_insets`` of
@@ -12,8 +12,9 @@ Calibri, Arial and Aptos Narrow at every size from 9 to 36 points and every four
 in workbooks of two Normal fonts (Calibri 11, Aptos Narrow 20), so that the cell's font can be told
 from the Normal font's; seen at zoom 100 and 150.
 
-The reader finds each row's gridlines in the picture (columns of light gray down the row's band)
-(B's left one is column A's fill's last pixel column, which covers it) and gives, per cell, the
+The reader finds each row's gridlines in the picture (columns of light gray down the row's band;
+column B's left gridline lies under column A's fill, so it is taken as the fill's last pixel
+column) and gives, per cell, the
 gridlines' pixel columns, the underline's first and last pixel column and the H's ink's first
 and last, in device pixels.
 """
@@ -211,7 +212,7 @@ METHOD = (
 )
 
 
-# --- Excel for Mac (run in the macOS VM) ---------------------------------------------------------
+# --- Excel for Mac (run in a macOS virtual machine) ----------------------------------------------
 
 
 def mac_output() -> Path:

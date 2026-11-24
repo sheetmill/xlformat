@@ -156,8 +156,9 @@ than a table: `name` (the Mac measures in points, Windows in device pixels at `s
 `Platform.MAC` and `Platform.WINDOWS`, fields overridden with `dataclasses.replace`. A function
 raises `LookupError` for a platform it has no captured evidence for: Excel for Windows is
 measured at 96 dpi for the width model (Excel mode of `format_value` and `format_cell`, the
-column and glyph functions), for `row_metrics`, `builtin_format` and `text_function`, not yet
-for text placement or rules. The viewer's regional settings are separate (`RegionalSettings`, presets
+column and glyph functions), for `row_metrics`, `builtin_format` and `text_function`, and for
+text placement, ink, rules and insets (`vertical_metrics`, `ink_metrics`, `rule_metrics`,
+`text_insets`) in Calibri, Aptos Narrow and Arial. The viewer's regional settings are separate (`RegionalSettings`, presets
 `EN_US_MAC` and `EN_US_WINDOWS`, a `regional_settings=` keyword on the functions that format or
 resolve built-in formats, objects only): `None` means the platform's en-US preset. Only en-US is
 supported, and only `short_date` is read (the built-in ids whose en-US string is the short date,
@@ -592,6 +593,10 @@ canonical color names to `RRGGBB` in the default palette (the eight names and `C
 
 ## 11. Public API
 
+The signatures quoted below are abbreviated: every function whose result can differ by platform
+also takes `platform=None` (and the format functions `regional_settings=None`): the list of
+names follows below.
+
 ```python
 from xlformat import (
     format_value, format_cell, text_function, NumberFormat, FormattedCell, Section, SectionKind,
@@ -968,8 +973,10 @@ row in every mode, so a change meant to keep the output can show that it did.
   `date1904` stays a keyword beside `quirks`, as a workbook property rather than a switchable quirk.
 - The 255-character limit is modeled from `string value` rows; the screen is not yet checked
   (`CAPTURING.md` §2 item 28).
-- `ColumnMetrics` carries the text edges (3 and 2 points) as measured in Excel's print layout at
-  Calibri 11 (`capture/alignment.py`); other sizes and the screen are not captured.
+- `ColumnMetrics` carries the text insets of the Normal font and `text_insets` those of any cell
+  font, by one rule on both platforms, captured on screen (`CAPTURING.md` §2 item 81): from the
+  cell's boundaries, the left gridline and `ceil(D / 4)` screen units on the left, `ceil(D / 4)`
+  on the right, `D` the font's digit width at its screen size.
 - The fraction rules ship with zero deviations (`QUIRKS.md`; `CAPTURING.md` §2 item 22).
 - Lower-case `e+` after digits is a `FormatError`, and `e` alone is a year code (`CAPTURING.md`
   §2 item 9).

@@ -821,19 +821,24 @@ class VerticalMetrics:
     the bottom inset as ``baseline_from_bottom``.
 
     Attributes:
-        baseline_from_top: The baseline's distance below the row's top for top-aligned text: the
-            face's size in points plus 1. A row's top is the top of the gridline above it, which
-            the row's own fill covers.
+        baseline_from_top: The baseline's distance below the row's top for top-aligned text: on
+            the Mac the face's size in points plus 1; on Windows ``H - D + 1`` pixels, the face's
+            height and descent of :func:`row_metrics`. A row's top is the top of the gridline
+            above it, which the row's own fill covers.
         baseline_from_bottom: The baseline's distance above the row's bottom for bottom-aligned
             text (Excel's default). It is at least the Normal font's own, and includes that
-            when :func:`vertical_metrics` is given ``normal_font``: Calibri 9 and Arial 9 to 11
-            have 2 points of their own and sit 3 up in a Calibri 11 or Aptos Narrow 11
-            workbook, 2 in an Arial 10 one.
-            Centered text sits midway between the two placements, to half a point.
+            when :func:`vertical_metrics` is given ``normal_font``: on the Mac Calibri 9 and Arial
+            9 to 11 have 2 points of their own and sit 3 up in a Calibri 11 or Aptos Narrow 11
+            workbook, 2 in an Arial 10 one; on Windows it is ``max(D, D') - 1`` pixels, ``D'``
+            the Normal font's descent. Centered text sits midway between the two placements, to
+            half a point on the Mac; on Windows ``floor((R - H) / 2)`` pixels below top-aligned
+            text, in a row of ``R`` pixels.
         font_height: The height of a row in this face alone (no stored height).
-        line_height: What each wrapped line in this face adds to a row: ``font_height`` plus 1.
+        line_height: What each wrapped line in this face adds to a row: on the Mac
+            ``font_height`` plus 1, on Windows ``font_height`` (Calibri 11: 15 and 15 points).
         line_pitch: The distance between the baselines of wrapped lines: ``font_height``; the
-            last line is placed as bottom-aligned text is.
+            last line is placed as bottom-aligned text is. On Windows the line inset is ``D - 1``
+            pixels.
         line_inset: The face's line inset, the ``p`` of the row model. Wrapped text in this face,
             in a row whose Normal font or other cell fonts have a larger ``line_inset``, takes
             that difference more height (``row_metrics``) and sits that much higher, the extra
@@ -904,10 +909,10 @@ class InkMetrics:
     To half a point on the Mac's 2x display, to a pixel (0.75 points) on Windows at 96 dpi.
 
     Attributes:
-        cap_height: The ink of "H" above the baseline, to half a point.
-        descender: The ink of "g" below the baseline, to half a point. Arial 11 and 16, Times
-            New Roman 11, 16 and 20 and Georgia 11 and 20 draw it half a point longer or shorter
-            by where the baseline falls on the display's pixels.
+        cap_height: The ink of "H" above the baseline.
+        descender: The ink of "g" below the baseline. On the Mac, Arial 11 and 16, Times New
+            Roman 11, 16 and 20 and Georgia 11 and 20 draw it half a point longer or shorter by
+            where the baseline falls on the display's pixels.
     """
 
     cap_height: float
@@ -1065,9 +1070,9 @@ class RuleMetrics:
     below, under that row's top gridline (CAPTURING.md section 2 item 80); a caller that draws
     within the row cuts it there.
 
-    Each value is a whole number of screen points (half points above about 80 screen points, on
-    the display of scale 2 it was captured on) at the screen size ``size * zoom / 100``, divided
-    back to sheet points.
+    On the Mac each value is a whole number of screen points (half points above about 80 screen
+    points, on the display of scale 2 it was captured on) at the screen size ``size * zoom /
+    100``, divided back to sheet points.
 
     Attributes:
         underline_top: The top of a single underline, below the baseline.

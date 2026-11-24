@@ -135,3 +135,13 @@ def test_the_color_cases_not_seen_on_screen_are_named_alike() -> None:
         assert "`[Red]General` and text under a lone `[Red]`" in text, name
         unseen = r"Two cases have not been seen on screen|The screen has shown neither"
         assert re.search(unseen, text), name
+
+
+def test_every_layout_file_is_on_the_testing_page() -> None:
+    page = (ROOT / "docs" / "testing.md").read_text(encoding="utf-8")
+    captures = ROOT / "tests" / "captures"
+    names = [
+        p.name for p in [*captures.glob("*.layout.tsv*"), *captures.glob("windows/*.layout.tsv*")]
+    ]
+    assert len(names) > 25
+    assert [n for n in names if f"`{n}`" not in page] == []

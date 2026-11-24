@@ -1,8 +1,8 @@
 """The screen capture jobs for Excel for Windows (``capture/screen_windows.py``).
 
-No job of these groups has run yet: the tests check that each group's job is written the same
-way twice, that its planned views show every row whole, and that the reader measures a result
-drawn here as a job would return it (pictures at 4/3 device pixels a point, 96 dpi at zoom 100).
+The tests check that each group's job is written the same way twice, that its planned views
+show every row whole, and that the reader measures a result drawn here as a job would return it
+(pictures at 4/3 device pixels a point, 96 dpi at zoom 100).
 """
 
 from __future__ import annotations

@@ -14,7 +14,7 @@ column-width effects: `1234567.911` under `General` is in the file although it c
 column of the default width. So the clipboard is not `Range.Text`, and width needs a different
 capture.
 
-## 2. Driving Excel for Mac with AppleScript, and what each probe found
+## 2. Driving Excel (Excel for Mac with AppleScript, Excel for Windows by capture jobs), and what each probe found
 
 Excel 16.113.4's scripting dictionary (`sdef "/Applications/Microsoft Excel.app"`) has what the
 capture needs on `range`:
@@ -1548,7 +1548,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     pixel rows.
 
 81. **Text insets on screen, both platforms (2026-11-23; `capture/screen_insets.py`; Windows
-    group `screen_insets`, the build of item 65; the Mac in the macOS VM, 16.115).** "HH" in
+    group `screen_insets`, the build of item 65; the Mac in a macOS virtual machine, 16.115).** "HH" in
     Calibri, Arial and Aptos Narrow at every size from 9 to 36 points and every fourth from 40
     to 72, left- and right-aligned under a single underline (which runs from the text's origin
     to its end) and under a single accounting underline (which spans the cell), in workbooks of
@@ -1611,8 +1611,9 @@ capture/screen_windows.py     window pictures on Excel for Windows as capture jo
                              the Mac's screen suites for the faces with Windows tables), and their reader
 capture/screen_table.py       the rules table on Excel for Windows: each rule by ppem, the rules side by
                              side in a row (group screen_rules_table), and its reader
-capture/screen_insets.py      where a cell's text starts and ends by its font, on screen: the Mac's run
-                             (in the macOS VM) and the reader of both platforms (group screen_insets)
+capture/screen_insets.py      where a cell's text starts and ends by its font, on screen: the Mac's
+                             run (in a macOS virtual machine) and the reader of both platforms
+                             (group screen_insets)
 capture/windows_screen_tables.py  Excel for Windows' rules and ink into src/xlformat/_screen_windows.py
                              (items 74, 78 to 80)
 capture/excel_watch.py        a time limit on each request to Excel, and evidence when one passes

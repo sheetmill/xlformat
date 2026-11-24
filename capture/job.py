@@ -4,7 +4,7 @@
     uv run python -m capture.job read GROUP JOB_DIR RESULT_DIR
 
 The job format is sheetmill's, version 1:
-https://github.com/sheetmill/sheetmill/blob/e3a5207c251929a8a19d713777b70ace3506fb95/docs/capture-jobs.md
+https://github.com/sheetmill/sheetmill/blob/3adb865500f4d2223e5c1a758b466e081d3fdc79/docs/capture-jobs.md
 A group (``GROUPS``) is a list of suites run as one job, one workbook each. ``write`` makes the job
 folder: the manifest (``job.json``) and each suite's workbook in ``files/``, built as
 ``capture/build.py`` builds it for Excel for Mac, with its zip entries' times and document
@@ -60,10 +60,6 @@ ROOT = Path(__file__).resolve().parents[1]
 WINDOWS = ROOT / "tests" / "captures" / "windows"
 FIXED_TIME = "2026-01-01T00:00:00Z"
 ZIP_TIME = (1980, 1, 1, 0, 0, 0)
-FORMAT_URL = (
-    "https://github.com/sheetmill/sheetmill/blob/e3a5207c251929a8a19d713777b70ace3506fb95/"
-    "docs/capture-jobs.md"
-)
 
 
 def _family(name: str) -> str:
