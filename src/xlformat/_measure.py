@@ -365,9 +365,10 @@ def measured_fonts(
 def font_substitutes(*, platform: str | Platform | None = None) -> dict[str, str]:
     """Font names the platform has no face for, and the face Excel measures them in.
 
-    Excel for Mac measures Segoe UI as Calibri and MS Sans Serif as Times New Roman (the Mac
-    has neither face; CAPTURING.md section 2 item 82), and so does every function here that
-    takes ``font=`` on the Mac. Empty on Windows.
+    Excel for Mac measures MS Sans Serif as Times New Roman (the Mac has no such face; every
+    captured text autofits alike, CAPTURING.md section 2 item 82), and so does every function
+    here that takes ``font=`` on the Mac. Segoe UI, also absent, autofits as none of the
+    measured faces and raises ``LookupError``. Empty on Windows.
     """
     p = check_platform(platform, "font_substitutes", windows=True)
     return dict(_faces_mac.SUBSTITUTES) if p.name == "mac" else {}

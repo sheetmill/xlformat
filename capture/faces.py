@@ -70,8 +70,9 @@ FAMILIES = (
     "Verdana",
 )
 ABSENT = ("Segoe UI", "MS Sans Serif")  # names Excel for Mac has no face for
-# Segoe UI autofits as none of FAMILIES (the check captures), so its advances are recovered as
-# Excel measures them; MS Sans Serif autofits exactly as Times New Roman
+# Segoe UI autofits as none of FAMILIES (the check captures), so the recovery and padding groups
+# capture it too (capture/face_fit.py finds no advances for it); MS Sans Serif autofits exactly
+# as Times New Roman
 MEASURED = (*FAMILIES, "Segoe UI")
 STYLES = ("regular", "bold", "italic", "bold italic")
 # space, printable ASCII, then the cp1252 code page's other characters (Latin-1 and its additions)
