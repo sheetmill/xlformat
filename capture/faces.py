@@ -1,6 +1,8 @@
 """Autofit captures from which the per-face glyph advances are recovered (CAPTURING.md item 82).
 
-Usage: ``uv run python -m capture.faces count|run <group> [suite ...]``, ``<group>`` one of:
+Usage: ``uv run python -m capture.faces count|run <group> [suite ...] [--out <dir>]``
+(``--out``: a directory under the repository instead of ``tests/captures/faces/``),
+``<group>`` one of:
 
 - ``check``: per family and size 10 and 13 (``faces_c<size>_<family>``; Normal font the
   family's regular face at the size, the four styles as cell fonts): every glyph of
@@ -222,13 +224,13 @@ def group(name: str) -> Iterator[Callable[[], xc.Suite]]:
         raise SystemExit(msg)
 
 
-def run(suites: list[xc.Suite]) -> None:
+def run(suites: list[xc.Suite], out_dir: Path = FACES_DIR) -> None:
     from capture import capture as cap
     from capture.edition import excel_edition
 
     excel_edition()  # refuse before the first workbook rather than after it
-    FACES_DIR.mkdir(parents=True, exist_ok=True)
-    cap.OUT_DIR = FACES_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+    cap.OUT_DIR = out_dir
     failed = []
     for k, suite in enumerate(suites, 1):
         xc.SUITES[suite.name] = lambda s=suite: s
@@ -239,8 +241,8 @@ def run(suites: list[xc.Suite]) -> None:
             print(f"FAILED {suite.name}: {error!r}", flush=True)
             failed.append(suite.name)
             continue
-        (FACES_DIR / f"{suite.name}.tsv").unlink(missing_ok=True)  # no clipboard rows
-        path = FACES_DIR / f"{suite.name}.measure.tsv"
+        (out_dir / f"{suite.name}.tsv").unlink(missing_ok=True)  # no clipboard rows
+        path = out_dir / f"{suite.name}.measure.tsv"
         if path.stat().st_size > 50_000:
             path.with_name(path.name + ".gz").write_bytes(gzip.compress(path.read_bytes(), mtime=0))
             path.unlink()
@@ -250,6 +252,11 @@ def run(suites: list[xc.Suite]) -> None:
 
 
 def main(argv: list[str]) -> None:
+    out_dir = FACES_DIR
+    if "--out" in argv:  # a directory of its own to fetch: a fetched path is emptied first
+        k = argv.index("--out")
+        out_dir = ROOT / argv[k + 1]
+        argv = argv[:k] + argv[k + 2 :]
     command, name, *only = argv
     suites = [make() for make in group(name)]
     if only:
@@ -259,7 +266,7 @@ def main(argv: list[str]) -> None:
         fonts = max(len({c.font for c in s.cases}) for s in suites)
         print(f"{len(suites)} workbooks, {columns} columns, at most {fonts} cell fonts a workbook")
     elif command == "run":
-        run(suites)
+        run(suites, out_dir)
     else:
         msg = f"unknown command {command!r}: count or run"
         raise SystemExit(msg)
