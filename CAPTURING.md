@@ -1520,6 +1520,27 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       end on the row's last pixel row).
     At zoom 15 nothing is measured (item 78), and 14 double gaps, all at P 14 or less, are not.
 
+80. **Rules at the large ppems items 78 and 79 left out, and Aptos Narrow (2026-11-23; group
+    `screen_rules_table_high`, the build of item 65).** Calibri and Arial at every ppem P from
+    193 to 383 not a multiple of 8, once each (both doubles; Calibri's single, strikethrough and
+    single accounting underlines too), and Aptos Narrow under every rule at every P to 11 (zoom
+    25 and 75) and every eighth P from 200 to 384 (two zooms each, 384 at zoom 400): 1,521 cells
+    from 555 pictures in 23 workbooks of at most 161 fonts, `screen_rules_table_high.layout.tsv`.
+    At zoom 25 Excel draws no vertical gridlines; the reader places those cells from the columns'
+    points. Written from items 78 and 79 before this run, these hold for every measured cell:
+    - Calibri from P 171: item 77's tops of the single, strikethrough and accounting underlines
+      a pixel higher, their thicknesses as item 77's (168 cells of each);
+    - Aptos Narrow from P 200: item 77's rules for every line and the Mac's stepping rule for its
+      double (47 cells of each part);
+    - Arial: the double accounting's top as item 77's accounting top, but at P 255, a pixel
+      higher (167 of 168); and in both faces a double's gap of two thicknesses.
+    Aptos Narrow below P 12 misses item 77's tops here and there, at zoom 25 and 75 alike, as
+    the other faces do (item 79); its accounting lines at zoom 25, in rows of about 5 pixels, are
+    mostly past the row. With items 78 and 79, Calibri's and Arial's double underlines (both
+    kinds) are now measured at every P from 1 to 384, and 6,416 face, rule and part keys drawn
+    at two zooms or more agree but for 67, each a line cut by its row's last pixel row (58 of
+    item 79's, 9 of Aptos Narrow's double accounting at zoom 25).
+
 ## 3. The pipeline
 
 ```

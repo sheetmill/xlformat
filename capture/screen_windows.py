@@ -520,7 +520,7 @@ def measured_rows(book: Book, steps: dict[str, Any], artifacts: Path) -> list[st
                 )
         elif book.kind == "table":
             columns = steps["columns"]
-            if float(columns["width"][0][0]) * scale < MIN_MARKER_PX:
+            if math.floor(float(columns["width"][0][0]) * scale + 0.5) < MIN_MARKER_PX:
                 # column A too narrow for its marker to be found: every cell unmeasured
                 lines += unmeasured_table(zoom, heights, scale, list(book.cases))  # type: ignore[arg-type]
                 continue

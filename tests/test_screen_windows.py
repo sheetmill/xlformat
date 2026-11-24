@@ -207,11 +207,13 @@ def test_a_frame_that_is_not_one_offset_stops_the_reader(tmp_path: Path) -> None
         measured_rows(book, steps, tmp_path)
 
 
+@pytest.mark.parametrize("drawn_gridlines", [True, False])
 def test_the_table_reader_takes_the_rows_baseline_from_its_single_underline(
-    tmp_path: Path,
+    tmp_path: Path, drawn_gridlines: bool
 ) -> None:
     """Five rule cells side by side; the double's first line lies on the stems' last pixel row,
-    so its own cell reads the baseline a row high, and the row's single underline gives it."""
+    so its own cell reads the baseline a row high, and the row's single underline gives it.
+    Without gridlines (Excel draws none at zoom 25) the columns' points place the cells."""
     from capture.screen_table import TABLE_RULES, TableRow
 
     cases = [TableRow("filler top")]
@@ -230,7 +232,7 @@ def test_the_table_reader_takes_the_rows_baseline_from_its_single_underline(
     }
 
     def draw_row(row: int, band: Pixels) -> None:
-        for y in range(len(band)):
+        for y in range(len(band) if drawn_gridlines else 0):
             for x in gridlines:
                 band[y][x] = (218, 220, 224)
         if row != 2:

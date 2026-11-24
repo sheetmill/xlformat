@@ -65,7 +65,7 @@ HIGH_RULES = {
 }
 HIGH_ROW_POINTS = 5500  # a workbook's rows as planned, roughly (``high_books`` splits by it)
 # Aptos Narrow, Excel for Windows' standard font, in the same group: every ppem to 11 at two
-# zooms from 25 (column A about 8 pixels; at zoom 15 the reader found no marker), and every eighth
+# zooms from 25 (column A 7 pixels; at zoom 15 the reader found no marker), and every eighth
 # ppem from 200 to 384 at two (384 at zoom 400 only), each under every rule
 APTOS = "Aptos Narrow"
 APTOS_MIN_ZOOM = 25
@@ -124,7 +124,8 @@ def _split(
 ADVANCE = {"Calibri": 1276 / 2048, "Arial": 1479 / 2048}
 WINDOW_PX = 2560  # Excel's window at 96 dpi, maximized on the runner's display
 COLUMN_A_CHARS = 4
-# column A narrower than this in device pixels holds no marker the reader finds (zoom 15: about 5)
+# column A narrower than this in whole device pixels holds no marker the reader finds (21 points:
+# 4 at zoom 15, 7 at zoom 25)
 MIN_MARKER_PX = 7
 
 
@@ -292,7 +293,8 @@ def _is_grid(rgb: tuple[int, int, int]) -> bool:
 
 
 def _gridline(image: Image, x_expected: int, y0: int, y1: int) -> int:
-    """The gridline nearest ``x_expected`` (within 4 pixels) down the band, or exit."""
+    """The gridline nearest ``x_expected`` (within 4 pixels) down the band; ``x_expected`` where
+    none is drawn near it at all (Excel draws no vertical gridlines at zoom 25); else exit."""
     import sys
 
     best, best_n = None, 0
@@ -302,6 +304,8 @@ def _gridline(image: Image, x_expected: int, y0: int, y1: int) -> int:
         n = sum(_is_grid(image.rgb(x, y)) for y in range(y0, y1 + 1))
         if n > best_n:
             best, best_n = x, n
+    if best_n == 0:
+        return x_expected
     if best is None or best_n < 0.8 * (y1 - y0 + 1):
         sys.exit(f"no gridline near x {x_expected} in rows {y0}-{y1}")
     return best
