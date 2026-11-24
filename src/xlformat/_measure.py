@@ -350,9 +350,9 @@ def measured_fonts(
     listed are those at which every glyph's width was captured. :func:`font_substitutes` lists
     names Excel for Mac measures as one of these. On Windows the measured tables, other sizes
     scaling the nearest. Anything else raises ``LookupError``. A caller can test a workbook's
-    fonts against this before choosing Excel mode. Only text measurement follows this list:
-    row heights, vertical placement, rules and insets cover fewer faces (each function says
-    which).
+    fonts against this before choosing Excel mode. Text measurement and, on the Mac,
+    :func:`text_insets` follow this list; row heights, vertical placement and rules cover fewer
+    faces (each function says which).
     """
     p = check_platform(platform, "measured_fonts", windows=True)
     if p.name == "mac":
@@ -1368,10 +1368,13 @@ class TextInsets:
     Attributes:
         left: From the cell's left boundary to left-aligned text: the gridline and the clear
             space.
-        right: From right-aligned text to the cell's right boundary: the clear space.
+        right: From right-aligned text to the cell's right boundary: the clear space, and on
+            the Mac for an italic face also its overhang at the screen size (the text ends
+            that much earlier; an underline under it too).
         accounting_left: ``left`` for a cell with an accounting underline, whose line spans the
             cell between the two; the same as ``left`` on both platforms.
-        accounting_right: ``right`` for such a cell.
+        accounting_right: ``right`` for such a cell: where its text ends. The accounting line
+            itself ends at the clear space in an italic face too.
     """
 
     left: float
@@ -1387,24 +1390,31 @@ def text_insets(
     zoom: float = 100,
     platform: str | Platform | None = None,
 ) -> TextInsets:
-    """Where Excel starts and ends the text of a cell in ``font`` (CAPTURING.md section 2 item 81).
+    """Where Excel starts and ends the text of a cell in ``font`` (CAPTURING.md items 81, 83).
 
     The text starts after the left gridline (one screen unit) and ``ceil(D / 4)`` screen units of
-    clear space, and ends that clear space before the right boundary, ``D`` the width of a digit of
-    the cell's font at its screen size: on the Mac, screen points at ``S = round(size * zoom /
-    100)``; on Windows (96 dpi), device pixels at the ppem ``round(size * 4/3 * zoom / 100)``,
-    ``D = round(ppem * digit advance / em)`` as the font hints it (a half rounds up). The same
-    rule makes the Normal font's ``left + right`` the column padding, ``2 * ceil(mdw / 4) + 1``.
-    It depends on
-    the cell's font alone: the workbook's Normal font (``normal_font``, accepted for symmetry with
-    :func:`vertical_metrics`) does not move it, and the zoom changes it only through the screen
-    size, so in sheet points it varies with the zoom. Captured at zoom 100 and 150 for Calibri,
-    Arial and Aptos Narrow from 9 to 72 points under two Normal fonts, every row of both
-    platforms by this rule. A cell with an accounting underline places its text as a plain one.
+    clear space, and ends that clear space before the right boundary, ``D`` the width of the
+    widest digit of the cell's font at its screen size: on the Mac, screen points at
+    ``S = round(size * zoom / 100)``, ``D = round(S * u / E)`` from the face's recovered
+    advances; on Windows (96 dpi), device pixels at the ppem ``round(size * 4/3 * zoom / 100)``,
+    ``D = round(ppem * digit advance / em)`` as the font hints it (a half rounds up). On the Mac
+    right-aligned italic text ends its overhang at the screen size further in. The same rule
+    makes the Normal font's ``left + right`` the column padding, ``2 * ceil(mdw / 4) + 1``. It
+    depends on the cell's font alone: the workbook's Normal font (``normal_font``, accepted for
+    symmetry with :func:`vertical_metrics`) does not move it, and the zoom changes it only
+    through the screen size, so in sheet points it varies with the zoom. A cell with an
+    accounting underline places its text as a plain one.
+
+    Coverage: on the Mac every face :func:`measured_fonts` lists, at any size; captured at zoom
+    100 and 150 for Calibri, Arial and Aptos Narrow from 9 to 72 points under two Normal fonts,
+    and for Times New Roman, Verdana, Georgia, Courier New and Verdana italic at 11, 36 and 72
+    points, every row by this rule but one (an italic overhang at an unmeasured screen size);
+    carried over to the other faces. On Windows Calibri, Aptos Narrow and Arial, every captured
+    row by this rule.
 
     Raises:
-        LookupError: Another face, a size outside 1 to 72, or a size and zoom under one screen
-            unit an em.
+        LookupError: A face not covered (on Windows also a size outside 1 to 72), or a size
+            and zoom under one screen unit an em.
     """
     p = check_platform(platform, "text_insets", windows=True)
     windows = p.name == "windows"
@@ -1434,4 +1444,8 @@ def text_insets(
     clear = math.ceil(digit / 4)
     step = 75 if windows else 100  # sheet points a screen unit, times the zoom
     left, right = (1 + clear) * step / zoom, clear * step / zoom
+    if not windows and f.italic:
+        # right-aligned italic text ends its overhang at the screen size further in (the
+        # accounting line still runs to the clear space; insets_faces.layout.tsv)
+        right += _overhang(f.name, float(screen), f.style) * step / zoom
     return TextInsets(left=left, right=right, accounting_left=left, accounting_right=right)

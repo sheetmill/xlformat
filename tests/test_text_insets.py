@@ -78,3 +78,36 @@ def test_text_insets_raises_outside_its_captures() -> None:
         text_insets(("Geneva", 11), platform="mac")
     with pytest.raises(LookupError, match="under one screen unit"):
         text_insets(("Calibri", 1), zoom=10, platform="windows")
+
+
+# the faces capture (CAPTURING.md section 2 item 83): Verdana 36 italic at zoom 150 sits at screen
+# size 54, whose overhang is scaled from 56's (11 screen points) where Excel shows 10
+FACES_DEVIATIONS = {("Verdana 36 italic", 150)}
+
+
+def test_the_faces_capture_matches_text_insets() -> None:
+    from xlformat import Font
+
+    checked = 0
+    for _normal, zoom, tag, _rh, _ppp, *cells in _rows(CAPTURES / "insets_faces.layout.tsv"):
+        words = tag.split(" ")
+        italic = words[-1] == "italic"
+        if italic:
+            words = words[:-1]
+        z = int(zoom)
+        font = Font(" ".join(words[:-1]), float(words[-1]), italic=italic)
+        got = text_insets(font, zoom=z, platform="mac")
+        c = [[int(v) for v in cell.split()] for cell in cells]
+        unit = 2 * z / 100  # device pixels a sheet point
+        clear = (got.left - 100 / z) * unit  # the accounting line ends at the clear space
+        assert c[0][2] - (c[0][0] - 1) == pytest.approx(got.left * unit), (tag, z)
+        assert c[2][2] - c[2][0] == pytest.approx(got.accounting_left * unit), (tag, z)
+        assert c[2][1] - c[2][3] - 1 == pytest.approx(clear), (tag, z)
+        if (tag, z) not in FACES_DEVIATIONS:
+            assert c[1][1] - c[1][3] - 1 == pytest.approx(got.right * unit), (tag, z)
+            bearing = c[1][3] - c[1][5]
+            if tag != "Times New Roman 11":  # the first face row: item 81's ink misread
+                text_end = c[3][5] + bearing
+                assert c[3][1] - text_end - 1 == pytest.approx(got.accounting_right * unit)
+        checked += 1
+    assert checked == 30

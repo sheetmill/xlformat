@@ -1640,6 +1640,20 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     the euro rows of `numeric_core_width_arial10` and `cell_font_numeric` (`€ 99.00 ` in Arial
     10 shows `######` at width 6) fit only so.
 
+83. **Text insets in more faces (2026-11-24; `capture/screen_insets.py`, `run faces`; Excel for
+    Mac 16.115 in a macOS virtual machine; `insets_faces.layout.tsv`, 30 rows).** Item 81's
+    workbook design under a Calibri 11 Normal font, at zoom 100 and 150, with Times New Roman,
+    Verdana, Georgia, Courier New and Verdana italic at 11, 36 and 72 points. Every upright row
+    holds item 81's rule with `D` the face's widest digit from its recovered advances (item 82):
+    24 of 24, plain and accounting cells, the left and right insets alike. In Verdana italic the
+    left inset and the accounting line hold it too, but right-aligned text ends further in, by
+    the face's overhang at the screen size: 2, 7 and 14 points at zoom 100, 3, 10 and 21 screen
+    points at zoom 150 (screen sizes 17, 54 and 108), an accounting cell's text as a plain
+    one's while its line still runs to the clear space. The overhang at 54 is not measured
+    (item 82 measures 48 and 56) and scales to 11 there, a screen point more than the capture
+    shows. The face row read first in the workbook, Times New Roman 11, reads its right
+    accounting cell's ink past its line, as item 81's first rows did.
+
 ## 3. The pipeline
 
 ```
