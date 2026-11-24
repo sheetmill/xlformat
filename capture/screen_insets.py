@@ -1,7 +1,9 @@
 """Where Excel starts and ends a cell's text, by the cell's font: the text insets on screen.
 
-    uv run python -m capture.screen_insets run [faces]   # Excel for Mac (in a macOS VM)
-    uv run python -m capture.screen_insets read [faces]  # read the saved pictures again
+    uv run python -m capture.screen_insets run [faces|italics]   # Excel for Mac, in a VM
+    uv run python -m capture.screen_insets read [faces|italics]  # read the pictures again
+
+(Excel for Mac runs in a macOS virtual machine.)
 
 The same workbooks run on Excel for Windows as the group ``screen_insets`` of
 ``capture/screen_windows.py``. A row holds one face at one size, "HH" in four cells side by side:
@@ -12,7 +14,9 @@ Calibri, Arial and Aptos Narrow at every size from 9 to 36 points and every four
 in workbooks of two Normal fonts (Calibri 11, Aptos Narrow 20), so that the cell's font can be told
 from the Normal font's; seen at zoom 100 and 150. With ``faces`` (the Mac only), one workbook
 under a Calibri 11 Normal font holds Times New Roman, Verdana, Georgia, Courier New and Verdana
-italic at 11, 36 and 72 points (``FACES_ROWS``), written to ``insets_faces.layout.tsv``.
+italic at 11, 36 and 72 points (``FACES_ROWS``), written to ``insets_faces.layout.tsv``; with
+``italics`` the same for Calibri, Aptos Narrow and Arial italic (``ITALIC_ROWS``), written to
+``insets_italics.layout.tsv``.
 
 The reader finds each row's gridlines in the picture (columns of light gray down the row's band;
 column B's left gridline lies under column A's fill, so it is taken as the fill's last pixel
@@ -54,6 +58,10 @@ FACES_ROWS = tuple(
     )
     for size in (11, 36, 72)
 )
+ITALIC_ROWS = tuple(
+    (face, True, size) for face in ("Calibri", "Aptos Narrow", "Arial") for size in (11, 36, 72)
+)
+VARIANTS = {"faces": FACES_ROWS, "italics": ITALIC_ROWS}
 
 
 @dataclass(frozen=True, slots=True)
@@ -80,16 +88,16 @@ class InsetBook:
 def books(variant: str = "") -> list[InsetBook]:
     """Two workbooks a Normal font: sizes to 36, and above (each well under 1,000 fonts).
 
-    ``faces``: one workbook of ``FACES_ROWS`` under Calibri 11.
+    ``faces`` and ``italics``: one workbook of ``FACES_ROWS`` or ``ITALIC_ROWS`` under Calibri 11.
     """
-    if variant == "faces":
+    if variant in VARIANTS:
         rows = [InsetRow("filler top")]
         rows += [
             InsetRow(f"{face} {size:g}" + (" italic" if italic else ""), face, float(size), italic)
-            for face, italic, size in FACES_ROWS
+            for face, italic, size in VARIANTS[variant]
         ]
         rows += [InsetRow(f"filler {k}") for k in range(20)]
-        return [InsetBook("insets_faces", CellFont("Calibri", 11), tuple(rows))]
+        return [InsetBook(f"insets_{variant}", CellFont("Calibri", 11), tuple(rows))]
     out = []
     for normal in NORMALS:
         label = normal.label.replace(" ", "_").lower()
@@ -245,13 +253,13 @@ METHOD = (
 def mac_output(variant: str = "") -> Path:
     from capture.screen_rules import CAPTURES
 
-    return CAPTURES / ("insets_faces.layout.tsv" if variant == "faces" else "insets.layout.tsv")
+    return CAPTURES / (f"insets_{variant}.layout.tsv" if variant else "insets.layout.tsv")
 
 
 def mac_shots(variant: str = "") -> Path:
     from capture.build import BUILD_DIR
 
-    return BUILD_DIR / ("screen_insets_faces" if variant == "faces" else "screen_insets")
+    return BUILD_DIR / (f"screen_insets_{variant}" if variant else "screen_insets")
 
 
 def run(variant: str = "") -> None:
@@ -324,7 +332,7 @@ def read(variant: str = "") -> None:
                 match_scale=None if zoom == 100 else 2 * zoom / 100, own_bands=own,
             )  # fmt: skip
     suite = (
-        "insets_faces (capture.screen_insets faces)"
+        f"insets_{variant} (capture.screen_insets {variant})"
         if variant
         else "insets (capture.screen_insets)"
     )
