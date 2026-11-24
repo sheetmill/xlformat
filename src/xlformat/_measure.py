@@ -1405,16 +1405,16 @@ def text_insets(
     through the screen size, so in sheet points it varies with the zoom. A cell with an
     accounting underline places its text as a plain one.
 
-    Coverage: on the Mac every face :func:`measured_fonts` lists, at any size; captured at zoom
-    100 and 150 for Calibri, Arial and Aptos Narrow from 9 to 72 points under two Normal fonts,
-    and for Times New Roman, Verdana, Georgia, Courier New and Verdana italic at 11, 36 and 72
-    points, every row by this rule but one (an italic overhang at an unmeasured screen size);
-    carried over to the other faces. On Windows Calibri, Aptos Narrow and Arial, every captured
-    row by this rule.
+    Coverage: on the Mac every face :func:`measured_fonts` lists, from 1 to 72 points;
+    captured at zoom 100 and 150 for Calibri, Arial and Aptos Narrow from 9 to 72 points under
+    two Normal fonts, and for Times New Roman, Verdana, Georgia, Courier New and Verdana italic
+    at 11, 36 and 72 points, every row by this rule but one (an italic overhang at an
+    unmeasured screen size); carried over to the other faces. On Windows Calibri, Aptos Narrow
+    and Arial, every captured row by this rule.
 
     Raises:
-        LookupError: A face not covered (on Windows also a size outside 1 to 72), or a size
-            and zoom under one screen unit an em.
+        LookupError: A face not covered, a size outside 1 to 72, or a size and zoom under one
+            screen unit an em.
     """
     p = check_platform(platform, "text_insets", windows=True)
     windows = p.name == "windows"
@@ -1432,6 +1432,9 @@ def text_insets(
         if normal_font is not None:
             resolve_font(normal_font, p)
         name, size = f.name, f.size
+        if not 1.0 <= size <= _LARGEST:
+            msg = f"no text insets for {name} {size:g}; captured sizes: 1 to 72"
+            raise LookupError(msg)
         em, units = _mac_face(f.name, f.style)
     per_point = 4 / 3 if windows else 1.0  # screen units a point at zoom 100
     screen = math.floor(size * per_point * zoom / 100 + 0.5)

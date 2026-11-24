@@ -76,6 +76,8 @@ def test_text_insets_raises_outside_its_captures() -> None:
         text_insets(("Georgia", 11), platform="windows")
     with pytest.raises(LookupError):
         text_insets(("Geneva", 11), platform="mac")
+    with pytest.raises(LookupError, match="no text insets"):
+        text_insets(("Calibri", 100), platform="mac")
     with pytest.raises(LookupError, match="under one screen unit"):
         text_insets(("Calibri", 1), zoom=10, platform="windows")
 
