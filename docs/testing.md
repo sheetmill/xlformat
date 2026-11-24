@@ -28,8 +28,9 @@ The test suite then renders every row with xlformat and compares the text exactl
 mode, which must match exactly, and in character mode, which skips the rows where Excel fitted
 a text by glyph width; those skipped rows are counted per suite, and a change in a count fails
 until `tests/captures/glyph_slack.json` is written again (`pytest --record-glyph-slack`). The
-glyph tables are fitted again from the autofit captures on every run
-and must equal the tables the package ships.
+autofit captures are fitted again on every run: on Windows the result must equal the tables the
+package ships, and on the Mac the advances its rule gives (each face's advances are themselves
+re-derived from `tests/captures/faces/`).
 
 Excel for Windows' captures live in `tests/captures/windows/`, made by capture jobs: manifests
 in a published format, committed beside the captures, that list every operation done to Excel.
@@ -87,10 +88,17 @@ before Excel was asked, and every prediction matched.
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
 | `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths of Calibri, Aptos Narrow and Arial in four styles at nine sizes, which the Mac's rule must reproduce (Excel for Windows' tables are fitted from the same suites there) |
 
-`tests/captures/faces/` holds the autofit captures from which each Mac face's advances are
-recovered (`capture/faces.py`, `capture/face_fit.py`): 58 check workbooks (every character ten
-times, mixed and long texts, at 10 and 13 points), 84 recovery workbooks (383, 397 and 409
-points) and 38 padding workbooks (digit runs at 1 to 192 points), one `.measure.tsv` each.
+`tests/captures/faces/` holds the Mac faces' autofit captures (`capture/faces.py`), one
+`.measure.tsv` per workbook in four groups:
+
+- 58 check workbooks (`faces_c<size>_<family>`): every character ten times, mixed and long
+  texts, at 10 and 13 points; every row must be the rule's width.
+- 84 recovery workbooks (`faces_r<size>_<family>`): runs at 383, 397 and 409 points from which
+  `capture/face_fit.py` recovers each face's advances.
+- 38 padding workbooks (`faces_p<size>`): digit runs at 1 to 192 points, the padding and the
+  italic overhang.
+- 128 switch workbooks (`faces_s<size>`): five-runs at 193 to 320 points, where Excel stops
+  rounding each character.
 
 Sixteen further files are not suites of the common schema:
 

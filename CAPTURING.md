@@ -1575,7 +1575,7 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
 
 82. **Glyph advances per face, from autofit widths (2026-11-23 and 24; `capture/faces.py`,
     `capture/face_fit.py`; Excel for Mac 16.115 in a macOS virtual machine; files in
-    `tests/captures/faces/`).** Three groups of autofit captures (the measure method, one
+    `tests/captures/faces/`).** Four groups of autofit captures (the measure method, one
     workbook per suite, each style a cell font over the Normal style), for 27 families: Calibri,
     Arial, Aptos Narrow, Aptos, Arial Black, Arial Narrow, Book Antiqua, Bookman Old Style,
     Calibri Light, Cambria, Candara, Century Gothic, Comic Sans MS, Consolas, Courier, Courier

@@ -147,6 +147,16 @@ def test_every_layout_file_is_on_the_testing_page() -> None:
     assert [n for n in names if f"`{n}`" not in page] == []
 
 
+def test_the_faces_groups_on_the_testing_page_count_the_files() -> None:
+    page = " ".join((ROOT / "docs" / "testing.md").read_text(encoding="utf-8").split())
+    faces = ROOT / "tests" / "captures" / "faces"
+    listed = {m[2]: int(m[1]) for m in re.finditer(r"- (\d+) \w+ workbooks \(`faces_(\w)", page)}
+    found: dict[str, int] = {}
+    for path in faces.iterdir():
+        found[path.name[6]] = found.get(path.name[6], 0) + 1
+    assert listed == found
+
+
 def _top_changelog_entry() -> str:
     """The first changelog section with content (Unreleased, or the latest release)."""
     text = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
