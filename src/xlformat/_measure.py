@@ -117,8 +117,6 @@ def column_padding(mdw: float) -> float:
     return 2.0 * math.ceil(mdw / 4) + 1.0
 
 
-_LEFT_INSET = 3.0  # where left-aligned text starts (capture/alignment.py, PDF export)
-_RIGHT_INSET = 2.0  # where right-aligned text ends, from the right gridline (same capture)
 MAX_TEXT = 255  # Excel shows at most 255 characters: a longer filled text is a '#' run
 
 
@@ -376,17 +374,16 @@ class ColumnMetrics:
             less the column padding (5 points for a digit width up to 8, 7 for 9 to 12, 9 for
             13), and 0
             for a column narrower than that.
-        left_inset: Where left-aligned text starts, in points from the left gridline
-            (measured in Excel for Mac, given for Windows as well).
-        right_inset: Where right-aligned text ends, in points from the right gridline
-            (likewise).
+        left_inset: The clear space between the left gridline and left-aligned text in the
+            Normal font at zoom 100: ``ceil(digit_width / 4)`` screen units (points on the Mac,
+            pixels on Windows), as :func:`text_insets` gives it for that font.
+        right_inset: The same between right-aligned text and the right gridline.
         digit_width: The maximum digit width of the Normal font: one column unit, one indent
             level.
 
-    The insets are measured in Excel's print layout at Calibri 11 (a PDF export,
-    ``capture/alignment.py``); other sizes and the screen are not captured.
-    ``points - left_inset`` is how far a left-aligned text may reach before it spills into the
-    next column (50 of a 53-point column).
+    The insets and the gridline between them make the column padding: a text in the Normal font
+    fits the column when its width is at most ``points`` less the padding (CAPTURING.md section
+    2 item 81). A cell in another font has its own insets (:func:`text_insets`).
     """
 
     width: float
@@ -405,8 +402,8 @@ def _metrics(device: float, font: FontSpec | None, platform: Platform = _MAC) ->
         width=_units(device, mdw),
         points=device / scale,
         budget=max(device - column_padding(mdw), 0.0) / scale,
-        left_inset=_LEFT_INSET,
-        right_inset=_RIGHT_INSET,
+        left_inset=math.ceil(mdw / 4) / scale,
+        right_inset=math.ceil(mdw / 4) / scale,
         digit_width=mdw / scale,
     )
 
@@ -1272,4 +1269,83 @@ def rule_metrics(
         strikethrough_thickness=s_thick,
         double_top=d_top,
         double_thickness=d_thick,
+    )
+
+
+# --- text insets (CAPTURING.md section 2 item 81) -----------------------------------------------
+
+# family (lower case) -> the advance of "0" in units of 2048 an em (capture/font_tables.py)
+_DIGIT_ADVANCE = {"calibri": 1038, "aptos narrow": 1038, "arial": 1139}
+# (family, ppem) -> the digit width Excel for Windows hints there, where it is not the rounded one
+_WINDOWS_DIGIT = {("calibri", 72): 37, ("aptos narrow", 72): 37}
+
+
+@dataclass(frozen=True, slots=True)
+class TextInsets:
+    """The clear space between a cell's gridlines and its text, in sheet points.
+
+    Attributes:
+        left: Between the left gridline and left-aligned text.
+        right: Between right-aligned text and the right gridline.
+        accounting_left: ``left`` for a cell with an accounting underline, which spans the
+            cell's width less these two; on the Mac half a screen point more than ``left``.
+        accounting_right: ``right`` for such a cell.
+    """
+
+    left: float
+    right: float
+    accounting_left: float
+    accounting_right: float
+
+
+def text_insets(
+    font: FontSpec | None = None,
+    *,
+    normal_font: FontSpec | None = None,
+    zoom: float = 100,
+    platform: str | Platform | None = None,
+) -> TextInsets:
+    """Where Excel starts and ends the text of a cell in ``font`` (CAPTURING.md section 2 item 81).
+
+    Each side's clear space is ``ceil(D / 4)`` whole screen units, ``D`` the width of a digit of
+    the cell's font at its screen size: on the Mac, screen points at ``S = round(size * zoom /
+    100)``; on Windows (96 dpi), device pixels at the ppem ``round(size * 4/3 * zoom / 100)``,
+    ``D = round(ppem * digit advance / em)`` as the font hints it (a half rounds up). The same
+    rule gives the column padding of the Normal font, two insets and the gridline. It depends on
+    the cell's font alone: the workbook's Normal font (``normal_font``, accepted for symmetry with
+    :func:`vertical_metrics`) does not move it, and the zoom changes it only through the screen
+    size, so in sheet points it varies with the zoom. Captured at zoom 100 and 150 for Calibri,
+    Arial and Aptos Narrow from 9 to 72 points under two Normal fonts, every row of both
+    platforms by this rule. A cell with an accounting underline places its text as a plain one
+    on Windows and half a screen point further right on the Mac.
+
+    Raises:
+        LookupError: Another face, a size outside 1 to 72, or a size and zoom under one screen
+            unit an em.
+    """
+    p = check_platform(platform, "text_insets", windows=True)
+    key, size = _row_face(font)
+    if normal_font is not None:
+        _row_face(normal_font)
+    advance = _DIGIT_ADVANCE.get(key)
+    if advance is None:
+        msg = f"no text insets for {_DISPLAY[key]}; measured: Calibri, Aptos Narrow and Arial"
+        raise LookupError(msg)
+    windows = p.name == "windows"
+    per_point = 4 / 3 if windows else 1.0  # screen units a point at zoom 100
+    screen = math.floor(size * per_point * zoom / 100 + 0.5)
+    if screen < 1:
+        msg = f"{_DISPLAY[key]} {size:g} at zoom {zoom:g} is under one screen unit an em"
+        raise LookupError(msg)
+    digit = math.floor(screen * advance / 2048 + 0.5)
+    if windows:
+        digit = _WINDOWS_DIGIT.get((key, screen), digit)
+    clear = math.ceil(digit / 4)
+    units = 75 if windows else 100  # sheet points a screen unit, times the zoom
+    accounting = clear if windows else clear + 0.5
+    return TextInsets(
+        left=clear * units / zoom,
+        right=clear * units / zoom,
+        accounting_left=accounting * units / zoom,
+        accounting_right=clear * units / zoom,
     )

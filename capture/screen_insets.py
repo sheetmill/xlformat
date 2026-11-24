@@ -13,8 +13,9 @@ in workbooks of two Normal fonts (Calibri 11, Aptos Narrow 20), so that the cell
 from the Normal font's; seen at zoom 100 and 150.
 
 The reader finds each row's gridlines in the picture (columns of light gray down the row's band)
-and gives, per cell, the gridlines' pixel columns, the underline's first and last pixel column
-and the H's ink's first and last, in device pixels.
+(B's left one is column A's fill's last pixel column, which covers it) and gives, per cell, the
+gridlines' pixel columns, the underline's first and last pixel column and the H's ink's first
+and last, in device pixels.
 """
 
 from __future__ import annotations
@@ -175,7 +176,9 @@ def measure_insets(
         if not case.face:
             return None
         a_right = _marker_right(image, (top_px + bottom_px) // 2, _marker_column(image))
-        lines = _gridlines(image, a_right, top_px + 1, bottom_px - 1, len(CELLS) + 1)
+        # column A's fill covers the gridline between A and B: its last pixel column is B's
+        # left gridline; the others are drawn
+        lines = [a_right - 1, *_gridlines(image, a_right, top_px + 1, bottom_px - 1, len(CELLS))]
         cells = []
         for gl, gr in itertools.pairwise(lines):
             # the cell's pixels: past the left gridline's run, up to the right gridline

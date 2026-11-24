@@ -337,12 +337,12 @@ def test_the_inset_reader_finds_gridlines_lines_and_ink(tmp_path: Path) -> None:
     cases = [InsetRow("filler top"), InsetRow("Calibri 11", "Calibri", 11.0)]
     cases += [InsetRow(f"filler {k}") for k in range(20)]
     book = Book("insets_test", "insets", tuple(cases), (100,))
-    gridlines = (12, 112, 212, 312, 399)
+    gridlines = (11, 112, 212, 312, 399)  # 11: column A's fill's last pixel column
     starts = {0: 14, 1: 190, 2: 216, 3: 370}  # each cell's text: 20 pixels from here
 
     def draw_row(row: int, band: Pixels) -> None:
         for y in range(len(band)):
-            for x in gridlines:
+            for x in gridlines[1:]:  # column A's fill covers the first
                 band[y][x] = (218, 220, 224)
         if row != 2:
             return
@@ -356,6 +356,6 @@ def test_the_inset_reader_finds_gridlines_lines_and_ink(tmp_path: Path) -> None:
     got = measured_rows(book, steps, tmp_path)
     assert got == [
         "Calibri 11\t100\tCalibri 11\t18\t1.33333\t"
-        "12 112 14 33 15 31\t112 212 190 209 191 207\t"
+        "11 112 14 33 15 31\t112 212 190 209 191 207\t"
         "212 312 216 235 217 233\t312 399 370 389 371 387"
     ]

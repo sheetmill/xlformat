@@ -1547,6 +1547,29 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     At zoom 25, which draws no gridlines, Aptos Narrow's lines show on the next row's first
     pixel rows.
 
+81. **Text insets on screen, both platforms (2026-11-23; `capture/screen_insets.py`; Windows
+    group `screen_insets`, the build of item 65; the Mac in the macOS VM, 16.115).** "HH" in
+    Calibri, Arial and Aptos Narrow at every size from 9 to 36 points and every fourth from 40
+    to 72, left- and right-aligned under a single underline (which runs from the text's origin
+    to its end) and under a single accounting underline (which spans the cell), in workbooks of
+    two Normal fonts (Calibri 11, Aptos Narrow 20), at zoom 100 and 150: 444 rows each,
+    `windows/screen_insets.layout.tsv` and `insets.layout.tsv`. The clear space between each
+    gridline and the text is `ceil(D / 4)` screen units (pixels on Windows, screen points on the
+    Mac), `D` the width of the cell font's digit at its screen size (Windows' ppem, the Mac's
+    rounded screen size), `round(screen size * digit advance / em)`; on Windows Calibri and Aptos
+    Narrow hint the digit at ppem 72 to 37 pixels, a pixel wider. Every row of both platforms
+    holds it, the right side as the left, a seeded third of the face, size and Normal font keys
+    held out from the fit and scored after it (148 of 148 on each platform). The Normal font
+    moves nothing. An accounting underline's cell places its text as a plain one on Windows; on
+    the Mac it and its line start one device pixel (half a screen point) further right. In the
+    Mac's first face row of each workbook (Calibri 9 and 40) the right accounting cell's ink
+    reads up to 25 pixels past its line, unexplained; its line agrees. The same rule for the
+    Normal font is the column padding's, two insets and the gridline. Excel's print layout
+    (`capture/alignment.py`) places Calibri 11 otherwise, 3 points from the left gridline and 2
+    from the right. The table pictures of item 78 read one pixel wide on column B's left (the
+    gridline there is under column A's fill); this capture's reader takes that edge from the
+    fill.
+
 ## 3. The pipeline
 
 ```

@@ -82,7 +82,7 @@ either into the column Excel lays out; its `width` is what `column_width` takes.
 ```python
 >>> from xlformat import file_column_metrics
 >>> file_column_metrics()
-ColumnMetrics(width=8.0, points=53.0, budget=48.0, left_inset=3.0, right_inset=2.0, digit_width=6.0)
+ColumnMetrics(width=8.0, points=53.0, budget=48.0, left_inset=2.0, right_inset=2.0, digit_width=6.0)
 >>> file_column_metrics(8.43).width
 7.666666666666667
 >>> format_value(12345678, "0", column_width=file_column_metrics(8.43).width)
@@ -97,9 +97,15 @@ which is 56 points. `file_column_metrics` takes `base_col_width` and `default_co
 `<sheetFormatPr>` and `normal_font`, the workbook's Normal font (`font` is its deprecated name
 there). `column_metrics` gives the same record for a dialog width. `budget` is what a number
 may take, 0 in a column under 5 points; a column of no width has a `width` of 0, which
-`column_width` refuses with `ValueError`. `left_inset` and `right_inset` are where left-aligned
-text starts and right-aligned text ends, as measured in Excel's print layout at Calibri 11; other
-sizes and the screen are not captured.
+`column_width` refuses with `ValueError`. `left_inset` and `right_inset` are the clear space
+between each gridline and text in the Normal font, `ceil(digit_width / 4)` screen units a side;
+a cell in another font has its own, from `text_insets`:
+
+```python
+>>> from xlformat import text_insets
+>>> text_insets(("Calibri", 24)).left
+3.0
+```
 
 A merged cell formats as one column of the sum of its columns' points, with a single padding, and
 a hidden column counts as 0. `column_metrics_from_points` makes that column:

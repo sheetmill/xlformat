@@ -20,6 +20,7 @@ from xlformat._measure import (
     Measure,
     RowMetrics,
     RuleMetrics,
+    TextInsets,
     VerticalMetrics,
     column_metrics,
     column_metrics_from_points,
@@ -31,6 +32,7 @@ from xlformat._measure import (
     overhang,
     row_metrics,
     rule_metrics,
+    text_insets,
     text_width,
     vertical_metrics,
 )
@@ -65,6 +67,7 @@ __all__ = [
     "RuleMetrics",
     "Section",
     "SectionKind",
+    "TextInsets",
     "VerticalMetrics",
     "__version__",
     "builtin_format",
@@ -82,6 +85,7 @@ __all__ = [
     "rule_metrics",
     "section_rgb",
     "text_function",
+    "text_insets",
     "text_width",
     "vertical_metrics",
 ]

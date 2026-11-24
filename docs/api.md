@@ -62,6 +62,8 @@ Everything below is importable from `xlformat`.
    :members:
 .. autofunction:: xlformat.ink_metrics
 .. autoclass:: xlformat.InkMetrics
+.. autofunction:: xlformat.text_insets
+.. autoclass:: xlformat.TextInsets
    :members:
 .. autofunction:: xlformat.rule_metrics
 .. autoclass:: xlformat.RuleMetrics

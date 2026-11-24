@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `text_insets(font, *, normal_font=None, zoom=100, platform=None)` returning `TextInsets(left,
+  right, accounting_left, accounting_right)`: the clear space between a cell's gridlines and its
+  text, by the cell's font, on the Mac and on Windows (96 dpi), for Calibri, Aptos Narrow and
+  Arial: `ceil(D / 4)` screen units a side, `D` the cell font's digit width at its screen size.
 - `vertical_metrics`, `ink_metrics` and `rule_metrics` work with `platform="windows"` (96 dpi),
   where they raised `LookupError`, for Calibri, Aptos Narrow and Arial, from window captures of
   Excel for Windows; results in points, whole pixels at the zoom.
@@ -20,6 +24,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     Calibri's and Arial's double underlines, Arial's accounting underline and every line up
     to 11 pixels an em from captured tables. A line may reach past its row: Excel draws it
     into the row below.
+
+### Changed
+- `ColumnMetrics.left_inset` and `right_inset` are the insets of text in the Normal font at zoom
+  100 on screen, `ceil(digit_width / 4)` screen units a side, where they were 3 and 2 points
+  from Excel for Mac's print layout on both platforms: Calibri 11 gives 2 and 2 points on the
+  Mac and 1.5 and 1.5 on Windows.
 
 ## [0.7.0] - 2026-11-22
 
