@@ -664,11 +664,11 @@ characters; `column_width: float | None` is Excel mode in Column Width dialog un
 the glyph advances of `font`; passing both raises `ValueError`. `font: str | tuple[str, float] | None`
 names the font and size, default `("Calibri", 11)` (openpyxl's workbook default; sheetpeek passes
 the workbook's Normal style); a font without advances raises `LookupError` naming the measured
-fonts (on the Mac the 27 families of `measured_fonts()` in four styles at every size, captured to 192
-points; on
-Windows Calibri, Aptos Narrow and Arial measured at 9 to 24 points and scaled from the nearest
-measured size elsewhere). Row heights, vertical placement, rules and insets cover fewer faces,
-each function's docstring says which. `measure:
+fonts (on the Mac the 27 families of `measured_fonts()` in four styles at every size, captured
+to 192 points; on Windows Calibri, Aptos Narrow and Arial measured at 9 to 24 points and scaled
+from the nearest measured size elsewhere). Text insets cover the same faces on the Mac (1 to 72
+points); row heights, vertical placement and rules cover fewer, each function's docstring says
+which. `measure:
 Callable[[str], float] | None` is the hook for special cases and is used with `width` as the budget
 in the measure's own units. `DEFAULT_PALETTE` maps color names to `RRGGBB`.
 
