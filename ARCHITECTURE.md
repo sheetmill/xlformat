@@ -748,6 +748,21 @@ its gap is not measured. The same gap sets the row model's accounting rows: an a
 adds its line's thickness and its double's gap to a row and to each wrapped line, three thicknesses
 where the gap is two.
 
+On Windows (`platform="windows"`, 96 dpi) the lines are whole device pixels at the ppem
+`P = round(size · 4/3 · zoom / 100)` for any whole zoom from 10 to 400, and an equal `P` draws
+equal lines at every zoom captured (`CAPTURING.md` §2 items 77 to 80). The rule is the font's
+numbers rounded half up: a single underline's top `round(P · −underlinePosition / em)` and
+thickness `max(1, round(P · underlineThickness / em))`, an accounting underline's top the hinted
+descent, a strikethrough's top and thickness from `OS/2`, and Calibri's three lines a pixel higher
+from `P` 171; held as predictions on rows not used to write them (items 77 and 80). Aptos
+Narrow's double steps as on the Mac. Calibri's and Arial's doubles follow no rule found and are a
+table at every `P` from 1 to 384, as is Arial's accounting underline (its hinted descent comes from
+the font's `VDMX`) and every line of the three faces up to `P` 11, where the lines follow no rule
+(`_screen_windows.py`, by `capture/windows_screen_tables.py`). Courier New, Times New Roman and
+Georgia are not captured on Windows and raise `LookupError`. A line may reach past its row's
+bottom; Excel draws it on into the row below, under that row's top gridline (item 80), and a
+caller that draws within the row cuts it there.
+
 **Error values.** `ExcelError` is a `StrEnum` of every error text current Excel documents (the
 seven classic codes of ECMA-376 and ERROR.TYPE 1 to 7; `#GETTING_DATA`, ERROR.TYPE 8; the error
 cell values of the Office JavaScript API, `Excel.ErrorCellValueType` in ExcelApi 1.16:
