@@ -12,6 +12,7 @@ text's width plus one overhang, D the Normal font's digit).
 from __future__ import annotations
 
 import math
+import shutil
 from pathlib import Path
 
 import pytest
@@ -25,6 +26,10 @@ FACES_DIR = Path(__file__).parent / "captures" / "faces"
 CHECKS = [p for p in sorted(FACES_DIR.glob("faces_c*.measure.tsv*")) if "segoe_ui" not in p.name]
 
 
+@pytest.mark.skipif(
+    shutil.which("ruff") is None,
+    reason="ruff (development group) formats the regenerated module before comparing it",
+)
 def test_the_module_is_what_the_captures_give() -> None:
     face_fit.main(["--check"])
 
