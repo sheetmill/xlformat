@@ -2,14 +2,14 @@
 
 Usage: ``uv run python -m capture.glyph_fit --windows [--check]``. Reads every
 ``tests/captures/windows/measure*.measure.tsv`` (Excel for Windows at 96 dpi, fitted in pixels:
-points times 96 / 72; CAPTURING.md section 2 item 65). Excel for Mac's advances come from
-``capture/face_fit.py``; its ``tests/captures/measure*.measure.tsv`` are fitted here only by
-``tests/test_glyph_tables.py``, which checks them against that rule
-(CAPTURING.md section 2 items 24, 26 and 30): every printable ASCII character in runs of 1, 2, 5
-and 10, digit pairs, month and day names, AM, PM, E+07, ####, mixed strings, autofitted one per
-column, with the column width read back in points. The header names the workbook's Normal font
+points times 96 / 72; CAPTURING.md section 2 item 65). Each measure suite holds every printable
+ASCII character in runs of 1, 2, 5 and 10, digit pairs, month and day names, AM, PM, E+07,
+####, mixed strings, autofitted one per column, with the column width read back in points
+(CAPTURING.md section 2 items 24, 26 and 30). The header names the workbook's Normal font
 (family and size); a ``cell_font`` column names the styled face the cells carried, else the
-cells are the Normal font.
+cells are the Normal font. Excel for Mac's suites of the same design
+(``tests/captures/measure*.measure.tsv``) are fitted here too, by ``tests/test_glyph_tables.py``,
+which compares the result with the advances ``capture/face_fit.py`` recovers.
 
 Model: the autofit width in points is ``floor(sum of glyph advances) + PAD``; PAD comes out of
 the digit runs (``2 * points(5 digits) - points(10 digits)``): the column's padding plus 2 for an
@@ -21,7 +21,7 @@ overhang, which a cell's budget loses). The advance of a glyph is
 carry a 0.1 fraction). Autofit cannot resolve the space, so its advance is
 chosen by rendering the matching ``space_fill`` suite through ``xlformat`` in Excel mode with each
 candidate and keeping the one that matches every row (CAPTURING.md section 2 item 25). Writes
-``src/xlformat/_glyphs_<family>.py``, one table per style and size.
+``src/xlformat/_glyphs_windows_<family>.py``, one table per style and size.
 """
 
 from __future__ import annotations
@@ -45,7 +45,8 @@ CAPTURE_DIR = ROOT / "tests" / "captures"
 SPACE_CANDIDATES = [tenths / 10 for tenths in range(10, 161)]
 _LABEL = re.compile(r"(.+?) (\d+(?:\.\d+)?)((?: bold)?)((?: italic)?)$")
 MODULES = {"Calibri": "CALIBRI", "Aptos Narrow": "APTOS_NARROW", "Arial": "ARIAL"}
-# the platform being fitted: the Mac (points) or Windows at 96 dpi (pixels); set by main()
+# the platform being fitted: Windows at 96 dpi (pixels) when main() writes modules; the Mac
+# (points) when tests/test_glyph_tables.py fits its suites
 PLATFORM = Platform.MAC
 
 

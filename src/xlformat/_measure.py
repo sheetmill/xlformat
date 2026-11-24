@@ -1,15 +1,16 @@
 """Measure functions and the column model for the width decision (``ARCHITECTURE.md`` §8).
 
 Character mode measures a text by its length and the budget is the width in characters. Excel
-mode measures a text as the floored sum of glyph advances in points at the cell's font size and
-the budget is the column's text area in points: Excel for Mac stores a column of ``w`` units as
-``round(MDW * w + P)`` points, MDW being the maximum digit width of the Normal font (5 points at
-9 and 10, 6 at 11 and 12, 7 at 14, 8 at 16, 9 at 18, 10 at 20 and 12 at 24, in Calibri and Aptos
-Narrow alike; Arial 5, 6, 6, 7, 8, 9, 10, 11 and 13) and ``P`` the padding of
-:func:`column_padding` (5 points for a digit width up to 8, 7 for 9 to 12, 9 for 13), and
-compares text against those points less the padding. Both modes feed the same seam in
-``_assemble``: fit when ``measure(text) <= budget``, ``#`` and ``*`` counts by dividing the
-budget by the glyph's measure (CAPTURING.md section 2 items 24 and 25).
+mode measures a text as the sum of its glyphs' whole advances in the device units of the cell's
+font: on the Mac each glyph's ``u * size / E`` rounded half up to whole points, for the 27
+families of ``_faces_mac`` (CAPTURING.md section 2 item 82); on Windows whole pixels from the
+measured tables. The budget is the column's text area: Excel for Mac stores a column of ``w``
+units as ``round(MDW * w + P)`` points, MDW being the maximum digit width of the Normal font
+(Calibri's is 6 points at 11 and 12) and ``P`` the padding of :func:`column_padding` (5 points
+for a digit width up to 8, 7 for 9 to 12, 9 for 13), and compares text against those
+points less the padding. Both modes feed the same seam in ``_assemble``: fit when
+``measure(text) <= budget``, ``#`` and ``*`` counts by dividing the budget by the glyph's
+measure (CAPTURING.md section 2 items 24 and 25).
 """
 
 from __future__ import annotations
@@ -213,8 +214,9 @@ def _whole_advances(name: str, size: float, style: str, kind: str = "mac") -> di
     """The advances every Excel-mode decision sums: whole points (pixels on Windows).
 
     On the Mac each glyph's advance ``u * size / E`` rounded half up (CAPTURING.md section 2
-    item 82). On Windows the measured table, without its tenths: a tenth (``W``
-    is 10.1 at Calibri 11) is real only in autofit (item 41). A line feed and a tab take the
+    item 82). On Windows the measured table, its tenths dropped: a tenth is
+    autofit's bonus on a wide glyph's ten-run, not part of its advance (items 41 and 82), and
+    Windows' captured rows hold with whole pixels (item 65). A line feed and a tab take the
     space's advance and a carriage return none, so CR LF measures one space (item 51).
     """
     if kind == "mac":
