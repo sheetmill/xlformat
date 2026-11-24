@@ -1627,7 +1627,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     The rule, on every check row but the runs of spaces, no-break spaces and soft hyphens
     (56,896 of 56,896): an ASCII character's advance is `u · S / E` rounded half up to whole
     points, and an ASCII text the sum; a text holding any other character sums every advance
-    unrounded and rounds the total half up. The autofit width adds the padding, twice the
+    unrounded, one character at a time in double precision, and rounds the total half up
+(ten Haettenschweiler 10 `‰`, 5.05 points each, add up to 50.49999999999999, and Excel's
+width is 50 plus the padding, not 51). The autofit width adds the padding, twice the
     italic overhang and a bonus of `max(0, floor(W / D / 5) - 2)` points, W the text's width
     plus one overhang and D the Normal font's digit: a point at 15 digit widths and one more
     every 5. The bonus is item 41's tenth (ten `W` at Calibri 11 measure 101). Every glyph entry

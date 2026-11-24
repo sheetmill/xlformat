@@ -397,7 +397,8 @@ carriage return as nothing, so CR LF is one space (`line_breaks`, `line_breaks_a
 a glyph beyond the cp1252 characters measures as the widest digit. Fit, `#` and fill decisions
 round every glyph, a non-ASCII one too (`numeric_core_width_arial10`: `€ 99.00 ` does not fit 6
 units). Autofit measures differently, and only the faces captures depend on it: a text holding
-any non-ASCII glyph sums every glyph unrounded and rounds the total half up; the width is that
+any non-ASCII glyph sums every glyph unrounded, one at a time in double precision, and rounds
+the total half up; the width is that
 plus the padding `2·ceil(d/4) + 3`, d the cell face's widest digit, plus twice the italic
 overhang, plus a bonus of `max(0, floor(W / D / 5) - 2)` points, W the text's width and one
 overhang, D the Normal font's digit (the check captures: 56,896 of 56,896 rows). The bonus is

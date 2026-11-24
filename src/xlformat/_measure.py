@@ -231,18 +231,6 @@ def _whole_advances(name: str, size: float, style: str, kind: str = "mac") -> di
 
 
 @lru_cache(maxsize=128)
-def _linear_advances(name: str, size: float, style: str) -> dict[str, float]:
-    """The Mac's unrounded advances, which autofit sums for a text holding a non-ASCII glyph."""
-    e, units = _mac_face(name, style)
-    size = _mac_size(size)
-    linear = {c: u * size / e for c, u in units.items()}
-    linear["\n"] = linear["\t"] = linear[" "]
-    linear["\r"] = 0.0
-    linear[""] = max((linear[d] for d in _DIGITS), key=lambda a: math.floor(a + 0.5))
-    return linear
-
-
-@lru_cache(maxsize=128)
 def _advances(name: str, size: float, style: str = "regular") -> dict[str, float]:
     """A Windows table at ``size``: measured, or the nearest measured one scaled."""
     tables = _FONTS_WINDOWS[name.lower()][1][style]

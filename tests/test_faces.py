@@ -32,9 +32,16 @@ def test_the_module_is_what_the_captures_give() -> None:
 def autofit(text: str, font: xlformat.Font, normal: xlformat.Font) -> float:
     width = xlformat.text_width(text, font, platform="mac")
     if not text.isascii():  # autofit sums such a text unrounded
+        # one glyph at a time in double precision, as Excel adds them: ten Haettenschweiler
+        # 10 '‰' (5.05 points each) sum to 50.49999999999999, and Excel shows 50 plus the
+        # padding; Python's sum() is compensated from 3.12 and gives 50.5
         f = _measure.resolve_font(font)
-        exact = _measure._linear_advances(f.name, f.size, f.style)
-        width = math.floor(sum(exact.get(c, exact[""]) for c in text) + 0.5)
+        e, units = _measure._mac_face(f.name, f.style)
+        size = _measure._mac_size(f.size)
+        total = 0.0
+        for c in text:
+            total += units[c] * size / e
+        width = math.floor(total + 0.5)
     digit = xlformat.digit_width(font, platform="mac")
     over = xlformat.overhang(font, platform="mac")
     # the bonus counts the text and one overhang
