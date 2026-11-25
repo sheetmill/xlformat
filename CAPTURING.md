@@ -1771,6 +1771,28 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     pairs). So the row table is looked up by ppem, and every size from 1 to 72 points answers,
     half sizes included.
 
+90. **The autofit bonus of long texts on Windows (2026-11-25; group `autofit_windows`,
+    `capture/autofit_windows.py`; Excel 16.0.20527.20196, Microsoft 365, Current Channel, 96 dpi;
+    files in `tests/captures/windows/autofit/`).** One workbook per Normal font, Calibri 9, 11,
+    12, 13, 14, 16, 18, 20 and 24, Arial 10, Times New Roman 12 and Verdana 11 and 20 (widest
+    digits of 6 to 17 pixels; 13 workbooks, 6,914 columns, 47 seconds). Each autofits, one text a
+    column, ASCII texts (a run of `0` and up to three letters) whose advances (item 85) reach every
+    whole pixel from 10 to 45 widths of the Normal font's digit, in the Normal font; in Calibri 11,
+    16 and 24 and Arial 10 also in the face's italic, in Calibri 11 also in Calibri 20 cells and in
+    Calibri 20 in Calibri 11 cells.
+    - **The rule, 6,914 of 6,914 columns:** the advances W, the padding `2·ceil(d/4) + 3` (d the
+      cell font's widest digit), twice the italic overhang, and a bonus of
+      `max(0, floor((W + overhang) / D / 4) - 2)` pixels, D the Normal font's widest digit: a
+      pixel from 12 widths (item 85's step) and one more every 4, to 9 pixels at 44 widths. Every
+      workbook steps at exactly 12, 16, 20, ... 44 widths of its Normal digit.
+    - **The Normal font's digit, not the cell's:** Calibri 20 cells (digit 14) in the Calibri 11
+      workbook (digit 7) step at multiples of 7 pixels, and Calibri 11 cells in the Calibri 20
+      workbook at multiples of 14. In italic the steps count the text and one overhang, as on the
+      Mac.
+    - The Mac's ladder is `max(0, floor(W / D / 5) - 2)` points (item 82): one more every 5 widths
+      from 15. Its faces captures reach 55 widths (a bonus of 9 points) under Normal digits of 4 to
+      9 points with no miss at sizes 6 to 320.
+
 ## 3. The pipeline
 
 ```

@@ -29,7 +29,7 @@ import openpyxl
 from capture.job import GROUPS, write
 from capture.schema import read_header
 
-from capture import faces_windows
+from capture import autofit_windows, faces_windows
 
 ROOT = Path(__file__).parent.parent
 WINDOWS = Path(__file__).parent / "captures" / "windows"
@@ -63,10 +63,13 @@ def _header(group: str) -> dict[str, object]:
                 in (other.read_text(encoding="utf-8"))
             )
         return screen_header
-    if group in faces_windows.JOB_GROUPS:  # each measure file's second line, the same in all
+    measured = dict.fromkeys(faces_windows.JOB_GROUPS, faces_windows.FACES_DIR) | dict.fromkeys(
+        autofit_windows.JOB_GROUPS, autofit_windows.AUTOFIT_DIR
+    )
+    if group in measured:  # each measure file's second line, the same in all
         faces_headers = set()
         for name in GROUPS[group]:
-            with gzip.open(faces_windows.FACES_DIR / f"{name}.measure.tsv.gz", "rt") as f:
+            with gzip.open(measured[group] / f"{name}.measure.tsv.gz", "rt") as f:
                 f.readline()
                 faces_headers.add(f.readline().removeprefix("# job_header: "))
         assert len(faces_headers) == 1
