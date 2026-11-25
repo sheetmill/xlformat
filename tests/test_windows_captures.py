@@ -58,7 +58,7 @@ def _header(group: str) -> dict[str, object]:
                 in (other.read_text(encoding="utf-8"))
             )
         return screen_header
-    if group == faces_windows.GROUP:  # each measure file's second line, the same in all
+    if group in faces_windows.JOB_GROUPS:  # each measure file's second line, the same in all
         faces_headers = set()
         for name in GROUPS[group]:
             with gzip.open(faces_windows.FACES_DIR / f"{name}.measure.tsv.gz", "rt") as f:

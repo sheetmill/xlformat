@@ -107,7 +107,7 @@ GROUPS: dict[str, tuple[str, ...]] = {
     # Excel's TEXT over every format of the other suites, computed when the workbook opens
     "text_function": ("text_function",),
     # whole-pixel glyph advances per face, style and ppem (capture/faces_windows.py)
-    faces_windows.GROUP: faces_windows.register(),
+    **faces_windows.register(),
 }
 
 
@@ -411,7 +411,7 @@ def _suite_files(
     return written
 
 
-def _faces_file(name: str, results: dict[str, Any], header: dict[str, Any]) -> Path:
+def _faces_file(name: str, group: str, results: dict[str, Any], header: dict[str, Any]) -> Path:
     """A ``faces_windows`` suite's autofit widths: ``tests/captures/windows/faces/<suite>``.
 
     The measure file of the Mac's faces captures, gzipped, its second line the job's header.
@@ -428,7 +428,7 @@ def _faces_file(name: str, results: dict[str, Any], header: dict[str, Any]) -> P
     excel = header.get("environment", {}).get("excel", {})
     lines = [
         "# autofit column width (Excel units) per distinct (value, format); font: "
-        f"{suite.font_name} {suite.font_size}; job: {faces_windows.GROUP}.job.json, "
+        f"{suite.font_name} {suite.font_size}; job: {group}.job.json, "
         f"{header.get('job_id', '')}; excel_build: {excel.get('build', '')}",
         "# job_header: " + json.dumps(header, sort_keys=True, ensure_ascii=False),
         "value_type\tvalue_repr\tformat\tautofit_width\tautofit_points\tcell_font",
@@ -473,8 +473,8 @@ def read(group: str, job: Path, result: Path) -> list[Path]:
         return written
     for name in GROUPS[group]:
         results = _results(by_file[f"{name}.xlsx"])
-        if group == faces_windows.GROUP:
-            written.append(_faces_file(name, results, header))
+        if group in faces_windows.JOB_GROUPS:
+            written.append(_faces_file(name, group, results, header))
             continue
         written += _suite_files(name, group, results, header)
     shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")

@@ -1,10 +1,12 @@
 """Autofit captures on Excel for Windows from which whole-pixel glyph advances per ppem are read.
 
-    uv run python -m capture.faces_windows count
-    uv run python -m capture.job write faces_windows JOB_ID OUT_DIR
-    uv run python -m capture.job read faces_windows JOB_DIR RESULT_DIR
+    uv run python -m capture.faces_windows count [GROUP ...]
+    uv run python -m capture.job write GROUP JOB_ID OUT_DIR
+    uv run python -m capture.job read GROUP JOB_DIR RESULT_DIR
 
-One workbook per face of :data:`FACES` and whole size of :data:`SIZES`
+``GROUP`` one of :data:`JOB_GROUPS`. The probe (``faces_windows_probe``) is one workbook naming
+every family of :data:`PROBED`, whose header lists those the machine lacks. Each measuring group
+(:data:`GROUP_FACES`) holds one workbook per face and whole size of :data:`SIZES`
 (``facesw_<face>_<size>``), its Normal font the face's regular style at that size. Its cell
 fonts are the face's four styles at the size and at the half size above it (none above 24), so
 that the workbooks reach every ppem from 11 to 32 at 96 dpi (``ppem = size * 96 / 72``, a half
@@ -31,7 +33,15 @@ from capture import faces
 ROOT = Path(__file__).resolve().parents[1]
 FACES_DIR = ROOT / "tests" / "captures" / "windows" / "faces"
 GROUP = "faces_windows"
-FACES = ("Aptos Narrow", "Calibri", "Arial", "Times New Roman")
+PROBE_GROUP = "faces_windows_probe"
+PROBE_SUITE = "facesw_probe"
+# the measuring job groups and their families, in job order
+GROUP_FACES: dict[str, tuple[str, ...]] = {
+    GROUP: ("Aptos Narrow", "Calibri", "Arial", "Times New Roman"),
+}
+FACES = tuple(family for families in GROUP_FACES.values() for family in families)
+# the other families of capture.faces, named by the probe so that its header lists the missing
+PROBED = tuple(family for family in faces.FAMILIES if family not in GROUP_FACES[GROUP])
 SIZES = tuple(range(8, 25))
 STYLES = faces.STYLES
 WIDE = frozenset("WM@%\u00c6\u0152\u2026\u2030")  # W M @ % AE OE ellipsis per mille: three copies
@@ -77,21 +87,36 @@ def suite(family: str, size: int) -> xc.Suite:
     )
 
 
+def probe_suite() -> xc.Suite:
+    """One workbook naming every family of :data:`PROBED` in four styles at 11 points.
+
+    The job's header lists the faces the machine has no font file for (``fonts_missing``).
+    """
+    texts = {f"{family}|11|{style}": ["0" * 5, "0" * 10] for family in PROBED for style in STYLES}
+    return faces._suite(PROBE_SUITE, "Calibri", 11, texts)
+
+
 SUITE_NAMES = tuple(suite_name(f, s) for f in FACES for s in SIZES)
+JOB_GROUPS: dict[str, tuple[str, ...]] = {
+    PROBE_GROUP: (PROBE_SUITE,),
+    **{g: tuple(suite_name(f, s) for f in fs for s in SIZES) for g, fs in GROUP_FACES.items()},
+}
 
 
-def register() -> tuple[str, ...]:
-    """Add the group's suites to :data:`capture.cases.SUITES`; their names, in job order."""
+def register() -> dict[str, tuple[str, ...]]:
+    """Add the groups' suites to :data:`capture.cases.SUITES`; each group's names, in job order."""
     for family in FACES:
         for size in SIZES:
             xc.SUITES[suite_name(family, size)] = lambda f=family, s=size: suite(f, s)
-    return SUITE_NAMES
+    xc.SUITES[PROBE_SUITE] = probe_suite
+    return JOB_GROUPS
 
 
 def main(argv: list[str]) -> None:
-    if argv != ["count"]:
+    if not argv or argv[0] != "count" or not set(argv[1:]) <= set(GROUP_FACES):
         sys.exit(__doc__)
-    built = [suite(f, s) for f in FACES for s in SIZES]
+    families = [f for g in argv[1:] or GROUP_FACES for f in GROUP_FACES[g]]
+    built = [suite(f, s) for f in families for s in SIZES]
     columns = sum(len(s.cases) for s in built)
     fonts = max(len({c.font for c in s.cases}) for s in built)
     print(f"{len(built)} workbooks, {columns} columns, at most {fonts} cell fonts a workbook")
