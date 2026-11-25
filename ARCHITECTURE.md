@@ -319,7 +319,9 @@ face for: MS Sans Serif autofits as Times New Roman at every captured text and i
 proportional to the size, so it raises `LookupError`, as Geneva does. Digit runs are rounded per
 glyph up to 192 points (`faces_p<size>`); above that the same rule answers, unverified: autofit
 stops rounding each glyph at a size that depends on the face (Calibri from 286 points; five other
-faces still round at 320, `faces_s<size>`), and fit decisions there are not captured. Excel for
+faces still round at 320, `faces_s<size>`), while fit and `#` decisions round each glyph there
+too (runs of digits and commas in Calibri and Arial at 194 to 318 points, `fit_large_*`,
+`CAPTURING.md` §2 item 88, Calibri's 287 to 318 included). Excel for
 Windows measures 25 of the families (all but Courier and Helvetica, which its machine lacks) in
 whole device pixels per ppem, with tables of its own (**Excel for Windows** below). Installed fonts
 are not read.
@@ -925,7 +927,7 @@ row in every mode, so a change meant to keep the output can show that it did.
 | format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
 | memory retained by 1,000 distinct compiled formats | 1,149 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
-| `pytest`: the Mac's 343 suite files, 866,322 rows, and Windows' 301, 514,013 rows, in all modes | 25 s (36 s with pytest's cache empty) |
+| `pytest`: the Mac's 353 suite files, 868,482 rows, and Windows' 301, 514,013 rows, in all modes | 37 s (68 s with pytest's cache empty) |
 | `pytest --tier=fast` | 10 s (21 s with pytest's cache empty) |
 
 ## 14. What the code taught

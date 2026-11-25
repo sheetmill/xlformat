@@ -85,7 +85,8 @@ MAC_VERIFIED_SIZE = 192.0
 rounded to whole points (CAPTURING.md section 2 item 82). Larger sizes, to Excel's 409 points,
 are answered by the same rule, unverified; there autofit stops rounding each glyph at a size
 that depends on the face (Calibri from 286 points; Arial, Times New Roman, Verdana, Candara and
-Georgia still round at 320), and fit decisions there are not captured."""
+Georgia still round at 320), while fit and ``#`` decisions still round each glyph (digits and
+commas in Calibri and Arial at 194 to 318 points, CAPTURING.md section 2 item 88)."""
 _DIGITS = "0123456789"
 
 

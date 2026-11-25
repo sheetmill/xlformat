@@ -1740,6 +1740,20 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     screen size 54, which scaling the nearest measured size missed by a screen point: Verdana
     and Arial italic 36 at zoom 150 (10 and 9 points), and Verdana italic at 108 (21).
 
+88. **Fit and `#` decisions above 192 points (2026-11-24; `capture/cases.py fit_large_*`; Excel
+    for Mac 16.115, Microsoft 365 Subscription, in a macOS virtual machine; 10 suites, 2,160
+    rows).** Item 82 found Calibri's autofit summing a run unrounded from 286 points, and no
+    capture showed what a cell's fit does there. One workbook per face and size, its Normal
+    font the face: Calibri at 194, 198, 287, 291 and 318 points and Arial at 195, 213, 292, 310
+    and 317, the sizes from 193 to 320 where rounding each digit and rounding the run's sum
+    decide the most rows differently. Runs of 1 to 12 nines in `0` and of 4 to 9 in `#,##0`,
+    at column widths of 1 to 12 units: at width n the budget is n whole digits, so the two
+    roundings part where a digit's advance is under its whole points. Every row is the package's
+    text, each glyph rounded, in both faces at every size (2,160 of 2,160), Calibri from 287
+    included: fit and `#` decisions keep rounding each glyph where Calibri's autofit stops. In
+    character mode three rows a suite are glyph-slack rows (`#,##0` runs, the comma narrower
+    than a digit).
+
 ## 3. The pipeline
 
 ```

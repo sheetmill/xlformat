@@ -78,6 +78,7 @@ before Excel was asked, and every prediction matched.
 | `general_text_narrow`, `general_sign_narrow` | 4,026 | a number through `@` or `[Red]General` in narrow columns, and negatives with less than a character beside the sign |
 | `merged11`, `merged14` | 5,940 | cells merged across columns, in Calibri 11 and 14 |
 | `advance_tenths11`, `advance_tenths12` | 41,481 | long runs and fills of the glyphs that autofit measures with a tenth of a point |
+| `fit_large_calibri194` to `318`, `fit_large_arial195` to `317` (ten suites) | 2,160 | fit and `#` decisions of digit runs above 192 points, where Calibri's autofit stops rounding each glyph |
 | `error_width` | 1,638 | error values under formats and widths |
 | `column_half_points_calibri9` to `_arial24` (eight Normal fonts) | 4,180 | columns whose width comes to a half point |
 | `colors`, `lone_zero`, `conditions_rounding`, `selection_fallback` | 493 | section colors and section selection |
@@ -146,7 +147,7 @@ points) from cell reads; and from window captures `screen_pilot_rules.layout.tsv
 `screen_rules_table_arial.layout.tsv` and `screen_rules_table_high.layout.tsv` (underlines and
 strikethrough), and `screen_insets.layout.tsv` (text insets).
 
-In all, the Mac's 343 suite files (235 with rows, the others autofit measurements) hold 866,322
+In all, the Mac's 353 suite files (245 with rows, the others autofit measurements) hold 868,482
 rows, and Excel for Windows' 301 suite files in `tests/captures/windows/` (193 with rows) hold
 514,013 rows, the layout files of both apart. Every row passes. Seventeen color readings are skipped because Excel's scripting interface reports
 automatic black for them; where the sheet was checked by eye, it shows the section color, as the
