@@ -28,34 +28,44 @@
   "fast": 9
  },
  "fit_large_arial195": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fit_large_arial213": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fit_large_arial292": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fit_large_arial310": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fit_large_arial317": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fit_large_calibri194": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fit_large_calibri198": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fit_large_calibri287": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fit_large_calibri291": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fit_large_calibri318": {
-  "full": 3
+  "full": 3,
+  "fast": 3
  },
  "fraction_percent": {
   "full": 9,
