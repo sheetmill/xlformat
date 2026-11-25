@@ -825,11 +825,11 @@ def _windows_face(font: FontSpec | None) -> tuple[int, int]:
         msg = f"no accounting underline rows for Excel for Windows ({f.name} {f.size:g})"
         raise LookupError(msg)
     sizes = WINDOWS_ROWS.get(f.name.lower(), {}).get(f.style, {})
-    if f.size != int(f.size) or int(f.size) not in sizes:
-        measured = ", ".join(str(z) for z in sizes)
+    if f.size not in sizes:
+        measured = ", ".join(f"{z:g}" for z in sizes)
         msg = f"no row heights for Excel for Windows for {f.name} {f.size:g}; measured: {measured}"
         raise LookupError(msg)
-    return sizes[int(f.size)]
+    return sizes[f.size]
 
 
 def _windows_row(

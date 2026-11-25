@@ -130,8 +130,16 @@ def file_name(normal: CellFont) -> str:
     return "rh_" + normal.label.replace(" ", "_").lower() + ".xlsx"
 
 
-def build(normal: CellFont, directory: Path | None = None) -> Path:
-    """Write the workbook for one Normal font (into Excel's container by default); its path."""
+def build(
+    normal: CellFont,
+    directory: Path | None = None,
+    cases: tuple[RowCase, ...] | None = None,
+    name: str | None = None,
+) -> Path:
+    """Write the workbook for one Normal font (into Excel's container by default); its path.
+
+    ``cases`` and ``name`` replace :func:`rows` and :func:`file_name` (``capture/rows_wide.py``).
+    """
     from openpyxl import Workbook
     from openpyxl.styles import Alignment, Font
     from openpyxl.utils.indexed_list import IndexedList
@@ -149,7 +157,7 @@ def build(normal: CellFont, directory: Path | None = None) -> Path:
             style.font = base
     ws = wb.active
     ws.title = "rows"
-    for r, case in enumerate(rows(), 1):
+    for r, case in enumerate(rows() if cases is None else cases, 1):
         for c in case.cells:
             cell = ws.cell(row=r, column=c.column, value=c.value)
             if isinstance(c.value, str):
@@ -160,7 +168,7 @@ def build(normal: CellFont, directory: Path | None = None) -> Path:
                 cell.alignment = Alignment(wrap_text=True)
     directory = DIRECTORY if directory is None else directory
     directory.mkdir(parents=True, exist_ok=True)
-    path = (directory / file_name(normal)).resolve()
+    path = (directory / (file_name(normal) if name is None else name)).resolve()
     wb.save(path)
     return path
 

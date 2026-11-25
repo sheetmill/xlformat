@@ -34,7 +34,11 @@ from capture import faces_windows
 ROOT = Path(__file__).parent.parent
 WINDOWS = Path(__file__).parent / "captures" / "windows"
 # the groups whose job writes one layout file instead of suite files
-LAYOUTS = {"rows": "row_height.layout.tsv.gz", "builtin": "builtin_formats.layout.tsv"}
+LAYOUTS = {
+    "rows": "row_height.layout.tsv.gz",
+    "rows_wide": "row_height_wide.layout.tsv.gz",
+    "builtin": "builtin_formats.layout.tsv",
+}
 JOBS = sorted(WINDOWS.glob("*.job.json")) if WINDOWS.exists() else []
 
 

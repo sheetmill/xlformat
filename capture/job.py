@@ -226,6 +226,29 @@ def _row_workbooks(files: Path) -> list[dict[str, Any]]:
     return workbooks
 
 
+def _rows_wide_workbooks(files: Path) -> list[dict[str, Any]]:
+    """The workbooks of ``capture/rows_wide.py``, one per family and style."""
+    from capture import row_heights, rows_wide
+
+    workbooks = []
+    for name, _label, cases in rows_wide.workbooks():
+        with tempfile.TemporaryDirectory() as tmp:
+            built = row_heights.build(rows_wide.NORMAL, Path(tmp), cases, name)
+            _fixed_copy(built, files / name)
+        steps = [
+            {"op": "open"},
+            {
+                "op": "read",
+                "id": "heights",
+                "range": f"rows!A1:A{len(cases)}",
+                "props": ["row_height"],
+            },
+            {"op": "close", "save": False},
+        ]
+        workbooks.append({"file": name, "steps": steps})
+    return workbooks
+
+
 def _builtin_workbooks(files: Path) -> list[dict[str, Any]]:
     """The built-in format workbooks of ``capture/builtin_formats.py``, one per id group."""
     from capture import builtin_formats as bf
@@ -260,10 +283,12 @@ def write(group: str, job_id: str, out: Path, note: str = "") -> Path:
         doc = screen_windows.manifest(group, job_id, screen_windows.workbooks(group, files), note)
         (folder / "job.json").write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
         return folder
-    if group in ("rows", "builtin"):
-        books = _row_workbooks(files) if group == "rows" else _builtin_workbooks(files)
+    if group in ("rows", "rows_wide", "builtin"):
+        books = {"rows": _row_workbooks, "rows_wide": _rows_wide_workbooks}.get(
+            group, _builtin_workbooks
+        )(files)
         doc = manifest_for(group, job_id, books, note)
-        what = "the height of every row" if group == "rows" else "the built-in number formats"
+        what = "the built-in number formats" if group == "builtin" else "the height of every row"
         doc["purpose"] = doc["purpose"].replace(
             "displayed text, widths and autofit per suite", what
         )
@@ -466,8 +491,8 @@ def read(group: str, job: Path, result: Path) -> list[Path]:
         written += screen_windows.read(group, job, result, outcome, WINDOWS)
         shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
         return written
-    if group in ("rows", "builtin"):
-        layout = _row_layout if group == "rows" else _builtin_layout
+    if group in ("rows", "rows_wide", "builtin"):
+        layout = {"rows": _row_layout, "rows_wide": _rows_wide_layout}.get(group, _builtin_layout)
         written.append(layout(by_file, header))
         shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
         return written
@@ -504,6 +529,33 @@ def _row_layout(by_file: dict[str, Any], header: dict[str, Any]) -> Path:
                 raise ValueError(msg)
             for r, (case, (height,)) in enumerate(zip(cases, got, strict=True), 1):
                 out.write(f"{normal.label}\t{r}\t{case.tag}\t{float(height):g}\n")
+    return path
+
+
+def _rows_wide_layout(by_file: dict[str, Any], header: dict[str, Any]) -> Path:
+    from capture import rows_wide
+
+    path = rows_wide.LAYOUT
+    with gzip.GzipFile(path, "wb", mtime=0) as raw, io.TextIOWrapper(raw, "utf-8") as out:
+        out.write(
+            "# suite: row_height_wide (capture.rows_wide, capture/job.py); Excel for Windows\n"
+        )
+        out.write(f"# platform: windows\n# job: {rows_wide.GROUP}.job.json\n")
+        out.write(f"# job_id: {header.get('job_id', '')}\n")
+        out.write(
+            "# method: one workbook per family and style, Normal font Calibri 11, opened by the "
+            "job; the row height of each row read in points; <sheetFormatPr> as openpyxl writes "
+            "it (no customHeight)\n"
+        )
+        out.write(f"# job_header: {json.dumps(header, sort_keys=True, ensure_ascii=False)}\n")
+        out.write("workbook\trow\ttag\theight\n")
+        for name, _label, cases in rows_wide.workbooks():
+            got = _results(by_file[name])["heights"]["row_height"]
+            if len(got) != len(cases):
+                msg = f"{name}: {len(got)} heights, not {len(cases)}"
+                raise ValueError(msg)
+            for r, (case, (height,)) in enumerate(zip(cases, got, strict=True), 1):
+                out.write(f"{name}\t{r}\t{case.tag}\t{float(height):g}\n")
     return path
 
 

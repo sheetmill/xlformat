@@ -10,7 +10,9 @@ face (a family, style and size) has a height ``H`` and a descent ``D``; a row ho
 ``max(lines * H(f) - D(f)) + max D(f)``. ``H`` is each face's own row, the first row of the
 workbook it is the Normal font of; ``D`` is searched face by face, each whole value from 0 to
 ``H``, keeping the one with the fewest misses over every row until no face changes.
-``--check`` reports and writes nothing.
+The faces and sizes of ``capture/rows_wide.py`` (item 86) are added from its own fit; where both
+captures hold a face they must agree. ``--check`` compares the module with what the captures
+give and writes nothing.
 """
 
 from __future__ import annotations
@@ -28,12 +30,13 @@ ROOT = Path(__file__).resolve().parents[1]
 LAYOUT = ROOT / "tests" / "captures" / "windows" / "row_height.layout.tsv.gz"
 OUT = ROOT / "src" / "xlformat" / "_rows_windows.py"
 SCALE = 96 / 72
-Face = tuple[str, str, int]  # family, style, size
+Face = tuple[str, str, float]  # family, style, size
+FAMILIES = ("Calibri", "Aptos Narrow", "Arial", "Times New Roman", "Courier New")
 
 
 def _face(font: CellFont) -> Face:
     style = " ".join(n for n, on in (("bold", font.bold), ("italic", font.italic)) if on)
-    return font.name, style or "regular", int(font.size)
+    return font.name, style or "regular", float(font.size)
 
 
 def _captured() -> dict[tuple[str, int], float]:
@@ -97,39 +100,48 @@ def fit() -> tuple[dict[Face, tuple[int, int]], int, int, list[str]]:
     return table, len(cases) - len(wrong), len(cases), wrong
 
 
-def _write(table: dict[Face, tuple[int, int]]) -> None:
-    families = sorted(
-        {f for f, _, _ in table}, key=lambda f: ("Calibri", "Aptos Narrow", "Arial").index(f)
-    )
+def _render(table: dict[Face, tuple[int, int]]) -> str:
+    families = sorted({f for f, _, _ in table}, key=FAMILIES.index)
     lines = [
         '"""Row heights in Excel for Windows at 96 dpi, in pixels (generated).',
         "",
-        "Written by ``capture/windows_rows.py`` from",
-        "``tests/captures/windows/row_height.layout.tsv.gz``. Per family and size, the face's",
-        "height H and descent D, by style: a row is ``max(lines * H - D) + max D`` over its",
-        "cells, the Normal font a one-line cell among them. Do not edit by hand.",
+        "Written by ``capture/windows_rows.py`` from ``tests/captures/windows/row_height.layout",
+        ".tsv.gz`` and ``row_height_wide.layout.tsv.gz``. Per family and size, the face's height",
+        "H and descent D, by style: a row is ``max(lines * H - D) + max D`` over its cells, the",
+        "Normal font a one-line cell among them. Do not edit by hand.",
         '"""',
         "",
         "from __future__ import annotations",
         "",
         "# family (lower case) -> style -> size -> (H, D) in pixels",
-        "WINDOWS_ROWS: dict[str, dict[str, dict[int, tuple[int, int]]]] = {",
+        "WINDOWS_ROWS: dict[str, dict[str, dict[float, tuple[int, int]]]] = {",
     ]
     for family in families:
         lines.append(f'    "{family.lower()}": {{')
         for style in ("regular", "bold", "italic", "bold italic"):
             sizes = sorted(z for f, st, z in table if f == family and st == style)
-            pairs = ", ".join(f"{z}: {table[(family, style, z)]}" for z in sizes)
+            pairs = ", ".join(f"{z:g}: {table[(family, style, z)]}" for z in sizes)
             lines.append(f'        "{style}": {{{pairs}}},')
         lines.append("    },")
     lines += ["}", ""]
-    OUT.write_text("\n".join(lines))
-    print(f"wrote {OUT.relative_to(ROOT)}")
+    return "\n".join(lines)
 
 
 def main(argv: list[str]) -> None:
+    import subprocess
+
+    from capture import rows_wide
+
     table, matched, total, wrong = fit()
-    for family in ("Calibri", "Aptos Narrow", "Arial"):
+    if rows_wide.LAYOUT.exists():
+        wide, problems = rows_wide.fit()
+        if problems:
+            sys.exit(f"{len(problems)} rows_wide rows the model does not give")
+        for face, hd in wide.items():
+            if table.get(face, hd) != hd:
+                sys.exit(f"{face}: {table[face]} in the first capture, {hd} in rows_wide")
+            table[face] = hd
+    for family in FAMILIES:
         for style in ("regular", "bold", "italic", "bold italic"):
             row = sorted((z, hd) for (f, st, z), hd in table.items() if f == family and st == style)
             print(family, style, " ".join(f"{z}:{h}/{d}" for z, (h, d) in row))
@@ -139,8 +151,18 @@ def main(argv: list[str]) -> None:
     )
     for w in wrong[:10]:
         print(" ", w)
-    if "--check" not in argv:
-        _write(table)
+    scratch = OUT.with_suffix(".new.py")
+    scratch.write_text(_render(table))
+    subprocess.run(["ruff", "format", "-q", str(scratch)], check=True)
+    text = scratch.read_text()
+    scratch.unlink()
+    if "--check" in argv:
+        if OUT.read_text() != text:
+            sys.exit(f"{OUT.name} differs from what the captures give")
+        print(f"{OUT.name} matches the captures")
+        return
+    OUT.write_text(text)
+    print(f"wrote {OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
