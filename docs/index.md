@@ -18,10 +18,12 @@ pip install xlformat
 
 Python 3.11 or later. The source is at <https://github.com/sheetmill/xlformat>.
 
-xlformat is one of three packages from the [sheetmill](https://github.com/sheetmill/sheetmill)
-project, with [sheetpeek](https://github.com/sheetmill/sheetpeek), which renders workbooks, and
-[xlrecalc](https://github.com/sheetmill/xlrecalc), which evaluates formulas. xlformat has no
-dependencies; the other two require it. The `sheetmill` meta-package installs all three.
+xlformat is one of four packages from the [sheetmill](https://github.com/sheetmill/sheetmill)
+project, with [sheetpeek](https://github.com/sheetmill/sheetpeek), which renders workbooks,
+[xlrecalc](https://github.com/sheetmill/xlrecalc), which evaluates formulas, and
+[xlio](https://github.com/sheetmill/xlio), the xlsx and CSV reader sheetpeek and xlrecalc share.
+xlformat has no dependencies; sheetpeek and xlrecalc require it. The `sheetmill` meta-package
+installs xlformat, sheetpeek and xlrecalc, and xlio with them.
 
 ```{toctree}
 :maxdepth: 2

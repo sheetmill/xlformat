@@ -140,11 +140,12 @@ To report a security problem, see
 
 ## Related packages
 
-xlformat is one of three packages from the [sheetmill](https://github.com/sheetmill/sheetmill)
+xlformat is one of four packages from the [sheetmill](https://github.com/sheetmill/sheetmill)
 project, with [sheetpeek](https://github.com/sheetmill/sheetpeek), which renders workbooks to HTML,
-Markdown and terminal output, and [xlrecalc](https://github.com/sheetmill/xlrecalc), which evaluates
-formulas. xlformat has no dependencies; the other two require it. The `sheetmill` meta-package
-installs all three.
+Markdown and terminal output, [xlrecalc](https://github.com/sheetmill/xlrecalc), which evaluates
+formulas, and [xlio](https://github.com/sheetmill/xlio), the xlsx and CSV reader sheetpeek and
+xlrecalc share. xlformat has no dependencies; sheetpeek and xlrecalc require it. The `sheetmill`
+meta-package installs xlformat, sheetpeek and xlrecalc, and xlio with them.
 
 ## Development
 
