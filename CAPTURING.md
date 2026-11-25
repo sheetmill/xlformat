@@ -1813,7 +1813,9 @@ capture/glyph_fit.py          fits the per-size measure suites, for tests/test_g
                              (items 26, 30)
 capture/faces_windows.py      Excel for Windows: autofit runs per face, style and ppem (item 85)
 capture/face_fit_windows.py   the Windows advances per ppem -> src/xlformat/_faces_windows.py
-capture/rows_wide.py          Excel for Windows: row heights per face from 6 to 72 points (item 86)
+capture/autofit_windows.py    Excel for Windows: autofit of long texts, the bonus (item 90)
+capture/rows_wide.py          Excel for Windows: row heights per face from 6 to 72 points and
+                             at every ppem from 1 to 96 (items 86, 89)
 capture/alignment.py          default alignment through Excel's PDF export (item 31)
 capture/row_heights.py        row heights per Normal font, cell font and wrapped line (item 44)
 capture/vertical_pdf.py       vertical placement in the PDF export, a probe (item 46)

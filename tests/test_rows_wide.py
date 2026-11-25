@@ -1,8 +1,9 @@
 """Excel for Windows' row heights across sizes (CAPTURING.md section 2 items 86 and 89).
 
-Every row of ``tests/captures/windows/row_height_wide.layout.tsv.gz`` must be the row model's
-height, and every face it fits must be in the package's table (``src/xlformat/_rows_windows.py``,
-whose other faces ``capture/windows_rows.py`` fits from item 69's capture).
+Every row of ``tests/captures/windows/row_height_wide.layout.tsv.gz`` and
+``row_height_ppem.layout.tsv.gz`` must be the row model's height, and every face it fits must be
+in the package's table (``src/xlformat/_rows_windows.py``, whose other faces
+``capture/windows_rows.py`` fits from item 69's capture).
 """
 
 from __future__ import annotations

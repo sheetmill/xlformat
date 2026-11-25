@@ -20,7 +20,9 @@ The group ``rows`` is the row-height capture of ``capture/row_heights.py`` inste
 per Normal font, opened, each row's height read in points. It writes
 ``tests/captures/windows/row_height.layout.tsv.gz`` in the Mac's layout schema, without the Mac's
 standard-height lines (the format reads no sheet property; the row without an element stands for
-it).
+it). The groups ``rows_wide`` and ``rows_ppem`` (``capture/rows_wide.py``) write
+``tests/captures/windows/row_height_wide.layout.tsv.gz`` and ``row_height_ppem.layout.tsv.gz``
+in the same schema, each naming its own suite and manifest.
 
 The group ``builtin`` is ``capture/builtin_formats.py``'s probe: one workbook per group of
 built-in number format ids, each row's format read as stored and as shown locally and every
@@ -29,9 +31,11 @@ value cell's text at a column width of 40. It writes
 
 ``read`` checks the manifest's and the inputs' SHA-256 against the result's and writes, per suite,
 ``tests/captures/windows/<suite>.tsv`` (gzipped above 50 KB) in the schema of the Mac's suite
-files, and ``<suite>.measure.tsv`` for a measure suite. The header names the group's manifest,
-copied beside the files byte for byte as ``<group>.job.json``, and holds the result's ``header``
-whole, as one line of JSON (``job_header``).
+files, and ``<suite>.measure.tsv`` for a measure suite; the measuring groups of
+``capture/faces_windows.py`` and ``capture/autofit_windows.py`` write gzipped measure files to
+``tests/captures/windows/faces/`` and ``tests/captures/windows/autofit/``. The header names the
+group's manifest, copied beside the files byte for byte as ``<group>.job.json``, and holds the
+result's ``header`` whole, as one line of JSON (``job_header``).
 """
 
 from __future__ import annotations
@@ -547,11 +551,10 @@ def _rows_wide_layout(by_file: dict[str, Any], header: dict[str, Any], group: st
     from capture import rows_wide
 
     path = rows_wide.layout_path(group)
+    suite = path.name.split(".")[0]
     with gzip.GzipFile(path, "wb", mtime=0) as raw, io.TextIOWrapper(raw, "utf-8") as out:
-        out.write(
-            "# suite: row_height_wide (capture.rows_wide, capture/job.py); Excel for Windows\n"
-        )
-        out.write(f"# platform: windows\n# job: {rows_wide.GROUP}.job.json\n")
+        out.write(f"# suite: {suite} (capture.rows_wide, capture/job.py); Excel for Windows\n")
+        out.write(f"# platform: windows\n# job: {group}.job.json\n")
         out.write(f"# job_id: {header.get('job_id', '')}\n")
         out.write(
             "# method: one workbook per family and style, Normal font Calibri 11, opened by the "

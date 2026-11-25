@@ -149,3 +149,22 @@ def test_job_regenerates(job: Path, tmp_path: Path, request: pytest.FixtureReque
     assert sorted(inputs) == sorted(written)
     for name, entry in inputs.items():
         assert entry["sha256"] == written[name], name
+
+
+LAYOUT_FILES = sorted(WINDOWS.glob("*.layout.tsv*")) if WINDOWS.exists() else []
+
+
+@pytest.mark.parametrize("path", LAYOUT_FILES, ids=lambda p: p.name.split(".")[0])
+def test_a_layout_file_names_the_manifest_of_its_job(path: Path) -> None:
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rt", encoding="utf-8") as f:
+        lines = dict(
+            line.rstrip("\n").removeprefix("# ").split(": ", 1)
+            for line in f
+            if line.startswith(("# job: ", "# job_id: "))
+        )
+    assert set(lines) == {"job", "job_id"}, path.name
+    manifest = WINDOWS / lines["job"]
+    if not manifest.exists():
+        pytest.skip("the sdist leaves out the job manifests")
+    assert json.loads(manifest.read_text(encoding="utf-8"))["job_id"] == lines["job_id"]

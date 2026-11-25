@@ -2,19 +2,20 @@
 
     uv run python -m capture.job write rows_wide|rows_ppem JOB_ID OUT_DIR
     uv run python -m capture.job read rows_wide|rows_ppem JOB_DIR RESULT_DIR
-
-Group ``rows_ppem`` (CAPTURING.md item 89) is the same design at a size for each ppem from 1 to
-96 (1 to 72 points) that ``rows_wide`` leaves out, and at three half sizes a face whose ppem it
-holds, with :func:`wrapped` lines enough to rise past the Normal row at small sizes; it writes
-``tests/captures/windows/row_height_ppem.layout.tsv.gz``.
     uv run python -m capture.rows_wide [--check]     # fit; --check reports, writes nothing
 
-One workbook per family and style of :data:`TARGETS` (20), its Normal font Calibri 11 (H 20, D 5
-pixels at 96 dpi, CAPTURING.md section 2 item 69). Per size of the family, five rows: a cell in
-the face wrapped to 1, 2, 3 and 4 lines (one short glyph a line), and a one-line cell in the face
-beside a Normal-font cell wrapped to :func:`normal_lines` lines, tall enough to set the row's top.
-The job reads each row's height. ``read`` writes
-``tests/captures/windows/row_height_wide.layout.tsv.gz``.
+Group ``rows_wide`` (CAPTURING.md item 86): one workbook per family and style of :data:`TARGETS`
+(20), its Normal font Calibri 11 (H 20, D 5 pixels at 96 dpi, CAPTURING.md section 2 item 69).
+Per size of the family, five rows: a cell in the face wrapped to 1, 2, 3 and 4 lines (one short
+glyph a line), and a one-line cell in the face beside a Normal-font cell wrapped to
+:func:`normal_lines` lines, tall enough to set the row's top. The job reads each row's height.
+``read`` writes ``tests/captures/windows/row_height_wide.layout.tsv.gz``.
+
+Group ``rows_ppem`` (CAPTURING.md item 89): the same design at one size for each ppem from 1 to
+96 (1 to 72 points) that ``rows_wide`` leaves out, plus three half sizes per face whose ppems
+``rows_wide`` already holds, as a check; its wrapped cells have lines enough to rise past the
+Normal row at small sizes. ``read`` writes
+``tests/captures/windows/row_height_ppem.layout.tsv.gz``.
 
 Model (item 69): a row is ``max(lines * H - D) + max D`` over its cells, the Normal font a
 one-line cell among them. Then, with the Normal font's ``Hn`` and ``Dn``: the wrapped rows step by
@@ -50,8 +51,8 @@ TARGETS: dict[str, tuple[float, ...]] = {
     "Courier New": OTHER_SIZES,
 }
 WRAPPED = (1, 2, 3, 4)
-# group rows_ppem: every ppem from 1 to 96 at 96 dpi (1 to 72 points) the rows_wide sizes leave
-# out, one half-point size each, and three half sizes a face at ppems rows_wide holds
+# group rows_ppem: one half-point size for each ppem from 1 to 96 at 96 dpi (1 to 72 points)
+# that the rows_wide sizes leave out, and per face three half sizes whose ppems rows_wide holds
 LAYOUT_PPEM = ROOT / "tests" / "captures" / "windows" / "row_height_ppem.layout.tsv.gz"
 GROUP_PPEM = "rows_ppem"
 PPEMS = range(1, 97)
