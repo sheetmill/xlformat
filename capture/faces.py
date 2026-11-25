@@ -18,6 +18,8 @@ Usage: ``uv run python -m capture.faces count|run <group> [suite ...] [--out <di
 - ``padding``: per size (``faces_p<size>``), every face of every family (and Segoe UI) as a
   cell font: ``0`` five and ten times. The five-run less five digits is the autofit padding,
   which gives each italic face's overhang; the ten-run checks it with the autofit bonus.
+- ``padding_more``: the same at every other whole size from 31 to 192, which the italic
+  overhang's rule is checked at (CAPTURING.md item 87).
 - ``switch``: per size from 193 to 320 (``faces_s<size>``; Normal Calibri at the size), in six
   faces, ``0`` and the six ASCII glyphs whose rounding per glyph and rounding of the run's sum
   disagree most, five times each: where Excel stops rounding each ASCII glyph.
@@ -105,6 +107,8 @@ LONG = tuple("0" * k for k in range(14, 32)) + tuple(PANGRAM[:k] for k in range(
 # the size); sizes 1 to 5 and the half sizes share one workbook each (Normal: Calibri 6, 11)
 PADDING_SIZES = (*range(6, 31), 32, 36, 40, 48, 56, 64, 72, 96, 128, 160, 192)
 PADDING_GROUPS = {"faces_p1to5": (6, (1, 2, 3, 4, 5)), "faces_phalf": (11, (8.5, 9.5, 10.5, 11.5))}
+# every other whole size from 31 to 192, each its own workbook as above (group padding_more)
+MORE_PADDING_SIZES = tuple(s for s in range(31, 193) if s not in PADDING_SIZES)
 
 
 def _key(family: str) -> str:
@@ -250,11 +254,14 @@ def group(name: str) -> Iterator[Callable[[], xc.Suite]]:
             yield lambda s=size: padding_suite(f"faces_p{s}", s, (s,))
         for suite, (normal, sizes) in PADDING_GROUPS.items():
             yield lambda n=suite, ns=normal, ss=sizes: padding_suite(n, ns, ss)
+    elif name == "padding_more":
+        for size in MORE_PADDING_SIZES:
+            yield lambda s=size: padding_suite(f"faces_p{s}", s, (s,))
     elif name == "switch":
         for size in SWITCH_SIZES:
             yield lambda s=size: switch_suite(s)
     else:
-        msg = f"unknown group {name!r}: check, recover, padding or switch"
+        msg = f"unknown group {name!r}: check, recover, padding, padding_more or switch"
         raise SystemExit(msg)
 
 
