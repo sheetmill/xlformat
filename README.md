@@ -136,6 +136,11 @@ Seventeen color readings in the Excel captures are skipped because Excel's scrip
 reports automatic black for them. [QUIRKS.md](https://github.com/sheetmill/xlformat/blob/main/QUIRKS.md)
 describes them and says which have been checked on screen.
 
+## Security
+
+To report a security problem, see
+[SECURITY.md](https://github.com/sheetmill/xlformat/blob/main/SECURITY.md).
+
 ## Related packages
 
 xlformat is one of three packages from the [sheetmill](https://github.com/sheetmill/sheetmill)

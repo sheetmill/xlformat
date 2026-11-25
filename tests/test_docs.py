@@ -21,6 +21,7 @@ MARKDOWN = [
         "QUIRKS.md",
         "CHANGELOG.md",
         "CONTRIBUTING.md",
+        "SECURITY.md",
     )
 ] + sorted((ROOT / "docs").glob("*.md"))
 CURRENT_ONLY = [
