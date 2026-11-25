@@ -18,9 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   text is 0.0. `autofit_width("0" * 20)` is 129.0 points, and 112.5 on Windows.
 - On Windows `row_metrics` and `vertical_metrics` answer Calibri, Aptos Narrow, Arial, Times New
   Roman and Courier New in four styles at every size from 1 to 72 points, half sizes included
-  (CAPTURING item 89: every ppem from 1 to 96 captured, a size taking its ppem's height); 0.10.0
-  raised `LookupError` below 6 points, above 40 (Calibri above 72) and at half sizes but
-  Calibri's to 40.
+  (CAPTURING item 89: every ppem from 1 to 96 captured, a size taking its ppem's height). 0.10.0
+  raised `LookupError` below 6 points, above 40 points (Calibri: above 72) and at every half size
+  except Calibri's from 6.5 to 39.5.
 
 ## [0.10.0] - 2026-11-24
 
