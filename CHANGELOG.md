@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-11-24
+
 ### Added
 - Excel for Windows measures 25 families, the Mac's 27 but Courier and Helvetica (which the
   capture machine has no font for), in four styles: every glyph of the 218 (space, ASCII and the
@@ -478,7 +480,8 @@ First release.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.10.0
 [0.9.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.9.0
 [0.8.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.8.0
 [0.7.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.7.0
