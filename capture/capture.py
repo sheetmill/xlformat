@@ -303,12 +303,18 @@ def diff_2023(path: Path) -> int:
 def main(argv: list[str]) -> None:
     """Command-line entry point."""
     parser = argparse.ArgumentParser(prog="python -m capture", description=__doc__)
-    parser.add_argument("suite", choices=sorted(SUITES))
+    parser.add_argument("suite", nargs="+", choices=sorted(SUITES), metavar="SUITE")
     parser.add_argument("--diff-2023", action="store_true")
+    parser.add_argument("--out", help="write the suite files to this directory instead")
     args = parser.parse_args(argv)
-    out, _ = capture(args.suite)
-    if args.diff_2023:
-        diff_2023(out)
+    global OUT_DIR
+    if args.out:
+        OUT_DIR = Path(args.out).resolve()
+        OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for suite in args.suite:
+        out, _ = capture(suite)
+        if args.diff_2023:
+            diff_2023(out)
 
 
 if __name__ == "__main__":
