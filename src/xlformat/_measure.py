@@ -216,31 +216,29 @@ def _windows_ppem(size: float) -> int:
     return math.floor(size * 4 / 3 + 0.5)
 
 
-@cache
-def _windows_glyphs(family: str, style: str) -> dict[int, dict[str, float]]:
-    """A Windows face's whole-pixel advances per measured ppem."""
+@lru_cache(maxsize=256)
+def _windows_glyphs(family: str, style: str, ppem: int) -> dict[str, float]:
+    """A Windows face's whole-pixel advances at one measured ppem, decoded on first use."""
     entry = _faces_windows.FACES[family][style]
     if isinstance(entry, str):  # a style with the same advances
         entry = _faces_windows.FACES[family][entry]
     assert not isinstance(entry, str)
-    return {
-        ppem: dict(zip(_faces_mac.GLYPHS, map(float, text.split()), strict=True))
-        for ppem, text in zip(_faces_windows.PPEMS, entry, strict=True)
-    }
+    text = entry[_faces_windows.PPEMS.index(ppem)]
+    return dict(zip(_faces_mac.GLYPHS, map(float, text.split()), strict=True))
 
 
 @lru_cache(maxsize=128)
 def _advances(name: str, size: float, style: str = "regular") -> dict[str, float]:
     """A Windows face at ``size``: its measured ppem, or the nearest measured one scaled."""
-    tables = _windows_glyphs(name, style)
     ppem = _windows_ppem(size)
-    if ppem in tables:
-        return tables[ppem]
+    if ppem in _faces_windows.PPEMS:
+        return _windows_glyphs(name, style, ppem)
     # An unmeasured ppem: scale the nearest measured one (the larger on a tie) and round each
     # advance to whole pixels, the way hinting does. An approximation; the measured ppems are
     # exact.
-    nearest = min(tables, key=lambda measured: (abs(measured - ppem), -measured))
-    return {ch: float(round(adv * ppem / nearest)) for ch, adv in tables[nearest].items()}
+    nearest = min(_faces_windows.PPEMS, key=lambda measured: (abs(measured - ppem), -measured))
+    base = _windows_glyphs(name, style, nearest)
+    return {ch: float(round(adv * ppem / nearest)) for ch, adv in base.items()}
 
 
 def overhang(font: FontSpec | None = None, *, platform: str | Platform | None = None) -> float:
