@@ -1,7 +1,12 @@
 """Row heights on Excel for Windows across sizes: the face's height H and descent D per size.
 
-    uv run python -m capture.job write rows_wide JOB_ID OUT_DIR
-    uv run python -m capture.job read rows_wide JOB_DIR RESULT_DIR
+    uv run python -m capture.job write rows_wide|rows_ppem JOB_ID OUT_DIR
+    uv run python -m capture.job read rows_wide|rows_ppem JOB_DIR RESULT_DIR
+
+Group ``rows_ppem`` (CAPTURING.md item 89) is the same design at a size for each ppem from 1 to
+96 (1 to 72 points) that ``rows_wide`` leaves out, and at three half sizes a face whose ppem it
+holds, with :func:`wrapped` lines enough to rise past the Normal row at small sizes; it writes
+``tests/captures/windows/row_height_ppem.layout.tsv.gz``.
     uv run python -m capture.rows_wide [--check]     # fit; --check reports, writes nothing
 
 One workbook per family and style of :data:`TARGETS` (20), its Normal font Calibri 11 (H 20, D 5
@@ -45,6 +50,45 @@ TARGETS: dict[str, tuple[float, ...]] = {
     "Courier New": OTHER_SIZES,
 }
 WRAPPED = (1, 2, 3, 4)
+# group rows_ppem: every ppem from 1 to 96 at 96 dpi (1 to 72 points) the rows_wide sizes leave
+# out, one half-point size each, and three half sizes a face at ppems rows_wide holds
+LAYOUT_PPEM = ROOT / "tests" / "captures" / "windows" / "row_height_ppem.layout.tsv.gz"
+GROUP_PPEM = "rows_ppem"
+PPEMS = range(1, 97)
+CHECK_CANDIDATES = (6.5, 12.5, 30.5, 50.5, 60.5, 66.5)
+
+
+def ppem(size: float) -> int:
+    """The ppem a size draws at in Excel for Windows at 96 dpi, a half rounded up."""
+    return math.floor(size * 4 / 3 + 0.5)
+
+
+def _ppem_sizes(family: str) -> tuple[float, ...]:
+    """A size for each ppem rows_wide leaves out (whole sizes first), then three checks."""
+    held = {ppem(s) for s in TARGETS[family]}
+    out = []
+    for p in PPEMS:
+        if p in held:
+            continue
+        sizes = [k / 2 for k in range(2, 145) if ppem(k / 2) == p]
+        out.append(min(sizes, key=lambda s: (s != int(s), abs(s - p * 0.75))))
+    checks = [s for s in CHECK_CANDIDATES if s not in TARGETS[family] and ppem(s) in held]
+    return tuple(sorted(out)) + tuple(checks[:3])
+
+
+PPEM_TARGETS = {family: _ppem_sizes(family) for family in TARGETS}
+
+
+def wrapped(group: str, size: float) -> tuple[int, ...]:
+    """The line counts of a face's wrapped rows: four in a row, the first above the Normal row.
+
+    rows_wide: 1 to 4. rows_ppem: from enough lines that the face's text rises past the Calibri
+    11 Normal font's (20 pixels) with room, a line taken as at least the ppem's pixels high.
+    """
+    if group == GROUP:
+        return WRAPPED
+    first = max(1, math.ceil((NORMAL_HD[0] + 8) / ppem(size)))
+    return tuple(range(first, first + 4))
 
 
 def style_name(bold: bool, italic: bool) -> str:
@@ -56,17 +100,19 @@ def normal_lines(size: float) -> int:
     return max(2, math.ceil((size * 4 / 3 * 1.6 + 10) / NORMAL_HD[0]) + 1)
 
 
-def workbooks() -> list[tuple[str, str, tuple[RowCase, ...]]]:
-    """(file name, family and style label, rows) per workbook, in job order."""
+def workbooks(group: str = GROUP) -> list[tuple[str, str, tuple[RowCase, ...]]]:
+    """(file name, family and style label, rows) per workbook of ``group``, in job order."""
     out = []
-    for family, sizes in TARGETS.items():
+    targets, prefix = (TARGETS, "rw") if group == GROUP else (PPEM_TARGETS, "rp")
+    for family, sizes in targets.items():
         for bold, italic in STYLES:
             style = style_name(bold, italic)
             cases = [RowCase("number", (Cell(1, 1234),))]
             for size in sizes:
                 f = CellFont(family, size, bold, italic)
                 cases += [
-                    RowCase(f"{f.label}|{n}", (Cell(1, _lines(n), f, True),)) for n in WRAPPED
+                    RowCase(f"{f.label}|{n}", (Cell(1, _lines(n), f, True),))
+                    for n in wrapped(group, size)
                 ]
                 m = normal_lines(size)
                 cases.append(
@@ -74,14 +120,18 @@ def workbooks() -> list[tuple[str, str, tuple[RowCase, ...]]]:
                         f"{f.label}|beside {m}", (Cell(1, _lines(m), None, True), Cell(2, 1, f))
                     )
                 )
-            name = f"rw_{family}_{style}".replace(" ", "_").lower() + ".xlsx"
+            name = f"{prefix}_{family}_{style}".replace(" ", "_").lower() + ".xlsx"
             out.append((name, f"{family}|{style}", tuple(cases)))
     return out
 
 
-def read_layout() -> dict[tuple[str, str], int]:
+def layout_path(group: str) -> Path:
+    return LAYOUT if group == GROUP else LAYOUT_PPEM
+
+
+def read_layout(group: str = GROUP) -> dict[tuple[str, str], int]:
     """(workbook, row tag) -> height in pixels."""
-    with gzip.open(LAYOUT, "rt", encoding="utf-8", newline="") as f:
+    with gzip.open(layout_path(group), "rt", encoding="utf-8", newline="") as f:
         reader = csv.DictReader((x for x in f if not x.startswith("#")), dialect="excel-tab")
         out = {}
         for r in reader:
@@ -96,31 +146,37 @@ def read_layout() -> dict[tuple[str, str], int]:
 Face = tuple[str, str, float]  # family, style, size
 
 
-def fit() -> tuple[dict[Face, tuple[int, int]], list[str]]:
+def fit(group: str = GROUP) -> tuple[dict[Face, tuple[int, int]], list[str]]:
     """(H, D) per face, and every row the model does not give."""
-    got = read_layout()
+    got = read_layout(group)
     hn, dn = NORMAL_HD
     table: dict[Face, tuple[int, int]] = {}
     problems: list[str] = []
-    for name, label, cases in workbooks():
+    for name, label, cases in workbooks(group):
         family, style = label.split("|")
         if got[(name, "number")] != hn:
             problems.append(f"{name}: the Normal row is {got[(name, 'number')]} px, not {hn}")
         for case in cases[1::5]:
             flabel = case.tag.split("|")[0]
             size = float(flabel.split(" ")[len(family.split(" "))])
-            w = [got[(name, f"{flabel}|{n}")] for n in WRAPPED]
+            lines = tuple(
+                int(c.tag.split("|")[1])
+                for c in cases
+                if c.tag.startswith(flabel + "|")
+                and not c.tag.endswith(tuple(f"beside {k}" for k in range(1, 99)))
+            )
+            w = [got[(name, f"{flabel}|{n}")] for n in lines]
             m = normal_lines(size)
             beside = got[(name, f"{flabel}|beside {m}")]
             h = w[2] - w[1]
             top = beside - (m * hn - dn)  # max(Dn, D)
-            d = 2 * h + top - w[1]
+            d = lines[1] * h + top - w[1]
             table[(family, style, size)] = (h, d)
 
             def row(cells: list[tuple[int, int, int]]) -> int:
                 return max(n * hh - dd for n, hh, dd in cells) + max(dd for _, _, dd in cells)
 
-            for n, width in zip(WRAPPED, w, strict=True):
+            for n, width in zip(lines, w, strict=True):
                 want = row([(1, hn, dn), (n, h, d)])
                 if width != want:
                     problems.append(f"{flabel} {n} lines: {width} px, model {want}")

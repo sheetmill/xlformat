@@ -226,12 +226,12 @@ def _row_workbooks(files: Path) -> list[dict[str, Any]]:
     return workbooks
 
 
-def _rows_wide_workbooks(files: Path) -> list[dict[str, Any]]:
-    """The workbooks of ``capture/rows_wide.py``, one per family and style."""
+def _rows_wide_workbooks(files: Path, group: str) -> list[dict[str, Any]]:
+    """The workbooks of ``capture/rows_wide.py``'s group, one per family and style."""
     from capture import row_heights, rows_wide
 
     workbooks = []
-    for name, _label, cases in rows_wide.workbooks():
+    for name, _label, cases in rows_wide.workbooks(group):
         with tempfile.TemporaryDirectory() as tmp:
             built = row_heights.build(rows_wide.NORMAL, Path(tmp), cases, name)
             _fixed_copy(built, files / name)
@@ -283,10 +283,11 @@ def write(group: str, job_id: str, out: Path, note: str = "") -> Path:
         doc = screen_windows.manifest(group, job_id, screen_windows.workbooks(group, files), note)
         (folder / "job.json").write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
         return folder
-    if group in ("rows", "rows_wide", "builtin"):
-        books = {"rows": _row_workbooks, "rows_wide": _rows_wide_workbooks}.get(
-            group, _builtin_workbooks
-        )(files)
+    if group in ("rows", "rows_wide", "rows_ppem", "builtin"):
+        if group in ("rows_wide", "rows_ppem"):
+            books = _rows_wide_workbooks(files, group)
+        else:
+            books = _row_workbooks(files) if group == "rows" else _builtin_workbooks(files)
         doc = manifest_for(group, job_id, books, note)
         what = "the built-in number formats" if group == "builtin" else "the height of every row"
         doc["purpose"] = doc["purpose"].replace(
@@ -491,9 +492,12 @@ def read(group: str, job: Path, result: Path) -> list[Path]:
         written += screen_windows.read(group, job, result, outcome, WINDOWS)
         shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
         return written
-    if group in ("rows", "rows_wide", "builtin"):
-        layout = {"rows": _row_layout, "rows_wide": _rows_wide_layout}.get(group, _builtin_layout)
-        written.append(layout(by_file, header))
+    if group in ("rows", "rows_wide", "rows_ppem", "builtin"):
+        if group in ("rows_wide", "rows_ppem"):
+            written.append(_rows_wide_layout(by_file, header, group))
+        else:
+            layout = _row_layout if group == "rows" else _builtin_layout
+            written.append(layout(by_file, header))
         shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
         return written
     for name in GROUPS[group]:
@@ -532,10 +536,10 @@ def _row_layout(by_file: dict[str, Any], header: dict[str, Any]) -> Path:
     return path
 
 
-def _rows_wide_layout(by_file: dict[str, Any], header: dict[str, Any]) -> Path:
+def _rows_wide_layout(by_file: dict[str, Any], header: dict[str, Any], group: str) -> Path:
     from capture import rows_wide
 
-    path = rows_wide.LAYOUT
+    path = rows_wide.layout_path(group)
     with gzip.GzipFile(path, "wb", mtime=0) as raw, io.TextIOWrapper(raw, "utf-8") as out:
         out.write(
             "# suite: row_height_wide (capture.rows_wide, capture/job.py); Excel for Windows\n"
@@ -549,7 +553,7 @@ def _rows_wide_layout(by_file: dict[str, Any], header: dict[str, Any]) -> Path:
         )
         out.write(f"# job_header: {json.dumps(header, sort_keys=True, ensure_ascii=False)}\n")
         out.write("workbook\trow\ttag\theight\n")
-        for name, _label, cases in rows_wide.workbooks():
+        for name, _label, cases in rows_wide.workbooks(group):
             got = _results(by_file[name])["heights"]["row_height"]
             if len(got) != len(cases):
                 msg = f"{name}: {len(got)} heights, not {len(cases)}"

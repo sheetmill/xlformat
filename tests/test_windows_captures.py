@@ -37,6 +37,7 @@ WINDOWS = Path(__file__).parent / "captures" / "windows"
 LAYOUTS = {
     "rows": "row_height.layout.tsv.gz",
     "rows_wide": "row_height_wide.layout.tsv.gz",
+    "rows_ppem": "row_height_ppem.layout.tsv.gz",
     "builtin": "builtin_formats.layout.tsv",
 }
 JOBS = sorted(WINDOWS.glob("*.job.json")) if WINDOWS.exists() else []

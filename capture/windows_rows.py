@@ -10,8 +10,9 @@ face (a family, style and size) has a height ``H`` and a descent ``D``; a row ho
 ``max(lines * H(f) - D(f)) + max D(f)``. ``H`` is each face's own row, the first row of the
 workbook it is the Normal font of; ``D`` is searched face by face, each whole value from 0 to
 ``H``, keeping the one with the fewest misses over every row until no face changes.
-The faces and sizes of ``capture/rows_wide.py`` (item 86) are added from its own fit; where both
-captures hold a face they must agree. ``--check`` compares the module with what the captures
+The faces and sizes of ``capture/rows_wide.py``'s groups (``rows_wide``, item 86, and
+``rows_ppem``, item 89) are added from their own fits; where two captures hold a face they must
+agree. ``--check`` compares the module with what the captures
 give and writes nothing.
 """
 
@@ -134,13 +135,15 @@ def main(argv: list[str]) -> None:
     from capture import rows_wide
 
     table, matched, total, wrong = fit()
-    if rows_wide.LAYOUT.exists():
-        wide, problems = rows_wide.fit()
+    for group in (rows_wide.GROUP, rows_wide.GROUP_PPEM):
+        if not rows_wide.layout_path(group).exists():
+            continue
+        wide, problems = rows_wide.fit(group)
         if problems:
-            sys.exit(f"{len(problems)} rows_wide rows the model does not give")
+            sys.exit(f"{len(problems)} {group} rows the model does not give")
         for face, hd in wide.items():
             if table.get(face, hd) != hd:
-                sys.exit(f"{face}: {table[face]} in the first capture, {hd} in rows_wide")
+                sys.exit(f"{face}: {table[face]} in an earlier capture, {hd} in {group}")
             table[face] = hd
     for family in FAMILIES:
         for style in ("regular", "bold", "italic", "bold italic"):
