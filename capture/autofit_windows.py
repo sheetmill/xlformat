@@ -9,11 +9,11 @@ the Normal font's widest digit D runs from 6 to 17 pixels at 96 dpi. Each workbo
 one text a column, ASCII texts whose advances reach every whole pixel from 10 to 45 widths of
 D: a run of ``0`` and up to three letters, the advances taken from xlformat's measured Windows
 tables (sizes 8 to 24, CAPTURING.md item 85). A few workbooks also hold the same pixel range
-in the Normal face's italic (whose overhang the bonus may count) and in a cell font of another
-size than the Normal font (whose digit the bonus may follow). The autofit width less the
-advances and the padding is the bonus; the texts reach the bonus's steps at several digit
-widths, which separates its rule from the Mac's ``max(0, floor(W / D / 5) - 2)`` shifted to
-start at 12 widths.
+in the Normal face's italic, which tests whether the bonus counts the overhang, and in a cell
+font of another size than the Normal font, which tests whether the bonus follows the cell's
+digit or the Normal font's. The autofit width less the advances and the padding is the bonus;
+the texts reach its steps at several digit widths. CAPTURING.md item 90 gives the result: a
+pixel from 12 widths of the Normal digit and one more every 4, counting the overhang.
 
 ``capture.job read`` writes ``tests/captures/windows/autofit/<suite>.measure.tsv.gz``.
 """

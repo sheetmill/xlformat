@@ -319,8 +319,9 @@ def text_width(
 
 
 MAC_AUTOFIT_UNROUNDED = {"Calibri": 286.0}
-"""Faces whose Mac autofit sums a text's advances unrounded from a size on (CAPTURING.md section 2
-item 82, switch); the other captured faces round each glyph to 320 points."""
+"""Per face, the size in points from which Excel for Mac's autofit sums a text's advances
+unrounded (CAPTURING.md section 2 item 82, the switch captures). Arial, Times New Roman, Verdana,
+Candara and Georgia round each glyph at every size captured, up to 320 points."""
 
 
 def _autofit_advances(text: str, font: Font, platform: Platform) -> float:
@@ -364,13 +365,21 @@ def autofit_width(
     - On the Mac, in whole points: ``max(0, floor(W / D / 5) - 2)``, a point from 15 widths
       and one more every 5. Autofit sums an ASCII text's whole advances (Calibri from 286
       points sums them unrounded), and a text holding any other glyph unrounded, rounding the
-      total half up, so it can differ from :func:`text_width`. Captured at every size from 6 to
-      192 points in every measured face, and in six faces to 320, to 55 widths of the Normal
-      digit (CAPTURING.md section 2 item 82); unverified below 6 points and above.
+      total half up, so it can differ from :func:`text_width`. Verified at every size from 6
+      to 192 points in every measured face and from 193 to 320 in Calibri, Arial, Times New
+      Roman, Verdana, Candara and Georgia, to 55 widths of the Normal digit (CAPTURING.md
+      section 2 item 82); longer texts and sizes from 321 points take the same rule,
+      unverified. Two captured ranges disagree with it, and the function still answers there
+      by the rule: from 1 to 5 points (under a Calibri 6 Normal font) Excel's widths are all
+      multiples of 5 points, and the rule gives another width for 172 of the 1,080 texts; at
+      383, 397 and 409 points it differs from Excel in 3,170 of 76,464 texts, mostly by 1 or 2
+      points.
     - On Windows, in whole pixels: ``max(0, floor(W / D / 4) - 2)``, a pixel from 12 widths
-      and one more every 4. Captured in 13 Normal fonts (digits of 6 to 17 pixels) at every
+      and one more every 4. Verified in 13 Normal fonts (digits of 6 to 17 pixels) at every
       pixel to 45 widths, with italic and other-size cell fonts (item 90), and in every
-      measured face at 8 to 24 points to 15.7 widths (item 85).
+      measured face at 8 to 24 points and the half sizes between, to 15.7 widths (item 85).
+      Texts past 45 widths and sizes outside 8 to 24 points, whose advances are scaled from
+      the nearest measured ppem (:func:`measured_fonts`), are unverified.
 
     Args:
         text: One line: a carriage return, line feed or tab raises ``ValueError`` (autofit of

@@ -83,7 +83,7 @@ def test_windows_autofit_captures(path: Path) -> None:
 
 
 def test_the_bonus_ladders() -> None:
-    # Calibri 11: a 7-pixel digit on Windows, 6 points on the Mac; ten digits are the padding
+    # Calibri 11: a 7-pixel digit on Windows, 6 points on the Mac; the padding is 7 on both
     zero = xlformat.Font("Calibri", 11)
     win = [xlformat.autofit_width("0" * k, zero, platform="windows") * 4 / 3 for k in (11, 12, 16)]
     assert win == [77 + 7, 84 + 7 + 1, 112 + 7 + 2]  # one pixel from 12 digits, one more every 4
