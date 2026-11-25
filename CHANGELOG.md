@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-11-25
+
 ### Added
 - `autofit_width(text, font=None, *, normal_font=None, platform=None)`: the column width in
   points Excel's autofit gives one line of text in a cell's font, on the Mac and on Windows:
@@ -495,7 +497,8 @@ First release.
 - Error values such as `#N/A`, conditional formatting and cell styles beyond the format string
   are not handled.
 
-[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/sheetmill/xlformat/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.11.0
 [0.10.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.10.0
 [0.9.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.9.0
 [0.8.0]: https://github.com/sheetmill/xlformat/releases/tag/v0.8.0
