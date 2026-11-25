@@ -3097,3 +3097,26 @@ def distinct_measure_cases(cases: Iterable[Case]) -> list[Case]:
         key = (case.value_type, case.value_repr, case.format, case.font, case.formula)
         seen.setdefault(key, case)
     return list(seen.values())
+
+
+# fit and # decisions above 192 points (CAPTURING.md item 88): Calibri's autofit sums a run
+# unrounded from 286 points, the other faces still round each glyph at 320 (item 82)
+# sizes where rounding each digit and rounding the run's sum decide 10 to 14 rows differently
+FIT_LARGE = {"Calibri": (194, 198, 287, 291, 318), "Arial": (195, 213, 292, 310, 317)}
+
+
+def fit_large(family: str, size: int) -> Suite:
+    """Runs of nines in ``0`` and ``#,##0`` at widths of 1 to 12 units, Normal font the face.
+
+    At each width ``n`` the budget is ``n`` whole digits, so a run of ``n`` nines fits when each
+    digit is rounded and may not when the run's sum is (a digit's advance is no whole point).
+    """
+    name = f"fit_large_{family.lower()}{size}"
+    cases = [Case(name, f"nines{k} 0", 10**k - 1, "0") for k in range(1, 13)]
+    cases += [Case(name, f"nines{k} #,##0", 10**k - 1, "#,##0") for k in range(4, 10)]
+    return Suite(name, tuple(cases), widths=tuple(range(1, 13)), font_size=size, font_name=family)
+
+
+for _family, _sizes in FIT_LARGE.items():
+    for _size in _sizes:
+        SUITES[f"fit_large_{_family.lower()}{_size}"] = lambda f=_family, s=_size: fit_large(f, s)
