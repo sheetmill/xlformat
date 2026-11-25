@@ -50,7 +50,7 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
-from capture import faces_windows
+from capture import autofit_windows, faces_windows
 from capture.build import Manifest, build
 from capture.capture import _width_text, make_rows, write_suite
 from capture.cases import SUITES, Suite, distinct_measure_cases
@@ -108,6 +108,8 @@ GROUPS: dict[str, tuple[str, ...]] = {
     "text_function": ("text_function",),
     # whole-pixel glyph advances per face, style and ppem (capture/faces_windows.py)
     **faces_windows.register(),
+    # the autofit bonus of long texts, every pixel to 45 Normal digit widths
+    **autofit_windows.register(),
 }
 
 
@@ -437,8 +439,10 @@ def _suite_files(
     return written
 
 
-def _faces_file(name: str, group: str, results: dict[str, Any], header: dict[str, Any]) -> Path:
-    """A ``faces_windows`` suite's autofit widths: ``tests/captures/windows/faces/<suite>``.
+def _faces_file(
+    name: str, group: str, results: dict[str, Any], header: dict[str, Any], folder: Path
+) -> Path:
+    """A measuring suite's autofit widths: ``<folder>/<suite>.measure.tsv.gz``.
 
     The measure file of the Mac's faces captures, gzipped, its second line the job's header.
     """
@@ -465,8 +469,8 @@ def _faces_file(name: str, group: str, results: dict[str, Any], header: dict[str
             f"{case.value_type}\t{case.value_repr}\t{case.format!r}\t{_number(w)}"
             f"\t{_number(pt)}\t{label}"
         )
-    faces_windows.FACES_DIR.mkdir(parents=True, exist_ok=True)
-    path = faces_windows.FACES_DIR / f"{name}.measure.tsv.gz"
+    folder.mkdir(parents=True, exist_ok=True)
+    path = folder / f"{name}.measure.tsv.gz"
     text = "\n".join(lines) + "\n"
     path.write_bytes(gzip.compress(text.encode("utf-8"), mtime=0))
     return path
@@ -503,7 +507,10 @@ def read(group: str, job: Path, result: Path) -> list[Path]:
     for name in GROUPS[group]:
         results = _results(by_file[f"{name}.xlsx"])
         if group in faces_windows.JOB_GROUPS:
-            written.append(_faces_file(name, group, results, header))
+            written.append(_faces_file(name, group, results, header, faces_windows.FACES_DIR))
+            continue
+        if group in autofit_windows.JOB_GROUPS:
+            written.append(_faces_file(name, group, results, header, autofit_windows.AUTOFIT_DIR))
             continue
         written += _suite_files(name, group, results, header)
     shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
