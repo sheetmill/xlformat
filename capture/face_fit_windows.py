@@ -4,16 +4,16 @@ Usage: ``uv run python -m capture.face_fit_windows [--check]`` (``--check`` re-d
 and compares it with the committed one). Reads ``tests/captures/windows/faces/``
 (``capture/faces_windows.py``).
 
-Model (Excel for Windows at 96 dpi): a cell font of size S draws at ppem ``floor(S * 4 / 3 +
-0.5)`` and every glyph advances a whole number of pixels. An autofit width is the text's
-advances W plus the padding P of its cell font plus a bonus pixel when ``W + overhang`` reaches
-12 digit widths D of the Normal font (every text here stays under 14). The padding of an upright
-face is ``2 * ceil(d / 4) + 3``, d its widest digit; an italic face's excess over that is twice
-its overhang. P is twice the ``0`` five-run's width less the ten-run's, less nothing or the
-bonus, whichever makes every run whole; a run of n copies of a glyph is then n advances and a
-blank between two ``x`` is ``(W - P - 2 x) / 5``. Every run must give a whole advance, every
-cell font of one ppem the same advances, and every mixed check text the sum of its advances
-plus P and the bonus.
+Model (Excel for Windows at 96 dpi): a cell font of size S draws at ppem ``floor(S * 4 / 3 + 0.5)``
+and every glyph advances a whole number of pixels. An autofit width is the text's advances W plus
+the padding P of its cell font plus a bonus pixel when ``W + overhang`` reaches 12 widths D of the
+Normal font's widest digit (every text here stays under 14). The padding of an upright face is
+``2 * ceil(d / 4) + 3``, d its widest digit; an italic face's excess over that is twice its
+overhang. P is twice the ``0`` five-run's width less the ten-run's, less nothing or the bonus,
+whichever makes every run whole; a run of n copies of a glyph is then n advances and a blank
+between two ``x`` is ``(W - P - 2 x) / 5``. Every run must give a whole advance, every cell font of
+one ppem the same advances, and every mixed check text the sum of its advances plus P and the
+bonus.
 """
 
 from __future__ import annotations
@@ -122,7 +122,10 @@ def fit() -> tuple[dict[Key, dict[str, int]], dict[Key, int], list[str]]:
     for name in fw.captured()[1]:
         normal, by_label = read(fw.FACES_DIR / f"{name}.measure.tsv.gz")
         normal_widths = by_label[normal]  # the Normal font is also a cell font: its digit
-        normal_digit = (normal_widths["0" * 10] - normal_widths["0" * 5]) // 5  # ten < 12 digits
+        # the Normal font's widest digit (its ten-runs stay under 12 of its own digit widths)
+        zero = (normal_widths["0" * 10] - normal_widths["0" * 5]) // 5
+        _, normal_adv, _ = advances(normal_widths, zero, False)
+        normal_digit = max(normal_adv[d] for d in DIGITS)
         for label, widths in by_label.items():
             family, size, style = parse_label(label)
             key = (family, style, ppem(size))

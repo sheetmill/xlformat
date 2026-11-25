@@ -146,7 +146,8 @@ def test_measured_fonts_lists_every_face_in_four_styles() -> None:
     assert list(fonts) == list(faces.FAMILIES)
     assert fonts["Calibri"]["bold italic"] == (9, 10, 11, 12, 13, 14, 16, 18, 20, 24)
     assert fonts["Verdana"]["regular"] == (10, 13)
-    windows = {"Aptos Narrow", "Calibri", "Arial", "Times New Roman"}
+    # the Mac's families but the two Excel for Windows' machine has no font for (the probe)
+    windows = set(faces.FAMILIES) - {"Courier", "Helvetica"}
     assert set(xlformat.measured_fonts(platform="windows")) == windows
 
 

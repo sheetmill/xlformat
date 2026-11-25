@@ -123,9 +123,10 @@ def format_value(
         font: The cell's font for Excel mode, a name, ``(name, size)`` or :class:`Font`; default
             ``("Calibri", 11)``, openpyxl's workbook default. The text is measured in it. On the
             Mac the families of :func:`measured_fonts` are measured in four styles at any size
-            (captured to 192 points, the same rule unverified above); on Windows Calibri,
-            Aptos Narrow and Arial at 9 to 24 points, scaled from the nearest measured size
-            elsewhere; other fonts raise ``LookupError``.
+            (captured to 192 points, the same rule unverified above); on Windows the families
+            of ``measured_fonts(platform="windows")`` at 8 to 24 points and the half sizes
+            between, scaled from the nearest measured size elsewhere; other fonts raise
+            ``LookupError``.
             A line feed and a tab measure as a space and a carriage return as nothing; glyphs
             beyond the cp1252 characters measure as the widest digit.
         normal_font: The workbook's Normal font for Excel mode, whose digit width sets the

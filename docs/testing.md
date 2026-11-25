@@ -28,9 +28,9 @@ The test suite then renders every row with xlformat and compares the text exactl
 mode, which must match exactly, and in character mode, which skips the rows where Excel fitted
 a text by glyph width; those skipped rows are counted per suite, and a change in a count fails
 until `tests/captures/glyph_slack.json` is written again (`pytest --record-glyph-slack`). The
-autofit captures are fitted again on every run: on Windows the result must equal the tables the
-package ships, and on the Mac the advances its rule gives (each face's advances are themselves
-re-derived from `tests/captures/faces/`).
+autofit captures are fitted again on every run: on Windows the result must equal the whole pixels
+the package ships per ppem, and on the Mac the advances its rule gives (each platform's advances
+are themselves re-derived from `tests/captures/faces/` and `tests/captures/windows/faces/`).
 
 Excel for Windows' captures live in `tests/captures/windows/`, made by capture jobs: manifests
 in a published format, committed beside the captures, that list every operation done to Excel.
@@ -86,7 +86,7 @@ before Excel was asked, and every prediction matched.
 | `hidden_zeros`, `hidden_zeros_control` | 1,700 | a sheet that hides zeros (`show_zeros=False`) and the same cases on one that shows them: exact zeros, values rounding to zero, zero sections |
 | `line_breaks`, `line_breaks_aptos_narrow` | 648, 648 | carriage returns, line feeds, CR LF and tabs in text under fills of spaces and digits, at four widths, with autofit widths beside |
 | `text_function`, `text_function1904` | 29,986 | Excel's `TEXT` over every format of the other suites, the empty format and those Excel refuses in a file |
-| `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths of Calibri, Aptos Narrow and Arial in four styles at nine sizes, which the Mac's rule must reproduce (Excel for Windows' tables are fitted from the same suites there) |
+| `measure9` to `measure16` and 102 `measure_<family>_<style><size>` | 523 texts each | autofit widths of Calibri, Aptos Narrow and Arial in four styles at nine sizes, which the Mac's rule must reproduce (on Windows the same suites must agree with the per-ppem advances) |
 
 `tests/captures/faces/` holds the Mac faces' autofit captures (`capture/faces.py`), one
 `.measure.tsv` per workbook in four groups:
@@ -99,6 +99,13 @@ before Excel was asked, and every prediction matched.
   italic overhang.
 - 128 switch workbooks (`faces_s<size>`): five-runs at 193 to 320 points, where Excel stops
   rounding each character.
+
+`tests/captures/windows/faces/` holds Excel for Windows' autofit captures
+(`capture/faces_windows.py`): one probe workbook (`facesw_probe`) naming every Mac family, whose
+job header lists the two the machine lacks, and 425 workbooks (`facesw_<family>_<size>`), one per
+family of the other 25 and size from 8 to 24 points, every character five times in four styles
+at the size and the half size above; `capture/face_fit_windows.py` reads every advance from them
+and every width must be those advances, the padding and the autofit bonus.
 
 Eighteen further files are not suites of the common schema:
 
@@ -130,8 +137,9 @@ Eighteen further files are not suites of the common schema:
   `insets_italics.layout.tsv` (18 rows) for Calibri, Aptos Narrow and Arial italic.
 
 Excel for Windows' layout files in `tests/captures/windows/` are the same kinds of record, each
-beside the capture job it came from: `builtin_formats.layout.tsv` and `row_height.layout.tsv.gz`
-from cell reads; and from window captures `screen_pilot_rules.layout.tsv`,
+beside the capture job it came from: `builtin_formats.layout.tsv`, `row_height.layout.tsv.gz`
+and `row_height_wide.layout.tsv.gz` (4,840 rows: five faces' heights and descents at 6 to 72
+points) from cell reads; and from window captures `screen_pilot_rules.layout.tsv`,
 `screen_pilot_vertical.layout.tsv`, `screen_vertical.layout.tsv` and `screen_wrapped.layout.tsv`
 (text placement), `screen_rules.layout.tsv`, `screen_rules_zoom.layout.tsv`,
 `screen_rules_fresh.layout.tsv`, `screen_rules_table.layout.tsv`,

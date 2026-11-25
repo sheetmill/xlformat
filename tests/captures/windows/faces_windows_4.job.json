@@ -1,0 +1,3107 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261124-181050-faces-windows-4",
+ "package": "xlformat",
+ "purpose": "xlformat capture group faces_windows_4: displayed text, widths and autofit per suite",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "facesw_haettenschweiler_8.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_13.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_15.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_17.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_19.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_21.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_22.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_23.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_haettenschweiler_24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:AIF"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:AIF1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_8.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_13.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_15.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_17.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_19.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_21.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_22.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_23.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_impact_24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:AIF"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:AIF1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_8.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_13.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_15.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_17.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_19.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_21.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_22.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_23.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_lucida_console_24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:AIF"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:AIF1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_8.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_13.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_15.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_17.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_19.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_21.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_22.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_23.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_rockwell_24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:AIF"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:AIF1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_8.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_13.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_15.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_17.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_19.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_21.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_22.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_23.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_tahoma_24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:AIF"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:AIF1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_8.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_13.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_15.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_17.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_19.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_21.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_22.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_23.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_trebuchet_ms_24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:AIF"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:AIF1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_8.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_9.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_10.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_11.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_12.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_13.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_14.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_15.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_16.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_17.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_18.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_19.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_20.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_21.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_22.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_23.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:BRL"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:BRL1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "facesw_verdana_24.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:AIF"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:AIF1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

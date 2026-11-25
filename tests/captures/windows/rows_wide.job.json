@@ -1,0 +1,413 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261124-183347-rows-wide",
+ "package": "xlformat",
+ "purpose": "xlformat capture group rows_wide: the height of every row",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "rw_calibri_regular.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A506",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_calibri_bold.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A506",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_calibri_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A506",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_calibri_bold_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A506",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_aptos_narrow_regular.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_aptos_narrow_bold.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_aptos_narrow_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_aptos_narrow_bold_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_arial_regular.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_arial_bold.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_arial_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_arial_bold_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_times_new_roman_regular.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_times_new_roman_bold.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_times_new_roman_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_times_new_roman_bold_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_courier_new_regular.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_courier_new_bold.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_courier_new_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  },
+  {
+   "file": "rw_courier_new_bold_italic.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "read",
+     "id": "heights",
+     "range": "rows!A1:A176",
+     "props": [
+      "row_height"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

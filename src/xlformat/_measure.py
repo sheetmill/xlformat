@@ -758,8 +758,9 @@ def row_metrics(
             Normal font) and its number of lines, as the caller broke them.
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
             ``None`` means the default, ``"mac"``. Excel for Windows is measured at 96 dpi in
-            Calibri, Aptos Narrow and Arial at 9 to 24 points, without accounting underlines;
-            anything else raises ``LookupError`` there.
+            Calibri at 6 to 40 points and the half sizes between and at 41 to 72, and in Aptos
+            Narrow, Arial, Times New Roman and Courier New at 6 to 40, four styles each,
+            without accounting underlines; anything else raises ``LookupError`` there.
 
     Raises:
         LookupError: A font or size the row model has not measured.

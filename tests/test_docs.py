@@ -183,7 +183,9 @@ def test_every_family_count_is_the_measured_fonts() -> None:
         for m in re.finditer(r"\b(\d+) families\b", " ".join(text.split()))
     ]
     assert found
-    assert [f for f in found if f[1] != families] == []
+    # each count is one platform's: the Mac's families or Excel for Windows'
+    counts = {families, len(xlformat.measured_fonts(platform="windows"))}
+    assert [f for f in found if f[1] not in counts] == []
     # the README names some and counts the rest
     readme = " ".join(texts["README.md"].split())
     listed = re.search(r"`measured_fonts\(\)`: ([^)]*?) and (\d+) more\)", readme)

@@ -1684,12 +1684,13 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     - **A ppem per size.** A size draws at ppem `size · 96 / 72`, a half rounded up: the eleven
       ppems that two sizes reach (8 and 8.5 at 11, 9.5 and 10 at 13, 23 and 23.5 at 31) give the
       same advances and overhang in every glyph, face and style.
-    - **The bonus.** A text gains one pixel once its advances and the overhang reach 12 digit
-      widths of the Normal font (92 columns: from 12.00 widths every one, below 11.93 none),
-      where the Mac's autofit starts at 15. The `0` ten-runs of ten italic cell fonts at ppem 13
-      and 14 reach it (70 pixels and an overhang of 2 against a Normal digit of 6: Aptos Narrow
-      and Calibri 9.5, Times New Roman 9.5 to 10.5), so the padding is the one that makes every run whole, not twice the five-run less
-      the ten-run. Higher steps are not reached: every text stays under 14 widths.
+    - **The bonus.** A text gains one pixel once its advances and the overhang reach 12 widths of
+      the Normal font's widest digit (92 columns: from 12.00 widths every one, below 11.93 none),
+      where the Mac's autofit starts at 15. The `0` ten-runs of ten italic cell fonts at ppem 13 and
+      14 reach it (70 pixels and an overhang of 2 against a Normal digit of 6: Aptos Narrow and
+      Calibri 9.5, Times New Roman 9.5 to 10.5), so the padding is the one that makes every run
+      whole, not twice the five-run less the ten-run. Higher steps are not reached: every text stays
+      under 14 widths.
     - **Hinting.** The advances follow the faces' units (item 82) scaled to the ppem and rounded
       in all but 0.7% to 3.3% of a style's advances in Aptos Narrow and Calibri, 7% to 14% in
       Arial and 7% to 23% in Times New Roman (98 of 218 glyphs at its regular ppem 29). The
@@ -1699,6 +1700,30 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       overhang (`tests/test_glyph_tables.py`); their tenths are this bonus on a wide glyph's
       ten-run. With these advances every committed rendering is unchanged; before them a
       character outside ASCII measured as the widest digit on Windows.
+    - **The other families** (groups `faces_windows_probe` and `faces_windows_2` to `_4`, the
+      same build). A probe workbook naming the Mac's 23 other families in four styles at 11 points
+      (`facesw_probe`): its job header lists Courier and Helvetica as missing (no font file on
+      the machine) and the other 21 present, Arial Black, Haettenschweiler, Impact and Lucida
+      Console in their regular file alone, Calibri Light in regular and italic, Garamond
+      without bold italic and Tahoma in regular and bold; Windows draws a style without a file
+      by synthesizing it. The 21 present then as above, seven to a job (357 workbooks, 634,788
+      columns, 69 minutes): every run a whole number of advances, every pair of sizes at one
+      ppem alike, every check text its advances, padding and bonus, in every style, synthesized
+      ones included. The bonus is taken against the Normal font's widest digit: Bookman Old
+      Style's and Impact's widest digit is wider than `0` at some sizes, and against `0` their
+      longest texts would gain a pixel they do not.
+
+86. **Windows row heights from 6 to 72 points (2026-11-24; group `rows_wide`,
+    `capture/rows_wide.py`; the build of item 85; `windows/row_height_wide.layout.tsv.gz`).** One
+    workbook per family and style, its Normal font Calibri 11 (item 69: H 20, D 5 pixels): Calibri
+    at 6 to 40 points and the half sizes between and at 41 to 72, Aptos Narrow, Arial, Times New
+    Roman and Courier New at 6 to 40, four styles each (964 faces, 20 workbooks, 4,840 rows). Per
+    face a cell wrapped to 1, 2, 3 and 4 lines, and the face beside a Normal-font cell wrapped tall
+    enough to set the row's top. Every row holds item 69's model, `max(lines · H − D) + max D`
+    pixels: the wrapped rows step by H, the row beside the tall cell gives `max(Dn, D)` and the
+    two-line row D, and the one-, four-line and beside rows all agree (4,840 of 4,840). The 108
+    faces item 69 measured agree in H and D; sizes that draw at one ppem have one H and one D (872
+    ppems, half sizes included).
 
 ## 3. The pipeline
 
@@ -1720,6 +1745,7 @@ capture/glyph_fit.py          fits the per-size measure suites, for tests/test_g
                              (items 26, 30)
 capture/faces_windows.py      Excel for Windows: autofit runs per face, style and ppem (item 85)
 capture/face_fit_windows.py   the Windows advances per ppem -> src/xlformat/_faces_windows.py
+capture/rows_wide.py          Excel for Windows: row heights per face from 6 to 72 points (item 86)
 capture/alignment.py          default alignment through Excel's PDF export (item 31)
 capture/row_heights.py        row heights per Normal font, cell font and wrapped line (item 44)
 capture/vertical_pdf.py       vertical placement in the PDF export, a probe (item 46)

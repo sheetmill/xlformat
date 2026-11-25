@@ -93,11 +93,11 @@ def test_windows_measures_in_pixels_reported_in_points() -> None:
     # Calibri 11 at 96 dpi: a digit of 7 pixels (measure11 on Windows), 5.25 points
     assert xlformat.digit_width(FONT, platform="windows") == 7 * 72 / 96
     windows = xlformat.measured_fonts(platform="windows")
-    assert set(windows) == {"Calibri", "Aptos Narrow", "Arial", "Times New Roman"}
-    assert set(windows) < set(xlformat.measured_fonts())
+    assert len(windows) == 25
+    assert set(windows) | {"Courier", "Helvetica"} == set(xlformat.measured_fonts())
     assert windows["Times New Roman"]["bold italic"] == tuple(range(8, 25))
-    with pytest.raises(LookupError, match="for Excel for Windows for font 'Courier New'"):
-        xlformat.text_width("x", ("Courier New", 11), platform="windows")
+    with pytest.raises(LookupError, match="for Excel for Windows for font 'Courier'"):
+        xlformat.text_width("x", ("Courier", 11), platform="windows")
 
 
 def test_platform_names_and_fields() -> None:
