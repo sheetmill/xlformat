@@ -407,7 +407,8 @@ any non-ASCII glyph sums every glyph unrounded, one at a time in double precisio
 the total half up; the width is that
 plus the padding `2·ceil(d/4) + 3`, d the cell face's widest digit, plus twice the italic
 overhang, plus a bonus of `max(0, floor(W / D / 5) - 2)` points, W the text's width and one
-overhang, D the Normal font's digit (the check captures: 56,896 of 56,896 rows). The bonus is
+overhang, D the Normal font's digit (the check captures: 56,896 of 56,896 rows; the padding
+and switch captures reach 55 widths, a bonus of 9). `autofit_width()` gives this width. The bonus is
 the tenth the earlier per-size tables carried on wide glyphs (`W` was 10.1 at Calibri 11 because
 ten measure 101); fit and fill use whole points, and ten `W` and a digit fit a budget
 of 106 (`advance_tenths11`, `advance_tenths12`; `CAPTURING.md` §2 item 41). The
@@ -489,7 +490,8 @@ as drawn. In the first four families the advances differ from the face's units s
 and rounded where the hinting moves them: at most 3.3% of a style's advances in Aptos Narrow and
 Calibri, 14% in Arial and 23% in Times New Roman regular (98 of its 218 glyphs at ppem 29). Autofit
 adds a pixel once a text's advances and overhang reach 12 widths of the Normal font's widest digit
-(on the Mac 15). The earlier per-size Windows suites (`measure*`, `space_fill*`, 108 faces at 9 to
+and one more every 4 widths, `max(0, floor(W / D / 4) - 2)` (on the Mac from 15, every 5;
+`autofit_windows`, 13 Normal fonts to 45 widths, `CAPTURING.md` §2 item 90). The earlier per-size Windows suites (`measure*`, `space_fill*`, 108 faces at 9 to
 24 points) agree with every advance and overhang (`tests/test_glyph_tables.py`); the column is
 `round(MDW · w + P)` pixels with `P = 2 · ceil(MDW / 4) + 1`, a half rounding up as on the Mac
 (`column_half_points_*`, `CAPTURING.md` §2 item 67), the budget, `#` runs, fills and a cell font's
@@ -636,8 +638,8 @@ names follows below.
 from xlformat import (
     format_value, format_cell, text_function, NumberFormat, FormattedCell, Section, SectionKind,
     Quirks, FormatError, ExcelError, DEFAULT_PALETTE, Font, ColumnMetrics, column_metrics,
-    column_metrics_from_points, file_column_metrics, text_width, glyph_widths, digit_width,
-    overhang, measured_fonts, font_substitutes, RowMetrics, row_metrics, VerticalMetrics, vertical_metrics,
+    column_metrics_from_points, file_column_metrics, text_width, autofit_width, glyph_widths,
+    digit_width, overhang, measured_fonts, font_substitutes, RowMetrics, row_metrics, VerticalMetrics, vertical_metrics,
     InkMetrics, ink_metrics, RuleMetrics, rule_metrics, TextInsets, text_insets,
     builtin_format, BUILTIN_FORMATS, section_rgb,
     Platform, RegionalSettings, DEFAULT_PLATFORM, __version__,
@@ -671,8 +673,8 @@ class FormatError(ValueError): ...
 `platform` and `regional_settings` are keyword-only wherever they appear, and `None` means
 `DEFAULT_PLATFORM` (`"mac"`) and that platform's en-US preset (§5, **Platform and regional
 settings**). `platform` is taken by every function whose result can differ by platform: the
-format functions above, `builtin_format`, the glyph functions (`text_width`, `glyph_widths`,
-`digit_width`, `overhang`, `measured_fonts`, `font_substitutes`), the column functions, `row_metrics`,
+format functions above, `builtin_format`, the glyph functions (`text_width`, `autofit_width`,
+`glyph_widths`, `digit_width`, `overhang`, `measured_fonts`, `font_substitutes`), the column functions, `row_metrics`,
 `vertical_metrics`, `ink_metrics` and `rule_metrics`; `regional_settings` by the format functions
 and `builtin_format`. `"windows"` (Excel for Windows at 96 dpi) works in all of them, the last
 three from window captures (`CAPTURING.md` §2 items 74 and 76 to 80); every function raises
@@ -838,6 +840,9 @@ Measurement is public in the shape of reportlab's `stringWidth(text, fontName, f
 function naming the font by argument (Pillow's `ImageFont.getlength` and tkinter's
 `Font.measure` are methods on a font object; xlformat already names fonts by a `font=` keyword):
 `text_width(text, font=None)` is Excel's measure, the sum of the whole advances in points;
+`autofit_width(text, font=None, *, normal_font=None)` the column width Excel's autofit gives one
+line, a separate measure (non-ASCII text unrounded on the Mac, padding and a long-text bonus
+counted in the Normal font's digits; CR, LF and tab raise `ValueError`, an empty text is 0.0);
 `glyph_widths(text, font=None)` the whole advance of each character, for runs;
 `digit_width(font=None)` the maximum digit width; `overhang(font=None)` an italic face's reach
 past its advances; `measured_fonts()` the measured fonts as family, style and the sizes whose

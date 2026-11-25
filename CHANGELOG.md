@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `autofit_width(text, font=None, *, normal_font=None, platform=None)`: the column width in
+  points Excel's autofit gives one line of text in a cell's font, on the Mac and on Windows:
+  the advances (on the Mac a text holding a non-ASCII glyph summed unrounded, as autofit does),
+  the cell font's padding, twice the italic overhang and a long-text bonus counted in widths of
+  the Normal font's digit, `max(0, floor(W / D / 5) - 2)` points on the Mac and
+  `max(0, floor(W / D / 4) - 2)` pixels on Windows (CAPTURING item 90: every pixel to 45 digit
+  widths in 13 Normal fonts). A carriage return, line feed or tab raises `ValueError`; an empty
+  text is 0.0. `autofit_width("0" * 20)` is 129.0 points, and 112.5 on Windows.
 - On Windows `row_metrics` and `vertical_metrics` answer Calibri, Aptos Narrow, Arial, Times New
   Roman and Courier New in four styles at every size from 1 to 72 points, half sizes included
   (CAPTURING item 89: every ppem from 1 to 96 captured, a size taking its ppem's height); 0.10.0

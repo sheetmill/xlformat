@@ -235,7 +235,7 @@ The measure behind Excel mode is public, for layout that has to agree with it: s
 into the next column, wrapping, indents.
 
 ```python
->>> from xlformat import digit_width, glyph_widths, text_width
+>>> from xlformat import autofit_width, digit_width, glyph_widths, text_width
 >>> text_width("1,000.0")
 36.0
 >>> text_width("Hello World", ("Calibri", 14))
@@ -244,9 +244,17 @@ into the next column, wrapping, indents.
 (10.0, 2.0, 3.0)
 >>> digit_width(("Aptos Narrow", 16))
 8.0
+>>> autofit_width("Hello World")
+62.0
+>>> autofit_width("0" * 20), autofit_width("0" * 20, platform="windows")
+(129.0, 112.5)
 ```
 
 `text_width` is the sum of the whole advances, the number every fit decision uses;
+`autofit_width` is the column width Excel's autofit gives one line of text: its advances (on
+the Mac a text holding a non-ASCII glyph summed unrounded), the padding, and a long-text bonus
+of a point from 15 widths of the Normal font's digit and one more every 5 (on Windows a pixel
+from 12 and one more every 4);
 `glyph_widths` gives the whole advance of each character, for measuring runs of a text;
 `digit_width` is the width of one column unit (and one indent level) for a Normal font;
 `overhang` is how far an italic face reaches past its advances on each side; `measured_fonts`

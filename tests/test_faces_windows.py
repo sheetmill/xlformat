@@ -38,7 +38,8 @@ def test_every_autofit_width_is_advances_padding_and_bonus(name: str) -> None:
         faces_windows.FACES_DIR / f"{name}.measure.tsv.gz"
     )
     family, size, _ = face_fit_windows.parse_label(normal_label)
-    normal_digit = _px(xlformat.digit_width((family, size), platform=WINDOWS))
+    normal = xlformat.Font(family, size)
+    normal_digit = _px(xlformat.digit_width(normal, platform=WINDOWS))
     checked = 0
     for label, widths in by_label.items():
         family, size, style = face_fit_windows.parse_label(label)
@@ -49,6 +50,8 @@ def test_every_autofit_width_is_advances_padding_and_bonus(name: str) -> None:
         for text, width in widths.items():
             px = _px(xlformat.text_width(text, font, platform=WINDOWS))
             assert width == px + pad + face_fit_windows.bonus(px, over, normal_digit), (label, text)
+            autofit = xlformat.autofit_width(text, font, normal_font=normal, platform=WINDOWS)
+            assert width == _px(autofit), (label, text)
             checked += 1
     assert checked == len(by_label) * (
         len(faces_windows.faces.GLYPHS) + 1 + len(faces_windows.CHECKS)

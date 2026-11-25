@@ -38,6 +38,7 @@ Everything below is importable from `xlformat`.
 
 ```{eval-rst}
 .. autofunction:: xlformat.text_width
+.. autofunction:: xlformat.autofit_width
 .. autofunction:: xlformat.glyph_widths
 .. autofunction:: xlformat.digit_width
 .. autofunction:: xlformat.overhang

@@ -107,6 +107,10 @@ job header lists the two the machine lacks, and 425 workbooks (`facesw_<family>_
 family of the other 25 and size from 8 to 24 points, every character five times in four styles
 at the size and the half size above; `capture/face_fit_windows.py` reads every advance from them
 and every width must be those advances, the padding and the autofit bonus.
+`tests/captures/windows/autofit/` holds 13 workbooks (`autofitw_<family>_<size>`, one per Normal
+font, `capture/autofit_windows.py`) of texts reaching every pixel from 10 to 45 widths of the
+Normal font's digit; every width must be `autofit_width` (`tests/test_autofit.py`, which also
+checks the Mac's faces captures).
 
 Eighteen further files are not suites of the common schema:
 

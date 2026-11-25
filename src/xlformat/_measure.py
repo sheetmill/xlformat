@@ -318,6 +318,87 @@ def text_width(
     return glyph_measure(font, p)(text) / p.scale
 
 
+MAC_AUTOFIT_UNROUNDED = {"Calibri": 286.0}
+"""Faces whose Mac autofit sums a text's advances unrounded from a size on (CAPTURING.md section 2
+item 82, switch); the other captured faces round each glyph to 320 points."""
+
+
+def _autofit_advances(text: str, font: Font, platform: Platform) -> float:
+    """A text's advances as Excel's autofit sums them, in device units."""
+    whole = _table(font, platform)
+    if platform.name != "mac":
+        return sum(whole.get(c, whole[""]) for c in text)  # whole pixels, every glyph
+    unrounded_from = MAC_AUTOFIT_UNROUNDED.get(font.name, math.inf)
+    size = _mac_size(font.size)
+    if text.isascii() and size < unrounded_from:
+        return sum(whole.get(c, whole[""]) for c in text)
+    # one glyph at a time in double precision, as Excel adds them (ten Haettenschweiler 10 '‰',
+    # 5.05 points each, sum to 50.49999999999999: 50), rounded half up
+    e, units = _mac_face(font.name, font.style)
+    total = 0.0
+    for c in text:
+        total += units[c] * size / e if c in units else whole[""]
+    return float(math.floor(total + 0.5))
+
+
+def _autofit_bonus(reach: float, normal_digit: float, platform: Platform) -> int:
+    """Autofit's long-text bonus in device units for a text reaching ``reach`` device units."""
+    step = 5 if platform.name == "mac" else 4
+    return max(0, math.floor(reach / normal_digit / step) - 2)
+
+
+def autofit_width(
+    text: str,
+    font: FontSpec | None = None,
+    *,
+    normal_font: FontSpec | None = None,
+    platform: str | Platform | None = None,
+) -> float:
+    """The width in points Excel's autofit gives one line of ``text`` in a cell of ``font``.
+
+    The column width autofit sets for the text (:func:`column_metrics_from_points` turns it
+    into Column Width dialog units): the text's advances, the padding ``2 * ceil(d / 4) + 3``
+    (d the cell font's widest digit), twice the italic overhang, and a long-text bonus counted
+    on the advances and one overhang in widths of the Normal font's widest digit D:
+
+    - On the Mac, in whole points: ``max(0, floor(W / D / 5) - 2)``, a point from 15 widths
+      and one more every 5. Autofit sums an ASCII text's whole advances (Calibri from 286
+      points sums them unrounded), and a text holding any other glyph unrounded, rounding the
+      total half up, so it can differ from :func:`text_width`. Captured at every size from 6 to
+      192 points in every measured face, and in six faces to 320, to 55 widths of the Normal
+      digit (CAPTURING.md section 2 item 82); unverified below 6 points and above.
+    - On Windows, in whole pixels: ``max(0, floor(W / D / 4) - 2)``, a pixel from 12 widths
+      and one more every 4. Captured in 13 Normal fonts (digits of 6 to 17 pixels) at every
+      pixel to 45 widths, with italic and other-size cell fonts (item 90), and in every
+      measured face at 8 to 24 points to 15.7 widths (item 85).
+
+    Args:
+        text: One line: a carriage return, line feed or tab raises ``ValueError`` (autofit of
+            a text holding them is not modeled). An empty text gives 0.0.
+        font: The cell's font.
+        normal_font: The workbook's Normal font, whose digit counts the bonus.
+        platform: ``"mac"``, ``"windows"`` or a :class:`Platform`.
+
+    Raises:
+        LookupError: A font, style or size xlformat has no advances for
+            (:func:`measured_fonts`).
+        ValueError: ``text`` holds a carriage return, line feed or tab, or the platform is
+            unknown.
+    """
+    p = check_platform(platform, "autofit_width", windows=True)
+    if any(c in text for c in "\r\n\t"):
+        msg = "autofit_width measures one line: split the text at CR, LF and tab first"
+        raise ValueError(msg)
+    f = resolve_font(font, p)
+    normal = _mdw(normal_font, p)
+    if not text:
+        return 0.0
+    advances = _autofit_advances(text, f, p)
+    over = font_overhang(f, p)
+    pad = 2 * math.ceil(_mdw(f, p) / 4) + 3 + 2 * over
+    return (advances + pad + _autofit_bonus(advances + over, normal, p)) / p.scale
+
+
 def glyph_widths(
     text: str, font: FontSpec | None = None, *, platform: str | Platform | None = None
 ) -> tuple[float, ...]:
