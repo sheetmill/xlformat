@@ -50,6 +50,7 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
+from capture import faces_windows
 from capture.build import Manifest, build
 from capture.capture import _width_text, make_rows, write_suite
 from capture.cases import SUITES, Suite, distinct_measure_cases
@@ -105,6 +106,8 @@ GROUPS: dict[str, tuple[str, ...]] = {
     "merged": ("merged11", "merged14"),
     # Excel's TEXT over every format of the other suites, computed when the workbook opens
     "text_function": ("text_function",),
+    # whole-pixel glyph advances per face, style and ppem (capture/faces_windows.py)
+    faces_windows.GROUP: faces_windows.register(),
 }
 
 
@@ -408,6 +411,41 @@ def _suite_files(
     return written
 
 
+def _faces_file(name: str, results: dict[str, Any], header: dict[str, Any]) -> Path:
+    """A ``faces_windows`` suite's autofit widths: ``tests/captures/windows/faces/<suite>``.
+
+    The measure file of the Mac's faces captures, gzipped, its second line the job's header.
+    """
+    suite = SUITES[name]()
+    with tempfile.TemporaryDirectory() as tmp:
+        manifest = build(suite, Path(tmp))
+    entries = distinct_measure_cases(suite.cases)
+    measured = results["measure"]
+    widths, points = measured["column_width"][0], measured["width"][0]
+    if not (len(entries) == len(widths) == len(points) == len(manifest.measure_cells)):
+        msg = f"{name}: {len(widths)} widths for {len(entries)} measure cells"
+        raise ValueError(msg)
+    excel = header.get("environment", {}).get("excel", {})
+    lines = [
+        "# autofit column width (Excel units) per distinct (value, format); font: "
+        f"{suite.font_name} {suite.font_size}; job: {faces_windows.GROUP}.job.json, "
+        f"{header.get('job_id', '')}; excel_build: {excel.get('build', '')}",
+        "# job_header: " + json.dumps(header, sort_keys=True, ensure_ascii=False),
+        "value_type\tvalue_repr\tformat\tautofit_width\tautofit_points\tcell_font",
+    ]
+    for case, w, pt in zip(entries, widths, points, strict=True):
+        label = case.font.label if case.font else ""
+        lines.append(
+            f"{case.value_type}\t{case.value_repr}\t{case.format!r}\t{_number(w)}"
+            f"\t{_number(pt)}\t{label}"
+        )
+    faces_windows.FACES_DIR.mkdir(parents=True, exist_ok=True)
+    path = faces_windows.FACES_DIR / f"{name}.measure.tsv.gz"
+    text = "\n".join(lines) + "\n"
+    path.write_bytes(gzip.compress(text.encode("utf-8"), mtime=0))
+    return path
+
+
 def read(group: str, job: Path, result: Path) -> list[Path]:
     """The suite files from a job folder and its result folder (``result.json``)."""
     outcome = json.loads((result / "result.json").read_text(encoding="utf-8"))
@@ -434,7 +472,11 @@ def read(group: str, job: Path, result: Path) -> list[Path]:
         shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
         return written
     for name in GROUPS[group]:
-        written += _suite_files(name, group, _results(by_file[f"{name}.xlsx"]), header)
+        results = _results(by_file[f"{name}.xlsx"])
+        if group == faces_windows.GROUP:
+            written.append(_faces_file(name, results, header))
+            continue
+        written += _suite_files(name, group, results, header)
     shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
     return written
 
