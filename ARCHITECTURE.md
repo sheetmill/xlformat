@@ -156,9 +156,10 @@ points, Windows in device pixels at `size · dpi / 72`), `dpi` (Windows only),
 `Platform.MAC` and `Platform.WINDOWS`, fields overridden with `dataclasses.replace`. A function
 raises `LookupError` for a platform it has no captured evidence for: Excel for Windows is
 measured at 96 dpi for the width model (Excel mode of `format_value` and `format_cell`, the
-column and glyph functions), for `row_metrics`, `builtin_format` and `text_function`, and for
-text placement, ink, rules and insets (`vertical_metrics`, `ink_metrics`, `rule_metrics`,
-`text_insets`) in Calibri, Aptos Narrow and Arial. The viewer's regional settings are separate (`RegionalSettings`, presets
+column and glyph functions), for `row_metrics` and text placement (`vertical_metrics`) in
+Calibri, Aptos Narrow, Arial, Times New Roman and Courier New, for `builtin_format` and
+`text_function`, and for ink, rules and insets (`ink_metrics`, `rule_metrics`, `text_insets`) in
+Calibri, Aptos Narrow and Arial. The viewer's regional settings are separate (`RegionalSettings`, presets
 `EN_US_MAC` and `EN_US_WINDOWS`, a `regional_settings=` keyword on the functions that format or
 resolve built-in formats, objects only): `None` means the platform's en-US preset. Only en-US is
 supported, and only `short_date` is read (the built-in ids whose en-US string is the short date,

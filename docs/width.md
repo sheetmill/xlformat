@@ -287,8 +287,9 @@ size from 1 to 72 points, half sizes included.
 15.0
 ```
 
-Text placement and underline positions (`vertical_metrics`, `ink_metrics`, `rule_metrics`) are
-measured on Windows too, for Calibri, Aptos Narrow and Arial, in whole pixels:
+Text placement (`vertical_metrics`) is measured on Windows too, in whole pixels, in the five
+faces `row_metrics` covers; ink, underline positions and insets (`ink_metrics`, `rule_metrics`,
+`text_insets`) in Calibri, Aptos Narrow and Arial:
 
 ```python
 >>> from xlformat import rule_metrics, vertical_metrics
