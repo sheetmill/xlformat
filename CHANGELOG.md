@@ -8,29 +8,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- `SECURITY.md`, linked from the README: how to report a security problem privately, through
-  GitHub's private vulnerability reporting, and which releases receive fixes (the latest).
 - Excel for Windows measures 25 families, the Mac's 27 but Courier and Helvetica (which the
   capture machine has no font for), in four styles: every glyph of the 218 (space, ASCII and the
   cp1252 characters) in whole pixels at every ppem from 11 to 32 at 96 dpi, sizes 8 to 24 and the
-  half sizes between, captured from Excel for Windows' autofit widths (CAPTURING item 85).
-  `measured_fonts(platform="windows")` lists them at 8 to 24.
+  half sizes between, captured from Excel for Windows' autofit widths (CAPTURING item 85, which
+  gives the autofit rule the tests check). A style a family has no font file for is the one
+  Windows synthesizes, measured as drawn. `measured_fonts(platform="windows")` lists them at 8
+  to 24; 0.9.0 measured Calibri, Aptos Narrow and Arial at 9 to 24 and raised `LookupError` for
+  the other families. A face's advances are decoded one ppem at a time on first use.
 - `row_metrics(platform="windows")` answers Calibri at 6 to 40 points and the half sizes
   between and at 41 to 72, and Aptos Narrow, Arial, Times New Roman and Courier New at 6 to 40,
   in four styles (CAPTURING item 86); it raised `LookupError` outside 9 to 24 points and for
   Times New Roman and Courier New.
+- `SECURITY.md`, linked from the README: what xlformat's code covers, how to report a security
+  problem privately through GitHub's private vulnerability reporting, where a problem in another
+  sheetmill package goes, and which releases receive fixes (the latest).
 
 ### Changed
 - On Windows a character outside ASCII measures by its own advance instead of the widest digit,
   and 8 points and every half size from 8.5 to 23.5 are measured instead of scaled from the
-  nearest size. Every committed rendering is unchanged.
-
+  nearest size. Sizes outside 8 to 24 points change too: they scale from the nearest measured
+  ppem instead of the nearest measured size (ten digits of Calibri 25 measure 120.0 points, 127.5
+  in 0.9.0; of Arial 6, 30.0 points, 37.5 in 0.9.0). Every committed rendering is unchanged.
 - On the Mac an italic face's overhang is one rule per face, `floor(a * S + b)` points, captured
-  at every whole size from 6 to 192 (CAPTURING item 87); sizes between the earlier captured ones
-  took the nearest one's overhang scaled and could be a point off (Verdana and Arial italic at
-  54 points: 11 and 10, now 10 and 9 as Excel shows); 2,126 of the 7,776 face and size pairs
-  from 6 to 192 change. Below 6 and above 192 the rule replaces the scaling, unverified either
-  way. Text insets and the fit of italic text change at those sizes.
+  at every whole size from 6 to 192 (CAPTURING item 87); 0.9.0 took the overhang between its
+  captured sizes from the nearest one, scaled, and could be a point off (Verdana and Arial
+  italic at 54 points: 11 and 10, now 10 and 9 as Excel shows). 2,126 of the 10,098 pairs of an
+  italic face and a whole size from 6 to 192 (54 faces, 187 sizes) change. Below 6 and above 192
+  the rule replaces the scaling, unverified either way. Text insets and the fit of italic text
+  change at those sizes.
+- Fit and `#` decisions above 192 points are captured in Calibri and Arial (194 to 318 points,
+  CAPTURING item 88): Excel rounds each glyph, as the package does, also where Calibri's autofit
+  sums a run unrounded (from 286 points). No result changes.
 
 ### Fixed
 - `row_metrics`, `vertical_metrics`, `rule_metrics` and `ink_metrics` measure MS Sans Serif as
