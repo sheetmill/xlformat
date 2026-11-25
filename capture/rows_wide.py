@@ -8,8 +8,8 @@ One workbook per family and style of :data:`TARGETS` (20), its Normal font Calib
 pixels at 96 dpi, CAPTURING.md section 2 item 69). Per size of the family, five rows: a cell in
 the face wrapped to 1, 2, 3 and 4 lines (one short glyph a line), and a one-line cell in the face
 beside a Normal-font cell wrapped to :func:`normal_lines` lines, tall enough to set the row's top.
-The job reads each row's height. ``read`` writes ``tests/captures/windows/row_height_wide.layout
-.tsv.gz``.
+The job reads each row's height. ``read`` writes
+``tests/captures/windows/row_height_wide.layout.tsv.gz``.
 
 Model (item 69): a row is ``max(lines * H - D) + max D`` over its cells, the Normal font a
 one-line cell among them. Then, with the Normal font's ``Hn`` and ``Dn``: the wrapped rows step by

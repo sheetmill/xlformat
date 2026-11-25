@@ -7,7 +7,8 @@ and compares it with the committed one). Reads ``tests/captures/windows/faces/``
 Model (Excel for Windows at 96 dpi): a cell font of size S draws at ppem ``floor(S * 4 / 3 + 0.5)``
 and every glyph advances a whole number of pixels. An autofit width is the text's advances W plus
 the padding P of its cell font plus a bonus pixel when ``W + overhang`` reaches 12 widths D of the
-Normal font's widest digit (every text here stays under 14). The padding of an upright face is
+Normal font's widest digit (one pixel at most: every text here stays under 16 widths, the widest
+15.7). The padding of an upright face is
 ``2 * ceil(d / 4) + 3``, d its widest digit; an italic face's excess over that is twice its
 overhang. P is twice the ``0`` five-run's width less the ten-run's, less nothing or the bonus,
 whichever makes every run whole; a run of n copies of a glyph is then n advances and a blank
@@ -71,7 +72,7 @@ def rule_padding(digit: int) -> int:
 
 
 def bonus(text_px: float, over: float, normal_digit: int) -> int:
-    """The autofit bonus in pixels: one from 12 Normal digit widths (texts under 14 only)."""
+    """The autofit bonus in pixels: one from 12 Normal digit widths (texts under 16 only)."""
     return 1 if text_px + over >= 12 * normal_digit else 0
 
 

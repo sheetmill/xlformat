@@ -107,15 +107,10 @@ evidence for each.
 ## Scope and known differences
 
 - **Excel mode measures 27 families on the Mac** (`measured_fonts()`: Calibri, Aptos Narrow, Arial,
-  Times New Roman, Verdana, Tahoma, Courier New and 20 more), regular, bold, italic and bold italic,
-  at any size (captured to 192 points, the same rule unverified above), by glyph advances recovered
-  from Excel for Mac's own autofit widths; MS Sans Serif measures as Times New Roman, as Excel for
-  Mac does (`font_substitutes()`). With `platform="windows"`, Excel for Windows (16.0.20527.20196,
-  Microsoft 365, en-US, 96 dpi) is measured for the same families but Courier and Helvetica, in
-  four styles at 8 to 24 points and the half sizes between, in whole pixels reported in
-  points; other sizes there are scaled from the nearest measured size and may differ from Excel
-  by a character near the edge of a column. Any other font raises
-  `LookupError`.
+  Times New Roman, Verdana, Tahoma, Courier New and 20 more) in four styles at any size, and the
+  same families but Courier and Helvetica on Windows (`platform="windows"`, 96 dpi); any other
+  font raises `LookupError`. The [Width page](https://xlformat.readthedocs.io/en/stable/width.html)
+  gives the sizes captured on each platform and how text is measured.
 - **Character mode is its own contract.** A `#` run is always `width` characters, and a value
   is judged by its character count, where Excel would fit or overflow some texts by glyph
   width.

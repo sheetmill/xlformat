@@ -135,8 +135,9 @@ How Excel measures, as reproduced here:
   `round(w · (MDW + P))` points.
 - A `<col width>` of `w` is `trunc((256 · w + trunc(128 / MDW)) / 256 · MDW)` points, the formula
   of ECMA-376 with the digit width in points and `w` first truncated to 1/256.
-- A text measures the sum of its glyph advances, rounded down. Advances are hinted per size, so
-  a hyphen is 3 points at 11 and 4 at 12 while a digit is 6 at both.
+- A text measures the sum of its glyphs' advances, each rounded half up to whole points from the
+  face's units per em (`u · S / E`; on Windows whole pixels at the size's ppem), so a Calibri
+  hyphen is 3 points at 11 and 4 at 12 while a digit is 6 at both.
 - A number fits when its measure is at most the budget. Otherwise it becomes as many `#` as fit,
   none in a column too narrow for one (`General` still shows one) and at most 255.
 - A `*` fill repeats as many times as fit in what is left. A number or text that would exceed 255
@@ -257,7 +258,11 @@ lists the fonts measured, and `font_substitutes` the names measured as another f
 96 dpi): the same rules in whole pixels, with glyph widths hinted for the screen, so a digit of
 Calibri 11 is 7 pixels (5.25 points) and a column is a whole number of pixels. Results stay in points. A column without a
 width is rounded up to a multiple of 8 pixels, and a fill stops at 255 characters where the Mac
-shows a `#` run.
+shows a `#` run. Text is measured in 25 families (`measured_fonts(platform="windows")`: the Mac's
+but Courier and Helvetica) in four styles at every ppem from 11 to 32, sizes 8 to 24 and the half
+sizes between; another size scales the nearest measured ppem and may differ from Excel by a
+character near the edge of a column. Row heights (`row_metrics`) cover Calibri at 6 to 72 points
+(the half sizes to 40) and Aptos Narrow, Arial, Times New Roman and Courier New at 6 to 40.
 
 ```python
 >>> from xlformat import digit_width

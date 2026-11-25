@@ -87,6 +87,7 @@ def test_user_facing_pages_state_the_current_rule() -> None:
     # superseded values and dated remarks belong in CAPTURING.md and the changelog
     superseded = re.compile(
         r"earlier version|An earlier|were removed on|\(was |\(20\d\d-\d\d-\d\d\)"
+        r"|advances, rounded down|hinted per size"
     )
     hits = [
         f"{path.relative_to(ROOT)}: {match[0]}"
@@ -100,6 +101,15 @@ def test_no_labels_without_a_target() -> None:
     label = re.compile(r"\(point [a-z]\)")
     hits = [str(path.relative_to(ROOT)) for path in MARKDOWN if label.search(path.read_text())]
     assert not hits
+
+
+def test_every_module_architecture_names_exists() -> None:
+    # a backticked `_name.py` (or `_glob_*.py`) in ARCHITECTURE.md is a module of src/xlformat
+    text = (ROOT / "ARCHITECTURE.md").read_text(encoding="utf-8")
+    names = set(re.findall(r"`(_[\w*]+\.py)`", text))
+    assert names
+    src = ROOT / "src" / "xlformat"
+    assert sorted(n for n in names if not list(src.glob(n))) == []
 
 
 def test_the_module_layout_lists_every_module() -> None:

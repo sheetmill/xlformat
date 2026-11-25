@@ -388,9 +388,9 @@ sign when the section has literals (`General"x"` shows `0x`) but keeps it when t
 bare `General` (`-0.05` at width 3 shows `-0`). `FormattedCell.fill` reports the position in
 `text`. Section 13 gives the timings.
 
-**Excel mode** (`_measure.py`, the `_glyphs_*.py` tables; suites `measure11`,
-`measure12` and the width suites; `CAPTURING.md` §2 items 24 and 25). Excel for Mac works in whole
-points. A column of `w` units is `round(MDW · w + P)` points, MDW being the maximum digit width of
+**Excel mode** (`_measure.py`, the `_faces_mac.py` and `_faces_windows.py` tables; suites
+`measure11`, `measure12` and the width suites; `CAPTURING.md` §2 items 24 and 25). Excel for Mac
+works in whole points. A column of `w` units is `round(MDW · w + P)` points, MDW being the maximum digit width of
 the Normal font: 5 points at 9 and 10, 6 at 11 and 12 (so 8.43 snaps to 8.5 units, 56 points at
 Calibri 11), 7 at 14, 8 at 16, 9 at 18, 10 at 20, 12 at 24, in Calibri and Aptos Narrow alike;
 Arial's digit is 5, 6, 6, 7, 8, 9, 10, 11 and 13 from 9 to 24. `P` is the padding,

@@ -13,12 +13,14 @@ that the workbooks reach every ppem from 11 to 32 at 96 dpi (``ppem = size * 96 
 rounded up): 8 points is ppem 10.67, 8.5 is 11.33, 24 is 32. Per cell font, each in its own
 column: every glyph of :data:`capture.faces.GLYPHS` five times (three times for
 :data:`WIDE`), the space, the no-break space and the soft hyphen five times between two ``x``,
-``0`` ten times and the mixed texts of :data:`CHECKS`. Every text stays under
-:data:`capture.faces.LIMIT_DIGITS` widths of the Normal font's digit, so that no column earns
-the autofit bonus. A five-run's width less the padding is five whole advances; the padding is
-twice the ``0`` five-run's width less the ten-run's.
+``0`` ten times and the mixed texts of :data:`CHECKS`. Every text stays under 16 widths of the
+Normal font's widest digit (the widest reaches 15.7), where it gains at most the autofit bonus's
+first pixel, from 12 widths (CAPTURING.md item 85); some long texts and ten-runs reach it, and
+``capture/face_fit_windows.py`` fits it. A five-run's width less the padding
+is five whole advances; the padding is twice the ``0`` five-run's width less the ten-run's, less
+the bonus where the ten-run earns it.
 
-``capture/face_fit.py --windows`` reads the measure files the job's ``read`` writes to
+``capture/face_fit_windows.py`` reads the measure files the job's ``read`` writes to
 ``tests/captures/windows/faces/``.
 """
 

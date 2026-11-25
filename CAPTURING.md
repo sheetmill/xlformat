@@ -1624,7 +1624,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       property of the face, not one size. Sizes above 192 points are answered by the same
       per-character rule, unverified: this group measures autofit only, and no capture shows
       fit, `#` or fill decisions above 192 points, where the rounding of each character could
-      stop as autofit's does (Calibri from 286).
+      stop as autofit's does (Calibri from 286). Item 88 later captured fit and `#` decisions of
+      digit runs in Calibri and Arial from 194 to 318 points: each character rounds there too.
+      Fill decisions above 192 points and the other faces' fit there stay uncaptured.
 
     The rule, on every check row but the runs of spaces, no-break spaces and soft hyphens
     (56,896 of 56,896): an ASCII character's advance is `u · S / E` rounded half up to whole
@@ -1689,8 +1691,10 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       where the Mac's autofit starts at 15. The `0` ten-runs of ten italic cell fonts at ppem 13 and
       14 reach it (70 pixels and an overhang of 2 against a Normal digit of 6: Aptos Narrow and
       Calibri 9.5, Times New Roman 9.5 to 10.5), so the padding is the one that makes every run
-      whole, not twice the five-run less the ten-run. Higher steps are not reached: every text stays
-      under 14 widths.
+      whole, not twice the five-run less the ten-run. Every text of the first four families stays
+      under 14 widths; with the other families (below) texts reach 15.7 widths (Lucida Console
+      9.5 bold italic, `naïve résumé`) and still gain a single pixel, so no second step falls
+      below that.
     - **Hinting.** The advances follow the faces' units (item 82) scaled to the ppem and rounded
       in all but 0.7% to 3.3% of a style's advances in Aptos Narrow and Calibri, 7% to 14% in
       Arial and 7% to 23% in Times New Roman (98 of 218 glyphs at its regular ppem 29). The

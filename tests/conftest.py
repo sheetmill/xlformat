@@ -7,9 +7,9 @@ def pytest_addoption(parser: pytest.Parser) -> None:
         choices=["fast", "full"],
         default="full",
         help=(
-            "Capture tier: 'full' (default, every captured row, about 25 s) or 'fast' "
-            "(the per-format sample, about 10 s); each about 12 s more on a first run, "
-            "while the written capture jobs are not yet in pytest's cache."
+            "Capture tier: 'full' (default, every captured row) or 'fast' (the per-format "
+            "sample); ARCHITECTURE.md section 13 gives the timings, with and without "
+            "pytest's cache."
         ),
     )
     parser.addoption(
