@@ -1661,7 +1661,9 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     accounting line by item 81's rule, right-aligned text (plain and accounting) further in by
     the face's overhang at the screen size (Calibri 11 italic: 2 points of clear space and 2 of
     overhang, 4 in all). One row, Arial 36 italic at zoom 150 (screen size 54), reads a screen
-    point less than the overhang scaled from 56's, as Verdana's did in item 83.
+    point less than the overhang scaled from 56's, as Verdana's did in item 83. The face row read
+    first in the workbook, Calibri 11 italic, reads its right accounting cell's ink past its line,
+    as the first rows of items 81 and 83 did.
 
 ## 3. The pipeline
 
