@@ -3,11 +3,12 @@
 Every ``measure*.measure.tsv`` (Excel for Mac in ``tests/captures/``, Excel for Windows at 96 dpi
 in ``tests/captures/windows/``) is fitted again as ``capture/glyph_fit.py`` fits it: each glyph's
 advance from its ten-run less the autofit padding, the italic overhang from the padding. On
-Windows the result must equal the table and overhang the package ships for that face. On the
-Mac it must equal the rule's whole advance plus a tenth per point of autofit bonus the ten-run
-earns (``max(0, floor(W / D / 5) - 2)``, W the run's width, D the Normal font's digit), and the
-overhang the package ships. The space, which autofit cannot resolve, is checked by the
-``space_fill`` suites in ``tests/test_captures.py``.
+Windows the whole part of each advance must equal the pixels the package measures at the size's
+ppem (``capture/face_fit_windows.py``), the tenths being autofit's bonus on a wide glyph's
+ten-run, and the overhang the package's. On the Mac it must equal the rule's whole advance plus
+a tenth per point of autofit bonus the ten-run earns (``max(0, floor(W / D / 5) - 2)``, W the
+run's width, D the Normal font's digit), and the overhang the package ships. The space, which
+autofit cannot resolve, is checked by the ``space_fill`` suites in ``tests/test_captures.py``.
 """
 
 from __future__ import annotations
@@ -42,10 +43,10 @@ def test_shipped_table_is_the_fit(
     adv, pad, *_ = glyph_fit.fit(measured)
     over = (pad - column_padding(adv["0"]) - 2) / 2
     if platform is Platform.WINDOWS:
-        fonts, overhangs = _measure._FONTS_WINDOWS, _measure._OVERHANG_WINDOWS
-        shipped = fonts[face.name.lower()][1][face.style][int(face.size)]
-        assert {c: a for c, a in shipped.items() if c != " "} == adv
-        assert overhangs[face.name.lower()].get(face.style, {}).get(int(face.size), 0) == over
+        assert _measure._windows_ppem(face.size) in _measure._faces_windows.PPEMS
+        shipped = _measure._whole_advances(face.name, face.size, face.style, "windows")
+        assert {c: shipped[c] for c in adv} == {c: math.floor(a + 1e-9) for c, a in adv.items()}
+        assert _measure._overhang(face.name, face.size, face.style, "windows") == over
         return
     whole = _measure._whole_advances(face.name, face.size, face.style)
     digit = _measure._whole_advances(normal.name, normal.size, normal.style)[""]

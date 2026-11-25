@@ -29,6 +29,8 @@ import openpyxl
 from capture.job import GROUPS, write
 from capture.schema import read_header
 
+from capture import faces_windows
+
 ROOT = Path(__file__).parent.parent
 WINDOWS = Path(__file__).parent / "captures" / "windows"
 # the groups whose job writes one layout file instead of suite files
@@ -56,6 +58,15 @@ def _header(group: str) -> dict[str, object]:
                 in (other.read_text(encoding="utf-8"))
             )
         return screen_header
+    if group == faces_windows.GROUP:  # each measure file's second line, the same in all
+        faces_headers = set()
+        for name in GROUPS[group]:
+            with gzip.open(faces_windows.FACES_DIR / f"{name}.measure.tsv.gz", "rt") as f:
+                f.readline()
+                faces_headers.add(f.readline().removeprefix("# job_header: "))
+        assert len(faces_headers) == 1
+        faces_header: dict[str, object] = json.loads(faces_headers.pop())
+        return faces_header
     if group in LAYOUTS:  # a layout file holds the header of its group
         path = WINDOWS / LAYOUTS[group]
         opener = gzip.open if path.suffix == ".gz" else open

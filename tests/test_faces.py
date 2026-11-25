@@ -103,7 +103,8 @@ def test_measured_fonts_lists_every_face_in_four_styles() -> None:
     assert list(fonts) == list(faces.FAMILIES)
     assert fonts["Calibri"]["bold italic"] == (9, 10, 11, 12, 13, 14, 16, 18, 20, 24)
     assert fonts["Verdana"]["regular"] == (10, 13)
-    assert set(xlformat.measured_fonts(platform="windows")) == {"Calibri", "Aptos Narrow", "Arial"}
+    windows = {"Aptos Narrow", "Calibri", "Arial", "Times New Roman"}
+    assert set(xlformat.measured_fonts(platform="windows")) == windows
 
 
 def test_fit_measures_every_glyph_whole() -> None:

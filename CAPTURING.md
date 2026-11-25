@@ -1665,6 +1665,41 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     first in the workbook, Calibri 11 italic, reads its right accounting cell's ink past its line,
     as the first rows of items 81 and 83 did.
 
+85. **Whole-pixel advances per ppem on Windows (2026-11-24; group `faces_windows`,
+    `capture/faces_windows.py`, `capture/face_fit_windows.py`; Excel 16.0.20527.20196, Microsoft
+    365, Current Channel, 96 dpi; files in `tests/captures/windows/faces/`).** One workbook per
+    face and whole size from 8 to 24 points, for Aptos Narrow, Calibri, Arial and Times New
+    Roman (68 workbooks, 120,912 columns, 15 minutes), its Normal font the face's regular style
+    at that size; its cell fonts the four styles at the size and at the half size above it
+    (none above 24), 528 cell fonts reaching every ppem from 11 to 32. Per cell font, autofitted
+    one per column: every one of the 218 characters (space, printable ASCII, the cp1252 code
+    page's others) five times (`W M @ % Æ Œ … ‰` three times), the space, the no-break space
+    and the soft hyphen five times between two `x`, `0` ten times, and ten texts mixing ASCII
+    and other characters. The job's header records Arial 7.07 and Times New Roman 7.13.
+    - **Whole pixels.** Every run is a whole number of advances: no character, ASCII or not,
+      sums unrounded as the Mac's autofit does (item 82). Each text's width is its advances,
+      the padding of its cell font and the bonus below, in all 120,912 columns, the ten mixed
+      texts included. The padding is item 82's rule in pixels, `2·ceil(d/4) + 3` for an upright
+      face (d its widest digit), more by twice the overhang for an italic one.
+    - **A ppem per size.** A size draws at ppem `size · 96 / 72`, a half rounded up: the eleven
+      ppems that two sizes reach (8 and 8.5 at 11, 9.5 and 10 at 13, 23 and 23.5 at 31) give the
+      same advances and overhang in every glyph, face and style.
+    - **The bonus.** A text gains one pixel once its advances and the overhang reach 12 digit
+      widths of the Normal font (92 columns: from 12.00 widths every one, below 11.93 none),
+      where the Mac's autofit starts at 15. The `0` ten-runs of ten italic cell fonts at ppem 13
+      and 14 reach it (70 pixels and an overhang of 2 against a Normal digit of 6: Aptos Narrow
+      and Calibri 9.5, Times New Roman 9.5 to 10.5), so the padding is the one that makes every run whole, not twice the five-run less
+      the ten-run. Higher steps are not reached: every text stays under 14 widths.
+    - **Hinting.** The advances follow the faces' units (item 82) scaled to the ppem and rounded
+      in all but 0.7% to 3.3% of a style's advances in Aptos Narrow and Calibri, 7% to 14% in
+      Arial and 7% to 23% in Times New Roman (98 of 218 glyphs at its regular ppem 29). The
+      overhang of the italic styles is 2 pixels at ppem 11 and grows to 5 or 6 at 32.
+    - **Earlier tables.** The 216 per-size suites of item 65 (Calibri, Aptos Narrow and Arial
+      at 9 to 24 points, ASCII only) give the same whole advance for every glyph and the same
+      overhang (`tests/test_glyph_tables.py`); their tenths are this bonus on a wide glyph's
+      ten-run. With these advances every committed rendering is unchanged; before them a
+      character outside ASCII measured as the widest digit on Windows.
+
 ## 3. The pipeline
 
 ```
@@ -1681,7 +1716,10 @@ capture/tiers.py, retier.py   fast-tier rule and the command that reapplies it w
 capture/schema.py             the TSV schema (frozen, see below), reader and writer
 capture/convert_2023.py       the 2023 clipboard capture into the schema (capture2023.tsv.gz)
 capture/rounding_models.py    model comparison for the 15-digit rule
-capture/glyph_fit.py          glyph tables from the measure and space_fill suites (items 26, 30)
+capture/glyph_fit.py          fits the per-size measure suites, for tests/test_glyph_tables.py
+                             (items 26, 30)
+capture/faces_windows.py      Excel for Windows: autofit runs per face, style and ppem (item 85)
+capture/face_fit_windows.py   the Windows advances per ppem -> src/xlformat/_faces_windows.py
 capture/alignment.py          default alignment through Excel's PDF export (item 31)
 capture/row_heights.py        row heights per Normal font, cell font and wrapped line (item 44)
 capture/vertical_pdf.py       vertical placement in the PDF export, a probe (item 46)

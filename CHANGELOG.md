@@ -10,6 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `SECURITY.md`, linked from the README: how to report a security problem privately, through
   GitHub's private vulnerability reporting, and which releases receive fixes (the latest).
+- Excel for Windows measures Times New Roman, beside Aptos Narrow, Calibri and Arial, in four
+  styles: every glyph of the 218 (space, ASCII and the cp1252 characters) in whole pixels at
+  every ppem from 11 to 32 at 96 dpi, sizes 8 to 24 and the half sizes between, captured from
+  Excel for Windows' autofit widths. `measured_fonts(platform="windows")` lists 8 to 24.
+
+### Changed
+- On Windows a character outside ASCII measures by its own advance instead of the widest digit,
+  and 8 points and every half size from 8.5 to 23.5 are measured instead of scaled from the
+  nearest size. Every committed rendering is unchanged.
 
 ## [0.9.0] - 2026-11-24
 

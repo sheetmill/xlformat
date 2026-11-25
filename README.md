@@ -111,9 +111,10 @@ evidence for each.
   at any size (captured to 192 points, the same rule unverified above), by glyph advances recovered
   from Excel for Mac's own autofit widths; MS Sans Serif measures as Times New Roman, as Excel for
   Mac does (`font_substitutes()`). With `platform="windows"`, Excel for Windows (16.0.20527.20196,
-  Microsoft 365, en-US, 96 dpi) is measured for Calibri, Aptos Narrow and Arial at 9 to 24 points,
-  in whole pixels reported in points; other sizes there are scaled from the nearest measured size
-  and may differ from Excel by a character near the edge of a column. Any other font raises
+  Microsoft 365, en-US, 96 dpi) is measured for Aptos Narrow, Calibri, Arial and Times New Roman
+  in four styles at 8 to 24 points and the half sizes between, in whole pixels reported in
+  points; other sizes there are scaled from the nearest measured size and may differ from Excel
+  by a character near the edge of a column. Any other font raises
   `LookupError`.
 - **Character mode is its own contract.** A `#` run is always `width` characters, and a value
   is judged by its character count, where Excel would fit or overflow some texts by glyph
