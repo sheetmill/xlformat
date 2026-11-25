@@ -27,7 +27,7 @@ import sys
 from pathlib import Path
 
 from capture.cases import CellFont
-from capture.row_heights import Cell, RowCase, _lines
+from capture.row_cases import Cell, RowCase, _lines
 
 ROOT = Path(__file__).resolve().parents[1]
 LAYOUT = ROOT / "tests" / "captures" / "windows" / "row_height_wide.layout.tsv.gz"

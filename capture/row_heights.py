@@ -22,13 +22,13 @@ import datetime as dt
 import gzip
 import json
 import sys
-from dataclasses import dataclass
 from pathlib import Path
 
 from capture.build import BUILD_DIR, WORKBOOK_DIR
 from capture.cases import CellFont
 from capture.edition import edition_line, excel_build
 from capture.excel_watch import answers, osascript_or_exit
+from capture.row_cases import Cell, RowCase, _lines
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "tests" / "captures" / "row_height.layout.tsv.gz"
@@ -49,28 +49,6 @@ def fonts() -> tuple[CellFont, ...]:
         for size in SIZES
         for bold, italic in STYLES
     )
-
-
-@dataclass(frozen=True, slots=True)
-class Cell:
-    """One cell of a row: column (1 = A), value (None: empty but styled), font, wrap."""
-
-    column: int
-    value: object
-    font: CellFont | None = None
-    wrap: bool = False
-
-
-@dataclass(frozen=True, slots=True)
-class RowCase:
-    """One row of every workbook; ``cells`` empty means the row has no element."""
-
-    tag: str
-    cells: tuple[Cell, ...]
-
-
-def _lines(n: int) -> str:
-    return "\n".join(["x"] * n)  # one short glyph a line: no line wraps at any width
 
 
 def rows() -> tuple[RowCase, ...]:
