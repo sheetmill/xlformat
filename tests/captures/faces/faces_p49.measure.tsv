@@ -1,0 +1,226 @@
+# autofit column width (Excel units) per distinct (value, format); font: Calibri 49
+value_type	value_repr	format	autofit_width	autofit_points	cell_font
+str	'00000'	'@'	5.08	142.0	Calibri 49
+str	'0000000000'	'@'	10.08	267.0	Calibri 49
+str	'00000'	'@'	5.08	142.0	Calibri 49 bold
+str	'0000000000'	'@'	10.08	267.0	Calibri 49 bold
+str	'00000'	'@'	5.8	160.0	Calibri 49 italic
+str	'0000000000'	'@'	10.8	285.0	Calibri 49 italic
+str	'00000'	'@'	5.8	160.0	Calibri 49 bold italic
+str	'0000000000'	'@'	10.8	285.0	Calibri 49 bold italic
+str	'00000'	'@'	5.48	152.0	Arial 49
+str	'0000000000'	'@'	10.88	287.0	Arial 49
+str	'00000'	'@'	5.48	152.0	Arial 49 bold
+str	'0000000000'	'@'	10.88	287.0	Arial 49 bold
+str	'00000'	'@'	6.12	168.0	Arial 49 italic
+str	'0000000000'	'@'	11.52	303.0	Arial 49 italic
+str	'00000'	'@'	6.12	168.0	Arial 49 bold italic
+str	'0000000000'	'@'	11.52	303.0	Arial 49 bold italic
+str	'00000'	'@'	5.08	142.0	Aptos Narrow 49
+str	'0000000000'	'@'	10.08	267.0	Aptos Narrow 49
+str	'00000'	'@'	5.08	142.0	Aptos Narrow 49 bold
+str	'0000000000'	'@'	10.08	267.0	Aptos Narrow 49 bold
+str	'00000'	'@'	5.8	160.0	Aptos Narrow 49 italic
+str	'0000000000'	'@'	10.8	285.0	Aptos Narrow 49 italic
+str	'00000'	'@'	5.8	160.0	Aptos Narrow 49 bold italic
+str	'0000000000'	'@'	10.8	285.0	Aptos Narrow 49 bold italic
+str	'00000'	'@'	5.28	147.0	Aptos 49
+str	'0000000000'	'@'	10.48	277.0	Aptos 49
+str	'00000'	'@'	5.28	147.0	Aptos 49 bold
+str	'0000000000'	'@'	10.48	277.0	Aptos 49 bold
+str	'00000'	'@'	6.0	165.0	Aptos 49 italic
+str	'0000000000'	'@'	11.2	295.0	Aptos 49 italic
+str	'00000'	'@'	6.0	165.0	Aptos 49 bold italic
+str	'0000000000'	'@'	11.2	295.0	Aptos 49 bold italic
+str	'00000'	'@'	6.84	186.0	Arial Black 49
+str	'0000000000'	'@'	13.44	351.0	Arial Black 49
+str	'00000'	'@'	6.84	186.0	Arial Black 49 bold
+str	'0000000000'	'@'	13.44	351.0	Arial Black 49 bold
+str	'00000'	'@'	7.64	206.0	Arial Black 49 italic
+str	'0000000000'	'@'	14.24	371.0	Arial Black 49 italic
+str	'00000'	'@'	7.64	206.0	Arial Black 49 bold italic
+str	'0000000000'	'@'	14.24	371.0	Arial Black 49 bold italic
+str	'00000'	'@'	4.4	125.0	Arial Narrow 49
+str	'0000000000'	'@'	8.8	235.0	Arial Narrow 49
+str	'00000'	'@'	4.4	125.0	Arial Narrow 49 bold
+str	'0000000000'	'@'	8.8	235.0	Arial Narrow 49 bold
+str	'00000'	'@'	5.12	143.0	Arial Narrow 49 italic
+str	'0000000000'	'@'	9.52	253.0	Arial Narrow 49 italic
+str	'00000'	'@'	5.12	143.0	Arial Narrow 49 bold italic
+str	'0000000000'	'@'	9.52	253.0	Arial Narrow 49 bold italic
+str	'00000'	'@'	5.08	142.0	Book Antiqua 49
+str	'0000000000'	'@'	10.08	267.0	Book Antiqua 49
+str	'00000'	'@'	5.08	142.0	Book Antiqua 49 bold
+str	'0000000000'	'@'	10.08	267.0	Book Antiqua 49 bold
+str	'00000'	'@'	5.8	160.0	Book Antiqua 49 italic
+str	'0000000000'	'@'	10.8	285.0	Book Antiqua 49 italic
+str	'00000'	'@'	5.8	160.0	Book Antiqua 49 bold italic
+str	'0000000000'	'@'	10.8	285.0	Book Antiqua 49 bold italic
+str	'00000'	'@'	6.16	169.0	Bookman Old Style 49
+str	'0000000000'	'@'	12.16	319.0	Bookman Old Style 49
+str	'00000'	'@'	6.56	179.0	Bookman Old Style 49 bold
+str	'0000000000'	'@'	12.96	339.0	Bookman Old Style 49 bold
+str	'00000'	'@'	6.88	187.0	Bookman Old Style 49 italic
+str	'0000000000'	'@'	12.88	337.0	Bookman Old Style 49 italic
+str	'00000'	'@'	7.56	204.0	Bookman Old Style 49 bold italic
+str	'0000000000'	'@'	14.16	369.0	Bookman Old Style 49 bold italic
+str	'00000'	'@'	5.08	142.0	Calibri Light 49
+str	'0000000000'	'@'	10.08	267.0	Calibri Light 49
+str	'00000'	'@'	5.08	142.0	Calibri Light 49 bold
+str	'0000000000'	'@'	10.08	267.0	Calibri Light 49 bold
+str	'00000'	'@'	5.8	160.0	Calibri Light 49 italic
+str	'0000000000'	'@'	10.8	285.0	Calibri Light 49 italic
+str	'00000'	'@'	5.8	160.0	Calibri Light 49 bold italic
+str	'0000000000'	'@'	10.8	285.0	Calibri Light 49 bold italic
+str	'00000'	'@'	5.48	152.0	Cambria 49
+str	'0000000000'	'@'	10.88	287.0	Cambria 49
+str	'00000'	'@'	5.96	164.0	Cambria 49 bold
+str	'0000000000'	'@'	11.76	309.0	Cambria 49 bold
+str	'00000'	'@'	6.0	165.0	Cambria 49 italic
+str	'0000000000'	'@'	11.2	295.0	Cambria 49 italic
+str	'00000'	'@'	6.4	175.0	Cambria 49 bold italic
+str	'0000000000'	'@'	12.0	315.0	Cambria 49 bold italic
+str	'00000'	'@'	5.48	152.0	Candara 49
+str	'0000000000'	'@'	10.88	287.0	Candara 49
+str	'00000'	'@'	5.28	147.0	Candara 49 bold
+str	'0000000000'	'@'	10.48	277.0	Candara 49 bold
+str	'00000'	'@'	5.84	161.0	Candara 49 italic
+str	'0000000000'	'@'	11.04	291.0	Candara 49 italic
+str	'00000'	'@'	6.04	166.0	Candara 49 bold italic
+str	'0000000000'	'@'	11.44	301.0	Candara 49 bold italic
+str	'00000'	'@'	5.48	152.0	Century Gothic 49
+str	'0000000000'	'@'	10.88	287.0	Century Gothic 49
+str	'00000'	'@'	5.48	152.0	Century Gothic 49 bold
+str	'0000000000'	'@'	10.88	287.0	Century Gothic 49 bold
+str	'00000'	'@'	6.2	170.0	Century Gothic 49 italic
+str	'0000000000'	'@'	11.6	305.0	Century Gothic 49 italic
+str	'00000'	'@'	6.2	170.0	Century Gothic 49 bold italic
+str	'0000000000'	'@'	11.6	305.0	Century Gothic 49 bold italic
+str	'00000'	'@'	6.16	169.0	Comic Sans MS 49
+str	'0000000000'	'@'	12.16	319.0	Comic Sans MS 49
+str	'00000'	'@'	6.16	169.0	Comic Sans MS 49 bold
+str	'0000000000'	'@'	12.16	319.0	Comic Sans MS 49 bold
+str	'00000'	'@'	6.96	189.0	Comic Sans MS 49 italic
+str	'0000000000'	'@'	12.96	339.0	Comic Sans MS 49 italic
+str	'00000'	'@'	6.96	189.0	Comic Sans MS 49 bold italic
+str	'0000000000'	'@'	12.96	339.0	Comic Sans MS 49 bold italic
+str	'00000'	'@'	5.48	152.0	Consolas 49
+str	'0000000000'	'@'	10.88	287.0	Consolas 49
+str	'00000'	'@'	5.48	152.0	Consolas 49 bold
+str	'0000000000'	'@'	10.88	287.0	Consolas 49 bold
+str	'00000'	'@'	6.04	166.0	Consolas 49 italic
+str	'0000000000'	'@'	11.44	301.0	Consolas 49 italic
+str	'00000'	'@'	6.04	166.0	Consolas 49 bold italic
+str	'0000000000'	'@'	11.44	301.0	Consolas 49 bold italic
+str	'00000'	'@'	5.96	164.0	Courier 49
+str	'0000000000'	'@'	11.76	309.0	Courier 49
+str	'00000'	'@'	5.96	164.0	Courier 49 bold
+str	'0000000000'	'@'	11.76	309.0	Courier 49 bold
+str	'00000'	'@'	6.6	180.0	Courier 49 italic
+str	'0000000000'	'@'	12.4	325.0	Courier 49 italic
+str	'00000'	'@'	6.6	180.0	Courier 49 bold italic
+str	'0000000000'	'@'	12.4	325.0	Courier 49 bold italic
+str	'00000'	'@'	5.96	164.0	Courier New 49
+str	'0000000000'	'@'	11.76	309.0	Courier New 49
+str	'00000'	'@'	5.96	164.0	Courier New 49 bold
+str	'0000000000'	'@'	11.76	309.0	Courier New 49 bold
+str	'00000'	'@'	6.6	180.0	Courier New 49 italic
+str	'0000000000'	'@'	12.4	325.0	Courier New 49 italic
+str	'00000'	'@'	6.6	180.0	Courier New 49 bold italic
+str	'0000000000'	'@'	12.4	325.0	Courier New 49 bold italic
+str	'00000'	'@'	4.6	130.0	Garamond 49
+str	'0000000000'	'@'	9.2	245.0	Garamond 49
+str	'00000'	'@'	4.6	130.0	Garamond 49 bold
+str	'0000000000'	'@'	9.2	245.0	Garamond 49 bold
+str	'00000'	'@'	5.24	146.0	Garamond 49 italic
+str	'0000000000'	'@'	9.84	261.0	Garamond 49 italic
+str	'00000'	'@'	5.24	146.0	Garamond 49 bold italic
+str	'0000000000'	'@'	9.84	261.0	Garamond 49 bold italic
+str	'00000'	'@'	6.16	169.0	Georgia 49
+str	'0000000000'	'@'	12.16	319.0	Georgia 49
+str	'00000'	'@'	7.04	191.0	Georgia 49 bold
+str	'0000000000'	'@'	13.84	361.0	Georgia 49 bold
+str	'00000'	'@'	6.88	187.0	Georgia 49 italic
+str	'0000000000'	'@'	12.88	337.0	Georgia 49 italic
+str	'00000'	'@'	7.76	209.0	Georgia 49 bold italic
+str	'0000000000'	'@'	14.56	379.0	Georgia 49 bold italic
+str	'00000'	'@'	3.8	110.0	Haettenschweiler 49
+str	'0000000000'	'@'	7.6	205.0	Haettenschweiler 49
+str	'00000'	'@'	3.8	110.0	Haettenschweiler 49 bold
+str	'0000000000'	'@'	7.6	205.0	Haettenschweiler 49 bold
+str	'00000'	'@'	4.44	126.0	Haettenschweiler 49 italic
+str	'0000000000'	'@'	8.24	221.0	Haettenschweiler 49 italic
+str	'00000'	'@'	4.44	126.0	Haettenschweiler 49 bold italic
+str	'0000000000'	'@'	8.24	221.0	Haettenschweiler 49 bold italic
+str	'00000'	'@'	5.48	152.0	Helvetica 49
+str	'0000000000'	'@'	10.88	287.0	Helvetica 49
+str	'00000'	'@'	5.48	152.0	Helvetica 49 bold
+str	'0000000000'	'@'	10.88	287.0	Helvetica 49 bold
+str	'00000'	'@'	6.04	166.0	Helvetica 49 italic
+str	'0000000000'	'@'	11.44	301.0	Helvetica 49 italic
+str	'00000'	'@'	6.04	166.0	Helvetica 49 bold italic
+str	'0000000000'	'@'	11.44	301.0	Helvetica 49 bold italic
+str	'00000'	'@'	5.28	147.0	Impact 49
+str	'0000000000'	'@'	10.48	277.0	Impact 49
+str	'00000'	'@'	5.28	147.0	Impact 49 bold
+str	'0000000000'	'@'	10.48	277.0	Impact 49 bold
+str	'00000'	'@'	6.0	165.0	Impact 49 italic
+str	'0000000000'	'@'	11.2	295.0	Impact 49 italic
+str	'00000'	'@'	6.0	165.0	Impact 49 bold italic
+str	'0000000000'	'@'	11.2	295.0	Impact 49 bold italic
+str	'00000'	'@'	6.16	169.0	Lucida Console 49
+str	'0000000000'	'@'	12.16	319.0	Lucida Console 49
+str	'00000'	'@'	6.16	169.0	Lucida Console 49 bold
+str	'0000000000'	'@'	12.16	319.0	Lucida Console 49 bold
+str	'00000'	'@'	6.72	183.0	Lucida Console 49 italic
+str	'0000000000'	'@'	12.72	333.0	Lucida Console 49 italic
+str	'00000'	'@'	6.72	183.0	Lucida Console 49 bold italic
+str	'0000000000'	'@'	12.72	333.0	Lucida Console 49 bold italic
+str	'00000'	'@'	5.48	152.0	Rockwell 49
+str	'0000000000'	'@'	10.88	287.0	Rockwell 49
+str	'00000'	'@'	5.48	152.0	Rockwell 49 bold
+str	'0000000000'	'@'	10.88	287.0	Rockwell 49 bold
+str	'00000'	'@'	6.0	165.0	Rockwell 49 italic
+str	'0000000000'	'@'	11.2	295.0	Rockwell 49 italic
+str	'00000'	'@'	6.2	170.0	Rockwell 49 bold italic
+str	'0000000000'	'@'	11.6	305.0	Rockwell 49 bold italic
+str	'00000'	'@'	5.48	152.0	Tahoma 49
+str	'0000000000'	'@'	10.88	287.0	Tahoma 49
+str	'00000'	'@'	6.36	174.0	Tahoma 49 bold
+str	'0000000000'	'@'	12.56	329.0	Tahoma 49 bold
+str	'00000'	'@'	6.2	170.0	Tahoma 49 italic
+str	'0000000000'	'@'	11.6	305.0	Tahoma 49 italic
+str	'00000'	'@'	7.08	192.0	Tahoma 49 bold italic
+str	'0000000000'	'@'	13.28	347.0	Tahoma 49 bold italic
+str	'00000'	'@'	5.08	142.0	Times New Roman 49
+str	'0000000000'	'@'	10.08	267.0	Times New Roman 49
+str	'00000'	'@'	5.08	142.0	Times New Roman 49 bold
+str	'0000000000'	'@'	10.08	267.0	Times New Roman 49 bold
+str	'00000'	'@'	5.72	158.0	Times New Roman 49 italic
+str	'0000000000'	'@'	10.72	283.0	Times New Roman 49 italic
+str	'00000'	'@'	5.72	158.0	Times New Roman 49 bold italic
+str	'0000000000'	'@'	10.72	283.0	Times New Roman 49 bold italic
+str	'00000'	'@'	5.28	147.0	Trebuchet MS 49
+str	'0000000000'	'@'	10.48	277.0	Trebuchet MS 49
+str	'00000'	'@'	5.96	164.0	Trebuchet MS 49 bold
+str	'0000000000'	'@'	11.76	309.0	Trebuchet MS 49 bold
+str	'00000'	'@'	6.0	165.0	Trebuchet MS 49 italic
+str	'0000000000'	'@'	11.2	295.0	Trebuchet MS 49 italic
+str	'00000'	'@'	6.68	182.0	Trebuchet MS 49 bold italic
+str	'0000000000'	'@'	12.48	327.0	Trebuchet MS 49 bold italic
+str	'00000'	'@'	6.36	174.0	Verdana 49
+str	'0000000000'	'@'	12.56	329.0	Verdana 49
+str	'00000'	'@'	7.24	196.0	Verdana 49 bold
+str	'0000000000'	'@'	14.24	371.0	Verdana 49 bold
+str	'00000'	'@'	7.08	192.0	Verdana 49 italic
+str	'0000000000'	'@'	13.28	347.0	Verdana 49 italic
+str	'00000'	'@'	7.96	214.0	Verdana 49 bold italic
+str	'0000000000'	'@'	14.96	389.0	Verdana 49 bold italic
+str	'00000'	'@'	5.28	147.0	Segoe UI 49
+str	'0000000000'	'@'	10.48	277.0	Segoe UI 49
+str	'00000'	'@'	5.68	157.0	Segoe UI 49 bold
+str	'0000000000'	'@'	11.28	297.0	Segoe UI 49 bold
+str	'00000'	'@'	5.28	147.0	Segoe UI 49 italic
+str	'0000000000'	'@'	10.48	277.0	Segoe UI 49 italic
+str	'00000'	'@'	5.68	157.0	Segoe UI 49 bold italic
+str	'0000000000'	'@'	11.28	297.0	Segoe UI 49 bold italic

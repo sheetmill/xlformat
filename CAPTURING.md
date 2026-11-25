@@ -1725,6 +1725,21 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     faces item 69 measured agree in H and D; sizes that draw at one ppem have one H and one D (872
     ppems, half sizes included).
 
+87. **The padding at every size from 31 to 192, and the overhang's rule (2026-11-24;
+    `capture/faces.py`, group `padding_more`; Excel for Mac 16.115, Microsoft 365 Subscription,
+    in a macOS virtual machine; files `tests/captures/faces/faces_p<size>`).** Item 82's padding
+    workbook at each of the 151 whole sizes from 31 to 192 it had not captured (33,824 columns,
+    21 minutes), so that every whole size from 6 to 192 is captured. Every upright face's
+    padding holds item 82's rule at every new size. For each italic face the 187 overhangs are
+    one rule, `floor(a · S + b)` points: every pair of sizes bounds a, their intersection is
+    an open interval for all 54 italic faces, and `capture/face_fit.py` stores the fractions of
+    smallest denominator in it (Calibri italic `19/100 · S + 1/7`, Arial italic
+    `21/116 · S + 1/10`, Verdana italic `20/99 · S + 1/50`). Before this capture the captured
+    sizes left two values possible at some sizes between them; the rule now answers every size
+    and is unverified only below 6 and above 192. It gives the overhangs items 83 and 84 saw at
+    screen size 54, which scaling the nearest measured size missed by a screen point: Verdana
+    and Arial italic 36 at zoom 150 (10 and 9 points), and Verdana italic at 108 (21).
+
 ## 3. The pipeline
 
 ```

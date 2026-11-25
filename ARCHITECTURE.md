@@ -529,8 +529,11 @@ earlier for Calibri, Aptos Narrow and Arial at 9 to 24 points, their tenths as t
 16 points), and the padding follows the cell
 face's own digit. An italic face autofits with a larger padding than the upright face's: its
 slant reaches half the excess past its advances on each side, the overhang, measured per face at
-every whole size from 6 to 30 and at 32 to 192 in steps (`faces_p<size>`; Calibri 1, 2, 2, 2, 2,
-3, 3, 3, 4 from 9 to 24; Arial 1, 1, 2, 2, 2, 2, 3, 3, 4); another size scales the nearest. A
+every whole size from 6 to 192 (`faces_p<size>`; Calibri 1, 2, 2, 2, 2, 3, 3, 3, 4 from 9 to 24;
+Arial 1, 1, 2, 2, 2, 2, 3, 3, 4). Each italic face's 187 overhangs are one rule, `floor(a · S +
+b)` points with a and b the simplest fractions that hold every size (Calibri italic `19/100 · S
++ 1/7`), which `_faces_mac.py` stores and which answers the sizes outside 6 to 192, unverified
+(`CAPTURING.md` §2 item 87). A
 cell in an italic face has that much less budget, General's characters included: an italic
 Calibri 11 cell holds one fill space fewer than an upright one.
 

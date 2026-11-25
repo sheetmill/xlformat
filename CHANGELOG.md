@@ -25,6 +25,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   and 8 points and every half size from 8.5 to 23.5 are measured instead of scaled from the
   nearest size. Every committed rendering is unchanged.
 
+- On the Mac an italic face's overhang is one rule per face, `floor(a * S + b)` points, captured
+  at every whole size from 6 to 192 (CAPTURING item 87); sizes between the earlier captured ones
+  took the nearest one's overhang scaled and could be a point off (Verdana and Arial italic at
+  54 points: 11 and 10, now 10 and 9 as Excel shows); 2,126 of the 7,776 face and size pairs
+  from 6 to 192 change. Below 6 and above 192 the rule replaces the scaling, unverified either
+  way. Text insets and the fit of italic text change at those sizes.
+
 ### Fixed
 - `row_metrics`, `vertical_metrics`, `rule_metrics` and `ink_metrics` measure MS Sans Serif as
   Times New Roman on the Mac, as the other functions taking `font=` did; they raised

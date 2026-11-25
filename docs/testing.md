@@ -95,8 +95,8 @@ before Excel was asked, and every prediction matched.
   texts, at 10 and 13 points; every row must be the rule's width.
 - 84 recovery workbooks (`faces_r<size>_<family>`): runs at 383, 397 and 409 points from which
   `capture/face_fit.py` recovers each face's advances.
-- 38 padding workbooks (`faces_p<size>`): digit runs at 1 to 192 points, the padding and the
-  italic overhang.
+- 189 padding workbooks (`faces_p<size>`): digit runs at 1 to 192 points (every whole size
+  from 6), the padding and the italic overhang.
 - 128 switch workbooks (`faces_s<size>`): five-runs at 193 to 320 points, where Excel stops
   rounding each character.
 

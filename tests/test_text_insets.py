@@ -82,10 +82,8 @@ def test_text_insets_raises_outside_its_captures() -> None:
         text_insets(("Calibri", 1), zoom=10, platform="windows")
 
 
-# the faces and italics captures (CAPTURING.md section 2 items 83 and 84): at zoom 150 a 36-point
-# face sits at screen size 54, whose overhang is scaled from 56's, a screen point more than Excel
-# shows in Verdana and Arial italic
-FACES_DEVIATIONS = {("Verdana 36 italic", 150), ("Arial 36 italic", 150)}
+# the faces and italics captures (CAPTURING.md section 2 items 83 and 84); at zoom 150 a 36-point
+# face sits at screen size 54, whose overhang item 87's rule gives as Excel shows it
 FACES_FILES = {"insets_faces.layout.tsv": 30, "insets_italics.layout.tsv": 18}
 
 
@@ -110,11 +108,10 @@ def test_the_faces_captures_match_text_insets(name: str) -> None:
         assert c[0][2] - (c[0][0] - 1) == pytest.approx(got.left * unit), (tag, z)
         assert c[2][2] - c[2][0] == pytest.approx(got.accounting_left * unit), (tag, z)
         assert c[2][1] - c[2][3] - 1 == pytest.approx(clear), (tag, z)
-        if (tag, z) not in FACES_DEVIATIONS:
-            assert c[1][1] - c[1][3] - 1 == pytest.approx(got.right * unit), (tag, z)
-            bearing = c[1][3] - c[1][5]
-            if tag != first:
-                text_end = c[3][5] + bearing
-                assert c[3][1] - text_end - 1 == pytest.approx(got.accounting_right * unit)
+        assert c[1][1] - c[1][3] - 1 == pytest.approx(got.right * unit), (tag, z)
+        bearing = c[1][3] - c[1][5]
+        if tag != first:
+            text_end = c[3][5] + bearing
+            assert c[3][1] - text_end - 1 == pytest.approx(got.accounting_right * unit)
         checked += 1
     assert checked == FACES_FILES[name]

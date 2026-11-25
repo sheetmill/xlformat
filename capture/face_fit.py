@@ -31,7 +31,9 @@ The italic overhang at sizes 6 to 192 comes from the ``faces_p*`` captures: half
 (a five-run less five whole digits) in excess of the rule's. Each ten-run must then be ten
 digits, the padding and the autofit bonus ``max(0, floor(W / D / 5) - 2)`` (W the run's width
 plus one overhang, D the Normal font's digit, Calibri at the workbook's size), which a wide
-digit earns against Calibri's.
+digit earns against Calibri's. The faces_p captures hold every whole size from 6 to 192, and
+each italic face's overhangs there are one rule, ``floor(a * S + b)`` (:func:`overhang_rule`),
+which the module stores and which answers the other sizes.
 """
 
 from __future__ import annotations
@@ -42,6 +44,7 @@ import math
 import re
 import sys
 from dataclasses import dataclass
+from fractions import Fraction
 from pathlib import Path
 
 from capture.faces import (
@@ -268,6 +271,39 @@ def overhangs(faces: dict[tuple[str, str], Face]) -> dict[tuple[str, str], dict[
     return out
 
 
+def _simplest(lo: Fraction, hi: Fraction, closed_lo: bool) -> Fraction:
+    """The fraction of smallest denominator in ``(lo, hi)`` (``[lo, hi)`` when ``closed_lo``)."""
+    den = 1
+    while True:
+        num = math.floor(lo * den) + (0 if closed_lo and lo * den == math.floor(lo * den) else 1)
+        if Fraction(num, den) < hi:
+            return Fraction(num, den)
+        den += 1
+
+
+def overhang_rule(table: dict[float, int]) -> tuple[Fraction, Fraction]:
+    """``(a, b)`` with ``floor(a * S + b)`` the overhang at every size S of ``table``.
+
+    Every pair of sizes bounds ``a`` (an open interval); ``a`` is the simplest fraction in their
+    intersection, ``b`` the simplest in ``[max(v - a S), min(v + 1 - a S))``. Raises ValueError
+    when no ``a`` holds every size.
+    """
+    points = sorted((int(s), int(v)) for s, v in table.items())
+    lo, hi = Fraction(-1), Fraction(1)
+    for (s1, v1), (s2, v2) in itertools.combinations(points, 2):
+        lo = max(lo, Fraction(v2 - v1 - 1, s2 - s1))
+        hi = min(hi, Fraction(v2 + 1 - v1, s2 - s1))
+    if not lo < hi:
+        msg = "no rule floor(a * S + b) holds every size"
+        raise ValueError(msg)
+    a = _simplest(lo, hi, closed_lo=False)
+    b_lo = max(v - a * s for s, v in points)
+    b_hi = min(v + 1 - a * s for s, v in points)
+    b = _simplest(b_lo, b_hi, closed_lo=True)
+    assert all(math.floor(a * s + b) == v for s, v in points)
+    return a, b
+
+
 def _numbers(values: list[str], indent: str) -> str:
     lines, line = [], ""
     for v in values:
@@ -304,7 +340,9 @@ def render(
         "each glyph's advance u in units of 1/E em, or the name of a style with the same advances.",
         "``FALLBACK`` lists the glyphs whose advance is off the face's grid, kept as recovered,",
         "unrounded: glyphs the face lacks, which Excel draws from another face. ``OVERHANG``",
-        "holds each italic face's overhang in points at ``OVERHANG_SIZES``. ``VERIFIED_SIZES``",
+        "holds each italic face's overhang rule, the numerator and denominator of a and then of",
+        "b: at size S the overhang is ``floor(a * S + b)`` points, which every whole size from",
+        "``OVERHANG_SIZES[0]`` to ``OVERHANG_SIZES[1]`` was captured to hold. ``VERIFIED_SIZES``",
         "are the sizes whose every glyph's width was captured; ``SUBSTITUTES`` the names Excel",
         "for Mac has no face for and measures as another.",
         '"""',
@@ -334,12 +372,16 @@ def render(
             fallback += [f"    ({family!r}, {style!r}, {g!r})," for g in sorted(face.fallback)]
         out.append("    },")
     out += ["}", "", "FALLBACK: frozenset[tuple[str, str, str]] = frozenset({", *fallback, "})", ""]
-    out.append(f"OVERHANG_SIZES = ({', '.join(f'{s:g}' for s in sizes)},)")
-    out.append("OVERHANG: dict[tuple[str, str], str] = {")
+    out.append(f"OVERHANG_SIZES = ({sizes[0]:g}, {sizes[-1]:g})")
+    out.append("OVERHANG: dict[tuple[str, str], tuple[int, int, int, int]] = {")
     for (family, style), table in sorted(over.items(), key=lambda kv: FAMILIES.index(kv[0][0])):
         if "italic" in style:
-            out.append(f"    ({family!r}, {style!r}): (")
-            out += [_numbers([str(table[s]) for s in sizes], " " * 8), "    ),"]
+            if sorted(table) != sizes:
+                msg = f"{family} {style}: overhang not captured at every size"
+                raise ValueError(msg)
+            a, b = overhang_rule(table)
+            terms = (a.numerator, a.denominator, b.numerator, b.denominator)
+            out.append(f"    ({family!r}, {style!r}): {terms},")
     out += ["}", "", "VERIFIED_SIZES: dict[str, tuple[int, ...]] = {"]
     for family in FAMILIES:
         tables = set(TABLE_SIZES) if family in TABLE_FAMILIES else set()

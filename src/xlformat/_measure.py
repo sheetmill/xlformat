@@ -105,12 +105,13 @@ def _mac_face(family: str, style: str) -> tuple[int, dict[str, float]]:
 
 
 @cache
-def _mac_overhang_table(family: str, style: str) -> dict[float, float]:
-    numbers = _faces_mac.OVERHANG.get((family, style))
-    if numbers is None:
-        return {}
-    values = map(float, numbers.split())
-    return dict(zip(_faces_mac.OVERHANG_SIZES, values, strict=True))
+def _mac_overhang(family: str, style: str, size: float) -> float:
+    """An italic Mac face's overhang at a whole size: ``floor(a * S + b)`` (item 87); else 0."""
+    rule = _faces_mac.OVERHANG.get((family, style))
+    if rule is None:
+        return 0.0
+    a_num, a_den, b_num, b_den = rule
+    return float((a_num * b_den * int(size) + b_num * a_den) // (a_den * b_den))
 
 
 def column_padding(mdw: float) -> float:
@@ -245,11 +246,11 @@ def overhang(font: FontSpec | None = None, *, platform: str | Platform | None = 
     """Points an italic face reaches past its advances on each side; 0 for upright faces.
 
     The text area of a cell in that font is this much smaller: an italic Calibri 11 cell holds
-    one fill space fewer than a regular one. Measured at every whole size from 6 to 30 and at
-    32, 36, 40, 48, 56, 64, 72, 96, 128, 160 and 192 points on the Mac (a half size is the
-    whole size it rounds to, half up), on Windows at every ppem from 11 to 32 (sizes 8 to 24
-    and the half sizes between); another size scales the nearest measured overhang to whole
-    points (pixels on Windows).
+    one fill space fewer than a regular one. On the Mac one rule per face, ``floor(a * S + b)``
+    points at the whole size S (a half size rounds half up), captured to hold at every whole size
+    from 6 to 192 and unverified outside them. On Windows measured at every ppem from 11 to 32
+    (sizes 8 to 24 and the half sizes between); another size scales the nearest measured
+    overhang to whole pixels.
     """
     p = check_platform(platform, "overhang", windows=True)
     return font_overhang(font, p) / p.scale
@@ -264,19 +265,14 @@ def font_overhang(font: FontSpec | None, platform: Platform = _MAC) -> float:
 @lru_cache(maxsize=128)
 def _overhang(name: str, size: float, style: str, kind: str = "mac") -> float:
     if kind == "mac":
-        size = _mac_size(size)
-        table: dict[float, float] = _mac_overhang_table(name, style)
-    else:
-        size = float(_windows_ppem(size))
-        values = _faces_windows.OVERHANG.get((name, style))
-        table = (
-            {}
-            if values is None
-            else {
-                float(p): float(v)
-                for p, v in zip(_faces_windows.PPEMS, values.split(), strict=True)
-            }
-        )
+        return _mac_overhang(name, style, _mac_size(size))
+    size = float(_windows_ppem(size))
+    values = _faces_windows.OVERHANG.get((name, style))
+    table = (
+        {}
+        if values is None
+        else {float(p): float(v) for p, v in zip(_faces_windows.PPEMS, values.split(), strict=True)}
+    )
     if not table:
         return 0.0
     if size in table:

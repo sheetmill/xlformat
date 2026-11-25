@@ -5,7 +5,9 @@ Written by ``capture/face_fit.py`` from ``tests/captures/faces/``; do not edit b
 each glyph's advance u in units of 1/E em, or the name of a style with the same advances.
 ``FALLBACK`` lists the glyphs whose advance is off the face's grid, kept as recovered,
 unrounded: glyphs the face lacks, which Excel draws from another face. ``OVERHANG``
-holds each italic face's overhang in points at ``OVERHANG_SIZES``. ``VERIFIED_SIZES``
+holds each italic face's overhang rule, the numerator and denominator of a and then of
+b: at size S the overhang is ``floor(a * S + b)`` points, which every whole size from
+``OVERHANG_SIZES[0]`` to ``OVERHANG_SIZES[1]`` was captured to hold. ``VERIFIED_SIZES``
 are the sizes whose every glyph's width was captured; ``SUBSTITUTES`` the names Excel
 for Mac has no face for and measures as another.
 """
@@ -1322,207 +1324,62 @@ FALLBACK: frozenset[tuple[str, str, str]] = frozenset(
     }
 )
 
-OVERHANG_SIZES = (
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    32,
-    36,
-    40,
-    48,
-    56,
-    64,
-    72,
-    96,
-    128,
-    160,
-    192,
-)
-OVERHANG: dict[tuple[str, str], str] = {
-    ("Calibri", "italic"): (
-        "1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Calibri", "bold italic"): (
-        "1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Arial", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 7 8 10 11 13 17 23 29 34"
-    ),
-    ("Arial", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 7 8 10 11 13 17 23 29 34"
-    ),
-    ("Aptos Narrow", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Aptos Narrow", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Aptos", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Aptos", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Arial Black", "italic"): (
-        "1 1 1 2 2 2 2 2 3 3 3 3 4 4 4 4 4 5 5 5 5 6 6 6 6 7 8 8 10 12 14 15 21 28 35 42"
-    ),
-    ("Arial Black", "bold italic"): (
-        "1 1 1 2 2 2 2 2 3 3 3 3 4 4 4 4 4 5 5 5 5 6 6 6 6 7 8 8 10 12 14 15 21 28 35 42"
-    ),
-    ("Arial Narrow", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Arial Narrow", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Book Antiqua", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 6 6 7 8 10 11 13 17 23 29 35"
-    ),
-    ("Book Antiqua", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 6 6 7 8 10 11 13 17 23 29 35"
-    ),
-    ("Bookman Old Style", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Bookman Old Style", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Calibri Light", "italic"): (
-        "1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Calibri Light", "bold italic"): (
-        "1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Cambria", "italic"): (
-        "1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Cambria", "bold italic"): (
-        "1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Candara", "italic"): (
-        "0 1 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 7 8 9 10 14 18 23 27"
-    ),
-    ("Candara", "bold italic"): (
-        "0 1 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 7 8 9 10 14 18 23 27"
-    ),
-    ("Century Gothic", "italic"): (
-        "1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 8 9 11 12 14 19 25 32 38"
-    ),
-    ("Century Gothic", "bold italic"): (
-        "1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 8 9 11 12 14 19 25 32 38"
-    ),
-    ("Comic Sans MS", "italic"): (
-        "1 1 1 2 2 2 2 2 3 3 3 3 4 4 4 4 4 5 5 5 5 6 6 6 6 7 8 8 10 12 14 15 21 28 35 42"
-    ),
-    ("Comic Sans MS", "bold italic"): (
-        "1 1 1 2 2 2 2 2 3 3 3 3 4 4 4 4 4 5 5 5 5 6 6 6 6 7 8 8 10 12 14 15 21 28 35 42"
-    ),
-    ("Consolas", "italic"): (
-        "0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 6 7 8 9 10 14 19 23 28"
-    ),
-    ("Consolas", "bold italic"): (
-        "0 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 6 7 8 9 10 14 19 23 28"
-    ),
-    ("Courier", "italic"): (
-        "1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 5 5 6 6 8 9 10 12 16 21 26 32"
-    ),
-    ("Courier", "bold italic"): (
-        "1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 5 5 6 6 8 9 10 12 16 21 26 32"
-    ),
-    ("Courier New", "italic"): (
-        "1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 5 5 6 6 8 9 10 12 16 21 26 32"
-    ),
-    ("Courier New", "bold italic"): (
-        "1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 5 5 6 6 8 9 10 12 16 21 26 32"
-    ),
-    ("Garamond", "italic"): (
-        "1 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 6 6 8 9 11 12 16 22 27 33"
-    ),
-    ("Garamond", "bold italic"): (
-        "1 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 5 5 5 6 6 8 9 11 12 16 22 27 33"
-    ),
-    ("Georgia", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 7 8 10 11 13 17 23 29 35"
-    ),
-    ("Georgia", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 7 8 10 11 13 17 23 29 35"
-    ),
-    ("Haettenschweiler", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 6 7 8 9 11 12 16 22 28 33"
-    ),
-    ("Haettenschweiler", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 6 7 8 9 11 12 16 22 28 33"
-    ),
-    ("Helvetica", "italic"): (
-        "1 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 6 7 8 9 11 14 19 24 29"
-    ),
-    ("Helvetica", "bold italic"): (
-        "1 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 5 5 6 7 8 9 11 14 19 24 29"
-    ),
-    ("Impact", "italic"): (
-        "1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 8 9 11 13 14 19 25 32 38"
-    ),
-    ("Impact", "bold italic"): (
-        "1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 8 9 11 13 14 19 25 32 38"
-    ),
-    ("Lucida Console", "italic"): (
-        "1 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 5 5 6 7 8 10 11 15 20 25 30"
-    ),
-    ("Lucida Console", "bold italic"): (
-        "1 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4 5 5 6 7 8 10 11 15 20 25 30"
-    ),
-    ("Rockwell", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Rockwell", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Tahoma", "italic"): (
-        "1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 8 9 11 12 14 19 25 32 38"
-    ),
-    ("Tahoma", "bold italic"): (
-        "1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 8 9 11 12 14 19 25 32 38"
-    ),
-    ("Times New Roman", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 7 8 10 11 12 17 22 28 34"
-    ),
-    ("Times New Roman", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 7 8 10 11 12 17 22 28 34"
-    ),
-    ("Trebuchet MS", "italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Trebuchet MS", "bold italic"): (
-        "1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 4 5 5 5 5 6 6 7 9 10 12 13 18 24 30 36"
-    ),
-    ("Verdana", "italic"): (
-        "1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 8 9 11 12 14 19 25 32 38"
-    ),
-    ("Verdana", "bold italic"): (
-        "1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 7 8 9 11 12 14 19 25 32 38"
-    ),
+OVERHANG_SIZES = (6, 192)
+OVERHANG: dict[tuple[str, str], tuple[int, int, int, int]] = {
+    ("Calibri", "italic"): (19, 100, 1, 7),
+    ("Calibri", "bold italic"): (19, 100, 1, 7),
+    ("Arial", "italic"): (21, 116, 1, 10),
+    ("Arial", "bold italic"): (21, 116, 1, 10),
+    ("Aptos Narrow", "italic"): (22, 117, 1, 12),
+    ("Aptos Narrow", "bold italic"): (22, 117, 1, 12),
+    ("Aptos", "italic"): (22, 117, 1, 12),
+    ("Aptos", "bold italic"): (22, 117, 1, 12),
+    ("Arial Black", "italic"): (11, 50, 1, 9),
+    ("Arial Black", "bold italic"): (11, 50, 1, 9),
+    ("Arial Narrow", "italic"): (20, 107, 2, 17),
+    ("Arial Narrow", "bold italic"): (20, 107, 2, 17),
+    ("Book Antiqua", "italic"): (29, 157, 1, 11),
+    ("Book Antiqua", "bold italic"): (29, 157, 1, 11),
+    ("Bookman Old Style", "italic"): (13, 69, 1, 10),
+    ("Bookman Old Style", "bold italic"): (13, 69, 1, 10),
+    ("Calibri Light", "italic"): (19, 100, 1, 7),
+    ("Calibri Light", "bold italic"): (19, 100, 1, 7),
+    ("Cambria", "italic"): (19, 100, 1, 10),
+    ("Cambria", "bold italic"): (19, 100, 1, 10),
+    ("Candara", "italic"): (10, 69, 1, 10),
+    ("Candara", "bold italic"): (10, 69, 1, 10),
+    ("Century Gothic", "italic"): (21, 104, 1, 27),
+    ("Century Gothic", "bold italic"): (21, 104, 1, 27),
+    ("Comic Sans MS", "italic"): (13, 59, 1, 9),
+    ("Comic Sans MS", "bold italic"): (13, 59, 1, 9),
+    ("Consolas", "italic"): (15, 101, 1, 10),
+    ("Consolas", "bold italic"): (15, 101, 1, 10),
+    ("Courier", "italic"): (1, 6, 0, 1),
+    ("Courier", "bold italic"): (1, 6, 0, 1),
+    ("Courier New", "italic"): (1, 6, 0, 1),
+    ("Courier New", "bold italic"): (1, 6, 0, 1),
+    ("Garamond", "italic"): (5, 29, 1, 10),
+    ("Garamond", "bold italic"): (5, 29, 1, 10),
+    ("Georgia", "italic"): (11, 60, 1, 9),
+    ("Georgia", "bold italic"): (11, 60, 1, 9),
+    ("Haettenschweiler", "italic"): (19, 108, 2, 19),
+    ("Haettenschweiler", "bold italic"): (19, 108, 2, 19),
+    ("Helvetica", "italic"): (2, 13, 1, 7),
+    ("Helvetica", "bold italic"): (2, 13, 1, 7),
+    ("Impact", "italic"): (23, 114, 1, 10),
+    ("Impact", "bold italic"): (23, 114, 1, 10),
+    ("Lucida Console", "italic"): (3, 19, 1, 10),
+    ("Lucida Console", "bold italic"): (3, 19, 1, 10),
+    ("Rockwell", "italic"): (7, 37, 1, 10),
+    ("Rockwell", "bold italic"): (7, 37, 1, 10),
+    ("Tahoma", "italic"): (1, 5, 0, 1),
+    ("Tahoma", "bold italic"): (1, 5, 0, 1),
+    ("Times New Roman", "italic"): (18, 101, 1, 10),
+    ("Times New Roman", "bold italic"): (18, 101, 1, 10),
+    ("Trebuchet MS", "italic"): (22, 117, 1, 12),
+    ("Trebuchet MS", "bold italic"): (22, 117, 1, 12),
+    ("Verdana", "italic"): (20, 99, 1, 50),
+    ("Verdana", "bold italic"): (20, 99, 1, 50),
 }
 
 VERIFIED_SIZES: dict[str, tuple[int, ...]] = {
