@@ -20,6 +20,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   and 8 points and every half size from 8.5 to 23.5 are measured instead of scaled from the
   nearest size. Every committed rendering is unchanged.
 
+### Fixed
+- `row_metrics`, `vertical_metrics`, `rule_metrics` and `ink_metrics` measure MS Sans Serif as
+  Times New Roman on the Mac, as the other functions taking `font=` did; they raised
+  `LookupError`.
+
 ## [0.9.0] - 2026-11-24
 
 ### Added

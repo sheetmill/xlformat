@@ -695,7 +695,11 @@ class RowMetrics:
 
 
 def _row_face(font: FontSpec | None) -> tuple[str, float]:
-    """(family key, size) of a face the row model has measured; LookupError otherwise."""
+    """(family key, size) of a face the row model has measured; LookupError otherwise.
+
+    A name Excel for Mac has no face for and measures as another (``font_substitutes``) is that
+    face: MS Sans Serif is Times New Roman.
+    """
     if font is None:
         f = DEFAULT_FONT
     elif isinstance(font, str):
@@ -705,6 +709,7 @@ def _row_face(font: FontSpec | None) -> tuple[str, float]:
     else:
         f = Font(font[0], float(font[1]))
     key = f.name.lower()
+    key = _MAC_SUBSTITUTES.get(key, key).lower()
     if key not in _SLOPE:
         measured = ", ".join(_DISPLAY.values())
         msg = f"no row heights for font {f.name!r}; measured: {measured}"

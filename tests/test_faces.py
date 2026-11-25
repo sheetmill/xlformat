@@ -85,6 +85,49 @@ def test_substitutes_measure_as_their_face() -> None:
         assert xlformat.text_width(text, (name, 13)) == xlformat.text_width(text, (face, 13))
 
 
+def _substitutes() -> list[tuple[xlformat.Font, xlformat.Font]]:
+    """Each Mac substitute and its face, with and without an accounting underline."""
+    pairs = []
+    for name, face in xlformat.font_substitutes(platform="mac").items():
+        for size, underline in ((11, None), (14, "singleAccounting"), (36, "doubleAccounting")):
+            pairs.append((
+                xlformat.Font(name, size, underline=underline),
+                xlformat.Font(face, size, underline=underline),
+            ))  # fmt: skip
+    return pairs
+
+
+def test_substitutes_have_their_faces_rows() -> None:
+    for name, face in _substitutes():
+        assert xlformat.row_metrics(name) == xlformat.row_metrics(face)
+        assert xlformat.row_metrics(face, cell_fonts=[name]) == xlformat.row_metrics(
+            face, cell_fonts=[face]
+        )
+        assert xlformat.row_metrics(None, wrapped=[(name, 3)]) == xlformat.row_metrics(
+            None, wrapped=[(face, 3)]
+        )
+
+
+def test_substitutes_have_their_faces_vertical_metrics() -> None:
+    for name, face in _substitutes():
+        assert xlformat.vertical_metrics(name) == xlformat.vertical_metrics(face)
+        assert xlformat.vertical_metrics(face, normal_font=name) == xlformat.vertical_metrics(
+            face, normal_font=face
+        )
+
+
+def test_substitutes_have_their_faces_rules() -> None:
+    for name, face in _substitutes():
+        for zoom in (100, 150):
+            assert xlformat.rule_metrics(name, zoom=zoom) == xlformat.rule_metrics(face, zoom=zoom)
+
+
+def test_substitutes_have_their_faces_ink() -> None:
+    for name, face in _substitutes():
+        plain = (xlformat.Font(name.name, 11), xlformat.Font(face.name, 11))
+        assert xlformat.ink_metrics(plain[0]) == xlformat.ink_metrics(plain[1])
+
+
 def test_every_size_is_answered_by_the_rule() -> None:
     # captured to 192 points; above, to Excel's 409, the same rule (unverified)
     for size in (192, 250, 409):
