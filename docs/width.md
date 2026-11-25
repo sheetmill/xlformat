@@ -261,8 +261,9 @@ width is rounded up to a multiple of 8 pixels, and a fill stops at 255 character
 shows a `#` run. Text is measured in 25 families (`measured_fonts(platform="windows")`: the Mac's
 but Courier and Helvetica) in four styles at every ppem from 11 to 32, sizes 8 to 24 and the half
 sizes between; another size scales the nearest measured ppem and may differ from Excel by a
-character near the edge of a column. Row heights (`row_metrics`) cover Calibri at 6 to 72 points
-(the half sizes to 40) and Aptos Narrow, Arial, Times New Roman and Courier New at 6 to 40.
+character near the edge of a column. Row heights and text placement (`row_metrics`,
+`vertical_metrics`) cover Calibri, Aptos Narrow, Arial, Times New Roman and Courier New at every
+size from 1 to 72 points, half sizes included.
 
 ```python
 >>> from xlformat import digit_width

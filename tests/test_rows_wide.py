@@ -1,4 +1,4 @@
-"""Excel for Windows' row heights across sizes (CAPTURING.md section 2 item 86).
+"""Excel for Windows' row heights across sizes (CAPTURING.md section 2 items 86 and 89).
 
 Every row of ``tests/captures/windows/row_height_wide.layout.tsv.gz`` must be the row model's
 height, and every face it fits must be in the package's table (``src/xlformat/_rows_windows.py``,
@@ -14,12 +14,37 @@ from capture import rows_wide
 from xlformat._rows_windows import WINDOWS_ROWS
 
 
-def test_every_row_is_the_model_and_in_the_table() -> None:
-    table, problems = rows_wide.fit()
+@pytest.mark.parametrize(("group", "faces"), [("rows_wide", 964), ("rows_ppem", 1108)])
+def test_every_row_is_the_model_and_in_the_table(group: str, faces: int) -> None:
+    table, problems = rows_wide.fit(group)
     assert problems == []
-    assert len(table) == 964
+    assert len(table) == faces
     for (family, style, size), hd in table.items():
         assert WINDOWS_ROWS[family.lower()][style][size] == hd, (family, style, size)
+
+
+def test_each_ppem_has_one_height_and_every_size_to_72_answers() -> None:
+    # CAPTURING.md section 2 item 89: per face and style one (H, D) at each ppem from 1 to 96
+    for family, styles in WINDOWS_ROWS.items():
+        for style, sizes in styles.items():
+            by_ppem: dict[int, set[tuple[int, int]]] = {}
+            for size, hd in sizes.items():
+                by_ppem.setdefault(rows_wide.ppem(size), set()).add(hd)
+            assert all(len(v) == 1 for v in by_ppem.values()), (family, style)
+            if family in ("calibri", "aptos narrow", "arial", "times new roman", "courier new"):
+                assert set(by_ppem) >= set(range(1, 97)), (family, style)
+    for size in (1, 1.5, 5.5, 40.5, 55.5, 72):
+        font = xlformat.Font("Courier New", size, italic=True)
+        h, d = WINDOWS_ROWS["courier new"]["italic"].get(size) or next(
+            hd
+            for z, hd in WINDOWS_ROWS["courier new"]["italic"].items()
+            if rows_wide.ppem(z) == rows_wide.ppem(size)
+        )
+        metrics = xlformat.vertical_metrics(font, platform="windows")
+        assert metrics.font_height * 96 / 72 == h
+        assert metrics.baseline_from_top * 96 / 72 == h - d + 1
+    with pytest.raises(LookupError, match="1 to 72 points"):
+        xlformat.row_metrics(xlformat.Font("Arial", 72.5), platform="windows")
 
 
 @pytest.mark.parametrize(

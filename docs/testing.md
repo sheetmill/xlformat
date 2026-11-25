@@ -138,9 +138,10 @@ Eighteen further files are not suites of the common schema:
   `insets_italics.layout.tsv` (18 rows) for Calibri, Aptos Narrow and Arial italic.
 
 Excel for Windows' layout files in `tests/captures/windows/` are the same kinds of record, each
-beside the capture job it came from: `builtin_formats.layout.tsv`, `row_height.layout.tsv.gz`
-and `row_height_wide.layout.tsv.gz` (4,840 rows: five faces' heights and descents at 6 to 72
-points) from cell reads; and from window captures `screen_pilot_rules.layout.tsv`,
+beside the capture job it came from: `builtin_formats.layout.tsv`, `row_height.layout.tsv.gz`,
+`row_height_wide.layout.tsv.gz` (4,840 rows: five faces' heights and descents at 6 to 72
+points) and `row_height_ppem.layout.tsv.gz` (5,560 rows: the same faces at every other ppem from
+1 to 96) from cell reads; and from window captures `screen_pilot_rules.layout.tsv`,
 `screen_pilot_vertical.layout.tsv`, `screen_vertical.layout.tsv` and `screen_wrapped.layout.tsv`
 (text placement), `screen_rules.layout.tsv`, `screen_rules_zoom.layout.tsv`,
 `screen_rules_fresh.layout.tsv`, `screen_rules_table.layout.tsv`,

@@ -1758,6 +1758,19 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
     character mode three rows a suite are glyph-slack rows (`#,##0` runs, the comma narrower
     than a digit).
 
+89. **Windows row heights at every ppem from 1 to 96 (2026-11-25; group `rows_ppem`,
+    `capture/rows_wide.py`; the build of item 85; `windows/row_height_ppem.layout.tsv.gz`).**
+    Item 86's design for each ppem from 1 to 96 (1 to 72 points at 96 dpi) that it left out, one
+    half-point size a ppem (whole sizes first), in Calibri, Aptos Narrow, Arial, Times New Roman
+    and Courier New, four styles each, and three half sizes a face at ppems item 86 holds (6.5,
+    12.5 and 30.5; Calibri 50.5, 60.5 and 66.5): 1,108 faces, 20 workbooks, 5,560 rows. So that
+    a small face's wrapped rows rise past the Calibri 11 Normal row, they start at `ceil(28 /
+    ppem)` lines (28 at 1 point, 4 at 6). Every row holds item 69's model (5,560 of 5,560); the
+    60 half sizes give exactly the H and D of the whole size at their ppem, and with items 69 and
+    86 each face and style has one H and one D at each of the 96 ppems (1,920 ppems, none with two
+    pairs). So the row table is looked up by ppem, and every size from 1 to 72 points answers,
+    half sizes included.
+
 ## 3. The pipeline
 
 ```

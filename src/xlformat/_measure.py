@@ -753,9 +753,10 @@ def row_metrics(
             Normal font) and its number of lines, as the caller broke them.
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
             ``None`` means the default, ``"mac"``. Excel for Windows is measured at 96 dpi in
-            Calibri at 6 to 40 points and the half sizes between and at 41 to 72, and in Aptos
-            Narrow, Arial, Times New Roman and Courier New at 6 to 40, four styles each,
-            without accounting underlines; anything else raises ``LookupError`` there.
+            Calibri, Aptos Narrow, Arial, Times New Roman and Courier New, four styles each, at
+            every ppem from 1 to 96: every size from 1 to 72 points, half sizes included (a size
+            takes its ppem's height, CAPTURING.md section 2 items 86 and 89), without accounting
+            underlines; anything else raises ``LookupError`` there.
 
     Raises:
         LookupError: A font or size the row model has not measured.
@@ -820,12 +821,31 @@ def _windows_face(font: FontSpec | None) -> tuple[int, int]:
     if isinstance(font, Font) and font.underline in ("singleAccounting", "doubleAccounting"):
         msg = f"no accounting underline rows for Excel for Windows ({f.name} {f.size:g})"
         raise LookupError(msg)
-    sizes = WINDOWS_ROWS.get(f.name.lower(), {}).get(f.style, {})
-    if f.size not in sizes:
-        measured = ", ".join(f"{z:g}" for z in sizes)
-        msg = f"no row heights for Excel for Windows for {f.name} {f.size:g}; measured: {measured}"
+    by_ppem = _windows_rows_by_ppem(f.name.lower(), f.style)
+    found = by_ppem.get(_windows_ppem(f.size))
+    if found is None:
+        if not by_ppem:
+            measured = ", ".join(_DISPLAY[k] for k in WINDOWS_ROWS)
+            msg = f"no row heights for Excel for Windows for font {f.name!r}; measured: {measured}"
+        else:
+            sizes = list(WINDOWS_ROWS[f.name.lower()][f.style])
+            msg = (
+                f"no row heights for Excel for Windows for {f.name} {f.size:g}; measured: "
+                f"{min(sizes):g} to {max(sizes):g} points"
+            )
         raise LookupError(msg)
-    return sizes[f.size]
+    return found
+
+
+@cache
+def _windows_rows_by_ppem(family: str, style: str) -> dict[int, tuple[int, int]]:
+    """A Windows row face's (H, D) per ppem.
+
+    Every size drawn at one ppem has the same pair (CAPTURING.md section 2 items 86 and 89).
+    """
+    return {
+        _windows_ppem(size): hd for size, hd in WINDOWS_ROWS.get(family, {}).get(style, {}).items()
+    }
 
 
 def _windows_row(
@@ -1005,7 +1025,8 @@ def ink_metrics(
 
     With ``platform="windows"`` (96 dpi, item 74): Calibri, Aptos Narrow and Arial at 9, 10, 11,
     12, 14, 16, 18, 20 and 24 points, and bold, italic and bold italic at 11, 12 and 20, each
-    style as measured, in whole pixels.
+    style as measured, in whole pixels; ink is measured from window pictures, so other faces and
+    sizes raise there although :func:`row_metrics` and :func:`vertical_metrics` cover them.
 
     Raises:
         LookupError: A face or size not measured.
@@ -1092,7 +1113,9 @@ def vertical_metrics(
             bottom-aligned row's bottom (``D'`` the Normal font's), centered text ``floor((R -
             H) / 2)`` pixels lower than top-aligned text in a row of ``R`` pixels; wrapped
             lines ``H`` apart, the last raised by the difference of ``line_inset`` (``D - 1``)
-            as on the Mac. The faces and sizes of the Windows row tables are supported.
+            as on the Mac. Windows covers what :func:`row_metrics` does there: Calibri, Aptos
+            Narrow, Arial, Times New Roman and Courier New in four styles at every size from 1
+            to 72 points, half sizes included.
 
     Raises:
         LookupError: A font or size not measured.
@@ -1280,7 +1303,7 @@ def rule_metrics(
     and 144), and at a screen size that is not whole, Excel draws a line a screen point off
     in some rows (23 of 400 captured; Courier New's lines there also differ by zoom).
 
-    With ``platform="windows"`` (96 dpi; Calibri, Aptos Narrow and Arial, at any whole zoom
+    With ``platform="windows"`` (96 dpi; Calibri, Aptos Narrow and Arial only, at any whole zoom
     from 10 to 400) the lines are drawn at the ppem ``P = round(size * 4/3 * zoom / 100)`` (a
     half rounds up) and depend on ``P`` alone (CAPTURING.md section 2 items 77 to 80). In whole
     pixels, every rounding half up: an underline's top ``round(P * -underlinePosition / em)``
