@@ -36,12 +36,16 @@ GROUP = "faces_windows"
 PROBE_GROUP = "faces_windows_probe"
 PROBE_SUITE = "facesw_probe"
 # the measuring job groups and their families, in job order
+FIRST = ("Aptos Narrow", "Calibri", "Arial", "Times New Roman")
+# the other families of capture.faces, named by the probe so that its header lists the missing
+PROBED = tuple(family for family in faces.FAMILIES if family not in FIRST)
+MISSING = ("Courier", "Helvetica")  # the probe's fonts_missing: no font file on the machine
+_MORE = tuple(family for family in PROBED if family not in MISSING)
 GROUP_FACES: dict[str, tuple[str, ...]] = {
-    GROUP: ("Aptos Narrow", "Calibri", "Arial", "Times New Roman"),
+    GROUP: FIRST,
+    **{f"{GROUP}_{k + 2}": _MORE[7 * k : 7 * k + 7] for k in range(3)},
 }
 FACES = tuple(family for families in GROUP_FACES.values() for family in families)
-# the other families of capture.faces, named by the probe so that its header lists the missing
-PROBED = tuple(family for family in faces.FAMILIES if family not in GROUP_FACES[GROUP])
 SIZES = tuple(range(8, 25))
 STYLES = faces.STYLES
 WIDE = frozenset("WM@%\u00c6\u0152\u2026\u2030")  # W M @ % AE OE ellipsis per mille: three copies
@@ -101,6 +105,13 @@ JOB_GROUPS: dict[str, tuple[str, ...]] = {
     PROBE_GROUP: (PROBE_SUITE,),
     **{g: tuple(suite_name(f, s) for f in fs for s in SIZES) for g, fs in GROUP_FACES.items()},
 }
+
+
+def captured() -> tuple[tuple[str, ...], tuple[str, ...]]:
+    """The families and suite names of the measuring groups whose job manifest is committed."""
+    groups = [g for g in GROUP_FACES if (FACES_DIR.parent / f"{g}.job.json").exists()]
+    families = tuple(f for g in groups for f in GROUP_FACES[g])
+    return families, tuple(suite_name(f, s) for f in families for s in SIZES)
 
 
 def register() -> dict[str, tuple[str, ...]]:

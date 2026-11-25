@@ -1,0 +1,39 @@
+{
+ "schema": 1,
+ "job_id": "xlformat-20261124-172238-faces-windows-probe",
+ "package": "xlformat",
+ "purpose": "xlformat capture group faces_windows_probe: displayed text, widths and autofit per suite",
+ "limits": {
+  "job_seconds": 3600,
+  "step_seconds": 600
+ },
+ "audit": false,
+ "workbooks": [
+  {
+   "file": "facesw_probe.xlsx",
+   "steps": [
+    {
+     "op": "open"
+    },
+    {
+     "op": "autofit",
+     "id": "autofit",
+     "columns": "measure!A:GB"
+    },
+    {
+     "op": "read",
+     "id": "measure",
+     "range": "measure!A1:GB1",
+     "props": [
+      "column_width",
+      "width"
+     ]
+    },
+    {
+     "op": "close",
+     "save": false
+    }
+   ]
+  }
+ ]
+}

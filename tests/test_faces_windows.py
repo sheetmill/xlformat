@@ -32,7 +32,7 @@ def _px(points: float) -> int:
     return round(px)
 
 
-@pytest.mark.parametrize("name", faces_windows.SUITE_NAMES)
+@pytest.mark.parametrize("name", faces_windows.captured()[1])
 def test_every_autofit_width_is_advances_padding_and_bonus(name: str) -> None:
     normal_label, by_label = face_fit_windows.read(
         faces_windows.FACES_DIR / f"{name}.measure.tsv.gz"

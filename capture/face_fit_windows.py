@@ -119,7 +119,7 @@ def fit() -> tuple[dict[Key, dict[str, int]], dict[Key, int], list[str]]:
     tables: dict[Key, dict[str, int]] = {}
     overhang: dict[Key, int] = {}
     problems: list[str] = []
-    for name in fw.SUITE_NAMES:
+    for name in fw.captured()[1]:
         normal, by_label = read(fw.FACES_DIR / f"{name}.measure.tsv.gz")
         normal_widths = by_label[normal]  # the Normal font is also a cell font: its digit
         normal_digit = (normal_widths["0" * 10] - normal_widths["0" * 5]) // 5  # ten < 12 digits
@@ -176,7 +176,7 @@ def render(tables: dict[Key, dict[str, int]], overhang: dict[Key, int]) -> str:
         "",
         "FACES: dict[str, dict[str, tuple[str, ...] | str]] = {",
     ]
-    for family in fw.FACES:
+    for family in fw.captured()[0]:
         out.append(f"    {family!r}: {{")
         seen: dict[tuple[int, ...], str] = {}
         for style in fw.STYLES:
@@ -194,7 +194,7 @@ def render(tables: dict[Key, dict[str, int]], overhang: dict[Key, int]) -> str:
             out.append("        ),")
         out.append("    },")
     out += ["}", "", "OVERHANG: dict[tuple[str, str], str] = {"]
-    for family in fw.FACES:
+    for family in fw.captured()[0]:
         for style in fw.STYLES:
             if "italic" in style:
                 values = [str(overhang[(family, style, p)]) for p in ppems]
