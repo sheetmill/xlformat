@@ -52,15 +52,15 @@ The last line is 255 `#`, Excel's overflow without a width; with a width it fill
 ## Built-in formats
 
 A cell can name its format by a built-in id instead of a string: Excel writes id 14 for every date
-typed as a short date. `builtin_format` gives the string Excel uses for an id, as Excel for Mac
-reports it in en-US:
+typed as a short date. `builtin_format` gives the string Excel uses for an id, as Excel reports
+it in en-US on the platform asked for (Excel for Windows by default):
 
 ```python
 >>> from xlformat import builtin_format
 >>> builtin_format(14)
-'m/d/yy'
+'m/d/yyyy'
 >>> format_value(45292, builtin_format(14))
-'1/1/24'
+'1/1/2024'
 >>> builtin_format(47)
 'mm:ss.0'
 ```
@@ -72,14 +72,15 @@ shows `2024-01-01`) and pads the day of 15 and 16 to match, while the region alo
 nothing on the Mac. For Excel on Windows, Microsoft's [Format numbers as dates or
 times](https://support.microsoft.com/en-us/excel/format-numbers-as-dates-or-times) says that "Date and time formats that begin with an asterisk (\*) respond to
 changes in regional date and time settings that are specified in Control Panel." The table is the
-en-US one. On Excel for Windows every id whose en-US string is the short date (14, 27 to 31, 36,
-50 to 58, 71 and 72, and 22 and 78 with ` h:mm`) uses the Windows short date, `m/d/yyyy`:
+en-US one. Every id whose en-US string is the short date (14, 27 to 31, 36, 50 to 58, 71 and 72,
+and 22 and 78 with ` h:mm`) uses the Windows short date, `m/d/yyyy`, on Excel for Windows and
+`m/d/yy` on Excel for Mac:
 
 ```python
->>> builtin_format(14, platform="windows")
-'m/d/yyyy'
->>> builtin_format(78, platform="windows")
-'m/d/yyyy h:mm'
+>>> builtin_format(14, platform="mac")
+'m/d/yy'
+>>> builtin_format(78, platform="mac")
+'m/d/yy h:mm'
 ```
 
 ## Sheets that hide zeros
@@ -148,7 +149,7 @@ font's color, and a column too narrow for it shows `#` as for a number. Pass the
 >>> format_value(ExcelError("#N/A"), ";;;")
 '#N/A'
 >>> format_value(ExcelError.DIV0, "General", column_width=5)
-'######'
+'#####'
 >>> cell = format_cell(ExcelError.DIV0, "[Red]0")
 >>> cell.align, cell.color
 ('center', None)

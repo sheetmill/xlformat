@@ -36,18 +36,21 @@ fits when its character count does.
 ## Excel mode: `column_width` and `font`
 
 `column_width` is the number from Excel's Column Width dialog. The text is measured with the
-glyph widths of `font` in points, as Excel measures it on the platform asked for (the Mac by
-default), so the result matches the sheet
-character for character, including the number of `#` and fill characters.
+glyph widths of `font`, as Excel measures it on the platform asked for (Excel for Windows by
+default, Excel for Mac with `platform="mac"`), so the result matches the sheet character for
+character, including the number of `#` and fill characters. The rules are the same on both; the
+Mac measures in whole points and Windows in whole pixels. The examples from here to
+[Excel for Windows](#excel-for-windows) pass `platform="mac"`, whose whole points make the
+arithmetic easy to follow; that section gives the Windows numbers.
 
 ```python
 >>> format_value(1000, "#,##0.0", width=6)
 '######'
->>> format_value(1000, "#,##0.0", column_width=6)
+>>> format_value(1000, "#,##0.0", column_width=6, platform="mac")
 '1,000.0'
->>> format_value(1234.5, "0.00*-", column_width=12)
+>>> format_value(1234.5, "0.00*-", column_width=12, platform="mac")
 '1234.50-----------'
->>> format_value(1234.5, "0.00*-", column_width=12, font=("Calibri", 14))
+>>> format_value(1234.5, "0.00*-", column_width=12, font=("Calibri", 14), platform="mac")
 '1234.50---------'
 ```
 
@@ -65,9 +68,9 @@ to `font`. A reader of a workbook passes the cell's font and the workbook's Norm
 
 ```python
 >>> from xlformat import Font
->>> format_value(88888888, "0", column_width=8, font=("Calibri", 14))
+>>> format_value(88888888, "0", column_width=8, font=("Calibri", 14), platform="mac")
 '88888888'
->>> format_value(88888888, "0", column_width=8, font=("Calibri", 14), normal_font=Font("Calibri", 11))
+>>> format_value(88888888, "0", column_width=8, font=("Calibri", 14), normal_font=Font("Calibri", 11), platform="mac")
 '######'
 ```
 
@@ -82,13 +85,13 @@ either into the column Excel lays out; its `width` is what `column_width` takes.
 
 ```python
 >>> from xlformat import file_column_metrics
->>> file_column_metrics()
+>>> file_column_metrics(platform="mac")
 ColumnMetrics(width=8.0, points=53.0, budget=48.0, left_inset=3.0, right_inset=2.0, digit_width=6.0)
->>> file_column_metrics(8.43).width
+>>> file_column_metrics(8.43, platform="mac").width
 7.666666666666667
->>> format_value(12345678, "0", column_width=file_column_metrics(8.43).width)
+>>> format_value(12345678, "0", column_width=file_column_metrics(8.43, platform="mac").width, platform="mac")
 '#########'
->>> format_value(12345678, "0", column_width=8.43)
+>>> format_value(12345678, "0", column_width=8.43, platform="mac")
 '12345678'
 ```
 
@@ -105,7 +108,7 @@ clear space); a cell in another font has its own, from `text_insets`:
 
 ```python
 >>> from xlformat import text_insets
->>> text_insets(("Calibri", 24)).left
+>>> text_insets(("Calibri", 24), platform="mac").left
 4.0
 ```
 
@@ -114,15 +117,15 @@ a hidden column counts as 0. `column_metrics_from_points` makes that column:
 
 ```python
 >>> from xlformat import column_metrics_from_points
->>> points = sum(file_column_metrics(w).points for w in (2, 2, 2))
+>>> points = sum(file_column_metrics(w, platform="mac").points for w in (2, 2, 2))
 >>> points
 36.0
->>> merged = column_metrics_from_points(points)
+>>> merged = column_metrics_from_points(points, platform="mac")
 >>> merged.width, merged.budget
 (5.166666666666667, 31.0)
->>> format_value(12345, "0", column_width=merged.width)
+>>> format_value(12345, "0", column_width=merged.width, platform="mac")
 '12345'
->>> format_value(12345678, "0", column_width=merged.width)
+>>> format_value(12345678, "0", column_width=merged.width, platform="mac")
 '######'
 ```
 
@@ -154,15 +157,15 @@ cells with wrapped text, each as `(font, lines)` with `None` for the Normal font
 
 ```python
 >>> from xlformat import row_metrics
->>> row_metrics()
+>>> row_metrics(platform="mac")
 RowMetrics(height=15.0, font_height=15.0, line_height=16.0, accounting_height=0.0)
->>> row_metrics(cell_fonts=[("Calibri", 14)]).height
+>>> row_metrics(cell_fonts=[("Calibri", 14)], platform="mac").height
 19.0
->>> row_metrics(wrapped=[(None, 3)]).height
+>>> row_metrics(wrapped=[(None, 3)], platform="mac").height
 48.0
->>> row_metrics(("Calibri", 14), wrapped=[(("Calibri", 9), 2)]).height
+>>> row_metrics(("Calibri", 14), wrapped=[(("Calibri", 9), 2)], platform="mac").height
 28.0
->>> row_metrics(("Times New Roman", 12.5)).height  # a half size takes the next whole one
+>>> row_metrics(("Times New Roman", 12.5), platform="mac").height  # a half size takes the next whole one
 17.0
 ```
 
@@ -185,15 +188,15 @@ the screen shows it:
 
 ```python
 >>> from xlformat import ink_metrics, vertical_metrics
->>> m = vertical_metrics(("Calibri", 11), normal_font=("Calibri", 11))
+>>> m = vertical_metrics(("Calibri", 11), normal_font=("Calibri", 11), platform="mac")
 >>> m.baseline_from_top, m.baseline_from_bottom
 (12.0, 3.0)
->>> ink = ink_metrics(("Calibri", 11))  # measured: the ink of "H" above and "g" below
+>>> ink = ink_metrics(("Calibri", 11), platform="mac")  # measured: the ink of "H" above and "g" below
 >>> ink.cap_height, ink.descender
 (7.0, 2.0)
->>> vertical_metrics(("Calibri", 9)).baseline_from_bottom  # its own: a Calibri 9 Normal font
+>>> vertical_metrics(("Calibri", 9), platform="mac").baseline_from_bottom  # its own: a Calibri 9 Normal font
 2.0
->>> vertical_metrics(("Calibri", 9), normal_font=("Calibri", 11)).baseline_from_bottom
+>>> vertical_metrics(("Calibri", 9), normal_font=("Calibri", 11), platform="mac").baseline_from_bottom
 3.0
 >>> m.line_pitch, m.line_height
 (15.0, 16.0)
@@ -220,12 +223,12 @@ the baseline:
 
 ```python
 >>> from xlformat import rule_metrics
->>> r = rule_metrics(("Calibri", 11))
+>>> r = rule_metrics(("Calibri", 11), platform="mac")
 >>> r.underline_top, r.underline_thickness, r.accounting_top, r.strikethrough_top
 (1.0, 1.0, 3.0, 3.0)
 >>> r.double_top, r.double_thickness, r.double_gap
 (0.0, 1.0, 2.0)
->>> rule_metrics(("Calibri", 36), zoom=200).underline_thickness
+>>> rule_metrics(("Calibri", 36), zoom=200, platform="mac").underline_thickness
 2.0
 ```
 
@@ -236,17 +239,17 @@ into the next column, wrapping, indents.
 
 ```python
 >>> from xlformat import autofit_width, digit_width, glyph_widths, text_width
->>> text_width("1,000.0")
+>>> text_width("1,000.0", platform="mac")
 36.0
->>> text_width("Hello World", ("Calibri", 14))
+>>> text_width("Hello World", ("Calibri", 14), platform="mac")
 66.0
->>> glyph_widths("W i", Font("Calibri", 11, italic=True))
+>>> glyph_widths("W i", Font("Calibri", 11, italic=True), platform="mac")
 (10.0, 2.0, 3.0)
->>> digit_width(("Aptos Narrow", 16))
+>>> digit_width(("Aptos Narrow", 16), platform="mac")
 8.0
->>> autofit_width("Hello World")
+>>> autofit_width("Hello World", platform="mac")
 62.0
->>> autofit_width("0" * 20), autofit_width("0" * 20, platform="windows")
+>>> autofit_width("0" * 20, platform="mac"), autofit_width("0" * 20, platform="windows")
 (129.0, 112.5)
 ```
 
@@ -254,7 +257,10 @@ into the next column, wrapping, indents.
 `autofit_width` is the column width Excel's autofit gives one line of text: its advances (on
 the Mac a text holding a non-ASCII glyph summed unrounded), the padding, and a long-text bonus
 of a point from 15 widths of the Normal font's digit and one more every 5 (on Windows a pixel
-from 12 and one more every 4);
+from 12 and one more every 4). Two captured Mac ranges disagree with that rule, and
+`autofit_width` still answers there by it: from 1 to 5 points Excel's autofit widths are all
+multiples of 5 points (172 of 1,080 captured texts differ from the rule), and at 383, 397 and
+409 points 3,170 of 76,464 differ, mostly by 1 or 2 points;
 `glyph_widths` gives the whole advance of each character, for measuring runs of a text;
 `digit_width` is the width of one column unit (and one indent level) for a Normal font;
 `overhang` is how far an italic face reaches past its advances on each side; `measured_fonts`
@@ -262,8 +268,8 @@ lists the fonts measured, and `font_substitutes` the names measured as another f
 
 ## Excel for Windows
 
-`platform="windows"` measures as Excel for Windows does (16.0.20527.20196, Microsoft 365, en-US,
-96 dpi): the same rules in whole pixels, with glyph widths hinted for the screen, so a digit of
+Excel for Windows, the default (`platform="windows"` or `None`), is measured as Excel
+16.0.20527.20196 (Microsoft 365, en-US, 96 dpi) shows it: the same rules in whole pixels, with glyph widths hinted for the screen, so a digit of
 Calibri 11 is 7 pixels (5.25 points) and a column is a whole number of pixels. Results stay in points. A column without a
 width is rounded up to a multiple of 8 pixels, and a fill stops at 255 characters where the Mac
 shows a `#` run. Text is measured in 25 families (`measured_fonts(platform="windows")`: the Mac's
@@ -280,9 +286,9 @@ size from 1 to 72 points, half sizes included.
 >>> file_column_metrics(normal_font=("Calibri", 11), platform="windows").points
 48.0
 >>> format_value(1234567.891, "#,##0.00", column_width=8)
-'#########'
->>> format_value(1234567.891, "#,##0.00", column_width=8, platform="windows")
 '########'
+>>> format_value(1234567.891, "#,##0.00", column_width=8, platform="mac")
+'#########'
 >>> row_metrics(("Calibri", 11), platform="windows").height
 15.0
 ```

@@ -141,9 +141,9 @@ def format_value(
             with a zero section shows it as usual, and so does a value that only rounds to 0.
             Pass the value as stored.
         quirks: Which Excel quirks to reproduce; ``None`` means ``Quirks.EXCEL``.
-        platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. Excel for Windows is measured at 96 dpi;
-            another resolution raises ``LookupError``.
+        platform: Where the sheet is viewed: ``"windows"``, ``"mac"`` or a :class:`Platform`;
+            ``None`` means the default, ``"windows"`` (Excel for Windows at 96 dpi; another
+            resolution raises ``LookupError``). Pass ``"mac"`` for Excel for Mac.
         regional_settings: The viewer's :class:`RegionalSettings`; ``None`` means the
             platform's en-US preset.
 
@@ -193,8 +193,8 @@ def text_function(
         format_string: An Excel number format.
         date1904: The workbook uses the 1904 date system.
         quirks: The quirk settings; ``None`` means ``Quirks.EXCEL``.
-        platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. ``TEXT`` gives the same text on both
+        platform: Where the sheet is viewed: ``"windows"``, ``"mac"`` or a :class:`Platform`;
+            ``None`` means the default, ``"windows"``. ``TEXT`` gives the same text on both
             (CAPTURING.md section 2 item 72); it chooses the regional settings' default.
         regional_settings: The viewer's :class:`RegionalSettings`; ``None`` means the
             platform's en-US preset.

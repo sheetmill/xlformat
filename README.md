@@ -2,8 +2,8 @@
 
 xlformat applies an Excel number format to a value and returns the text Excel displays. It is
 pure Python with no runtime dependencies, and its output is tested against text captured from
-Excel 16 for Mac and, with `platform="windows"`, from Excel for Windows (16.0.20527.20196,
-Microsoft 365, en-US, 96 dpi).
+Excel for Windows (16.0.20527.20196, Microsoft 365, en-US, 96 dpi), the default, and from Excel 16
+for Mac, with `platform="mac"`.
 
 ```python
 >>> from xlformat import format_value
@@ -81,14 +81,14 @@ add a width, and they cannot be combined.
 '1234568'
 >>> format_value(1000, "#,##0.0", width=6)
 '######'
->>> format_value(1000, "#,##0.0", column_width=6)
+>>> format_value(1000, "#,##0.0", column_width=6.5)
 '1,000.0'
 >>> format_value(1234.5, "0.00*-", column_width=12, font=("Calibri", 14))
 '1234.50---------'
 ```
 
 The two modes differ on purpose. In Excel a comma or a point is narrower than a digit, so
-`1,000.0` fits a column 6 wide, while in character mode it is seven characters. A `measure`
+`1,000.0` fits a column 6.5 wide, while in character mode it is seven characters. A `measure`
 callable can replace the character count when neither mode fits, and `width` is then in its
 units.
 
@@ -116,8 +116,8 @@ evidence for each.
   width.
 - **Expected outputs come from Excel 16 for Mac and Excel for Windows** under Microsoft 365,
   with the en-US locale. Month and day names are English; locale tags such as `[$-409]` are
-  parsed but not applied. The default platform is the Mac; on Windows, where text, columns and
-  rows are measured in pixels, pass `platform="windows"`. Text placement (`vertical_metrics`)
+  parsed but not applied. The default platform is Excel for Windows, where text, columns and
+  rows are measured in pixels; pass `platform="mac"` for Excel for Mac. Text placement (`vertical_metrics`)
   is measured on both, on Windows in the five faces `row_metrics` covers (Calibri, Aptos Narrow,
   Arial, Times New Roman and Courier New); ink, underline positions and insets (`ink_metrics`,
   `rule_metrics`, `text_insets`) on Windows in Calibri, Aptos Narrow and Arial.

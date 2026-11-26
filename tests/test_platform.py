@@ -32,6 +32,8 @@ CALLS: dict[str, Callable[..., object]] = {
     "vertical_metrics": lambda **k: xlformat.vertical_metrics(FONT, **k),
     "ink_metrics": lambda **k: xlformat.ink_metrics(FONT, **k),
     "rule_metrics": lambda **k: xlformat.rule_metrics(FONT, zoom=150, **k),
+    "text_insets": lambda **k: xlformat.text_insets(FONT, **k),
+    "autofit_width": lambda **k: xlformat.autofit_width("Total", FONT, **k),
     "NumberFormat.format": lambda **k: NumberFormat.parse("0.0").format(2.25, **k),
     "NumberFormat.format_cell": lambda **k: NumberFormat.parse("0.0").format_cell(2.25, **k),
     "NumberFormat.text_function": lambda **k: NumberFormat.parse("0.0").text_function(2.25, **k),
@@ -46,7 +48,7 @@ WINDOWS = {
     "measured_fonts", "column_metrics", "column_metrics_from_points", "file_column_metrics",
     "NumberFormat.format", "NumberFormat.format_cell", "row_metrics", "builtin_format",
     "text_function", "NumberFormat.text_function", "vertical_metrics", "ink_metrics",
-    "rule_metrics",
+    "rule_metrics", "text_insets", "autofit_width",
 }  # fmt: skip
 
 
@@ -64,15 +66,34 @@ def test_every_function_takes_the_settings(name: str) -> None:
 
 
 @pytest.mark.parametrize("name", sorted(CALLS))
-def test_the_default_is_the_mac(name: str) -> None:
+def test_the_default_is_windows(name: str) -> None:
     call = CALLS[name]
     nothing = call()
     assert call(platform=None) == nothing
-    assert call(platform="mac") == nothing
-    assert call(platform=Platform.MAC) == nothing
+    assert call(platform="windows") == nothing
+    assert call(platform=Platform.WINDOWS) == nothing
     if name in REGIONAL:
-        assert call(regional_settings=RegionalSettings.EN_US_MAC) == nothing
-    assert DEFAULT_PLATFORM == "mac"
+        assert call(regional_settings=RegionalSettings.EN_US_WINDOWS) == nothing
+        assert call(platform="windows", regional_settings=None) == nothing
+    assert DEFAULT_PLATFORM == "windows"
+
+
+@pytest.mark.parametrize("name", sorted(CALLS))
+def test_the_mac_is_one_argument_away(name: str) -> None:
+    call = CALLS[name]
+    mac = call(platform="mac")
+    assert call(platform=Platform.MAC) == mac
+    if name in REGIONAL:
+        assert call(platform="mac", regional_settings=RegionalSettings.EN_US_MAC) == mac
+
+
+def test_what_the_default_changed() -> None:
+    # Calibri 11: a 7-pixel digit (5.25 points) on Windows, 6 points on the Mac
+    assert xlformat.digit_width() == 5.25
+    assert xlformat.digit_width(platform="mac") == 6.0
+    assert xlformat.builtin_format(14) == "m/d/yyyy"
+    assert xlformat.builtin_format(14, platform="mac") == "m/d/yy"
+    assert xlformat.row_metrics().height == 15.0
 
 
 @pytest.mark.parametrize("name", sorted(CALLS))
@@ -94,7 +115,7 @@ def test_windows_measures_in_pixels_reported_in_points() -> None:
     assert xlformat.digit_width(FONT, platform="windows") == 7 * 72 / 96
     windows = xlformat.measured_fonts(platform="windows")
     assert len(windows) == 25
-    assert set(windows) | {"Courier", "Helvetica"} == set(xlformat.measured_fonts())
+    assert set(windows) | {"Courier", "Helvetica"} == set(xlformat.measured_fonts(platform="mac"))
     assert windows["Times New Roman"]["bold italic"] == tuple(range(8, 25))
     with pytest.raises(LookupError, match="for Excel for Windows for font 'Courier'"):
         xlformat.text_width("x", ("Courier", 11), platform="windows")
@@ -113,13 +134,15 @@ def test_platform_names_and_fields() -> None:
 
 
 def test_regional_settings() -> None:
-    assert xlformat.builtin_format(14) == "m/d/yy"
-    assert xlformat.builtin_format(22) == "m/d/yy h:mm"
+    assert xlformat.builtin_format(14, platform="mac") == "m/d/yy"
+    assert xlformat.builtin_format(22, platform="mac") == "m/d/yy h:mm"
     windows = RegionalSettings.EN_US_WINDOWS
     assert xlformat.builtin_format(14, regional_settings=windows) == "m/d/yyyy"
     assert xlformat.builtin_format(22, regional_settings=windows) == "m/d/yyyy h:mm"
     assert xlformat.builtin_format(15, regional_settings=windows) == "d-mmm-yy"
     custom = RegionalSettings(short_date="yyyy-mm-dd")
     assert xlformat.builtin_format(14, regional_settings=custom) == "yyyy-mm-dd"
+    mac = RegionalSettings.EN_US_MAC
+    assert xlformat.builtin_format(14, platform="mac", regional_settings=mac) == "m/d/yy"
     with pytest.raises(ValueError, match="only en-US regional settings"):
         RegionalSettings(decimal_separator=",")

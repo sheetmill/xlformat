@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **The default platform is Excel for Windows.** `platform=None` (every function that takes
+  `platform`, and `NumberFormat`'s methods) now means `"windows"` (`DEFAULT_PLATFORM`), and
+  `regional_settings=None` means `RegionalSettings.EN_US_WINDOWS`; every sheetmill package
+  switches on the same day. Pass `platform="mac"` to keep Excel for Mac: with it every result is
+  the same as before. A caller passing nothing now sees:
+  - Excel mode (`column_width`): columns and text measured in whole pixels at 96 dpi, so `#` and
+    fill counts can differ (`format_value(1234.5, "0.00*-", column_width=12)` is
+    `'1234.50-------'`, on the Mac `'1234.50-----------'`), and a `*` fill that would pass 255
+    characters stops at 255 instead of showing a `#` run. Without a width, and in character
+    mode, the text is unchanged.
+  - The measuring and column functions in points on Windows' pixel grid: `digit_width()` is 5.25
+    (the Mac's 6.0), `text_width("Hello World")` 55.5 (55.0), `file_column_metrics().points`
+    48.0 (53.0), `column_metrics(8.43).points` 48.0 (56.0); `autofit_width` takes the Windows
+    bonus. `measured_fonts()` lists 25 families at 8 to 24 points, and `font_substitutes()` is
+    empty, so Courier, Helvetica and MS Sans Serif raise `LookupError`.
+  - Rows and placement on Windows: `row_metrics()` keeps a height of 15.0 but a wrapped line is
+    15 points (`line_height` 15.0, the Mac's 16.0). `row_metrics` and `vertical_metrics` cover
+    Calibri, Aptos Narrow, Arial, Times New Roman and Courier New (Georgia raises `LookupError`),
+    and `ink_metrics`, `rule_metrics` and `text_insets` cover Calibri, Aptos Narrow and Arial
+    (Times New Roman and Courier New raise).
+  - `builtin_format` gives the Windows short date for the 20 short-date ids: `builtin_format(14)`
+    is `'m/d/yyyy'` (the Mac's `'m/d/yy'`), `builtin_format(22)` `'m/d/yyyy h:mm'`.
+  - `text_function` is unchanged (`TEXT` gives the same text on both, CAPTURING item 72).
+
+### Fixed
+- `VerticalMetrics.cap_height` and `.descender` (deprecated) forward to the Mac's `ink_metrics`,
+  the platform their `vertical_metrics` measured, whatever the default.
+- `autofit_width`'s documentation names the two captured Mac ranges where the rule disagrees with
+  Excel and the function still answers by it: from 1 to 5 points Excel's widths are multiples of
+  5 points (172 of 1,080 captured texts differ) and at 383, 397 and 409 points 3,170 of 76,464
+  differ, mostly by 1 or 2 points.
+
 ## [0.11.0] - 2026-11-25
 
 ### Added

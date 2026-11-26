@@ -150,7 +150,7 @@ Precision rules applied at normalization, each a quirk (section 9):
 **Platform and regional settings.** Every function whose result can differ by platform takes a
 keyword-only `platform: str | Platform | None = None`, a name (`"mac"`, `"windows"`) or a frozen
 `Platform`, as `csv` takes a dialect's name or a `Dialect`; `None` means `DEFAULT_PLATFORM`,
-`"mac"`. `Platform` holds what is a rule rather than a table: `name` (the Mac measures in
+`"windows"`, the same in every sheetmill package; `"mac"` selects Excel for Mac. `Platform` holds what is a rule rather than a table: `name` (the Mac measures in
 points, Windows in device pixels at `size · dpi / 72`), `dpi` (Windows only),
 `default_column_step` and `long_fill`; presets
 `Platform.MAC` and `Platform.WINDOWS`, fields overridden with `dataclasses.replace`. A function
@@ -672,13 +672,13 @@ class FormatError(ValueError): ...
 ```
 
 `platform` and `regional_settings` are keyword-only wherever they appear, and `None` means
-`DEFAULT_PLATFORM` (`"mac"`) and that platform's en-US preset (§5, **Platform and regional
+`DEFAULT_PLATFORM` (`"windows"`) and that platform's en-US preset (§5, **Platform and regional
 settings**). `platform` is taken by every function whose result can differ by platform: the
 format functions above, `builtin_format`, the glyph functions (`text_width`, `autofit_width`,
 `glyph_widths`, `digit_width`, `overhang`, `measured_fonts`, `font_substitutes`), the column functions, `row_metrics`,
-`vertical_metrics`, `ink_metrics` and `rule_metrics`; `regional_settings` by the format functions
+`vertical_metrics`, `ink_metrics`, `rule_metrics` and `text_insets`; `regional_settings` by the format functions
 and `builtin_format`. `"windows"` (Excel for Windows at 96 dpi) works in all of them, the last
-three from window captures (`CAPTURING.md` §2 items 74 and 76 to 80); every function raises
+four from window captures (`CAPTURING.md` §2 items 74 and 76 to 80); every function raises
 `LookupError` for a resolution other than 96 dpi.
 
 Width parameters: `width: int | None` is character mode, a count of characters;

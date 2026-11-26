@@ -7,7 +7,7 @@ from typing import ClassVar, Literal
 
 PlatformName = Literal["mac", "windows"]
 # what ``platform=None`` means; all the sheetmill packages change it together
-DEFAULT_PLATFORM: PlatformName = "mac"
+DEFAULT_PLATFORM: PlatformName = "windows"
 # the display resolutions whose Windows glyph tables are captured
 WINDOWS_DPIS = (96,)
 
@@ -22,14 +22,15 @@ _DAYS = ("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satu
 class Platform:
     """The platform whose Excel shows the sheet: how it lays out and measures text.
 
-    ``Platform.MAC`` is Excel for Mac, what ``platform=None`` means while the default is
-    ``"mac"``; ``Platform.WINDOWS`` is Excel for Windows at 96 dpi. A function given a platform
-    it has no captured evidence for raises ``LookupError``: Windows is measured at 96 dpi for
-    the width model (``format_value`` and ``format_cell`` in Excel mode, the column and glyph
-    functions), for ``row_metrics``, ``builtin_format`` and ``text_function``, and for text
-    placement, ink, rules and insets (``vertical_metrics``, ``ink_metrics``, ``rule_metrics``,
-    ``text_insets``) in Calibri, Aptos Narrow and Arial. Every result is in points; Windows'
-    fall on its pixel grid (0.75 points at 96 dpi). Fields can be overridden with
+    ``Platform.WINDOWS`` is Excel for Windows at 96 dpi, what ``platform=None`` means
+    (``DEFAULT_PLATFORM`` is ``"windows"``); ``Platform.MAC`` is Excel for Mac, which every
+    function takes as ``platform="mac"``. A function given a platform it has no captured
+    evidence for raises ``LookupError``, as Windows at another resolution does. On Windows the
+    width model, ``row_metrics``, ``builtin_format`` and ``text_function`` are measured, text
+    placement (``vertical_metrics``) in Calibri, Aptos Narrow, Arial, Times New Roman and
+    Courier New, and ink, rules and insets (``ink_metrics``, ``rule_metrics``, ``text_insets``)
+    in Calibri, Aptos Narrow and Arial. Every result is in points; Windows' fall on its pixel
+    grid (0.75 points at 96 dpi). Fields can be overridden with
     :func:`dataclasses.replace`.
 
     Attributes:
@@ -70,6 +71,7 @@ class Platform:
 Platform.MAC = Platform()
 _MAC = Platform.MAC
 Platform.WINDOWS = Platform("windows", dpi=96, default_column_step=8, long_fill="cap")
+_WINDOWS = Platform.WINDOWS
 
 
 @dataclass(frozen=True, slots=True)
@@ -128,10 +130,15 @@ def check_platform(
     ``windows`` is True for a function with Windows evidence, which holds at the display
     resolutions of ``WINDOWS_DPIS``.
     """
-    if platform is _MAC or platform == "mac" or (platform is None and DEFAULT_PLATFORM == "mac"):
-        return _MAC  # the common case, kept cheap: every format call passes through here
     if platform is None:
         platform = DEFAULT_PLATFORM
+    # the common cases, kept cheap: every format call passes through here
+    if platform == "windows" or platform is _WINDOWS:
+        if windows:
+            return _WINDOWS
+        platform = _WINDOWS
+    elif platform is _MAC or platform == "mac":
+        return _MAC
     if isinstance(platform, str):
         presets = {"mac": Platform.MAC, "windows": Platform.WINDOWS}
         if platform not in presets:

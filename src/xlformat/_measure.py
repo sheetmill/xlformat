@@ -1083,7 +1083,7 @@ class VerticalMetrics:
                 f"ink_metrics(font).{name}"
             )
             raise LookupError(msg)
-        return ink_metrics(font)
+        return ink_metrics(font, platform=_MAC)  # only the Mac's vertical_metrics knows its font
 
 
 @dataclass(frozen=True, slots=True)

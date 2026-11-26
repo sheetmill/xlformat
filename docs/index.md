@@ -2,14 +2,16 @@
 
 xlformat applies an Excel number format to a value and returns the text Excel displays. It is
 pure Python with no runtime dependencies, and its output is tested against text captured from
-Excel 16 for Mac and, with `platform="windows"`, from Excel for Windows.
+Excel for Windows, the default, and from Excel 16 for Mac, with `platform="mac"`.
 
 ```python
 >>> from xlformat import format_value
 >>> format_value(1234.5, "#,##0.00")
 '1,234.50'
->>> format_value(1000, "#,##0.0", column_width=6)
+>>> format_value(1000, "#,##0.0", column_width=6.5)
 '1,000.0'
+>>> format_value(1000, "#,##0.0", column_width=6), format_value(1000, "#,##0.0", column_width=6, platform="mac")
+('######', '1,000.0')
 ```
 
 ```bash

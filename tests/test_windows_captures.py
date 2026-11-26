@@ -165,6 +165,5 @@ def test_a_layout_file_names_the_manifest_of_its_job(path: Path) -> None:
         )
     assert set(lines) == {"job", "job_id"}, path.name
     manifest = WINDOWS / lines["job"]
-    if not manifest.exists():
-        pytest.skip("the sdist leaves out the job manifests")
+    assert manifest.exists(), lines["job"]
     assert json.loads(manifest.read_text(encoding="utf-8"))["job_id"] == lines["job_id"]
