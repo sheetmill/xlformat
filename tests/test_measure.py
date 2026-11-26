@@ -37,15 +37,15 @@ def test_any_size_is_the_rule() -> None:
 def test_italic_overhang() -> None:
     # (autofit padding - column padding - 2) / 2: 1, 2, 2, 2, 2, 3 points from Calibri 9 to 16
     # (item 30), then 3, 3, 4 at 18, 20, 24 (item 48)
-    assert [overhang(Font("Calibri", s, italic=True)) for s in MEASURED_SIZES] == [
+    assert [overhang(Font("Calibri", s, italic=True), platform="mac") for s in MEASURED_SIZES] == [
         1, 2, 2, 2, 2, 3, 3, 3, 4,
     ]  # fmt: skip
-    assert overhang(Font("Aptos Narrow", 10, bold=True, italic=True)) == 1
-    assert overhang(Font("Calibri", 11, bold=True)) == 0
+    assert overhang(Font("Aptos Narrow", 10, bold=True, italic=True), platform="mac") == 1
+    assert overhang(Font("Calibri", 11, bold=True), platform="mac") == 0
     # one fill space fewer than upright Calibri 11 at width 6 (space_fill_calibri_italic11)
     italic = Font("Calibri", 11, italic=True)
-    assert format_value(1, "0* ", column_width=6).count(" ") == 15
-    assert format_value(1, "0* ", column_width=6, font=italic).count(" ") == 14
+    assert format_value(1, "0* ", column_width=6, platform="mac").count(" ") == 15
+    assert format_value(1, "0* ", column_width=6, font=italic, platform="mac").count(" ") == 14
 
 
 def test_column_budget_uses_the_size_digit_width() -> None:
@@ -68,17 +68,23 @@ def test_cell_font_against_the_normal_font() -> None:
     # cell_font and general_cell_font rows: the column from the Normal font (Calibri 11), the
     # text measured in the cell's (CAPTURING.md section 2 item 29)
     normal = Font("Calibri", 11)
-    assert format_value(88888888, "0", column_width=8, normal_font=normal) == "88888888"
+    assert (
+        format_value(88888888, "0", column_width=8, normal_font=normal, platform="mac")
+        == "88888888"
+    )
     # six '#' of 7 points in the 48-point budget (cell_font, digits8 [Calibri 14] at width 8)
     cell = Font("Calibri", 14)
-    assert format_value(88888888, "0", column_width=8, font=cell, normal_font=normal) == "######"
+    assert (
+        format_value(88888888, "0", column_width=8, font=cell, normal_font=normal, platform="mac")
+        == "######"
+    )
     # General counts characters in the cell font's digits: 36 points / 5 at Calibri 9
     assert format_value(1234567.891, "General", column_width=6, font=("Calibri", 9),
-                        normal_font=normal) == "1234568"  # fmt: skip
+                        normal_font=normal, platform="mac") == "1234568"  # fmt: skip
     assert format_value(-0.001, "[Red]General", column_width=6, font=("Calibri", 14),
-                        normal_font=normal) == "0"  # fmt: skip
+                        normal_font=normal, platform="mac") == "0"  # fmt: skip
     assert format_value(-0.001, "General", column_width=6, font=("Calibri", 14),
-                        normal_font=normal) == "-0"  # fmt: skip
+                        normal_font=normal, platform="mac") == "-0"  # fmt: skip
 
 
 def test_glyph_measure_sums_whole_advances() -> None:
@@ -94,7 +100,10 @@ def test_space_fill_at_a_new_size() -> None:
     # space_fill14 row: the accounting zero section at width 6 in Calibri 14
     fmt = '_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)'
     # 42 points: pads and ? blanks as 3-point spaces, the dash 4, eight fill spaces
-    assert format_value(0, fmt, column_width=6, font=("Calibri", 14)) == "         -   "
+    assert (
+        format_value(0, fmt, column_width=6, font=("Calibri", 14), platform="mac")
+        == "         -   "
+    )
 
 
 @pytest.mark.parametrize(
@@ -114,105 +123,150 @@ def test_space_fill_at_a_new_size() -> None:
 def test_general_at_fractional_widths(
     value: float, fmt: str, column_width: float, font: tuple[str, int], expected: str
 ) -> None:
-    assert format_value(value, fmt, column_width=column_width, font=font) == expected
+    assert (
+        format_value(value, fmt, column_width=column_width, font=font, platform="mac") == expected
+    )
 
 
 def test_file_widths_and_the_default_column() -> None:
     # column_file11 and column_default_* headers (CAPTURING.md section 2 item 28)
     from xlformat import file_column_metrics
 
-    assert file_column_metrics().points == 53  # baseColWidth 8, no defaultColWidth
-    assert file_column_metrics().width == 8
-    assert file_column_metrics(base_col_width=10).points == 65
-    assert file_column_metrics(default_col_width=12).points == 72
-    assert [file_column_metrics(w).points for w in (8.43, 60, 3.7109375, 0.75)] == [51, 360, 22, 4]
-    assert file_column_metrics(1.75, normal_font=("Calibri", 16)).width == 1.125  # dialog: 1.13
-    assert file_column_metrics(8.43).budget == 46
+    assert file_column_metrics(platform="mac").points == 53  # baseColWidth 8, no defaultColWidth
+    assert file_column_metrics(platform="mac").width == 8
+    assert file_column_metrics(base_col_width=10, platform="mac").points == 65
+    assert file_column_metrics(default_col_width=12, platform="mac").points == 72
+    assert [file_column_metrics(w, platform="mac").points for w in (8.43, 60, 3.7109375, 0.75)] == [
+        51,
+        360,
+        22,
+        4,
+    ]
+    assert (
+        file_column_metrics(1.75, normal_font=("Calibri", 16), platform="mac").width == 1.125
+    )  # dialog: 1.13
+    assert file_column_metrics(8.43, platform="mac").budget == 46
 
 
 def test_column_metrics_from_points() -> None:
     from xlformat import column_metrics, column_metrics_from_points, file_column_metrics
 
-    assert column_metrics_from_points(53) == file_column_metrics()
-    assert column_metrics_from_points(3).width == 3 / 11
-    assert column_metrics_from_points(3).budget == 0
+    assert column_metrics_from_points(53, platform="mac") == file_column_metrics(platform="mac")
+    assert column_metrics_from_points(3, platform="mac").width == 3 / 11
+    assert column_metrics_from_points(3, platform="mac").budget == 0
     for w in (0.5, 1.75, 8.43, 13):
-        m = column_metrics(w, ("Calibri", 14))
-        assert column_metrics_from_points(m.points, ("Calibri", 14)) == m
+        m = column_metrics(w, ("Calibri", 14), platform="mac")
+        assert column_metrics_from_points(m.points, ("Calibri", 14), platform="mac") == m
     with pytest.raises(ValueError, match="negative"):
-        column_metrics_from_points(-1)
+        column_metrics_from_points(-1, platform="mac")
 
 
 def test_the_budget_of_a_column_under_five_points_is_zero() -> None:
     from xlformat import column_metrics, file_column_metrics
 
-    assert [file_column_metrics(w).budget for w in (0, 0.1, 0.5, 0.8, 1)] == [0, 0, 0, 0, 1]
-    assert column_metrics(0.09).points == 1
-    assert column_metrics(0.09).budget == 0
-    assert file_column_metrics(0).width == 0
+    assert [file_column_metrics(w, platform="mac").budget for w in (0, 0.1, 0.5, 0.8, 1)] == [
+        0,
+        0,
+        0,
+        0,
+        1,
+    ]
+    assert column_metrics(0.09, platform="mac").points == 1
+    assert column_metrics(0.09, platform="mac").budget == 0
+    assert file_column_metrics(0, platform="mac").width == 0
     with pytest.raises(ValueError, match="positive"):
-        format_value(1, column_width=file_column_metrics(0).width)
+        format_value(1, column_width=file_column_metrics(0, platform="mac").width, platform="mac")
 
 
 def test_the_column_functions_take_normal_font_and_deprecate_font() -> None:
     from xlformat import column_metrics, file_column_metrics
 
     calibri14 = ("Calibri", 14)
-    expected = column_metrics(10, normal_font=calibri14)
+    expected = column_metrics(10, normal_font=calibri14, platform="mac")
     assert expected.points == 75
-    assert column_metrics(10, calibri14) == expected  # the positional call stays, undeprecated
+    assert (
+        column_metrics(10, calibri14, platform="mac") == expected
+    )  # the positional call stays, undeprecated
     with pytest.warns(DeprecationWarning, match="normal_font"):
-        assert column_metrics(10, font=calibri14) == expected
-    expected = file_column_metrics(10, normal_font=calibri14)
+        assert column_metrics(10, font=calibri14, platform="mac") == expected
+    expected = file_column_metrics(10, normal_font=calibri14, platform="mac")
     with pytest.warns(DeprecationWarning, match="normal_font"):
-        assert file_column_metrics(10, font=calibri14) == expected
+        assert file_column_metrics(10, font=calibri14, platform="mac") == expected
     with pytest.raises(ValueError, match="not both"):
-        column_metrics(10, normal_font=calibri14, font=calibri14)
+        column_metrics(10, normal_font=calibri14, font=calibri14, platform="mac")
     with pytest.raises(ValueError, match="not both"):
-        file_column_metrics(10, normal_font=calibri14, font=calibri14)
+        file_column_metrics(10, normal_font=calibri14, font=calibri14, platform="mac")
 
 
 def test_column_metrics_round_trip_and_narrow_columns() -> None:
     from xlformat import column_metrics, file_column_metrics
 
-    assert column_metrics(8.43).points == 56
-    assert column_metrics(0.09).points == 1  # below one unit: round(w * (MDW + padding))
+    assert column_metrics(8.43, platform="mac").points == 56
+    assert (
+        column_metrics(0.09, platform="mac").points == 1
+    )  # below one unit: round(w * (MDW + padding))
     for w in (0.5, 1.75, 8.43, 13, 255):
-        m = file_column_metrics(w, normal_font=("Calibri", 14))
-        assert column_metrics(m.width, normal_font=("Calibri", 14)).points == m.points
-    assert format_value(1, "0", column_width=0.5) == ""  # no '#' fits
-    assert format_value(1, "General", column_width=0.5) == "1"
-    assert format_value(12, "General", column_width=0.5) == "#"
+        m = file_column_metrics(w, normal_font=("Calibri", 14), platform="mac")
+        assert (
+            column_metrics(m.width, normal_font=("Calibri", 14), platform="mac").points == m.points
+        )
+    assert format_value(1, "0", column_width=0.5, platform="mac") == ""  # no '#' fits
+    assert format_value(1, "General", column_width=0.5, platform="mac") == "1"
+    assert format_value(12, "General", column_width=0.5, platform="mac") == "#"
 
 
 def test_the_255_character_limit() -> None:
     # limits rows: 256 characters with the fill, and 1E+300 under '0' (301 digits)
-    assert format_value(1, "* 0", column_width=86) == "#" * 103
-    assert format_value(1, "* 0", column_width=84) == " " * 249 + "1"
-    assert format_value(1e300, "0") == "#" * 255
-    assert format_value(1e300, "0", column_width=255) == "#" * 255
+    assert format_value(1, "* 0", column_width=86, platform="mac") == "#" * 103
+    assert format_value(1, "* 0", column_width=84, platform="mac") == " " * 249 + "1"
+    assert format_value(1e300, "0", platform="mac") == "#" * 255
+    assert format_value(1e300, "0", column_width=255, platform="mac") == "#" * 255
 
 
 def test_public_measurement() -> None:
     from xlformat import digit_width, glyph_widths, measured_fonts, text_width
 
-    assert text_width("1,000.0") == 36  # fits width 6 (CAPTURING.md section 2 item 25)
-    assert text_width("") == 0
-    assert digit_width() == 6
-    assert [digit_width(("Calibri", s)) for s in MEASURED_SIZES] == [5, 5, 6, 6, 7, 8, 9, 10, 12]
-    widths = glyph_widths("1,000.0")
+    assert (
+        text_width("1,000.0", platform="mac") == 36
+    )  # fits width 6 (CAPTURING.md section 2 item 25)
+    assert text_width("", platform="mac") == 0
+    assert digit_width(platform="mac") == 6
+    assert [digit_width(("Calibri", s), platform="mac") for s in MEASURED_SIZES] == [
+        5,
+        5,
+        6,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+    ]
+    widths = glyph_widths("1,000.0", platform="mac")
     assert len(widths) == 7
-    assert text_width("1,000.0") == int(sum(widths))
-    assert glyph_widths("€") == (6.0,)  # 1038/2048 em at 11 points
-    assert glyph_widths("\u4e00") == (6.0,)  # beyond the cp1252 characters: the widest digit
-    fonts = measured_fonts()
+    assert text_width("1,000.0", platform="mac") == int(sum(widths))
+    assert glyph_widths("€", platform="mac") == (6.0,)  # 1038/2048 em at 11 points
+    assert glyph_widths("\u4e00", platform="mac") == (
+        6.0,
+    )  # beyond the cp1252 characters: the widest digit
+    fonts = measured_fonts(platform="mac")
     assert {"Calibri", "Aptos Narrow", "Arial", "Times New Roman", "Verdana"} <= set(fonts)
     assert fonts["Aptos Narrow"]["bold italic"] == (9, 10, 11, 12, 13, 14, 16, 18, 20, 24)
     assert fonts["Arial"]["italic"] == (9, 10, 11, 12, 13, 14, 16, 18, 20, 24)
     # Arial's digit is wider than Calibri's from 10 points (column_file_arial<size>)
-    assert [digit_width(("Arial", s)) for s in MEASURED_SIZES] == [5, 6, 6, 7, 8, 9, 10, 11, 13]
+    assert [digit_width(("Arial", s), platform="mac") for s in MEASURED_SIZES] == [
+        5,
+        6,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+    ]
     with pytest.raises(LookupError):
-        text_width("x", "Comic Sans")
+        text_width("x", "Comic Sans", platform="mac")
 
 
 def test_excel_error_values() -> None:
@@ -224,19 +278,19 @@ def test_excel_error_values() -> None:
     unlisted = ExcelError("#NEWERROR!")
     assert isinstance(unlisted, ExcelError)
     assert unlisted not in list(ExcelError)
-    assert format_value(unlisted, "0") == "#NEWERROR!"
+    assert format_value(unlisted, "0", platform="mac") == "#NEWERROR!"
     with pytest.raises(ValueError, match="hello"):
         ExcelError("hello")
     # error_width rows: the text under any format, '#' by glyph width, font color, centered
-    assert format_value(ExcelError.DIV0, ";;;") == "#DIV/0!"
-    assert format_value(ExcelError.DIV0, "0", column_width=6) == "#DIV/0!"
-    assert format_value(ExcelError.DIV0, "0", column_width=5) == "######"
+    assert format_value(ExcelError.DIV0, ";;;", platform="mac") == "#DIV/0!"
+    assert format_value(ExcelError.DIV0, "0", column_width=6, platform="mac") == "#DIV/0!"
+    assert format_value(ExcelError.DIV0, "0", column_width=5, platform="mac") == "######"
     cell14 = Font("Calibri", 14)
     assert format_value(ExcelError.DIV0, "0", column_width=1, font=cell14, normal_font=Font(
-        "Calibri", 11)) == ""  # fmt: skip
-    cell = format_cell(ExcelError.NA, "[Red]0", column_width=1)
+        "Calibri", 11), platform="mac") == ""  # fmt: skip
+    cell = format_cell(ExcelError.NA, "[Red]0", column_width=1, platform="mac")
     assert (cell.text, cell.align, cell.color, cell.overflow) == ("#", "center", None, True)
-    assert format_value(ExcelError.DIV0, "0", width=3) == "###"
+    assert format_value(ExcelError.DIV0, "0", width=3, platform="mac") == "###"
 
 
 def test_unlisted_excel_errors_compare_with_equality() -> None:

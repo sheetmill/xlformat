@@ -72,8 +72,8 @@ def test_every_captured_placement() -> None:
     assert len(rows) == 2340
     misses = []
     for normal_label, tag, _, height, _, _, h_ink, g_ink in rows:
-        normal = vertical_metrics(_font(normal_label))
-        face = vertical_metrics(_font(tag), normal_font=_font(normal_label))
+        normal = vertical_metrics(_font(normal_label), platform="mac")
+        face = vertical_metrics(_font(tag), normal_font=_font(normal_label), platform="mac")
         ink = [tuple(int(v) for v in line.split("-")) for line in h_ink.split()]
         tails = [int(v) for v in g_ink.split()]
         got = [(bottom + 1 + FRAME_PX) / PIXELS_PER_POINT for _, bottom in ink]
@@ -88,14 +88,14 @@ def test_every_captured_placement() -> None:
             face_key = _FACE.search(tag)
             assert face_key, tag
             slack = 0.5 if (face_key[1], face_key[2]) in PHASE_DESCENDERS else 0.0
-            ink = ink_metrics(_font(tag))
+            ink = ink_metrics(_font(tag), platform="mac")
             if cap != ink.cap_height or abs(descender - ink.descender) > slack:
                 misses.append((normal_label, tag, (cap, descender)))
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
 
 
 def test_fields() -> None:
-    m = vertical_metrics()
+    m = vertical_metrics(platform="mac")
     assert m == VerticalMetrics(
         baseline_from_top=12.0,
         baseline_from_bottom=3.0,
@@ -104,53 +104,72 @@ def test_fields() -> None:
         line_pitch=15.0,
         line_inset=1.0,
     )
-    assert vertical_metrics(Font("Calibri", 16, italic=True)) == vertical_metrics(("Calibri", 16))
-    assert ink_metrics() == InkMetrics(cap_height=7.0, descender=2.0)
+    assert vertical_metrics(Font("Calibri", 16, italic=True), platform="mac") == vertical_metrics(
+        ("Calibri", 16), platform="mac"
+    )
+    assert ink_metrics(platform="mac") == InkMetrics(cap_height=7.0, descender=2.0)
 
 
 def test_the_ink_fields_of_vertical_metrics_are_deprecated() -> None:
-    m = vertical_metrics(("Arial", 14))
+    m = vertical_metrics(("Arial", 14), platform="mac")
     with pytest.warns(DeprecationWarning, match="ink_metrics"):
-        assert m.cap_height == ink_metrics(("Arial", 14)).cap_height
+        assert m.cap_height == ink_metrics(("Arial", 14), platform="mac").cap_height
     with pytest.warns(DeprecationWarning, match="ink_metrics"):
-        assert m.descender == ink_metrics(("Arial", 14)).descender
+        assert m.descender == ink_metrics(("Arial", 14), platform="mac").descender
     # placement covers every supported size; ink only what was measured
-    assert vertical_metrics(("Times New Roman", 13)).baseline_from_top == 14.0
+    assert vertical_metrics(("Times New Roman", 13), platform="mac").baseline_from_top == 14.0
     with pytest.raises(LookupError, match="no ink measured for Times New Roman 13"):
-        ink_metrics(("Times New Roman", 13))
+        ink_metrics(("Times New Roman", 13), platform="mac")
 
 
 def test_unmeasured_faces() -> None:
     with pytest.raises(LookupError, match="no ink measured for Calibri 21"):
-        ink_metrics(("Calibri", 21))
+        ink_metrics(("Calibri", 21), platform="mac")
     with pytest.raises(LookupError, match="no row heights for Calibri 73"):
-        vertical_metrics(("Calibri", 73))
+        vertical_metrics(("Calibri", 73), platform="mac")
     with pytest.raises(LookupError, match="Comic Sans"):
-        vertical_metrics("Comic Sans")
+        vertical_metrics("Comic Sans", platform="mac")
 
 
 def test_the_normal_font_floors_a_bottom_aligned_baseline() -> None:
     # Calibri 9 and Arial 9 to 11 sit 2 points up of their own and 3 under a Calibri 11 Normal
     # font, 2 under Arial 10 (vertical.layout.tsv, CAPTURING.md section 2 item 55)
-    assert vertical_metrics(("Calibri", 9)).baseline_from_bottom == 2.0
-    assert vertical_metrics(("Calibri", 9), normal_font=("Calibri", 11)).baseline_from_bottom == 3.0
-    assert vertical_metrics(("Calibri", 9), normal_font=("Arial", 10)).baseline_from_bottom == 2.0
+    assert vertical_metrics(("Calibri", 9), platform="mac").baseline_from_bottom == 2.0
     assert (
-        vertical_metrics(("Arial", 11), normal_font=("Aptos Narrow", 11)).baseline_from_bottom
+        vertical_metrics(
+            ("Calibri", 9), normal_font=("Calibri", 11), platform="mac"
+        ).baseline_from_bottom
+        == 3.0
+    )
+    assert (
+        vertical_metrics(
+            ("Calibri", 9), normal_font=("Arial", 10), platform="mac"
+        ).baseline_from_bottom
+        == 2.0
+    )
+    assert (
+        vertical_metrics(
+            ("Arial", 11), normal_font=("Aptos Narrow", 11), platform="mac"
+        ).baseline_from_bottom
         == 3.0
     )
     # a face that sits higher than the Normal font keeps its own
-    assert vertical_metrics(("Calibri", 24), normal_font=("Arial", 10)).baseline_from_bottom == 6.0
+    assert (
+        vertical_metrics(
+            ("Calibri", 24), normal_font=("Arial", 10), platform="mac"
+        ).baseline_from_bottom
+        == 6.0
+    )
     # the default is the cell's own font
-    assert vertical_metrics(("Calibri", 11)) == vertical_metrics(
-        ("Calibri", 11), normal_font=("Calibri", 11)
+    assert vertical_metrics(("Calibri", 11), platform="mac") == vertical_metrics(
+        ("Calibri", 11), normal_font=("Calibri", 11), platform="mac"
     )
     with pytest.raises(LookupError, match="Comic Sans"):
-        vertical_metrics(("Calibri", 11), normal_font="Comic Sans")
+        vertical_metrics(("Calibri", 11), normal_font="Comic Sans", platform="mac")
 
 
 def test_vertical_metrics_shows_six_fields_only() -> None:
-    m = vertical_metrics(("Arial", 14))
+    m = vertical_metrics(("Arial", 14), platform="mac")
     six = ("baseline_from_top", "baseline_from_bottom", "font_height", "line_height",
            "line_pitch", "line_inset")  # fmt: skip
     assert tuple(f.name for f in dataclasses.fields(m)) == six
@@ -160,7 +179,7 @@ def test_vertical_metrics_shows_six_fields_only() -> None:
     plain = VerticalMetrics(*dataclasses.astuple(m))
     assert plain == m
     assert hash(plain) == hash(m)
-    assert vertical_metrics(("Arial", 14)) == m
+    assert vertical_metrics(("Arial", 14), platform="mac") == m
     # replace keeps the six; the result does not know its font, so the deprecated ink raises
     moved = dataclasses.replace(m, font_height=20.0)
     assert moved.font_height == 20.0
@@ -180,4 +199,4 @@ def test_vertical_metrics_shows_six_fields_only() -> None:
     for kept in (copy.copy(m), pickle.loads(pickle.dumps(m))):
         assert kept == m
         with pytest.warns(DeprecationWarning, match="cap_height"):
-            assert kept.cap_height == ink_metrics(("Arial", 14)).cap_height
+            assert kept.cap_height == ink_metrics(("Arial", 14), platform="mac").cap_height

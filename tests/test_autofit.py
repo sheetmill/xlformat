@@ -87,35 +87,35 @@ def test_the_bonus_ladders() -> None:
     zero = xlformat.Font("Calibri", 11)
     win = [xlformat.autofit_width("0" * k, zero, platform="windows") * 4 / 3 for k in (11, 12, 16)]
     assert win == [77 + 7, 84 + 7 + 1, 112 + 7 + 2]  # one pixel from 12 digits, one more every 4
-    mac = [xlformat.autofit_width("0" * k, zero) for k in (14, 15, 20)]
+    mac = [xlformat.autofit_width("0" * k, zero, platform="mac") for k in (14, 15, 20)]
     assert mac == [84 + 7, 90 + 7 + 1, 120 + 7 + 2]  # one point from 15 digits, one more every 5
 
 
 def test_autofit_differs_from_text_width_where_autofit_measures_differently() -> None:
     # the Mac's autofit sums a non-ASCII text unrounded; text_width rounds each glyph
     text = "é" * 10  # 5 whole points each in Calibri 11, 5.47 unrounded: 54.7 for ten
-    assert xlformat.text_width(text) == 50.0
-    assert xlformat.autofit_width(text) == 55 + 7
+    assert xlformat.text_width(text, platform="mac") == 50.0
+    assert xlformat.autofit_width(text, platform="mac") == 55 + 7
 
 
 def test_one_line_only() -> None:
     for text in ("a\nb", "a\rb", "a\tb", "\r\n"):
         with pytest.raises(ValueError, match="one line"):
-            xlformat.autofit_width(text)
+            xlformat.autofit_width(text, platform="mac")
 
 
 def test_empty_text() -> None:
-    assert xlformat.autofit_width("") == 0.0
+    assert xlformat.autofit_width("", platform="mac") == 0.0
     assert xlformat.autofit_width("", platform="windows") == 0.0
     with pytest.raises(LookupError):
-        xlformat.autofit_width("", ("Geneva", 11))
+        xlformat.autofit_width("", ("Geneva", 11), platform="mac")
 
 
 def test_unmeasured_fonts_raise() -> None:
     with pytest.raises(LookupError):
-        xlformat.autofit_width("x", ("Geneva", 11))
+        xlformat.autofit_width("x", ("Geneva", 11), platform="mac")
     with pytest.raises(LookupError):
-        xlformat.autofit_width("x", normal_font=("Geneva", 11))
+        xlformat.autofit_width("x", normal_font=("Geneva", 11), platform="mac")
     with pytest.raises(LookupError):
         xlformat.autofit_width("x", ("Courier", 11), platform="windows")
     with pytest.raises(ValueError, match="platform"):

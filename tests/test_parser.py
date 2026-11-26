@@ -171,9 +171,9 @@ def test_letter_forms_excel_refuses(source: str) -> None:
 
 
 def test_a_final_b_is_a_literal_when_escaped() -> None:
-    assert format_value(1, "0\\B") == "1B"
-    assert format_value(1, '0"B"') == "1B"
-    assert format_value(1, "0_B") == "1 "
+    assert format_value(1, "0\\B", platform="mac") == "1B"
+    assert format_value(1, '0"B"', platform="mac") == "1B"
+    assert format_value(1, "0_B", platform="mac") == "1 "
     assert NumberFormat.parse("BB").is_date
     assert NumberFormat.parse("B;0").is_date
 
@@ -185,12 +185,14 @@ def test_formats_excel_refuses_in_a_file_raise(source: str) -> None:
 
 
 def test_accepted_odd_formats_render_like_excel() -> None:
-    assert format_value(1234.5678, "*-0*-") == "1235"  # fill emits nothing without a width
-    assert format_value(1234.5678, "0.0.0") == "1234.5.7"
-    assert format_value(1234.5678, "0 x") == "1235 x"
-    assert format_value(-0.5, "x0") == "-x1"
-    assert format_value("abc", "x0") == "abc"
-    assert format_cell(1234.5678, "[Color 3]0").color == "Color3"
+    assert (
+        format_value(1234.5678, "*-0*-", platform="mac") == "1235"
+    )  # fill emits nothing without a width
+    assert format_value(1234.5678, "0.0.0", platform="mac") == "1234.5.7"
+    assert format_value(1234.5678, "0 x", platform="mac") == "1235 x"
+    assert format_value(-0.5, "x0", platform="mac") == "-x1"
+    assert format_value("abc", "x0", platform="mac") == "abc"
+    assert format_cell(1234.5678, "[Color 3]0", platform="mac").color == "Color3"
     assert NumberFormat.parse("[Red]").sections[0].kind is SectionKind.GENERAL  # [Red]General
     assert NumberFormat.parse("e+").sections[0].kind is SectionKind.DATETIME
     assert NumberFormat.parse("0%E+0").sections[0].kind is SectionKind.SCIENTIFIC
@@ -218,36 +220,50 @@ def test_number_spec_comma_rules() -> None:
 
 
 def test_width_character_mode() -> None:
-    assert format_value(1234567.891, "General", width=8) == "1234568"
-    assert format_value(12345678, "General", width=5) == "1E+07"
-    assert format_value(0.000123, "General", width=4) == "0"
-    assert format_value(-1, "m/d/yy", width=6) == "######"
-    assert format_value("hello world", "@", width=3) == "hello world"
-    assert format_value(1234.5, "0.00*-", width=10) == "1234.50---"
-    assert format_value(True, "General", width=3) == "###"
+    assert format_value(1234567.891, "General", width=8, platform="mac") == "1234568"
+    assert format_value(12345678, "General", width=5, platform="mac") == "1E+07"
+    assert format_value(0.000123, "General", width=4, platform="mac") == "0"
+    assert format_value(-1, "m/d/yy", width=6, platform="mac") == "######"
+    assert format_value("hello world", "@", width=3, platform="mac") == "hello world"
+    assert format_value(1234.5, "0.00*-", width=10, platform="mac") == "1234.50---"
+    assert format_value(True, "General", width=3, platform="mac") == "###"
     with pytest.raises(ValueError, match="width"):
-        format_value(1, "0", width=0)
+        format_value(1, "0", width=0, platform="mac")
 
 
 def test_width_excel_mode() -> None:
     # Calibri 11: digits 6 points, '-' 3, ',' and '.' 3, '%' 8, '#' 5; a column of w units has
     # 6*w points for text (CAPTURING.md section 2 items 24 and 25)
-    assert format_value(1000, "#,##0.0", column_width=6) == "1,000.0"  # 36 points in 36
-    assert format_value(-12345678, "General", column_width=8.43) == "-12345678"  # 8.5 units
-    assert format_value(100, "0%", column_width=6) == "#######"  # 38 points > 36; 36 // 5 = 7
-    assert format_value(1234.5, "0.00*-", column_width=30, font=("Calibri", 12)) == (
-        "1234.50" + "-" * 35
-    )
-    assert format_value(-1234.5678, "General", column_width=6) == "-1235"  # by characters
-    assert format_value("Hello World", "@", column_width=3) == "Hello World"
-    cell = format_cell(-1, "m/d/yy", column_width=6)
+    assert (
+        format_value(1000, "#,##0.0", column_width=6, platform="mac") == "1,000.0"
+    )  # 36 points in 36
+    assert (
+        format_value(-12345678, "General", column_width=8.43, platform="mac") == "-12345678"
+    )  # 8.5 units
+    assert (
+        format_value(100, "0%", column_width=6, platform="mac") == "#######"
+    )  # 38 points > 36; 36 // 5 = 7
+    assert format_value(
+        1234.5, "0.00*-", column_width=30, font=("Calibri", 12), platform="mac"
+    ) == ("1234.50" + "-" * 35)
+    assert (
+        format_value(-1234.5678, "General", column_width=6, platform="mac") == "-1235"
+    )  # by characters
+    assert format_value("Hello World", "@", column_width=3, platform="mac") == "Hello World"
+    cell = format_cell(-1, "m/d/yy", column_width=6, platform="mac")
     assert cell.overflow
     assert cell.text == "#######"
     assert cell.full_text == "#" * 255
     with pytest.raises(ValueError, match="not both"):
-        format_value(1, "0", width=6, column_width=6)
+        format_value(1, "0", width=6, column_width=6, platform="mac")
     with pytest.raises(LookupError, match="Aptos Narrow"):
-        format_value(1, "0", column_width=6, font="Comic Sans")
-    assert format_value(12345, "0", width=10, measure=lambda t: 2.0 * len(t)) == "12345"
+        format_value(1, "0", column_width=6, font="Comic Sans", platform="mac")
+    assert (
+        format_value(12345, "0", width=10, measure=lambda t: 2.0 * len(t), platform="mac")
+        == "12345"
+    )
     # the budget is in the measure's units: 12 > 10 overflows, and 10 // 2 gives five '#'
-    assert format_value(123456, "0", width=10, measure=lambda t: 2.0 * len(t)) == "#####"
+    assert (
+        format_value(123456, "0", width=10, measure=lambda t: 2.0 * len(t), platform="mac")
+        == "#####"
+    )

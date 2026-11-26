@@ -2419,7 +2419,8 @@ def _merged(name: str, font_size: int | None) -> Suite:
     )
     cases = tuple(Case(name, f"merged:{tag}", value, f) for f in formats for tag, value in values)
     widths = tuple(
-        sum(file_column_metrics(w, normal_font=normal).points for w in b) for b in blocks
+        sum(file_column_metrics(w, normal_font=normal, platform="mac").points for w in b)
+        for b in blocks
     )
     return Suite(
         name,

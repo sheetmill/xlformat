@@ -82,7 +82,7 @@ def _close(lines: Lines) -> list[tuple[float, float]]:
 def _differing(name: str) -> tuple[int, set[tuple[int, str]]]:
     compared, differ = 0, set()
     for (zoom, face, size), rules in _rows(name).items():
-        m = rule_metrics((face, size), zoom=zoom)
+        m = rule_metrics((face, size), zoom=zoom, platform="mac")
         for rule, (got, bottom) in rules.items():
             compared += 1
             want = _expected(m, rule)
@@ -131,7 +131,7 @@ def test_rule_alone(monkeypatch: pytest.MonkeyPatch) -> None:
         got = rules["double"][0]
         if len(got) != 2:
             continue
-        if got == _expected(rule_metrics((face, size), zoom=zoom), "double"):
+        if got == _expected(rule_metrics((face, size), zoom=zoom, platform="mac"), "double"):
             right += 1
         else:
             misses[face].add(size * zoom / 100)
@@ -191,12 +191,16 @@ def test_courier_new_rule_alone(monkeypatch: pytest.MonkeyPatch) -> None:
 def test_courier_new_rule_positions() -> None:
     # the double hangs up from the single's table position; at 11 points the gap is 2
     # thicknesses, so the single stays at that position
-    assert rule_metrics(("Courier New", 11)) == RuleMetrics(2.0, 1.0, 2.0, 3.0, 3.0, 1.0, 0.0, 1.0)
+    assert rule_metrics(("Courier New", 11), platform="mac") == RuleMetrics(
+        2.0, 1.0, 2.0, 3.0, 3.0, 1.0, 0.0, 1.0
+    )
     # at 72 points, zoom 200, the gap is wider and the single moves onto the first line
-    m = rule_metrics(("Courier New", 72), zoom=200)
+    m = rule_metrics(("Courier New", 72), zoom=200, platform="mac")
     assert (m.underline_top, m.double_top, m.double_gap) == (7.0, 7.0, 9.5)
     with pytest.raises(LookupError, match="measured at screen sizes 6 to 144"):
-        rule_metrics(("Courier New", 72), zoom=250)
+        rule_metrics(("Courier New", 72), zoom=250, platform="mac")
     with pytest.raises(LookupError, match="screen size 5"):
-        rule_metrics(("Courier New", 5))
-    assert rule_metrics(("Calibri", 11)) == RuleMetrics(1.0, 1.0, 2.0, 3.0, 3.0, 1.0, 0.0, 1.0)
+        rule_metrics(("Courier New", 5), platform="mac")
+    assert rule_metrics(("Calibri", 11), platform="mac") == RuleMetrics(
+        1.0, 1.0, 2.0, 3.0, 3.0, 1.0, 0.0, 1.0
+    )

@@ -82,7 +82,9 @@ def test_substitutes_measure_as_their_face() -> None:
     assert xlformat.font_substitutes(platform="windows") == {}
     for name, face in xlformat.font_substitutes(platform="mac").items():
         text = "Total: 1,234.56 €"
-        assert xlformat.text_width(text, (name, 13)) == xlformat.text_width(text, (face, 13))
+        assert xlformat.text_width(text, (name, 13), platform="mac") == xlformat.text_width(
+            text, (face, 13), platform="mac"
+        )
 
 
 def _substitutes() -> list[tuple[xlformat.Font, xlformat.Font]]:
@@ -99,33 +101,41 @@ def _substitutes() -> list[tuple[xlformat.Font, xlformat.Font]]:
 
 def test_substitutes_have_their_faces_rows() -> None:
     for name, face in _substitutes():
-        assert xlformat.row_metrics(name) == xlformat.row_metrics(face)
-        assert xlformat.row_metrics(face, cell_fonts=[name]) == xlformat.row_metrics(
-            face, cell_fonts=[face]
+        assert xlformat.row_metrics(name, platform="mac") == xlformat.row_metrics(
+            face, platform="mac"
         )
-        assert xlformat.row_metrics(None, wrapped=[(name, 3)]) == xlformat.row_metrics(
-            None, wrapped=[(face, 3)]
-        )
+        assert xlformat.row_metrics(
+            face, cell_fonts=[name], platform="mac"
+        ) == xlformat.row_metrics(face, cell_fonts=[face], platform="mac")
+        assert xlformat.row_metrics(
+            None, wrapped=[(name, 3)], platform="mac"
+        ) == xlformat.row_metrics(None, wrapped=[(face, 3)], platform="mac")
 
 
 def test_substitutes_have_their_faces_vertical_metrics() -> None:
     for name, face in _substitutes():
-        assert xlformat.vertical_metrics(name) == xlformat.vertical_metrics(face)
-        assert xlformat.vertical_metrics(face, normal_font=name) == xlformat.vertical_metrics(
-            face, normal_font=face
+        assert xlformat.vertical_metrics(name, platform="mac") == xlformat.vertical_metrics(
+            face, platform="mac"
         )
+        assert xlformat.vertical_metrics(
+            face, normal_font=name, platform="mac"
+        ) == xlformat.vertical_metrics(face, normal_font=face, platform="mac")
 
 
 def test_substitutes_have_their_faces_rules() -> None:
     for name, face in _substitutes():
         for zoom in (100, 150):
-            assert xlformat.rule_metrics(name, zoom=zoom) == xlformat.rule_metrics(face, zoom=zoom)
+            assert xlformat.rule_metrics(name, zoom=zoom, platform="mac") == xlformat.rule_metrics(
+                face, zoom=zoom, platform="mac"
+            )
 
 
 def test_substitutes_have_their_faces_ink() -> None:
     for name, face in _substitutes():
         plain = (xlformat.Font(name.name, 11), xlformat.Font(face.name, 11))
-        assert xlformat.ink_metrics(plain[0]) == xlformat.ink_metrics(plain[1])
+        assert xlformat.ink_metrics(plain[0], platform="mac") == xlformat.ink_metrics(
+            plain[1], platform="mac"
+        )
 
 
 def test_every_size_is_answered_by_the_rule() -> None:
@@ -134,11 +144,13 @@ def test_every_size_is_answered_by_the_rule() -> None:
         expected = math.floor(1456 * size / 2048 + 0.5)  # Verdana bold's widest digit
         bold = xlformat.Font("Verdana", size, bold=True)
         assert xlformat.digit_width(bold, platform="mac") == expected
-    assert xlformat.file_column_metrics(None, normal_font=xlformat.Font("Calibri", 409)).points
+    assert xlformat.file_column_metrics(
+        None, normal_font=xlformat.Font("Calibri", 409), platform="mac"
+    ).points
     with pytest.raises(LookupError):
-        xlformat.text_width("0", ("Geneva", 11))
+        xlformat.text_width("0", ("Geneva", 11), platform="mac")
     with pytest.raises(LookupError):
-        xlformat.text_width("0", ("Segoe UI", 11))
+        xlformat.text_width("0", ("Segoe UI", 11), platform="mac")
 
 
 def test_measured_fonts_lists_every_face_in_four_styles() -> None:
@@ -156,5 +168,7 @@ def test_fit_measures_every_glyph_whole() -> None:
     # fill decisions round every glyph (numeric_core_width_arial10: '€ 99.00 ' needs 7 units)
     font = xlformat.Font("Arial", 10)
     whole = _measure._whole_advances("Arial", 10.0, "regular")
-    assert xlformat.text_width("€ 99.00 ", font) == sum(whole[c] for c in "€ 99.00 ")
-    assert xlformat.glyph_widths("é", font) == (whole["é"],)
+    assert xlformat.text_width("€ 99.00 ", font, platform="mac") == sum(
+        whole[c] for c in "€ 99.00 "
+    )
+    assert xlformat.glyph_widths("é", font, platform="mac") == (whole["é"],)

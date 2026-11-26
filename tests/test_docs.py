@@ -176,7 +176,7 @@ def _top_changelog_entry() -> str:
 
 
 def test_every_family_count_is_the_measured_fonts() -> None:
-    families = len(xlformat.measured_fonts())
+    families = len(xlformat.measured_fonts(platform="mac"))
     texts = {
         path.name: path.read_text(encoding="utf-8")
         for path in [
@@ -201,5 +201,5 @@ def test_every_family_count_is_the_measured_fonts() -> None:
     listed = re.search(r"`measured_fonts\(\)`: ([^)]*?) and (\d+) more\)", readme)
     assert listed
     names = [n.strip() for n in listed[1].split(",")]
-    assert set(names) <= set(xlformat.measured_fonts())
+    assert set(names) <= set(xlformat.measured_fonts(platform="mac"))
     assert len(names) + int(listed[2]) == families

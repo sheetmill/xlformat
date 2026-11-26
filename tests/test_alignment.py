@@ -18,7 +18,7 @@ import pytest
 from xlformat import ExcelError, file_column_metrics, format_cell
 
 LAYOUT = Path(__file__).parent / "captures" / "alignment.layout.tsv"
-COLUMN_WIDTH = file_column_metrics(40).width  # capture/alignment.py: COLUMN_WIDTH
+COLUMN_WIDTH = file_column_metrics(40, platform="mac").width  # capture/alignment.py: COLUMN_WIDTH
 
 
 def _rows() -> list[dict[str, str]]:
@@ -37,7 +37,9 @@ def test_alignment_matches_the_pdf_export() -> None:
         value = literal_eval(row["value_repr"])
         if row["value_type"] == "error":
             value = ExcelError(value)
-        cell = format_cell(value, literal_eval(row["format"]), column_width=COLUMN_WIDTH)
+        cell = format_cell(
+            value, literal_eval(row["format"]), column_width=COLUMN_WIDTH, platform="mac"
+        )
         if cell.text.replace(" ", "") != row["text"].replace(" ", ""):
             failures.append(f"{row['format']} {row['value_repr']}: text {cell.text!r}")
             continue

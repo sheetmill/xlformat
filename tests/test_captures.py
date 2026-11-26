@@ -186,7 +186,7 @@ def _clipboard_year(row: Row, width: int | str | None, value: object, date1904: 
     if not any(c.text[:1] == "b" for s in NumberFormat.parse(fmt).sections for c in s.tokens):
         return False
     plain = re.sub("[bB]+(?![12])", lambda m: "yy" if len(m[0]) <= 2 else "yyyy", fmt)
-    return format_value(value, plain, date1904=date1904) == row.expected_text
+    return format_value(value, plain, date1904=date1904, platform="mac") == row.expected_text
 
 
 def _glyph_tight_fill(expected: str, got: str, fmt: str, width: int | None) -> bool:
@@ -377,7 +377,9 @@ def test_suite(suite_file: Path, tier: str, record_glyph_slack: bool, record_pro
             counts["skipped (glyph slack)"] += 1
             continue
         try:
-            got = format_value(value, fmt, width=width, date1904=date1904, show_zeros=show_zeros)
+            got = format_value(
+                value, fmt, width=width, date1904=date1904, show_zeros=show_zeros, platform="mac"
+            )
         except Exception as exc:
             got = f"<{type(exc).__name__}: {exc}>"
         if (
@@ -394,7 +396,7 @@ def test_suite(suite_file: Path, tier: str, record_glyph_slack: bool, record_pro
         if row.expected_color and (row.format, row.value_repr) in DISPLAY_FORMAT_COLOR_MISREPORTS:
             # strict: a listed row Excel now reports as the package colors it is a stale entry
             counts["color misreports skipped"] += 1
-            cell = format_cell(value, fmt, date1904=date1904)
+            cell = format_cell(value, fmt, date1904=date1904, platform="mac")
             ours = DEFAULT_PALETTE[cell.color] if cell.color else "000000"
             if ours == row.expected_color:
                 color_failures.append((row, f"{ours} (listed as misreported, now matches)"))
@@ -402,7 +404,7 @@ def test_suite(suite_file: Path, tier: str, record_glyph_slack: bool, record_pro
             # Excel reports the display format's font color; a cell without a section color
             # reads as the automatic black, 000000, which [Black] also gives.
             counts["colors compared"] += 1
-            cell = format_cell(value, fmt, date1904=date1904)
+            cell = format_cell(value, fmt, date1904=date1904, platform="mac")
             ours = DEFAULT_PALETTE[cell.color] if cell.color else "000000"
             if ours != row.expected_color:
                 color_failures.append((row, ours))

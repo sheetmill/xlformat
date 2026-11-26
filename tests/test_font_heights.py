@@ -36,12 +36,12 @@ def test_every_face_at_every_size_and_beside_calibri() -> None:
             assert m, tag
             assert n, tag
             got = row_metrics(
-                (face, 1.0), cell_fonts=[(m[1], float(m[2])), (n[1], float(n[2]))]
+                (face, 1.0), cell_fonts=[(m[1], float(m[2])), (n[1], float(n[2]))], platform="mac"
             ).height
         else:
             m = _FACE.fullmatch(tag)
             assert m, tag
-            got = row_metrics((face, 1.0), cell_fonts=[(m[1], float(m[2]))]).height
+            got = row_metrics((face, 1.0), cell_fonts=[(m[1], float(m[2]))], platform="mac").height
         if got != float(height):
             misses.append((face, tag, height, got))
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
@@ -57,7 +57,7 @@ def test_wrapped_lines_of_every_face() -> None:
         n = _FACE.fullmatch(normal)
         assert n, normal
         got = row_metrics(
-            ("Calibri", float(n[2])), wrapped=[((m[1], float(m[2])), int(m[3]))]
+            ("Calibri", float(n[2])), wrapped=[((m[1], float(m[2])), int(m[3]))], platform="mac"
         ).height
         if got != float(height):
             misses.append((normal, tag, height, got))
@@ -76,9 +76,9 @@ def test_every_underlined_row() -> None:
         face, size, underline, lines = m[1], float(m[2]), m[3], int(m[4])
         font = Font(face, size, underline=None if underline == "none" else underline)
         if lines == 1:
-            got = row_metrics(("Calibri", 1.0), cell_fonts=[font]).height
+            got = row_metrics(("Calibri", 1.0), cell_fonts=[font], platform="mac").height
         else:
-            got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)]).height
+            got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)], platform="mac").height
         if got != float(height):
             misses.append((tag, height, got))
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
@@ -100,9 +100,9 @@ def test_times_new_roman_accounting_at_half_sizes() -> None:
         face, size, underline, lines = m[1], float(m[2]), m[3], int(m[4])
         font = Font(face, size, underline=None if underline == "none" else underline)
         if lines == 1:
-            got = row_metrics(("Calibri", 1.0), cell_fonts=[font]).height
+            got = row_metrics(("Calibri", 1.0), cell_fonts=[font], platform="mac").height
         else:
-            got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)]).height
+            got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)], platform="mac").height
         if got != float(height):
             misses.append((tag, height, got))
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
@@ -121,9 +121,9 @@ def test_accounting_height_is_what_the_underline_adds(name: str) -> None:
         plain = rows[f"{m[1]} {m[2]} none {m[4]}"]
         font = Font(face, size, underline=underline)
         if lines == 1:
-            got = row_metrics(("Calibri", 1.0), cell_fonts=[font])
+            got = row_metrics(("Calibri", 1.0), cell_fonts=[font], platform="mac")
         else:
-            got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)])
+            got = row_metrics(("Calibri", 1.0), wrapped=[(font, lines)], platform="mac")
         checked += 1
         if got.accounting_height != float(height) - float(plain):
             misses.append((tag, float(height) - float(plain), got.accounting_height))

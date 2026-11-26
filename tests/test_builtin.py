@@ -46,8 +46,8 @@ def test_every_id_and_its_texts(platform: str) -> None:
 
 
 def test_typed_date_and_table() -> None:
-    assert builtin_format(14) == "m/d/yy"
-    assert format_value(45292, builtin_format(14)) == "1/1/24"
+    assert builtin_format(14, platform="mac") == "m/d/yy"
+    assert format_value(45292, builtin_format(14, platform="mac"), platform="mac") == "1/1/24"
     assert len(BUILTIN_FORMATS) == 164
     with pytest.raises(TypeError):
         BUILTIN_FORMATS[14] = "x"  # type: ignore[index]
@@ -56,4 +56,4 @@ def test_typed_date_and_table() -> None:
 @pytest.mark.parametrize("ident", [-1, 164, 200])
 def test_not_builtin(ident: int) -> None:
     with pytest.raises(ValueError, match="not a built-in number format id"):
-        builtin_format(ident)
+        builtin_format(ident, platform="mac")

@@ -52,4 +52,4 @@ def test_shipped_table_is_the_fit(
     digit = _measure._whole_advances(normal.name, normal.size, normal.style)[""]
     expected = {c: whole[c] + max(0, math.floor(10 * whole[c] / digit / 5) - 2) / 10 for c in adv}
     assert {c: round(a, 9) for c, a in adv.items()} == expected
-    assert _measure.overhang(face) == over
+    assert _measure.overhang(face, platform="mac") == over

@@ -35,5 +35,5 @@ def test_text_takes_a_color_only_from_a_text_section_or_a_lone_general() -> None
             rows.append((ast.literal_eval(value_text), fmt, fields[5]))
     assert len(rows) == 18
     for value, fmt, seen in rows:
-        color = format_cell(value, fmt).color
+        color = format_cell(value, fmt, platform="mac").color
         assert (color or "black") == (seen if seen == "black" else _nearest(seen)), (value, fmt)

@@ -44,15 +44,21 @@ def test_calendar_1904() -> None:
 
 
 def test_rendering_samples() -> None:
-    assert format_value(60, "dddd, mmmm d, yyyy") == "Wednesday, February 29, 1900"
-    assert format_value(0.5, "h:mm AM/PM") == "12:00 PM"
-    assert format_value(0.5, "h a/p") == "12 p"
-    assert format_value(1.5, "[h]:mm") == "36:00"
-    assert format_value(-1, "[h]") == "-24"  # elapsed-only sections take negatives
-    assert format_value(-1, "h:mm") == "#" * 255  # clock sections do not, in 1900
-    assert format_value(-1, "m/d/yyyy", date1904=True) == "-1/2/1904"
-    assert format_value(44927.9999999884, "yyyy-mm-dd hh:mm:ss.00") == "2023-01-02 00:00:00.00"
-    assert format_value(44927.9999999884, "yyyy-mm-dd hh:mm:ss.000") == "2023-01-01 23:59:59.999"
-    assert format_value(1234, "e+") == "1903+"
-    assert format_value(0, "[$-F800]") == "Saturday, January 0, 1900"
-    assert format_value(2958466, "m/d/yy") == "#" * 255
+    assert format_value(60, "dddd, mmmm d, yyyy", platform="mac") == "Wednesday, February 29, 1900"
+    assert format_value(0.5, "h:mm AM/PM", platform="mac") == "12:00 PM"
+    assert format_value(0.5, "h a/p", platform="mac") == "12 p"
+    assert format_value(1.5, "[h]:mm", platform="mac") == "36:00"
+    assert format_value(-1, "[h]", platform="mac") == "-24"  # elapsed-only sections take negatives
+    assert format_value(-1, "h:mm", platform="mac") == "#" * 255  # clock sections do not, in 1900
+    assert format_value(-1, "m/d/yyyy", date1904=True, platform="mac") == "-1/2/1904"
+    assert (
+        format_value(44927.9999999884, "yyyy-mm-dd hh:mm:ss.00", platform="mac")
+        == "2023-01-02 00:00:00.00"
+    )
+    assert (
+        format_value(44927.9999999884, "yyyy-mm-dd hh:mm:ss.000", platform="mac")
+        == "2023-01-01 23:59:59.999"
+    )
+    assert format_value(1234, "e+", platform="mac") == "1903+"
+    assert format_value(0, "[$-F800]", platform="mac") == "Saturday, January 0, 1900"
+    assert format_value(2958466, "m/d/yy", platform="mac") == "#" * 255

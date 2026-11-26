@@ -392,7 +392,7 @@ def estimated_points(book: Book) -> list[float]:
                 if case.face
                 else []
             )
-            out.append(1.2 * row_metrics(normal, cell_fonts=fonts).height)
+            out.append(1.2 * row_metrics(normal, cell_fonts=fonts, platform="mac").height)
         elif isinstance(case, TableRow):
             # the row model holds accounting rows at whole sizes from 6 only: a row is planned
             # at the next whole size, and at 6 below it, a row no shorter
@@ -402,11 +402,11 @@ def estimated_points(book: Book) -> list[float]:
                 )
                 for r in case.rules
             ]
-            out.append(1.2 * row_metrics(normal, cell_fonts=fonts).height)
+            out.append(1.2 * row_metrics(normal, cell_fonts=fonts, platform="mac").height)
         else:
             underline = None if case.rule in ("none", "strike") else case.rule
             font = Font(case.face, case.size, underline=underline)
-            out.append(1.2 * row_metrics(normal, cell_fonts=[font]).height)
+            out.append(1.2 * row_metrics(normal, cell_fonts=[font], platform="mac").height)
     return out
 
 

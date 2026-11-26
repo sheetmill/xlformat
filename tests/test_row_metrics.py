@@ -77,27 +77,27 @@ def test_every_captured_row_height(platform: str) -> None:
 
 
 def test_font_and_line_height() -> None:
-    m = row_metrics(Font("Aptos Narrow", 16, bold=True))
+    m = row_metrics(Font("Aptos Narrow", 16, bold=True), platform="mac")
     assert (m.height, m.font_height, m.line_height) == (22.0, 22.0, 23.0)
-    assert row_metrics(normal_font="Calibri").font_height == 15.0
+    assert row_metrics(normal_font="Calibri", platform="mac").font_height == 15.0
 
 
 def test_unmeasured_faces_and_bad_lines() -> None:
     with pytest.raises(LookupError, match="no row heights for Calibri 73"):
-        row_metrics(("Calibri", 73))
+        row_metrics(("Calibri", 73), platform="mac")
     with pytest.raises(LookupError, match="no row heights for font 'Comic Sans'"):
-        row_metrics(cell_fonts=[("Comic Sans", 11)])
+        row_metrics(cell_fonts=[("Comic Sans", 11)], platform="mac")
     # sizes and faces between the tables follow the slope model (font_height.layout.tsv)
-    assert row_metrics(("Calibri", 13)).font_height == 17.0
-    assert row_metrics(("Calibri", 12.5)).font_height == 17.0
-    assert row_metrics(("Times New Roman", 11)).font_height == 14.0
+    assert row_metrics(("Calibri", 13), platform="mac").font_height == 17.0
+    assert row_metrics(("Calibri", 12.5), platform="mac").font_height == 17.0
+    assert row_metrics(("Times New Roman", 11), platform="mac").font_height == 14.0
 
 
 def test_faces_of_two_families() -> None:
     # Arial 11 and Calibri 10 are both 14 points tall; Arial's descent is smaller, so the row
     # holds Arial's ascent and Calibri's descent: 15 points (row_height.layout.tsv.gz)
-    assert row_metrics(("Arial", 11), cell_fonts=[("Calibri", 10)]).height == 15.0
-    assert row_metrics(("Calibri", 11), cell_fonts=[("Arial", 11)]).height == 15.0
-    assert row_metrics(("Arial", 10)).font_height == 13.0
+    assert row_metrics(("Arial", 11), cell_fonts=[("Calibri", 10)], platform="mac").height == 15.0
+    assert row_metrics(("Calibri", 11), cell_fonts=[("Arial", 11)], platform="mac").height == 15.0
+    assert row_metrics(("Arial", 10), platform="mac").font_height == 13.0
     with pytest.raises(ValueError, match="at least one line"):
-        row_metrics(wrapped=[(None, 0)])
+        row_metrics(wrapped=[(None, 0)], platform="mac")
