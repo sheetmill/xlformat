@@ -600,7 +600,7 @@ def column_metrics(
         normal_font: The workbook's Normal font, whose digit width sets the column's units.
         font: Deprecated name of ``normal_font``, removed in 1.0.
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. Excel for Windows is measured at 96 dpi;
+            ``None`` means the default, ``"windows"``. Excel for Windows is measured at 96 dpi;
             another resolution raises ``LookupError``. Results are in points on both.
 
     Raises:
@@ -675,7 +675,8 @@ def file_column_metrics(
 
 # family (lower case) -> a: from 7.5 points a face's height (the row Excel fits to it alone, in
 # any style) is floor(a * ceil(size) + 1.5); each slope is the middle of the window that every
-# captured size from 7.5 to 72 allows (font_height.layout.tsv)
+# captured size from 7.5 to 72 allows (font_height.layout.tsv; from Aptos on,
+# font_height_more.layout.tsv, CAPTURING.md section 2 item 91)
 _SLOPE: dict[str, float] = {
     "calibri": 1.2689,
     "aptos narrow": 1.2815,
@@ -683,6 +684,21 @@ _SLOPE: dict[str, float] = {
     "times new roman": 1.2162,
     "courier new": 1.3007,
     "georgia": 1.2190,
+    "aptos": 1.2815,
+    "arial narrow": 1.2122,
+    "book antiqua": 1.282,
+    "bookman old style": 1.2319,
+    "calibri light": 1.2689,
+    "cambria": 1.2223,
+    "century gothic": 1.2203,
+    "courier": 1.3007,
+    "garamond": 1.2632,
+    "helvetica": 1.2299,
+    "lucida console": 1.211,
+    "rockwell": 1.2285,
+    "tahoma": 1.2068,
+    "trebuchet ms": 1.2223,
+    "verdana": 1.2098,
 }
 _DISPLAY = {
     "calibri": "Calibri",
@@ -691,6 +707,21 @@ _DISPLAY = {
     "times new roman": "Times New Roman",
     "courier new": "Courier New",
     "georgia": "Georgia",
+    "aptos": "Aptos",
+    "arial narrow": "Arial Narrow",
+    "book antiqua": "Book Antiqua",
+    "bookman old style": "Bookman Old Style",
+    "calibri light": "Calibri Light",
+    "cambria": "Cambria",
+    "century gothic": "Century Gothic",
+    "courier": "Courier",
+    "garamond": "Garamond",
+    "helvetica": "Helvetica",
+    "lucida console": "Lucida Console",
+    "rockwell": "Rockwell",
+    "tahoma": "Tahoma",
+    "trebuchet ms": "Trebuchet MS",
+    "verdana": "Verdana",
 }
 _SMALL = 7.5  # below this size the heights follow no slope: the captured ones, per half point
 # 1 to 5.5 points alike in every face captured; 6, 6.5 and 7 per face
@@ -704,6 +735,21 @@ _SMALL_HEIGHT: dict[str, dict[float, float]] = {
     "times new roman": {6: 10, 6.5: 10, 7: 10},
     "courier new": {6: 9, 6.5: 10, 7: 10},
     "georgia": {6: 10, 6.5: 10, 7: 10},
+    "aptos": {6: 9, 6.5: 10, 7: 10},
+    "arial narrow": {6: 10, 6.5: 11, 7: 11},
+    "book antiqua": {6: 9, 6.5: 10, 7: 10},
+    "bookman old style": {6: 10, 6.5: 10, 7: 10},
+    "calibri light": {6: 9, 6.5: 10, 7: 10},
+    "cambria": {6: 10, 6.5: 10, 7: 10},
+    "century gothic": {6: 10, 6.5: 10, 7: 10},
+    "courier": {6: 9, 6.5: 10, 7: 10},
+    "garamond": {6: 9, 6.5: 10, 7: 10},
+    "helvetica": {6: 10, 6.5: 10, 7: 10},
+    "lucida console": {6: 10, 6.5: 11, 7: 11},
+    "rockwell": {6: 10, 6.5: 10, 7: 10},
+    "tahoma": {6: 10, 6.5: 11, 7: 11},
+    "trebuchet ms": {6: 10, 6.5: 10, 7: 10},
+    "verdana": {6: 10, 6.5: 11, 7: 11},
 }
 _LARGEST = 72.0  # the largest size captured
 
@@ -823,8 +869,12 @@ def row_metrics(
     (CAPTURING.md section 2 items 44, 55 and 57). A face's height is ``floor(a * ceil(size) +
     1.5)`` from 7.5 points, ``a`` its slope, and captured below that; its ascent is ``ceil(size) +
     1``, its descent and line inset follow from the two. Bold and italic change nothing.
-    Measured: Calibri, Aptos Narrow, Arial, Times New Roman, Courier New and Georgia from 1 to 72
-    points; any other face or size raises ``LookupError``.
+    Measured on the Mac, from 1 to 72 points: Calibri, Aptos Narrow, Arial, Times New Roman,
+    Courier New, Georgia, Aptos, Arial Narrow, Book Antiqua, Bookman Old Style, Calibri Light,
+    Cambria, Century Gothic, Courier, Garamond, Helvetica, Lucida Console, Rockwell, Tahoma,
+    Trebuchet MS and Verdana (CAPTURING.md section 2 items 57 and 91); a face's name matches
+    ignoring case. Arial Black, Candara, Comic Sans MS, Consolas, Haettenschweiler and Impact
+    follow no one slope and raise ``LookupError``, as does any other face or size.
 
     An accounting underline (``Font.underline``) adds its line's thickness and its double's gap
     to the row and to each wrapped line, at the whole size ``ceil(size)`` from 6 to 72 points
@@ -842,11 +892,13 @@ def row_metrics(
         wrapped: One ``(font, lines)`` per cell with wrapped text: its font (``None`` for the
             Normal font) and its number of lines, as the caller broke them.
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. Excel for Windows is measured at 96 dpi in
-            Calibri, Aptos Narrow, Arial, Times New Roman and Courier New, four styles each, at
-            every ppem from 1 to 96: every size from 1 to 72 points, half sizes included (a size
-            takes its ppem's height, CAPTURING.md section 2 items 86 and 89), without accounting
-            underlines; anything else raises ``LookupError`` there.
+            ``None`` means the default, ``"windows"``. Excel for Windows is measured at 96 dpi in
+            every face :func:`measured_fonts` lists for it and in MS Sans Serif and Courier as
+            the capture machine draws them, four styles each, at every ppem from 1 to 96: every
+            size from 1 to 72 points, half sizes included (a size takes its ppem's height,
+            CAPTURING.md section 2 items 86, 89 and 91), without accounting underlines; anything
+            else raises ``LookupError`` there. The height is the model's: Excel stops a fitted
+            row at 409.5 points, which the caller applies.
 
     Raises:
         LookupError: A font or size the row model has not measured.
@@ -905,9 +957,25 @@ def _mac_row(
     return RowMetrics(height=height, font_height=font_height, line_height=font_height + 1.0)
 
 
+# faces Windows has rows for but no glyph table (CAPTURING.md section 2 item 91: the capture
+# machine has no font file for either, and Excel draws them as other faces)
+_WINDOWS_ROW_ONLY = {"ms sans serif": "MS Sans Serif", "courier": "Courier"}
+
+
+def _windows_row_font(font: FontSpec) -> Font:
+    """The font a row on Windows is in: matched by name ignoring case, as Excel matches it."""
+    if isinstance(font, str):
+        font = Font(font, 11.0)
+    elif not isinstance(font, Font):
+        font = Font(font[0], float(font[1]))
+    key = font.name.lower()
+    name = _WINDOWS_FAMILIES.get(key) or _WINDOWS_ROW_ONLY.get(key) or font.name
+    return Font(name, float(font.size), font.bold, font.italic, font.underline)
+
+
 def _windows_face(font: FontSpec | None) -> tuple[int, int]:
     """(H, D) in pixels of a face Excel for Windows' rows were captured in; LookupError else."""
-    f = DEFAULT_FONT if font is None else resolve_font(font, Platform.WINDOWS)
+    f = DEFAULT_FONT if font is None else _windows_row_font(font)
     if isinstance(font, Font) and font.underline in ("singleAccounting", "doubleAccounting"):
         msg = f"no accounting underline rows for Excel for Windows ({f.name} {f.size:g})"
         raise LookupError(msg)
@@ -915,7 +983,8 @@ def _windows_face(font: FontSpec | None) -> tuple[int, int]:
     found = by_ppem.get(_windows_ppem(f.size))
     if found is None:
         if not by_ppem:
-            measured = ", ".join(_DISPLAY[k] for k in WINDOWS_ROWS)
+            names = {**_WINDOWS_FAMILIES, **_WINDOWS_ROW_ONLY}
+            measured = ", ".join(names.get(k, k) for k in WINDOWS_ROWS)
             msg = f"no row heights for Excel for Windows for font {f.name!r}; measured: {measured}"
         else:
             sizes = list(WINDOWS_ROWS[f.name.lower()][f.style])
@@ -1187,25 +1256,25 @@ def vertical_metrics(
     applies to wrapped text alone (see :class:`VerticalMetrics` and :func:`row_metrics`).
     The placement follows from the face's height (:func:`row_metrics`): top-aligned text has its
     baseline ``ceil(size) + 1`` below the row's top and bottom-aligned text ``B = height -
-    ceil(size) - 1`` above its bottom, and the line inset is ``B - 2``. Supported: Calibri, Aptos
-    Narrow, Arial, Times New Roman, Courier New and Georgia from 1 to 72 points; any other face
-    or size raises ``LookupError``.
+    ceil(size) - 1`` above its bottom, and the line inset is ``B - 2``. Supported: the faces
+    :func:`row_metrics` measures on the Mac, from 1 to 72 points; any other face or size raises
+    ``LookupError``.
 
     Args:
         font: The cell's font; default ``("Calibri", 11)``.
         normal_font: The workbook's Normal font; default ``None``, the cell's own font, which
             gives the face's own placement (a cell in the Normal font).
         platform: Where the sheet is viewed: ``"mac"``, ``"windows"`` or a :class:`Platform`;
-            ``None`` means the default, ``"mac"``. On ``"windows"`` (96 dpi) the placement is
+            ``None`` means the default, ``"windows"``. On ``"windows"`` (96 dpi) the placement is
             in whole pixels from the face's H and D, the height and descent of
             :func:`row_metrics` (CAPTURING.md section 2 items 74 and 76): the baseline ``H - D
             + 1`` pixels below a top-aligned row's top, ``max(D, D') - 1`` above a
             bottom-aligned row's bottom (``D'`` the Normal font's), centered text ``floor((R -
             H) / 2)`` pixels lower than top-aligned text in a row of ``R`` pixels; wrapped
             lines ``H`` apart, the last raised by the difference of ``line_inset`` (``D - 1``)
-            as on the Mac. Windows covers what :func:`row_metrics` does there: Calibri, Aptos
-            Narrow, Arial, Times New Roman and Courier New in four styles at every size from 1
-            to 72 points, half sizes included.
+            as on the Mac. Windows covers what :func:`row_metrics` does there: every face it
+            has rows for, in four styles at every size from 1 to 72 points, half sizes
+            included.
 
     Raises:
         LookupError: A font or size not measured.

@@ -25,9 +25,18 @@ def _rows(name: str) -> list[list[str]]:
         return [line.rstrip("\n").split("\t") for line in f if not line.startswith("#")][1:]
 
 
-def test_every_face_at_every_size_and_beside_calibri() -> None:
-    rows = _rows("font_height.layout.tsv")
-    assert len(rows) == 6 * 179
+# font_height_more.layout.tsv (CAPTURING.md section 2 item 91): faces whose heights follow no one
+# slope, and whose rows beside Calibri show an ascent other than ceil(size) + 1; row_metrics raises
+IRREGULAR = ("Arial Black", "Candara", "Comic Sans MS", "Consolas", "Haettenschweiler", "Impact")
+
+
+@pytest.mark.parametrize(
+    ("name", "faces"), [("font_height.layout.tsv", 6), ("font_height_more.layout.tsv", 22)]
+)
+def test_every_face_at_every_size_and_beside_calibri(name: str, faces: int) -> None:
+    rows = _rows(name)
+    assert len(rows) == faces * 179
+    rows = [r for r in rows if r[0] not in IRREGULAR]
     misses = []
     for face, tag, height in rows:
         if " beside " in tag:
@@ -129,3 +138,13 @@ def test_accounting_height_is_what_the_underline_adds(name: str) -> None:
             misses.append((tag, float(height) - float(plain), got.accounting_height))
     assert checked
     assert not misses, f"{len(misses)} rows differ: {misses[:10]}"
+
+
+def test_the_irregular_faces_raise_and_a_name_matches_ignoring_case() -> None:
+    for face in IRREGULAR:
+        with pytest.raises(LookupError):
+            row_metrics((face, 11), platform="mac")
+    more = {(f, t): h for f, t, h in _rows("font_height_more.layout.tsv")}
+    known = {(f, t): h for f, t, h in _rows("font_height.layout.tsv")}
+    lower = {t.replace("arial", "Arial", 1): h for (f, t), h in more.items() if f == "arial"}
+    assert lower == {t: h for (f, t), h in known.items() if f == "Arial"}

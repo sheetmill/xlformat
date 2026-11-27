@@ -122,7 +122,9 @@ Eighteen further files are not suites of the common schema:
 - `angled_formats.layout.tsv` (128 rows): the rows Excel fits for padded and filled text at eight
   angles.
 - `font_height.layout.tsv` (1,074 rows): the rows Excel fits for six faces at every size from 1 to
-  72 points, beside Calibri; `wrapped_height.layout.tsv` (144 rows) the same wrapped.
+  72 points, beside Calibri; `wrapped_height.layout.tsv` (144 rows) the same wrapped;
+  `font_height_more.layout.tsv` (3,938 rows) the same design for 21 more faces and a lower-case
+  `arial`.
 - `underline_height.layout.tsv` (2,814 rows): the same under each underline style.
 - `accounting_height.layout.tsv` (132 rows): Times New Roman and Georgia under accounting
   underlines at every half point from 36 to 41.
@@ -144,8 +146,9 @@ Eighteen further files are not suites of the common schema:
 Excel for Windows' layout files in `tests/captures/windows/` are the same kinds of record, each
 beside the capture job it came from: `builtin_formats.layout.tsv`, `row_height.layout.tsv.gz`,
 `row_height_wide.layout.tsv.gz` (4,840 rows: five faces' heights and descents at 6 to 72
-points) and `row_height_ppem.layout.tsv.gz` (5,560 rows: the same faces at every other ppem from
-1 to 96) from cell reads; and from window captures `screen_pilot_rules.layout.tsv`,
+points), `row_height_ppem.layout.tsv.gz` (5,560 rows: the same faces at every other ppem from
+1 to 96) and `row_height_more.layout.tsv.gz` (42,809 rows: 22 more faces in four styles and a
+lower-case `arial` at every ppem) from cell reads; and from window captures `screen_pilot_rules.layout.tsv`,
 `screen_pilot_vertical.layout.tsv`, `screen_vertical.layout.tsv` and `screen_wrapped.layout.tsv`
 (text placement), `screen_rules.layout.tsv`, `screen_rules_zoom.layout.tsv`,
 `screen_rules_fresh.layout.tsv`, `screen_rules_table.layout.tsv`,

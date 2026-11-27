@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `row_metrics` and `vertical_metrics` answer more faces (CAPTURING item 91). On the Mac, 15
+  more of the measured families at every size from 1 to 72 points: Aptos, Arial Narrow, Book
+  Antiqua, Bookman Old Style, Calibri Light, Cambria, Century Gothic, Courier, Garamond, Helvetica,
+  Lucida Console, Rockwell, Tahoma, Trebuchet MS and Verdana; Arial Black, Candara, Comic Sans MS,
+  Consolas, Haettenschweiler and Impact follow no one slope and still raise `LookupError`. On
+  Windows every measured family (Georgia and the 19 others without rows before) and MS Sans Serif
+  and Courier as the capture machine draws them, in four styles at every ppem from 1 to 96. A
+  face's name matches ignoring case, as Excel's does on both.
+
 ### Changed
 - **The default platform is Excel for Windows.** `platform=None` (every function that takes
   `platform`, and `NumberFormat`'s methods) now means `"windows"` (`DEFAULT_PLATFORM`), and

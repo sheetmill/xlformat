@@ -117,10 +117,10 @@ evidence for each.
 - **Expected outputs come from Excel 16 for Mac and Excel for Windows** under Microsoft 365,
   with the en-US locale. Month and day names are English; locale tags such as `[$-409]` are
   parsed but not applied. The default platform is Excel for Windows, where text, columns and
-  rows are measured in pixels; pass `platform="mac"` for Excel for Mac. Text placement (`vertical_metrics`)
-  is measured on both, on Windows in the five faces `row_metrics` covers (Calibri, Aptos Narrow,
-  Arial, Times New Roman and Courier New); ink, underline positions and insets (`ink_metrics`,
-  `rule_metrics`, `text_insets`) on Windows in Calibri, Aptos Narrow and Arial.
+  rows are measured in pixels; pass `platform="mac"` for Excel for Mac. Text placement
+  (`vertical_metrics`) is measured on both, in the faces `row_metrics` covers (on Windows every
+  measured family); ink, underline positions and insets (`ink_metrics`, `rule_metrics`,
+  `text_insets`) on Windows in Calibri, Aptos Narrow and Arial.
 - **Error values** are passed as `ExcelError` (`ExcelError("#N/A")`); a plain string such as
   `"#N/A"` is text.
 - **Conditional formatting** and cell styles beyond the format string are out of scope.

@@ -174,9 +174,10 @@ nothing. Faces of one family split their heights alike, so such a row is as tall
 font; Arial's descent is smaller, so Arial 11 beside Calibri 10, both 14 points, makes 15. Each wrapped line takes
 its font's height plus one point, so a single wrapped line makes a Calibri 11 row 16 points; when
 the Normal font or another cell's font in the row is larger, a smaller font's wrapped text takes up
-to a few points more. The caller breaks the lines. Calibri, Aptos Narrow, Arial, Times New Roman,
-Courier New and Georgia are measured at every size from 1 to 72 points, half sizes included; any
-other face or size raises `LookupError`. Several cells with wrapped text in
+to a few points more. The caller breaks the lines. On the Mac, 21 faces are measured at every size
+from 1 to 72 points, half sizes included: the measured fonts but Arial Black, Candara, Comic Sans
+MS, Consolas, Haettenschweiler and Impact, whose heights follow no one rule; those and any other
+face or size raise `LookupError`. A face's name matches ignoring case, as in Excel. Several cells with wrapped text in
 one row are a combination not yet captured: the row takes the tallest of them.
 
 Text turned to an angle is not fitted to the column: Excel shows the width-less rendering, with its
@@ -276,8 +277,9 @@ shows a `#` run. Text is measured in 25 families (`measured_fonts(platform="wind
 but Courier and Helvetica) in four styles at every ppem from 11 to 32, sizes 8 to 24 and the half
 sizes between; another size scales the nearest measured ppem and may differ from Excel by a
 character near the edge of a column. Row heights and text placement (`row_metrics`,
-`vertical_metrics`) cover Calibri, Aptos Narrow, Arial, Times New Roman and Courier New at every
-size from 1 to 72 points, half sizes included.
+`vertical_metrics`) cover every measured family, and MS Sans Serif and Courier as the capture
+machine draws them, at every size from 1 to 72 points, half sizes included. Excel stops a fitted
+row at 409.5 points; `row_metrics` gives the model's height and leaves that limit to the caller.
 
 ```python
 >>> from xlformat import digit_width
