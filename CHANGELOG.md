@@ -22,7 +22,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `platform`, and `NumberFormat`'s methods) now means `"windows"` (`DEFAULT_PLATFORM`), and
   `regional_settings=None` means `RegionalSettings.EN_US_WINDOWS`; every sheetmill package
   switches on the same day. Pass `platform="mac"` to keep Excel for Mac: with it every result is
-  the same as before. A caller passing nothing now sees:
+  the same as before. sheetpeek 0.6.0 and earlier assume the Mac default and call xlformat
+  without a platform in places (its Mac row heights then come out wrong, and a Georgia or MS Sans
+  Serif cell raises `LookupError`): upgrade sheetpeek with this release. A caller passing nothing
+  now sees:
   - Excel mode (`column_width`): columns and text measured in whole pixels at 96 dpi, so `#` and
     fill counts can differ (`format_value(1234.5, "0.00*-", column_width=12)` is
     `'1234.50-------'`, on the Mac `'1234.50-----------'`), and a `*` fill that would pass 255
