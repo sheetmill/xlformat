@@ -6,7 +6,7 @@ from dataclasses import dataclass, fields
 from typing import ClassVar, Literal
 
 PlatformName = Literal["mac", "windows"]
-# what ``platform=None`` means; all the sheetmill packages change it together
+# what ``platform=None`` means
 DEFAULT_PLATFORM: PlatformName = "windows"
 # the display resolutions whose Windows glyph tables are captured
 WINDOWS_DPIS = (96,)

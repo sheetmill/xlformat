@@ -10,9 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **The default platform is Excel for Windows.** `platform=None` (every function that takes
   `platform`, and `NumberFormat`'s methods) now means `"windows"` (`DEFAULT_PLATFORM`), and
-  `regional_settings=None` means `RegionalSettings.EN_US_WINDOWS`; every sheetmill package
-  switches on the same day. Pass `platform="mac"` to keep Excel for Mac: with it every result is
-  the same as before, apart from the rows added below.
+  `regional_settings=None` means `RegionalSettings.EN_US_WINDOWS`. Pass `platform="mac"` to keep
+  Excel for Mac: with it every result is the same as before, apart from the rows added below.
 - **Upgrade sheetpeek with this release.** sheetpeek 0.6.0 and earlier assume the Mac default and
   call `row_metrics` without a platform: with this release their Mac layouts take Windows' row
   heights, and a Helvetica cell raises `LookupError`.
