@@ -7,25 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-- `row_metrics` and `vertical_metrics` answer more faces (CAPTURING item 91). On the Mac, 15
-  more of the measured families at every size from 1 to 72 points: Aptos, Arial Narrow, Book
-  Antiqua, Bookman Old Style, Calibri Light, Cambria, Century Gothic, Courier, Garamond, Helvetica,
-  Lucida Console, Rockwell, Tahoma, Trebuchet MS and Verdana; Arial Black, Candara, Comic Sans MS,
-  Consolas, Haettenschweiler and Impact follow no one slope and still raise `LookupError`. On
-  Windows every measured family (Georgia and the 19 others without rows before) and MS Sans Serif
-  and Courier as the capture machine draws them, in four styles at every ppem from 1 to 96. A
-  face's name matches ignoring case, as Excel's does on both.
-
 ### Changed
 - **The default platform is Excel for Windows.** `platform=None` (every function that takes
   `platform`, and `NumberFormat`'s methods) now means `"windows"` (`DEFAULT_PLATFORM`), and
   `regional_settings=None` means `RegionalSettings.EN_US_WINDOWS`; every sheetmill package
   switches on the same day. Pass `platform="mac"` to keep Excel for Mac: with it every result is
-  the same as before. sheetpeek 0.6.0 and earlier assume the Mac default and call xlformat
-  without a platform in places (its Mac row heights then come out wrong, and a Georgia or MS Sans
-  Serif cell raises `LookupError`): upgrade sheetpeek with this release. A caller passing nothing
-  now sees:
+  the same as before, apart from the rows added below.
+- **Upgrade sheetpeek with this release.** sheetpeek 0.6.0 and earlier assume the Mac default and
+  call `row_metrics` without a platform: with this release their Mac layouts take Windows' row
+  heights, and a Helvetica cell raises `LookupError`.
+- What a caller passing nothing now sees:
   - Excel mode (`column_width`): columns and text measured in whole pixels at 96 dpi, so `#` and
     fill counts can differ (`format_value(1234.5, "0.00*-", column_width=12)` is
     `'1234.50-------'`, on the Mac `'1234.50-----------'`), and a `*` fill that would pass 255
@@ -35,15 +26,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     (the Mac's 6.0), `text_width("Hello World")` 55.5 (55.0), `file_column_metrics().points`
     48.0 (53.0), `column_metrics(8.43).points` 48.0 (56.0); `autofit_width` takes the Windows
     bonus. `measured_fonts()` lists 25 families at 8 to 24 points, and `font_substitutes()` is
-    empty, so Courier, Helvetica and MS Sans Serif raise `LookupError`.
-  - Rows and placement on Windows: `row_metrics()` keeps a height of 15.0 but a wrapped line is
-    15 points (`line_height` 15.0, the Mac's 16.0). `row_metrics` and `vertical_metrics` cover
-    Calibri, Aptos Narrow, Arial, Times New Roman and Courier New (Georgia raises `LookupError`),
-    and `ink_metrics`, `rule_metrics` and `text_insets` cover Calibri, Aptos Narrow and Arial
-    (Times New Roman and Courier New raise).
+    empty, so text in Courier, Helvetica and MS Sans Serif raises `LookupError`.
+  - Rows and placement: `row_metrics()` keeps a height of 15.0 but a wrapped line is 15 points
+    (`line_height` 15.0, the Mac's 16.0). `row_metrics` and `vertical_metrics` cover every
+    measured family and MS Sans Serif and Courier (below); Helvetica raises `LookupError`.
+    `ink_metrics`, `rule_metrics` and `text_insets` cover Calibri, Aptos Narrow and Arial, and
+    raise for other faces (on the Mac they cover more).
   - `builtin_format` gives the Windows short date for the 20 short-date ids: `builtin_format(14)`
     is `'m/d/yyyy'` (the Mac's `'m/d/yy'`), `builtin_format(22)` `'m/d/yyyy h:mm'`.
   - `text_function` is unchanged (`TEXT` gives the same text on both, CAPTURING item 72).
+
+### Added
+- `row_metrics` and `vertical_metrics` answer more faces (CAPTURING item 91). On Windows every
+  measured family (Georgia and the 19 others that had none) and MS Sans Serif and Courier as the
+  capture machine draws them, in four styles at every size from 1 to 72 points: Tahoma 11 fits a
+  row of 14.25 points, Book Antiqua 11 one of 16.5. On the Mac 15 more of the measured families
+  at every size from 1 to 72 points: Aptos, Arial Narrow, Book Antiqua, Bookman Old Style,
+  Calibri Light, Cambria, Century Gothic, Courier, Garamond, Helvetica, Lucida Console, Rockwell,
+  Tahoma, Trebuchet MS and Verdana. Arial Black, Candara, Comic Sans MS, Consolas,
+  Haettenschweiler and Impact have no Mac rows yet: their heights follow no one rule, and they
+  still raise `LookupError` there. A face's name matches ignoring case (`"tahoma"` is Tahoma), as
+  Excel's does on both platforms.
 
 ### Fixed
 - `VerticalMetrics.cap_height` and `.descender` (deprecated) forward to the Mac's `ink_metrics`,
