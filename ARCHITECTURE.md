@@ -916,22 +916,23 @@ measure and units cached per column width and fonts, and one-character tokens an
 between formats.
 
 Measured with `bench/timing.py` (Python 3.11, Apple Silicon) at this version; parse times bypass
-the cache, render times are per call with a parsed format. `bench/golden.py` renders every captured
+the cache, render times are per call with a parsed format, Excel mode on the default platform,
+Windows (a `General` cell in a font other than the Normal font takes 11.6 µs on the Mac). `bench/golden.py` renders every captured
 row in every mode, so a change meant to keep the output can show that it did.
 
 | operation | measured |
 |---|---|
-| parse `#,##0.00` | 11.2 µs |
-| parse `General` | 3.0 µs |
-| parse the four-section accounting format (target 50) | 41.2 µs |
-| parse `m/d/yy` | 7.6 µs |
-| parse `yyyy-mm-dd hh:mm:ss.000` | 16.3 µs |
-| format `#,##0.00`: width-less, `width=10`, `column_width=10` | 5.2, 5.6, 6.0 µs |
-| format `#,##0.00` in Excel mode with a cell font other than the Normal font | 6.0 µs |
-| format `General` with 1234567.891: width-less, `width=10`, `column_width=10` | 4.8, 7.8, 8.3 µs |
-| format the accounting format with -1234.5 in Excel mode | 7.1 µs |
-| format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 10.8 µs |
-| memory retained by 1,000 distinct compiled formats | 1,149 KiB |
+| parse `#,##0.00` | 12.0 µs |
+| parse `General` | 3.2 µs |
+| parse the four-section accounting format (target 50) | 43.2 µs |
+| parse `m/d/yy` | 8.0 µs |
+| parse `yyyy-mm-dd hh:mm:ss.000` | 17.3 µs |
+| format `#,##0.00`: width-less, `width=10`, `column_width=10` | 5.9, 6.3, 6.8 µs |
+| format `#,##0.00` in Excel mode with a cell font other than the Normal font | 7.3 µs |
+| format `General` with 1234567.891: width-less, `width=10`, `column_width=10` | 5.3, 8.6, 9.5 µs |
+| format the accounting format with -1234.5 in Excel mode | 8.0 µs |
+| format `yyyy-mm-dd hh:mm:ss.000` in Excel mode | 11.8 µs |
+| memory retained by 1,000 distinct compiled formats | 1,148 KiB |
 | memory of one compiled accounting format | 2.5 KiB |
 | `pytest`: the Mac's 353 suite files, 868,482 rows, and Windows' 301, 514,013 rows, in all modes | 37 s (68 s with pytest's cache empty) |
 | `pytest --tier=fast` | 10 s (21 s with pytest's cache empty) |
