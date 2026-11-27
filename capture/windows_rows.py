@@ -24,6 +24,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+from capture import rows_wide
 from capture.cases import CellFont
 from capture.row_heights import fonts, rows
 
@@ -33,6 +34,9 @@ OUT = ROOT / "src" / "xlformat" / "_rows_windows.py"
 SCALE = 96 / 72
 Face = tuple[str, str, float]  # family, style, size
 FAMILIES = ("Calibri", "Aptos Narrow", "Arial", "Times New Roman", "Courier New")
+# capture/rows_wide.py's rows_more faces; its lower-case "arial" only checks that Excel matches the
+# name ignoring case (tests/test_rows_wide.py), and is not a family of the table
+MORE = tuple(f for f in rows_wide.MORE_FAMILIES if f != "arial")
 
 
 def _face(font: CellFont) -> Face:
@@ -102,7 +106,7 @@ def fit() -> tuple[dict[Face, tuple[int, int]], int, int, list[str]]:
 
 
 def _render(table: dict[Face, tuple[int, int]]) -> str:
-    families = sorted({f for f, _, _ in table}, key=FAMILIES.index)
+    families = sorted({f for f, _, _ in table}, key=(FAMILIES + MORE).index)
     lines = [
         '"""Row heights in Excel for Windows at 96 dpi, in pixels (generated).',
         "",
@@ -132,20 +136,20 @@ def _render(table: dict[Face, tuple[int, int]]) -> str:
 def main(argv: list[str]) -> None:
     import subprocess
 
-    from capture import rows_wide
-
     table, matched, total, wrong = fit()
-    for group in (rows_wide.GROUP, rows_wide.GROUP_PPEM):
+    for group in (rows_wide.GROUP, rows_wide.GROUP_PPEM, rows_wide.GROUP_MORE):
         if not rows_wide.layout_path(group).exists():
             continue
         wide, problems = rows_wide.fit(group)
         if problems:
             sys.exit(f"{len(problems)} {group} rows the model does not give")
         for face, hd in wide.items():
+            if face[0] == "arial":
+                continue
             if table.get(face, hd) != hd:
                 sys.exit(f"{face}: {table[face]} in an earlier capture, {hd} in {group}")
             table[face] = hd
-    for family in FAMILIES:
+    for family in FAMILIES + MORE:
         for style in ("regular", "bold", "italic", "bold italic"):
             row = sorted((z, hd) for (f, st, z), hd in table.items() if f == family and st == style)
             print(family, style, " ".join(f"{z}:{h}/{d}" for z, (h, d) in row))

@@ -1793,6 +1793,34 @@ writes (items 8 and 9); raw output under `capture/build/*.out` (gitignored).
       from 15. Its faces captures reach 55 widths (a bonus of 9 points) under Normal digits of 4 to
       9 points with no miss at sizes 6 to 320.
 
+91. **Rows of the faces with widths but no rows, both platforms (2026-11-27).** The faces
+    `measured_fonts()` lists without `row_metrics` rows: 21 on the Mac, 20 on Windows (Georgia
+    among them), with MS Sans Serif and Courier on Windows and a lower-case `arial` on both.
+    - **Mac** (`capture/font_heights.py more`; Excel 16.115 (26110837), Microsoft 365, in a macOS
+      virtual machine; `font_height_more.layout.tsv`, 22 workbooks, 3,938 rows, 92 seconds):
+      item 57's design. Fifteen faces fit one slope each at every size from 7.5 to 72 points and
+      item 57's ascent `ceil(S) + 1` in every row beside Calibri: Aptos 1.2812-1.2818, Arial
+      Narrow 1.2119-1.2125, Book Antiqua 1.2818-1.2823, Bookman Old Style 1.2317-1.2321, Calibri
+      Light 1.2685-1.2692, Cambria 1.2214-1.2231, Century Gothic 1.2200-1.2206, Courier
+      1.3000-1.3015, Garamond 1.2627-1.2636, Helvetica 1.2297-1.2300, Lucida Console
+      1.2109-1.2111, Rockwell 1.2283-1.2288, Tahoma 1.2065-1.2071, Trebuchet MS 1.2214-1.2231,
+      Verdana 1.2097-1.2100; the package takes each window's middle. Every face has item 57's
+      common heights from 1 to 5.5 points and its own at 6, 6.5 and 7. Arial Black, Candara,
+      Comic Sans MS, Consolas, Haettenschweiler and Impact fit no one slope, and their rows beside
+      Calibri show an ascent other than `ceil(S) + 1` (Arial Black 20 beside Calibri 24 is 33
+      points, where that ascent gives 35); the design does not split their heights, so they stay
+      without rows. `arial` fits Arial's slope window and gives each of Arial's 179 rows of item
+      57: Excel matches a face's name ignoring case.
+    - **Windows** (group `rows_more`, `capture/rows_wide.py`; Excel 16.0.20527.20196, Microsoft
+      365, Current Channel, 96 dpi; `windows/row_height_more.layout.tsv.gz`, 89 workbooks, 42,809
+      rows, 135 seconds): item 89's design at a size for each ppem from 1 to 96, four styles a
+      face (`arial` regular only). Every row is item 69's model, `max(lines·H − D) + max D`, with
+      one (H, D) per face, style and ppem (8,544), except 55 four-line rows of Arial Black and
+      Comic Sans MS from 67.5 points, which read 546 pixels: Excel stops a fitted row at 409.5
+      points. The job's header lists Courier and MS Sans Serif among the fonts the machine has no
+      file for, so their rows are of the faces Excel draws for them there. `arial` gives Arial's
+      (H, D) at all 96 ppems.
+
 ## 3. The pipeline
 
 ```

@@ -176,6 +176,7 @@ def read_layout(group: str = GROUP) -> dict[tuple[str, str], int]:
 
 
 Face = tuple[str, str, float]  # family, style, size
+MAX_ROW_PX = 546  # Excel's largest row, 409.5 points: a taller fitted row stops there
 
 
 def fit(group: str = GROUP) -> tuple[dict[Face, tuple[int, int]], list[str]]:
@@ -206,7 +207,8 @@ def fit(group: str = GROUP) -> tuple[dict[Face, tuple[int, int]], list[str]]:
             table[(family, style, size)] = (h, d)
 
             def row(cells: list[tuple[int, int, int]]) -> int:
-                return max(n * hh - dd for n, hh, dd in cells) + max(dd for _, _, dd in cells)
+                fitted = max(n * hh - dd for n, hh, dd in cells) + max(dd for _, _, dd in cells)
+                return min(fitted, MAX_ROW_PX)
 
             for n, width in zip(lines, w, strict=True):
                 want = row([(1, hn, dn), (n, h, d)])

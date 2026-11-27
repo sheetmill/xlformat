@@ -1,0 +1,3943 @@
+# suite: font_height_more (capture.font_heights); Excel for Mac, en_US
+# excel_build: 16.115 (26110837)
+# edition: Microsoft 365 Subscription, update channel Current
+# captured: 2026-11-27; one workbook per face, Normal style the face at 1 point; a number per cell; rows fitted by Excel on opening; standard heights: Aptos 4.0, Arial Black 4.0, Arial Narrow 4.0, Book Antiqua 4.0, Bookman Old Style 4.0, Calibri Light 4.0, Cambria 4.0, Candara 4.0, Century Gothic 4.0, Comic Sans MS 4.0, Consolas 4.0, Courier 4.0, Garamond 4.0, Haettenschweiler 4.0, Helvetica 4.0, Impact 4.0, Lucida Console 4.0, Rockwell 4.0, Tahoma 4.0, Trebuchet MS 4.0, Verdana 4.0, arial 4.0
+face	tag	row_height
+Aptos	Aptos 1	4.0
+Aptos	Aptos 1.5	7.0
+Aptos	Aptos 2	7.0
+Aptos	Aptos 2.5	7.0
+Aptos	Aptos 3	7.0
+Aptos	Aptos 3.5	8.0
+Aptos	Aptos 4	8.0
+Aptos	Aptos 4.5	9.0
+Aptos	Aptos 5	9.0
+Aptos	Aptos 5.5	10.0
+Aptos	Aptos 6	9.0
+Aptos	Aptos 6.5	10.0
+Aptos	Aptos 7	10.0
+Aptos	Aptos 7.5	11.0
+Aptos	Aptos 8	11.0
+Aptos	Aptos 8.5	13.0
+Aptos	Aptos 9	13.0
+Aptos	Aptos 9.5	14.0
+Aptos	Aptos 10	14.0
+Aptos	Aptos 10.5	15.0
+Aptos	Aptos 11	15.0
+Aptos	Aptos 11.5	16.0
+Aptos	Aptos 12	16.0
+Aptos	Aptos 12.5	18.0
+Aptos	Aptos 13	18.0
+Aptos	Aptos 13.5	19.0
+Aptos	Aptos 14	19.0
+Aptos	Aptos 14.5	20.0
+Aptos	Aptos 15	20.0
+Aptos	Aptos 15.5	22.0
+Aptos	Aptos 16	22.0
+Aptos	Aptos 16.5	23.0
+Aptos	Aptos 17	23.0
+Aptos	Aptos 17.5	24.0
+Aptos	Aptos 18	24.0
+Aptos	Aptos 18.5	25.0
+Aptos	Aptos 19	25.0
+Aptos	Aptos 19.5	27.0
+Aptos	Aptos 20	27.0
+Aptos	Aptos 20.5	28.0
+Aptos	Aptos 21	28.0
+Aptos	Aptos 21.5	29.0
+Aptos	Aptos 22	29.0
+Aptos	Aptos 22.5	30.0
+Aptos	Aptos 23	30.0
+Aptos	Aptos 23.5	32.0
+Aptos	Aptos 24	32.0
+Aptos	Aptos 24.5	33.0
+Aptos	Aptos 25	33.0
+Aptos	Aptos 25.5	34.0
+Aptos	Aptos 26	34.0
+Aptos	Aptos 26.5	36.0
+Aptos	Aptos 27	36.0
+Aptos	Aptos 27.5	37.0
+Aptos	Aptos 28	37.0
+Aptos	Aptos 28.5	38.0
+Aptos	Aptos 29	38.0
+Aptos	Aptos 29.5	39.0
+Aptos	Aptos 30	39.0
+Aptos	Aptos 30.5	41.0
+Aptos	Aptos 31	41.0
+Aptos	Aptos 31.5	42.0
+Aptos	Aptos 32	42.0
+Aptos	Aptos 32.5	43.0
+Aptos	Aptos 33	43.0
+Aptos	Aptos 33.5	45.0
+Aptos	Aptos 34	45.0
+Aptos	Aptos 34.5	46.0
+Aptos	Aptos 35	46.0
+Aptos	Aptos 35.5	47.0
+Aptos	Aptos 36	47.0
+Aptos	Aptos 36.5	48.0
+Aptos	Aptos 37	48.0
+Aptos	Aptos 37.5	50.0
+Aptos	Aptos 38	50.0
+Aptos	Aptos 38.5	51.0
+Aptos	Aptos 39	51.0
+Aptos	Aptos 39.5	52.0
+Aptos	Aptos 40	52.0
+Aptos	Aptos 40.5	54.0
+Aptos	Aptos 41	54.0
+Aptos	Aptos 41.5	55.0
+Aptos	Aptos 42	55.0
+Aptos	Aptos 42.5	56.0
+Aptos	Aptos 43	56.0
+Aptos	Aptos 43.5	57.0
+Aptos	Aptos 44	57.0
+Aptos	Aptos 44.5	59.0
+Aptos	Aptos 45	59.0
+Aptos	Aptos 45.5	60.0
+Aptos	Aptos 46	60.0
+Aptos	Aptos 46.5	61.0
+Aptos	Aptos 47	61.0
+Aptos	Aptos 47.5	63.0
+Aptos	Aptos 48	63.0
+Aptos	Aptos 48.5	64.0
+Aptos	Aptos 49	64.0
+Aptos	Aptos 49.5	65.0
+Aptos	Aptos 50	65.0
+Aptos	Aptos 50.5	66.0
+Aptos	Aptos 51	66.0
+Aptos	Aptos 51.5	68.0
+Aptos	Aptos 52	68.0
+Aptos	Aptos 52.5	69.0
+Aptos	Aptos 53	69.0
+Aptos	Aptos 53.5	70.0
+Aptos	Aptos 54	70.0
+Aptos	Aptos 54.5	71.0
+Aptos	Aptos 55	71.0
+Aptos	Aptos 55.5	73.0
+Aptos	Aptos 56	73.0
+Aptos	Aptos 56.5	74.0
+Aptos	Aptos 57	74.0
+Aptos	Aptos 57.5	75.0
+Aptos	Aptos 58	75.0
+Aptos	Aptos 58.5	77.0
+Aptos	Aptos 59	77.0
+Aptos	Aptos 59.5	78.0
+Aptos	Aptos 60	78.0
+Aptos	Aptos 60.5	79.0
+Aptos	Aptos 61	79.0
+Aptos	Aptos 61.5	80.0
+Aptos	Aptos 62	80.0
+Aptos	Aptos 62.5	82.0
+Aptos	Aptos 63	82.0
+Aptos	Aptos 63.5	83.0
+Aptos	Aptos 64	83.0
+Aptos	Aptos 64.5	84.0
+Aptos	Aptos 65	84.0
+Aptos	Aptos 65.5	86.0
+Aptos	Aptos 66	86.0
+Aptos	Aptos 66.5	87.0
+Aptos	Aptos 67	87.0
+Aptos	Aptos 67.5	88.0
+Aptos	Aptos 68	88.0
+Aptos	Aptos 68.5	89.0
+Aptos	Aptos 69	89.0
+Aptos	Aptos 69.5	91.0
+Aptos	Aptos 70	91.0
+Aptos	Aptos 70.5	92.0
+Aptos	Aptos 71	92.0
+Aptos	Aptos 71.5	93.0
+Aptos	Aptos 72	93.0
+Aptos	Aptos 9 beside Calibri 9	13.0
+Aptos	Aptos 9 beside Calibri 10	14.0
+Aptos	Aptos 9 beside Calibri 11	15.0
+Aptos	Aptos 9 beside Calibri 12	16.0
+Aptos	Aptos 9 beside Calibri 14	19.0
+Aptos	Aptos 9 beside Calibri 16	21.0
+Aptos	Aptos 9 beside Calibri 18	24.0
+Aptos	Aptos 9 beside Calibri 20	26.0
+Aptos	Aptos 9 beside Calibri 24	31.0
+Aptos	Aptos 11 beside Calibri 9	15.0
+Aptos	Aptos 11 beside Calibri 10	15.0
+Aptos	Aptos 11 beside Calibri 11	15.0
+Aptos	Aptos 11 beside Calibri 12	16.0
+Aptos	Aptos 11 beside Calibri 14	19.0
+Aptos	Aptos 11 beside Calibri 16	21.0
+Aptos	Aptos 11 beside Calibri 18	24.0
+Aptos	Aptos 11 beside Calibri 20	26.0
+Aptos	Aptos 11 beside Calibri 24	31.0
+Aptos	Aptos 14 beside Calibri 9	19.0
+Aptos	Aptos 14 beside Calibri 10	19.0
+Aptos	Aptos 14 beside Calibri 11	19.0
+Aptos	Aptos 14 beside Calibri 12	19.0
+Aptos	Aptos 14 beside Calibri 14	19.0
+Aptos	Aptos 14 beside Calibri 16	21.0
+Aptos	Aptos 14 beside Calibri 18	24.0
+Aptos	Aptos 14 beside Calibri 20	26.0
+Aptos	Aptos 14 beside Calibri 24	31.0
+Aptos	Aptos 20 beside Calibri 9	27.0
+Aptos	Aptos 20 beside Calibri 10	27.0
+Aptos	Aptos 20 beside Calibri 11	27.0
+Aptos	Aptos 20 beside Calibri 12	27.0
+Aptos	Aptos 20 beside Calibri 14	27.0
+Aptos	Aptos 20 beside Calibri 16	27.0
+Aptos	Aptos 20 beside Calibri 18	27.0
+Aptos	Aptos 20 beside Calibri 20	27.0
+Aptos	Aptos 20 beside Calibri 24	31.0
+Arial Black	Arial Black 1	4.0
+Arial Black	Arial Black 1.5	7.0
+Arial Black	Arial Black 2	7.0
+Arial Black	Arial Black 2.5	7.0
+Arial Black	Arial Black 3	7.0
+Arial Black	Arial Black 3.5	8.0
+Arial Black	Arial Black 4	8.0
+Arial Black	Arial Black 4.5	9.0
+Arial Black	Arial Black 5	9.0
+Arial Black	Arial Black 5.5	10.0
+Arial Black	Arial Black 6	11.0
+Arial Black	Arial Black 6.5	12.0
+Arial Black	Arial Black 7	12.0
+Arial Black	Arial Black 7.5	13.0
+Arial Black	Arial Black 8	13.0
+Arial Black	Arial Black 8.5	15.0
+Arial Black	Arial Black 9	15.0
+Arial Black	Arial Black 9.5	16.0
+Arial Black	Arial Black 10	16.0
+Arial Black	Arial Black 10.5	17.0
+Arial Black	Arial Black 11	17.0
+Arial Black	Arial Black 11.5	19.0
+Arial Black	Arial Black 12	19.0
+Arial Black	Arial Black 12.5	20.0
+Arial Black	Arial Black 13	20.0
+Arial Black	Arial Black 13.5	21.0
+Arial Black	Arial Black 14	21.0
+Arial Black	Arial Black 14.5	25.0
+Arial Black	Arial Black 15	25.0
+Arial Black	Arial Black 15.5	26.0
+Arial Black	Arial Black 16	26.0
+Arial Black	Arial Black 16.5	27.0
+Arial Black	Arial Black 17	27.0
+Arial Black	Arial Black 17.5	29.0
+Arial Black	Arial Black 18	29.0
+Arial Black	Arial Black 18.5	30.0
+Arial Black	Arial Black 19	30.0
+Arial Black	Arial Black 19.5	31.0
+Arial Black	Arial Black 20	31.0
+Arial Black	Arial Black 20.5	33.0
+Arial Black	Arial Black 21	33.0
+Arial Black	Arial Black 21.5	34.0
+Arial Black	Arial Black 22	34.0
+Arial Black	Arial Black 22.5	35.0
+Arial Black	Arial Black 23	35.0
+Arial Black	Arial Black 23.5	36.0
+Arial Black	Arial Black 24	36.0
+Arial Black	Arial Black 24.5	40.0
+Arial Black	Arial Black 25	40.0
+Arial Black	Arial Black 25.5	41.0
+Arial Black	Arial Black 26	41.0
+Arial Black	Arial Black 26.5	42.0
+Arial Black	Arial Black 27	42.0
+Arial Black	Arial Black 27.5	44.0
+Arial Black	Arial Black 28	44.0
+Arial Black	Arial Black 28.5	45.0
+Arial Black	Arial Black 29	45.0
+Arial Black	Arial Black 29.5	46.0
+Arial Black	Arial Black 30	46.0
+Arial Black	Arial Black 30.5	48.0
+Arial Black	Arial Black 31	48.0
+Arial Black	Arial Black 31.5	49.0
+Arial Black	Arial Black 32	49.0
+Arial Black	Arial Black 32.5	50.0
+Arial Black	Arial Black 33	50.0
+Arial Black	Arial Black 33.5	52.0
+Arial Black	Arial Black 34	52.0
+Arial Black	Arial Black 34.5	55.0
+Arial Black	Arial Black 35	55.0
+Arial Black	Arial Black 35.5	56.0
+Arial Black	Arial Black 36	56.0
+Arial Black	Arial Black 36.5	57.0
+Arial Black	Arial Black 37	57.0
+Arial Black	Arial Black 37.5	59.0
+Arial Black	Arial Black 38	59.0
+Arial Black	Arial Black 38.5	60.0
+Arial Black	Arial Black 39	60.0
+Arial Black	Arial Black 39.5	61.0
+Arial Black	Arial Black 40	61.0
+Arial Black	Arial Black 40.5	63.0
+Arial Black	Arial Black 41	63.0
+Arial Black	Arial Black 41.5	64.0
+Arial Black	Arial Black 42	64.0
+Arial Black	Arial Black 42.5	65.0
+Arial Black	Arial Black 43	65.0
+Arial Black	Arial Black 43.5	67.0
+Arial Black	Arial Black 44	67.0
+Arial Black	Arial Black 44.5	70.0
+Arial Black	Arial Black 45	70.0
+Arial Black	Arial Black 45.5	71.0
+Arial Black	Arial Black 46	71.0
+Arial Black	Arial Black 46.5	73.0
+Arial Black	Arial Black 47	73.0
+Arial Black	Arial Black 47.5	74.0
+Arial Black	Arial Black 48	74.0
+Arial Black	Arial Black 48.5	75.0
+Arial Black	Arial Black 49	75.0
+Arial Black	Arial Black 49.5	76.0
+Arial Black	Arial Black 50	76.0
+Arial Black	Arial Black 50.5	78.0
+Arial Black	Arial Black 51	78.0
+Arial Black	Arial Black 51.5	79.0
+Arial Black	Arial Black 52	79.0
+Arial Black	Arial Black 52.5	80.0
+Arial Black	Arial Black 53	80.0
+Arial Black	Arial Black 53.5	82.0
+Arial Black	Arial Black 54	82.0
+Arial Black	Arial Black 54.5	85.0
+Arial Black	Arial Black 55	85.0
+Arial Black	Arial Black 55.5	86.0
+Arial Black	Arial Black 56	86.0
+Arial Black	Arial Black 56.5	88.0
+Arial Black	Arial Black 57	88.0
+Arial Black	Arial Black 57.5	89.0
+Arial Black	Arial Black 58	89.0
+Arial Black	Arial Black 58.5	90.0
+Arial Black	Arial Black 59	90.0
+Arial Black	Arial Black 59.5	92.0
+Arial Black	Arial Black 60	92.0
+Arial Black	Arial Black 60.5	93.0
+Arial Black	Arial Black 61	93.0
+Arial Black	Arial Black 61.5	94.0
+Arial Black	Arial Black 62	94.0
+Arial Black	Arial Black 62.5	96.0
+Arial Black	Arial Black 63	96.0
+Arial Black	Arial Black 63.5	97.0
+Arial Black	Arial Black 64	97.0
+Arial Black	Arial Black 64.5	100.0
+Arial Black	Arial Black 65	100.0
+Arial Black	Arial Black 65.5	101.0
+Arial Black	Arial Black 66	101.0
+Arial Black	Arial Black 66.5	103.0
+Arial Black	Arial Black 67	103.0
+Arial Black	Arial Black 67.5	104.0
+Arial Black	Arial Black 68	104.0
+Arial Black	Arial Black 68.5	105.0
+Arial Black	Arial Black 69	105.0
+Arial Black	Arial Black 69.5	107.0
+Arial Black	Arial Black 70	107.0
+Arial Black	Arial Black 70.5	108.0
+Arial Black	Arial Black 71	108.0
+Arial Black	Arial Black 71.5	109.0
+Arial Black	Arial Black 72	109.0
+Arial Black	Arial Black 9 beside Calibri 9	15.0
+Arial Black	Arial Black 9 beside Calibri 10	15.0
+Arial Black	Arial Black 9 beside Calibri 11	16.0
+Arial Black	Arial Black 9 beside Calibri 12	17.0
+Arial Black	Arial Black 9 beside Calibri 14	19.0
+Arial Black	Arial Black 9 beside Calibri 16	21.0
+Arial Black	Arial Black 9 beside Calibri 18	24.0
+Arial Black	Arial Black 9 beside Calibri 20	26.0
+Arial Black	Arial Black 9 beside Calibri 24	31.0
+Arial Black	Arial Black 11 beside Calibri 9	17.0
+Arial Black	Arial Black 11 beside Calibri 10	17.0
+Arial Black	Arial Black 11 beside Calibri 11	17.0
+Arial Black	Arial Black 11 beside Calibri 12	17.0
+Arial Black	Arial Black 11 beside Calibri 14	19.0
+Arial Black	Arial Black 11 beside Calibri 16	21.0
+Arial Black	Arial Black 11 beside Calibri 18	24.0
+Arial Black	Arial Black 11 beside Calibri 20	26.0
+Arial Black	Arial Black 11 beside Calibri 24	31.0
+Arial Black	Arial Black 14 beside Calibri 9	21.0
+Arial Black	Arial Black 14 beside Calibri 10	21.0
+Arial Black	Arial Black 14 beside Calibri 11	21.0
+Arial Black	Arial Black 14 beside Calibri 12	21.0
+Arial Black	Arial Black 14 beside Calibri 14	21.0
+Arial Black	Arial Black 14 beside Calibri 16	22.0
+Arial Black	Arial Black 14 beside Calibri 18	24.0
+Arial Black	Arial Black 14 beside Calibri 20	26.0
+Arial Black	Arial Black 14 beside Calibri 24	31.0
+Arial Black	Arial Black 20 beside Calibri 9	31.0
+Arial Black	Arial Black 20 beside Calibri 10	31.0
+Arial Black	Arial Black 20 beside Calibri 11	31.0
+Arial Black	Arial Black 20 beside Calibri 12	31.0
+Arial Black	Arial Black 20 beside Calibri 14	31.0
+Arial Black	Arial Black 20 beside Calibri 16	31.0
+Arial Black	Arial Black 20 beside Calibri 18	31.0
+Arial Black	Arial Black 20 beside Calibri 20	31.0
+Arial Black	Arial Black 20 beside Calibri 24	33.0
+Arial Narrow	Arial Narrow 1	4.0
+Arial Narrow	Arial Narrow 1.5	7.0
+Arial Narrow	Arial Narrow 2	7.0
+Arial Narrow	Arial Narrow 2.5	7.0
+Arial Narrow	Arial Narrow 3	7.0
+Arial Narrow	Arial Narrow 3.5	8.0
+Arial Narrow	Arial Narrow 4	8.0
+Arial Narrow	Arial Narrow 4.5	9.0
+Arial Narrow	Arial Narrow 5	9.0
+Arial Narrow	Arial Narrow 5.5	10.0
+Arial Narrow	Arial Narrow 6	10.0
+Arial Narrow	Arial Narrow 6.5	11.0
+Arial Narrow	Arial Narrow 7	11.0
+Arial Narrow	Arial Narrow 7.5	11.0
+Arial Narrow	Arial Narrow 8	11.0
+Arial Narrow	Arial Narrow 8.5	12.0
+Arial Narrow	Arial Narrow 9	12.0
+Arial Narrow	Arial Narrow 9.5	13.0
+Arial Narrow	Arial Narrow 10	13.0
+Arial Narrow	Arial Narrow 10.5	14.0
+Arial Narrow	Arial Narrow 11	14.0
+Arial Narrow	Arial Narrow 11.5	16.0
+Arial Narrow	Arial Narrow 12	16.0
+Arial Narrow	Arial Narrow 12.5	17.0
+Arial Narrow	Arial Narrow 13	17.0
+Arial Narrow	Arial Narrow 13.5	18.0
+Arial Narrow	Arial Narrow 14	18.0
+Arial Narrow	Arial Narrow 14.5	19.0
+Arial Narrow	Arial Narrow 15	19.0
+Arial Narrow	Arial Narrow 15.5	20.0
+Arial Narrow	Arial Narrow 16	20.0
+Arial Narrow	Arial Narrow 16.5	22.0
+Arial Narrow	Arial Narrow 17	22.0
+Arial Narrow	Arial Narrow 17.5	23.0
+Arial Narrow	Arial Narrow 18	23.0
+Arial Narrow	Arial Narrow 18.5	24.0
+Arial Narrow	Arial Narrow 19	24.0
+Arial Narrow	Arial Narrow 19.5	25.0
+Arial Narrow	Arial Narrow 20	25.0
+Arial Narrow	Arial Narrow 20.5	26.0
+Arial Narrow	Arial Narrow 21	26.0
+Arial Narrow	Arial Narrow 21.5	28.0
+Arial Narrow	Arial Narrow 22	28.0
+Arial Narrow	Arial Narrow 22.5	29.0
+Arial Narrow	Arial Narrow 23	29.0
+Arial Narrow	Arial Narrow 23.5	30.0
+Arial Narrow	Arial Narrow 24	30.0
+Arial Narrow	Arial Narrow 24.5	31.0
+Arial Narrow	Arial Narrow 25	31.0
+Arial Narrow	Arial Narrow 25.5	33.0
+Arial Narrow	Arial Narrow 26	33.0
+Arial Narrow	Arial Narrow 26.5	34.0
+Arial Narrow	Arial Narrow 27	34.0
+Arial Narrow	Arial Narrow 27.5	35.0
+Arial Narrow	Arial Narrow 28	35.0
+Arial Narrow	Arial Narrow 28.5	36.0
+Arial Narrow	Arial Narrow 29	36.0
+Arial Narrow	Arial Narrow 29.5	37.0
+Arial Narrow	Arial Narrow 30	37.0
+Arial Narrow	Arial Narrow 30.5	39.0
+Arial Narrow	Arial Narrow 31	39.0
+Arial Narrow	Arial Narrow 31.5	40.0
+Arial Narrow	Arial Narrow 32	40.0
+Arial Narrow	Arial Narrow 32.5	41.0
+Arial Narrow	Arial Narrow 33	41.0
+Arial Narrow	Arial Narrow 33.5	42.0
+Arial Narrow	Arial Narrow 34	42.0
+Arial Narrow	Arial Narrow 34.5	43.0
+Arial Narrow	Arial Narrow 35	43.0
+Arial Narrow	Arial Narrow 35.5	45.0
+Arial Narrow	Arial Narrow 36	45.0
+Arial Narrow	Arial Narrow 36.5	46.0
+Arial Narrow	Arial Narrow 37	46.0
+Arial Narrow	Arial Narrow 37.5	47.0
+Arial Narrow	Arial Narrow 38	47.0
+Arial Narrow	Arial Narrow 38.5	48.0
+Arial Narrow	Arial Narrow 39	48.0
+Arial Narrow	Arial Narrow 39.5	49.0
+Arial Narrow	Arial Narrow 40	49.0
+Arial Narrow	Arial Narrow 40.5	51.0
+Arial Narrow	Arial Narrow 41	51.0
+Arial Narrow	Arial Narrow 41.5	52.0
+Arial Narrow	Arial Narrow 42	52.0
+Arial Narrow	Arial Narrow 42.5	53.0
+Arial Narrow	Arial Narrow 43	53.0
+Arial Narrow	Arial Narrow 43.5	54.0
+Arial Narrow	Arial Narrow 44	54.0
+Arial Narrow	Arial Narrow 44.5	56.0
+Arial Narrow	Arial Narrow 45	56.0
+Arial Narrow	Arial Narrow 45.5	57.0
+Arial Narrow	Arial Narrow 46	57.0
+Arial Narrow	Arial Narrow 46.5	58.0
+Arial Narrow	Arial Narrow 47	58.0
+Arial Narrow	Arial Narrow 47.5	59.0
+Arial Narrow	Arial Narrow 48	59.0
+Arial Narrow	Arial Narrow 48.5	60.0
+Arial Narrow	Arial Narrow 49	60.0
+Arial Narrow	Arial Narrow 49.5	62.0
+Arial Narrow	Arial Narrow 50	62.0
+Arial Narrow	Arial Narrow 50.5	63.0
+Arial Narrow	Arial Narrow 51	63.0
+Arial Narrow	Arial Narrow 51.5	64.0
+Arial Narrow	Arial Narrow 52	64.0
+Arial Narrow	Arial Narrow 52.5	65.0
+Arial Narrow	Arial Narrow 53	65.0
+Arial Narrow	Arial Narrow 53.5	66.0
+Arial Narrow	Arial Narrow 54	66.0
+Arial Narrow	Arial Narrow 54.5	68.0
+Arial Narrow	Arial Narrow 55	68.0
+Arial Narrow	Arial Narrow 55.5	69.0
+Arial Narrow	Arial Narrow 56	69.0
+Arial Narrow	Arial Narrow 56.5	70.0
+Arial Narrow	Arial Narrow 57	70.0
+Arial Narrow	Arial Narrow 57.5	71.0
+Arial Narrow	Arial Narrow 58	71.0
+Arial Narrow	Arial Narrow 58.5	73.0
+Arial Narrow	Arial Narrow 59	73.0
+Arial Narrow	Arial Narrow 59.5	74.0
+Arial Narrow	Arial Narrow 60	74.0
+Arial Narrow	Arial Narrow 60.5	75.0
+Arial Narrow	Arial Narrow 61	75.0
+Arial Narrow	Arial Narrow 61.5	76.0
+Arial Narrow	Arial Narrow 62	76.0
+Arial Narrow	Arial Narrow 62.5	77.0
+Arial Narrow	Arial Narrow 63	77.0
+Arial Narrow	Arial Narrow 63.5	79.0
+Arial Narrow	Arial Narrow 64	79.0
+Arial Narrow	Arial Narrow 64.5	80.0
+Arial Narrow	Arial Narrow 65	80.0
+Arial Narrow	Arial Narrow 65.5	81.0
+Arial Narrow	Arial Narrow 66	81.0
+Arial Narrow	Arial Narrow 66.5	82.0
+Arial Narrow	Arial Narrow 67	82.0
+Arial Narrow	Arial Narrow 67.5	83.0
+Arial Narrow	Arial Narrow 68	83.0
+Arial Narrow	Arial Narrow 68.5	85.0
+Arial Narrow	Arial Narrow 69	85.0
+Arial Narrow	Arial Narrow 69.5	86.0
+Arial Narrow	Arial Narrow 70	86.0
+Arial Narrow	Arial Narrow 70.5	87.0
+Arial Narrow	Arial Narrow 71	87.0
+Arial Narrow	Arial Narrow 71.5	88.0
+Arial Narrow	Arial Narrow 72	88.0
+Arial Narrow	Arial Narrow 9 beside Calibri 9	12.0
+Arial Narrow	Arial Narrow 9 beside Calibri 10	14.0
+Arial Narrow	Arial Narrow 9 beside Calibri 11	15.0
+Arial Narrow	Arial Narrow 9 beside Calibri 12	16.0
+Arial Narrow	Arial Narrow 9 beside Calibri 14	19.0
+Arial Narrow	Arial Narrow 9 beside Calibri 16	21.0
+Arial Narrow	Arial Narrow 9 beside Calibri 18	24.0
+Arial Narrow	Arial Narrow 9 beside Calibri 20	26.0
+Arial Narrow	Arial Narrow 9 beside Calibri 24	31.0
+Arial Narrow	Arial Narrow 11 beside Calibri 9	14.0
+Arial Narrow	Arial Narrow 11 beside Calibri 10	15.0
+Arial Narrow	Arial Narrow 11 beside Calibri 11	15.0
+Arial Narrow	Arial Narrow 11 beside Calibri 12	16.0
+Arial Narrow	Arial Narrow 11 beside Calibri 14	19.0
+Arial Narrow	Arial Narrow 11 beside Calibri 16	21.0
+Arial Narrow	Arial Narrow 11 beside Calibri 18	24.0
+Arial Narrow	Arial Narrow 11 beside Calibri 20	26.0
+Arial Narrow	Arial Narrow 11 beside Calibri 24	31.0
+Arial Narrow	Arial Narrow 14 beside Calibri 9	18.0
+Arial Narrow	Arial Narrow 14 beside Calibri 10	18.0
+Arial Narrow	Arial Narrow 14 beside Calibri 11	18.0
+Arial Narrow	Arial Narrow 14 beside Calibri 12	18.0
+Arial Narrow	Arial Narrow 14 beside Calibri 14	19.0
+Arial Narrow	Arial Narrow 14 beside Calibri 16	21.0
+Arial Narrow	Arial Narrow 14 beside Calibri 18	24.0
+Arial Narrow	Arial Narrow 14 beside Calibri 20	26.0
+Arial Narrow	Arial Narrow 14 beside Calibri 24	31.0
+Arial Narrow	Arial Narrow 20 beside Calibri 9	25.0
+Arial Narrow	Arial Narrow 20 beside Calibri 10	25.0
+Arial Narrow	Arial Narrow 20 beside Calibri 11	25.0
+Arial Narrow	Arial Narrow 20 beside Calibri 12	25.0
+Arial Narrow	Arial Narrow 20 beside Calibri 14	25.0
+Arial Narrow	Arial Narrow 20 beside Calibri 16	25.0
+Arial Narrow	Arial Narrow 20 beside Calibri 18	26.0
+Arial Narrow	Arial Narrow 20 beside Calibri 20	26.0
+Arial Narrow	Arial Narrow 20 beside Calibri 24	31.0
+Book Antiqua	Book Antiqua 1	4.0
+Book Antiqua	Book Antiqua 1.5	7.0
+Book Antiqua	Book Antiqua 2	7.0
+Book Antiqua	Book Antiqua 2.5	7.0
+Book Antiqua	Book Antiqua 3	7.0
+Book Antiqua	Book Antiqua 3.5	8.0
+Book Antiqua	Book Antiqua 4	8.0
+Book Antiqua	Book Antiqua 4.5	9.0
+Book Antiqua	Book Antiqua 5	9.0
+Book Antiqua	Book Antiqua 5.5	10.0
+Book Antiqua	Book Antiqua 6	9.0
+Book Antiqua	Book Antiqua 6.5	10.0
+Book Antiqua	Book Antiqua 7	10.0
+Book Antiqua	Book Antiqua 7.5	11.0
+Book Antiqua	Book Antiqua 8	11.0
+Book Antiqua	Book Antiqua 8.5	13.0
+Book Antiqua	Book Antiqua 9	13.0
+Book Antiqua	Book Antiqua 9.5	14.0
+Book Antiqua	Book Antiqua 10	14.0
+Book Antiqua	Book Antiqua 10.5	15.0
+Book Antiqua	Book Antiqua 11	15.0
+Book Antiqua	Book Antiqua 11.5	16.0
+Book Antiqua	Book Antiqua 12	16.0
+Book Antiqua	Book Antiqua 12.5	18.0
+Book Antiqua	Book Antiqua 13	18.0
+Book Antiqua	Book Antiqua 13.5	19.0
+Book Antiqua	Book Antiqua 14	19.0
+Book Antiqua	Book Antiqua 14.5	20.0
+Book Antiqua	Book Antiqua 15	20.0
+Book Antiqua	Book Antiqua 15.5	22.0
+Book Antiqua	Book Antiqua 16	22.0
+Book Antiqua	Book Antiqua 16.5	23.0
+Book Antiqua	Book Antiqua 17	23.0
+Book Antiqua	Book Antiqua 17.5	24.0
+Book Antiqua	Book Antiqua 18	24.0
+Book Antiqua	Book Antiqua 18.5	25.0
+Book Antiqua	Book Antiqua 19	25.0
+Book Antiqua	Book Antiqua 19.5	27.0
+Book Antiqua	Book Antiqua 20	27.0
+Book Antiqua	Book Antiqua 20.5	28.0
+Book Antiqua	Book Antiqua 21	28.0
+Book Antiqua	Book Antiqua 21.5	29.0
+Book Antiqua	Book Antiqua 22	29.0
+Book Antiqua	Book Antiqua 22.5	30.0
+Book Antiqua	Book Antiqua 23	30.0
+Book Antiqua	Book Antiqua 23.5	32.0
+Book Antiqua	Book Antiqua 24	32.0
+Book Antiqua	Book Antiqua 24.5	33.0
+Book Antiqua	Book Antiqua 25	33.0
+Book Antiqua	Book Antiqua 25.5	34.0
+Book Antiqua	Book Antiqua 26	34.0
+Book Antiqua	Book Antiqua 26.5	36.0
+Book Antiqua	Book Antiqua 27	36.0
+Book Antiqua	Book Antiqua 27.5	37.0
+Book Antiqua	Book Antiqua 28	37.0
+Book Antiqua	Book Antiqua 28.5	38.0
+Book Antiqua	Book Antiqua 29	38.0
+Book Antiqua	Book Antiqua 29.5	39.0
+Book Antiqua	Book Antiqua 30	39.0
+Book Antiqua	Book Antiqua 30.5	41.0
+Book Antiqua	Book Antiqua 31	41.0
+Book Antiqua	Book Antiqua 31.5	42.0
+Book Antiqua	Book Antiqua 32	42.0
+Book Antiqua	Book Antiqua 32.5	43.0
+Book Antiqua	Book Antiqua 33	43.0
+Book Antiqua	Book Antiqua 33.5	45.0
+Book Antiqua	Book Antiqua 34	45.0
+Book Antiqua	Book Antiqua 34.5	46.0
+Book Antiqua	Book Antiqua 35	46.0
+Book Antiqua	Book Antiqua 35.5	47.0
+Book Antiqua	Book Antiqua 36	47.0
+Book Antiqua	Book Antiqua 36.5	48.0
+Book Antiqua	Book Antiqua 37	48.0
+Book Antiqua	Book Antiqua 37.5	50.0
+Book Antiqua	Book Antiqua 38	50.0
+Book Antiqua	Book Antiqua 38.5	51.0
+Book Antiqua	Book Antiqua 39	51.0
+Book Antiqua	Book Antiqua 39.5	52.0
+Book Antiqua	Book Antiqua 40	52.0
+Book Antiqua	Book Antiqua 40.5	54.0
+Book Antiqua	Book Antiqua 41	54.0
+Book Antiqua	Book Antiqua 41.5	55.0
+Book Antiqua	Book Antiqua 42	55.0
+Book Antiqua	Book Antiqua 42.5	56.0
+Book Antiqua	Book Antiqua 43	56.0
+Book Antiqua	Book Antiqua 43.5	57.0
+Book Antiqua	Book Antiqua 44	57.0
+Book Antiqua	Book Antiqua 44.5	59.0
+Book Antiqua	Book Antiqua 45	59.0
+Book Antiqua	Book Antiqua 45.5	60.0
+Book Antiqua	Book Antiqua 46	60.0
+Book Antiqua	Book Antiqua 46.5	61.0
+Book Antiqua	Book Antiqua 47	61.0
+Book Antiqua	Book Antiqua 47.5	63.0
+Book Antiqua	Book Antiqua 48	63.0
+Book Antiqua	Book Antiqua 48.5	64.0
+Book Antiqua	Book Antiqua 49	64.0
+Book Antiqua	Book Antiqua 49.5	65.0
+Book Antiqua	Book Antiqua 50	65.0
+Book Antiqua	Book Antiqua 50.5	66.0
+Book Antiqua	Book Antiqua 51	66.0
+Book Antiqua	Book Antiqua 51.5	68.0
+Book Antiqua	Book Antiqua 52	68.0
+Book Antiqua	Book Antiqua 52.5	69.0
+Book Antiqua	Book Antiqua 53	69.0
+Book Antiqua	Book Antiqua 53.5	70.0
+Book Antiqua	Book Antiqua 54	70.0
+Book Antiqua	Book Antiqua 54.5	72.0
+Book Antiqua	Book Antiqua 55	72.0
+Book Antiqua	Book Antiqua 55.5	73.0
+Book Antiqua	Book Antiqua 56	73.0
+Book Antiqua	Book Antiqua 56.5	74.0
+Book Antiqua	Book Antiqua 57	74.0
+Book Antiqua	Book Antiqua 57.5	75.0
+Book Antiqua	Book Antiqua 58	75.0
+Book Antiqua	Book Antiqua 58.5	77.0
+Book Antiqua	Book Antiqua 59	77.0
+Book Antiqua	Book Antiqua 59.5	78.0
+Book Antiqua	Book Antiqua 60	78.0
+Book Antiqua	Book Antiqua 60.5	79.0
+Book Antiqua	Book Antiqua 61	79.0
+Book Antiqua	Book Antiqua 61.5	80.0
+Book Antiqua	Book Antiqua 62	80.0
+Book Antiqua	Book Antiqua 62.5	82.0
+Book Antiqua	Book Antiqua 63	82.0
+Book Antiqua	Book Antiqua 63.5	83.0
+Book Antiqua	Book Antiqua 64	83.0
+Book Antiqua	Book Antiqua 64.5	84.0
+Book Antiqua	Book Antiqua 65	84.0
+Book Antiqua	Book Antiqua 65.5	86.0
+Book Antiqua	Book Antiqua 66	86.0
+Book Antiqua	Book Antiqua 66.5	87.0
+Book Antiqua	Book Antiqua 67	87.0
+Book Antiqua	Book Antiqua 67.5	88.0
+Book Antiqua	Book Antiqua 68	88.0
+Book Antiqua	Book Antiqua 68.5	89.0
+Book Antiqua	Book Antiqua 69	89.0
+Book Antiqua	Book Antiqua 69.5	91.0
+Book Antiqua	Book Antiqua 70	91.0
+Book Antiqua	Book Antiqua 70.5	92.0
+Book Antiqua	Book Antiqua 71	92.0
+Book Antiqua	Book Antiqua 71.5	93.0
+Book Antiqua	Book Antiqua 72	93.0
+Book Antiqua	Book Antiqua 9 beside Calibri 9	13.0
+Book Antiqua	Book Antiqua 9 beside Calibri 10	14.0
+Book Antiqua	Book Antiqua 9 beside Calibri 11	15.0
+Book Antiqua	Book Antiqua 9 beside Calibri 12	16.0
+Book Antiqua	Book Antiqua 9 beside Calibri 14	19.0
+Book Antiqua	Book Antiqua 9 beside Calibri 16	21.0
+Book Antiqua	Book Antiqua 9 beside Calibri 18	24.0
+Book Antiqua	Book Antiqua 9 beside Calibri 20	26.0
+Book Antiqua	Book Antiqua 9 beside Calibri 24	31.0
+Book Antiqua	Book Antiqua 11 beside Calibri 9	15.0
+Book Antiqua	Book Antiqua 11 beside Calibri 10	15.0
+Book Antiqua	Book Antiqua 11 beside Calibri 11	15.0
+Book Antiqua	Book Antiqua 11 beside Calibri 12	16.0
+Book Antiqua	Book Antiqua 11 beside Calibri 14	19.0
+Book Antiqua	Book Antiqua 11 beside Calibri 16	21.0
+Book Antiqua	Book Antiqua 11 beside Calibri 18	24.0
+Book Antiqua	Book Antiqua 11 beside Calibri 20	26.0
+Book Antiqua	Book Antiqua 11 beside Calibri 24	31.0
+Book Antiqua	Book Antiqua 14 beside Calibri 9	19.0
+Book Antiqua	Book Antiqua 14 beside Calibri 10	19.0
+Book Antiqua	Book Antiqua 14 beside Calibri 11	19.0
+Book Antiqua	Book Antiqua 14 beside Calibri 12	19.0
+Book Antiqua	Book Antiqua 14 beside Calibri 14	19.0
+Book Antiqua	Book Antiqua 14 beside Calibri 16	21.0
+Book Antiqua	Book Antiqua 14 beside Calibri 18	24.0
+Book Antiqua	Book Antiqua 14 beside Calibri 20	26.0
+Book Antiqua	Book Antiqua 14 beside Calibri 24	31.0
+Book Antiqua	Book Antiqua 20 beside Calibri 9	27.0
+Book Antiqua	Book Antiqua 20 beside Calibri 10	27.0
+Book Antiqua	Book Antiqua 20 beside Calibri 11	27.0
+Book Antiqua	Book Antiqua 20 beside Calibri 12	27.0
+Book Antiqua	Book Antiqua 20 beside Calibri 14	27.0
+Book Antiqua	Book Antiqua 20 beside Calibri 16	27.0
+Book Antiqua	Book Antiqua 20 beside Calibri 18	27.0
+Book Antiqua	Book Antiqua 20 beside Calibri 20	27.0
+Book Antiqua	Book Antiqua 20 beside Calibri 24	31.0
+Bookman Old Style	Bookman Old Style 1	4.0
+Bookman Old Style	Bookman Old Style 1.5	7.0
+Bookman Old Style	Bookman Old Style 2	7.0
+Bookman Old Style	Bookman Old Style 2.5	7.0
+Bookman Old Style	Bookman Old Style 3	7.0
+Bookman Old Style	Bookman Old Style 3.5	8.0
+Bookman Old Style	Bookman Old Style 4	8.0
+Bookman Old Style	Bookman Old Style 4.5	9.0
+Bookman Old Style	Bookman Old Style 5	9.0
+Bookman Old Style	Bookman Old Style 5.5	10.0
+Bookman Old Style	Bookman Old Style 6	10.0
+Bookman Old Style	Bookman Old Style 6.5	10.0
+Bookman Old Style	Bookman Old Style 7	10.0
+Bookman Old Style	Bookman Old Style 7.5	11.0
+Bookman Old Style	Bookman Old Style 8	11.0
+Bookman Old Style	Bookman Old Style 8.5	12.0
+Bookman Old Style	Bookman Old Style 9	12.0
+Bookman Old Style	Bookman Old Style 9.5	13.0
+Bookman Old Style	Bookman Old Style 10	13.0
+Bookman Old Style	Bookman Old Style 10.5	15.0
+Bookman Old Style	Bookman Old Style 11	15.0
+Bookman Old Style	Bookman Old Style 11.5	16.0
+Bookman Old Style	Bookman Old Style 12	16.0
+Bookman Old Style	Bookman Old Style 12.5	17.0
+Bookman Old Style	Bookman Old Style 13	17.0
+Bookman Old Style	Bookman Old Style 13.5	18.0
+Bookman Old Style	Bookman Old Style 14	18.0
+Bookman Old Style	Bookman Old Style 14.5	19.0
+Bookman Old Style	Bookman Old Style 15	19.0
+Bookman Old Style	Bookman Old Style 15.5	21.0
+Bookman Old Style	Bookman Old Style 16	21.0
+Bookman Old Style	Bookman Old Style 16.5	22.0
+Bookman Old Style	Bookman Old Style 17	22.0
+Bookman Old Style	Bookman Old Style 17.5	23.0
+Bookman Old Style	Bookman Old Style 18	23.0
+Bookman Old Style	Bookman Old Style 18.5	24.0
+Bookman Old Style	Bookman Old Style 19	24.0
+Bookman Old Style	Bookman Old Style 19.5	26.0
+Bookman Old Style	Bookman Old Style 20	26.0
+Bookman Old Style	Bookman Old Style 20.5	27.0
+Bookman Old Style	Bookman Old Style 21	27.0
+Bookman Old Style	Bookman Old Style 21.5	28.0
+Bookman Old Style	Bookman Old Style 22	28.0
+Bookman Old Style	Bookman Old Style 22.5	29.0
+Bookman Old Style	Bookman Old Style 23	29.0
+Bookman Old Style	Bookman Old Style 23.5	31.0
+Bookman Old Style	Bookman Old Style 24	31.0
+Bookman Old Style	Bookman Old Style 24.5	32.0
+Bookman Old Style	Bookman Old Style 25	32.0
+Bookman Old Style	Bookman Old Style 25.5	33.0
+Bookman Old Style	Bookman Old Style 26	33.0
+Bookman Old Style	Bookman Old Style 26.5	34.0
+Bookman Old Style	Bookman Old Style 27	34.0
+Bookman Old Style	Bookman Old Style 27.5	35.0
+Bookman Old Style	Bookman Old Style 28	35.0
+Bookman Old Style	Bookman Old Style 28.5	37.0
+Bookman Old Style	Bookman Old Style 29	37.0
+Bookman Old Style	Bookman Old Style 29.5	38.0
+Bookman Old Style	Bookman Old Style 30	38.0
+Bookman Old Style	Bookman Old Style 30.5	39.0
+Bookman Old Style	Bookman Old Style 31	39.0
+Bookman Old Style	Bookman Old Style 31.5	40.0
+Bookman Old Style	Bookman Old Style 32	40.0
+Bookman Old Style	Bookman Old Style 32.5	42.0
+Bookman Old Style	Bookman Old Style 33	42.0
+Bookman Old Style	Bookman Old Style 33.5	43.0
+Bookman Old Style	Bookman Old Style 34	43.0
+Bookman Old Style	Bookman Old Style 34.5	44.0
+Bookman Old Style	Bookman Old Style 35	44.0
+Bookman Old Style	Bookman Old Style 35.5	45.0
+Bookman Old Style	Bookman Old Style 36	45.0
+Bookman Old Style	Bookman Old Style 36.5	47.0
+Bookman Old Style	Bookman Old Style 37	47.0
+Bookman Old Style	Bookman Old Style 37.5	48.0
+Bookman Old Style	Bookman Old Style 38	48.0
+Bookman Old Style	Bookman Old Style 38.5	49.0
+Bookman Old Style	Bookman Old Style 39	49.0
+Bookman Old Style	Bookman Old Style 39.5	50.0
+Bookman Old Style	Bookman Old Style 40	50.0
+Bookman Old Style	Bookman Old Style 40.5	52.0
+Bookman Old Style	Bookman Old Style 41	52.0
+Bookman Old Style	Bookman Old Style 41.5	53.0
+Bookman Old Style	Bookman Old Style 42	53.0
+Bookman Old Style	Bookman Old Style 42.5	54.0
+Bookman Old Style	Bookman Old Style 43	54.0
+Bookman Old Style	Bookman Old Style 43.5	55.0
+Bookman Old Style	Bookman Old Style 44	55.0
+Bookman Old Style	Bookman Old Style 44.5	56.0
+Bookman Old Style	Bookman Old Style 45	56.0
+Bookman Old Style	Bookman Old Style 45.5	58.0
+Bookman Old Style	Bookman Old Style 46	58.0
+Bookman Old Style	Bookman Old Style 46.5	59.0
+Bookman Old Style	Bookman Old Style 47	59.0
+Bookman Old Style	Bookman Old Style 47.5	60.0
+Bookman Old Style	Bookman Old Style 48	60.0
+Bookman Old Style	Bookman Old Style 48.5	61.0
+Bookman Old Style	Bookman Old Style 49	61.0
+Bookman Old Style	Bookman Old Style 49.5	63.0
+Bookman Old Style	Bookman Old Style 50	63.0
+Bookman Old Style	Bookman Old Style 50.5	64.0
+Bookman Old Style	Bookman Old Style 51	64.0
+Bookman Old Style	Bookman Old Style 51.5	65.0
+Bookman Old Style	Bookman Old Style 52	65.0
+Bookman Old Style	Bookman Old Style 52.5	66.0
+Bookman Old Style	Bookman Old Style 53	66.0
+Bookman Old Style	Bookman Old Style 53.5	68.0
+Bookman Old Style	Bookman Old Style 54	68.0
+Bookman Old Style	Bookman Old Style 54.5	69.0
+Bookman Old Style	Bookman Old Style 55	69.0
+Bookman Old Style	Bookman Old Style 55.5	70.0
+Bookman Old Style	Bookman Old Style 56	70.0
+Bookman Old Style	Bookman Old Style 56.5	71.0
+Bookman Old Style	Bookman Old Style 57	71.0
+Bookman Old Style	Bookman Old Style 57.5	72.0
+Bookman Old Style	Bookman Old Style 58	72.0
+Bookman Old Style	Bookman Old Style 58.5	74.0
+Bookman Old Style	Bookman Old Style 59	74.0
+Bookman Old Style	Bookman Old Style 59.5	75.0
+Bookman Old Style	Bookman Old Style 60	75.0
+Bookman Old Style	Bookman Old Style 60.5	76.0
+Bookman Old Style	Bookman Old Style 61	76.0
+Bookman Old Style	Bookman Old Style 61.5	77.0
+Bookman Old Style	Bookman Old Style 62	77.0
+Bookman Old Style	Bookman Old Style 62.5	79.0
+Bookman Old Style	Bookman Old Style 63	79.0
+Bookman Old Style	Bookman Old Style 63.5	80.0
+Bookman Old Style	Bookman Old Style 64	80.0
+Bookman Old Style	Bookman Old Style 64.5	81.0
+Bookman Old Style	Bookman Old Style 65	81.0
+Bookman Old Style	Bookman Old Style 65.5	82.0
+Bookman Old Style	Bookman Old Style 66	82.0
+Bookman Old Style	Bookman Old Style 66.5	84.0
+Bookman Old Style	Bookman Old Style 67	84.0
+Bookman Old Style	Bookman Old Style 67.5	85.0
+Bookman Old Style	Bookman Old Style 68	85.0
+Bookman Old Style	Bookman Old Style 68.5	86.0
+Bookman Old Style	Bookman Old Style 69	86.0
+Bookman Old Style	Bookman Old Style 69.5	87.0
+Bookman Old Style	Bookman Old Style 70	87.0
+Bookman Old Style	Bookman Old Style 70.5	88.0
+Bookman Old Style	Bookman Old Style 71	88.0
+Bookman Old Style	Bookman Old Style 71.5	90.0
+Bookman Old Style	Bookman Old Style 72	90.0
+Bookman Old Style	Bookman Old Style 9 beside Calibri 9	12.0
+Bookman Old Style	Bookman Old Style 9 beside Calibri 10	14.0
+Bookman Old Style	Bookman Old Style 9 beside Calibri 11	15.0
+Bookman Old Style	Bookman Old Style 9 beside Calibri 12	16.0
+Bookman Old Style	Bookman Old Style 9 beside Calibri 14	19.0
+Bookman Old Style	Bookman Old Style 9 beside Calibri 16	21.0
+Bookman Old Style	Bookman Old Style 9 beside Calibri 18	24.0
+Bookman Old Style	Bookman Old Style 9 beside Calibri 20	26.0
+Bookman Old Style	Bookman Old Style 9 beside Calibri 24	31.0
+Bookman Old Style	Bookman Old Style 11 beside Calibri 9	15.0
+Bookman Old Style	Bookman Old Style 11 beside Calibri 10	15.0
+Bookman Old Style	Bookman Old Style 11 beside Calibri 11	15.0
+Bookman Old Style	Bookman Old Style 11 beside Calibri 12	16.0
+Bookman Old Style	Bookman Old Style 11 beside Calibri 14	19.0
+Bookman Old Style	Bookman Old Style 11 beside Calibri 16	21.0
+Bookman Old Style	Bookman Old Style 11 beside Calibri 18	24.0
+Bookman Old Style	Bookman Old Style 11 beside Calibri 20	26.0
+Bookman Old Style	Bookman Old Style 11 beside Calibri 24	31.0
+Bookman Old Style	Bookman Old Style 14 beside Calibri 9	18.0
+Bookman Old Style	Bookman Old Style 14 beside Calibri 10	18.0
+Bookman Old Style	Bookman Old Style 14 beside Calibri 11	18.0
+Bookman Old Style	Bookman Old Style 14 beside Calibri 12	18.0
+Bookman Old Style	Bookman Old Style 14 beside Calibri 14	19.0
+Bookman Old Style	Bookman Old Style 14 beside Calibri 16	21.0
+Bookman Old Style	Bookman Old Style 14 beside Calibri 18	24.0
+Bookman Old Style	Bookman Old Style 14 beside Calibri 20	26.0
+Bookman Old Style	Bookman Old Style 14 beside Calibri 24	31.0
+Bookman Old Style	Bookman Old Style 20 beside Calibri 9	26.0
+Bookman Old Style	Bookman Old Style 20 beside Calibri 10	26.0
+Bookman Old Style	Bookman Old Style 20 beside Calibri 11	26.0
+Bookman Old Style	Bookman Old Style 20 beside Calibri 12	26.0
+Bookman Old Style	Bookman Old Style 20 beside Calibri 14	26.0
+Bookman Old Style	Bookman Old Style 20 beside Calibri 16	26.0
+Bookman Old Style	Bookman Old Style 20 beside Calibri 18	26.0
+Bookman Old Style	Bookman Old Style 20 beside Calibri 20	26.0
+Bookman Old Style	Bookman Old Style 20 beside Calibri 24	31.0
+Calibri Light	Calibri Light 1	4.0
+Calibri Light	Calibri Light 1.5	7.0
+Calibri Light	Calibri Light 2	7.0
+Calibri Light	Calibri Light 2.5	7.0
+Calibri Light	Calibri Light 3	7.0
+Calibri Light	Calibri Light 3.5	8.0
+Calibri Light	Calibri Light 4	8.0
+Calibri Light	Calibri Light 4.5	9.0
+Calibri Light	Calibri Light 5	9.0
+Calibri Light	Calibri Light 5.5	10.0
+Calibri Light	Calibri Light 6	9.0
+Calibri Light	Calibri Light 6.5	10.0
+Calibri Light	Calibri Light 7	10.0
+Calibri Light	Calibri Light 7.5	11.0
+Calibri Light	Calibri Light 8	11.0
+Calibri Light	Calibri Light 8.5	12.0
+Calibri Light	Calibri Light 9	12.0
+Calibri Light	Calibri Light 9.5	14.0
+Calibri Light	Calibri Light 10	14.0
+Calibri Light	Calibri Light 10.5	15.0
+Calibri Light	Calibri Light 11	15.0
+Calibri Light	Calibri Light 11.5	16.0
+Calibri Light	Calibri Light 12	16.0
+Calibri Light	Calibri Light 12.5	17.0
+Calibri Light	Calibri Light 13	17.0
+Calibri Light	Calibri Light 13.5	19.0
+Calibri Light	Calibri Light 14	19.0
+Calibri Light	Calibri Light 14.5	20.0
+Calibri Light	Calibri Light 15	20.0
+Calibri Light	Calibri Light 15.5	21.0
+Calibri Light	Calibri Light 16	21.0
+Calibri Light	Calibri Light 16.5	23.0
+Calibri Light	Calibri Light 17	23.0
+Calibri Light	Calibri Light 17.5	24.0
+Calibri Light	Calibri Light 18	24.0
+Calibri Light	Calibri Light 18.5	25.0
+Calibri Light	Calibri Light 19	25.0
+Calibri Light	Calibri Light 19.5	26.0
+Calibri Light	Calibri Light 20	26.0
+Calibri Light	Calibri Light 20.5	28.0
+Calibri Light	Calibri Light 21	28.0
+Calibri Light	Calibri Light 21.5	29.0
+Calibri Light	Calibri Light 22	29.0
+Calibri Light	Calibri Light 22.5	30.0
+Calibri Light	Calibri Light 23	30.0
+Calibri Light	Calibri Light 23.5	31.0
+Calibri Light	Calibri Light 24	31.0
+Calibri Light	Calibri Light 24.5	33.0
+Calibri Light	Calibri Light 25	33.0
+Calibri Light	Calibri Light 25.5	34.0
+Calibri Light	Calibri Light 26	34.0
+Calibri Light	Calibri Light 26.5	35.0
+Calibri Light	Calibri Light 27	35.0
+Calibri Light	Calibri Light 27.5	37.0
+Calibri Light	Calibri Light 28	37.0
+Calibri Light	Calibri Light 28.5	38.0
+Calibri Light	Calibri Light 29	38.0
+Calibri Light	Calibri Light 29.5	39.0
+Calibri Light	Calibri Light 30	39.0
+Calibri Light	Calibri Light 30.5	40.0
+Calibri Light	Calibri Light 31	40.0
+Calibri Light	Calibri Light 31.5	42.0
+Calibri Light	Calibri Light 32	42.0
+Calibri Light	Calibri Light 32.5	43.0
+Calibri Light	Calibri Light 33	43.0
+Calibri Light	Calibri Light 33.5	44.0
+Calibri Light	Calibri Light 34	44.0
+Calibri Light	Calibri Light 34.5	45.0
+Calibri Light	Calibri Light 35	45.0
+Calibri Light	Calibri Light 35.5	47.0
+Calibri Light	Calibri Light 36	47.0
+Calibri Light	Calibri Light 36.5	48.0
+Calibri Light	Calibri Light 37	48.0
+Calibri Light	Calibri Light 37.5	49.0
+Calibri Light	Calibri Light 38	49.0
+Calibri Light	Calibri Light 38.5	50.0
+Calibri Light	Calibri Light 39	50.0
+Calibri Light	Calibri Light 39.5	52.0
+Calibri Light	Calibri Light 40	52.0
+Calibri Light	Calibri Light 40.5	53.0
+Calibri Light	Calibri Light 41	53.0
+Calibri Light	Calibri Light 41.5	54.0
+Calibri Light	Calibri Light 42	54.0
+Calibri Light	Calibri Light 42.5	56.0
+Calibri Light	Calibri Light 43	56.0
+Calibri Light	Calibri Light 43.5	57.0
+Calibri Light	Calibri Light 44	57.0
+Calibri Light	Calibri Light 44.5	58.0
+Calibri Light	Calibri Light 45	58.0
+Calibri Light	Calibri Light 45.5	59.0
+Calibri Light	Calibri Light 46	59.0
+Calibri Light	Calibri Light 46.5	61.0
+Calibri Light	Calibri Light 47	61.0
+Calibri Light	Calibri Light 47.5	62.0
+Calibri Light	Calibri Light 48	62.0
+Calibri Light	Calibri Light 48.5	63.0
+Calibri Light	Calibri Light 49	63.0
+Calibri Light	Calibri Light 49.5	64.0
+Calibri Light	Calibri Light 50	64.0
+Calibri Light	Calibri Light 50.5	66.0
+Calibri Light	Calibri Light 51	66.0
+Calibri Light	Calibri Light 51.5	67.0
+Calibri Light	Calibri Light 52	67.0
+Calibri Light	Calibri Light 52.5	68.0
+Calibri Light	Calibri Light 53	68.0
+Calibri Light	Calibri Light 53.5	70.0
+Calibri Light	Calibri Light 54	70.0
+Calibri Light	Calibri Light 54.5	71.0
+Calibri Light	Calibri Light 55	71.0
+Calibri Light	Calibri Light 55.5	72.0
+Calibri Light	Calibri Light 56	72.0
+Calibri Light	Calibri Light 56.5	73.0
+Calibri Light	Calibri Light 57	73.0
+Calibri Light	Calibri Light 57.5	75.0
+Calibri Light	Calibri Light 58	75.0
+Calibri Light	Calibri Light 58.5	76.0
+Calibri Light	Calibri Light 59	76.0
+Calibri Light	Calibri Light 59.5	77.0
+Calibri Light	Calibri Light 60	77.0
+Calibri Light	Calibri Light 60.5	78.0
+Calibri Light	Calibri Light 61	78.0
+Calibri Light	Calibri Light 61.5	80.0
+Calibri Light	Calibri Light 62	80.0
+Calibri Light	Calibri Light 62.5	81.0
+Calibri Light	Calibri Light 63	81.0
+Calibri Light	Calibri Light 63.5	82.0
+Calibri Light	Calibri Light 64	82.0
+Calibri Light	Calibri Light 64.5	83.0
+Calibri Light	Calibri Light 65	83.0
+Calibri Light	Calibri Light 65.5	85.0
+Calibri Light	Calibri Light 66	85.0
+Calibri Light	Calibri Light 66.5	86.0
+Calibri Light	Calibri Light 67	86.0
+Calibri Light	Calibri Light 67.5	87.0
+Calibri Light	Calibri Light 68	87.0
+Calibri Light	Calibri Light 68.5	89.0
+Calibri Light	Calibri Light 69	89.0
+Calibri Light	Calibri Light 69.5	90.0
+Calibri Light	Calibri Light 70	90.0
+Calibri Light	Calibri Light 70.5	91.0
+Calibri Light	Calibri Light 71	91.0
+Calibri Light	Calibri Light 71.5	92.0
+Calibri Light	Calibri Light 72	92.0
+Calibri Light	Calibri Light 9 beside Calibri 9	12.0
+Calibri Light	Calibri Light 9 beside Calibri 10	14.0
+Calibri Light	Calibri Light 9 beside Calibri 11	15.0
+Calibri Light	Calibri Light 9 beside Calibri 12	16.0
+Calibri Light	Calibri Light 9 beside Calibri 14	19.0
+Calibri Light	Calibri Light 9 beside Calibri 16	21.0
+Calibri Light	Calibri Light 9 beside Calibri 18	24.0
+Calibri Light	Calibri Light 9 beside Calibri 20	26.0
+Calibri Light	Calibri Light 9 beside Calibri 24	31.0
+Calibri Light	Calibri Light 11 beside Calibri 9	15.0
+Calibri Light	Calibri Light 11 beside Calibri 10	15.0
+Calibri Light	Calibri Light 11 beside Calibri 11	15.0
+Calibri Light	Calibri Light 11 beside Calibri 12	16.0
+Calibri Light	Calibri Light 11 beside Calibri 14	19.0
+Calibri Light	Calibri Light 11 beside Calibri 16	21.0
+Calibri Light	Calibri Light 11 beside Calibri 18	24.0
+Calibri Light	Calibri Light 11 beside Calibri 20	26.0
+Calibri Light	Calibri Light 11 beside Calibri 24	31.0
+Calibri Light	Calibri Light 14 beside Calibri 9	19.0
+Calibri Light	Calibri Light 14 beside Calibri 10	19.0
+Calibri Light	Calibri Light 14 beside Calibri 11	19.0
+Calibri Light	Calibri Light 14 beside Calibri 12	19.0
+Calibri Light	Calibri Light 14 beside Calibri 14	19.0
+Calibri Light	Calibri Light 14 beside Calibri 16	21.0
+Calibri Light	Calibri Light 14 beside Calibri 18	24.0
+Calibri Light	Calibri Light 14 beside Calibri 20	26.0
+Calibri Light	Calibri Light 14 beside Calibri 24	31.0
+Calibri Light	Calibri Light 20 beside Calibri 9	26.0
+Calibri Light	Calibri Light 20 beside Calibri 10	26.0
+Calibri Light	Calibri Light 20 beside Calibri 11	26.0
+Calibri Light	Calibri Light 20 beside Calibri 12	26.0
+Calibri Light	Calibri Light 20 beside Calibri 14	26.0
+Calibri Light	Calibri Light 20 beside Calibri 16	26.0
+Calibri Light	Calibri Light 20 beside Calibri 18	26.0
+Calibri Light	Calibri Light 20 beside Calibri 20	26.0
+Calibri Light	Calibri Light 20 beside Calibri 24	31.0
+Cambria	Cambria 1	4.0
+Cambria	Cambria 1.5	7.0
+Cambria	Cambria 2	7.0
+Cambria	Cambria 2.5	7.0
+Cambria	Cambria 3	7.0
+Cambria	Cambria 3.5	8.0
+Cambria	Cambria 4	8.0
+Cambria	Cambria 4.5	9.0
+Cambria	Cambria 5	9.0
+Cambria	Cambria 5.5	10.0
+Cambria	Cambria 6	10.0
+Cambria	Cambria 6.5	10.0
+Cambria	Cambria 7	10.0
+Cambria	Cambria 7.5	11.0
+Cambria	Cambria 8	11.0
+Cambria	Cambria 8.5	12.0
+Cambria	Cambria 9	12.0
+Cambria	Cambria 9.5	13.0
+Cambria	Cambria 10	13.0
+Cambria	Cambria 10.5	14.0
+Cambria	Cambria 11	14.0
+Cambria	Cambria 11.5	16.0
+Cambria	Cambria 12	16.0
+Cambria	Cambria 12.5	17.0
+Cambria	Cambria 13	17.0
+Cambria	Cambria 13.5	18.0
+Cambria	Cambria 14	18.0
+Cambria	Cambria 14.5	19.0
+Cambria	Cambria 15	19.0
+Cambria	Cambria 15.5	21.0
+Cambria	Cambria 16	21.0
+Cambria	Cambria 16.5	22.0
+Cambria	Cambria 17	22.0
+Cambria	Cambria 17.5	23.0
+Cambria	Cambria 18	23.0
+Cambria	Cambria 18.5	24.0
+Cambria	Cambria 19	24.0
+Cambria	Cambria 19.5	25.0
+Cambria	Cambria 20	25.0
+Cambria	Cambria 20.5	27.0
+Cambria	Cambria 21	27.0
+Cambria	Cambria 21.5	28.0
+Cambria	Cambria 22	28.0
+Cambria	Cambria 22.5	29.0
+Cambria	Cambria 23	29.0
+Cambria	Cambria 23.5	30.0
+Cambria	Cambria 24	30.0
+Cambria	Cambria 24.5	32.0
+Cambria	Cambria 25	32.0
+Cambria	Cambria 25.5	33.0
+Cambria	Cambria 26	33.0
+Cambria	Cambria 26.5	34.0
+Cambria	Cambria 27	34.0
+Cambria	Cambria 27.5	35.0
+Cambria	Cambria 28	35.0
+Cambria	Cambria 28.5	36.0
+Cambria	Cambria 29	36.0
+Cambria	Cambria 29.5	38.0
+Cambria	Cambria 30	38.0
+Cambria	Cambria 30.5	39.0
+Cambria	Cambria 31	39.0
+Cambria	Cambria 31.5	40.0
+Cambria	Cambria 32	40.0
+Cambria	Cambria 32.5	41.0
+Cambria	Cambria 33	41.0
+Cambria	Cambria 33.5	43.0
+Cambria	Cambria 34	43.0
+Cambria	Cambria 34.5	44.0
+Cambria	Cambria 35	44.0
+Cambria	Cambria 35.5	45.0
+Cambria	Cambria 36	45.0
+Cambria	Cambria 36.5	46.0
+Cambria	Cambria 37	46.0
+Cambria	Cambria 37.5	47.0
+Cambria	Cambria 38	47.0
+Cambria	Cambria 38.5	49.0
+Cambria	Cambria 39	49.0
+Cambria	Cambria 39.5	50.0
+Cambria	Cambria 40	50.0
+Cambria	Cambria 40.5	51.0
+Cambria	Cambria 41	51.0
+Cambria	Cambria 41.5	52.0
+Cambria	Cambria 42	52.0
+Cambria	Cambria 42.5	54.0
+Cambria	Cambria 43	54.0
+Cambria	Cambria 43.5	55.0
+Cambria	Cambria 44	55.0
+Cambria	Cambria 44.5	56.0
+Cambria	Cambria 45	56.0
+Cambria	Cambria 45.5	57.0
+Cambria	Cambria 46	57.0
+Cambria	Cambria 46.5	58.0
+Cambria	Cambria 47	58.0
+Cambria	Cambria 47.5	60.0
+Cambria	Cambria 48	60.0
+Cambria	Cambria 48.5	61.0
+Cambria	Cambria 49	61.0
+Cambria	Cambria 49.5	62.0
+Cambria	Cambria 50	62.0
+Cambria	Cambria 50.5	63.0
+Cambria	Cambria 51	63.0
+Cambria	Cambria 51.5	65.0
+Cambria	Cambria 52	65.0
+Cambria	Cambria 52.5	66.0
+Cambria	Cambria 53	66.0
+Cambria	Cambria 53.5	67.0
+Cambria	Cambria 54	67.0
+Cambria	Cambria 54.5	68.0
+Cambria	Cambria 55	68.0
+Cambria	Cambria 55.5	69.0
+Cambria	Cambria 56	69.0
+Cambria	Cambria 56.5	71.0
+Cambria	Cambria 57	71.0
+Cambria	Cambria 57.5	72.0
+Cambria	Cambria 58	72.0
+Cambria	Cambria 58.5	73.0
+Cambria	Cambria 59	73.0
+Cambria	Cambria 59.5	74.0
+Cambria	Cambria 60	74.0
+Cambria	Cambria 60.5	76.0
+Cambria	Cambria 61	76.0
+Cambria	Cambria 61.5	77.0
+Cambria	Cambria 62	77.0
+Cambria	Cambria 62.5	78.0
+Cambria	Cambria 63	78.0
+Cambria	Cambria 63.5	79.0
+Cambria	Cambria 64	79.0
+Cambria	Cambria 64.5	80.0
+Cambria	Cambria 65	80.0
+Cambria	Cambria 65.5	82.0
+Cambria	Cambria 66	82.0
+Cambria	Cambria 66.5	83.0
+Cambria	Cambria 67	83.0
+Cambria	Cambria 67.5	84.0
+Cambria	Cambria 68	84.0
+Cambria	Cambria 68.5	85.0
+Cambria	Cambria 69	85.0
+Cambria	Cambria 69.5	87.0
+Cambria	Cambria 70	87.0
+Cambria	Cambria 70.5	88.0
+Cambria	Cambria 71	88.0
+Cambria	Cambria 71.5	89.0
+Cambria	Cambria 72	89.0
+Cambria	Cambria 9 beside Calibri 9	12.0
+Cambria	Cambria 9 beside Calibri 10	14.0
+Cambria	Cambria 9 beside Calibri 11	15.0
+Cambria	Cambria 9 beside Calibri 12	16.0
+Cambria	Cambria 9 beside Calibri 14	19.0
+Cambria	Cambria 9 beside Calibri 16	21.0
+Cambria	Cambria 9 beside Calibri 18	24.0
+Cambria	Cambria 9 beside Calibri 20	26.0
+Cambria	Cambria 9 beside Calibri 24	31.0
+Cambria	Cambria 11 beside Calibri 9	14.0
+Cambria	Cambria 11 beside Calibri 10	15.0
+Cambria	Cambria 11 beside Calibri 11	15.0
+Cambria	Cambria 11 beside Calibri 12	16.0
+Cambria	Cambria 11 beside Calibri 14	19.0
+Cambria	Cambria 11 beside Calibri 16	21.0
+Cambria	Cambria 11 beside Calibri 18	24.0
+Cambria	Cambria 11 beside Calibri 20	26.0
+Cambria	Cambria 11 beside Calibri 24	31.0
+Cambria	Cambria 14 beside Calibri 9	18.0
+Cambria	Cambria 14 beside Calibri 10	18.0
+Cambria	Cambria 14 beside Calibri 11	18.0
+Cambria	Cambria 14 beside Calibri 12	18.0
+Cambria	Cambria 14 beside Calibri 14	19.0
+Cambria	Cambria 14 beside Calibri 16	21.0
+Cambria	Cambria 14 beside Calibri 18	24.0
+Cambria	Cambria 14 beside Calibri 20	26.0
+Cambria	Cambria 14 beside Calibri 24	31.0
+Cambria	Cambria 20 beside Calibri 9	25.0
+Cambria	Cambria 20 beside Calibri 10	25.0
+Cambria	Cambria 20 beside Calibri 11	25.0
+Cambria	Cambria 20 beside Calibri 12	25.0
+Cambria	Cambria 20 beside Calibri 14	25.0
+Cambria	Cambria 20 beside Calibri 16	25.0
+Cambria	Cambria 20 beside Calibri 18	26.0
+Cambria	Cambria 20 beside Calibri 20	26.0
+Cambria	Cambria 20 beside Calibri 24	31.0
+Candara	Candara 1	4.0
+Candara	Candara 1.5	7.0
+Candara	Candara 2	7.0
+Candara	Candara 2.5	7.0
+Candara	Candara 3	7.0
+Candara	Candara 3.5	8.0
+Candara	Candara 4	8.0
+Candara	Candara 4.5	9.0
+Candara	Candara 5	9.0
+Candara	Candara 5.5	10.0
+Candara	Candara 6	9.0
+Candara	Candara 6.5	10.0
+Candara	Candara 7	10.0
+Candara	Candara 7.5	11.0
+Candara	Candara 8	11.0
+Candara	Candara 8.5	12.0
+Candara	Candara 9	12.0
+Candara	Candara 9.5	14.0
+Candara	Candara 10	14.0
+Candara	Candara 10.5	15.0
+Candara	Candara 11	15.0
+Candara	Candara 11.5	18.0
+Candara	Candara 12	18.0
+Candara	Candara 12.5	20.0
+Candara	Candara 13	20.0
+Candara	Candara 13.5	21.0
+Candara	Candara 14	21.0
+Candara	Candara 14.5	22.0
+Candara	Candara 15	22.0
+Candara	Candara 15.5	23.0
+Candara	Candara 16	23.0
+Candara	Candara 16.5	25.0
+Candara	Candara 17	25.0
+Candara	Candara 17.5	26.0
+Candara	Candara 18	26.0
+Candara	Candara 18.5	27.0
+Candara	Candara 19	27.0
+Candara	Candara 19.5	29.0
+Candara	Candara 20	29.0
+Candara	Candara 20.5	32.0
+Candara	Candara 21	32.0
+Candara	Candara 21.5	33.0
+Candara	Candara 22	33.0
+Candara	Candara 22.5	34.0
+Candara	Candara 23	34.0
+Candara	Candara 23.5	36.0
+Candara	Candara 24	36.0
+Candara	Candara 24.5	37.0
+Candara	Candara 25	37.0
+Candara	Candara 25.5	38.0
+Candara	Candara 26	38.0
+Candara	Candara 26.5	39.0
+Candara	Candara 27	39.0
+Candara	Candara 27.5	41.0
+Candara	Candara 28	41.0
+Candara	Candara 28.5	42.0
+Candara	Candara 29	42.0
+Candara	Candara 29.5	45.0
+Candara	Candara 30	45.0
+Candara	Candara 30.5	47.0
+Candara	Candara 31	47.0
+Candara	Candara 31.5	48.0
+Candara	Candara 32	48.0
+Candara	Candara 32.5	49.0
+Candara	Candara 33	49.0
+Candara	Candara 33.5	50.0
+Candara	Candara 34	50.0
+Candara	Candara 34.5	52.0
+Candara	Candara 35	52.0
+Candara	Candara 35.5	53.0
+Candara	Candara 36	53.0
+Candara	Candara 36.5	54.0
+Candara	Candara 37	54.0
+Candara	Candara 37.5	55.0
+Candara	Candara 38	55.0
+Candara	Candara 38.5	59.0
+Candara	Candara 39	59.0
+Candara	Candara 39.5	60.0
+Candara	Candara 40	60.0
+Candara	Candara 40.5	61.0
+Candara	Candara 41	61.0
+Candara	Candara 41.5	63.0
+Candara	Candara 42	63.0
+Candara	Candara 42.5	64.0
+Candara	Candara 43	64.0
+Candara	Candara 43.5	65.0
+Candara	Candara 44	65.0
+Candara	Candara 44.5	66.0
+Candara	Candara 45	66.0
+Candara	Candara 45.5	68.0
+Candara	Candara 46	68.0
+Candara	Candara 46.5	69.0
+Candara	Candara 47	69.0
+Candara	Candara 47.5	72.0
+Candara	Candara 48	72.0
+Candara	Candara 48.5	73.0
+Candara	Candara 49	73.0
+Candara	Candara 49.5	75.0
+Candara	Candara 50	75.0
+Candara	Candara 50.5	76.0
+Candara	Candara 51	76.0
+Candara	Candara 51.5	77.0
+Candara	Candara 52	77.0
+Candara	Candara 52.5	79.0
+Candara	Candara 53	79.0
+Candara	Candara 53.5	80.0
+Candara	Candara 54	80.0
+Candara	Candara 54.5	81.0
+Candara	Candara 55	81.0
+Candara	Candara 55.5	82.0
+Candara	Candara 56	82.0
+Candara	Candara 56.5	86.0
+Candara	Candara 57	86.0
+Candara	Candara 57.5	87.0
+Candara	Candara 58	87.0
+Candara	Candara 58.5	88.0
+Candara	Candara 59	88.0
+Candara	Candara 59.5	90.0
+Candara	Candara 60	90.0
+Candara	Candara 60.5	91.0
+Candara	Candara 61	91.0
+Candara	Candara 61.5	92.0
+Candara	Candara 62	92.0
+Candara	Candara 62.5	93.0
+Candara	Candara 63	93.0
+Candara	Candara 63.5	95.0
+Candara	Candara 64	95.0
+Candara	Candara 64.5	96.0
+Candara	Candara 65	96.0
+Candara	Candara 65.5	99.0
+Candara	Candara 66	99.0
+Candara	Candara 66.5	100.0
+Candara	Candara 67	100.0
+Candara	Candara 67.5	102.0
+Candara	Candara 68	102.0
+Candara	Candara 68.5	103.0
+Candara	Candara 69	103.0
+Candara	Candara 69.5	104.0
+Candara	Candara 70	104.0
+Candara	Candara 70.5	106.0
+Candara	Candara 71	106.0
+Candara	Candara 71.5	107.0
+Candara	Candara 72	107.0
+Candara	Candara 9 beside Calibri 9	12.0
+Candara	Candara 9 beside Calibri 10	14.0
+Candara	Candara 9 beside Calibri 11	15.0
+Candara	Candara 9 beside Calibri 12	16.0
+Candara	Candara 9 beside Calibri 14	19.0
+Candara	Candara 9 beside Calibri 16	21.0
+Candara	Candara 9 beside Calibri 18	24.0
+Candara	Candara 9 beside Calibri 20	26.0
+Candara	Candara 9 beside Calibri 24	31.0
+Candara	Candara 11 beside Calibri 9	15.0
+Candara	Candara 11 beside Calibri 10	15.0
+Candara	Candara 11 beside Calibri 11	15.0
+Candara	Candara 11 beside Calibri 12	16.0
+Candara	Candara 11 beside Calibri 14	19.0
+Candara	Candara 11 beside Calibri 16	21.0
+Candara	Candara 11 beside Calibri 18	24.0
+Candara	Candara 11 beside Calibri 20	26.0
+Candara	Candara 11 beside Calibri 24	31.0
+Candara	Candara 14 beside Calibri 9	21.0
+Candara	Candara 14 beside Calibri 10	21.0
+Candara	Candara 14 beside Calibri 11	21.0
+Candara	Candara 14 beside Calibri 12	21.0
+Candara	Candara 14 beside Calibri 14	21.0
+Candara	Candara 14 beside Calibri 16	22.0
+Candara	Candara 14 beside Calibri 18	24.0
+Candara	Candara 14 beside Calibri 20	26.0
+Candara	Candara 14 beside Calibri 24	31.0
+Candara	Candara 20 beside Calibri 9	29.0
+Candara	Candara 20 beside Calibri 10	29.0
+Candara	Candara 20 beside Calibri 11	29.0
+Candara	Candara 20 beside Calibri 12	29.0
+Candara	Candara 20 beside Calibri 14	29.0
+Candara	Candara 20 beside Calibri 16	29.0
+Candara	Candara 20 beside Calibri 18	29.0
+Candara	Candara 20 beside Calibri 20	29.0
+Candara	Candara 20 beside Calibri 24	32.0
+Century Gothic	Century Gothic 1	4.0
+Century Gothic	Century Gothic 1.5	7.0
+Century Gothic	Century Gothic 2	7.0
+Century Gothic	Century Gothic 2.5	7.0
+Century Gothic	Century Gothic 3	7.0
+Century Gothic	Century Gothic 3.5	8.0
+Century Gothic	Century Gothic 4	8.0
+Century Gothic	Century Gothic 4.5	9.0
+Century Gothic	Century Gothic 5	9.0
+Century Gothic	Century Gothic 5.5	10.0
+Century Gothic	Century Gothic 6	10.0
+Century Gothic	Century Gothic 6.5	10.0
+Century Gothic	Century Gothic 7	10.0
+Century Gothic	Century Gothic 7.5	11.0
+Century Gothic	Century Gothic 8	11.0
+Century Gothic	Century Gothic 8.5	12.0
+Century Gothic	Century Gothic 9	12.0
+Century Gothic	Century Gothic 9.5	13.0
+Century Gothic	Century Gothic 10	13.0
+Century Gothic	Century Gothic 10.5	14.0
+Century Gothic	Century Gothic 11	14.0
+Century Gothic	Century Gothic 11.5	16.0
+Century Gothic	Century Gothic 12	16.0
+Century Gothic	Century Gothic 12.5	17.0
+Century Gothic	Century Gothic 13	17.0
+Century Gothic	Century Gothic 13.5	18.0
+Century Gothic	Century Gothic 14	18.0
+Century Gothic	Century Gothic 14.5	19.0
+Century Gothic	Century Gothic 15	19.0
+Century Gothic	Century Gothic 15.5	21.0
+Century Gothic	Century Gothic 16	21.0
+Century Gothic	Century Gothic 16.5	22.0
+Century Gothic	Century Gothic 17	22.0
+Century Gothic	Century Gothic 17.5	23.0
+Century Gothic	Century Gothic 18	23.0
+Century Gothic	Century Gothic 18.5	24.0
+Century Gothic	Century Gothic 19	24.0
+Century Gothic	Century Gothic 19.5	25.0
+Century Gothic	Century Gothic 20	25.0
+Century Gothic	Century Gothic 20.5	27.0
+Century Gothic	Century Gothic 21	27.0
+Century Gothic	Century Gothic 21.5	28.0
+Century Gothic	Century Gothic 22	28.0
+Century Gothic	Century Gothic 22.5	29.0
+Century Gothic	Century Gothic 23	29.0
+Century Gothic	Century Gothic 23.5	30.0
+Century Gothic	Century Gothic 24	30.0
+Century Gothic	Century Gothic 24.5	32.0
+Century Gothic	Century Gothic 25	32.0
+Century Gothic	Century Gothic 25.5	33.0
+Century Gothic	Century Gothic 26	33.0
+Century Gothic	Century Gothic 26.5	34.0
+Century Gothic	Century Gothic 27	34.0
+Century Gothic	Century Gothic 27.5	35.0
+Century Gothic	Century Gothic 28	35.0
+Century Gothic	Century Gothic 28.5	36.0
+Century Gothic	Century Gothic 29	36.0
+Century Gothic	Century Gothic 29.5	38.0
+Century Gothic	Century Gothic 30	38.0
+Century Gothic	Century Gothic 30.5	39.0
+Century Gothic	Century Gothic 31	39.0
+Century Gothic	Century Gothic 31.5	40.0
+Century Gothic	Century Gothic 32	40.0
+Century Gothic	Century Gothic 32.5	41.0
+Century Gothic	Century Gothic 33	41.0
+Century Gothic	Century Gothic 33.5	42.0
+Century Gothic	Century Gothic 34	42.0
+Century Gothic	Century Gothic 34.5	44.0
+Century Gothic	Century Gothic 35	44.0
+Century Gothic	Century Gothic 35.5	45.0
+Century Gothic	Century Gothic 36	45.0
+Century Gothic	Century Gothic 36.5	46.0
+Century Gothic	Century Gothic 37	46.0
+Century Gothic	Century Gothic 37.5	47.0
+Century Gothic	Century Gothic 38	47.0
+Century Gothic	Century Gothic 38.5	49.0
+Century Gothic	Century Gothic 39	49.0
+Century Gothic	Century Gothic 39.5	50.0
+Century Gothic	Century Gothic 40	50.0
+Century Gothic	Century Gothic 40.5	51.0
+Century Gothic	Century Gothic 41	51.0
+Century Gothic	Century Gothic 41.5	52.0
+Century Gothic	Century Gothic 42	52.0
+Century Gothic	Century Gothic 42.5	53.0
+Century Gothic	Century Gothic 43	53.0
+Century Gothic	Century Gothic 43.5	55.0
+Century Gothic	Century Gothic 44	55.0
+Century Gothic	Century Gothic 44.5	56.0
+Century Gothic	Century Gothic 45	56.0
+Century Gothic	Century Gothic 45.5	57.0
+Century Gothic	Century Gothic 46	57.0
+Century Gothic	Century Gothic 46.5	58.0
+Century Gothic	Century Gothic 47	58.0
+Century Gothic	Century Gothic 47.5	60.0
+Century Gothic	Century Gothic 48	60.0
+Century Gothic	Century Gothic 48.5	61.0
+Century Gothic	Century Gothic 49	61.0
+Century Gothic	Century Gothic 49.5	62.0
+Century Gothic	Century Gothic 50	62.0
+Century Gothic	Century Gothic 50.5	63.0
+Century Gothic	Century Gothic 51	63.0
+Century Gothic	Century Gothic 51.5	64.0
+Century Gothic	Century Gothic 52	64.0
+Century Gothic	Century Gothic 52.5	66.0
+Century Gothic	Century Gothic 53	66.0
+Century Gothic	Century Gothic 53.5	67.0
+Century Gothic	Century Gothic 54	67.0
+Century Gothic	Century Gothic 54.5	68.0
+Century Gothic	Century Gothic 55	68.0
+Century Gothic	Century Gothic 55.5	69.0
+Century Gothic	Century Gothic 56	69.0
+Century Gothic	Century Gothic 56.5	71.0
+Century Gothic	Century Gothic 57	71.0
+Century Gothic	Century Gothic 57.5	72.0
+Century Gothic	Century Gothic 58	72.0
+Century Gothic	Century Gothic 58.5	73.0
+Century Gothic	Century Gothic 59	73.0
+Century Gothic	Century Gothic 59.5	74.0
+Century Gothic	Century Gothic 60	74.0
+Century Gothic	Century Gothic 60.5	75.0
+Century Gothic	Century Gothic 61	75.0
+Century Gothic	Century Gothic 61.5	77.0
+Century Gothic	Century Gothic 62	77.0
+Century Gothic	Century Gothic 62.5	78.0
+Century Gothic	Century Gothic 63	78.0
+Century Gothic	Century Gothic 63.5	79.0
+Century Gothic	Century Gothic 64	79.0
+Century Gothic	Century Gothic 64.5	80.0
+Century Gothic	Century Gothic 65	80.0
+Century Gothic	Century Gothic 65.5	82.0
+Century Gothic	Century Gothic 66	82.0
+Century Gothic	Century Gothic 66.5	83.0
+Century Gothic	Century Gothic 67	83.0
+Century Gothic	Century Gothic 67.5	84.0
+Century Gothic	Century Gothic 68	84.0
+Century Gothic	Century Gothic 68.5	85.0
+Century Gothic	Century Gothic 69	85.0
+Century Gothic	Century Gothic 69.5	86.0
+Century Gothic	Century Gothic 70	86.0
+Century Gothic	Century Gothic 70.5	88.0
+Century Gothic	Century Gothic 71	88.0
+Century Gothic	Century Gothic 71.5	89.0
+Century Gothic	Century Gothic 72	89.0
+Century Gothic	Century Gothic 9 beside Calibri 9	12.0
+Century Gothic	Century Gothic 9 beside Calibri 10	14.0
+Century Gothic	Century Gothic 9 beside Calibri 11	15.0
+Century Gothic	Century Gothic 9 beside Calibri 12	16.0
+Century Gothic	Century Gothic 9 beside Calibri 14	19.0
+Century Gothic	Century Gothic 9 beside Calibri 16	21.0
+Century Gothic	Century Gothic 9 beside Calibri 18	24.0
+Century Gothic	Century Gothic 9 beside Calibri 20	26.0
+Century Gothic	Century Gothic 9 beside Calibri 24	31.0
+Century Gothic	Century Gothic 11 beside Calibri 9	14.0
+Century Gothic	Century Gothic 11 beside Calibri 10	15.0
+Century Gothic	Century Gothic 11 beside Calibri 11	15.0
+Century Gothic	Century Gothic 11 beside Calibri 12	16.0
+Century Gothic	Century Gothic 11 beside Calibri 14	19.0
+Century Gothic	Century Gothic 11 beside Calibri 16	21.0
+Century Gothic	Century Gothic 11 beside Calibri 18	24.0
+Century Gothic	Century Gothic 11 beside Calibri 20	26.0
+Century Gothic	Century Gothic 11 beside Calibri 24	31.0
+Century Gothic	Century Gothic 14 beside Calibri 9	18.0
+Century Gothic	Century Gothic 14 beside Calibri 10	18.0
+Century Gothic	Century Gothic 14 beside Calibri 11	18.0
+Century Gothic	Century Gothic 14 beside Calibri 12	18.0
+Century Gothic	Century Gothic 14 beside Calibri 14	19.0
+Century Gothic	Century Gothic 14 beside Calibri 16	21.0
+Century Gothic	Century Gothic 14 beside Calibri 18	24.0
+Century Gothic	Century Gothic 14 beside Calibri 20	26.0
+Century Gothic	Century Gothic 14 beside Calibri 24	31.0
+Century Gothic	Century Gothic 20 beside Calibri 9	25.0
+Century Gothic	Century Gothic 20 beside Calibri 10	25.0
+Century Gothic	Century Gothic 20 beside Calibri 11	25.0
+Century Gothic	Century Gothic 20 beside Calibri 12	25.0
+Century Gothic	Century Gothic 20 beside Calibri 14	25.0
+Century Gothic	Century Gothic 20 beside Calibri 16	25.0
+Century Gothic	Century Gothic 20 beside Calibri 18	26.0
+Century Gothic	Century Gothic 20 beside Calibri 20	26.0
+Century Gothic	Century Gothic 20 beside Calibri 24	31.0
+Comic Sans MS	Comic Sans MS 1	4.0
+Comic Sans MS	Comic Sans MS 1.5	7.0
+Comic Sans MS	Comic Sans MS 2	7.0
+Comic Sans MS	Comic Sans MS 2.5	7.0
+Comic Sans MS	Comic Sans MS 3	7.0
+Comic Sans MS	Comic Sans MS 3.5	8.0
+Comic Sans MS	Comic Sans MS 4	8.0
+Comic Sans MS	Comic Sans MS 4.5	9.0
+Comic Sans MS	Comic Sans MS 5	9.0
+Comic Sans MS	Comic Sans MS 5.5	10.0
+Comic Sans MS	Comic Sans MS 6	11.0
+Comic Sans MS	Comic Sans MS 6.5	12.0
+Comic Sans MS	Comic Sans MS 7	12.0
+Comic Sans MS	Comic Sans MS 7.5	13.0
+Comic Sans MS	Comic Sans MS 8	13.0
+Comic Sans MS	Comic Sans MS 8.5	15.0
+Comic Sans MS	Comic Sans MS 9	15.0
+Comic Sans MS	Comic Sans MS 9.5	16.0
+Comic Sans MS	Comic Sans MS 10	16.0
+Comic Sans MS	Comic Sans MS 10.5	17.0
+Comic Sans MS	Comic Sans MS 11	17.0
+Comic Sans MS	Comic Sans MS 11.5	18.0
+Comic Sans MS	Comic Sans MS 12	18.0
+Comic Sans MS	Comic Sans MS 12.5	20.0
+Comic Sans MS	Comic Sans MS 13	20.0
+Comic Sans MS	Comic Sans MS 13.5	21.0
+Comic Sans MS	Comic Sans MS 14	21.0
+Comic Sans MS	Comic Sans MS 14.5	24.0
+Comic Sans MS	Comic Sans MS 15	24.0
+Comic Sans MS	Comic Sans MS 15.5	26.0
+Comic Sans MS	Comic Sans MS 16	26.0
+Comic Sans MS	Comic Sans MS 16.5	27.0
+Comic Sans MS	Comic Sans MS 17	27.0
+Comic Sans MS	Comic Sans MS 17.5	28.0
+Comic Sans MS	Comic Sans MS 18	28.0
+Comic Sans MS	Comic Sans MS 18.5	30.0
+Comic Sans MS	Comic Sans MS 19	30.0
+Comic Sans MS	Comic Sans MS 19.5	31.0
+Comic Sans MS	Comic Sans MS 20	31.0
+Comic Sans MS	Comic Sans MS 20.5	32.0
+Comic Sans MS	Comic Sans MS 21	32.0
+Comic Sans MS	Comic Sans MS 21.5	33.0
+Comic Sans MS	Comic Sans MS 22	33.0
+Comic Sans MS	Comic Sans MS 22.5	35.0
+Comic Sans MS	Comic Sans MS 23	35.0
+Comic Sans MS	Comic Sans MS 23.5	36.0
+Comic Sans MS	Comic Sans MS 24	36.0
+Comic Sans MS	Comic Sans MS 24.5	39.0
+Comic Sans MS	Comic Sans MS 25	39.0
+Comic Sans MS	Comic Sans MS 25.5	41.0
+Comic Sans MS	Comic Sans MS 26	41.0
+Comic Sans MS	Comic Sans MS 26.5	42.0
+Comic Sans MS	Comic Sans MS 27	42.0
+Comic Sans MS	Comic Sans MS 27.5	43.0
+Comic Sans MS	Comic Sans MS 28	43.0
+Comic Sans MS	Comic Sans MS 28.5	44.0
+Comic Sans MS	Comic Sans MS 29	44.0
+Comic Sans MS	Comic Sans MS 29.5	46.0
+Comic Sans MS	Comic Sans MS 30	46.0
+Comic Sans MS	Comic Sans MS 30.5	47.0
+Comic Sans MS	Comic Sans MS 31	47.0
+Comic Sans MS	Comic Sans MS 31.5	48.0
+Comic Sans MS	Comic Sans MS 32	48.0
+Comic Sans MS	Comic Sans MS 32.5	50.0
+Comic Sans MS	Comic Sans MS 33	50.0
+Comic Sans MS	Comic Sans MS 33.5	51.0
+Comic Sans MS	Comic Sans MS 34	51.0
+Comic Sans MS	Comic Sans MS 34.5	54.0
+Comic Sans MS	Comic Sans MS 35	54.0
+Comic Sans MS	Comic Sans MS 35.5	55.0
+Comic Sans MS	Comic Sans MS 36	55.0
+Comic Sans MS	Comic Sans MS 36.5	57.0
+Comic Sans MS	Comic Sans MS 37	57.0
+Comic Sans MS	Comic Sans MS 37.5	58.0
+Comic Sans MS	Comic Sans MS 38	58.0
+Comic Sans MS	Comic Sans MS 38.5	59.0
+Comic Sans MS	Comic Sans MS 39	59.0
+Comic Sans MS	Comic Sans MS 39.5	61.0
+Comic Sans MS	Comic Sans MS 40	61.0
+Comic Sans MS	Comic Sans MS 40.5	62.0
+Comic Sans MS	Comic Sans MS 41	62.0
+Comic Sans MS	Comic Sans MS 41.5	63.0
+Comic Sans MS	Comic Sans MS 42	63.0
+Comic Sans MS	Comic Sans MS 42.5	65.0
+Comic Sans MS	Comic Sans MS 43	65.0
+Comic Sans MS	Comic Sans MS 43.5	66.0
+Comic Sans MS	Comic Sans MS 44	66.0
+Comic Sans MS	Comic Sans MS 44.5	69.0
+Comic Sans MS	Comic Sans MS 45	69.0
+Comic Sans MS	Comic Sans MS 45.5	70.0
+Comic Sans MS	Comic Sans MS 46	70.0
+Comic Sans MS	Comic Sans MS 46.5	72.0
+Comic Sans MS	Comic Sans MS 47	72.0
+Comic Sans MS	Comic Sans MS 47.5	73.0
+Comic Sans MS	Comic Sans MS 48	73.0
+Comic Sans MS	Comic Sans MS 48.5	74.0
+Comic Sans MS	Comic Sans MS 49	74.0
+Comic Sans MS	Comic Sans MS 49.5	76.0
+Comic Sans MS	Comic Sans MS 50	76.0
+Comic Sans MS	Comic Sans MS 50.5	77.0
+Comic Sans MS	Comic Sans MS 51	77.0
+Comic Sans MS	Comic Sans MS 51.5	78.0
+Comic Sans MS	Comic Sans MS 52	78.0
+Comic Sans MS	Comic Sans MS 52.5	79.0
+Comic Sans MS	Comic Sans MS 53	79.0
+Comic Sans MS	Comic Sans MS 53.5	83.0
+Comic Sans MS	Comic Sans MS 54	83.0
+Comic Sans MS	Comic Sans MS 54.5	84.0
+Comic Sans MS	Comic Sans MS 55	84.0
+Comic Sans MS	Comic Sans MS 55.5	85.0
+Comic Sans MS	Comic Sans MS 56	85.0
+Comic Sans MS	Comic Sans MS 56.5	87.0
+Comic Sans MS	Comic Sans MS 57	87.0
+Comic Sans MS	Comic Sans MS 57.5	88.0
+Comic Sans MS	Comic Sans MS 58	88.0
+Comic Sans MS	Comic Sans MS 58.5	89.0
+Comic Sans MS	Comic Sans MS 59	89.0
+Comic Sans MS	Comic Sans MS 59.5	90.0
+Comic Sans MS	Comic Sans MS 60	90.0
+Comic Sans MS	Comic Sans MS 60.5	92.0
+Comic Sans MS	Comic Sans MS 61	92.0
+Comic Sans MS	Comic Sans MS 61.5	93.0
+Comic Sans MS	Comic Sans MS 62	93.0
+Comic Sans MS	Comic Sans MS 62.5	94.0
+Comic Sans MS	Comic Sans MS 63	94.0
+Comic Sans MS	Comic Sans MS 63.5	98.0
+Comic Sans MS	Comic Sans MS 64	98.0
+Comic Sans MS	Comic Sans MS 64.5	99.0
+Comic Sans MS	Comic Sans MS 65	99.0
+Comic Sans MS	Comic Sans MS 65.5	100.0
+Comic Sans MS	Comic Sans MS 66	100.0
+Comic Sans MS	Comic Sans MS 66.5	102.0
+Comic Sans MS	Comic Sans MS 67	102.0
+Comic Sans MS	Comic Sans MS 67.5	103.0
+Comic Sans MS	Comic Sans MS 68	103.0
+Comic Sans MS	Comic Sans MS 68.5	104.0
+Comic Sans MS	Comic Sans MS 69	104.0
+Comic Sans MS	Comic Sans MS 69.5	105.0
+Comic Sans MS	Comic Sans MS 70	105.0
+Comic Sans MS	Comic Sans MS 70.5	107.0
+Comic Sans MS	Comic Sans MS 71	107.0
+Comic Sans MS	Comic Sans MS 71.5	108.0
+Comic Sans MS	Comic Sans MS 72	108.0
+Comic Sans MS	Comic Sans MS 9 beside Calibri 9	15.0
+Comic Sans MS	Comic Sans MS 9 beside Calibri 10	15.0
+Comic Sans MS	Comic Sans MS 9 beside Calibri 11	16.0
+Comic Sans MS	Comic Sans MS 9 beside Calibri 12	17.0
+Comic Sans MS	Comic Sans MS 9 beside Calibri 14	19.0
+Comic Sans MS	Comic Sans MS 9 beside Calibri 16	21.0
+Comic Sans MS	Comic Sans MS 9 beside Calibri 18	24.0
+Comic Sans MS	Comic Sans MS 9 beside Calibri 20	26.0
+Comic Sans MS	Comic Sans MS 9 beside Calibri 24	31.0
+Comic Sans MS	Comic Sans MS 11 beside Calibri 9	17.0
+Comic Sans MS	Comic Sans MS 11 beside Calibri 10	17.0
+Comic Sans MS	Comic Sans MS 11 beside Calibri 11	17.0
+Comic Sans MS	Comic Sans MS 11 beside Calibri 12	17.0
+Comic Sans MS	Comic Sans MS 11 beside Calibri 14	19.0
+Comic Sans MS	Comic Sans MS 11 beside Calibri 16	21.0
+Comic Sans MS	Comic Sans MS 11 beside Calibri 18	24.0
+Comic Sans MS	Comic Sans MS 11 beside Calibri 20	26.0
+Comic Sans MS	Comic Sans MS 11 beside Calibri 24	31.0
+Comic Sans MS	Comic Sans MS 14 beside Calibri 9	21.0
+Comic Sans MS	Comic Sans MS 14 beside Calibri 10	21.0
+Comic Sans MS	Comic Sans MS 14 beside Calibri 11	21.0
+Comic Sans MS	Comic Sans MS 14 beside Calibri 12	21.0
+Comic Sans MS	Comic Sans MS 14 beside Calibri 14	21.0
+Comic Sans MS	Comic Sans MS 14 beside Calibri 16	22.0
+Comic Sans MS	Comic Sans MS 14 beside Calibri 18	24.0
+Comic Sans MS	Comic Sans MS 14 beside Calibri 20	26.0
+Comic Sans MS	Comic Sans MS 14 beside Calibri 24	31.0
+Comic Sans MS	Comic Sans MS 20 beside Calibri 9	31.0
+Comic Sans MS	Comic Sans MS 20 beside Calibri 10	31.0
+Comic Sans MS	Comic Sans MS 20 beside Calibri 11	31.0
+Comic Sans MS	Comic Sans MS 20 beside Calibri 12	31.0
+Comic Sans MS	Comic Sans MS 20 beside Calibri 14	31.0
+Comic Sans MS	Comic Sans MS 20 beside Calibri 16	31.0
+Comic Sans MS	Comic Sans MS 20 beside Calibri 18	31.0
+Comic Sans MS	Comic Sans MS 20 beside Calibri 20	31.0
+Comic Sans MS	Comic Sans MS 20 beside Calibri 24	33.0
+Consolas	Consolas 1	4.0
+Consolas	Consolas 1.5	7.0
+Consolas	Consolas 2	7.0
+Consolas	Consolas 2.5	7.0
+Consolas	Consolas 3	7.0
+Consolas	Consolas 3.5	8.0
+Consolas	Consolas 4	8.0
+Consolas	Consolas 4.5	9.0
+Consolas	Consolas 5	9.0
+Consolas	Consolas 5.5	10.0
+Consolas	Consolas 6	9.0
+Consolas	Consolas 6.5	10.0
+Consolas	Consolas 7	10.0
+Consolas	Consolas 7.5	11.0
+Consolas	Consolas 8	11.0
+Consolas	Consolas 8.5	12.0
+Consolas	Consolas 9	12.0
+Consolas	Consolas 9.5	14.0
+Consolas	Consolas 10	14.0
+Consolas	Consolas 10.5	15.0
+Consolas	Consolas 11	15.0
+Consolas	Consolas 11.5	16.0
+Consolas	Consolas 12	16.0
+Consolas	Consolas 12.5	17.0
+Consolas	Consolas 13	17.0
+Consolas	Consolas 13.5	19.0
+Consolas	Consolas 14	19.0
+Consolas	Consolas 14.5	22.0
+Consolas	Consolas 15	22.0
+Consolas	Consolas 15.5	23.0
+Consolas	Consolas 16	23.0
+Consolas	Consolas 16.5	24.0
+Consolas	Consolas 17	24.0
+Consolas	Consolas 17.5	26.0
+Consolas	Consolas 18	26.0
+Consolas	Consolas 18.5	27.0
+Consolas	Consolas 19	27.0
+Consolas	Consolas 19.5	28.0
+Consolas	Consolas 20	28.0
+Consolas	Consolas 20.5	29.0
+Consolas	Consolas 21	29.0
+Consolas	Consolas 21.5	31.0
+Consolas	Consolas 22	31.0
+Consolas	Consolas 22.5	32.0
+Consolas	Consolas 23	32.0
+Consolas	Consolas 23.5	33.0
+Consolas	Consolas 24	33.0
+Consolas	Consolas 24.5	34.0
+Consolas	Consolas 25	34.0
+Consolas	Consolas 25.5	36.0
+Consolas	Consolas 26	36.0
+Consolas	Consolas 26.5	39.0
+Consolas	Consolas 27	39.0
+Consolas	Consolas 27.5	40.0
+Consolas	Consolas 28	40.0
+Consolas	Consolas 28.5	41.0
+Consolas	Consolas 29	41.0
+Consolas	Consolas 29.5	43.0
+Consolas	Consolas 30	43.0
+Consolas	Consolas 30.5	44.0
+Consolas	Consolas 31	44.0
+Consolas	Consolas 31.5	45.0
+Consolas	Consolas 32	45.0
+Consolas	Consolas 32.5	46.0
+Consolas	Consolas 33	46.0
+Consolas	Consolas 33.5	48.0
+Consolas	Consolas 34	48.0
+Consolas	Consolas 34.5	49.0
+Consolas	Consolas 35	49.0
+Consolas	Consolas 35.5	50.0
+Consolas	Consolas 36	50.0
+Consolas	Consolas 36.5	52.0
+Consolas	Consolas 37	52.0
+Consolas	Consolas 37.5	53.0
+Consolas	Consolas 38	53.0
+Consolas	Consolas 38.5	56.0
+Consolas	Consolas 39	56.0
+Consolas	Consolas 39.5	57.0
+Consolas	Consolas 40	57.0
+Consolas	Consolas 40.5	59.0
+Consolas	Consolas 41	59.0
+Consolas	Consolas 41.5	60.0
+Consolas	Consolas 42	60.0
+Consolas	Consolas 42.5	61.0
+Consolas	Consolas 43	61.0
+Consolas	Consolas 43.5	62.0
+Consolas	Consolas 44	62.0
+Consolas	Consolas 44.5	64.0
+Consolas	Consolas 45	64.0
+Consolas	Consolas 45.5	65.0
+Consolas	Consolas 46	65.0
+Consolas	Consolas 46.5	66.0
+Consolas	Consolas 47	66.0
+Consolas	Consolas 47.5	67.0
+Consolas	Consolas 48	67.0
+Consolas	Consolas 48.5	69.0
+Consolas	Consolas 49	69.0
+Consolas	Consolas 49.5	72.0
+Consolas	Consolas 50	72.0
+Consolas	Consolas 50.5	73.0
+Consolas	Consolas 51	73.0
+Consolas	Consolas 51.5	74.0
+Consolas	Consolas 52	74.0
+Consolas	Consolas 52.5	76.0
+Consolas	Consolas 53	76.0
+Consolas	Consolas 53.5	77.0
+Consolas	Consolas 54	77.0
+Consolas	Consolas 54.5	78.0
+Consolas	Consolas 55	78.0
+Consolas	Consolas 55.5	79.0
+Consolas	Consolas 56	79.0
+Consolas	Consolas 56.5	81.0
+Consolas	Consolas 57	81.0
+Consolas	Consolas 57.5	82.0
+Consolas	Consolas 58	82.0
+Consolas	Consolas 58.5	83.0
+Consolas	Consolas 59	83.0
+Consolas	Consolas 59.5	84.0
+Consolas	Consolas 60	84.0
+Consolas	Consolas 60.5	86.0
+Consolas	Consolas 61	86.0
+Consolas	Consolas 61.5	89.0
+Consolas	Consolas 62	89.0
+Consolas	Consolas 62.5	90.0
+Consolas	Consolas 63	90.0
+Consolas	Consolas 63.5	91.0
+Consolas	Consolas 64	91.0
+Consolas	Consolas 64.5	93.0
+Consolas	Consolas 65	93.0
+Consolas	Consolas 65.5	94.0
+Consolas	Consolas 66	94.0
+Consolas	Consolas 66.5	95.0
+Consolas	Consolas 67	95.0
+Consolas	Consolas 67.5	96.0
+Consolas	Consolas 68	96.0
+Consolas	Consolas 68.5	98.0
+Consolas	Consolas 69	98.0
+Consolas	Consolas 69.5	99.0
+Consolas	Consolas 70	99.0
+Consolas	Consolas 70.5	100.0
+Consolas	Consolas 71	100.0
+Consolas	Consolas 71.5	102.0
+Consolas	Consolas 72	102.0
+Consolas	Consolas 9 beside Calibri 9	12.0
+Consolas	Consolas 9 beside Calibri 10	14.0
+Consolas	Consolas 9 beside Calibri 11	15.0
+Consolas	Consolas 9 beside Calibri 12	16.0
+Consolas	Consolas 9 beside Calibri 14	19.0
+Consolas	Consolas 9 beside Calibri 16	21.0
+Consolas	Consolas 9 beside Calibri 18	24.0
+Consolas	Consolas 9 beside Calibri 20	26.0
+Consolas	Consolas 9 beside Calibri 24	31.0
+Consolas	Consolas 11 beside Calibri 9	15.0
+Consolas	Consolas 11 beside Calibri 10	15.0
+Consolas	Consolas 11 beside Calibri 11	15.0
+Consolas	Consolas 11 beside Calibri 12	16.0
+Consolas	Consolas 11 beside Calibri 14	19.0
+Consolas	Consolas 11 beside Calibri 16	21.0
+Consolas	Consolas 11 beside Calibri 18	24.0
+Consolas	Consolas 11 beside Calibri 20	26.0
+Consolas	Consolas 11 beside Calibri 24	31.0
+Consolas	Consolas 14 beside Calibri 9	19.0
+Consolas	Consolas 14 beside Calibri 10	19.0
+Consolas	Consolas 14 beside Calibri 11	19.0
+Consolas	Consolas 14 beside Calibri 12	19.0
+Consolas	Consolas 14 beside Calibri 14	19.0
+Consolas	Consolas 14 beside Calibri 16	21.0
+Consolas	Consolas 14 beside Calibri 18	24.0
+Consolas	Consolas 14 beside Calibri 20	26.0
+Consolas	Consolas 14 beside Calibri 24	31.0
+Consolas	Consolas 20 beside Calibri 9	28.0
+Consolas	Consolas 20 beside Calibri 10	28.0
+Consolas	Consolas 20 beside Calibri 11	28.0
+Consolas	Consolas 20 beside Calibri 12	28.0
+Consolas	Consolas 20 beside Calibri 14	28.0
+Consolas	Consolas 20 beside Calibri 16	28.0
+Consolas	Consolas 20 beside Calibri 18	28.0
+Consolas	Consolas 20 beside Calibri 20	28.0
+Consolas	Consolas 20 beside Calibri 24	31.0
+Courier	Courier 1	4.0
+Courier	Courier 1.5	7.0
+Courier	Courier 2	7.0
+Courier	Courier 2.5	7.0
+Courier	Courier 3	7.0
+Courier	Courier 3.5	8.0
+Courier	Courier 4	8.0
+Courier	Courier 4.5	9.0
+Courier	Courier 5	9.0
+Courier	Courier 5.5	10.0
+Courier	Courier 6	9.0
+Courier	Courier 6.5	10.0
+Courier	Courier 7	10.0
+Courier	Courier 7.5	11.0
+Courier	Courier 8	11.0
+Courier	Courier 8.5	13.0
+Courier	Courier 9	13.0
+Courier	Courier 9.5	14.0
+Courier	Courier 10	14.0
+Courier	Courier 10.5	15.0
+Courier	Courier 11	15.0
+Courier	Courier 11.5	17.0
+Courier	Courier 12	17.0
+Courier	Courier 12.5	18.0
+Courier	Courier 13	18.0
+Courier	Courier 13.5	19.0
+Courier	Courier 14	19.0
+Courier	Courier 14.5	21.0
+Courier	Courier 15	21.0
+Courier	Courier 15.5	22.0
+Courier	Courier 16	22.0
+Courier	Courier 16.5	23.0
+Courier	Courier 17	23.0
+Courier	Courier 17.5	24.0
+Courier	Courier 18	24.0
+Courier	Courier 18.5	26.0
+Courier	Courier 19	26.0
+Courier	Courier 19.5	27.0
+Courier	Courier 20	27.0
+Courier	Courier 20.5	28.0
+Courier	Courier 21	28.0
+Courier	Courier 21.5	30.0
+Courier	Courier 22	30.0
+Courier	Courier 22.5	31.0
+Courier	Courier 23	31.0
+Courier	Courier 23.5	32.0
+Courier	Courier 24	32.0
+Courier	Courier 24.5	34.0
+Courier	Courier 25	34.0
+Courier	Courier 25.5	35.0
+Courier	Courier 26	35.0
+Courier	Courier 26.5	36.0
+Courier	Courier 27	36.0
+Courier	Courier 27.5	37.0
+Courier	Courier 28	37.0
+Courier	Courier 28.5	39.0
+Courier	Courier 29	39.0
+Courier	Courier 29.5	40.0
+Courier	Courier 30	40.0
+Courier	Courier 30.5	41.0
+Courier	Courier 31	41.0
+Courier	Courier 31.5	43.0
+Courier	Courier 32	43.0
+Courier	Courier 32.5	44.0
+Courier	Courier 33	44.0
+Courier	Courier 33.5	45.0
+Courier	Courier 34	45.0
+Courier	Courier 34.5	47.0
+Courier	Courier 35	47.0
+Courier	Courier 35.5	48.0
+Courier	Courier 36	48.0
+Courier	Courier 36.5	49.0
+Courier	Courier 37	49.0
+Courier	Courier 37.5	50.0
+Courier	Courier 38	50.0
+Courier	Courier 38.5	52.0
+Courier	Courier 39	52.0
+Courier	Courier 39.5	53.0
+Courier	Courier 40	53.0
+Courier	Courier 40.5	54.0
+Courier	Courier 41	54.0
+Courier	Courier 41.5	56.0
+Courier	Courier 42	56.0
+Courier	Courier 42.5	57.0
+Courier	Courier 43	57.0
+Courier	Courier 43.5	58.0
+Courier	Courier 44	58.0
+Courier	Courier 44.5	60.0
+Courier	Courier 45	60.0
+Courier	Courier 45.5	61.0
+Courier	Courier 46	61.0
+Courier	Courier 46.5	62.0
+Courier	Courier 47	62.0
+Courier	Courier 47.5	63.0
+Courier	Courier 48	63.0
+Courier	Courier 48.5	65.0
+Courier	Courier 49	65.0
+Courier	Courier 49.5	66.0
+Courier	Courier 50	66.0
+Courier	Courier 50.5	67.0
+Courier	Courier 51	67.0
+Courier	Courier 51.5	69.0
+Courier	Courier 52	69.0
+Courier	Courier 52.5	70.0
+Courier	Courier 53	70.0
+Courier	Courier 53.5	71.0
+Courier	Courier 54	71.0
+Courier	Courier 54.5	73.0
+Courier	Courier 55	73.0
+Courier	Courier 55.5	74.0
+Courier	Courier 56	74.0
+Courier	Courier 56.5	75.0
+Courier	Courier 57	75.0
+Courier	Courier 57.5	76.0
+Courier	Courier 58	76.0
+Courier	Courier 58.5	78.0
+Courier	Courier 59	78.0
+Courier	Courier 59.5	79.0
+Courier	Courier 60	79.0
+Courier	Courier 60.5	80.0
+Courier	Courier 61	80.0
+Courier	Courier 61.5	82.0
+Courier	Courier 62	82.0
+Courier	Courier 62.5	83.0
+Courier	Courier 63	83.0
+Courier	Courier 63.5	84.0
+Courier	Courier 64	84.0
+Courier	Courier 64.5	86.0
+Courier	Courier 65	86.0
+Courier	Courier 65.5	87.0
+Courier	Courier 66	87.0
+Courier	Courier 66.5	88.0
+Courier	Courier 67	88.0
+Courier	Courier 67.5	89.0
+Courier	Courier 68	89.0
+Courier	Courier 68.5	91.0
+Courier	Courier 69	91.0
+Courier	Courier 69.5	92.0
+Courier	Courier 70	92.0
+Courier	Courier 70.5	93.0
+Courier	Courier 71	93.0
+Courier	Courier 71.5	95.0
+Courier	Courier 72	95.0
+Courier	Courier 9 beside Calibri 9	13.0
+Courier	Courier 9 beside Calibri 10	14.0
+Courier	Courier 9 beside Calibri 11	15.0
+Courier	Courier 9 beside Calibri 12	16.0
+Courier	Courier 9 beside Calibri 14	19.0
+Courier	Courier 9 beside Calibri 16	21.0
+Courier	Courier 9 beside Calibri 18	24.0
+Courier	Courier 9 beside Calibri 20	26.0
+Courier	Courier 9 beside Calibri 24	31.0
+Courier	Courier 11 beside Calibri 9	15.0
+Courier	Courier 11 beside Calibri 10	15.0
+Courier	Courier 11 beside Calibri 11	15.0
+Courier	Courier 11 beside Calibri 12	16.0
+Courier	Courier 11 beside Calibri 14	19.0
+Courier	Courier 11 beside Calibri 16	21.0
+Courier	Courier 11 beside Calibri 18	24.0
+Courier	Courier 11 beside Calibri 20	26.0
+Courier	Courier 11 beside Calibri 24	31.0
+Courier	Courier 14 beside Calibri 9	19.0
+Courier	Courier 14 beside Calibri 10	19.0
+Courier	Courier 14 beside Calibri 11	19.0
+Courier	Courier 14 beside Calibri 12	19.0
+Courier	Courier 14 beside Calibri 14	19.0
+Courier	Courier 14 beside Calibri 16	21.0
+Courier	Courier 14 beside Calibri 18	24.0
+Courier	Courier 14 beside Calibri 20	26.0
+Courier	Courier 14 beside Calibri 24	31.0
+Courier	Courier 20 beside Calibri 9	27.0
+Courier	Courier 20 beside Calibri 10	27.0
+Courier	Courier 20 beside Calibri 11	27.0
+Courier	Courier 20 beside Calibri 12	27.0
+Courier	Courier 20 beside Calibri 14	27.0
+Courier	Courier 20 beside Calibri 16	27.0
+Courier	Courier 20 beside Calibri 18	27.0
+Courier	Courier 20 beside Calibri 20	27.0
+Courier	Courier 20 beside Calibri 24	31.0
+Garamond	Garamond 1	4.0
+Garamond	Garamond 1.5	7.0
+Garamond	Garamond 2	7.0
+Garamond	Garamond 2.5	7.0
+Garamond	Garamond 3	7.0
+Garamond	Garamond 3.5	8.0
+Garamond	Garamond 4	8.0
+Garamond	Garamond 4.5	9.0
+Garamond	Garamond 5	9.0
+Garamond	Garamond 5.5	10.0
+Garamond	Garamond 6	9.0
+Garamond	Garamond 6.5	10.0
+Garamond	Garamond 7	10.0
+Garamond	Garamond 7.5	11.0
+Garamond	Garamond 8	11.0
+Garamond	Garamond 8.5	12.0
+Garamond	Garamond 9	12.0
+Garamond	Garamond 9.5	14.0
+Garamond	Garamond 10	14.0
+Garamond	Garamond 10.5	15.0
+Garamond	Garamond 11	15.0
+Garamond	Garamond 11.5	16.0
+Garamond	Garamond 12	16.0
+Garamond	Garamond 12.5	17.0
+Garamond	Garamond 13	17.0
+Garamond	Garamond 13.5	19.0
+Garamond	Garamond 14	19.0
+Garamond	Garamond 14.5	20.0
+Garamond	Garamond 15	20.0
+Garamond	Garamond 15.5	21.0
+Garamond	Garamond 16	21.0
+Garamond	Garamond 16.5	22.0
+Garamond	Garamond 17	22.0
+Garamond	Garamond 17.5	24.0
+Garamond	Garamond 18	24.0
+Garamond	Garamond 18.5	25.0
+Garamond	Garamond 19	25.0
+Garamond	Garamond 19.5	26.0
+Garamond	Garamond 20	26.0
+Garamond	Garamond 20.5	28.0
+Garamond	Garamond 21	28.0
+Garamond	Garamond 21.5	29.0
+Garamond	Garamond 22	29.0
+Garamond	Garamond 22.5	30.0
+Garamond	Garamond 23	30.0
+Garamond	Garamond 23.5	31.0
+Garamond	Garamond 24	31.0
+Garamond	Garamond 24.5	33.0
+Garamond	Garamond 25	33.0
+Garamond	Garamond 25.5	34.0
+Garamond	Garamond 26	34.0
+Garamond	Garamond 26.5	35.0
+Garamond	Garamond 27	35.0
+Garamond	Garamond 27.5	36.0
+Garamond	Garamond 28	36.0
+Garamond	Garamond 28.5	38.0
+Garamond	Garamond 29	38.0
+Garamond	Garamond 29.5	39.0
+Garamond	Garamond 30	39.0
+Garamond	Garamond 30.5	40.0
+Garamond	Garamond 31	40.0
+Garamond	Garamond 31.5	41.0
+Garamond	Garamond 32	41.0
+Garamond	Garamond 32.5	43.0
+Garamond	Garamond 33	43.0
+Garamond	Garamond 33.5	44.0
+Garamond	Garamond 34	44.0
+Garamond	Garamond 34.5	45.0
+Garamond	Garamond 35	45.0
+Garamond	Garamond 35.5	46.0
+Garamond	Garamond 36	46.0
+Garamond	Garamond 36.5	48.0
+Garamond	Garamond 37	48.0
+Garamond	Garamond 37.5	49.0
+Garamond	Garamond 38	49.0
+Garamond	Garamond 38.5	50.0
+Garamond	Garamond 39	50.0
+Garamond	Garamond 39.5	52.0
+Garamond	Garamond 40	52.0
+Garamond	Garamond 40.5	53.0
+Garamond	Garamond 41	53.0
+Garamond	Garamond 41.5	54.0
+Garamond	Garamond 42	54.0
+Garamond	Garamond 42.5	55.0
+Garamond	Garamond 43	55.0
+Garamond	Garamond 43.5	57.0
+Garamond	Garamond 44	57.0
+Garamond	Garamond 44.5	58.0
+Garamond	Garamond 45	58.0
+Garamond	Garamond 45.5	59.0
+Garamond	Garamond 46	59.0
+Garamond	Garamond 46.5	60.0
+Garamond	Garamond 47	60.0
+Garamond	Garamond 47.5	62.0
+Garamond	Garamond 48	62.0
+Garamond	Garamond 48.5	63.0
+Garamond	Garamond 49	63.0
+Garamond	Garamond 49.5	64.0
+Garamond	Garamond 50	64.0
+Garamond	Garamond 50.5	65.0
+Garamond	Garamond 51	65.0
+Garamond	Garamond 51.5	67.0
+Garamond	Garamond 52	67.0
+Garamond	Garamond 52.5	68.0
+Garamond	Garamond 53	68.0
+Garamond	Garamond 53.5	69.0
+Garamond	Garamond 54	69.0
+Garamond	Garamond 54.5	70.0
+Garamond	Garamond 55	70.0
+Garamond	Garamond 55.5	72.0
+Garamond	Garamond 56	72.0
+Garamond	Garamond 56.5	73.0
+Garamond	Garamond 57	73.0
+Garamond	Garamond 57.5	74.0
+Garamond	Garamond 58	74.0
+Garamond	Garamond 58.5	76.0
+Garamond	Garamond 59	76.0
+Garamond	Garamond 59.5	77.0
+Garamond	Garamond 60	77.0
+Garamond	Garamond 60.5	78.0
+Garamond	Garamond 61	78.0
+Garamond	Garamond 61.5	79.0
+Garamond	Garamond 62	79.0
+Garamond	Garamond 62.5	81.0
+Garamond	Garamond 63	81.0
+Garamond	Garamond 63.5	82.0
+Garamond	Garamond 64	82.0
+Garamond	Garamond 64.5	83.0
+Garamond	Garamond 65	83.0
+Garamond	Garamond 65.5	84.0
+Garamond	Garamond 66	84.0
+Garamond	Garamond 66.5	86.0
+Garamond	Garamond 67	86.0
+Garamond	Garamond 67.5	87.0
+Garamond	Garamond 68	87.0
+Garamond	Garamond 68.5	88.0
+Garamond	Garamond 69	88.0
+Garamond	Garamond 69.5	89.0
+Garamond	Garamond 70	89.0
+Garamond	Garamond 70.5	91.0
+Garamond	Garamond 71	91.0
+Garamond	Garamond 71.5	92.0
+Garamond	Garamond 72	92.0
+Garamond	Garamond 9 beside Calibri 9	12.0
+Garamond	Garamond 9 beside Calibri 10	14.0
+Garamond	Garamond 9 beside Calibri 11	15.0
+Garamond	Garamond 9 beside Calibri 12	16.0
+Garamond	Garamond 9 beside Calibri 14	19.0
+Garamond	Garamond 9 beside Calibri 16	21.0
+Garamond	Garamond 9 beside Calibri 18	24.0
+Garamond	Garamond 9 beside Calibri 20	26.0
+Garamond	Garamond 9 beside Calibri 24	31.0
+Garamond	Garamond 11 beside Calibri 9	15.0
+Garamond	Garamond 11 beside Calibri 10	15.0
+Garamond	Garamond 11 beside Calibri 11	15.0
+Garamond	Garamond 11 beside Calibri 12	16.0
+Garamond	Garamond 11 beside Calibri 14	19.0
+Garamond	Garamond 11 beside Calibri 16	21.0
+Garamond	Garamond 11 beside Calibri 18	24.0
+Garamond	Garamond 11 beside Calibri 20	26.0
+Garamond	Garamond 11 beside Calibri 24	31.0
+Garamond	Garamond 14 beside Calibri 9	19.0
+Garamond	Garamond 14 beside Calibri 10	19.0
+Garamond	Garamond 14 beside Calibri 11	19.0
+Garamond	Garamond 14 beside Calibri 12	19.0
+Garamond	Garamond 14 beside Calibri 14	19.0
+Garamond	Garamond 14 beside Calibri 16	21.0
+Garamond	Garamond 14 beside Calibri 18	24.0
+Garamond	Garamond 14 beside Calibri 20	26.0
+Garamond	Garamond 14 beside Calibri 24	31.0
+Garamond	Garamond 20 beside Calibri 9	26.0
+Garamond	Garamond 20 beside Calibri 10	26.0
+Garamond	Garamond 20 beside Calibri 11	26.0
+Garamond	Garamond 20 beside Calibri 12	26.0
+Garamond	Garamond 20 beside Calibri 14	26.0
+Garamond	Garamond 20 beside Calibri 16	26.0
+Garamond	Garamond 20 beside Calibri 18	26.0
+Garamond	Garamond 20 beside Calibri 20	26.0
+Garamond	Garamond 20 beside Calibri 24	31.0
+Haettenschweiler	Haettenschweiler 1	4.0
+Haettenschweiler	Haettenschweiler 1.5	7.0
+Haettenschweiler	Haettenschweiler 2	7.0
+Haettenschweiler	Haettenschweiler 2.5	7.0
+Haettenschweiler	Haettenschweiler 3	7.0
+Haettenschweiler	Haettenschweiler 3.5	8.0
+Haettenschweiler	Haettenschweiler 4	8.0
+Haettenschweiler	Haettenschweiler 4.5	9.0
+Haettenschweiler	Haettenschweiler 5	9.0
+Haettenschweiler	Haettenschweiler 5.5	10.0
+Haettenschweiler	Haettenschweiler 6	10.0
+Haettenschweiler	Haettenschweiler 6.5	11.0
+Haettenschweiler	Haettenschweiler 7	11.0
+Haettenschweiler	Haettenschweiler 7.5	12.0
+Haettenschweiler	Haettenschweiler 8	12.0
+Haettenschweiler	Haettenschweiler 8.5	13.0
+Haettenschweiler	Haettenschweiler 9	13.0
+Haettenschweiler	Haettenschweiler 9.5	14.0
+Haettenschweiler	Haettenschweiler 10	14.0
+Haettenschweiler	Haettenschweiler 10.5	15.0
+Haettenschweiler	Haettenschweiler 11	15.0
+Haettenschweiler	Haettenschweiler 11.5	16.0
+Haettenschweiler	Haettenschweiler 12	16.0
+Haettenschweiler	Haettenschweiler 12.5	16.0
+Haettenschweiler	Haettenschweiler 13	16.0
+Haettenschweiler	Haettenschweiler 13.5	17.0
+Haettenschweiler	Haettenschweiler 14	17.0
+Haettenschweiler	Haettenschweiler 14.5	18.0
+Haettenschweiler	Haettenschweiler 15	18.0
+Haettenschweiler	Haettenschweiler 15.5	19.0
+Haettenschweiler	Haettenschweiler 16	19.0
+Haettenschweiler	Haettenschweiler 16.5	20.0
+Haettenschweiler	Haettenschweiler 17	20.0
+Haettenschweiler	Haettenschweiler 17.5	21.0
+Haettenschweiler	Haettenschweiler 18	21.0
+Haettenschweiler	Haettenschweiler 18.5	22.0
+Haettenschweiler	Haettenschweiler 19	22.0
+Haettenschweiler	Haettenschweiler 19.5	23.0
+Haettenschweiler	Haettenschweiler 20	23.0
+Haettenschweiler	Haettenschweiler 20.5	25.0
+Haettenschweiler	Haettenschweiler 21	25.0
+Haettenschweiler	Haettenschweiler 21.5	26.0
+Haettenschweiler	Haettenschweiler 22	26.0
+Haettenschweiler	Haettenschweiler 22.5	27.0
+Haettenschweiler	Haettenschweiler 23	27.0
+Haettenschweiler	Haettenschweiler 23.5	28.0
+Haettenschweiler	Haettenschweiler 24	28.0
+Haettenschweiler	Haettenschweiler 24.5	29.0
+Haettenschweiler	Haettenschweiler 25	29.0
+Haettenschweiler	Haettenschweiler 25.5	30.0
+Haettenschweiler	Haettenschweiler 26	30.0
+Haettenschweiler	Haettenschweiler 26.5	31.0
+Haettenschweiler	Haettenschweiler 27	31.0
+Haettenschweiler	Haettenschweiler 27.5	32.0
+Haettenschweiler	Haettenschweiler 28	32.0
+Haettenschweiler	Haettenschweiler 28.5	33.0
+Haettenschweiler	Haettenschweiler 29	33.0
+Haettenschweiler	Haettenschweiler 29.5	35.0
+Haettenschweiler	Haettenschweiler 30	35.0
+Haettenschweiler	Haettenschweiler 30.5	36.0
+Haettenschweiler	Haettenschweiler 31	36.0
+Haettenschweiler	Haettenschweiler 31.5	37.0
+Haettenschweiler	Haettenschweiler 32	37.0
+Haettenschweiler	Haettenschweiler 32.5	38.0
+Haettenschweiler	Haettenschweiler 33	38.0
+Haettenschweiler	Haettenschweiler 33.5	39.0
+Haettenschweiler	Haettenschweiler 34	39.0
+Haettenschweiler	Haettenschweiler 34.5	40.0
+Haettenschweiler	Haettenschweiler 35	40.0
+Haettenschweiler	Haettenschweiler 35.5	41.0
+Haettenschweiler	Haettenschweiler 36	41.0
+Haettenschweiler	Haettenschweiler 36.5	42.0
+Haettenschweiler	Haettenschweiler 37	42.0
+Haettenschweiler	Haettenschweiler 37.5	46.0
+Haettenschweiler	Haettenschweiler 38	46.0
+Haettenschweiler	Haettenschweiler 38.5	47.0
+Haettenschweiler	Haettenschweiler 39	47.0
+Haettenschweiler	Haettenschweiler 39.5	48.0
+Haettenschweiler	Haettenschweiler 40	48.0
+Haettenschweiler	Haettenschweiler 40.5	49.0
+Haettenschweiler	Haettenschweiler 41	49.0
+Haettenschweiler	Haettenschweiler 41.5	50.0
+Haettenschweiler	Haettenschweiler 42	50.0
+Haettenschweiler	Haettenschweiler 42.5	51.0
+Haettenschweiler	Haettenschweiler 43	51.0
+Haettenschweiler	Haettenschweiler 43.5	52.0
+Haettenschweiler	Haettenschweiler 44	52.0
+Haettenschweiler	Haettenschweiler 44.5	53.0
+Haettenschweiler	Haettenschweiler 45	53.0
+Haettenschweiler	Haettenschweiler 45.5	55.0
+Haettenschweiler	Haettenschweiler 46	55.0
+Haettenschweiler	Haettenschweiler 46.5	56.0
+Haettenschweiler	Haettenschweiler 47	56.0
+Haettenschweiler	Haettenschweiler 47.5	57.0
+Haettenschweiler	Haettenschweiler 48	57.0
+Haettenschweiler	Haettenschweiler 48.5	58.0
+Haettenschweiler	Haettenschweiler 49	58.0
+Haettenschweiler	Haettenschweiler 49.5	59.0
+Haettenschweiler	Haettenschweiler 50	59.0
+Haettenschweiler	Haettenschweiler 50.5	60.0
+Haettenschweiler	Haettenschweiler 51	60.0
+Haettenschweiler	Haettenschweiler 51.5	61.0
+Haettenschweiler	Haettenschweiler 52	61.0
+Haettenschweiler	Haettenschweiler 52.5	62.0
+Haettenschweiler	Haettenschweiler 53	62.0
+Haettenschweiler	Haettenschweiler 53.5	63.0
+Haettenschweiler	Haettenschweiler 54	63.0
+Haettenschweiler	Haettenschweiler 54.5	65.0
+Haettenschweiler	Haettenschweiler 55	65.0
+Haettenschweiler	Haettenschweiler 55.5	66.0
+Haettenschweiler	Haettenschweiler 56	66.0
+Haettenschweiler	Haettenschweiler 56.5	67.0
+Haettenschweiler	Haettenschweiler 57	67.0
+Haettenschweiler	Haettenschweiler 57.5	68.0
+Haettenschweiler	Haettenschweiler 58	68.0
+Haettenschweiler	Haettenschweiler 58.5	69.0
+Haettenschweiler	Haettenschweiler 59	69.0
+Haettenschweiler	Haettenschweiler 59.5	70.0
+Haettenschweiler	Haettenschweiler 60	70.0
+Haettenschweiler	Haettenschweiler 60.5	71.0
+Haettenschweiler	Haettenschweiler 61	71.0
+Haettenschweiler	Haettenschweiler 61.5	72.0
+Haettenschweiler	Haettenschweiler 62	72.0
+Haettenschweiler	Haettenschweiler 62.5	74.0
+Haettenschweiler	Haettenschweiler 63	74.0
+Haettenschweiler	Haettenschweiler 63.5	75.0
+Haettenschweiler	Haettenschweiler 64	75.0
+Haettenschweiler	Haettenschweiler 64.5	76.0
+Haettenschweiler	Haettenschweiler 65	76.0
+Haettenschweiler	Haettenschweiler 65.5	77.0
+Haettenschweiler	Haettenschweiler 66	77.0
+Haettenschweiler	Haettenschweiler 66.5	78.0
+Haettenschweiler	Haettenschweiler 67	78.0
+Haettenschweiler	Haettenschweiler 67.5	81.0
+Haettenschweiler	Haettenschweiler 68	81.0
+Haettenschweiler	Haettenschweiler 68.5	82.0
+Haettenschweiler	Haettenschweiler 69	82.0
+Haettenschweiler	Haettenschweiler 69.5	83.0
+Haettenschweiler	Haettenschweiler 70	83.0
+Haettenschweiler	Haettenschweiler 70.5	85.0
+Haettenschweiler	Haettenschweiler 71	85.0
+Haettenschweiler	Haettenschweiler 71.5	86.0
+Haettenschweiler	Haettenschweiler 72	86.0
+Haettenschweiler	Haettenschweiler 9 beside Calibri 9	13.0
+Haettenschweiler	Haettenschweiler 9 beside Calibri 10	14.0
+Haettenschweiler	Haettenschweiler 9 beside Calibri 11	15.0
+Haettenschweiler	Haettenschweiler 9 beside Calibri 12	16.0
+Haettenschweiler	Haettenschweiler 9 beside Calibri 14	19.0
+Haettenschweiler	Haettenschweiler 9 beside Calibri 16	21.0
+Haettenschweiler	Haettenschweiler 9 beside Calibri 18	24.0
+Haettenschweiler	Haettenschweiler 9 beside Calibri 20	26.0
+Haettenschweiler	Haettenschweiler 9 beside Calibri 24	31.0
+Haettenschweiler	Haettenschweiler 11 beside Calibri 9	15.0
+Haettenschweiler	Haettenschweiler 11 beside Calibri 10	16.0
+Haettenschweiler	Haettenschweiler 11 beside Calibri 11	16.0
+Haettenschweiler	Haettenschweiler 11 beside Calibri 12	16.0
+Haettenschweiler	Haettenschweiler 11 beside Calibri 14	19.0
+Haettenschweiler	Haettenschweiler 11 beside Calibri 16	21.0
+Haettenschweiler	Haettenschweiler 11 beside Calibri 18	24.0
+Haettenschweiler	Haettenschweiler 11 beside Calibri 20	26.0
+Haettenschweiler	Haettenschweiler 11 beside Calibri 24	31.0
+Haettenschweiler	Haettenschweiler 14 beside Calibri 9	17.0
+Haettenschweiler	Haettenschweiler 14 beside Calibri 10	18.0
+Haettenschweiler	Haettenschweiler 14 beside Calibri 11	18.0
+Haettenschweiler	Haettenschweiler 14 beside Calibri 12	18.0
+Haettenschweiler	Haettenschweiler 14 beside Calibri 14	19.0
+Haettenschweiler	Haettenschweiler 14 beside Calibri 16	21.0
+Haettenschweiler	Haettenschweiler 14 beside Calibri 18	24.0
+Haettenschweiler	Haettenschweiler 14 beside Calibri 20	26.0
+Haettenschweiler	Haettenschweiler 14 beside Calibri 24	31.0
+Haettenschweiler	Haettenschweiler 20 beside Calibri 9	23.0
+Haettenschweiler	Haettenschweiler 20 beside Calibri 10	24.0
+Haettenschweiler	Haettenschweiler 20 beside Calibri 11	24.0
+Haettenschweiler	Haettenschweiler 20 beside Calibri 12	24.0
+Haettenschweiler	Haettenschweiler 20 beside Calibri 14	25.0
+Haettenschweiler	Haettenschweiler 20 beside Calibri 16	25.0
+Haettenschweiler	Haettenschweiler 20 beside Calibri 18	26.0
+Haettenschweiler	Haettenschweiler 20 beside Calibri 20	26.0
+Haettenschweiler	Haettenschweiler 20 beside Calibri 24	31.0
+Helvetica	Helvetica 1	4.0
+Helvetica	Helvetica 1.5	7.0
+Helvetica	Helvetica 2	7.0
+Helvetica	Helvetica 2.5	7.0
+Helvetica	Helvetica 3	7.0
+Helvetica	Helvetica 3.5	8.0
+Helvetica	Helvetica 4	8.0
+Helvetica	Helvetica 4.5	9.0
+Helvetica	Helvetica 5	9.0
+Helvetica	Helvetica 5.5	10.0
+Helvetica	Helvetica 6	10.0
+Helvetica	Helvetica 6.5	10.0
+Helvetica	Helvetica 7	10.0
+Helvetica	Helvetica 7.5	11.0
+Helvetica	Helvetica 8	11.0
+Helvetica	Helvetica 8.5	12.0
+Helvetica	Helvetica 9	12.0
+Helvetica	Helvetica 9.5	13.0
+Helvetica	Helvetica 10	13.0
+Helvetica	Helvetica 10.5	15.0
+Helvetica	Helvetica 11	15.0
+Helvetica	Helvetica 11.5	16.0
+Helvetica	Helvetica 12	16.0
+Helvetica	Helvetica 12.5	17.0
+Helvetica	Helvetica 13	17.0
+Helvetica	Helvetica 13.5	18.0
+Helvetica	Helvetica 14	18.0
+Helvetica	Helvetica 14.5	19.0
+Helvetica	Helvetica 15	19.0
+Helvetica	Helvetica 15.5	21.0
+Helvetica	Helvetica 16	21.0
+Helvetica	Helvetica 16.5	22.0
+Helvetica	Helvetica 17	22.0
+Helvetica	Helvetica 17.5	23.0
+Helvetica	Helvetica 18	23.0
+Helvetica	Helvetica 18.5	24.0
+Helvetica	Helvetica 19	24.0
+Helvetica	Helvetica 19.5	26.0
+Helvetica	Helvetica 20	26.0
+Helvetica	Helvetica 20.5	27.0
+Helvetica	Helvetica 21	27.0
+Helvetica	Helvetica 21.5	28.0
+Helvetica	Helvetica 22	28.0
+Helvetica	Helvetica 22.5	29.0
+Helvetica	Helvetica 23	29.0
+Helvetica	Helvetica 23.5	31.0
+Helvetica	Helvetica 24	31.0
+Helvetica	Helvetica 24.5	32.0
+Helvetica	Helvetica 25	32.0
+Helvetica	Helvetica 25.5	33.0
+Helvetica	Helvetica 26	33.0
+Helvetica	Helvetica 26.5	34.0
+Helvetica	Helvetica 27	34.0
+Helvetica	Helvetica 27.5	35.0
+Helvetica	Helvetica 28	35.0
+Helvetica	Helvetica 28.5	37.0
+Helvetica	Helvetica 29	37.0
+Helvetica	Helvetica 29.5	38.0
+Helvetica	Helvetica 30	38.0
+Helvetica	Helvetica 30.5	39.0
+Helvetica	Helvetica 31	39.0
+Helvetica	Helvetica 31.5	40.0
+Helvetica	Helvetica 32	40.0
+Helvetica	Helvetica 32.5	42.0
+Helvetica	Helvetica 33	42.0
+Helvetica	Helvetica 33.5	43.0
+Helvetica	Helvetica 34	43.0
+Helvetica	Helvetica 34.5	44.0
+Helvetica	Helvetica 35	44.0
+Helvetica	Helvetica 35.5	45.0
+Helvetica	Helvetica 36	45.0
+Helvetica	Helvetica 36.5	47.0
+Helvetica	Helvetica 37	47.0
+Helvetica	Helvetica 37.5	48.0
+Helvetica	Helvetica 38	48.0
+Helvetica	Helvetica 38.5	49.0
+Helvetica	Helvetica 39	49.0
+Helvetica	Helvetica 39.5	50.0
+Helvetica	Helvetica 40	50.0
+Helvetica	Helvetica 40.5	51.0
+Helvetica	Helvetica 41	51.0
+Helvetica	Helvetica 41.5	53.0
+Helvetica	Helvetica 42	53.0
+Helvetica	Helvetica 42.5	54.0
+Helvetica	Helvetica 43	54.0
+Helvetica	Helvetica 43.5	55.0
+Helvetica	Helvetica 44	55.0
+Helvetica	Helvetica 44.5	56.0
+Helvetica	Helvetica 45	56.0
+Helvetica	Helvetica 45.5	58.0
+Helvetica	Helvetica 46	58.0
+Helvetica	Helvetica 46.5	59.0
+Helvetica	Helvetica 47	59.0
+Helvetica	Helvetica 47.5	60.0
+Helvetica	Helvetica 48	60.0
+Helvetica	Helvetica 48.5	61.0
+Helvetica	Helvetica 49	61.0
+Helvetica	Helvetica 49.5	62.0
+Helvetica	Helvetica 50	62.0
+Helvetica	Helvetica 50.5	64.0
+Helvetica	Helvetica 51	64.0
+Helvetica	Helvetica 51.5	65.0
+Helvetica	Helvetica 52	65.0
+Helvetica	Helvetica 52.5	66.0
+Helvetica	Helvetica 53	66.0
+Helvetica	Helvetica 53.5	67.0
+Helvetica	Helvetica 54	67.0
+Helvetica	Helvetica 54.5	69.0
+Helvetica	Helvetica 55	69.0
+Helvetica	Helvetica 55.5	70.0
+Helvetica	Helvetica 56	70.0
+Helvetica	Helvetica 56.5	71.0
+Helvetica	Helvetica 57	71.0
+Helvetica	Helvetica 57.5	72.0
+Helvetica	Helvetica 58	72.0
+Helvetica	Helvetica 58.5	74.0
+Helvetica	Helvetica 59	74.0
+Helvetica	Helvetica 59.5	75.0
+Helvetica	Helvetica 60	75.0
+Helvetica	Helvetica 60.5	76.0
+Helvetica	Helvetica 61	76.0
+Helvetica	Helvetica 61.5	77.0
+Helvetica	Helvetica 62	77.0
+Helvetica	Helvetica 62.5	78.0
+Helvetica	Helvetica 63	78.0
+Helvetica	Helvetica 63.5	80.0
+Helvetica	Helvetica 64	80.0
+Helvetica	Helvetica 64.5	81.0
+Helvetica	Helvetica 65	81.0
+Helvetica	Helvetica 65.5	82.0
+Helvetica	Helvetica 66	82.0
+Helvetica	Helvetica 66.5	83.0
+Helvetica	Helvetica 67	83.0
+Helvetica	Helvetica 67.5	85.0
+Helvetica	Helvetica 68	85.0
+Helvetica	Helvetica 68.5	86.0
+Helvetica	Helvetica 69	86.0
+Helvetica	Helvetica 69.5	87.0
+Helvetica	Helvetica 70	87.0
+Helvetica	Helvetica 70.5	88.0
+Helvetica	Helvetica 71	88.0
+Helvetica	Helvetica 71.5	90.0
+Helvetica	Helvetica 72	90.0
+Helvetica	Helvetica 9 beside Calibri 9	12.0
+Helvetica	Helvetica 9 beside Calibri 10	14.0
+Helvetica	Helvetica 9 beside Calibri 11	15.0
+Helvetica	Helvetica 9 beside Calibri 12	16.0
+Helvetica	Helvetica 9 beside Calibri 14	19.0
+Helvetica	Helvetica 9 beside Calibri 16	21.0
+Helvetica	Helvetica 9 beside Calibri 18	24.0
+Helvetica	Helvetica 9 beside Calibri 20	26.0
+Helvetica	Helvetica 9 beside Calibri 24	31.0
+Helvetica	Helvetica 11 beside Calibri 9	15.0
+Helvetica	Helvetica 11 beside Calibri 10	15.0
+Helvetica	Helvetica 11 beside Calibri 11	15.0
+Helvetica	Helvetica 11 beside Calibri 12	16.0
+Helvetica	Helvetica 11 beside Calibri 14	19.0
+Helvetica	Helvetica 11 beside Calibri 16	21.0
+Helvetica	Helvetica 11 beside Calibri 18	24.0
+Helvetica	Helvetica 11 beside Calibri 20	26.0
+Helvetica	Helvetica 11 beside Calibri 24	31.0
+Helvetica	Helvetica 14 beside Calibri 9	18.0
+Helvetica	Helvetica 14 beside Calibri 10	18.0
+Helvetica	Helvetica 14 beside Calibri 11	18.0
+Helvetica	Helvetica 14 beside Calibri 12	18.0
+Helvetica	Helvetica 14 beside Calibri 14	19.0
+Helvetica	Helvetica 14 beside Calibri 16	21.0
+Helvetica	Helvetica 14 beside Calibri 18	24.0
+Helvetica	Helvetica 14 beside Calibri 20	26.0
+Helvetica	Helvetica 14 beside Calibri 24	31.0
+Helvetica	Helvetica 20 beside Calibri 9	26.0
+Helvetica	Helvetica 20 beside Calibri 10	26.0
+Helvetica	Helvetica 20 beside Calibri 11	26.0
+Helvetica	Helvetica 20 beside Calibri 12	26.0
+Helvetica	Helvetica 20 beside Calibri 14	26.0
+Helvetica	Helvetica 20 beside Calibri 16	26.0
+Helvetica	Helvetica 20 beside Calibri 18	26.0
+Helvetica	Helvetica 20 beside Calibri 20	26.0
+Helvetica	Helvetica 20 beside Calibri 24	31.0
+Impact	Impact 1	4.0
+Impact	Impact 1.5	7.0
+Impact	Impact 2	7.0
+Impact	Impact 2.5	7.0
+Impact	Impact 3	7.0
+Impact	Impact 3.5	8.0
+Impact	Impact 4	8.0
+Impact	Impact 4.5	9.0
+Impact	Impact 5	9.0
+Impact	Impact 5.5	10.0
+Impact	Impact 6	10.0
+Impact	Impact 6.5	11.0
+Impact	Impact 7	11.0
+Impact	Impact 7.5	11.0
+Impact	Impact 8	11.0
+Impact	Impact 8.5	12.0
+Impact	Impact 9	12.0
+Impact	Impact 9.5	13.0
+Impact	Impact 10	13.0
+Impact	Impact 10.5	14.0
+Impact	Impact 11	14.0
+Impact	Impact 11.5	16.0
+Impact	Impact 12	16.0
+Impact	Impact 12.5	17.0
+Impact	Impact 13	17.0
+Impact	Impact 13.5	18.0
+Impact	Impact 14	18.0
+Impact	Impact 14.5	19.0
+Impact	Impact 15	19.0
+Impact	Impact 15.5	20.0
+Impact	Impact 16	20.0
+Impact	Impact 16.5	22.0
+Impact	Impact 17	22.0
+Impact	Impact 17.5	23.0
+Impact	Impact 18	23.0
+Impact	Impact 18.5	24.0
+Impact	Impact 19	24.0
+Impact	Impact 19.5	25.0
+Impact	Impact 20	25.0
+Impact	Impact 20.5	26.0
+Impact	Impact 21	26.0
+Impact	Impact 21.5	28.0
+Impact	Impact 22	28.0
+Impact	Impact 22.5	29.0
+Impact	Impact 23	29.0
+Impact	Impact 23.5	30.0
+Impact	Impact 24	30.0
+Impact	Impact 24.5	31.0
+Impact	Impact 25	31.0
+Impact	Impact 25.5	32.0
+Impact	Impact 26	32.0
+Impact	Impact 26.5	34.0
+Impact	Impact 27	34.0
+Impact	Impact 27.5	35.0
+Impact	Impact 28	35.0
+Impact	Impact 28.5	36.0
+Impact	Impact 29	36.0
+Impact	Impact 29.5	37.0
+Impact	Impact 30	37.0
+Impact	Impact 30.5	39.0
+Impact	Impact 31	39.0
+Impact	Impact 31.5	40.0
+Impact	Impact 32	40.0
+Impact	Impact 32.5	41.0
+Impact	Impact 33	41.0
+Impact	Impact 33.5	42.0
+Impact	Impact 34	42.0
+Impact	Impact 34.5	43.0
+Impact	Impact 35	43.0
+Impact	Impact 35.5	45.0
+Impact	Impact 36	45.0
+Impact	Impact 36.5	46.0
+Impact	Impact 37	46.0
+Impact	Impact 37.5	47.0
+Impact	Impact 38	47.0
+Impact	Impact 38.5	48.0
+Impact	Impact 39	48.0
+Impact	Impact 39.5	49.0
+Impact	Impact 40	49.0
+Impact	Impact 40.5	51.0
+Impact	Impact 41	51.0
+Impact	Impact 41.5	52.0
+Impact	Impact 42	52.0
+Impact	Impact 42.5	53.0
+Impact	Impact 43	53.0
+Impact	Impact 43.5	54.0
+Impact	Impact 44	54.0
+Impact	Impact 44.5	55.0
+Impact	Impact 45	55.0
+Impact	Impact 45.5	57.0
+Impact	Impact 46	57.0
+Impact	Impact 46.5	58.0
+Impact	Impact 47	58.0
+Impact	Impact 47.5	59.0
+Impact	Impact 48	59.0
+Impact	Impact 48.5	60.0
+Impact	Impact 49	60.0
+Impact	Impact 49.5	62.0
+Impact	Impact 50	62.0
+Impact	Impact 50.5	63.0
+Impact	Impact 51	63.0
+Impact	Impact 51.5	64.0
+Impact	Impact 52	64.0
+Impact	Impact 52.5	65.0
+Impact	Impact 53	65.0
+Impact	Impact 53.5	66.0
+Impact	Impact 54	66.0
+Impact	Impact 54.5	68.0
+Impact	Impact 55	68.0
+Impact	Impact 55.5	69.0
+Impact	Impact 56	69.0
+Impact	Impact 56.5	72.0
+Impact	Impact 57	72.0
+Impact	Impact 57.5	73.0
+Impact	Impact 58	73.0
+Impact	Impact 58.5	74.0
+Impact	Impact 59	74.0
+Impact	Impact 59.5	76.0
+Impact	Impact 60	76.0
+Impact	Impact 60.5	77.0
+Impact	Impact 61	77.0
+Impact	Impact 61.5	78.0
+Impact	Impact 62	78.0
+Impact	Impact 62.5	79.0
+Impact	Impact 63	79.0
+Impact	Impact 63.5	81.0
+Impact	Impact 64	81.0
+Impact	Impact 64.5	82.0
+Impact	Impact 65	82.0
+Impact	Impact 65.5	83.0
+Impact	Impact 66	83.0
+Impact	Impact 66.5	84.0
+Impact	Impact 67	84.0
+Impact	Impact 67.5	85.0
+Impact	Impact 68	85.0
+Impact	Impact 68.5	87.0
+Impact	Impact 69	87.0
+Impact	Impact 69.5	88.0
+Impact	Impact 70	88.0
+Impact	Impact 70.5	89.0
+Impact	Impact 71	89.0
+Impact	Impact 71.5	90.0
+Impact	Impact 72	90.0
+Impact	Impact 9 beside Calibri 9	12.0
+Impact	Impact 9 beside Calibri 10	14.0
+Impact	Impact 9 beside Calibri 11	15.0
+Impact	Impact 9 beside Calibri 12	16.0
+Impact	Impact 9 beside Calibri 14	19.0
+Impact	Impact 9 beside Calibri 16	21.0
+Impact	Impact 9 beside Calibri 18	24.0
+Impact	Impact 9 beside Calibri 20	26.0
+Impact	Impact 9 beside Calibri 24	31.0
+Impact	Impact 11 beside Calibri 9	14.0
+Impact	Impact 11 beside Calibri 10	15.0
+Impact	Impact 11 beside Calibri 11	15.0
+Impact	Impact 11 beside Calibri 12	16.0
+Impact	Impact 11 beside Calibri 14	19.0
+Impact	Impact 11 beside Calibri 16	21.0
+Impact	Impact 11 beside Calibri 18	24.0
+Impact	Impact 11 beside Calibri 20	26.0
+Impact	Impact 11 beside Calibri 24	31.0
+Impact	Impact 14 beside Calibri 9	18.0
+Impact	Impact 14 beside Calibri 10	18.0
+Impact	Impact 14 beside Calibri 11	18.0
+Impact	Impact 14 beside Calibri 12	18.0
+Impact	Impact 14 beside Calibri 14	19.0
+Impact	Impact 14 beside Calibri 16	21.0
+Impact	Impact 14 beside Calibri 18	24.0
+Impact	Impact 14 beside Calibri 20	26.0
+Impact	Impact 14 beside Calibri 24	31.0
+Impact	Impact 20 beside Calibri 9	25.0
+Impact	Impact 20 beside Calibri 10	25.0
+Impact	Impact 20 beside Calibri 11	25.0
+Impact	Impact 20 beside Calibri 12	25.0
+Impact	Impact 20 beside Calibri 14	25.0
+Impact	Impact 20 beside Calibri 16	25.0
+Impact	Impact 20 beside Calibri 18	26.0
+Impact	Impact 20 beside Calibri 20	26.0
+Impact	Impact 20 beside Calibri 24	31.0
+Lucida Console	Lucida Console 1	4.0
+Lucida Console	Lucida Console 1.5	7.0
+Lucida Console	Lucida Console 2	7.0
+Lucida Console	Lucida Console 2.5	7.0
+Lucida Console	Lucida Console 3	7.0
+Lucida Console	Lucida Console 3.5	8.0
+Lucida Console	Lucida Console 4	8.0
+Lucida Console	Lucida Console 4.5	9.0
+Lucida Console	Lucida Console 5	9.0
+Lucida Console	Lucida Console 5.5	10.0
+Lucida Console	Lucida Console 6	10.0
+Lucida Console	Lucida Console 6.5	11.0
+Lucida Console	Lucida Console 7	11.0
+Lucida Console	Lucida Console 7.5	11.0
+Lucida Console	Lucida Console 8	11.0
+Lucida Console	Lucida Console 8.5	12.0
+Lucida Console	Lucida Console 9	12.0
+Lucida Console	Lucida Console 9.5	13.0
+Lucida Console	Lucida Console 10	13.0
+Lucida Console	Lucida Console 10.5	14.0
+Lucida Console	Lucida Console 11	14.0
+Lucida Console	Lucida Console 11.5	16.0
+Lucida Console	Lucida Console 12	16.0
+Lucida Console	Lucida Console 12.5	17.0
+Lucida Console	Lucida Console 13	17.0
+Lucida Console	Lucida Console 13.5	18.0
+Lucida Console	Lucida Console 14	18.0
+Lucida Console	Lucida Console 14.5	19.0
+Lucida Console	Lucida Console 15	19.0
+Lucida Console	Lucida Console 15.5	20.0
+Lucida Console	Lucida Console 16	20.0
+Lucida Console	Lucida Console 16.5	22.0
+Lucida Console	Lucida Console 17	22.0
+Lucida Console	Lucida Console 17.5	23.0
+Lucida Console	Lucida Console 18	23.0
+Lucida Console	Lucida Console 18.5	24.0
+Lucida Console	Lucida Console 19	24.0
+Lucida Console	Lucida Console 19.5	25.0
+Lucida Console	Lucida Console 20	25.0
+Lucida Console	Lucida Console 20.5	26.0
+Lucida Console	Lucida Console 21	26.0
+Lucida Console	Lucida Console 21.5	28.0
+Lucida Console	Lucida Console 22	28.0
+Lucida Console	Lucida Console 22.5	29.0
+Lucida Console	Lucida Console 23	29.0
+Lucida Console	Lucida Console 23.5	30.0
+Lucida Console	Lucida Console 24	30.0
+Lucida Console	Lucida Console 24.5	31.0
+Lucida Console	Lucida Console 25	31.0
+Lucida Console	Lucida Console 25.5	32.0
+Lucida Console	Lucida Console 26	32.0
+Lucida Console	Lucida Console 26.5	34.0
+Lucida Console	Lucida Console 27	34.0
+Lucida Console	Lucida Console 27.5	35.0
+Lucida Console	Lucida Console 28	35.0
+Lucida Console	Lucida Console 28.5	36.0
+Lucida Console	Lucida Console 29	36.0
+Lucida Console	Lucida Console 29.5	37.0
+Lucida Console	Lucida Console 30	37.0
+Lucida Console	Lucida Console 30.5	39.0
+Lucida Console	Lucida Console 31	39.0
+Lucida Console	Lucida Console 31.5	40.0
+Lucida Console	Lucida Console 32	40.0
+Lucida Console	Lucida Console 32.5	41.0
+Lucida Console	Lucida Console 33	41.0
+Lucida Console	Lucida Console 33.5	42.0
+Lucida Console	Lucida Console 34	42.0
+Lucida Console	Lucida Console 34.5	43.0
+Lucida Console	Lucida Console 35	43.0
+Lucida Console	Lucida Console 35.5	45.0
+Lucida Console	Lucida Console 36	45.0
+Lucida Console	Lucida Console 36.5	46.0
+Lucida Console	Lucida Console 37	46.0
+Lucida Console	Lucida Console 37.5	47.0
+Lucida Console	Lucida Console 38	47.0
+Lucida Console	Lucida Console 38.5	48.0
+Lucida Console	Lucida Console 39	48.0
+Lucida Console	Lucida Console 39.5	49.0
+Lucida Console	Lucida Console 40	49.0
+Lucida Console	Lucida Console 40.5	51.0
+Lucida Console	Lucida Console 41	51.0
+Lucida Console	Lucida Console 41.5	52.0
+Lucida Console	Lucida Console 42	52.0
+Lucida Console	Lucida Console 42.5	53.0
+Lucida Console	Lucida Console 43	53.0
+Lucida Console	Lucida Console 43.5	54.0
+Lucida Console	Lucida Console 44	54.0
+Lucida Console	Lucida Console 44.5	55.0
+Lucida Console	Lucida Console 45	55.0
+Lucida Console	Lucida Console 45.5	57.0
+Lucida Console	Lucida Console 46	57.0
+Lucida Console	Lucida Console 46.5	58.0
+Lucida Console	Lucida Console 47	58.0
+Lucida Console	Lucida Console 47.5	59.0
+Lucida Console	Lucida Console 48	59.0
+Lucida Console	Lucida Console 48.5	60.0
+Lucida Console	Lucida Console 49	60.0
+Lucida Console	Lucida Console 49.5	62.0
+Lucida Console	Lucida Console 50	62.0
+Lucida Console	Lucida Console 50.5	63.0
+Lucida Console	Lucida Console 51	63.0
+Lucida Console	Lucida Console 51.5	64.0
+Lucida Console	Lucida Console 52	64.0
+Lucida Console	Lucida Console 52.5	65.0
+Lucida Console	Lucida Console 53	65.0
+Lucida Console	Lucida Console 53.5	66.0
+Lucida Console	Lucida Console 54	66.0
+Lucida Console	Lucida Console 54.5	68.0
+Lucida Console	Lucida Console 55	68.0
+Lucida Console	Lucida Console 55.5	69.0
+Lucida Console	Lucida Console 56	69.0
+Lucida Console	Lucida Console 56.5	70.0
+Lucida Console	Lucida Console 57	70.0
+Lucida Console	Lucida Console 57.5	71.0
+Lucida Console	Lucida Console 58	71.0
+Lucida Console	Lucida Console 58.5	72.0
+Lucida Console	Lucida Console 59	72.0
+Lucida Console	Lucida Console 59.5	74.0
+Lucida Console	Lucida Console 60	74.0
+Lucida Console	Lucida Console 60.5	75.0
+Lucida Console	Lucida Console 61	75.0
+Lucida Console	Lucida Console 61.5	76.0
+Lucida Console	Lucida Console 62	76.0
+Lucida Console	Lucida Console 62.5	77.0
+Lucida Console	Lucida Console 63	77.0
+Lucida Console	Lucida Console 63.5	79.0
+Lucida Console	Lucida Console 64	79.0
+Lucida Console	Lucida Console 64.5	80.0
+Lucida Console	Lucida Console 65	80.0
+Lucida Console	Lucida Console 65.5	81.0
+Lucida Console	Lucida Console 66	81.0
+Lucida Console	Lucida Console 66.5	82.0
+Lucida Console	Lucida Console 67	82.0
+Lucida Console	Lucida Console 67.5	83.0
+Lucida Console	Lucida Console 68	83.0
+Lucida Console	Lucida Console 68.5	85.0
+Lucida Console	Lucida Console 69	85.0
+Lucida Console	Lucida Console 69.5	86.0
+Lucida Console	Lucida Console 70	86.0
+Lucida Console	Lucida Console 70.5	87.0
+Lucida Console	Lucida Console 71	87.0
+Lucida Console	Lucida Console 71.5	88.0
+Lucida Console	Lucida Console 72	88.0
+Lucida Console	Lucida Console 9 beside Calibri 9	12.0
+Lucida Console	Lucida Console 9 beside Calibri 10	14.0
+Lucida Console	Lucida Console 9 beside Calibri 11	15.0
+Lucida Console	Lucida Console 9 beside Calibri 12	16.0
+Lucida Console	Lucida Console 9 beside Calibri 14	19.0
+Lucida Console	Lucida Console 9 beside Calibri 16	21.0
+Lucida Console	Lucida Console 9 beside Calibri 18	24.0
+Lucida Console	Lucida Console 9 beside Calibri 20	26.0
+Lucida Console	Lucida Console 9 beside Calibri 24	31.0
+Lucida Console	Lucida Console 11 beside Calibri 9	14.0
+Lucida Console	Lucida Console 11 beside Calibri 10	15.0
+Lucida Console	Lucida Console 11 beside Calibri 11	15.0
+Lucida Console	Lucida Console 11 beside Calibri 12	16.0
+Lucida Console	Lucida Console 11 beside Calibri 14	19.0
+Lucida Console	Lucida Console 11 beside Calibri 16	21.0
+Lucida Console	Lucida Console 11 beside Calibri 18	24.0
+Lucida Console	Lucida Console 11 beside Calibri 20	26.0
+Lucida Console	Lucida Console 11 beside Calibri 24	31.0
+Lucida Console	Lucida Console 14 beside Calibri 9	18.0
+Lucida Console	Lucida Console 14 beside Calibri 10	18.0
+Lucida Console	Lucida Console 14 beside Calibri 11	18.0
+Lucida Console	Lucida Console 14 beside Calibri 12	18.0
+Lucida Console	Lucida Console 14 beside Calibri 14	19.0
+Lucida Console	Lucida Console 14 beside Calibri 16	21.0
+Lucida Console	Lucida Console 14 beside Calibri 18	24.0
+Lucida Console	Lucida Console 14 beside Calibri 20	26.0
+Lucida Console	Lucida Console 14 beside Calibri 24	31.0
+Lucida Console	Lucida Console 20 beside Calibri 9	25.0
+Lucida Console	Lucida Console 20 beside Calibri 10	25.0
+Lucida Console	Lucida Console 20 beside Calibri 11	25.0
+Lucida Console	Lucida Console 20 beside Calibri 12	25.0
+Lucida Console	Lucida Console 20 beside Calibri 14	25.0
+Lucida Console	Lucida Console 20 beside Calibri 16	25.0
+Lucida Console	Lucida Console 20 beside Calibri 18	26.0
+Lucida Console	Lucida Console 20 beside Calibri 20	26.0
+Lucida Console	Lucida Console 20 beside Calibri 24	31.0
+Rockwell	Rockwell 1	4.0
+Rockwell	Rockwell 1.5	7.0
+Rockwell	Rockwell 2	7.0
+Rockwell	Rockwell 2.5	7.0
+Rockwell	Rockwell 3	7.0
+Rockwell	Rockwell 3.5	8.0
+Rockwell	Rockwell 4	8.0
+Rockwell	Rockwell 4.5	9.0
+Rockwell	Rockwell 5	9.0
+Rockwell	Rockwell 5.5	10.0
+Rockwell	Rockwell 6	10.0
+Rockwell	Rockwell 6.5	10.0
+Rockwell	Rockwell 7	10.0
+Rockwell	Rockwell 7.5	11.0
+Rockwell	Rockwell 8	11.0
+Rockwell	Rockwell 8.5	12.0
+Rockwell	Rockwell 9	12.0
+Rockwell	Rockwell 9.5	13.0
+Rockwell	Rockwell 10	13.0
+Rockwell	Rockwell 10.5	15.0
+Rockwell	Rockwell 11	15.0
+Rockwell	Rockwell 11.5	16.0
+Rockwell	Rockwell 12	16.0
+Rockwell	Rockwell 12.5	17.0
+Rockwell	Rockwell 13	17.0
+Rockwell	Rockwell 13.5	18.0
+Rockwell	Rockwell 14	18.0
+Rockwell	Rockwell 14.5	19.0
+Rockwell	Rockwell 15	19.0
+Rockwell	Rockwell 15.5	21.0
+Rockwell	Rockwell 16	21.0
+Rockwell	Rockwell 16.5	22.0
+Rockwell	Rockwell 17	22.0
+Rockwell	Rockwell 17.5	23.0
+Rockwell	Rockwell 18	23.0
+Rockwell	Rockwell 18.5	24.0
+Rockwell	Rockwell 19	24.0
+Rockwell	Rockwell 19.5	26.0
+Rockwell	Rockwell 20	26.0
+Rockwell	Rockwell 20.5	27.0
+Rockwell	Rockwell 21	27.0
+Rockwell	Rockwell 21.5	28.0
+Rockwell	Rockwell 22	28.0
+Rockwell	Rockwell 22.5	29.0
+Rockwell	Rockwell 23	29.0
+Rockwell	Rockwell 23.5	30.0
+Rockwell	Rockwell 24	30.0
+Rockwell	Rockwell 24.5	32.0
+Rockwell	Rockwell 25	32.0
+Rockwell	Rockwell 25.5	33.0
+Rockwell	Rockwell 26	33.0
+Rockwell	Rockwell 26.5	34.0
+Rockwell	Rockwell 27	34.0
+Rockwell	Rockwell 27.5	35.0
+Rockwell	Rockwell 28	35.0
+Rockwell	Rockwell 28.5	37.0
+Rockwell	Rockwell 29	37.0
+Rockwell	Rockwell 29.5	38.0
+Rockwell	Rockwell 30	38.0
+Rockwell	Rockwell 30.5	39.0
+Rockwell	Rockwell 31	39.0
+Rockwell	Rockwell 31.5	40.0
+Rockwell	Rockwell 32	40.0
+Rockwell	Rockwell 32.5	42.0
+Rockwell	Rockwell 33	42.0
+Rockwell	Rockwell 33.5	43.0
+Rockwell	Rockwell 34	43.0
+Rockwell	Rockwell 34.5	44.0
+Rockwell	Rockwell 35	44.0
+Rockwell	Rockwell 35.5	45.0
+Rockwell	Rockwell 36	45.0
+Rockwell	Rockwell 36.5	46.0
+Rockwell	Rockwell 37	46.0
+Rockwell	Rockwell 37.5	48.0
+Rockwell	Rockwell 38	48.0
+Rockwell	Rockwell 38.5	49.0
+Rockwell	Rockwell 39	49.0
+Rockwell	Rockwell 39.5	50.0
+Rockwell	Rockwell 40	50.0
+Rockwell	Rockwell 40.5	51.0
+Rockwell	Rockwell 41	51.0
+Rockwell	Rockwell 41.5	53.0
+Rockwell	Rockwell 42	53.0
+Rockwell	Rockwell 42.5	54.0
+Rockwell	Rockwell 43	54.0
+Rockwell	Rockwell 43.5	55.0
+Rockwell	Rockwell 44	55.0
+Rockwell	Rockwell 44.5	56.0
+Rockwell	Rockwell 45	56.0
+Rockwell	Rockwell 45.5	58.0
+Rockwell	Rockwell 46	58.0
+Rockwell	Rockwell 46.5	59.0
+Rockwell	Rockwell 47	59.0
+Rockwell	Rockwell 47.5	60.0
+Rockwell	Rockwell 48	60.0
+Rockwell	Rockwell 48.5	61.0
+Rockwell	Rockwell 49	61.0
+Rockwell	Rockwell 49.5	62.0
+Rockwell	Rockwell 50	62.0
+Rockwell	Rockwell 50.5	64.0
+Rockwell	Rockwell 51	64.0
+Rockwell	Rockwell 51.5	65.0
+Rockwell	Rockwell 52	65.0
+Rockwell	Rockwell 52.5	66.0
+Rockwell	Rockwell 53	66.0
+Rockwell	Rockwell 53.5	67.0
+Rockwell	Rockwell 54	67.0
+Rockwell	Rockwell 54.5	69.0
+Rockwell	Rockwell 55	69.0
+Rockwell	Rockwell 55.5	70.0
+Rockwell	Rockwell 56	70.0
+Rockwell	Rockwell 56.5	71.0
+Rockwell	Rockwell 57	71.0
+Rockwell	Rockwell 57.5	72.0
+Rockwell	Rockwell 58	72.0
+Rockwell	Rockwell 58.5	73.0
+Rockwell	Rockwell 59	73.0
+Rockwell	Rockwell 59.5	75.0
+Rockwell	Rockwell 60	75.0
+Rockwell	Rockwell 60.5	76.0
+Rockwell	Rockwell 61	76.0
+Rockwell	Rockwell 61.5	77.0
+Rockwell	Rockwell 62	77.0
+Rockwell	Rockwell 62.5	78.0
+Rockwell	Rockwell 63	78.0
+Rockwell	Rockwell 63.5	80.0
+Rockwell	Rockwell 64	80.0
+Rockwell	Rockwell 64.5	81.0
+Rockwell	Rockwell 65	81.0
+Rockwell	Rockwell 65.5	82.0
+Rockwell	Rockwell 66	82.0
+Rockwell	Rockwell 66.5	83.0
+Rockwell	Rockwell 67	83.0
+Rockwell	Rockwell 67.5	85.0
+Rockwell	Rockwell 68	85.0
+Rockwell	Rockwell 68.5	86.0
+Rockwell	Rockwell 69	86.0
+Rockwell	Rockwell 69.5	87.0
+Rockwell	Rockwell 70	87.0
+Rockwell	Rockwell 70.5	88.0
+Rockwell	Rockwell 71	88.0
+Rockwell	Rockwell 71.5	89.0
+Rockwell	Rockwell 72	89.0
+Rockwell	Rockwell 9 beside Calibri 9	12.0
+Rockwell	Rockwell 9 beside Calibri 10	14.0
+Rockwell	Rockwell 9 beside Calibri 11	15.0
+Rockwell	Rockwell 9 beside Calibri 12	16.0
+Rockwell	Rockwell 9 beside Calibri 14	19.0
+Rockwell	Rockwell 9 beside Calibri 16	21.0
+Rockwell	Rockwell 9 beside Calibri 18	24.0
+Rockwell	Rockwell 9 beside Calibri 20	26.0
+Rockwell	Rockwell 9 beside Calibri 24	31.0
+Rockwell	Rockwell 11 beside Calibri 9	15.0
+Rockwell	Rockwell 11 beside Calibri 10	15.0
+Rockwell	Rockwell 11 beside Calibri 11	15.0
+Rockwell	Rockwell 11 beside Calibri 12	16.0
+Rockwell	Rockwell 11 beside Calibri 14	19.0
+Rockwell	Rockwell 11 beside Calibri 16	21.0
+Rockwell	Rockwell 11 beside Calibri 18	24.0
+Rockwell	Rockwell 11 beside Calibri 20	26.0
+Rockwell	Rockwell 11 beside Calibri 24	31.0
+Rockwell	Rockwell 14 beside Calibri 9	18.0
+Rockwell	Rockwell 14 beside Calibri 10	18.0
+Rockwell	Rockwell 14 beside Calibri 11	18.0
+Rockwell	Rockwell 14 beside Calibri 12	18.0
+Rockwell	Rockwell 14 beside Calibri 14	19.0
+Rockwell	Rockwell 14 beside Calibri 16	21.0
+Rockwell	Rockwell 14 beside Calibri 18	24.0
+Rockwell	Rockwell 14 beside Calibri 20	26.0
+Rockwell	Rockwell 14 beside Calibri 24	31.0
+Rockwell	Rockwell 20 beside Calibri 9	26.0
+Rockwell	Rockwell 20 beside Calibri 10	26.0
+Rockwell	Rockwell 20 beside Calibri 11	26.0
+Rockwell	Rockwell 20 beside Calibri 12	26.0
+Rockwell	Rockwell 20 beside Calibri 14	26.0
+Rockwell	Rockwell 20 beside Calibri 16	26.0
+Rockwell	Rockwell 20 beside Calibri 18	26.0
+Rockwell	Rockwell 20 beside Calibri 20	26.0
+Rockwell	Rockwell 20 beside Calibri 24	31.0
+Tahoma	Tahoma 1	4.0
+Tahoma	Tahoma 1.5	7.0
+Tahoma	Tahoma 2	7.0
+Tahoma	Tahoma 2.5	7.0
+Tahoma	Tahoma 3	7.0
+Tahoma	Tahoma 3.5	8.0
+Tahoma	Tahoma 4	8.0
+Tahoma	Tahoma 4.5	9.0
+Tahoma	Tahoma 5	9.0
+Tahoma	Tahoma 5.5	10.0
+Tahoma	Tahoma 6	10.0
+Tahoma	Tahoma 6.5	11.0
+Tahoma	Tahoma 7	11.0
+Tahoma	Tahoma 7.5	11.0
+Tahoma	Tahoma 8	11.0
+Tahoma	Tahoma 8.5	12.0
+Tahoma	Tahoma 9	12.0
+Tahoma	Tahoma 9.5	13.0
+Tahoma	Tahoma 10	13.0
+Tahoma	Tahoma 10.5	14.0
+Tahoma	Tahoma 11	14.0
+Tahoma	Tahoma 11.5	15.0
+Tahoma	Tahoma 12	15.0
+Tahoma	Tahoma 12.5	17.0
+Tahoma	Tahoma 13	17.0
+Tahoma	Tahoma 13.5	18.0
+Tahoma	Tahoma 14	18.0
+Tahoma	Tahoma 14.5	19.0
+Tahoma	Tahoma 15	19.0
+Tahoma	Tahoma 15.5	20.0
+Tahoma	Tahoma 16	20.0
+Tahoma	Tahoma 16.5	22.0
+Tahoma	Tahoma 17	22.0
+Tahoma	Tahoma 17.5	23.0
+Tahoma	Tahoma 18	23.0
+Tahoma	Tahoma 18.5	24.0
+Tahoma	Tahoma 19	24.0
+Tahoma	Tahoma 19.5	25.0
+Tahoma	Tahoma 20	25.0
+Tahoma	Tahoma 20.5	26.0
+Tahoma	Tahoma 21	26.0
+Tahoma	Tahoma 21.5	28.0
+Tahoma	Tahoma 22	28.0
+Tahoma	Tahoma 22.5	29.0
+Tahoma	Tahoma 23	29.0
+Tahoma	Tahoma 23.5	30.0
+Tahoma	Tahoma 24	30.0
+Tahoma	Tahoma 24.5	31.0
+Tahoma	Tahoma 25	31.0
+Tahoma	Tahoma 25.5	32.0
+Tahoma	Tahoma 26	32.0
+Tahoma	Tahoma 26.5	34.0
+Tahoma	Tahoma 27	34.0
+Tahoma	Tahoma 27.5	35.0
+Tahoma	Tahoma 28	35.0
+Tahoma	Tahoma 28.5	36.0
+Tahoma	Tahoma 29	36.0
+Tahoma	Tahoma 29.5	37.0
+Tahoma	Tahoma 30	37.0
+Tahoma	Tahoma 30.5	38.0
+Tahoma	Tahoma 31	38.0
+Tahoma	Tahoma 31.5	40.0
+Tahoma	Tahoma 32	40.0
+Tahoma	Tahoma 32.5	41.0
+Tahoma	Tahoma 33	41.0
+Tahoma	Tahoma 33.5	42.0
+Tahoma	Tahoma 34	42.0
+Tahoma	Tahoma 34.5	43.0
+Tahoma	Tahoma 35	43.0
+Tahoma	Tahoma 35.5	44.0
+Tahoma	Tahoma 36	44.0
+Tahoma	Tahoma 36.5	46.0
+Tahoma	Tahoma 37	46.0
+Tahoma	Tahoma 37.5	47.0
+Tahoma	Tahoma 38	47.0
+Tahoma	Tahoma 38.5	48.0
+Tahoma	Tahoma 39	48.0
+Tahoma	Tahoma 39.5	49.0
+Tahoma	Tahoma 40	49.0
+Tahoma	Tahoma 40.5	50.0
+Tahoma	Tahoma 41	50.0
+Tahoma	Tahoma 41.5	52.0
+Tahoma	Tahoma 42	52.0
+Tahoma	Tahoma 42.5	53.0
+Tahoma	Tahoma 43	53.0
+Tahoma	Tahoma 43.5	54.0
+Tahoma	Tahoma 44	54.0
+Tahoma	Tahoma 44.5	55.0
+Tahoma	Tahoma 45	55.0
+Tahoma	Tahoma 45.5	57.0
+Tahoma	Tahoma 46	57.0
+Tahoma	Tahoma 46.5	58.0
+Tahoma	Tahoma 47	58.0
+Tahoma	Tahoma 47.5	59.0
+Tahoma	Tahoma 48	59.0
+Tahoma	Tahoma 48.5	60.0
+Tahoma	Tahoma 49	60.0
+Tahoma	Tahoma 49.5	61.0
+Tahoma	Tahoma 50	61.0
+Tahoma	Tahoma 50.5	63.0
+Tahoma	Tahoma 51	63.0
+Tahoma	Tahoma 51.5	64.0
+Tahoma	Tahoma 52	64.0
+Tahoma	Tahoma 52.5	65.0
+Tahoma	Tahoma 53	65.0
+Tahoma	Tahoma 53.5	66.0
+Tahoma	Tahoma 54	66.0
+Tahoma	Tahoma 54.5	67.0
+Tahoma	Tahoma 55	67.0
+Tahoma	Tahoma 55.5	69.0
+Tahoma	Tahoma 56	69.0
+Tahoma	Tahoma 56.5	70.0
+Tahoma	Tahoma 57	70.0
+Tahoma	Tahoma 57.5	71.0
+Tahoma	Tahoma 58	71.0
+Tahoma	Tahoma 58.5	72.0
+Tahoma	Tahoma 59	72.0
+Tahoma	Tahoma 59.5	73.0
+Tahoma	Tahoma 60	73.0
+Tahoma	Tahoma 60.5	75.0
+Tahoma	Tahoma 61	75.0
+Tahoma	Tahoma 61.5	76.0
+Tahoma	Tahoma 62	76.0
+Tahoma	Tahoma 62.5	77.0
+Tahoma	Tahoma 63	77.0
+Tahoma	Tahoma 63.5	78.0
+Tahoma	Tahoma 64	78.0
+Tahoma	Tahoma 64.5	79.0
+Tahoma	Tahoma 65	79.0
+Tahoma	Tahoma 65.5	81.0
+Tahoma	Tahoma 66	81.0
+Tahoma	Tahoma 66.5	82.0
+Tahoma	Tahoma 67	82.0
+Tahoma	Tahoma 67.5	83.0
+Tahoma	Tahoma 68	83.0
+Tahoma	Tahoma 68.5	84.0
+Tahoma	Tahoma 69	84.0
+Tahoma	Tahoma 69.5	85.0
+Tahoma	Tahoma 70	85.0
+Tahoma	Tahoma 70.5	87.0
+Tahoma	Tahoma 71	87.0
+Tahoma	Tahoma 71.5	88.0
+Tahoma	Tahoma 72	88.0
+Tahoma	Tahoma 9 beside Calibri 9	12.0
+Tahoma	Tahoma 9 beside Calibri 10	14.0
+Tahoma	Tahoma 9 beside Calibri 11	15.0
+Tahoma	Tahoma 9 beside Calibri 12	16.0
+Tahoma	Tahoma 9 beside Calibri 14	19.0
+Tahoma	Tahoma 9 beside Calibri 16	21.0
+Tahoma	Tahoma 9 beside Calibri 18	24.0
+Tahoma	Tahoma 9 beside Calibri 20	26.0
+Tahoma	Tahoma 9 beside Calibri 24	31.0
+Tahoma	Tahoma 11 beside Calibri 9	14.0
+Tahoma	Tahoma 11 beside Calibri 10	15.0
+Tahoma	Tahoma 11 beside Calibri 11	15.0
+Tahoma	Tahoma 11 beside Calibri 12	16.0
+Tahoma	Tahoma 11 beside Calibri 14	19.0
+Tahoma	Tahoma 11 beside Calibri 16	21.0
+Tahoma	Tahoma 11 beside Calibri 18	24.0
+Tahoma	Tahoma 11 beside Calibri 20	26.0
+Tahoma	Tahoma 11 beside Calibri 24	31.0
+Tahoma	Tahoma 14 beside Calibri 9	18.0
+Tahoma	Tahoma 14 beside Calibri 10	18.0
+Tahoma	Tahoma 14 beside Calibri 11	18.0
+Tahoma	Tahoma 14 beside Calibri 12	18.0
+Tahoma	Tahoma 14 beside Calibri 14	19.0
+Tahoma	Tahoma 14 beside Calibri 16	21.0
+Tahoma	Tahoma 14 beside Calibri 18	24.0
+Tahoma	Tahoma 14 beside Calibri 20	26.0
+Tahoma	Tahoma 14 beside Calibri 24	31.0
+Tahoma	Tahoma 20 beside Calibri 9	25.0
+Tahoma	Tahoma 20 beside Calibri 10	25.0
+Tahoma	Tahoma 20 beside Calibri 11	25.0
+Tahoma	Tahoma 20 beside Calibri 12	25.0
+Tahoma	Tahoma 20 beside Calibri 14	25.0
+Tahoma	Tahoma 20 beside Calibri 16	25.0
+Tahoma	Tahoma 20 beside Calibri 18	26.0
+Tahoma	Tahoma 20 beside Calibri 20	26.0
+Tahoma	Tahoma 20 beside Calibri 24	31.0
+Trebuchet MS	Trebuchet MS 1	4.0
+Trebuchet MS	Trebuchet MS 1.5	7.0
+Trebuchet MS	Trebuchet MS 2	7.0
+Trebuchet MS	Trebuchet MS 2.5	7.0
+Trebuchet MS	Trebuchet MS 3	7.0
+Trebuchet MS	Trebuchet MS 3.5	8.0
+Trebuchet MS	Trebuchet MS 4	8.0
+Trebuchet MS	Trebuchet MS 4.5	9.0
+Trebuchet MS	Trebuchet MS 5	9.0
+Trebuchet MS	Trebuchet MS 5.5	10.0
+Trebuchet MS	Trebuchet MS 6	10.0
+Trebuchet MS	Trebuchet MS 6.5	10.0
+Trebuchet MS	Trebuchet MS 7	10.0
+Trebuchet MS	Trebuchet MS 7.5	11.0
+Trebuchet MS	Trebuchet MS 8	11.0
+Trebuchet MS	Trebuchet MS 8.5	12.0
+Trebuchet MS	Trebuchet MS 9	12.0
+Trebuchet MS	Trebuchet MS 9.5	13.0
+Trebuchet MS	Trebuchet MS 10	13.0
+Trebuchet MS	Trebuchet MS 10.5	14.0
+Trebuchet MS	Trebuchet MS 11	14.0
+Trebuchet MS	Trebuchet MS 11.5	16.0
+Trebuchet MS	Trebuchet MS 12	16.0
+Trebuchet MS	Trebuchet MS 12.5	17.0
+Trebuchet MS	Trebuchet MS 13	17.0
+Trebuchet MS	Trebuchet MS 13.5	18.0
+Trebuchet MS	Trebuchet MS 14	18.0
+Trebuchet MS	Trebuchet MS 14.5	19.0
+Trebuchet MS	Trebuchet MS 15	19.0
+Trebuchet MS	Trebuchet MS 15.5	21.0
+Trebuchet MS	Trebuchet MS 16	21.0
+Trebuchet MS	Trebuchet MS 16.5	22.0
+Trebuchet MS	Trebuchet MS 17	22.0
+Trebuchet MS	Trebuchet MS 17.5	23.0
+Trebuchet MS	Trebuchet MS 18	23.0
+Trebuchet MS	Trebuchet MS 18.5	24.0
+Trebuchet MS	Trebuchet MS 19	24.0
+Trebuchet MS	Trebuchet MS 19.5	25.0
+Trebuchet MS	Trebuchet MS 20	25.0
+Trebuchet MS	Trebuchet MS 20.5	27.0
+Trebuchet MS	Trebuchet MS 21	27.0
+Trebuchet MS	Trebuchet MS 21.5	28.0
+Trebuchet MS	Trebuchet MS 22	28.0
+Trebuchet MS	Trebuchet MS 22.5	29.0
+Trebuchet MS	Trebuchet MS 23	29.0
+Trebuchet MS	Trebuchet MS 23.5	30.0
+Trebuchet MS	Trebuchet MS 24	30.0
+Trebuchet MS	Trebuchet MS 24.5	32.0
+Trebuchet MS	Trebuchet MS 25	32.0
+Trebuchet MS	Trebuchet MS 25.5	33.0
+Trebuchet MS	Trebuchet MS 26	33.0
+Trebuchet MS	Trebuchet MS 26.5	34.0
+Trebuchet MS	Trebuchet MS 27	34.0
+Trebuchet MS	Trebuchet MS 27.5	35.0
+Trebuchet MS	Trebuchet MS 28	35.0
+Trebuchet MS	Trebuchet MS 28.5	36.0
+Trebuchet MS	Trebuchet MS 29	36.0
+Trebuchet MS	Trebuchet MS 29.5	38.0
+Trebuchet MS	Trebuchet MS 30	38.0
+Trebuchet MS	Trebuchet MS 30.5	39.0
+Trebuchet MS	Trebuchet MS 31	39.0
+Trebuchet MS	Trebuchet MS 31.5	40.0
+Trebuchet MS	Trebuchet MS 32	40.0
+Trebuchet MS	Trebuchet MS 32.5	41.0
+Trebuchet MS	Trebuchet MS 33	41.0
+Trebuchet MS	Trebuchet MS 33.5	43.0
+Trebuchet MS	Trebuchet MS 34	43.0
+Trebuchet MS	Trebuchet MS 34.5	44.0
+Trebuchet MS	Trebuchet MS 35	44.0
+Trebuchet MS	Trebuchet MS 35.5	45.0
+Trebuchet MS	Trebuchet MS 36	45.0
+Trebuchet MS	Trebuchet MS 36.5	46.0
+Trebuchet MS	Trebuchet MS 37	46.0
+Trebuchet MS	Trebuchet MS 37.5	47.0
+Trebuchet MS	Trebuchet MS 38	47.0
+Trebuchet MS	Trebuchet MS 38.5	49.0
+Trebuchet MS	Trebuchet MS 39	49.0
+Trebuchet MS	Trebuchet MS 39.5	50.0
+Trebuchet MS	Trebuchet MS 40	50.0
+Trebuchet MS	Trebuchet MS 40.5	51.0
+Trebuchet MS	Trebuchet MS 41	51.0
+Trebuchet MS	Trebuchet MS 41.5	52.0
+Trebuchet MS	Trebuchet MS 42	52.0
+Trebuchet MS	Trebuchet MS 42.5	54.0
+Trebuchet MS	Trebuchet MS 43	54.0
+Trebuchet MS	Trebuchet MS 43.5	55.0
+Trebuchet MS	Trebuchet MS 44	55.0
+Trebuchet MS	Trebuchet MS 44.5	56.0
+Trebuchet MS	Trebuchet MS 45	56.0
+Trebuchet MS	Trebuchet MS 45.5	57.0
+Trebuchet MS	Trebuchet MS 46	57.0
+Trebuchet MS	Trebuchet MS 46.5	58.0
+Trebuchet MS	Trebuchet MS 47	58.0
+Trebuchet MS	Trebuchet MS 47.5	60.0
+Trebuchet MS	Trebuchet MS 48	60.0
+Trebuchet MS	Trebuchet MS 48.5	61.0
+Trebuchet MS	Trebuchet MS 49	61.0
+Trebuchet MS	Trebuchet MS 49.5	62.0
+Trebuchet MS	Trebuchet MS 50	62.0
+Trebuchet MS	Trebuchet MS 50.5	63.0
+Trebuchet MS	Trebuchet MS 51	63.0
+Trebuchet MS	Trebuchet MS 51.5	65.0
+Trebuchet MS	Trebuchet MS 52	65.0
+Trebuchet MS	Trebuchet MS 52.5	66.0
+Trebuchet MS	Trebuchet MS 53	66.0
+Trebuchet MS	Trebuchet MS 53.5	67.0
+Trebuchet MS	Trebuchet MS 54	67.0
+Trebuchet MS	Trebuchet MS 54.5	68.0
+Trebuchet MS	Trebuchet MS 55	68.0
+Trebuchet MS	Trebuchet MS 55.5	69.0
+Trebuchet MS	Trebuchet MS 56	69.0
+Trebuchet MS	Trebuchet MS 56.5	71.0
+Trebuchet MS	Trebuchet MS 57	71.0
+Trebuchet MS	Trebuchet MS 57.5	72.0
+Trebuchet MS	Trebuchet MS 58	72.0
+Trebuchet MS	Trebuchet MS 58.5	73.0
+Trebuchet MS	Trebuchet MS 59	73.0
+Trebuchet MS	Trebuchet MS 59.5	74.0
+Trebuchet MS	Trebuchet MS 60	74.0
+Trebuchet MS	Trebuchet MS 60.5	76.0
+Trebuchet MS	Trebuchet MS 61	76.0
+Trebuchet MS	Trebuchet MS 61.5	77.0
+Trebuchet MS	Trebuchet MS 62	77.0
+Trebuchet MS	Trebuchet MS 62.5	78.0
+Trebuchet MS	Trebuchet MS 63	78.0
+Trebuchet MS	Trebuchet MS 63.5	79.0
+Trebuchet MS	Trebuchet MS 64	79.0
+Trebuchet MS	Trebuchet MS 64.5	80.0
+Trebuchet MS	Trebuchet MS 65	80.0
+Trebuchet MS	Trebuchet MS 65.5	82.0
+Trebuchet MS	Trebuchet MS 66	82.0
+Trebuchet MS	Trebuchet MS 66.5	83.0
+Trebuchet MS	Trebuchet MS 67	83.0
+Trebuchet MS	Trebuchet MS 67.5	84.0
+Trebuchet MS	Trebuchet MS 68	84.0
+Trebuchet MS	Trebuchet MS 68.5	85.0
+Trebuchet MS	Trebuchet MS 69	85.0
+Trebuchet MS	Trebuchet MS 69.5	87.0
+Trebuchet MS	Trebuchet MS 70	87.0
+Trebuchet MS	Trebuchet MS 70.5	88.0
+Trebuchet MS	Trebuchet MS 71	88.0
+Trebuchet MS	Trebuchet MS 71.5	89.0
+Trebuchet MS	Trebuchet MS 72	89.0
+Trebuchet MS	Trebuchet MS 9 beside Calibri 9	12.0
+Trebuchet MS	Trebuchet MS 9 beside Calibri 10	14.0
+Trebuchet MS	Trebuchet MS 9 beside Calibri 11	15.0
+Trebuchet MS	Trebuchet MS 9 beside Calibri 12	16.0
+Trebuchet MS	Trebuchet MS 9 beside Calibri 14	19.0
+Trebuchet MS	Trebuchet MS 9 beside Calibri 16	21.0
+Trebuchet MS	Trebuchet MS 9 beside Calibri 18	24.0
+Trebuchet MS	Trebuchet MS 9 beside Calibri 20	26.0
+Trebuchet MS	Trebuchet MS 9 beside Calibri 24	31.0
+Trebuchet MS	Trebuchet MS 11 beside Calibri 9	14.0
+Trebuchet MS	Trebuchet MS 11 beside Calibri 10	15.0
+Trebuchet MS	Trebuchet MS 11 beside Calibri 11	15.0
+Trebuchet MS	Trebuchet MS 11 beside Calibri 12	16.0
+Trebuchet MS	Trebuchet MS 11 beside Calibri 14	19.0
+Trebuchet MS	Trebuchet MS 11 beside Calibri 16	21.0
+Trebuchet MS	Trebuchet MS 11 beside Calibri 18	24.0
+Trebuchet MS	Trebuchet MS 11 beside Calibri 20	26.0
+Trebuchet MS	Trebuchet MS 11 beside Calibri 24	31.0
+Trebuchet MS	Trebuchet MS 14 beside Calibri 9	18.0
+Trebuchet MS	Trebuchet MS 14 beside Calibri 10	18.0
+Trebuchet MS	Trebuchet MS 14 beside Calibri 11	18.0
+Trebuchet MS	Trebuchet MS 14 beside Calibri 12	18.0
+Trebuchet MS	Trebuchet MS 14 beside Calibri 14	19.0
+Trebuchet MS	Trebuchet MS 14 beside Calibri 16	21.0
+Trebuchet MS	Trebuchet MS 14 beside Calibri 18	24.0
+Trebuchet MS	Trebuchet MS 14 beside Calibri 20	26.0
+Trebuchet MS	Trebuchet MS 14 beside Calibri 24	31.0
+Trebuchet MS	Trebuchet MS 20 beside Calibri 9	25.0
+Trebuchet MS	Trebuchet MS 20 beside Calibri 10	25.0
+Trebuchet MS	Trebuchet MS 20 beside Calibri 11	25.0
+Trebuchet MS	Trebuchet MS 20 beside Calibri 12	25.0
+Trebuchet MS	Trebuchet MS 20 beside Calibri 14	25.0
+Trebuchet MS	Trebuchet MS 20 beside Calibri 16	25.0
+Trebuchet MS	Trebuchet MS 20 beside Calibri 18	26.0
+Trebuchet MS	Trebuchet MS 20 beside Calibri 20	26.0
+Trebuchet MS	Trebuchet MS 20 beside Calibri 24	31.0
+Verdana	Verdana 1	4.0
+Verdana	Verdana 1.5	7.0
+Verdana	Verdana 2	7.0
+Verdana	Verdana 2.5	7.0
+Verdana	Verdana 3	7.0
+Verdana	Verdana 3.5	8.0
+Verdana	Verdana 4	8.0
+Verdana	Verdana 4.5	9.0
+Verdana	Verdana 5	9.0
+Verdana	Verdana 5.5	10.0
+Verdana	Verdana 6	10.0
+Verdana	Verdana 6.5	11.0
+Verdana	Verdana 7	11.0
+Verdana	Verdana 7.5	11.0
+Verdana	Verdana 8	11.0
+Verdana	Verdana 8.5	12.0
+Verdana	Verdana 9	12.0
+Verdana	Verdana 9.5	13.0
+Verdana	Verdana 10	13.0
+Verdana	Verdana 10.5	14.0
+Verdana	Verdana 11	14.0
+Verdana	Verdana 11.5	16.0
+Verdana	Verdana 12	16.0
+Verdana	Verdana 12.5	17.0
+Verdana	Verdana 13	17.0
+Verdana	Verdana 13.5	18.0
+Verdana	Verdana 14	18.0
+Verdana	Verdana 14.5	19.0
+Verdana	Verdana 15	19.0
+Verdana	Verdana 15.5	20.0
+Verdana	Verdana 16	20.0
+Verdana	Verdana 16.5	22.0
+Verdana	Verdana 17	22.0
+Verdana	Verdana 17.5	23.0
+Verdana	Verdana 18	23.0
+Verdana	Verdana 18.5	24.0
+Verdana	Verdana 19	24.0
+Verdana	Verdana 19.5	25.0
+Verdana	Verdana 20	25.0
+Verdana	Verdana 20.5	26.0
+Verdana	Verdana 21	26.0
+Verdana	Verdana 21.5	28.0
+Verdana	Verdana 22	28.0
+Verdana	Verdana 22.5	29.0
+Verdana	Verdana 23	29.0
+Verdana	Verdana 23.5	30.0
+Verdana	Verdana 24	30.0
+Verdana	Verdana 24.5	31.0
+Verdana	Verdana 25	31.0
+Verdana	Verdana 25.5	32.0
+Verdana	Verdana 26	32.0
+Verdana	Verdana 26.5	34.0
+Verdana	Verdana 27	34.0
+Verdana	Verdana 27.5	35.0
+Verdana	Verdana 28	35.0
+Verdana	Verdana 28.5	36.0
+Verdana	Verdana 29	36.0
+Verdana	Verdana 29.5	37.0
+Verdana	Verdana 30	37.0
+Verdana	Verdana 30.5	39.0
+Verdana	Verdana 31	39.0
+Verdana	Verdana 31.5	40.0
+Verdana	Verdana 32	40.0
+Verdana	Verdana 32.5	41.0
+Verdana	Verdana 33	41.0
+Verdana	Verdana 33.5	42.0
+Verdana	Verdana 34	42.0
+Verdana	Verdana 34.5	43.0
+Verdana	Verdana 35	43.0
+Verdana	Verdana 35.5	45.0
+Verdana	Verdana 36	45.0
+Verdana	Verdana 36.5	46.0
+Verdana	Verdana 37	46.0
+Verdana	Verdana 37.5	47.0
+Verdana	Verdana 38	47.0
+Verdana	Verdana 38.5	48.0
+Verdana	Verdana 39	48.0
+Verdana	Verdana 39.5	49.0
+Verdana	Verdana 40	49.0
+Verdana	Verdana 40.5	51.0
+Verdana	Verdana 41	51.0
+Verdana	Verdana 41.5	52.0
+Verdana	Verdana 42	52.0
+Verdana	Verdana 42.5	53.0
+Verdana	Verdana 43	53.0
+Verdana	Verdana 43.5	54.0
+Verdana	Verdana 44	54.0
+Verdana	Verdana 44.5	55.0
+Verdana	Verdana 45	55.0
+Verdana	Verdana 45.5	57.0
+Verdana	Verdana 46	57.0
+Verdana	Verdana 46.5	58.0
+Verdana	Verdana 47	58.0
+Verdana	Verdana 47.5	59.0
+Verdana	Verdana 48	59.0
+Verdana	Verdana 48.5	60.0
+Verdana	Verdana 49	60.0
+Verdana	Verdana 49.5	61.0
+Verdana	Verdana 50	61.0
+Verdana	Verdana 50.5	63.0
+Verdana	Verdana 51	63.0
+Verdana	Verdana 51.5	64.0
+Verdana	Verdana 52	64.0
+Verdana	Verdana 52.5	65.0
+Verdana	Verdana 53	65.0
+Verdana	Verdana 53.5	66.0
+Verdana	Verdana 54	66.0
+Verdana	Verdana 54.5	68.0
+Verdana	Verdana 55	68.0
+Verdana	Verdana 55.5	69.0
+Verdana	Verdana 56	69.0
+Verdana	Verdana 56.5	70.0
+Verdana	Verdana 57	70.0
+Verdana	Verdana 57.5	71.0
+Verdana	Verdana 58	71.0
+Verdana	Verdana 58.5	72.0
+Verdana	Verdana 59	72.0
+Verdana	Verdana 59.5	74.0
+Verdana	Verdana 60	74.0
+Verdana	Verdana 60.5	75.0
+Verdana	Verdana 61	75.0
+Verdana	Verdana 61.5	76.0
+Verdana	Verdana 62	76.0
+Verdana	Verdana 62.5	77.0
+Verdana	Verdana 63	77.0
+Verdana	Verdana 63.5	78.0
+Verdana	Verdana 64	78.0
+Verdana	Verdana 64.5	80.0
+Verdana	Verdana 65	80.0
+Verdana	Verdana 65.5	81.0
+Verdana	Verdana 66	81.0
+Verdana	Verdana 66.5	82.0
+Verdana	Verdana 67	82.0
+Verdana	Verdana 67.5	83.0
+Verdana	Verdana 68	83.0
+Verdana	Verdana 68.5	84.0
+Verdana	Verdana 69	84.0
+Verdana	Verdana 69.5	86.0
+Verdana	Verdana 70	86.0
+Verdana	Verdana 70.5	87.0
+Verdana	Verdana 71	87.0
+Verdana	Verdana 71.5	88.0
+Verdana	Verdana 72	88.0
+Verdana	Verdana 9 beside Calibri 9	12.0
+Verdana	Verdana 9 beside Calibri 10	14.0
+Verdana	Verdana 9 beside Calibri 11	15.0
+Verdana	Verdana 9 beside Calibri 12	16.0
+Verdana	Verdana 9 beside Calibri 14	19.0
+Verdana	Verdana 9 beside Calibri 16	21.0
+Verdana	Verdana 9 beside Calibri 18	24.0
+Verdana	Verdana 9 beside Calibri 20	26.0
+Verdana	Verdana 9 beside Calibri 24	31.0
+Verdana	Verdana 11 beside Calibri 9	14.0
+Verdana	Verdana 11 beside Calibri 10	15.0
+Verdana	Verdana 11 beside Calibri 11	15.0
+Verdana	Verdana 11 beside Calibri 12	16.0
+Verdana	Verdana 11 beside Calibri 14	19.0
+Verdana	Verdana 11 beside Calibri 16	21.0
+Verdana	Verdana 11 beside Calibri 18	24.0
+Verdana	Verdana 11 beside Calibri 20	26.0
+Verdana	Verdana 11 beside Calibri 24	31.0
+Verdana	Verdana 14 beside Calibri 9	18.0
+Verdana	Verdana 14 beside Calibri 10	18.0
+Verdana	Verdana 14 beside Calibri 11	18.0
+Verdana	Verdana 14 beside Calibri 12	18.0
+Verdana	Verdana 14 beside Calibri 14	19.0
+Verdana	Verdana 14 beside Calibri 16	21.0
+Verdana	Verdana 14 beside Calibri 18	24.0
+Verdana	Verdana 14 beside Calibri 20	26.0
+Verdana	Verdana 14 beside Calibri 24	31.0
+Verdana	Verdana 20 beside Calibri 9	25.0
+Verdana	Verdana 20 beside Calibri 10	25.0
+Verdana	Verdana 20 beside Calibri 11	25.0
+Verdana	Verdana 20 beside Calibri 12	25.0
+Verdana	Verdana 20 beside Calibri 14	25.0
+Verdana	Verdana 20 beside Calibri 16	25.0
+Verdana	Verdana 20 beside Calibri 18	26.0
+Verdana	Verdana 20 beside Calibri 20	26.0
+Verdana	Verdana 20 beside Calibri 24	31.0
+arial	arial 1	4.0
+arial	arial 1.5	7.0
+arial	arial 2	7.0
+arial	arial 2.5	7.0
+arial	arial 3	7.0
+arial	arial 3.5	8.0
+arial	arial 4	8.0
+arial	arial 4.5	9.0
+arial	arial 5	9.0
+arial	arial 5.5	10.0
+arial	arial 6	10.0
+arial	arial 6.5	11.0
+arial	arial 7	11.0
+arial	arial 7.5	11.0
+arial	arial 8	11.0
+arial	arial 8.5	12.0
+arial	arial 9	12.0
+arial	arial 9.5	13.0
+arial	arial 10	13.0
+arial	arial 10.5	14.0
+arial	arial 11	14.0
+arial	arial 11.5	16.0
+arial	arial 12	16.0
+arial	arial 12.5	17.0
+arial	arial 13	17.0
+arial	arial 13.5	18.0
+arial	arial 14	18.0
+arial	arial 14.5	19.0
+arial	arial 15	19.0
+arial	arial 15.5	20.0
+arial	arial 16	20.0
+arial	arial 16.5	22.0
+arial	arial 17	22.0
+arial	arial 17.5	23.0
+arial	arial 18	23.0
+arial	arial 18.5	24.0
+arial	arial 19	24.0
+arial	arial 19.5	25.0
+arial	arial 20	25.0
+arial	arial 20.5	26.0
+arial	arial 21	26.0
+arial	arial 21.5	28.0
+arial	arial 22	28.0
+arial	arial 22.5	29.0
+arial	arial 23	29.0
+arial	arial 23.5	30.0
+arial	arial 24	30.0
+arial	arial 24.5	31.0
+arial	arial 25	31.0
+arial	arial 25.5	33.0
+arial	arial 26	33.0
+arial	arial 26.5	34.0
+arial	arial 27	34.0
+arial	arial 27.5	35.0
+arial	arial 28	35.0
+arial	arial 28.5	36.0
+arial	arial 29	36.0
+arial	arial 29.5	37.0
+arial	arial 30	37.0
+arial	arial 30.5	39.0
+arial	arial 31	39.0
+arial	arial 31.5	40.0
+arial	arial 32	40.0
+arial	arial 32.5	41.0
+arial	arial 33	41.0
+arial	arial 33.5	42.0
+arial	arial 34	42.0
+arial	arial 34.5	43.0
+arial	arial 35	43.0
+arial	arial 35.5	45.0
+arial	arial 36	45.0
+arial	arial 36.5	46.0
+arial	arial 37	46.0
+arial	arial 37.5	47.0
+arial	arial 38	47.0
+arial	arial 38.5	48.0
+arial	arial 39	48.0
+arial	arial 39.5	49.0
+arial	arial 40	49.0
+arial	arial 40.5	51.0
+arial	arial 41	51.0
+arial	arial 41.5	52.0
+arial	arial 42	52.0
+arial	arial 42.5	53.0
+arial	arial 43	53.0
+arial	arial 43.5	54.0
+arial	arial 44	54.0
+arial	arial 44.5	56.0
+arial	arial 45	56.0
+arial	arial 45.5	57.0
+arial	arial 46	57.0
+arial	arial 46.5	58.0
+arial	arial 47	58.0
+arial	arial 47.5	59.0
+arial	arial 48	59.0
+arial	arial 48.5	60.0
+arial	arial 49	60.0
+arial	arial 49.5	62.0
+arial	arial 50	62.0
+arial	arial 50.5	63.0
+arial	arial 51	63.0
+arial	arial 51.5	64.0
+arial	arial 52	64.0
+arial	arial 52.5	65.0
+arial	arial 53	65.0
+arial	arial 53.5	66.0
+arial	arial 54	66.0
+arial	arial 54.5	68.0
+arial	arial 55	68.0
+arial	arial 55.5	69.0
+arial	arial 56	69.0
+arial	arial 56.5	70.0
+arial	arial 57	70.0
+arial	arial 57.5	71.0
+arial	arial 58	71.0
+arial	arial 58.5	73.0
+arial	arial 59	73.0
+arial	arial 59.5	74.0
+arial	arial 60	74.0
+arial	arial 60.5	75.0
+arial	arial 61	75.0
+arial	arial 61.5	76.0
+arial	arial 62	76.0
+arial	arial 62.5	77.0
+arial	arial 63	77.0
+arial	arial 63.5	79.0
+arial	arial 64	79.0
+arial	arial 64.5	80.0
+arial	arial 65	80.0
+arial	arial 65.5	81.0
+arial	arial 66	81.0
+arial	arial 66.5	82.0
+arial	arial 67	82.0
+arial	arial 67.5	83.0
+arial	arial 68	83.0
+arial	arial 68.5	85.0
+arial	arial 69	85.0
+arial	arial 69.5	86.0
+arial	arial 70	86.0
+arial	arial 70.5	87.0
+arial	arial 71	87.0
+arial	arial 71.5	88.0
+arial	arial 72	88.0
+arial	arial 9 beside Calibri 9	12.0
+arial	arial 9 beside Calibri 10	14.0
+arial	arial 9 beside Calibri 11	15.0
+arial	arial 9 beside Calibri 12	16.0
+arial	arial 9 beside Calibri 14	19.0
+arial	arial 9 beside Calibri 16	21.0
+arial	arial 9 beside Calibri 18	24.0
+arial	arial 9 beside Calibri 20	26.0
+arial	arial 9 beside Calibri 24	31.0
+arial	arial 11 beside Calibri 9	14.0
+arial	arial 11 beside Calibri 10	15.0
+arial	arial 11 beside Calibri 11	15.0
+arial	arial 11 beside Calibri 12	16.0
+arial	arial 11 beside Calibri 14	19.0
+arial	arial 11 beside Calibri 16	21.0
+arial	arial 11 beside Calibri 18	24.0
+arial	arial 11 beside Calibri 20	26.0
+arial	arial 11 beside Calibri 24	31.0
+arial	arial 14 beside Calibri 9	18.0
+arial	arial 14 beside Calibri 10	18.0
+arial	arial 14 beside Calibri 11	18.0
+arial	arial 14 beside Calibri 12	18.0
+arial	arial 14 beside Calibri 14	19.0
+arial	arial 14 beside Calibri 16	21.0
+arial	arial 14 beside Calibri 18	24.0
+arial	arial 14 beside Calibri 20	26.0
+arial	arial 14 beside Calibri 24	31.0
+arial	arial 20 beside Calibri 9	25.0
+arial	arial 20 beside Calibri 10	25.0
+arial	arial 20 beside Calibri 11	25.0
+arial	arial 20 beside Calibri 12	25.0
+arial	arial 20 beside Calibri 14	25.0
+arial	arial 20 beside Calibri 16	25.0
+arial	arial 20 beside Calibri 18	26.0
+arial	arial 20 beside Calibri 20	26.0
+arial	arial 20 beside Calibri 24	31.0
