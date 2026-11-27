@@ -79,6 +79,32 @@ def _ppem_sizes(family: str) -> tuple[float, ...]:
 
 PPEM_TARGETS = {family: _ppem_sizes(family) for family in TARGETS}
 
+# group rows_more: the faces xlformat measures widths for on Windows but has no rows for, and MS
+# Sans Serif and Courier, which the machine may draw as other faces; a size for each ppem from 1
+# to 96 (whole sizes first); "arial" in lower case, regular only, to test that Excel matches a
+# face's name ignoring case
+GROUP_MORE = "rows_more"
+LAYOUT_MORE = ROOT / "tests" / "captures" / "windows" / "row_height_more.layout.tsv.gz"
+MORE_FAMILIES = (
+    "Aptos", "Arial Black", "Arial Narrow", "Book Antiqua", "Bookman Old Style", "Calibri Light",
+    "Cambria", "Candara", "Century Gothic", "Comic Sans MS", "Consolas", "Garamond", "Georgia",
+    "Haettenschweiler", "Impact", "Lucida Console", "Rockwell", "Tahoma", "Trebuchet MS",
+    "Verdana", "MS Sans Serif", "Courier", "arial",
+)  # fmt: skip
+MORE_STYLES = {"arial": ((False, False),)}
+
+
+def _every_ppem() -> tuple[float, ...]:
+    """A size for each ppem from 1 to 96: a whole size where one draws at it, else the nearest."""
+    out = []
+    for p in PPEMS:
+        sizes = [k / 2 for k in range(2, 145) if ppem(k / 2) == p]
+        out.append(min(sizes, key=lambda s: (s != int(s), abs(s - p * 0.75))))
+    return tuple(out)
+
+
+MORE_TARGETS = dict.fromkeys(MORE_FAMILIES, _every_ppem())
+
 
 def wrapped(group: str, size: float) -> tuple[int, ...]:
     """The line counts of a face's wrapped rows: four in a row, the first above the Normal row.
@@ -104,9 +130,13 @@ def normal_lines(size: float) -> int:
 def workbooks(group: str = GROUP) -> list[tuple[str, str, tuple[RowCase, ...]]]:
     """(file name, family and style label, rows) per workbook of ``group``, in job order."""
     out = []
-    targets, prefix = (TARGETS, "rw") if group == GROUP else (PPEM_TARGETS, "rp")
+    targets, prefix = {
+        GROUP: (TARGETS, "rw"),
+        GROUP_PPEM: (PPEM_TARGETS, "rp"),
+        GROUP_MORE: (MORE_TARGETS, "rm"),
+    }[group]
     for family, sizes in targets.items():
-        for bold, italic in STYLES:
+        for bold, italic in MORE_STYLES.get(family, STYLES):
             style = style_name(bold, italic)
             cases = [RowCase("number", (Cell(1, 1234),))]
             for size in sizes:
@@ -121,13 +151,14 @@ def workbooks(group: str = GROUP) -> list[tuple[str, str, tuple[RowCase, ...]]]:
                         f"{f.label}|beside {m}", (Cell(1, _lines(m), None, True), Cell(2, 1, f))
                     )
                 )
-            name = f"{prefix}_{family}_{style}".replace(" ", "_").lower() + ".xlsx"
+            lower = "_lower" if family != family.title() and family.lower() == family else ""
+            name = f"{prefix}_{family}{lower}_{style}".replace(" ", "_").lower() + ".xlsx"
             out.append((name, f"{family}|{style}", tuple(cases)))
     return out
 
 
 def layout_path(group: str) -> Path:
-    return LAYOUT if group == GROUP else LAYOUT_PPEM
+    return {GROUP: LAYOUT, GROUP_PPEM: LAYOUT_PPEM, GROUP_MORE: LAYOUT_MORE}[group]
 
 
 def read_layout(group: str = GROUP) -> dict[tuple[str, str], int]:

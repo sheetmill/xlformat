@@ -20,8 +20,9 @@ The group ``rows`` is the row-height capture of ``capture/row_heights.py`` inste
 per Normal font, opened, each row's height read in points. It writes
 ``tests/captures/windows/row_height.layout.tsv.gz`` in the Mac's layout schema, without the Mac's
 standard-height lines (the format reads no sheet property; the row without an element stands for
-it). The groups ``rows_wide`` and ``rows_ppem`` (``capture/rows_wide.py``) write
-``tests/captures/windows/row_height_wide.layout.tsv.gz`` and ``row_height_ppem.layout.tsv.gz``
+it). The groups ``rows_wide``, ``rows_ppem`` and ``rows_more`` (``capture/rows_wide.py``) write
+``tests/captures/windows/row_height_wide.layout.tsv.gz``, ``row_height_ppem.layout.tsv.gz`` and
+``row_height_more.layout.tsv.gz``
 in the same schema, each naming its own suite and manifest.
 
 The group ``builtin`` is ``capture/builtin_formats.py``'s probe: one workbook per group of
@@ -289,8 +290,8 @@ def write(group: str, job_id: str, out: Path, note: str = "") -> Path:
         doc = screen_windows.manifest(group, job_id, screen_windows.workbooks(group, files), note)
         (folder / "job.json").write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
         return folder
-    if group in ("rows", "rows_wide", "rows_ppem", "builtin"):
-        if group in ("rows_wide", "rows_ppem"):
+    if group in ("rows", "rows_wide", "rows_ppem", "rows_more", "builtin"):
+        if group in ("rows_wide", "rows_ppem", "rows_more"):
             books = _rows_wide_workbooks(files, group)
         else:
             books = _row_workbooks(files) if group == "rows" else _builtin_workbooks(files)
@@ -500,8 +501,8 @@ def read(group: str, job: Path, result: Path) -> list[Path]:
         written += screen_windows.read(group, job, result, outcome, WINDOWS)
         shutil.copyfile(job / "job.json", WINDOWS / f"{group}.job.json")
         return written
-    if group in ("rows", "rows_wide", "rows_ppem", "builtin"):
-        if group in ("rows_wide", "rows_ppem"):
+    if group in ("rows", "rows_wide", "rows_ppem", "rows_more", "builtin"):
+        if group in ("rows_wide", "rows_ppem", "rows_more"):
             written.append(_rows_wide_layout(by_file, header, group))
         else:
             layout = _row_layout if group == "rows" else _builtin_layout

@@ -6,6 +6,7 @@
     uv run python -m capture.font_heights wrapped    # predict, then capture the wrapped rows
     uv run python -m capture.font_heights underlines # predict, then capture the underlined rows
     uv run python -m capture.font_heights accounting # Times New Roman and Georgia, 36 to 41 points
+    uv run python -m capture.font_heights more       # the same design for MORE_FACES
 
 One workbook per face (``FACES``) whose Normal style is that face at 1 point, so that no row is
 held up by the Normal font. Rows: a number in the face at every size from 1 to 72 points in half
@@ -18,6 +19,10 @@ the workbook without saving and restores alerts. No clipboard. Writes
 ``wrapped``: two workbooks, Normal style Calibri 20 and Calibri 9, each holding every face at 9,
 11, 14 and 20 points with one to three wrapped lines ("x" a line); it writes its predictions to
 ``capture/build/`` first, then ``tests/captures/wrapped_height.layout.tsv``.
+
+``more``: the design of ``run`` for :data:`MORE_FACES`, the faces xlformat measures widths for on
+the Mac but has no rows for, and "arial" in lower case (whether Excel matches a face's name
+ignoring case); writes ``tests/captures/font_height_more.layout.tsv``.
 
 ``underlines``: one workbook per face, Normal style Calibri at 1 point, holding the face at
 every whole size from 6 to 72 points under each underline style (none, single, double, single
@@ -41,6 +46,13 @@ DIRECTORY = WORKBOOK_DIR / "font_heights"
 OUTPUT = Path(__file__).resolve().parents[1] / "tests" / "captures" / "font_height.layout.tsv"
 PREDICTIONS = BUILD_DIR / "font_heights.predictions.tsv"
 FACES = ("Calibri", "Arial", "Aptos Narrow", "Times New Roman", "Courier New", "Georgia")
+MORE_FACES = (
+    "Aptos", "Arial Black", "Arial Narrow", "Book Antiqua", "Bookman Old Style", "Calibri Light",
+    "Cambria", "Candara", "Century Gothic", "Comic Sans MS", "Consolas", "Courier", "Garamond",
+    "Haettenschweiler", "Helvetica", "Impact", "Lucida Console", "Rockwell", "Tahoma",
+    "Trebuchet MS", "Verdana", "arial",
+)  # fmt: skip
+MORE_OUTPUT = OUTPUT.with_name("font_height_more.layout.tsv")
 SIZES = tuple(s / 2 for s in range(2, 145))  # 1 to 72 in half steps
 PAIR_SIZES = (9, 11, 14, 20)
 CALIBRI_SIZES = (9, 10, 11, 12, 14, 16, 18, 20, 24)
@@ -68,7 +80,8 @@ def rows(face: str) -> list[tuple[str, tuple[tuple[str, float], ...]]]:
 
 
 def _path(face: str) -> Path:
-    return (DIRECTORY / f"fh_{face.replace(' ', '_').lower()}.xlsx").resolve()
+    lower = "_lower" if face.islower() else ""
+    return (DIRECTORY / f"fh_{face.replace(' ', '_').lower()}{lower}.xlsx").resolve()
 
 
 def build(face: str) -> Path:
@@ -120,12 +133,12 @@ def predict() -> None:
     print(f"wrote {PREDICTIONS}")
 
 
-def run() -> None:
+def run(faces: tuple[str, ...] = FACES, output: Path = OUTPUT, suite: str = "font_height") -> None:
     if not answers():
         sys.exit("Excel does not answer: nothing run")
     lines = []
     standards = []
-    for face in FACES:
+    for face in faces:
         path = build(face)
         n = len(rows(face))
         proc = osascript_or_exit(str(SCRIPT), str(path), str(n), path.name, seconds=180.0)
@@ -138,8 +151,9 @@ def run() -> None:
         for (tag, _), h in zip(rows(face), fields[2:], strict=True):
             lines.append(f"{face}\t{tag}\t{h}")
         print(f"{face}: {n} rows")
-    with OUTPUT.open("w", encoding="utf-8") as out:
-        out.write("# suite: font_height (capture.font_heights); Excel for Mac, en_US\n")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with output.open("w", encoding="utf-8") as out:
+        out.write(f"# suite: {suite} (capture.font_heights); Excel for Mac, en_US\n")
         out.write(f"# excel_build: {excel_build()}\n{edition_line()}\n")
         out.write(
             f"# captured: {dt.date.today().isoformat()}; one workbook per face, Normal style the "
@@ -148,7 +162,7 @@ def run() -> None:
         )
         out.write("face\ttag\trow_height\n")
         out.write("\n".join(lines) + "\n")
-    print(f"wrote {OUTPUT}: {len(lines)} rows")
+    print(f"wrote {output}: {len(lines)} rows")
 
 
 WRAPPED_OUTPUT = OUTPUT.with_name("wrapped_height.layout.tsv")
@@ -391,6 +405,9 @@ def main(argv: list[str]) -> None:
         predict()
     elif command == "run":
         run()
+    elif command == "more":
+        out = Path(argv[1]) if len(argv) > 1 else MORE_OUTPUT
+        run(MORE_FACES, out, "font_height_more")
     elif command == "wrapped":
         wrapped()
     elif command == "underlines":
