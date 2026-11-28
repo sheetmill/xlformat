@@ -38,14 +38,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `row_metrics` and `vertical_metrics` answer more faces (CAPTURING item 91). On Windows every
   measured family (Georgia and the 19 others that had none) and MS Sans Serif and Courier as the
-  capture machine draws them, in four styles at every size from 1 to 72 points: Tahoma 11 fits a
-  row of 14.25 points, Book Antiqua 11 one of 16.5. On the Mac 15 more of the measured families
-  at every size from 1 to 72 points: Aptos, Arial Narrow, Book Antiqua, Bookman Old Style,
-  Calibri Light, Cambria, Century Gothic, Courier, Garamond, Helvetica, Lucida Console, Rockwell,
-  Tahoma, Trebuchet MS and Verdana. Arial Black, Candara, Comic Sans MS, Consolas,
-  Haettenschweiler and Impact have no Mac rows yet: their heights follow no one rule, and they
-  still raise `LookupError` there. A face's name matches ignoring case (`"tahoma"` is Tahoma), as
-  Excel's does on both platforms.
+  capture machine draws them, in four styles at every size from 1 to 72 points. Tahoma 11's height
+  (`font_height`, the row it fits as the Normal font) is 14.25 points on Windows and 14 on the Mac,
+  Book Antiqua 11's 16.5 and 15; under a Calibri 11 Normal font a one-line Tahoma 11 row is 15 on
+  the Mac, captured, and 15 on Windows by the row model, not captured. On the Mac 15 more of the
+  measured families at every size from 1 to 72 points: Aptos, Arial Narrow, Book Antiqua, Bookman
+  Old Style, Calibri Light, Cambria, Century Gothic, Courier, Garamond, Helvetica, Lucida Console,
+  Rockwell, Tahoma, Trebuchet MS and Verdana. Arial Black, Candara, Comic Sans MS, Consolas,
+  Haettenschweiler and Impact have no Mac rows yet: their heights follow no one rule, and they still
+  raise `LookupError` there. A face's name matches ignoring case (`"tahoma"` is Tahoma), as Excel's
+  does on both platforms.
 
 ### Fixed
 - `VerticalMetrics.cap_height` and `.descender` (deprecated) forward to the Mac's `ink_metrics`,
