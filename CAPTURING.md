@@ -1851,7 +1851,7 @@ capture/screen_vertical.py    vertical placement on screen: window captures at z
 capture/builtin_formats.py    what each built-in number format id shows, a probe
 capture/screen_palette.py     section colors under a workbook palette, on screen, a probe
 capture/angled_formats.py     the rows Excel fits for padded and filled angled text (item 56)
-capture/font_heights.py       row heights of six faces at every size, wrapped, underlined (57, 58, 61)
+capture/font_heights.py       row heights per face at every size, wrapped, underlined (57, 58, 61, 91)
 capture/font_tables.py        the numbers read from the font files (post, OS/2, head, hhea)
 capture/screen_rules.py       underlines, strikethrough and text color on screen (items 60, 62, 63)
 capture/rule_table.py         src/xlformat/_rules_drawn.py, the drawn lines, from items 62 and 63

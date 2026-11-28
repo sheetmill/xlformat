@@ -19,7 +19,7 @@ Everything below is importable from `xlformat`.
 
 ```{eval-rst}
 .. autoclass:: xlformat.NumberFormat
-   :members: parse, format, format_cell, is_date, is_text, is_general
+   :members: parse, format, format_cell, text_function, is_date, is_text, is_general
 .. autoclass:: xlformat.Section
 .. autoclass:: xlformat.SectionKind
    :members:

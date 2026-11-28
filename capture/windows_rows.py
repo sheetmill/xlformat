@@ -10,10 +10,10 @@ face (a family, style and size) has a height ``H`` and a descent ``D``; a row ho
 ``max(lines * H(f) - D(f)) + max D(f)``. ``H`` is each face's own row, the first row of the
 workbook it is the Normal font of; ``D`` is searched face by face, each whole value from 0 to
 ``H``, keeping the one with the fewest misses over every row until no face changes.
-The faces and sizes of ``capture/rows_wide.py``'s groups (``rows_wide``, item 86, and
-``rows_ppem``, item 89) are added from their own fits; where two captures hold a face they must
-agree. ``--check`` compares the module with what the captures
-give and writes nothing.
+The faces and sizes of ``capture/rows_wide.py``'s groups (``rows_wide``, item 86, ``rows_ppem``,
+item 89, and ``rows_more``, item 91) are added from their own fits; where two captures hold a
+face they must agree. ``--check`` compares the module with what the captures give and writes
+nothing.
 """
 
 from __future__ import annotations
@@ -110,11 +110,11 @@ def _render(table: dict[Face, tuple[int, int]]) -> str:
     lines = [
         '"""Row heights in Excel for Windows at 96 dpi, in pixels (generated).',
         "",
-        "Written by ``capture/windows_rows.py`` from",
-        "``tests/captures/windows/row_height.layout.tsv.gz`` and",
-        "``tests/captures/windows/row_height_wide.layout.tsv.gz``. Per family and size, the",
-        "face's height H and descent D, by style: a row is ``max(lines * H - D) + max D`` over",
-        "its cells, the Normal font a one-line cell among them. Do not edit by hand.",
+        "Written by ``capture/windows_rows.py`` from ``row_height.layout.tsv.gz``,",
+        "``row_height_wide.layout.tsv.gz``, ``row_height_ppem.layout.tsv.gz`` and",
+        "``row_height_more.layout.tsv.gz`` in ``tests/captures/windows/``. Per family and size,",
+        "the face's height H and descent D, by style: a row is ``max(lines * H - D) + max D``",
+        "over its cells, the Normal font a one-line cell among them. Do not edit by hand.",
         '"""',
         "",
         "from __future__ import annotations",

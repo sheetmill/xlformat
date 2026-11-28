@@ -1,10 +1,10 @@
 """Row heights in Excel for Windows at 96 dpi, in pixels (generated).
 
-Written by ``capture/windows_rows.py`` from
-``tests/captures/windows/row_height.layout.tsv.gz`` and
-``tests/captures/windows/row_height_wide.layout.tsv.gz``. Per family and size, the
-face's height H and descent D, by style: a row is ``max(lines * H - D) + max D`` over
-its cells, the Normal font a one-line cell among them. Do not edit by hand.
+Written by ``capture/windows_rows.py`` from ``row_height.layout.tsv.gz``,
+``row_height_wide.layout.tsv.gz``, ``row_height_ppem.layout.tsv.gz`` and
+``row_height_more.layout.tsv.gz`` in ``tests/captures/windows/``. Per family and size,
+the face's height H and descent D, by style: a row is ``max(lines * H - D) + max D``
+over its cells, the Normal font a one-line cell among them. Do not edit by hand.
 """
 
 from __future__ import annotations

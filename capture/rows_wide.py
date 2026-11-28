@@ -1,7 +1,7 @@
 """Row heights on Excel for Windows across sizes: the face's height H and descent D per size.
 
-    uv run python -m capture.job write rows_wide|rows_ppem JOB_ID OUT_DIR
-    uv run python -m capture.job read rows_wide|rows_ppem JOB_DIR RESULT_DIR
+    uv run python -m capture.job write rows_wide|rows_ppem|rows_more JOB_ID OUT_DIR
+    uv run python -m capture.job read rows_wide|rows_ppem|rows_more JOB_DIR RESULT_DIR
     uv run python -m capture.rows_wide [--check]     # fit; --check reports, writes nothing
 
 Group ``rows_wide`` (CAPTURING.md item 86): one workbook per family and style of :data:`TARGETS`
@@ -16,6 +16,11 @@ Group ``rows_ppem`` (CAPTURING.md item 89): the same design at one size for each
 ``rows_wide`` already holds, as a check; its wrapped cells have lines enough to rise past the
 Normal row at small sizes. ``read`` writes
 ``tests/captures/windows/row_height_ppem.layout.tsv.gz``.
+
+Group ``rows_more`` (CAPTURING.md item 91): the same design at a size for each ppem from 1 to 96
+for :data:`MORE_FAMILIES`, in four styles (a lower-case ``arial`` regular only, to test that
+Excel matches a face's name ignoring case). ``read`` writes
+``tests/captures/windows/row_height_more.layout.tsv.gz``.
 
 Model (item 69): a row is ``max(lines * H - D) + max D`` over its cells, the Normal font a
 one-line cell among them. Then, with the Normal font's ``Hn`` and ``Dn``: the wrapped rows step by
@@ -79,10 +84,10 @@ def _ppem_sizes(family: str) -> tuple[float, ...]:
 
 PPEM_TARGETS = {family: _ppem_sizes(family) for family in TARGETS}
 
-# group rows_more: the faces xlformat measures widths for on Windows but has no rows for, and MS
-# Sans Serif and Courier, which the machine may draw as other faces; a size for each ppem from 1
-# to 96 (whole sizes first); "arial" in lower case, regular only, to test that Excel matches a
-# face's name ignoring case
+# group rows_more: the families xlformat measures widths for on Windows beyond the five of
+# rows_wide, and MS Sans Serif and Courier, which the machine may draw as other faces; a size for
+# each ppem from 1 to 96 (whole sizes first); "arial" in lower case, regular only, to test that
+# Excel matches a face's name ignoring case
 GROUP_MORE = "rows_more"
 LAYOUT_MORE = ROOT / "tests" / "captures" / "windows" / "row_height_more.layout.tsv.gz"
 MORE_FAMILIES = (

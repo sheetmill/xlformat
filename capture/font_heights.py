@@ -20,9 +20,9 @@ the workbook without saving and restores alerts. No clipboard. Writes
 11, 14 and 20 points with one to three wrapped lines ("x" a line); it writes its predictions to
 ``capture/build/`` first, then ``tests/captures/wrapped_height.layout.tsv``.
 
-``more``: the design of ``run`` for :data:`MORE_FACES`, the faces xlformat measures widths for on
-the Mac but has no rows for, and "arial" in lower case (whether Excel matches a face's name
-ignoring case); writes ``tests/captures/font_height_more.layout.tsv``.
+``more``: the design of ``run`` for :data:`MORE_FACES`, the families xlformat measures widths for
+on the Mac beyond the six of :data:`FACES`, and "arial" in lower case (whether Excel matches a
+face's name ignoring case); writes ``tests/captures/font_height_more.layout.tsv``.
 
 ``underlines``: one workbook per face, Normal style Calibri at 1 point, holding the face at
 every whole size from 6 to 72 points under each underline style (none, single, double, single
