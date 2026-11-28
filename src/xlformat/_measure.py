@@ -443,8 +443,10 @@ def measured_fonts(
     the sizes listed, 8 to 24, and the half sizes between; another size scales the nearest
     measured ppem and may differ from Excel by a pixel a glyph. Anything else raises
     ``LookupError``. A caller can test a workbook's fonts against this before choosing Excel
-    mode. Text measurement and, on the Mac, :func:`text_insets` follow this list; row heights,
-    vertical placement and rules cover fewer faces (each function says which).
+    mode. Text measurement and, on the Mac, :func:`text_insets` follow this list. Row heights
+    and vertical placement (:func:`row_metrics`, :func:`vertical_metrics`) cover every listed
+    family on Windows, and on the Mac all but six; ink and rules cover fewer faces (each function
+    says which).
     """
     p = check_platform(platform, "measured_fonts", windows=True)
     if p.name == "mac":
@@ -1196,9 +1198,11 @@ def ink_metrics(
     key, size = _row_face(font)
     ink = _INK.get(key, {}).get(int(size)) if size == int(size) else None
     if ink is None:
+        *rest, last = (_DISPLAY[k] for k in _INK)
+        faces = f"{', '.join(rest)} and {last}"
         msg = (
-            f"no ink measured for {_DISPLAY[key]} {size:g}; measured: the six faces at 9, 10, "
-            "11, 12, 14, 16, 18, 20 and 24, and Calibri and Aptos Narrow at 13, 15, 17 and 22"
+            f"no ink measured for {_DISPLAY[key]} {size:g}; measured: {faces} at 9, 10, 11, 12, "
+            "14, 16, 18, 20 and 24, and Calibri and Aptos Narrow at 13, 15, 17 and 22"
         )
         raise LookupError(msg)
     return InkMetrics(cap_height=ink[0], descender=ink[1])

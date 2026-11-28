@@ -740,11 +740,11 @@ value is known to be a number, before section selection.
 The row model is public too: `row_metrics(normal_font=None, *, cell_fonts=(), wrapped=(),
 platform=None)`
 returns a frozen `RowMetrics(height, font_height, line_height, accounting_height)`, the height
-Excel fits a row without a stored height to (`CAPTURING.md` §2 items 44, 55 and 57), and what the
+Excel fits a row without a stored height to (`CAPTURING.md` §2 items 44, 55, 57 and 91), and what the
 row's accounting underlines add to it. A face of size `S` has the
 height `F = floor(a · ceil(S) + 1.5)` from 7.5 points (Calibri 1.2689, Aptos Narrow 1.2815, Arial
-1.2122, Times New Roman 1.2162, Courier New 1.3007, Georgia 1.2190), and the captured heights
-below that; its ascent is `ceil(S) + 1` and its descent `B = F − ceil(S) − 1`. A row is the largest
+1.2122, Times New Roman 1.2162, Courier New 1.3007, Georgia 1.2190, and 15 more faces from item 91),
+and the captured heights below that; its ascent is `ceil(S) + 1` and its descent `B = F − ceil(S) − 1`. A row is the largest
 ascent plus the largest descent of its fonts, wrapped cells' fonts included, or its wrapped lines if
 taller: `lines · (F + 1)` plus the amount by which the largest line inset `B − 2` of its unwrapped
 fonts exceeds the wrapped face's. Faces of one family split their heights alike, so such a row is
@@ -753,7 +753,10 @@ points each) is 15. `wrapped` holds one `(font, lines)` per
 cell with wrapped text, `None` for the Normal font; one argument with one kind of item leaves room
 to take whole cells later. Lines are the caller's: xlformat does not break text. One slope per face
 carries the model (with a few captured heights below 7.5 points), so it covers every size from 1 to
-72 points of the six measured faces; another face, or a size outside that range, raises
+72 points of the 21 faces measured on the Mac: the measured families but Arial Black, Candara,
+Comic Sans MS, Consolas, Haettenschweiler and Impact, which fit no one slope. On Windows the rows
+are a captured `(H, D)` per face, style and ppem (items 69, 86, 89 and 91) for every measured
+family and MS Sans Serif and Courier. Another face, or a size outside 1 to 72 points, raises
 `LookupError`. The slope is per face and comes from captures: it is not the font's ascent plus
 descent.
 

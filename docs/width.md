@@ -295,8 +295,8 @@ row at 409.5 points; `row_metrics` gives the model's height and leaves that limi
 15.0
 ```
 
-Text placement (`vertical_metrics`) is measured on Windows too, in whole pixels, in the five
-faces `row_metrics` covers; ink, underline positions and insets (`ink_metrics`, `rule_metrics`,
+Text placement (`vertical_metrics`) is measured on Windows too, in whole pixels, in every face
+`row_metrics` covers there; ink, underline positions and insets (`ink_metrics`, `rule_metrics`,
 `text_insets`) in Calibri, Aptos Narrow and Arial:
 
 ```python

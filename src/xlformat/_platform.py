@@ -26,9 +26,9 @@ class Platform:
     (``DEFAULT_PLATFORM`` is ``"windows"``); ``Platform.MAC`` is Excel for Mac, which every
     function takes as ``platform="mac"``. A function given a platform it has no captured
     evidence for raises ``LookupError``, as Windows at another resolution does. On Windows the
-    width model, ``row_metrics``, ``builtin_format`` and ``text_function`` are measured, text
-    placement (``vertical_metrics``) in Calibri, Aptos Narrow, Arial, Times New Roman and
-    Courier New, and ink, rules and insets (``ink_metrics``, ``rule_metrics``, ``text_insets``)
+    width model, ``builtin_format`` and ``text_function`` are measured, rows and text placement
+    (``row_metrics``, ``vertical_metrics``) in the faces :func:`~xlformat.row_metrics` lists for
+    each platform, and ink, rules and insets (``ink_metrics``, ``rule_metrics``, ``text_insets``)
     in Calibri, Aptos Narrow and Arial. Every result is in points; Windows' fall on its pixel
     grid (0.75 points at 96 dpi). Fields can be overridden with
     :func:`dataclasses.replace`.
